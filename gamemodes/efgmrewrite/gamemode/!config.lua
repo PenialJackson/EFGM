@@ -14,6 +14,9 @@ end
 
 levelArray[48] = "max"
 
+ARC9.NoHUD = true
+ARC9.NoTPIK = true
+
 -- server convars
 if SERVER then
     -- modifiers
@@ -59,7 +62,6 @@ if SERVER then
     RunConsoleCommand("arc9_eft_mult_flashbang", "0.4")
     RunConsoleCommand("arc9_eft_taran_jam", "0")
     RunConsoleCommand("arc9_mod_peek", "0")
-    RunConsoleCommand("sv_vmanip_pickups", "1")
     RunConsoleCommand("arc9_eft_nontpik_mode", "1")
     RunConsoleCommand("arc9_eft_singleuse_behaviour", "0")
     RunConsoleCommand("arc9_equipment_generate_ammo", "0")
@@ -139,21 +141,12 @@ if CLIENT then
     RunConsoleCommand("arc9_togglebreath", "0")
 
     -- hud
-    RunConsoleCommand("arc9_hud_arc9", "0")
-    RunConsoleCommand("arc9_cross_enable", "0")
     RunConsoleCommand("arc9_cust_hints", "1")
     RunConsoleCommand("arc9_cust_tips", "0")
     RunConsoleCommand("arc9_hud_color_r", "255")
     RunConsoleCommand("arc9_hud_color_g", "255")
     RunConsoleCommand("arc9_hud_color_b", "255")
     RunConsoleCommand("arc9_hud_lightmode", "0")
-    RunConsoleCommand("arc9_hud_arc9", "0")
-    RunConsoleCommand("arc9_killfeed_enable", "1")
-    RunConsoleCommand("arc9_killfeed_dynamic", "1")
-    RunConsoleCommand("arc9_killfeed_colour", "1")
-    RunConsoleCommand("arc9_breath_hud", "0")
-    RunConsoleCommand("arc9_breath_pp", "0")
-    RunConsoleCommand("arc9_breath_sfx", "0")
 
     -- hints
     RunConsoleCommand("arc9_hud_hints", "0")
@@ -176,10 +169,6 @@ if CLIENT then
     RunConsoleCommand("arc9_vm_addx", "0")
     RunConsoleCommand("arc9_vm_addy", "0")
     RunConsoleCommand("arc9_vm_addz", "0")
-
-    -- tpik
-    RunConsoleCommand("arc9_tpik", "1")
-    RunConsoleCommand("arc9_tpik_framerate", "30")
 
     -- true names
     RunConsoleCommand("arc9_truenames", "1")

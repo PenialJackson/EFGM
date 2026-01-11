@@ -5236,7 +5236,18 @@ function Menu.ReloadSlots()
 
 end
 
+-- filter name, filter icon, definition to filter by, value to use for filtering
+local filters = {
+    [1] = {"Weapons", Mats.filterWeaponsIcon, "equipType", 1},
+    [2] = {"Ammunition", Mats.filterAmmunitionIcon, "equipType", 2},
+    [3] = {"Consumables", Mats.filterConsumablesIcon, "equipType", 5},
+    [4] = {"Attachments", Mats.filterAttachmentsIcon, "equipType", 6},
+    [5] = {"Keys", Mats.filterKeysIcon, "equipType", 7},
+    [6] = {"Barter", Mats.filterBarterIcon, "equipType", 8}
+}
+
 local stashItemSearchText = ""
+local stashFilter = 0
 
 function Menu.ReloadStash()
 
@@ -7944,9 +7955,14 @@ function Menu.OpenTab.Inventory(container)
 
     end
 
-    stashItemsHolder = vgui.Create("EFGMStashHolderScroller", stashHolder)
-    stashItemsHolder:SetPos(0, EFGM.MenuScale(32))
-    stashItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+    local stashHolderDocker = vgui.Create("DPanel", stashHolder)
+    stashHolderDocker:SetPos(0, EFGM.MenuScale(32))
+    stashHolderDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+    stashHolderDocker.Paint = nil
+
+    stashItemsHolder = vgui.Create("EFGMStashHolderScroller", stashHolderDocker)
+    stashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
+    stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(18), stashHolderDocker:GetTall())
     function stashItemsHolder:Paint(w, h)
 
         BlurPanel(stashItemsHolder, EFGM.MenuScale(3))
@@ -7993,7 +8009,7 @@ function Menu.OpenTab.Inventory(container)
     end)
 
     stashItems = vgui.Create("EFGMInventoryHolder", stashItemsHolder)
-    stashItems:Dock(TOP)
+    stashItems:Dock(FILL)
     stashItems:SetSpaceY(0)
     stashItems:SetSpaceX(0)
 
@@ -8007,6 +8023,22 @@ function Menu.OpenTab.Inventory(container)
     function stashItemsBar.btnGrip:Paint(w, h)
         draw.RoundedBox(0, 0, 0, EFGM.MenuScale(5), h, Colors.transparentWhiteColor)
     end
+
+    local stashFilterHolder = vgui.Create("DPanel", stashHolderDocker)
+    stashFilterHolder:SetSize(EFGM.MenuScale(19), stashHolderDocker:GetTall())
+    stashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
+    function stashFilterHolder:Paint(w, h)
+
+        surface.SetDrawColor(Colors.containerBackgroundColor)
+        surface.DrawRect(0, 0, w, h)
+
+        surface.SetDrawColor(Colors.whiteBorderColor)
+        surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+        surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+        surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+
+    end
+
 
     Menu.ReloadStash(true)
 
@@ -11934,20 +11966,6 @@ function Menu.OpenTab.Settings()
     impactFX:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
     impactFX:SetConVar("efgm_visuals_highqualimpactfx")
     impactFX:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
-
-    local tpikAllPanel = vgui.Create("DPanel", visuals)
-    tpikAllPanel:Dock(TOP)
-    tpikAllPanel:SetSize(0, EFGM.MenuScale(50))
-    function tpikAllPanel:Paint(w, h)
-
-        draw.SimpleTextOutlined("TPP Animations On Other Players", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-
-    end
-
-    local tpikAll = vgui.Create("DCheckBox", tpikAllPanel)
-    tpikAll:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-    tpikAll:SetConVar("arc9_tpik_others")
-    tpikAll:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
     local ejectedShellLifePanel = vgui.Create("DPanel", visuals)
     ejectedShellLifePanel:Dock(TOP)

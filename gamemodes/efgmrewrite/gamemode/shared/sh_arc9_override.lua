@@ -526,57 +526,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
     end
 
-    local traceResults = {}
-
-    local traceData = {
-        start = true,
-        endpos = true,
-        filter = true,
-        mask = MASK_SHOT_HULL,
-        output = traceResults
-    }
-
-    local VECTOR = FindMetaTable("Vector")
-    local vectorAdd = VECTOR.Add
-    local vectorMul = VECTOR.Mul
-
-    local angleForward = FindMetaTable("Angle").Forward
-    local entityGetOwner = FindMetaTable("Entity").GetOwner
-
-    function SWEP:GetIsNearWall()
-        local now = engine.TickCount()
-
-        if self.NearWallTick == now then return self.NearWallCached end
-
-        if (self.NearWallLastCheck or 0) > now then return self.NearWallCached end
-        self.NearWallLastCheck = now + 8 -- 8 ticks before next check
-
-        local length = self:GetProcessedValue("BarrelLength", true)
-
-        if length == 0 then return false end
-
-        local startPos = self:GetShootPos()
-
-        local endPos = angleForward(self:GetShootDir())
-        vectorMul(endPos, length)
-        vectorAdd(endPos, startPos)
-
-        traceData.start = startPos
-        traceData.endpos = endPos
-        traceData.filter = entityGetOwner(self)
-
-        util.TraceLine(traceData)
-
-        local hit = traceResults.hit
-
-        self.NearWallCached = hit
-        self.NearWallTick = now
-
-        if hit and traceResults.Entity:IsPlayer() then return false end
-
-        return hit
-    end
-
     if CLIENT then
 
         local flaremat = Material("effects/arc9_lensflare", "mips smooth")
