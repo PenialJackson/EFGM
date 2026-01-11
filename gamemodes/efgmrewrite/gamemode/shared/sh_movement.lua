@@ -30,7 +30,7 @@ hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
     local mvtype = ply:GetMoveType()
     if mvtype == MOVETYPE_NOCLIP then return end
 
-    if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) or cmd:KeyDown(IN_ATTACK2) then
+    if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) or cmd:KeyDown(IN_ATTACK) or cmd:KeyDown(IN_ATTACK2) then
         cmd:RemoveKey(IN_SPEED)
     end
 

@@ -58,7 +58,7 @@ hook.Add("RenderScreenspaceEffects", "suppression_ApplySuppression", function()
 	DrawBloom(0.30, bloom_lerp , 0.33, 4.5, 1, 0, 1, 1, 1)
 end)
 
-local m = Material("vignette/vignette")
+local m = Material("overlays/supp_vignette")
 local alphanew = 0
 hook.Add("RenderScreenspaceEffects", "suppression_vignette", function()
 	if effect_amount == 0 then return end

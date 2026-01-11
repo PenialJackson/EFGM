@@ -1,108 +1,64 @@
-//-------------------------------------------------------------------------
-//
-// Game data for Escape From Garry's Mod Rewrite
-//
-//-------------------------------------------------------------------------
-
 @include "base.fgd"
 
 @PointClass base(Targetname) = efgm_raid_interface : "Raid System Interface"
 [
-
-    // Key Values
     raid_time(integer) : "Raid Time" : 1500 : "The time the raid lasts, in seconds."
 
-    //Inputs
     input StartRaid(void) : "Tells the raid system to begin the fucking raid already. Can be triggered by whatever, get creative."
-
     input EndRaid(void) : "Tells the raid system to end the raid. Instantly. Maybe use this for like a map with a nuke or something."
-
     input SetRaidTime(integer) : "Does exactly what you think it does. Useful for adding pressure to extract."
-    
     input SetPlayerReadiness(bool) : "Tells the raid system to mark a player as ready to join the raid."
-
     input KillAllInRaid(integer) : "Applies a lethal amount of a given type of damage to everyone in raid."
 
-    // Outputs
     output OnRaidStart(void) : "This fires when the raid starts. Useful for spawning shit in the map, enabling / disabling extracts, or doing other things."
-
     output OnRaidEnd(void) : "Fires when the raid ends. Useful for resetting the map, or doing similar types of utmost trollage."
-
     output OnTenMinutesLeft(void) : ""
-
     output OnFiveMinutesLeft(void) : ""
-
     output OnOneMinuteLeft(void) : ""
-
 ]
 
 @PointClass base(Targetname) = efgm_firingrange_interface : "Firing Range Interface"
 [
-
-    // Inputs
     input SetPlayerInRange(bool) : "Tells the firing range system to mark as in the range."
-
 ]
 
 @PointClass base(Targetname) = efgm_duel_interface : "Duel Interface"
 [
-
-    // Outputs
     output OnDuelStart(void) : "Tells the duel interface that a duel has begun, only exists to cause changes on the map."
-
     output OnDuelEnd(void) : "Tells the duel interface that a duel has ended, only exists to cause changes on the map."
-
 ]
 
 @PointClass base(Targetname) = efgm_event_interface : "Event System Interface"
 [
-
-    // Key Values
     eventName(string) : "Event Name" : "" : "The name of the event this interface manages."
-    
     eventDescription(string) : "Event Description" : "" : "(Optional) A description of the event, only accessed by server commands."
 
-    //Inputs
     input StartEvent(void) : "Starts the event, which fires OnEventStart btw."
 
-    // Outputs
     output OnEventStart(void) : "Fires when the event starts, useful for making stuff happen in the map."
-
 ]
 
 @PointClass base(Targetname) = efgm_status_setter : "Player Raid Status Setter"
 [
-    //Inputs
     input SetStatus(integer) : "Sets the activator to the chosen status."
-
 ]
 
 @PointClass base(Targetname, PlayerClass, Angles) studio("models/editor/playerstart.mdl") = efgm_raid_spawn : "Player Spawn"
 [
-
-    // Key Values
     spawn_type(choices) : "Spawn Type" : 0 : "Type of player that can spawn here. PMC spawns a PMC just whenever, Player Scav spawns player scavs whenever I add them, and Any spawns both." =
-    [
-        0 : "Any"
-        1 : "PMC"
-        2 : "Player Scav"
-    ]
-
+    [ 0 : "Any"
+      1 : "PMC"
+      2 : "Player Scav" ]
     spawn_group(string) : "Spawn Group" : "" :
     "Spawn groups are used in conjunction with extracts to give each player different extraction points depending on their spawn location."+
     "For instance, a player spawning at a raid spawn with the group 'west' can only extract at extracts with the group 'west'."+
     "Leave blank to make the player spawned here be able to extract anywhere."
-
     spawn_radius_override(integer) : "Spawn Radius Override" : 0 : "Override the map default when checking for entities near the spawn in a sphere, a vaule of 0 will use the maps default radius value"
-
 ]
 
 @PointClass base(Targetname, PlayerClass, Angles) studio("models/editor/playerstart.mdl") = efgm_team_spawn : "Team Spawn"
 [
-
-    // Key Values
     main_spawn(string) : "Main Raid Spawn" : "" : "Make this the name of the 'central' raid spawn."
-
 ]
 
 @PointClass base(Targetname, PlayerClass, Angles) studio("models/editor/playerstart.mdl") = efgm_lobby_spawn : "Lobby Spawn"
@@ -120,179 +76,109 @@
     // holy shit guess what
 ]
 
-
 @PointClass base(Targetname) = efgm_extract : "Extract"
 [
+    extractTime(integer) : "Extract Time" : 7 : "How long it takes to finish extracting once you've started extracting."
+    extractName(string) : "Extract Name" : "" : "Used by players to find extract locations. Make the name appropriate; name the extract according to what a player would look for in order to find it. (e.g. Power Station Gate, Road to Bunker, Southwestern Checkpoint, Gooey Helipad, etc.)"
+    disabledMessage(string) : "Disabled Message" : "This extract is currently disabled!" : "This is the message displayed to anyone attempting to extract if the extract is disabled. If the extract is enabled by an event, listing that event here would be a good idea. You can leave this blank if the extract is guranteed."
+    extractGroup(string) : "Extract Group" : "" : "Group of spawns which can use this extract. See efgm_raid_spawn for more details. Leave blank if anybody can use it."
+    accessibility(choices) : "Extract Accessibility" : 0 : "Availability of this extract to types of players. Also, it's called segregation internally because accessibility sounds too similar to availability, which is already an option. Sorry America!" =
+    [ 0 : "Any"
+      1 : "PMC"
+      2 : "Scav" ]
+    reqItem(string) : "Required Item" : "" : "The item that the player must have in their inventory to use this extract. Leave blank if no item is needed to use it."
 
-    // Key Values
-    extractTime(integer)       : "Extract Time"             : 7                                     : "How long it takes to finish extracting once you've started extracting."
+    output OnPlayerExtract(void) : "Fires when a player extracts."
+    output OnExtractEnabled(void) : "Fires when the extract gets enabled."
+    output OnExtractDisabled(void) : "Fires when the extract gets disabled."
 
-    extractName(string)        : "Extract Name"             : ""                                    : "Used by players to find extract locations. Make the name appropriate; name the extract according to what a player would look for in order to find it. (e.g. Power Station Gate, Road to Bunker, Southwestern Checkpoint, Gooey Helipad, etc.)"
-
-    disabledMessage(string)    : "Disabled Message"         : "This extract is currently disabled!" : "This is the message displayed to anyone attempting to extract if the extract is disabled. If the extract is enabled by an event, listing that event here would be a good idea. You can leave this blank if the extract is guranteed."
-
-    extractGroup(string)       : "Extract Group"            : ""                                    : "Group of spawns which can use this extract. See efgm_raid_spawn for more details. Leave blank if anybody can use it."
-
-    accessibility(choices)      : "Extract Accessibility"   : 0                                     : "Availability of this extract to types of players. Also, it's called segregation internally because accessibility sounds too similar to availability, which is already an option. Sorry America!" =
-    [
-        0 : "Any"
-        1 : "PMC"
-        2 : "Scav"
-    ]
-
-    reqItem(string)       : "Required Item"                 : ""                                    : "The item that the player must have in their inventory to use this extract. Leave blank if no item is needed to use it."
-
-    // Outputs
-    output    OnPlayerExtract(void)     :   "Fires when a player extracts."
-
-    output    OnExtractEnabled(void)    :   "Fires when the extract gets enabled."
-
-    output    OnExtractDisabled(void)   :   "Fires when the extract gets disabled."
-
-    // Inputs
-    input EnableExtract(void)           :   "Enables the extract."
-
-    input DisableExtract(void)          :   "Disables the extract."
-
-    input ToggleExtract(void)           :   "Does exactly what it sounds like."
-
-
-    input StartExtractingPlayer(void)   :   "As this is not a trigger no more, this input will signal for a given player to begin extracting."
-
-    input StopExtractingPlayer(void)    :   "Stops a player from extracting."
-
-    input ChangeDisabledMessage(string) :   "Changes the disabled message. Good for extracts with multiple prerequisites ig. Maybe with like a train, it could be changed from 'route power to track' to 'wait for train'."
-    
-    input InstantlyExtractPlayer(void)  :   "Pretty self explanatory imo."
-
-    input InstantlyExtractPlayeIgnoreDisabled(void)  :   "Pretty self explanatory imo."
+    input EnableExtract(void) : "Enables the extract."
+    input DisableExtract(void) : "Disables the extract."
+    input ToggleExtract(void) : "Pretty self explanatory imo."
+    input StartExtractingPlayer(void) : "As this is not a trigger no more, this input will signal for a given player to begin extracting."
+    input StopExtractingPlayer(void) : "Stops a player from extracting."
+    input ChangeDisabledMessage(string) : "Changes the disabled message. Good for extracts with multiple prerequisites ig. Maybe with like a train, it could be changed from 'route power to track' to 'wait for train'."
+    input InstantlyExtractPlayer(void) : "Pretty self explanatory imo."
+    input InstantlyExtractPlayeIgnoreDisabled(void) : "Pretty self explanatory imo."
 
     spawnflags(flags) =
-    [
-        // <flag value 2^i> : "Checkbox Display Text" : <0 for false on default, 1 for true>
-
-        1 : "Start Disabled"            : 0
-        2 : "Is Extract Guranteed"      : 1
-        4 : "Instant Extract"           : 0
-        8 : "Show on Map"               : 1
-    ]
+    [ 1 : "Start Disabled" : 0
+      2 : "Is Extract Guranteed" : 1
+      4 : "Instant Extract" : 0
+      8 : "Show on Map" : 1 ]
 ]
 
-@PointClass base(Targetname, Angles, Origin) studio("models/efgm/low_crate02.mdl") = efgm_loot : "Spawns a customizable loot container."
+@PointClass base(Targetname, Angles, Origin) studioprop() = efgm_loot : "Spawns a customizable loot container."
 [
+    // to use in editor for reference
+	model(studio) : "Editor Model" : "models/efgm/loot_containers/container.mdl" : "The model to display (in hammer)."
+	skin(integer) : "Editor Skin" : 0 : "The displayed models skin (in hammer)."
 
-    // Key Values
     spawn_chance(integer) : "Container Spawn Chance": 100 : "The chance this spawn will create a container. 100 is always, 0 is never."
-
     item_chance_per_roll(integer) : "Item Chance Per Roll": 10 : "After rolling an item to add to the container, it will decrease the chance by this value. If it does not hit a roll, the container will finish adding items."
-
     loot_type(choices) : "Loot Type" : 1 : "The type of loot that this container should create." =
-    [
-        1 : "Any"
-        2 : "Military Box"
-        3 : "Ammunition Box"
-        4 : "Medical Box"
-        5 : "Barter Box"
-        6 : "Attachment Box"
-        7 : "Safe"
-        8 : "Filing Cabinet"
+    [ 1 : "Any"
+      2 : "Military Box"
+      3 : "Ammunition Box"
+      4 : "Medical Box"
+      5 : "Barter Box"
+      6 : "Attachment Box"
+      7 : "Safe"
+      8 : "Filing Cabinet" ]
 
-        // OLD
-    //  0 : "Any"
-    //  1 : "Weapons"
-    //  2 : "Ammo"
-    //  3 : "Attachments"
-    //  4 : "Medical"
-    //  5 : "Valuables"
-    ]
-
-    // Inputs
     input SpawnLoot(void) : "Spawns the container, regardless of whether the container has already been spawned or not."
 
-    // Outputs
     output OnSpawn(void) : "Fires when the container spawns."
-
     output OnOpen(void) : "Fires when the container is opened."
 
     spawnflags(flags) =
-    [
-        1 : "Spawn on Start" : 1
-    ]
-
+    [ 1 : "Spawn on Start" : 1 ]
 ]
 
 @PointClass base(Targetname) = efgm_key_checker : "Key Checker"
 [
-
-    // Key Values
     keyName(string) : "Key Name" : "" : "Item name of a key. If the activator of this entity has this key, the entity will call the function."
-
     keyRelockTime(integer) : "Relock Time" : 0 : "How long it takes to automatically close and relock the door if the 'Automatically Relock' flag is enabled."
 
-    // Inputs
     input CheckKey(void) : "Checks whether player activator has the key named in the keyvalues. If they do, triggers OnHasKey output."
 
-    // Outputs
     output OnHasKey(void) : "Fires when the activator of CheckKey has the correct key."
-
     output OnNotHasKey(void) : "Fires when the activator of CheckKey doesn't have the key."
-
     output Lock(void) : "Fires when the relock time passes."
 
     spawnflags(flags) =
-    [
-        1 : "Show on Map" : 1
-        2 : "Automatically Relock" : 0
-    ]
-
+    [ 1 : "Show on Map" : 1
+      2 : "Automatically Relock" : 0 ]
 ]
 
 @PointClass base(Targetname) = efgm_location : "Location / POI"
 [
-
-    // Key Values
     lootRating(integer) : "Loot Rating" : 1 : "General rating of the loot in the building. Goes from 1 to 5, with 1 being the least loot, and 5 being fucking loaded."
-
     displayName(string) : "Display Name" : "" : "Display name of the location. Will go on the map, one of these days"
-
 ]
 
 @PointClass base(Targetname, Angles, Origin) = efgm_quest_item : "Quest Item"
 [
-
-    // Key Values
     quest_item(string) : "Quest Item" : "" : "Internal name of the item."
 
-    input Enable(void)           :   "Turns the item on"
-
-    input Disable(void)           :   "Turns the item off"
+    input Enable(void) : "Turns the item on"
+    input Disable(void) : "Turns the item off"
 
     spawnflags(flags) =
-    [
-        1 : "Start Enabled" : 1
-    ]
-
+    [ 1 : "Start Enabled" : 1 ]
 ]
 
 @PointClass base(Targetname) = efgm_quest_area : "Quest Area"
 [
-
-    input PlayerVisited(void)   :   "Activates a hook for any tasks with this area to recognize."
-
+    input PlayerVisited(void) : "Activates a hook for any tasks with this area to recognize."
 ]
 
 @PointClass base(Targetname) = efgm_elevator_controller : "Elevator Controller"
 [
-    // Inputs
-    input AskGoToStart(void)           :   ""
+    input AskGoToStart(void) : ""
+    input AskGoToEnd(void) : ""
+    input SetStatus(integer) : ""
 
-    input AskGoToEnd(void)           :   ""
-
-    input SetStatus(integer)           :   ""
-
-    // Outputs
     output MoveToStart(void) : ""
-
     output MoveToEnd(void) : ""
-
 ]

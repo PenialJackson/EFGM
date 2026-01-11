@@ -5,3 +5,7 @@ end
 function EFFECT:Think()
     return
 end
+
+function EFFECT:Render()
+    return
+end
