@@ -9847,7 +9847,7 @@ function SpawnAllLoot()
 
     if SERVER then
 
-        for _, ent in ipairs(ents.FindByName("efgm_loot")) do
+        for _, ent in ipairs(ents.FindByClass("efgm_loot")) do
 
             ent:Fire("SpawnStartLoot", 0, 0)
 
@@ -9861,7 +9861,7 @@ function RespawnAllLoot()
 
     if SERVER then
 
-        for _, ent in ipairs(ents.FindByName("efgm_loot")) do
+        for _, ent in ipairs(ents.FindByClass("efgm_loot")) do
 
             ent:Fire("SpawnLoot", 0, 0)
 
