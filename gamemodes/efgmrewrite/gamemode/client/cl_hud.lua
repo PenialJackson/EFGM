@@ -2330,6 +2330,7 @@ function HUDInspectItem(item, data, panel)
             local rpm = math.Round(wep["RPM"] or 0) or nil
             local range = math.Round((wep["RangeMax"] or 0) * 0.0254) or nil
             local velocity = math.Round(((wep["PhysBulletMuzzleVelocity"] or 0) * 0.0254) * 1.2) or nil
+            local tracerSize = math.Round(wep["TracerSize"] or 0, 2) or nil
 
             local recoilMult = math.Round(wep["Recoil"] or 1, 2) or 1
             local visualRecoilMult = math.Round(wep["VisualRecoil"] or 1, 2) or 1
@@ -2397,6 +2398,12 @@ function HUDInspectItem(item, data, panel)
             if velocity then
 
                 wikiContentText:AppendText("MUZZLE VELOCITY: " ..  velocity .. "m/s" .. "\n")
+
+            end
+
+            if tracerSize then
+
+                wikiContentText:AppendText("TRACER SIZE: " ..  tracerSize .. "\n")
 
             end
 
