@@ -17,6 +17,9 @@ Menu.PerferredShopDestination = nil
 Menu.LastStashScroll = 0
 Menu.LastMarketStashScroll = 0
 
+Menu.StashFilter = 1
+Menu.MarketStashFilter = 1
+
 local holdtypes = {
     "idle_revolver",
     "idle_dual",
@@ -5238,16 +5241,51 @@ end
 
 -- filter name, filter icon, definition to filter by, value to use for filtering
 local filters = {
-    [1] = {"Weapons", Mats.filterWeaponsIcon, "equipType", 1},
-    [2] = {"Ammunition", Mats.filterAmmunitionIcon, "equipType", 2},
-    [3] = {"Consumables", Mats.filterConsumablesIcon, "equipType", 5},
-    [4] = {"Attachments", Mats.filterAttachmentsIcon, "equipType", 6},
-    [5] = {"Keys", Mats.filterKeysIcon, "equipType", 7},
-    [6] = {"Barter", Mats.filterBarterIcon, "equipType", 8}
+    [1] = {
+        name = "All Items",
+        icon = Mats.filterAllIcon,
+        def = nil,
+        value = nil
+    },
+    [2] = {
+        name = "Weapons",
+        icon = Mats.filterWeaponsIcon,
+        def = "equipType",
+        value = 1
+    },
+    [3] = {
+        name = "Ammunition",
+        icon = Mats.filterAmmunitionIcon,
+        def = "equipType",
+        value = 2
+    },
+    [4] = {
+        name = "Consumables",
+        icon = Mats.filterConsumablesIcon,
+        def = "equipType",
+        value = 5
+    },
+    [5] = {
+        name = "Attachments",
+        icon = Mats.filterAttachmentsIcon,
+        def = "equipType",
+        value = 6
+    },
+    [6] = {
+        name = "Keys",
+        icon = Mats.filterKeysIcon,
+        def = "equipType",
+        value = 7
+    },
+    [7] = {
+        name = "Barter",
+        icon = Mats.filterBarterIcon,
+        def = "equipType",
+        value = 8
+    }
 }
 
 local stashItemSearchText = ""
-local stashFilter = 0
 
 function Menu.ReloadStash()
 
@@ -5379,6 +5417,15 @@ function Menu.ReloadStash()
             if !ownerName then
                 steamworks.RequestPlayerInfo(v.data.owner, function(steamName) ownerName = steamName or "" EFGM.SteamNameCache[v.data.owner] = steamName or "" end)
             end
+        end
+
+        local filter = filters[Menu.StashFilter]
+
+        if filter and Menu.StashFilter > 1 then
+            local filterDef = filter.def
+            local filterValue = filter.value
+
+            if filterDef == "equipType" and i.equipType != filterValue then continue end
         end
 
         if stashItemSearchText then itemSearch = stashItemSearchText end
@@ -5827,6 +5874,15 @@ function Menu.ReloadMarketStash()
             if !ownerName then
                 steamworks.RequestPlayerInfo(v.data.owner, function(steamName) ownerName = steamName or "" EFGM.SteamNameCache[v.data.owner] = steamName or "" end)
             end
+        end
+
+        local filter = filters[Menu.MarketStashFilter]
+
+        if filter and Menu.MarketStashFilter > 1 then
+            local filterDef = filter.def
+            local filterValue = filter.value
+
+            if filterDef == "equipType" and i.equipType != filterValue then continue end
         end
 
         if marketStashItemSearchText then itemSearch = marketStashItemSearchText end
@@ -7077,7 +7133,7 @@ function Menu.OpenTab.Inventory(container)
 
             if AmountInInventory(playerWeaponSlots[panels[1].SLOT], conItem.name) != 0 then return end
 
-            for slotKey, slotItem in ipairs(playerWeaponSlots[item.SLOT]) do
+            for slotKey, slotItem in ipairs(playerWeaponSlots[panels[1].SLOT]) do
 
                 if table.IsEmpty(slotItem) then
 
@@ -7875,6 +7931,7 @@ function Menu.OpenTab.Inventory(container)
 
     stashSearchOpen = false
     stashItemSearchText = ""
+    Menu.StashFilter = 1
 
     stashSearchBox = vgui.Create("DTextEntry", stashHolder)
     stashSearchBox:SetSize(EFGM.MenuScale(593) - stashSearchButton:GetX() - stashSearchButton:GetWide(), EFGM.MenuScale(28))
@@ -8029,9 +8086,6 @@ function Menu.OpenTab.Inventory(container)
     stashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
     function stashFilterHolder:Paint(w, h)
 
-        surface.SetDrawColor(Colors.containerBackgroundColor)
-        surface.DrawRect(0, 0, w, h)
-
         surface.SetDrawColor(Colors.whiteBorderColor)
         surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
         surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
@@ -8039,8 +8093,48 @@ function Menu.OpenTab.Inventory(container)
 
     end
 
+    for id, filter in ipairs(filters) do
 
-    Menu.ReloadStash(true)
+        local stashFilterButton = vgui.Create("DButton", stashFilterHolder)
+        stashFilterButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+        stashFilterButton:Dock(TOP)
+        stashFilterButton:SetText("")
+
+        function stashFilterButton:Paint(w, h)
+
+            if !self:IsHovered() then surface.SetDrawColor(Colors.containerBackgroundColor) else surface.SetDrawColor(Colors.marketItemValueColor) end
+            surface.DrawRect(0, 0, w, h)
+
+            surface.SetDrawColor(Colors.pureWhiteColor)
+            surface.SetMaterial(filter.icon)
+            surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+
+            surface.SetDrawColor(Colors.weaponSilhouetteColor)
+            surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+
+        end
+
+        stashFilterButton.OnCursorEntered = function(s)
+
+            surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+
+        end
+
+        function stashFilterButton:DoClick()
+
+            if Menu.StashFilter == id then return end
+
+            surface.PlaySound("ui/element_select.wav")
+
+            Menu.StashFilter = id
+
+            Menu.ReloadStash()
+
+        end
+
+    end
+
+    Menu.ReloadStash()
 
 end
 
@@ -8139,6 +8233,7 @@ function Menu.OpenTab.Market()
 
     marketStashSearchOpen = false
     marketStashItemSearchText = ""
+    Menu.MarketStashFilter = 1
 
     marketStashSearchBox = vgui.Create("DTextEntry", marketStashHolder)
     marketStashSearchBox:SetSize(EFGM.MenuScale(593) - marketStashSearchButton:GetX() - marketStashSearchButton:GetWide(), EFGM.MenuScale(28))
@@ -8219,9 +8314,14 @@ function Menu.OpenTab.Market()
 
     end
 
-    marketStashItemsHolder = vgui.Create("EFGMMarketStashHolderScroller", marketStashHolder)
-    marketStashItemsHolder:SetPos(0, EFGM.MenuScale(32))
-    marketStashItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+    local marketStashItemsDocker = vgui.Create("DPanel", marketStashHolder)
+    marketStashItemsDocker:SetPos(0, EFGM.MenuScale(32))
+    marketStashItemsDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+    marketStashItemsDocker.Paint = nil
+
+    marketStashItemsHolder = vgui.Create("EFGMMarketStashHolderScroller", marketStashItemsDocker)
+    marketStashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
+    marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(18), marketStashItemsDocker:GetTall())
     function marketStashItemsHolder:Paint(w, h)
 
         BlurPanel(marketStashItemsHolder, EFGM.MenuScale(3))
@@ -8259,6 +8359,59 @@ function Menu.OpenTab.Market()
     end
     function marketStashItemsBar.btnGrip:Paint(w, h)
         draw.RoundedBox(0, 0, 0, EFGM.MenuScale(5), h, Colors.transparentWhiteColor)
+    end
+
+    local marketStashFilterHolder = vgui.Create("DPanel", marketStashItemsDocker)
+    marketStashFilterHolder:SetSize(EFGM.MenuScale(19), marketStashItemsDocker:GetTall())
+    marketStashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
+    function marketStashFilterHolder:Paint(w, h)
+
+        surface.SetDrawColor(Colors.whiteBorderColor)
+        surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+        surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+        surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+
+    end
+
+    for id, filter in ipairs(filters) do
+
+        local marketStashFilterButton = vgui.Create("DButton", marketStashFilterHolder)
+        marketStashFilterButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+        marketStashFilterButton:Dock(TOP)
+        marketStashFilterButton:SetText("")
+
+        function marketStashFilterButton:Paint(w, h)
+
+            if !self:IsHovered() then surface.SetDrawColor(Colors.containerBackgroundColor) else surface.SetDrawColor(Colors.marketItemValueColor) end
+            surface.DrawRect(0, 0, w, h)
+
+            surface.SetDrawColor(Colors.pureWhiteColor)
+            surface.SetMaterial(filter.icon)
+            surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+
+            surface.SetDrawColor(Colors.weaponSilhouetteColor)
+            surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+
+        end
+
+        marketStashFilterButton.OnCursorEntered = function(s)
+
+            surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+
+        end
+
+        function marketStashFilterButton:DoClick()
+
+            if Menu.MarketStashFilter == id then return end
+
+            surface.PlaySound("ui/element_select.wav")
+
+            Menu.MarketStashFilter = id
+
+            Menu.ReloadMarketStash()
+
+        end
+
     end
 
     Menu.ReloadMarketStash()

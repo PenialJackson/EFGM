@@ -1,6 +1,6 @@
 "UnlitGeneric"
 {
-	"$basetexture" "vignette/vignette"
+	"$basetexture" "overlays/supp_vignette"
 	"$nocull" 1
 	"$translucent" 1
 	"$vertexalpha" 1
