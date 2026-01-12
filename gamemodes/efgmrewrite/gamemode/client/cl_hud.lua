@@ -210,7 +210,9 @@ function RenderExtracts()
     net.Start("GrabExtractList")
     net.SendToServer()
 
-    extracts = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    extracts = vgui.Create("DPanel", panel)
     extracts:SetSize(ScrW(), ScrH())
     extracts:SetPos(0, 0)
     extracts:SetAlpha(0)
@@ -248,7 +250,9 @@ end
 function RenderRaidIntro()
     if IsValid(intro) then return end
 
-    intro = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    intro = vgui.Create("DPanel", panel)
     intro:SetSize(ScrW(), ScrH())
     intro:SetPos(0, 0)
     intro:SetAlpha(0)
@@ -272,7 +276,9 @@ function RenderCompass()
     -- no need to create the compass panel if it already exists
     if IsValid(compass) then return end
 
-    compass = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    compass = vgui.Create("DPanel", panel)
     compass:SetSize(ScrW(), ScrH())
     compass:SetPos(0, 0)
     compass:SetAlpha(0)
@@ -373,7 +379,9 @@ end
 function RenderInvite()
     if IsValid(invite) then return end
 
-    invite = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    invite = vgui.Create("DPanel", panel)
     invite:SetSize(ScrW(), ScrH())
     invite:SetPos(0, 0)
     invite:SetAlpha(0)
@@ -432,7 +440,9 @@ function RenderDuelLoadout()
 
     if IsValid(DuelLoadout) then DuelLoadout:Remove() end
 
-    DuelLoadout = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    DuelLoadout = vgui.Create("DPanel", panel)
     DuelLoadout:SetSize(ScrW(), ScrH())
     DuelLoadout:SetPos(0, 0)
     DuelLoadout:SetAlpha(0)
@@ -627,7 +637,9 @@ net.Receive("PlayerRaidTransition", function()
 
     if IsValid(notif) then notif:Remove() end
 
-    RaidTransition = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    RaidTransition = vgui.Create("DPanel", panel)
     RaidTransition:SetSize(ScrW(), ScrH())
     RaidTransition:SetPos(0, 0)
     RaidTransition:SetAlpha(0)
@@ -672,7 +684,9 @@ net.Receive("PlayerDuelTransition", function()
 
     if IsValid(notif) then notif:Remove() end
 
-    RaidTransition = vgui.Create("DPanel")
+    local panel = GetHUDPanel()
+
+    RaidTransition = vgui.Create("DPanel", panel)
     RaidTransition:SetSize(ScrW(), ScrH())
     RaidTransition:SetPos(0, 0)
     RaidTransition:SetAlpha(0)
@@ -718,7 +732,9 @@ net.Receive("SendExtractionStatus", function()
             if timer.Exists("TimeToExit") then exitTimeLeft = math.Round(timer.TimeLeft("TimeToExit"), 1) end
         end)
 
-        ExtractPopup = vgui.Create("DPanel")
+        local panel = GetHUDPanel()
+
+        ExtractPopup = vgui.Create("DPanel", panel)
         ExtractPopup:SetSize(ScrW(), ScrH())
         ExtractPopup:SetPos(0, 0)
         ExtractPopup:SetAlpha(0)
@@ -2753,7 +2769,9 @@ net.Receive("VoteableMaps", function(len)
 
         if IsValid(mapVote) then mapVote:Remove() end
 
-        mapVote = vgui.Create("DPanel")
+        local panel = GetHUDPanel()
+
+        mapVote = vgui.Create("DPanel", panel)
         mapVote:SetSize(ScrW(), ScrH())
         mapVote:SetPos(0, 0)
         mapVote:SetAlpha(0)
