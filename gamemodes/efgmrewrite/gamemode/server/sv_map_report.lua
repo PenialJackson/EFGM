@@ -55,7 +55,8 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 
         local json = util.TableToJSON(mapReport, tobool( args[2] ) or false)
         print("File ("..(args[1] or "map").."_mapreport.json"..") written to (garrysmod/data)!")
-        file.Write((args[1] or "map").."_mapreport.json", json)
+        file.CreateDir("efgmdev")
+        file.Write("efgmdev/" .. (args[1] or "map").."_mapreport.json", json)
 
     end)
 
@@ -120,9 +121,10 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
         end
 
         local json = util.TableToJSON(mapReport, tobool( args[2] ) or false)
-        print("File ("..(args[1] or "map").."_mapreport_final.json"..") written to (garrysmod/data)!")
+        print("File ("..(args[1] or "map").."_mapreport_FINAL.json"..") written to (garrysmod/data)!")
         print(json)
-        file.Write((args[1] or "map").."_mapreport_final.json", json)
+        file.CreateDir("efgmdev")
+        file.Write("efgmdev/" .. (args[1] or "map").."_mapreport_FINAL.json", json)
 
     end)
 

@@ -129,23 +129,26 @@ end)
 EFGM.SteamNameCache = {}
 
 include("!config.lua")
+include("shared/sh_enums.lua")
+include("shared/sh_inventory_system.lua")
+include("items/items_init.lua")
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/shared/*.lua", "GAME", "nameasc")) do
-
-	include("shared/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/items/*.lua", "GAME", "nameasc")) do
+	if f == "items_init.lua" then continue end
+	include("items/" .. f)
 end
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/client/*.lua", "GAME", "nameasc")) do
-
-	include("client/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/shared/*.lua", "GAME", "nameasc")) do
+	if f == "sh_enums.lua" or f == "sh_inventory_system.lua" then continue end
+	include("shared/" .. f)
 end
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/intel/*.lua", "GAME", "nameasc")) do
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/client/*.lua", "GAME", "nameasc")) do
+	include("client/" .. f)
+end
 
-	include("intel/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/intel/*.lua", "GAME", "nameasc")) do
+	include("intel/" .. f)
 end
 
 -- panel/frame blur

@@ -3,30 +3,36 @@ AddCSLuaFile("shared.lua")
 include("shared.lua")
 AddCSLuaFile("!config.lua")
 include("!config.lua")
+AddCSLuaFile("shared/sh_enums.lua")
+include("shared/sh_enums.lua")
+AddCSLuaFile("shared/sh_inventory_system.lua")
+include("shared/sh_inventory_system.lua")
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/shared/*.lua", "GAME", "nameasc")) do
-
-	AddCSLuaFile("shared/" .. v)
-	include("shared/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/shared/*.lua", "GAME", "nameasc")) do
+	if f == "sh_enums.lua" or f == "sh_inventory_system.lua" then continue end
+	AddCSLuaFile("shared/" .. f)
+	include("shared/" .. f)
 end
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/client/*.lua", "GAME", "nameasc")) do
+AddCSLuaFile("items/items_init.lua")
+include("items/items_init.lua")
 
-	AddCSLuaFile("client/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/items/*.lua", "GAME", "nameasc")) do
+	if f == "items_init.lua" then continue end
+	AddCSLuaFile("items/" .. f)
+	include("items/" .. f)
 end
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/server/*.lua", "GAME", "nameasc")) do
-
-	include("server/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/client/*.lua", "GAME", "nameasc")) do
+	AddCSLuaFile("client/" .. f)
 end
 
-for _, v in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/intel/*.lua", "GAME", "nameasc")) do
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/server/*.lua", "GAME", "nameasc")) do
+	include("server/" .. f)
+end
 
-	AddCSLuaFile("intel/" .. v)
-
+for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/intel/*.lua", "GAME", "nameasc")) do
+	AddCSLuaFile("intel/" .. f)
 end
 
 util.AddNetworkString("PlayerReinstantiateInventory")

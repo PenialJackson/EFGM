@@ -123,7 +123,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
         landmark2Y:SetMin(0)
         landmark2Y:SetDecimals(2)
 
-        local mapInfo = util.JSONToTable(file.Read(mapName .. "_mapreport.json", "DATA"))
+        local mapInfo = util.JSONToTable(file.Read("efgmdev/" .. mapName .. "_mapreport.json", "DATA"))
 
         local generateInfo = vgui.Create("DButton", dbmapFrame)
         generateInfo:Dock(TOP)
