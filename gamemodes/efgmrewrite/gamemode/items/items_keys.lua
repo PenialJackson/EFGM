@@ -270,7 +270,7 @@ EFGMITEMS["efgm_key_breakroom"] = {
     ["displayName"] = "Break R.",
     ["displayType"] = "Belmont Key",
     ["weight"] = 0.2,
-    ["value"] = 200000,
+    ["value"] = 300000,
     ["equipType"] = EQUIPTYPE.Key,
     ["consumableType"] = "key",
     ["consumableValue"] = 5,
@@ -321,6 +321,28 @@ EFGMITEMS["efgm_key_fencedoff"] = {
     ["appearInInventory"] = true,
     ["stackSize"] = 1,
     ["icon"] = Material("items/keys/civil_belmont.png", "smooth"),
+    ["iconColor"] = ICONCOLORS.Green,
+
+    ["sizeX"] = 1,
+    ["sizeY"] = 1,
+
+    ["lootWeight"] = 50,
+
+    ["canPurchase"] = false
+}
+
+EFGMITEMS["efgm_key_classroom"] = {
+    ["fullName"] = "Classroom Key",
+    ["displayName"] = "Class",
+    ["displayType"] = "Belmont Key",
+    ["weight"] = 0.2,
+    ["value"] = 250000,
+    ["equipType"] = EQUIPTYPE.Key,
+    ["consumableType"] = "key",
+    ["consumableValue"] = 5,
+    ["appearInInventory"] = true,
+    ["stackSize"] = 1,
+    ["icon"] = Material("items/keys/slim.png", "smooth"),
     ["iconColor"] = ICONCOLORS.Green,
 
     ["sizeX"] = 1,
