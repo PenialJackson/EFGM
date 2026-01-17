@@ -35448,10 +35448,10 @@ EFGMITEMS["arc9_att_eft_scope_25mm_pilad"] = {
 }
 
 EFGMITEMS["arc9_att_eft_scope_30mm_march"] = {
-	["fullName"] = "March Tactical 3-24x42 FFP 30mm riflescope",
-	["displayName"] = "3-24x42 FFP",
+	["fullName"] = "March Tactical 2-24x42 FFP 30mm riflescope",
+	["displayName"] = "2-24x42 FFP",
 	["displayType"] = DISPLAYTYPE.OPTIC,
-	["description"] = "The March Tactical 3-24x42 FFP optical scope is reliable and accurate with ammunition of any power.",
+	["description"] = "The March Tactical 2-24x42 FFP optical scope is reliable and accurate with ammunition of any power.",
 	["weight"] = 0.6,
 	["value"] = 42975,
 	["equipType"] = EQUIPTYPE.Attachment,
@@ -35668,10 +35668,10 @@ EFGMITEMS["arc9_att_eft_scope_30mm_vudu"] = {
 }
 
 EFGMITEMS["arc9_att_eft_scope_34mm_atacr"] = {
-	["fullName"] = "Nightforce ATACR 7-16x56 34mm riflescope",
-	["displayName"] = "ATACR 7-16x56",
+	["fullName"] = "Nightforce ATACR 5-35x56 34mm riflescope",
+	["displayName"] = "ATACR 5-35x56",
 	["displayType"] = DISPLAYTYPE.OPTIC,
-	["description"] = "The NightForce ATACR 7-16x56 versatile scope with an extensive magnification range and a wide field-of-view across the entire range making it easy to see and engage targets.",
+	["description"] = "The NightForce ATACR 5-35x56 versatile scope with an extensive magnification range and a wide field-of-view across the entire range making it easy to see and engage targets.",
 	["weight"] = 1.1,
 	["value"] = 89995,
 	["equipType"] = EQUIPTYPE.Attachment,

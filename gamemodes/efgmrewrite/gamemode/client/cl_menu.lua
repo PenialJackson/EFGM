@@ -3384,9 +3384,6 @@ function Menu.ReloadInventory()
 
     if plyItems[1] == nil then return end
 
-    playerItemsHolder.AllowLayoutUpdate = false
-    playerItems.AllowLayoutUpdate = false
-
     table.sort(plyItems, function(a, b)
 
         local a_def = a.def or EFGMITEMS[a.name]
@@ -3758,11 +3755,6 @@ function Menu.ReloadInventory()
         end
 
     end
-
-    playerItemsHolder.AllowLayoutUpdate = true
-    playerItemsHolder:InvalidateLayout(true)
-    playerItems.AllowLayoutUpdate = true
-    playerItems:InvalidateLayout(true)
 
 end
 
@@ -5342,9 +5334,6 @@ function Menu.ReloadStash()
 
     if plyStashItems[1] == nil then return end
 
-    stashItemsHolder.AllowLayoutUpdate = false
-    stashItems.AllowLayoutUpdate = false
-
     table.sort(plyStashItems, function(a, b)
 
         local a_def = a.def or EFGMITEMS[a.name]
@@ -5740,11 +5729,6 @@ function Menu.ReloadStash()
 
     end
 
-    stashItemsHolder.AllowLayoutUpdate = true
-    stashItemsHolder:InvalidateLayout(true)
-    stashItems.AllowLayoutUpdate = true
-    stashItems:InvalidateLayout(true)
-
 end
 
 local marketStashItemSearchText = ""
@@ -5800,9 +5784,6 @@ function Menu.ReloadMarketStash()
     end
 
     if marketPlyStashItems[1] == nil then return end
-
-    marketStashItemsHolder.AllowLayoutUpdate = false
-    marketStashItems.AllowLayoutUpdate = false
 
     table.sort(marketPlyStashItems, function(a, b)
 
@@ -6075,11 +6056,6 @@ function Menu.ReloadMarketStash()
 
     end
 
-    marketStashItemsHolder.AllowLayoutUpdate = true
-    marketStashItemsHolder:InvalidateLayout(true)
-    marketStashItems.AllowLayoutUpdate = true
-    marketStashItems:InvalidateLayout(true)
-
 end
 
 function Menu.ReloadContainer()
@@ -6128,9 +6104,6 @@ function Menu.ReloadContainer()
     end
 
     if conItems[1] == nil then return end
-
-    containerItemsHolder.AllowLayoutUpdate = false
-    containerItems.AllowLayoutUpdate = false
 
     table.sort(conItems, function(a, b)
 
@@ -6480,11 +6453,6 @@ function Menu.ReloadContainer()
         end
 
     end
-
-    containerItemsHolder.AllowLayoutUpdate = true
-    containerItemsHolder:InvalidateLayout(true)
-    containerItems.AllowLayoutUpdate = true
-    containerItems:InvalidateLayout(true)
 
 end
 
@@ -7654,7 +7622,7 @@ function Menu.OpenTab.Inventory(container)
 
     end
 
-    playerItemsHolder = vgui.Create("EFGMInventoryHolderScroller", itemsHolder)
+    playerItemsHolder = vgui.Create("DScrollPanel", itemsHolder)
     playerItemsHolder:SetPos(0, EFGM.MenuScale(32))
     playerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
     function playerItemsHolder:Paint(w, h)
@@ -7727,7 +7695,7 @@ function Menu.OpenTab.Inventory(container)
 
     end)
 
-    playerItems = vgui.Create("EFGMInventoryHolder", playerItemsHolder)
+    playerItems = vgui.Create("DIconLayout", playerItemsHolder)
     playerItems:Dock(TOP)
     playerItems:SetSpaceY(0)
     playerItems:SetSpaceX(0)
@@ -7780,7 +7748,7 @@ function Menu.OpenTab.Inventory(container)
         containerHolder:SetSize(0, 0)
         containerHolder.Paint = nil
 
-        containerItemsHolder = vgui.Create("EFGMInventoryHolderScroller", containerHolder)
+        containerItemsHolder = vgui.Create("DScrollPanel", containerHolder)
         containerItemsHolder:SetPos(0, EFGM.MenuScale(32))
         containerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
         function containerItemsHolder:Paint(w, h)
@@ -7806,7 +7774,7 @@ function Menu.OpenTab.Inventory(container)
 
         end
 
-        containerItems = vgui.Create("EFGMInventoryHolder", containerItemsHolder)
+        containerItems = vgui.Create("DIconLayout", containerItemsHolder)
         containerItems:Dock(TOP)
         containerItems:SetSpaceY(0)
         containerItems:SetSpaceX(0)
@@ -8017,7 +7985,7 @@ function Menu.OpenTab.Inventory(container)
     stashHolderDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
     stashHolderDocker.Paint = nil
 
-    stashItemsHolder = vgui.Create("EFGMStashHolderScroller", stashHolderDocker)
+    stashItemsHolder = vgui.Create("DScrollPanel", stashHolderDocker)
     stashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
     stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(18), stashHolderDocker:GetTall())
     function stashItemsHolder:Paint(w, h)
@@ -8065,7 +8033,7 @@ function Menu.OpenTab.Inventory(container)
 
     end)
 
-    stashItems = vgui.Create("EFGMInventoryHolder", stashItemsHolder)
+    stashItems = vgui.Create("DIconLayout", stashItemsHolder)
     stashItems:Dock(FILL)
     stashItems:SetSpaceY(0)
     stashItems:SetSpaceX(0)
@@ -8319,7 +8287,7 @@ function Menu.OpenTab.Market()
     marketStashItemsDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
     marketStashItemsDocker.Paint = nil
 
-    marketStashItemsHolder = vgui.Create("EFGMMarketStashHolderScroller", marketStashItemsDocker)
+    marketStashItemsHolder = vgui.Create("DScrollPanel", marketStashItemsDocker)
     marketStashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
     marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(18), marketStashItemsDocker:GetTall())
     function marketStashItemsHolder:Paint(w, h)
@@ -8345,7 +8313,7 @@ function Menu.OpenTab.Market()
 
     end
 
-    marketStashItems = vgui.Create("EFGMInventoryHolder", marketStashItemsHolder)
+    marketStashItems = vgui.Create("DIconLayout", marketStashItemsHolder)
     marketStashItems:Dock(TOP)
     marketStashItems:SetSpaceY(0)
     marketStashItems:SetSpaceX(0)

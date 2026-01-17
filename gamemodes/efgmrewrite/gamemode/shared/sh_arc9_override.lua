@@ -528,9 +528,22 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
     if CLIENT then
 
+        SWEP.Flashlights = {}
         local flaremat = Material("effects/arc9_lensflare", "mips smooth")
         local badcolor = Color(255, 255, 255)
         local arc9_allflash = GetConVar("arc9_allflash")
+        local irflashcolor = Color(106, 255, 218)
+        local fuckingbullshit = Vector(0, 0, 0.001)
+        local gunoffset = Vector(0, 0, -16)
+
+        local nvgon = false
+        local function checknvg(wpn)
+            local lp = LocalPlayer()
+            if !IsValid(lp) then return end
+            local sight = wpn:GetSight()
+            if sight and wpn:GetSightAmount() > 0.8 and !wpn.Peeking and sight.atttbl and sight.atttbl.RTScopeNightVision and ARC9.RTScopeRender then return true end
+            return false
+        end
 
         function SWEP:CreateFlashlights()
             self:KillFlashlights()
@@ -538,6 +551,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
             local total_lights = 0
             local lp = LocalPlayer()
+            nvgon = checknvg(self)
 
             for _, k in ipairs(self:GetSubSlotList()) do
                 if !k.Installed then continue end
@@ -553,6 +567,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                         nodotter = atttbl.Flashlight360
                     }
 
+                    if nvgon and atttbl.FlashlightIR then
+                        newlight.col = irflashcolor
+                        newlight.br = 1
+                    end
+
                     total_lights = total_lights + 1
 
                     local l = newlight.light
@@ -562,8 +581,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
                     l:SetFOV(atttbl.FlashlightFOV or 50)
 
-
-                    l:SetFarZ(atttbl.FlashlightDistance or 1024)
+                    l:SetFarZ(atttbl.FlashlightDistance / 1.5 or 1024)
                     -- l:SetNearZ(4)
                     l:SetNearZ(0) -- setting to 4 when drawing to prevent flicker (position here is undefined)
 
@@ -572,6 +590,12 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     l:SetColor(atttbl.FlashlightColor or color_white)
                     l:SetTexture(atttbl.FlashlightMaterial or "effects/flashlight001")
                     l:SetBrightness(atttbl.FlashlightBrightness or 3)
+
+                    if nvgon and atttbl.FlashlightIR then
+                        l:SetFOV((atttbl.FlashlightFOV or 50) * 1.5)
+                        l:SetColor(irflashcolor)
+                        l:SetBrightness(1)
+                    end
 
                     l:SetEnableShadows(false)
                     l:Update()
@@ -584,11 +608,146 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     table.insert(ARC9.FlashlightPile, g_light)
                 end
             end
+        end
 
-            if total_lights > 1 or (arc9_allflash:GetBool() and self:GetOwner() != lp) then -- you are a madman
-                for i, k in ipairs(self.Flashlights) do
-                    if k.light:IsValid() then k.light:SetEnableShadows(false) end
+        function SWEP:DrawFlashlightsWM()
+            local owner = self:GetOwner()
+            local lp = LocalPlayer()
+
+            local isotherplayer = owner != lp
+            if isotherplayer and !arc9_allflash:GetBool() then return end
+            if !isotherplayer and !owner:ShouldDrawLocalPlayer() then return end
+
+            if !self.Flashlights then
+                self:CreateFlashlights()
+            end
+
+            if isotherplayer and lp:EyePos():DistToSqr(owner:EyePos()) > 2048^2 then self:KillFlashlights() return end
+            local wmnotdrawn = self.LastWMDrawn != FrameNumber() and isotherplayer
+
+            local anydrawn = false
+            for i, k in ipairs(self.Flashlights) do
+                local model = (k.slottbl or {}).WModel
+
+                -- if !IsValid(model) then continue end
+                anydrawn = true
+                if k.br == 0 then continue end
+
+                local pos, ang
+
+
+                if wmnotdrawn or !IsValid(model) then
+                    pos = owner:EyePos() + gunoffset
+                    ang = owner:EyeAngles()
+                else
+                    pos = model:GetPos()
+                    ang = model:GetAngles()
+
+                    if k.qca then
+                        local a = model:GetAttachment(k.qca)
+                        if a then pos, ang = a.Pos, a.Ang end
+                        ang:RotateAroundAxis(ang:Up(), 90)
+                    end
                 end
+
+                self:DrawLightFlare(pos + fuckingbullshit, ang, k.col, k.br / 6, nil, k.nodotter)
+                local tr = util.TraceLine({
+                    start = pos,
+                    endpos = pos + ang:Forward() * 16,
+                    mask = MASK_OPAQUE,
+                    filter = lp,
+                })
+                if tr.Fraction < 1 then -- We need to push the flashlight back
+                    local tr2 = util.TraceLine({
+                        start = pos,
+                        endpos = pos - ang:Forward() * 16,
+                        mask = MASK_OPAQUE,
+                        filter = lp,
+                    })
+                    -- push it as back as the area behind us allows
+                    pos = pos + -ang:Forward() * 16 * math.min(1 - tr.Fraction, tr2.Fraction)
+                else
+                    pos = tr.HitPos
+                end
+
+                k.light:SetNearZ(4)
+                k.light:SetPos(pos)
+                k.light:SetAngles(ang)
+                k.light:Update()
+            end
+
+            if anydrawn and nvgon != checknvg(self) then
+                self:CreateFlashlights()
+            end
+        end
+
+        function SWEP:DrawFlashlightsVM()
+            if !self.Flashlights then
+                self:CreateFlashlights()
+            end
+
+            local owner = self:GetOwner()
+            local lp = LocalPlayer()
+            if !IsValid(owner) then return end
+            local eyepos = owner:EyePos()
+
+            local anydrawn = false
+            for i, k in ipairs(self.Flashlights) do
+                local model = (k.slottbl or {}).VModel
+
+                if !IsValid(model) then continue end
+                anydrawn = true
+                if k.br == 0 then continue end
+
+                local pos, ang
+
+                if !model then
+                    pos = eyepos
+                    ang = owner:EyeAngles()
+                else
+                    pos = model:GetPos()
+                    ang = model:GetAngles()
+                end
+
+                if k.qca then
+                    a = model:GetAttachment(k.qca)
+
+                    if a then
+                        pos, ang = a.Pos, a.Ang
+                    else
+                        ang:RotateAroundAxis(ang:Up(), -90)
+                    end
+                end
+
+                self:DrawLightFlare(pos, ang, k.col, k.br / 3, true, k.nodotter, -ang:Right())
+
+                if k.qca then ang:RotateAroundAxis(ang:Up(), 90) end
+
+                local tr = util.TraceLine({
+                    start = eyepos,
+                    endpos = eyepos - -ang:Forward() * 128,
+                    mask = MASK_OPAQUE,
+                    filter = lp,
+                })
+                if tr.Fraction < 1 then -- We need to push the flashlight back
+                    local tr2 = util.TraceLine({
+                        start = eyepos,
+                        endpos = eyepos + -ang:Forward() * 128,
+                        mask = MASK_OPAQUE,
+                        filter = lp,
+                    })
+                    -- push it as back as the area behind us allows
+                    pos = pos + -ang:Forward() * 32 * math.min(1 - tr.Fraction, tr2.Fraction)
+                end
+
+                k.light:SetNearZ(4)
+                k.light:SetPos(pos)
+                k.light:SetAngles(ang)
+                k.light:Update()
+            end
+
+            if anydrawn and nvgon != checknvg(self) then
+                self:CreateFlashlights()
             end
         end
 
@@ -2584,7 +2743,7 @@ if CLIENT then
         local matmarker = nil
         local favmarker = nil
         local att = self.att
-        local efgmAtt
+        local efgmAtt = nil
         local efgmCanBuy = nil
         local efgmValue = nil
         local efgmLvl = nil
@@ -2592,11 +2751,14 @@ if CLIENT then
 
         if att != nil then
 
-            efgmAtt = "arc9_att_" .. att
-            efgmCanBuy = EFGMITEMS[efgmAtt].canPurchase or false
-            efgmValue = EFGMITEMS[efgmAtt].value
-            efgmLvl = EFGMITEMS[efgmAtt].levelReq or 1
-            efgmWeight = EFGMITEMS[efgmAtt].weight
+            local efgmAttStr = "arc9_att_" .. att
+            if EFGMITEMS[efgmAttStr] then
+                efgmAtt = efgmAttStr
+                efgmCanBuy = EFGMITEMS[efgmAtt].canPurchase or false
+                efgmValue = EFGMITEMS[efgmAtt].value
+                efgmLvl = EFGMITEMS[efgmAtt].levelReq or 1
+                efgmWeight = EFGMITEMS[efgmAtt].weight
+            end
 
         end
 
