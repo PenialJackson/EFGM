@@ -10,7 +10,7 @@ function GetValidRaidSpawn(status)
     local spawns = ents.FindByClass("efgm_raid_spawn")
     table.Shuffle(spawns)
 
-    local radius = tonumber(MAPS[game.GetMap()].spawnProt) or 1000
+    local radius = GetSpawnProt()
 
     for _, spawn in ipairs(spawns) do
 

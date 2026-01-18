@@ -7,6 +7,16 @@ MAPS = {
     ["efgm_factory"] = {name = "Factory", spawnProt = 1536}
 }
 
+function GetSpawnProt()
+
+    local mapInfo = MAPS[game.GetMap()]
+    
+    if mapInfo == nil then return 1000 end
+
+    return mapInfo.spawnProt
+
+end
+
 -- player status
 -- the DUEL enum here is just not fucking working, i can print it here and it shows, i can print it anywhere else and its fucking nil, its 6am, i dont want to find out why, fuck my retarded Garry's Mod life - penial
 playerStatus = {
