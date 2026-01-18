@@ -1,703 +1,649 @@
 RAID = {}
 
 local plyMeta = FindMetaTable("Player")
-if not plyMeta then Error("Could not find player table") return end
+if !plyMeta then Error("Could not find player table") return end
 
 local function DecrementTimer()
-    SetGlobalInt("RaidTimeLeft", GetGlobalInt("RaidTimeLeft") - 1)
+	SetGlobalInt("RaidTimeLeft", GetGlobalInt("RaidTimeLeft") - 1)
 
-    if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == raidStatus.ACTIVE then RAID:EndRaid() return end
-    if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == raidStatus.ENDED then RAID:EndVote() return end
+	if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == raidStatus.ACTIVE then RAID:EndRaid() return end
+	if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == raidStatus.ENDED then RAID:EndVote() return end
 
-    hook.Run("RaidTimerTick", GetGlobalInt("RaidTimeLeft"))
+	hook.Run("RaidTimerTick", GetGlobalInt("RaidTimeLeft"))
 end
 
 if SERVER then
-    util.AddNetworkString("VoteableMaps")
-    util.AddNetworkString("SendVote")
-    util.AddNetworkString("RequestExtracts")
+	util.AddNetworkString("VoteableMaps")
+	util.AddNetworkString("SendVote")
+	util.AddNetworkString("RequestExtracts")
 
-    util.AddNetworkString("SendExtractionStatus")
-    util.AddNetworkString("PlayerRaidTransition")
-    util.AddNetworkString("PlayerSwitchFactions")
+	util.AddNetworkString("SendExtractionStatus")
+	util.AddNetworkString("PlayerRaidTransition")
+	util.AddNetworkString("PlayerSwitchFactions")
 
-    util.AddNetworkString("SendIntroCamera")
+	util.AddNetworkString("SendIntroCamera")
 
-    util.AddNetworkString("GrabExtractList")
-    util.AddNetworkString("SendExtractList")
+	util.AddNetworkString("GrabExtractList")
+	util.AddNetworkString("SendExtractList")
 
-    RAID.VoteTime = 60
+	RAID.VoteTime = 60
 
-    RAID.MapCount = 2 -- number of maps to have in the vote
+	RAID.MapCount = 2 -- number of maps to have in the vote
 
-    RAID.MapPool = {}
-    for id, _ in pairs(MAPS) do
-        table.insert(RAID.MapPool, {name = id, votes = 0})
-    end
+	RAID.MapPool = {}
+	for id, _ in pairs(MAPS) do
+		table.insert(RAID.MapPool, {name = id, votes = 0})
+	end
 
-    table.Shuffle(RAID.MapPool)
+	table.Shuffle(RAID.MapPool)
 
-    for i = #RAID.MapPool, RAID.MapCount + 1, -1 do table.remove(RAID.MapPool, i) end
-    for i = 1, RAID.MapCount do SetGlobalInt("MapVotes_" .. tostring(i), 0) end
+	for i = #RAID.MapPool, RAID.MapCount + 1, -1 do table.remove(RAID.MapPool, i) end
+	for i = 1, RAID.MapCount do SetGlobalInt("MapVotes_" .. tostring(i), 0) end
 
-    if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then -- fuck you fuck you fuck you fuck you
-        SetGlobalInt("RaidTimeLeft", -1)
-        SetGlobalInt("RaidStatus", raidStatus.PENDING)
-        timer.Remove("RaidTimerDecrement")
-    end
+	if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then -- fuck you fuck you fuck you fuck you
+		SetGlobalInt("RaidTimeLeft", -1)
+		SetGlobalInt("RaidStatus", raidStatus.PENDING)
+		timer.Remove("RaidTimerDecrement")
+	end
 
-    --{ RAID FUNCTIONS
+	function RAID:StartRaid(raidTime)
+		if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
+		if #player.GetHumans() < 3 and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
 
-        function RAID:StartRaid(raidTime)
-            if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
-            if #player.GetHumans() < 3 and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+		SetGlobalInt("RaidStatus", raidStatus.ACTIVE)
+		SetGlobalInt("RaidTimeLeft", raidTime)
 
-            SetGlobalInt("RaidStatus", raidStatus.ACTIVE)
-            SetGlobalInt("RaidTimeLeft", raidTime)
+		timer.Create("RaidTimerDecrement", 1, 0, DecrementTimer)
 
-            timer.Create("RaidTimerDecrement", 1, 0, DecrementTimer)
+		hook.Run("StartedRaid")
+		SpawnAllLoot()
 
-            hook.Run("StartedRaid")
-            SpawnAllLoot()
+		net.Start("SendNotification")
+		net.WriteString("The raid has begun!")
+		net.WriteString("icons/door_icon.png")
+		net.WriteString("round_start.wav")
+		net.Broadcast()
+	end
 
-            net.Start("SendNotification")
-            net.WriteString("The raid has begun!")
-            net.WriteString("icons/door_icon.png")
-            net.WriteString("round_start.wav")
-            net.Broadcast()
-        end
+	function RAID:EndRaid()
+		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
 
-        function RAID:EndRaid()
-            if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
+		SetGlobalInt("RaidStatus", raidStatus.ENDED)
+		SetGlobalInt("RaidTimeLeft", self.VoteTime)
 
-            SetGlobalInt("RaidStatus", raidStatus.ENDED)
-            SetGlobalInt("RaidTimeLeft", self.VoteTime)
+		-- kill players in raid, idk what else
+		hook.Run("EndedRaid", RAID.VoteTime)
 
-            -- kill players in raid, idk what else
-            hook.Run("EndedRaid", RAID.VoteTime)
+		-- thanks penal code
+		if #player.GetHumans() == 0 then
+			local tbl = {}
 
-            -- thanks penal code
-            if #player.GetHumans() == 0 then
-                local tbl = {}
+			for k, v in ipairs(self.MapPool) do table.insert(tbl, v.name) end
+			RunConsoleCommand("changelevel", tbl[math.random(#tbl)])
 
-                for k, v in ipairs(self.MapPool) do table.insert(tbl, v.name) end
+			return
+		end
 
-                RunConsoleCommand("changelevel", tbl[math.random(#tbl)])
+		timer.Adjust("RaidTimerDecrement", 1, self.VoteTime) -- fuck you timer.Adjust
 
-                return
-            end
+		net.Start("VoteableMaps")
+			net.WriteTable(RAID.MapPool, true)
+		net.Broadcast()
 
-            timer.Adjust("RaidTimerDecrement", 1, self.VoteTime) -- fuck you timer.Adjust
+		net.Start("SendNotification")
+			net.WriteString("The raid has ended!")
+			net.WriteString("icons/door_icon.png")
+			net.WriteString("round_warning.wav")
+		net.Broadcast()
 
-            net.Start("VoteableMaps")
-            net.WriteTable(RAID.MapPool, true)
-            net.Broadcast()
+		for k, v in ipairs(player.GetHumans()) do
+			if !v:CompareStatus(0) and !v:CompareStatus(3) and !v:HasGodMode() then v:Kill() end
+		end
+	end
 
-            net.Start("SendNotification")
-            net.WriteString("The raid has ended!")
-            net.WriteString("icons/door_icon.png")
-            net.WriteString("round_warning.wav")
-            net.Broadcast()
+	function RAID:GenerateSpawn(status, timeToEnable)
+		local spawn = GetValidRaidSpawn(status)
+		local allSpawns = spawn.Spawns
 
-            for k, v in ipairs(player.GetHumans()) do
-                if !v:CompareStatus(0) and !v:CompareStatus(3) and !v:HasGodMode() then v:Kill() end
-            end
-        end
+		return spawn, allSpawns, spawn.SpawnGroup
+	end
 
-        function RAID:GenerateSpawn(status, timeToEnable)
+	function RAID:SpawnPlayers(plys, status, squad)
+		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
+		if #plys > 4 then print("too many fucking people in your team dumbass") return end
 
-            local spawn = GetValidRaidSpawn(status)
-            local allSpawns = spawn.Spawns
+		local masterSpawn = nil
+		local spawns = {}
+		local spawnGroup = nil
 
-            return spawn, allSpawns, spawn.SpawnGroup
+		local faction
+		if #plys <= 1 then
+			status = (plys[1]:CompareFaction(true) and playerStatus.PMC) or (plys[1]:CompareFaction(false) and playerStatus.SCAV)
+		else
+			status = SQUADS[squad].FACTION
+		end
 
-        end
+		SQUADS[squad] = nil
+		NetworkSquadInfoToClients()
 
-        function RAID:SpawnPlayers(plys, status, squad)
-            if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
-            if #plys > 4 then print("too many fucking people in your team dumbass") return end
+		for k, v in ipairs(plys) do
+			if !v:IsPlayer() then return end
 
-            local masterSpawn = nil
-            local spawns = {}
-            local spawnGroup = nil
+			if !v:CompareStatus(0) and !v:CompareStatus(3) then
+				local curStatus, _ = v:GetRaidStatus()
+				print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", but they're probably fine to join anyway?")
+			end
 
-            local faction
-            if #plys <= 1 then
-                status = (plys[1]:CompareFaction(true) and playerStatus.PMC) or (plys[1]:CompareFaction(false) and playerStatus.SCAV)
-            else
-                status = SQUADS[squad].FACTION
-            end
+			if v:CompareStatus(3) then
+				local curStatus, _ = v:GetRaidStatus()
+				print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", this means they are in a duel, this shouldn't be possible at all, let's not let them join!")
+				return
+			end
 
-            SQUADS[squad] = nil
-            NetworkSquadInfoToClients()
+			if status == "nil" then status = faction end -- automatically set status depending on players faction
 
-            for k, v in ipairs(plys) do
-                if !v:IsPlayer() then return end
-
-                if !v:CompareStatus(0) and !v:CompareStatus(3) then
-                    local curStatus, _ = v:GetRaidStatus()
-                    print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", but they're probably fine to join anyway?")
-                end
-
-                if v:CompareStatus(3) then
-                    local curStatus, _ = v:GetRaidStatus()
-                    print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", this means they are in a duel, this shouldn't be possible at all, let's not let them join!")
-                    return
-                end
-
-                if status == "nil" then status = faction end -- automatically set status depending on players faction
-
-                local introAnimString, introSpaceIndex = IntroGetFreeSpace()
-
-                v:Freeze(true)
-                v:SetMoveType(MOVETYPE_NOCLIP)
-
-                v:SetRaidStatus(status, "")
-                v:SetNWBool("PlayerIsPMC", true)
-
-                local curTime = math.Round(CurTime(), 0) -- once players spawn, we make their team chat channel more specific, this is so others can create squads of the same name and not conflict with anything
-                v:SetNW2String("PlayerInSquad", "nil")
-                v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
-                v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
-                RemoveFIRFromInventory(v)
-                ResetRaidStats(v)
-
-                if status == playerStatus.SCAV then
-                    timer.Create("ScavLoadout" .. v:SteamID64(), 0.5, 1, function() RAID:GenerateScavLoadout(v) end)
-                end
-
-                if introAnimString != nil then
-
-                    v:SetNWBool("PlayerInIntro", true)
-
-                    net.Start("PlayerRaidTransition")
-                    net.WriteUInt(0, 2)
-                    net.Send(v)
-
-                    IntroSpaces[introSpaceIndex].occupied = true
-
-                    local animModel = ents.FindByName(introAnimString)[1]
-
-                    -- hey porty entities do not exist on clients if it is not in their PVS
-                    hook.Add("SetupPlayerVisibility", "ForceAnimInPVS" .. v:SteamID64(), function(ply, viewEnt)
-                        if IsValid(animModel) then AddOriginToPVS(animModel:GetPos()) end
-                    end)
-
-                    -- the animation sometimes gets stuck on the last frame, idk either, this seems to fix it
-                    animModel:Fire("SetAnimation", "ref", 0, v, v)
-
-                    timer.Create("Intro" .. v:SteamID64(), 1, 1, function()
-
-                        net.Start("SendIntroCamera")
-                        net.WriteEntity(animModel)
-                        net.Send(v)
-
-                        local tempPos = ents.FindByName("TP_" .. string.Explode("|", introAnimString)[1])[1]
-                        v:Teleport(tempPos:GetPos(), tempPos:GetAngles(), Vector(0, 0, 0)) -- just so the player isnt clogging the lobby or getting beamed in raid
-                        v:SetMoveType(MOVETYPE_NOCLIP)
-
-                        animModel:Fire("SetAnimation", "sequence", 0, v, v)
-
-                        timer.Create("FadeBetweenIntro" .. v:SteamID64(), 5, 1, function()
-                            net.Start("PlayerRaidTransition")
-                            net.WriteUInt(1, 2)
-                            net.Send(v)
-
-                            timer.Create("Spawn" .. v:SteamID64(), 1, 1, function()
-                                if #spawns == 0 then masterSpawn, spawns, spawnGroup = RAID:GenerateSpawn(status) end
-
-                                v:SetRaidStatus(status, spawnGroup)
-                                v:SetNWBool("PlayerInIntro", false)
-                                v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-                                v:Freeze(false)
-
-                                masterSpawn.Pending = true
-                                timer.Simple(10, function() masterSpawn.Pending = false end)
-
-                                IntroSpaces[introSpaceIndex].occupied = false
-
-                                animModel:Fire("SetAnimation", "ref", 0, v, v)
-
-                                hook.Remove("SetupPlayerVisibility", "ForceAnimInPVS" .. v:SteamID64())
-                            end)
-                        end)
-
-                    end)
-
-                else
-
-                    net.Start("PlayerRaidTransition")
-                    net.WriteUInt(1, 2)
-                    net.Send(v)
-
-                    timer.Create("Spawn" .. v:SteamID64(), 1, 1, function()
-                        if #spawns == 0 then masterSpawn, spawns, spawnGroup = RAID:GenerateSpawn(status) end
-
-                        v:SetRaidStatus(status, spawnGroup)
-                        v:SetNWBool("PlayerInIntro", false)
-                        v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-                        v:Freeze(false)
-
-                        masterSpawn.Pending = true
-                        timer.Simple(10, function() masterSpawn.Pending = false end)
-                    end)
-
-                end
-
-            end
-        end
-
-        function RAID:EndVote()
-            local maxVote = 0
-            local mapTable = {}
-
-            for k, v in ipairs(self.MapPool) do -- getting the max vote
-                if v.votes > maxVote then
-                    maxVote = v.votes
-                end
-            end
-
-            for k, v in ipairs(self.MapPool) do -- getting every map with the max vote into a table
-                if v.votes == maxVote then
-                    table.insert(mapTable, v.name)
-                end
-            end
-
-            RunConsoleCommand("changelevel", mapTable[math.random(#mapTable)])
-        end
-
-        function RAID:SubmitVote(ply, vote)
-            local revote = false
-            if ply:GetNWInt("HasVoted", 0) > 0 then revote = true end
-            if GetGlobalInt("RaidStatus") != raidStatus.ENDED then ply:PrintMessage(HUD_PRINTTALK, "The raid is still ongoing, your vote has not been counted.") return end
-
-            local index = tonumber(vote)
-            local map = self.MapPool[tonumber(vote)]
-            if map == nil then -- try with name instead of index
-                for k, v in ipairs(self.MapPool) do
-                    if v.name == vote then
-                        index = k
-                        map = self.MapPool[k]
-                    end
-                end
-            end
-
-            if map == nil then return end
-            if index == ply:GetNWInt("HasVoted", 0) then return end
-
-            map.votes = map.votes + 1
-            SetGlobalInt("MapVotes_" .. tostring(index), GetGlobalInt("MapVotes_" .. tostring(index), 0) + 1)
-
-            if revote then
-                local prevIndex = ply:GetNWInt("HasVoted", 0)
-                self.MapPool[prevIndex].votes = self.MapPool[prevIndex].votes - 1
-                SetGlobalInt("MapVotes_" .. tostring(prevIndex), GetGlobalInt("MapVotes_" .. tostring(prevIndex), 0) - 1)
-            end
-
-            ply:SetNWInt("HasVoted", index)
-        end
-
-        function RAID.GetCurrentExtracts(ply)
-            if ply:CompareStatus(0) or ply:CompareStatus(3) or ply:GetNWBool("PlayerInIntro", false) then return nil end
-
-            local extracts = {}
-
-            for k, v in ipairs(ents.FindByClass("efgm_extract")) do
-                if ply:CompareSpawnGroup(v.ExtractGroup) and (v.Accessibility == 0 or ply:GetNWInt("PlayerRaidStatus", 0) == v.Accessibility) then
-                    local tbl = {}
-                    tbl.ExtractName = v.ExtractName
-                    tbl.ExtractTime = v.ExtractTime
-                    tbl.IsGuranteed = v.IsGuranteed
-                    tbl.IsDisabled = v.IsDisabled
-                    tbl.ShowOnMap = v.ShowOnMap
-
-                    if !tbl.ShowOnMap then tbl.ExtractName = string.gsub(tbl.ExtractName, "[^ ]", "?") end
-
-                    table.insert(extracts, tbl)
-                end
-            end
-
-            return extracts
-        end
-
-        function RAID:GenerateScavLoadout(ply)
-
-            local _, weapon = table.Random(SCAV_WEAPONS)
-            local weaponDef = EFGMITEMS[weapon]
-
-            local weaponData = {}
-            weaponData.att = SCAV_WEAPONS[weapon].scavAtts[math.random(#SCAV_WEAPONS[weapon].scavAtts)]
-            weaponData.count = 1
-            weaponData.owner = ply:SteamID64()
-            weaponData.timestamp = os.time()
-
-            local weaponItem = ITEM.Instantiate(weapon, weaponDef.equipType, weaponData)
-            local weaponIndex = table.insert(ply.inventory, weaponItem)
-
-            net.Start("PlayerInventoryAddItem", false)
-            net.WriteString(weapon)
-            net.WriteUInt(weaponDef.equipType, 4)
-            net.WriteTable(weaponData)
-            net.WriteUInt(weaponIndex, 16)
-            net.Send(ply)
-
-            local _, med = table.Random(SCAV_MEDS)
-            local medDef = EFGMITEMS[med]
-
-            local medData = {}
-            medData.count = 1
-            medData.durability = math.random(SCAV_MEDS[med].duraMin, SCAV_MEDS[med].duraMax)
-
-            local medItem = ITEM.Instantiate(med, medDef.equipType, medData)
-            local medIndex = table.insert(ply.inventory, medItem)
-
-            net.Start("PlayerInventoryAddItem", false)
-            net.WriteString(med)
-            net.WriteUInt(medDef.equipType, 4)
-            net.WriteTable(medData)
-            net.WriteUInt(medIndex, 16)
-            net.Send(ply)
-
-            local nade = SCAV_NADES[math.random(#SCAV_NADES)]
-            local nadeDef = EFGMITEMS[nade]
-
-            local nadeData = {}
-            nadeData.count = 1
-            nadeData.owner = ply:SteamID64()
-            nadeData.timestamp = os.time()
-
-            local nadeItem = ITEM.Instantiate(nade, nadeDef.equipType, nadeData)
-            local nadeIndex = table.insert(ply.inventory, nadeItem)
-
-            net.Start("PlayerInventoryAddItem", false)
-            net.WriteString(nade)
-            net.WriteUInt(nadeDef.equipType, 4)
-            net.WriteTable(nadeData)
-            net.WriteUInt(nadeIndex, 16)
-            net.Send(ply)
-
-            local ammo = SCAV_WEAPONS[weapon].ammoID
-            local ammoDef = EFGMITEMS[ammo]
-
-            local ammoData = {}
-            ammoData.count = math.random(SCAV_WEAPONS[weapon].ammoMin, SCAV_WEAPONS[weapon].ammoMax)
-
-            local amount = tonumber(ammoData.count) or 1
-            local ammoStackSize = ammoDef.stackSize
-
-            local inv = {}
-
-            for k, v in ipairs(ply.inventory) do
-
-                inv[k] = {}
-                inv[k].name = v.name
-                inv[k].data = v.data
-                inv[k].id = k
-
-            end
-
-            table.sort(inv, function(a, b) return a.data.count > b.data.count end)
-
-            for k, v in ipairs(inv) do
-
-                if v.name == ammo and v.data.count != ammoStackSize and amount > 0 then
-
-                    local countToMax = ammoStackSize - v.data.count
-
-                    if amount >= countToMax then
-
-                        local newData = {}
-                        newData.count = ammoStackSize
-                        UpdateItemFromInventory(ply, v.id, newData)
-                        amount = amount - countToMax
-
-                    elseif amount < countToMax then
-
-                        local newData = {}
-                        newData.count = ply.inventory[v.id].data.count + amount
-                        UpdateItemFromInventory(ply, v.id, newData)
-                        amount = 0
-                        break
-
-                    end
-
-                end
-
-            end
-
-            -- if leftover after checking every similar item type
-            while amount > 0 do
-
-                if amount >= ammoStackSize then
-
-                    local newData = {}
-                    newData.count = ammoStackSize
-
-                    local ammoItem = ITEM.Instantiate(ammo, ammoDef.equipType, newData)
-                    local ammoIndex = table.insert(ply.inventory, ammoItem)
-
-                    net.Start("PlayerInventoryAddItem", false)
-                    net.WriteString(ammo)
-                    net.WriteUInt(ammoDef.equipType, 4)
-                    net.WriteTable(newData)
-                    net.WriteUInt(ammoIndex, 16)
-                    net.Send(ply)
-
-                    amount = amount - ammoStackSize
-
-                else
-
-                    local newData = {}
-                    newData.count = amount
-
-                    local ammoItem = ITEM.Instantiate(ammo, ammoDef.equipType, newData)
-                    local ammoIndex = table.insert(ply.inventory, ammoItem)
-
-                    net.Start("PlayerInventoryAddItem", false)
-                    net.WriteString(ammo)
-                    net.WriteUInt(ammoDef.equipType, 4)
-                    net.WriteTable(newData)
-                    net.WriteUInt(ammoIndex, 16)
-                    net.Send(ply)
-
-                    break
-
-                end
-
-            end
-
-            ReloadInventory(ply)
-            CalculateInventoryWeight(ply)
-
-        end
-    --}
-
-    --{ PLAYER FUNCTIONS
-        function plyMeta:SetRaidStatus(status, spawnGroup)
-            status = status or self:GetNWString("PlayerRaidStatus", 0)
-            spawnGroup = spawnGroup or self:GetNWString("PlayerSpawnGroup", "")
-
-            self:SetNWInt("PlayerRaidStatus", status)
-            self:SetNWString("PlayerSpawnGroup", spawnGroup)
-
-            if game.SinglePlayer() then return end -- no audio filters in SP
-            UpdateAudioFilter(self, status)
-        end
-
-        function plyMeta:SetFaction(fac)
-            if !self:CompareStatus(0) then return end
-            if self:GetNW2String("PlayerInSquad", "nil") != "nil" then
-                net.Start("SendNotification", false)
-                net.WriteString("Can not change factions while in a squad!")
-                net.WriteString("icons/exclamation_icon.png")
-                net.WriteString("ui/squad_joined.wav")
-                net.Send(self)
-                return
-            end
-
-            if fac == self:GetNWBool("PlayerIsPMC", true) then return end
-
-            fac = fac or !self:GetNWBool("PlayerIsPMC", true) -- switches if faction isn't specified
-
-            if fac == false then -- scav
-
-                UnequipAll(self)
-                StashAllFromInventory(self)
-
-            end
-
-            -- nothing PMC specific for now
-
-            self:SetNWBool("PlayerIsPMC", fac)
-        end
-
-        net.Receive("PlayerSwitchFactions", function(len, ply) ply:SetFaction() end)
-
-        function plyMeta:Teleport(position, angles, velocity)
-            self:SetPos(position)
-            self:SetEyeAngles(angles)
-            self:SetLocalVelocity(velocity)
-            self:SetMoveType(MOVETYPE_WALK)
-        end
-
-        function plyMeta:GetRaidStatus()
-            local status = self:GetNWInt("PlayerRaidStatus", 0)
-            local spawnGroup = self:GetNWString("PlayerSpawnGroup", "")
-
-            return status, spawnGroup
-        end
-    --}
-
-    --{ HOOKS
-        util.AddNetworkString("CreateExtractionInformation")
-        hook.Add("PlayerExtraction", "RaidExtract", function(ply, extractTime, isExtractGuranteed)
-            net.Start("PlayerRaidTransition")
-            net.WriteUInt(2, 2)
-            net.Send(ply)
-
-            ply:Lock()
-            ply:SetMoveType(MOVETYPE_NOCLIP)
-
-            local prevStatus = ply:GetNWInt("PlayerRaidStatus", 0)
-            ply:SetRaidStatus(0, "")
-
-            timer.Create("Extract" .. ply:SteamID64(), 1, 1, function()
-                local spawn = GetValidHideoutSpawn(1)
-                ply:Teleport(spawn:GetPos(), spawn:GetAngles(), Vector(0, 0, 0))
-                ply:SetHealth(ply:GetMaxHealth()) -- heals the player to full so dumb shit like quitting and rejoining to get max hp doesn't happen
-                ply:SendLua("RunConsoleCommand('r_cleardecals')") -- clear decals for that extra 2 fps
-
-                ply:SetNWBool("RaidReady", false)
-
-                ply:UnLock()
-
-                ply:SetNWInt("ExperienceBonus", ply:GetNWInt("ExperienceBonus") + 200)
-
-                local xpMult = (prevStatus == 2 and 0.5) or 1
-
-                net.Start("CreateExtractionInformation")
-                net.WriteFloat(xpMult)
-                net.WriteInt(ply:GetNWInt("RaidTime", 0), 16)
-                net.WriteInt(math.Round(ply:GetNWFloat("ExperienceTime", 0)), 16)
-                net.WriteInt(ply:GetNWInt("ExperienceCombat", 0), 16)
-                net.WriteInt(ply:GetNWInt("ExperienceExploration", 0), 16)
-                net.WriteInt(ply:GetNWInt("ExperienceLooting", 0), 16)
-                net.WriteInt(ply:GetNWInt("ExperienceBonus", 0), 16)
-                net.Send(ply)
-
-                ply:SetNWInt("RaidTime", 0)
-                ApplyPlayerExperience(ply, xpMult)
-            end)
-        end)
-
-        hook.Add("CheckRaidAddPlayers", "MaybeAddPeople", function(ply)
-            local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
-
-            if ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
-
-                net.Start("SendNotification", false)
-                net.WriteString("Can not enter a raid that is about to end, you can change this in your settings!")
-                net.WriteString("icons/time_icon.png")
-                net.WriteString("ui/squad_joined.wav")
-                net.Send(ply)
-                return
-
-            end
-
-            if plySquad == "nil" then RAID:SpawnPlayers({ply}, "nil", "nil") return end
-            if #SQUADS[plySquad].MEMBERS <= 1 then RAID:SpawnPlayers({ply}, "nil", plySquad) return end
-
-            local plys = {}
-            local spawnBool = true
-
-            for k, v in ipairs(SQUADS[plySquad].MEMBERS) do
-                table.insert(plys, v)
-                if v:GetNWBool("RaidReady", false) == false then spawnBool = false end
-            end
-
-            if tobool(spawnBool) == true then
-                RAID:SpawnPlayers(plys, "nil", plySquad)
-            end
-        end)
-
-        hook.Add("RaidTimerTick", "RaidTimeNotifications", function(time)
-
-            if time == 600 then
-
-                net.Start("SendNotification")
-                net.WriteString("Exfils close in 10 minutes!")
-                net.WriteString("icons/door_icon.png")
-                net.WriteString("round_warning.wav")
-                net.Broadcast()
-
-            end
-
-            if time == 300 then
-
-                net.Start("SendNotification")
-                net.WriteString("Exfils close in 5 minutes!")
-                net.WriteString("icons/door_icon.png")
-                net.WriteString("round_warning.wav")
-                net.Broadcast()
-
-            end
-
-            if time == 60 then
-
-                net.Start("SendNotification")
-                net.WriteString("Exfils close in 60 seconds!")
-                net.WriteString("icons/door_icon.png")
-                net.WriteString("round_warning.wav")
-                net.Broadcast()
-
-            end
-
-        end)
-
-        hook.Add("PlayerInitialSpawn", "SetToPMC", function(ply)
-            ply:SetNWBool("PlayerIsPMC", true)
-        end)
-    --}
-
-    net.Receive("GrabExtractList", function(len, ply)
-        local extracts = RAID.GetCurrentExtracts(ply)
-
-        if !istable(extracts) then return end
-
-        net.Start("SendExtractList")
-        net.WriteTable(extracts)
-        net.Send(ply)
-    end)
-
-    net.Receive("SendVote", function(len, ply)
-        RAID:SubmitVote(ply, net.ReadString())
-    end)
+			local introAnimString, introSpaceIndex = IntroGetFreeSpace()
+
+			v:Freeze(true)
+			v:SetMoveType(MOVETYPE_NOCLIP)
+
+			v:SetRaidStatus(status, "")
+			v:SetNWBool("PlayerIsPMC", true)
+
+			local curTime = math.Round(CurTime(), 0) -- once players spawn, we make their team chat channel more specific, this is so others can create squads of the same name and not conflict with anything
+			v:SetNW2String("PlayerInSquad", "nil")
+			v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
+			v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
+			RemoveFIRFromInventory(v)
+			ResetRaidStats(v)
+
+			if status == playerStatus.SCAV then
+				timer.Create("ScavLoadout" .. v:SteamID64(), 0.5, 1, function() RAID:GenerateScavLoadout(v) end)
+			end
+
+			if introAnimString != nil then
+				v:SetNWBool("PlayerInIntro", true)
+
+				net.Start("PlayerRaidTransition")
+					net.WriteUInt(0, 2)
+				net.Send(v)
+
+				IntroSpaces[introSpaceIndex].occupied = true
+
+				local animModel = ents.FindByName(introAnimString)[1]
+
+				-- hey porty entities do not exist on clients if it is not in their PVS
+				hook.Add("SetupPlayerVisibility", "ForceAnimInPVS" .. v:SteamID64(), function(ply, viewEnt)
+					if IsValid(animModel) then AddOriginToPVS(animModel:GetPos()) end
+				end)
+
+				-- the animation sometimes gets stuck on the last frame, idk either, this seems to fix it
+				animModel:Fire("SetAnimation", "ref", 0, v, v)
+
+				timer.Create("Intro" .. v:SteamID64(), 1, 1, function()
+					net.Start("SendIntroCamera")
+						net.WriteEntity(animModel)
+					net.Send(v)
+
+					local tempPos = ents.FindByName("TP_" .. string.Explode("|", introAnimString)[1])[1]
+					v:Teleport(tempPos:GetPos(), tempPos:GetAngles(), Vector(0, 0, 0)) -- just so the player isnt clogging the lobby or getting beamed in raid
+					v:SetMoveType(MOVETYPE_NOCLIP)
+
+					animModel:Fire("SetAnimation", "sequence", 0, v, v)
+
+					timer.Create("FadeBetweenIntro" .. v:SteamID64(), 5, 1, function()
+						net.Start("PlayerRaidTransition")
+							net.WriteUInt(1, 2)
+						net.Send(v)
+
+						timer.Create("Spawn" .. v:SteamID64(), 1, 1, function()
+							if #spawns == 0 then masterSpawn, spawns, spawnGroup = RAID:GenerateSpawn(status) end
+
+							v:SetRaidStatus(status, spawnGroup)
+							v:SetNWBool("PlayerInIntro", false)
+							v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
+							v:Freeze(false)
+
+							masterSpawn.Pending = true
+							timer.Simple(10, function() masterSpawn.Pending = false end)
+
+							IntroSpaces[introSpaceIndex].occupied = false
+
+							animModel:Fire("SetAnimation", "ref", 0, v, v)
+
+							hook.Remove("SetupPlayerVisibility", "ForceAnimInPVS" .. v:SteamID64())
+						end)
+					end)
+				end)
+			else
+				net.Start("PlayerRaidTransition")
+					net.WriteUInt(1, 2)
+				net.Send(v)
+
+				timer.Create("Spawn" .. v:SteamID64(), 1, 1, function()
+					if #spawns == 0 then masterSpawn, spawns, spawnGroup = RAID:GenerateSpawn(status) end
+
+					v:SetRaidStatus(status, spawnGroup)
+					v:SetNWBool("PlayerInIntro", false)
+					v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
+					v:Freeze(false)
+
+					masterSpawn.Pending = true
+					timer.Simple(10, function() masterSpawn.Pending = false end)
+				end)
+			end
+		end
+	end
+
+	function RAID:EndVote()
+		local maxVote = 0
+		local mapTable = {}
+
+		for k, v in ipairs(self.MapPool) do -- getting the max vote
+			if v.votes > maxVote then
+				maxVote = v.votes
+			end
+		end
+
+		for k, v in ipairs(self.MapPool) do -- getting every map with the max vote into a table
+			if v.votes == maxVote then
+				table.insert(mapTable, v.name)
+			end
+		end
+
+		RunConsoleCommand("changelevel", mapTable[math.random(#mapTable)])
+	end
+
+	function RAID:SubmitVote(ply, vote)
+		local revote = false
+		if ply:GetNWInt("HasVoted", 0) > 0 then revote = true end
+		if GetGlobalInt("RaidStatus") != raidStatus.ENDED then ply:PrintMessage(HUD_PRINTTALK, "The raid is still ongoing, your vote has not been counted.") return end
+
+		local index = tonumber(vote)
+		local map = self.MapPool[tonumber(vote)]
+		if map == nil then -- try with name instead of index
+			for k, v in ipairs(self.MapPool) do
+				if v.name == vote then
+					index = k
+					map = self.MapPool[k]
+				end
+			end
+		end
+
+		if map == nil then return end
+		if index == ply:GetNWInt("HasVoted", 0) then return end
+
+		map.votes = map.votes + 1
+		SetGlobalInt("MapVotes_" .. tostring(index), GetGlobalInt("MapVotes_" .. tostring(index), 0) + 1)
+
+		if revote then
+			local prevIndex = ply:GetNWInt("HasVoted", 0)
+			self.MapPool[prevIndex].votes = self.MapPool[prevIndex].votes - 1
+			SetGlobalInt("MapVotes_" .. tostring(prevIndex), GetGlobalInt("MapVotes_" .. tostring(prevIndex), 0) - 1)
+		end
+
+		ply:SetNWInt("HasVoted", index)
+	end
+
+	function RAID.GetCurrentExtracts(ply)
+		if ply:CompareStatus(0) or ply:CompareStatus(3) or ply:GetNWBool("PlayerInIntro", false) then return nil end
+
+		local extracts = {}
+
+		for k, v in ipairs(ents.FindByClass("efgm_extract")) do
+			if ply:CompareSpawnGroup(v.ExtractGroup) and (v.Accessibility == 0 or ply:GetNWInt("PlayerRaidStatus", 0) == v.Accessibility) then
+				local tbl = {}
+				tbl.ExtractName = v.ExtractName
+				tbl.ExtractTime = v.ExtractTime
+				tbl.IsGuranteed = v.IsGuranteed
+				tbl.IsDisabled = v.IsDisabled
+				tbl.ShowOnMap = v.ShowOnMap
+
+				if !tbl.ShowOnMap then tbl.ExtractName = string.gsub(tbl.ExtractName, "[^ ]", "?") end
+
+				table.insert(extracts, tbl)
+			end
+		end
+
+		return extracts
+	end
+
+	function RAID:GenerateScavLoadout(ply)
+		local _, weapon = table.Random(SCAV_WEAPONS)
+		local weaponDef = EFGMITEMS[weapon]
+
+		local weaponData = {}
+		weaponData.att = SCAV_WEAPONS[weapon].scavAtts[math.random(#SCAV_WEAPONS[weapon].scavAtts)]
+		weaponData.count = 1
+		weaponData.owner = ply:SteamID64()
+		weaponData.timestamp = os.time()
+
+		local weaponItem = ITEM.Instantiate(weapon, weaponDef.equipType, weaponData)
+		local weaponIndex = table.insert(ply.inventory, weaponItem)
+
+		net.Start("PlayerInventoryAddItem", false)
+			net.WriteString(weapon)
+			net.WriteUInt(weaponDef.equipType, 4)
+			net.WriteTable(weaponData)
+			net.WriteUInt(weaponIndex, 16)
+		net.Send(ply)
+
+		local _, med = table.Random(SCAV_MEDS)
+		local medDef = EFGMITEMS[med]
+
+		local medData = {}
+		medData.count = 1
+		medData.durability = math.random(SCAV_MEDS[med].duraMin, SCAV_MEDS[med].duraMax)
+
+		local medItem = ITEM.Instantiate(med, medDef.equipType, medData)
+		local medIndex = table.insert(ply.inventory, medItem)
+
+		net.Start("PlayerInventoryAddItem", false)
+			net.WriteString(med)
+			net.WriteUInt(medDef.equipType, 4)
+			net.WriteTable(medData)
+			net.WriteUInt(medIndex, 16)
+		net.Send(ply)
+
+		local nade = SCAV_NADES[math.random(#SCAV_NADES)]
+		local nadeDef = EFGMITEMS[nade]
+
+		local nadeData = {}
+		nadeData.count = 1
+		nadeData.owner = ply:SteamID64()
+		nadeData.timestamp = os.time()
+
+		local nadeItem = ITEM.Instantiate(nade, nadeDef.equipType, nadeData)
+		local nadeIndex = table.insert(ply.inventory, nadeItem)
+
+		net.Start("PlayerInventoryAddItem", false)
+			net.WriteString(nade)
+			net.WriteUInt(nadeDef.equipType, 4)
+			net.WriteTable(nadeData)
+			net.WriteUInt(nadeIndex, 16)
+		net.Send(ply)
+
+		local ammo = SCAV_WEAPONS[weapon].ammoID
+		local ammoDef = EFGMITEMS[ammo]
+
+		local ammoData = {}
+		ammoData.count = math.random(SCAV_WEAPONS[weapon].ammoMin, SCAV_WEAPONS[weapon].ammoMax)
+
+		local amount = tonumber(ammoData.count) or 1
+		local ammoStackSize = ammoDef.stackSize
+
+		local inv = {}
+		for k, v in ipairs(ply.inventory) do
+			inv[k] = {}
+			inv[k].name = v.name
+			inv[k].data = v.data
+			inv[k].id = k
+		end
+
+		table.sort(inv, function(a, b) return a.data.count > b.data.count end)
+
+		for k, v in ipairs(inv) do
+			if v.name == ammo and v.data.count != ammoStackSize and amount > 0 then
+				local countToMax = ammoStackSize - v.data.count
+				if amount >= countToMax then
+					local newData = {}
+					newData.count = ammoStackSize
+					UpdateItemFromInventory(ply, v.id, newData)
+					amount = amount - countToMax
+				elseif amount < countToMax then
+					local newData = {}
+					newData.count = ply.inventory[v.id].data.count + amount
+					UpdateItemFromInventory(ply, v.id, newData)
+					amount = 0
+					break
+				end
+			end
+		end
+
+		-- if leftover after checking every similar item type
+		while amount > 0 do
+			if amount >= ammoStackSize then
+				local newData = {}
+				newData.count = ammoStackSize
+
+				local ammoItem = ITEM.Instantiate(ammo, ammoDef.equipType, newData)
+				local ammoIndex = table.insert(ply.inventory, ammoItem)
+
+				net.Start("PlayerInventoryAddItem", false)
+					net.WriteString(ammo)
+					net.WriteUInt(ammoDef.equipType, 4)
+					net.WriteTable(newData)
+					net.WriteUInt(ammoIndex, 16)
+				net.Send(ply)
+
+				amount = amount - ammoStackSize
+			else
+				local newData = {}
+				newData.count = amount
+
+				local ammoItem = ITEM.Instantiate(ammo, ammoDef.equipType, newData)
+				local ammoIndex = table.insert(ply.inventory, ammoItem)
+
+				net.Start("PlayerInventoryAddItem", false)
+					net.WriteString(ammo)
+					net.WriteUInt(ammoDef.equipType, 4)
+					net.WriteTable(newData)
+					net.WriteUInt(ammoIndex, 16)
+				net.Send(ply)
+
+				break
+			end
+		end
+
+		ReloadInventory(ply)
+		CalculateInventoryWeight(ply)
+	end
+
+	function plyMeta:SetRaidStatus(status, spawnGroup)
+		status = status or self:GetNWString("PlayerRaidStatus", 0)
+		spawnGroup = spawnGroup or self:GetNWString("PlayerSpawnGroup", "")
+
+		self:SetNWInt("PlayerRaidStatus", status)
+		self:SetNWString("PlayerSpawnGroup", spawnGroup)
+
+		if game.SinglePlayer() then return end -- no audio filters in SP
+		UpdateAudioFilter(self, status)
+	end
+
+	function plyMeta:SetFaction(fac)
+		if !self:CompareStatus(0) then return end
+
+		if self:GetNW2String("PlayerInSquad", "nil") != "nil" then
+			net.Start("SendNotification", false)
+				net.WriteString("Can not change factions while in a squad!")
+				net.WriteString("icons/exclamation_icon.png")
+				net.WriteString("ui/squad_joined.wav")
+			net.Send(self)
+
+			return
+		end
+
+		if fac == self:GetNWBool("PlayerIsPMC", true) then return end
+		fac = fac or !self:GetNWBool("PlayerIsPMC", true) -- switches if faction isn't specified
+
+		if fac == false then -- scav
+			UnequipAll(self)
+			StashAllFromInventory(self)
+		end
+
+		-- nothing PMC specific for now
+		self:SetNWBool("PlayerIsPMC", fac)
+	end
+
+	net.Receive("PlayerSwitchFactions", function(len, ply)
+		ply:SetFaction()
+	end)
+
+	function plyMeta:Teleport(position, angles, velocity)
+		self:SetPos(position)
+		self:SetEyeAngles(angles)
+		self:SetLocalVelocity(velocity)
+		self:SetMoveType(MOVETYPE_WALK)
+	end
+
+	function plyMeta:GetRaidStatus()
+		local status = self:GetNWInt("PlayerRaidStatus", 0)
+		local spawnGroup = self:GetNWString("PlayerSpawnGroup", "")
+
+		return status, spawnGroup
+	end
+
+	util.AddNetworkString("CreateExtractionInformation")
+	hook.Add("PlayerExtraction", "RaidExtract", function(ply, extractTime, isExtractGuranteed)
+		net.Start("PlayerRaidTransition")
+			net.WriteUInt(2, 2)
+		net.Send(ply)
+
+		ply:Lock()
+		ply:SetMoveType(MOVETYPE_NOCLIP)
+
+		local prevStatus = ply:GetNWInt("PlayerRaidStatus", 0)
+		ply:SetRaidStatus(0, "")
+
+		timer.Create("Extract" .. ply:SteamID64(), 1, 1, function()
+			local spawn = GetValidHideoutSpawn(1)
+			ply:Teleport(spawn:GetPos(), spawn:GetAngles(), Vector(0, 0, 0))
+			ply:SetHealth(ply:GetMaxHealth()) -- heals the player to full so dumb shit like quitting and rejoining to get max hp doesn't happen
+			ply:SendLua("RunConsoleCommand('r_cleardecals')") -- clear decals for that extra 2 fps
+
+			ply:SetNWBool("RaidReady", false)
+
+			ply:UnLock()
+
+			ply:SetNWInt("ExperienceBonus", ply:GetNWInt("ExperienceBonus") + 200)
+
+			local xpMult = (prevStatus == 2 and 0.5) or 1
+
+			net.Start("CreateExtractionInformation")
+				net.WriteFloat(xpMult)
+				net.WriteInt(ply:GetNWInt("RaidTime", 0), 16)
+				net.WriteInt(math.Round(ply:GetNWFloat("ExperienceTime", 0)), 16)
+				net.WriteInt(ply:GetNWInt("ExperienceCombat", 0), 16)
+				net.WriteInt(ply:GetNWInt("ExperienceExploration", 0), 16)
+				net.WriteInt(ply:GetNWInt("ExperienceLooting", 0), 16)
+				net.WriteInt(ply:GetNWInt("ExperienceBonus", 0), 16)
+			net.Send(ply)
+
+			ply:SetNWInt("RaidTime", 0)
+			ApplyPlayerExperience(ply, xpMult)
+		end)
+	end)
+
+	hook.Add("CheckRaidAddPlayers", "MaybeAddPeople", function(ply)
+		local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
+
+		if ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
+			net.Start("SendNotification", false)
+				net.WriteString("Can not enter a raid that is about to end, you can change this in your settings!")
+				net.WriteString("icons/time_icon.png")
+				net.WriteString("ui/squad_joined.wav")
+			net.Send(ply)
+
+			return
+		end
+
+		if plySquad == "nil" then RAID:SpawnPlayers({ply}, "nil", "nil") return end
+		if #SQUADS[plySquad].MEMBERS <= 1 then RAID:SpawnPlayers({ply}, "nil", plySquad) return end
+
+		local plys = {}
+		local spawnBool = true
+
+		for k, v in ipairs(SQUADS[plySquad].MEMBERS) do
+			table.insert(plys, v)
+			if v:GetNWBool("RaidReady", false) == false then spawnBool = false end
+		end
+
+		if tobool(spawnBool) == true then
+			RAID:SpawnPlayers(plys, "nil", plySquad)
+		end
+	end)
+
+	hook.Add("RaidTimerTick", "RaidTimeNotifications", function(time)
+		if time == 600 then
+			net.Start("SendNotification")
+				net.WriteString("Exfils close in 10 minutes!")
+				net.WriteString("icons/door_icon.png")
+				net.WriteString("round_warning.wav")
+			net.Broadcast()
+		end
+
+		if time == 300 then
+			net.Start("SendNotification")
+				net.WriteString("Exfils close in 5 minutes!")
+				net.WriteString("icons/door_icon.png")
+				net.WriteString("round_warning.wav")
+			net.Broadcast()
+		end
+
+		if time == 60 then
+			net.Start("SendNotification")
+				net.WriteString("Exfils close in 60 seconds!")
+				net.WriteString("icons/door_icon.png")
+				net.WriteString("round_warning.wav")
+			net.Broadcast()
+		end
+	end)
+
+	hook.Add("PlayerInitialSpawn", "SetToPMC", function(ply)
+		ply:SetNWBool("PlayerIsPMC", true)
+	end)
+
+	net.Receive("GrabExtractList", function(len, ply)
+		local extracts = RAID.GetCurrentExtracts(ply)
+		if !istable(extracts) or extracts == nil then return end
+
+		net.Start("SendExtractList")
+			net.WriteTable(extracts)
+		net.Send(ply)
+	end)
+
+	net.Receive("SendVote", function(len, ply)
+		RAID:SubmitVote(ply, net.ReadString())
+	end)
 end
 
 if CLIENT then
-    concommand.Add("efgm_vote", function(ply, cmd, args)
-        net.Start("SendVote")
-            net.WriteString(args[1])
-        net.SendToServer()
-    end)
+	concommand.Add("efgm_vote", function(ply, cmd, args)
+		net.Start("SendVote")
+			net.WriteString(args[1])
+		net.SendToServer()
+	end)
 end
 
 function plyMeta:CompareSpawnGroup(group)
-    -- fuck off with your "addons/efgmrewrite/gamemodes/efgmrewrite/entities/entities/efgm_extract.lua:114: unexpected symbol near ')'" bullshit there's fixing to be an unexpected hole in my goddamn monitor
-    -- oh i forgot an end
+	-- fuck off with your "addons/efgmrewrite/gamemodes/efgmrewrite/entities/entities/efgm_extract.lua:114: unexpected symbol near ')'" bullshit there's fixing to be an unexpected hole in my goddamn monitor
+	-- oh i forgot an end
 
-    group = group or ""
+	group = group or ""
+	if group == "" then return true end
 
-    if group == "" then return true end
-
-    return self:GetNWString("PlayerSpawnGroup", "") == group
+	return self:GetNWString("PlayerSpawnGroup", "") == group
 end
 
 function plyMeta:CompareStatus(status) -- if player is in raid then status of 0 will return false
-    return self:GetNWInt("PlayerRaidStatus", 0) == status
+	return self:GetNWInt("PlayerRaidStatus", 0) == status
 end
 
 function plyMeta:CompareFaction(status) -- if player is a PMC then status of true will return true
-    return self:GetNWBool("PlayerIsPMC", true) == status
+	return self:GetNWBool("PlayerIsPMC", true) == status
 end
 
 -- i love debugging commands omg
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+	function ForceSpawnPlayer(ply)
+		ply:SetNWBool("RaidReady", true)
+		hook.Run("CheckRaidAddPlayers", ply)
+	end
+	concommand.Add("efgm_debug_spawn", function(ply, cmd, args) ForceSpawnPlayer(ply) end)
 
-    function ForceSpawnPlayer(ply)
-
-        ply:SetNWBool("RaidReady", true)
-        hook.Run("CheckRaidAddPlayers", ply)
-
-    end
-    concommand.Add("efgm_debug_spawn", function(ply, cmd, args) ForceSpawnPlayer(ply) end)
-
-    function ForceExtractPlayer(ply)
-
-        if ply:CompareStatus(0) then return end
-        hook.Run("PlayerExtraction", ply, 67, true, "imgonnaendit")
-
-    end
-    concommand.Add("efgm_debug_extract", function(ply, cmd, args) ForceExtractPlayer(ply) end)
-
+	function ForceExtractPlayer(ply)
+		if ply:CompareStatus(0) then return end
+		hook.Run("PlayerExtraction", ply, 67, true, "imgonnaendit")
+	end
+	concommand.Add("efgm_debug_extract", function(ply, cmd, args) ForceExtractPlayer(ply) end)
 end

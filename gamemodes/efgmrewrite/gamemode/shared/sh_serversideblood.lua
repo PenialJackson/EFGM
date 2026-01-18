@@ -1,161 +1,132 @@
 if game.SinglePlayer() then return end
 
 if CLIENT then
-    local hblood = GetConVar("violence_hblood"):GetBool()
+	local hblood = GetConVar("violence_hblood"):GetBool()
+	cvars.AddChangeCallback("violence_hblood", function(_,_, new) hblood = tonumber(new) == 1 end, "serverside_bloodimpacts_hblood")
 
-    cvars.AddChangeCallback("violence_hblood", function(_,_, new)
-        hblood = tonumber(new) == 1
-    end, "serverside_bloodimpacts_hblood")
+	local ablood = GetConVar("violence_ablood"):GetBool()
+	cvars.AddChangeCallback("violence_ablood", function(_,_, new) ablood = tonumber(new) == 1 end, "serverside_bloodimpacts_ablood")
 
-    local ablood = GetConVar("violence_ablood"):GetBool()
+	local maxplayers_bits = math.ceil(math.log(game.MaxPlayers()) / math.log(2))
 
-    cvars.AddChangeCallback("violence_ablood", function(_,_, new)
-        ablood = tonumber(new) == 1
-    end, "serverside_bloodimpacts_ablood")
+	local vec = Vector()
+	local traceres = {}
+	local tracedata = {
+		endpos = vec,
+		mask = bit.band(MASK_SOLID_BRUSHONLY, bit.bnot(CONTENTS_GRATE)),
+		collisiongroup = COLLISION_GROUP_NONE,
+		ignoreworld = false,
+		output = traceres,
+	}
 
-    local maxplayers_bits = math.ceil(math.log(game.MaxPlayers()) / math.log(2))
+	net.Receive("serverside_bloodimpacts", function()
+		local victim = Entity(net.ReadUInt(maxplayers_bits))
 
-    local vec = Vector()
-    local traceres = {}
-    local tracedata = {
-        endpos = vec,
-        mask = bit.band(MASK_SOLID_BRUSHONLY, bit.bnot(CONTENTS_GRATE)),
-        collisiongroup = COLLISION_GROUP_NONE,
-        ignoreworld = false,
-        output = traceres,
-    }
+		if not IsValid(victim) then
+			victim = nil
+		end
 
-    net.Receive("serverside_bloodimpacts", function()
-        local victim = Entity(net.ReadUInt(maxplayers_bits))
+		local blood = net.ReadUInt(3)
 
-        if not IsValid(victim) then
-            victim = nil
-        end
+		if blood == BLOOD_COLOR_RED then
+			if not hblood then
+				return
+			end
+		elseif not ablood then
+			return
+		end
 
-        local blood = net.ReadUInt(3)
+		local dir = net.ReadNormal()
+		local hitpos = net.ReadVector()
+		local dmg = net.ReadUInt(2)
+		local dist = net.ReadBool() and 384 or 172
 
-        if blood == BLOOD_COLOR_RED then
-            if not hblood then
-                return
-            end
-        elseif not ablood then
-            return
-        end
+		local eff = EffectData()
+		eff:SetScale(1)
+		eff:SetColor(blood)
+		eff:SetOrigin(hitpos)
+		eff:SetNormal(dir)
 
-        local dir = net.ReadNormal()
+		util.Effect("BloodImpact", eff)
 
-        local hitpos = net.ReadVector()
+		if blood == BLOOD_COLOR_MECH then return end
 
-        local dmg = net.ReadUInt(2)
+		local decal = blood == 0 and "Blood" or "YellowBlood"
+		local vec, tracedata, traceres = vec, tracedata, traceres
 
-        local dist = net.ReadBool() and 384 or 172
+		tracedata.start = hitpos
+		tracedata.filter = victim
 
-        local eff = EffectData()
-        eff:SetScale(1)
-        eff:SetColor(blood)
-        eff:SetOrigin(hitpos)
-        eff:SetNormal(dir)
+		local noise, count
 
-        util.Effect("BloodImpact", eff)
+		if dmg == 0 then
+			noise, count = 0.1, 1
+		elseif dmg == 1 then
+			noise, count = 0.2, 2
+		else
+			noise, count = 0.3, 4
+		end
 
-        if blood == BLOOD_COLOR_MECH then
-            return
-        end
+		::loop::
 
-        local decal = blood == 0 and "Blood" or "YellowBlood"
+		for i = 1, 3 do
+			vec[i] = hitpos[i] + (dir[i] + math.Rand(-noise, noise)) * dist
+		end
 
-        local vec, tracedata, traceres = vec, tracedata, traceres
+		util.TraceLine(tracedata)
 
-        tracedata.start = hitpos
-        tracedata.filter = victim
+		if traceres.Hit then
+			util.Decal(decal, hitpos, vec, victim)
+		end
 
-        local noise, count
+		if count > 1 then
+			count = count - 1
+			goto loop
+		end
+	end)
 
-        if dmg == 0 then
-            noise, count = 0.1, 1
-        elseif dmg == 1 then
-            noise, count = 0.2, 2
-        else
-            noise, count = 0.3, 4
-        end
-
-        ::loop::
-
-        for i = 1, 3 do
-            vec[i] = hitpos[i] + (dir[i] + math.Rand(-noise, noise)) * dist
-        end
-
-        util.TraceLine(tracedata)
-
-        if traceres.Hit then
-            util.Decal(decal, hitpos, vec, victim)
-        end
-
-        if count > 1 then
-            count = count - 1
-
-            goto loop
-        end
-    end)
-
-    hook.Add("ScalePlayerDamage", "serverside_bloodimpacts_ScalePlayerDamage", function()
-        return true
-    end)
+	hook.Add("ScalePlayerDamage", "serverside_bloodimpacts_ScalePlayerDamage", function()
+		return true
+	end)
 end
 
 if SERVER then
-    util.AddNetworkString("serverside_bloodimpacts")
+	util.AddNetworkString("serverside_bloodimpacts")
 
-    local maxplayers_bits = math.ceil(math.log(game.MaxPlayers()) / math.log(2))
+	local maxplayers_bits = math.ceil(math.log(game.MaxPlayers()) / math.log(2))
+	local dmgtypes = bit.bor(DMG_CRUSH, DMG_BULLET, DMG_SLASH, DMG_BLAST, DMG_CLUB, DMG_AIRBOAT)
 
-    local dmgtypes = bit.bor(DMG_CRUSH, DMG_BULLET, DMG_SLASH, DMG_BLAST, DMG_CLUB, DMG_AIRBOAT)
+	hook.Add("PlayerTraceAttack", "serverside_bloodimpacts_PlayerTraceAttack", function(victim, dmginfo, dir, trace)
+		if not IsValid(victim) then return end
 
-    hook.Add("PlayerTraceAttack", "serverside_bloodimpacts_PlayerTraceAttack", function(victim, dmginfo, dir, trace)
-        if not IsValid(victim) then
-            return
-        end
+		local dmg = dmginfo:GetDamage()
+		if not (dmg > 0 and dmginfo:IsDamageType(dmgtypes)) then return end
 
-        local dmg = dmginfo:GetDamage()
+		local attacker = dmginfo:GetAttacker()
 
-        if not (dmg > 0 and dmginfo:IsDamageType(dmgtypes)) then
-            return
-        end
+		if not (
+			IsValid(attacker)
+			and attacker:IsPlayer()
+			and not attacker:IsBot()
+		) then
+			return
+		end
 
-        local attacker = dmginfo:GetAttacker()
+		local blood = victim:GetBloodColor()
+		if blood == DONT_BLEED then return end
 
-        if not (
-            IsValid(attacker)
-            and attacker:IsPlayer()
-            and not attacker:IsBot()
-        ) then
-            return
-        end
-
-        local blood = victim:GetBloodColor()
-
-        if blood == DONT_BLEED then
-            return
-        end
-
-        net.Start("serverside_bloodimpacts")
-
-        net.WriteUInt(victim:EntIndex(), maxplayers_bits)
-
-        net.WriteUInt(blood, 3)
-
-        net.WriteNormal(dir)
-
-        net.WriteVector(trace.HitPos)
-
-        net.WriteUInt(
-            dmg < 10 and 0
-            or dmg < 25 and 1
-            or 2,
-            2
-        )
-
-        net.WriteBool(dmginfo:IsDamageType(DMG_AIRBOAT))
-
-        net.Send(attacker)
-    end)
+		net.Start("serverside_bloodimpacts")
+			net.WriteUInt(victim:EntIndex(), maxplayers_bits)
+			net.WriteUInt(blood, 3)
+			net.WriteNormal(dir)
+			net.WriteVector(trace.HitPos)
+			net.WriteUInt(
+				dmg < 10 and 0
+				or dmg < 25 and 1
+				or 2,
+				2
+			)
+			net.WriteBool(dmginfo:IsDamageType(DMG_AIRBOAT))
+		net.Send(attacker)
+	end)
 end

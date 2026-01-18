@@ -1,64 +1,56 @@
 LEADERBOARDS = {
-    ["Level"] = "Level",
-    ["Money Earned"] = "MoneyEarned",
-    ["Money Spent"] = "MoneySpent",
-    ["Time Played"] = "Time",
-    ["Stash Value"] = "StashValue",
-    ["Kills"] = "Kills",
-    ["Deaths"] = "Deaths",
-    ["Suicides"] = "Suicides",
-    ["Damage Dealt"] = "DamageDealt",
-    ["Damage Recieved"] = "DamageRecieved",
-    ["Health Healed"] = "HealthHealed",
-    ["Shots Fired"] = "ShotsFired",
-    ["Shots Hit"] = "ShotsHit",
-    ["Headshots"] = "Headshots",
-    ["Farthest Kill"] = "FarthestKill",
-    ["Raids Played"] = "RaidsPlayed",
-    ["Extractions"] = "Extractions",
-    ["Quits"] = "Quits",
-    ["Duels Played"] = "DuelsPlayed",
-    ["Duels Won"] = "DuelsWon",
-    ["Best Extraction Streak"] = "BestExtractionStreak",
-    ["Best Kill Streak"] = "BestKillStreak",
-    ["Best Duel Win Streak"] = "BestDuelWinStreak",
-    ["Items Looted"] = "ItemsLooted",
-    ["Containers Opened"] = "ContainersLooted",
-    ["Keys Used"] = "KeysUsed"
+	["Level"] = "Level",
+	["Money Earned"] = "MoneyEarned",
+	["Money Spent"] = "MoneySpent",
+	["Time Played"] = "Time",
+	["Stash Value"] = "StashValue",
+	["Kills"] = "Kills",
+	["Deaths"] = "Deaths",
+	["Suicides"] = "Suicides",
+	["Damage Dealt"] = "DamageDealt",
+	["Damage Recieved"] = "DamageRecieved",
+	["Health Healed"] = "HealthHealed",
+	["Shots Fired"] = "ShotsFired",
+	["Shots Hit"] = "ShotsHit",
+	["Headshots"] = "Headshots",
+	["Farthest Kill"] = "FarthestKill",
+	["Raids Played"] = "RaidsPlayed",
+	["Extractions"] = "Extractions",
+	["Quits"] = "Quits",
+	["Duels Played"] = "DuelsPlayed",
+	["Duels Won"] = "DuelsWon",
+	["Best Extraction Streak"] = "BestExtractionStreak",
+	["Best Kill Streak"] = "BestKillStreak",
+	["Best Duel Win Streak"] = "BestDuelWinStreak",
+	["Items Looted"] = "ItemsLooted",
+	["Containers Opened"] = "ContainersLooted",
+	["Keys Used"] = "KeysUsed"
 }
 
 if SERVER then
+	util.AddNetworkString("GrabLeaderboardData")
+	util.AddNetworkString("SendLeaderboardData")
 
-    util.AddNetworkString("GrabLeaderboardData")
-    util.AddNetworkString("SendLeaderboardData")
+	local LEADERBOARDSTRINGS = {}
 
-    local LEADERBOARDSTRINGS = {}
+	hook.Add("InitPostEntity", "LeaderboardInit", function()
+		for text, board in pairs(LEADERBOARDS) do
+			local str = util.TableToJSON(sql.Query("SELECT SteamID, Value FROM EFGMPlayerData64 WHERE Key = " .. SQLStr(board) .. " ORDER BY Value + 0 DESC LIMIT 100;") or {})
 
-    hook.Add("InitPostEntity", "LeaderboardInit", function()
+			str = util.Compress(str)
+			str = util.Base64Encode(str, true)
 
-        for text, board in pairs(LEADERBOARDS) do
+			LEADERBOARDSTRINGS[board] = str
+		end
+	end)
 
-            local str = util.TableToJSON(sql.Query("SELECT SteamID, Value FROM EFGMPlayerData64 WHERE Key = " .. SQLStr(board) .. " ORDER BY Value + 0 DESC LIMIT 100;") or {})
+	net.Receive("GrabLeaderboardData", function(len, ply)
+		local key = net.ReadString()
 
-            str = util.Compress(str)
-            str = util.Base64Encode(str, true)
+		local str = LEADERBOARDSTRINGS[key] or ""
 
-            LEADERBOARDSTRINGS[board] = str
-
-        end
-
-    end)
-
-    net.Receive("GrabLeaderboardData", function(len, ply)
-
-        local key = net.ReadString()
-
-        local str = LEADERBOARDSTRINGS[key] or ""
-
-        net.Start("SendLeaderboardData", true)
-        net.WriteString(str)
-        net.Send(ply)
-
-    end )
-
+		net.Start("SendLeaderboardData", true)
+			net.WriteString(str)
+		net.Send(ply)
+	end)
 end

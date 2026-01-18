@@ -4,18 +4,18 @@
 DEBUG = {}
 
 function DEBUG.NotImplemented(doHalt, layer)
-    doHalt = doHalt or false
-    layer = layer or 1
+	doHalt = doHalt or false
+	layer = layer or 1
 
-    local switch = {}
+	local switch = {}
 
-    switch[false] = function()
-        ErrorNoHaltWithStack("Function not implemented!")
-    end
+	switch[false] = function()
+		ErrorNoHaltWithStack("Function not implemented!")
+	end
 
-    switch[true] = function()
-        error("Function not implemented!", layer)
-    end
+	switch[true] = function()
+		error("Function not implemented!", layer)
+	end
 
-    switch[doHalt]()
+	switch[doHalt]()
 end

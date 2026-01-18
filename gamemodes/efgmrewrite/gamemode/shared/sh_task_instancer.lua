@@ -1,4 +1,3 @@
-
 TASKSTATUS = {}
 TASKSTATUS.InProgress = 1
 TASKSTATUS.Complete = 2
@@ -14,59 +13,36 @@ TASKSTATUSSTRING[4] = "Completion Pending"
 TASK = {}
 
 function TASK.Instantiate(name, status, progress, tempProgress)
+	if name == nil then return nil end
 
-    if name == nil then return nil end
+	local task = {}
 
-    local task = {}
+	local info = EFGMTASKS[name]
+	if info == nil then return nil end
 
-    local info = EFGMTASKS[name]
+	task.progress = {}
+	if progress == nil then
+		for k, v in ipairs(info.objectives) do
+			task.progress[k] = 0
+		end
+	else
+		task.progress = progress
+	end
 
-    if info == nil then return nil end
+	task.tempProgress = {}
+	if tempProgress == nil then
+		for k, v in ipairs(info.objectives) do
+			task.tempProgress[k] = 0
+		end
+	else
+		task.tempProgress = tempProgress
+	end
 
-    task.progress = {}
+	task.status = status or TASKSTATUS.AcceptPending
 
-    if progress == nil then
-
-        for k, v in ipairs(info.objectives) do
-
-            task.progress[k] = 0
-
-        end
-
-    else
-
-        task.progress = progress
-
-    end
-
-    task.tempProgress = {}
-
-    if tempProgress == nil then
-
-        for k, v in ipairs(info.objectives) do
-
-            task.tempProgress[k] = 0
-
-        end
-
-    else
-
-        task.tempProgress = tempProgress
-
-    end
-
-    task.status = status or TASKSTATUS.AcceptPending
-
-    return task
-
+	return task
 end
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
-
-    concommand.Add("efgm_debug_gettasks", function(ply, cmd, args)
-
-        PrintTable(ply.tasks)
-
-    end)
-
+	concommand.Add("efgm_debug_gettasks", function(ply, cmd, args) PrintTable(ply.tasks) end)
 end

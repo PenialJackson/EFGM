@@ -1,4 +1,3 @@
-
 util.AddNetworkString("PlayerReinstantiateInventory")
 util.AddNetworkString("PlayerInventoryReload")
 util.AddNetworkString("PlayerSlotsReload")
@@ -25,1462 +24,1172 @@ util.AddNetworkString("PlayerInventoryFixDesyncCL")
 util.AddNetworkString("efgm_sendpreset")
 
 function ReinstantiateInventory(ply)
+	ply.inventory = {}
+	ply.invStr = ""
 
-    ply.inventory = {}
-    ply.invStr = ""
+	local equMelee = table.Copy(ply.weaponSlots[WEAPONSLOTS.MELEE.ID])
 
-    local equMelee = table.Copy(ply.weaponSlots[WEAPONSLOTS.MELEE.ID])
+	ply.weaponSlots = {}
+	ply.equStr = ""
+	for k, v in pairs(WEAPONSLOTS) do
+		ply.weaponSlots[v.ID] = {}
+		for i = 1, v.COUNT, 1 do ply.weaponSlots[v.ID][i] = {} end
+	end
 
-    ply.weaponSlots = {}
-    ply.equStr = ""
-    for k, v in pairs(WEAPONSLOTS) do
+	if equMelee != nil then ply.weaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
 
-        ply.weaponSlots[v.ID] = {}
-        for i = 1, v.COUNT, 1 do ply.weaponSlots[v.ID][i] = {} end
-
-    end
-
-    if equMelee != nil then ply.weaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
-
-    CalculateInventoryWeight(ply)
-
+	CalculateInventoryWeight(ply)
 end
 
 function ReloadInventory(ply)
-
-    net.Start("PlayerInventoryReload", false)
-    net.Send(ply)
-
+	net.Start("PlayerInventoryReload", false)
+	net.Send(ply)
 end
 
 function ReloadSlots(ply)
-
-    net.Start("PlayerSlotsReload", false)
-    net.Send(ply)
-
+	net.Start("PlayerSlotsReload", false)
+	net.Send(ply)
 end
 
 function AddItemToInventory(ply, name, type, data)
+	if !ply:Alive() then return end
+	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
-    if !ply:Alive() then return end
-    if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	local def = EFGMITEMS[name]
 
-    local def = EFGMITEMS[name]
+	data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
 
-    data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
+	if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
+		data.owner = ply:SteamID64()
+		data.timestamp = os.time()
+	end
 
-    if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
+	local item = ITEM.Instantiate(name, type, data)
+	local index = table.insert(ply.inventory, item)
 
-        data.owner = ply:SteamID64()
-        data.timestamp = os.time()
+	net.Start("PlayerInventoryAddItem", false)
+		net.WriteString(name)
+		net.WriteUInt(type, 4)
+		net.WriteTable(data) -- writing a table isn't great but we ball for now
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-    end
+	AddWeightToPlayer(ply, name, data.count)
 
-    local item = ITEM.Instantiate(name, type, data)
-    local index = table.insert(ply.inventory, item)
+	if data.att then
+		local atts = GetPrefixedAttachmentListFromCode(data.att)
+		if !atts then return end
 
-    net.Start("PlayerInventoryAddItem", false)
-    net.WriteString(name)
-    net.WriteUInt(type, 4)
-    net.WriteTable(data) -- writing a table isn't great but we ball for now
-    net.WriteUInt(index, 16)
-    net.Send(ply)
+		for _, a in ipairs(atts) do
+			local att = EFGMITEMS[a]
+			if att == nil then continue end
 
-    AddWeightToPlayer(ply, name, data.count)
-
-    if data.att then
-
-        local atts = GetPrefixedAttachmentListFromCode(data.att)
-        if !atts then return end
-
-        for _, a in ipairs(atts) do
-
-            local att = EFGMITEMS[a]
-            if att == nil then continue end
-
-            AddWeightToPlayer(ply, a, 1)
-
-        end
-
-    end
-
+			AddWeightToPlayer(ply, a, 1)
+		end
+	end
 end
 
 function UpdateItemFromInventory(ply, index, data)
+	local item = ply.inventory[index]
+	local oldData = ply.inventory[index].data
 
-    local item = ply.inventory[index]
-    local oldData = ply.inventory[index].data
+	if oldData.count < data.count then
+		AddWeightToPlayer(ply, item.name, data.count - oldData.count)
+	elseif oldData.count > data.count then
+		RemoveWeightFromPlayer(ply, item.name, oldData.count - data.count)
+	end
 
-    if oldData.count < data.count then
+	ply.inventory[index].data = data
 
-        AddWeightToPlayer(ply, item.name, data.count - oldData.count)
+	net.Start("PlayerInventoryUpdateItem", false)
+		net.WriteTable(ply.inventory[index].data)
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-    elseif oldData.count > data.count then
-
-        RemoveWeightFromPlayer(ply, item.name, oldData.count - data.count)
-
-    end
-
-    ply.inventory[index].data = data
-
-    net.Start("PlayerInventoryUpdateItem", false)
-    net.WriteTable(ply.inventory[index].data)
-    net.WriteUInt(index, 16)
-    net.Send(ply)
-
-    return item
-
+	return item
 end
 
 function DeleteItemFromInventory(ply, index, isEquipped)
+	local item = ply.inventory[index]
 
-    local item = ply.inventory[index]
+	if !isEquipped then
+		RemoveWeightFromPlayer(ply, item.name, item.data.count)
 
-    if !isEquipped then
+		if item.data.att then
+			local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+			if !atts then return end
 
-        RemoveWeightFromPlayer(ply, item.name, item.data.count)
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
 
-        if item.data.att then
+				RemoveWeightFromPlayer(ply, a, 1)
+			end
+		end
+	end
 
-            local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-            if !atts then return end
+	table.remove(ply.inventory, index)
 
-            for _, a in ipairs(atts) do
+	net.Start("PlayerInventoryDeleteItem", false)
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-                local att = EFGMITEMS[a]
-                if att == nil then continue end
-
-                RemoveWeightFromPlayer(ply, a, 1)
-
-            end
-
-        end
-
-    end
-
-    table.remove(ply.inventory, index)
-
-    net.Start("PlayerInventoryDeleteItem", false)
-    net.WriteUInt(index, 16)
-    net.Send(ply)
-
-    return item
-
+	return item
 end
 
 function FlowItemToInventory(ply, name, type, data)
+	if !ply:Alive() then return end
+	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
-    if !ply:Alive() then return end
-    if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	local def = EFGMITEMS[name]
+	local stackSize = def.stackSize
+	local amount = tonumber(data.count) or 1
 
-    local def = EFGMITEMS[name]
-    local stackSize = def.stackSize
-    local amount = tonumber(data.count) or 1
+	if stackSize == 1 then -- items that can't stack do not need to flow (but they do need to be created multiple times lol!)
+		for i = 1, amount do
+			AddItemToInventory(ply, name, type, data)
+		end
 
-    if stackSize == 1 then -- items that can't stack do not need to flow (but they do need to be created multiple times lol!)
+		return
+	end
 
-        for i = 1, amount do
+	local inv = {}
+	for k, v in ipairs(ply.inventory) do
+		inv[k] = {}
+		inv[k].name = v.name
+		inv[k].data = v.data
+		inv[k].id = k
+	end
 
-            AddItemToInventory(ply, name, type, data)
+	table.sort(inv, function(a, b) return a.data.count > b.data.count end)
 
-        end
+	for k, v in ipairs(inv) do
+		if v.name == name and v.data.count != stackSize and amount > 0 then
+			local countToMax = stackSize - v.data.count
 
-        return
+			if amount >= countToMax then
+				local newData = {}
+				newData.count = stackSize
+				UpdateItemFromInventory(ply, v.id, newData)
+				amount = amount - countToMax
+			elseif amount < countToMax then
+				local newData = {}
+				newData.count = ply.inventory[v.id].data.count + amount
+				UpdateItemFromInventory(ply, v.id, newData)
+				amount = 0
+				break
+			end
+		end
+	end
 
-    end
-
-    local inv = {}
-
-    for k, v in ipairs(ply.inventory) do
-
-        inv[k] = {}
-        inv[k].name = v.name
-        inv[k].data = v.data
-        inv[k].id = k
-
-    end
-
-    table.sort(inv, function(a, b) return a.data.count > b.data.count end)
-
-    for k, v in ipairs(inv) do
-
-        if v.name == name and v.data.count != stackSize and amount > 0 then
-
-            local countToMax = stackSize - v.data.count
-
-            if amount >= countToMax then
-
-                local newData = {}
-                newData.count = stackSize
-                UpdateItemFromInventory(ply, v.id, newData)
-                amount = amount - countToMax
-
-            elseif amount < countToMax then
-
-                local newData = {}
-                newData.count = ply.inventory[v.id].data.count + amount
-                UpdateItemFromInventory(ply, v.id, newData)
-                amount = 0
-                break
-
-            end
-
-        end
-
-    end
-
-    -- if leftover after checking every similar item type
-    while amount > 0 do
-
-        if amount >= stackSize then
-
-            local newData = {}
-            newData.count = stackSize
-            AddItemToInventory(ply, name, type, newData)
-            amount = amount - stackSize
-
-        else
-
-            local newData = {}
-            newData.count = amount
-            AddItemToInventory(ply, name, type, newData)
-            break
-
-        end
-
-    end
-
+	-- if leftover after checking every similar item type
+	while amount > 0 do
+		if amount >= stackSize then
+			local newData = {}
+			newData.count = stackSize
+			AddItemToInventory(ply, name, type, newData)
+			amount = amount - stackSize
+		else
+			local newData = {}
+			newData.count = amount
+			AddItemToInventory(ply, name, type, newData)
+			break
+		end
+	end
 end
 
 function DeflowItemsFromInventory(ply, name, count)
+	local amount = count
 
-    local amount = count
-    local inv = {}
+	local inv = {}
+	for k, v in ipairs(ply.inventory) do
+		inv[k] = {}
+		inv[k].name = v.name
+		inv[k].data = v.data
+		inv[k].id = k
+	end
 
-    for k, v in ipairs(ply.inventory) do
+	table.sort(inv, function(a, b) return a.data.count < b.data.count end)
 
-        inv[k] = {}
-        inv[k].name = v.name
-        inv[k].data = v.data
-        inv[k].id = k
+	for k, v in ipairs(inv) do
+		if v.name == name and v.data.count > 0 and amount > 0 then
+			if amount >= v.data.count then
+				amount = amount - v.data.count
+				DeleteItemFromInventory(ply, v.id, false)
+				DeflowItemsFromInventory(ply, name, amount)
+				return
+			else
+				local newData = {}
+				newData.count = ply.inventory[v.id].data.count - amount
+				UpdateItemFromInventory(ply, v.id, newData)
+				break
+			end
+		end
+	end
 
-    end
-
-    table.sort(inv, function(a, b) return a.data.count < b.data.count end)
-
-    for k, v in ipairs(inv) do
-
-        if v.name == name and v.data.count > 0 and amount > 0 then
-
-            if amount >= v.data.count then
-
-                amount = amount - v.data.count
-                DeleteItemFromInventory(ply, v.id, false)
-                DeflowItemsFromInventory(ply, name, amount)
-                return
-
-            else
-
-                local newData = {}
-                newData.count = ply.inventory[v.id].data.count - amount
-                UpdateItemFromInventory(ply, v.id, newData)
-                break
-
-            end
-
-        end
-
-    end
-
-    return amount
-
+	return amount
 end
 
 net.Receive("PlayerInventoryDropItem", function(len, ply)
+	local itemIndex = net.ReadUInt(16)
+	local item = ply.inventory[itemIndex]
 
-    local itemIndex = net.ReadUInt(16)
-    local item = ply.inventory[itemIndex]
+	if ply:CompareStatus(3) then return end
 
-    if ply:CompareStatus(3) then return end
+	if item == nil then return false end
 
-    if table.IsEmpty(item) then return false end
+	entity = ents.Create("efgm_dropped_item")
+	entity:SetItem(item.name, item.type, item.data)
 
-    entity = ents.Create("efgm_dropped_item")
-    entity:SetItem(item.name, item.type, item.data)
+	local pos, ang = ply:GetShootPos(), ply:EyeAngles()
+	local dir = (ang:Forward() * 32) + (ang:Right() * 6) + (ang:Up() * -5)
 
-    local pos, ang = ply:GetShootPos(), ply:EyeAngles()
-    local dir = (ang:Forward() * 32) + (ang:Right() * 6) + (ang:Up() * -5)
+	entity:SetPos(pos + dir)
+	entity:Spawn()
+	entity:SetOwner(ply)
+	entity:PhysWake()
 
-    entity:SetPos(pos + dir)
-    entity:Spawn()
-    entity:SetOwner(ply)
-    entity:PhysWake()
+	local phys = entity:GetPhysicsObject()
+	if IsValid(phys) then
+		phys:ApplyForceCenter(ang:Forward() * 10)
+		phys:ApplyForceOffset(VectorRand(), vector_origin)
+	end
 
-    local phys = entity:GetPhysicsObject()
-    if IsValid(phys) then
-        phys:ApplyForceCenter(ang:Forward() * 10)
-        phys:ApplyForceOffset(VectorRand(), vector_origin)
-    end
+	table.remove(ply.inventory, itemIndex)
+	RemoveWeightFromPlayer(ply, item.name, item.data.count)
 
-    table.remove(ply.inventory, itemIndex)
-    RemoveWeightFromPlayer(ply, item.name, item.data.count)
+	if item.data.att then
+		local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+		if !atts then return end
 
-    if item.data.att then
+		for _, a in ipairs(atts) do
+			local att = EFGMITEMS[a]
+			if att == nil then continue end
 
-        local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-        if !atts then return end
-
-        for _, a in ipairs(atts) do
-
-            local att = EFGMITEMS[a]
-            if att == nil then continue end
-
-            RemoveWeightFromPlayer(ply, a, 1)
-
-        end
-
-    end
-
+			RemoveWeightFromPlayer(ply, a, 1)
+		end
+	end
 end)
 
 net.Receive("PlayerInventoryEquipItem", function(len, ply)
+	local itemIndex, equipSlot, equipSubSlot
 
-    local itemIndex, equipSlot, equipSubSlot
+	itemIndex = net.ReadUInt(16)
+	equipSlot = net.ReadUInt(4)
+	equipSubSlot = net.ReadUInt(4)
 
-    itemIndex = net.ReadUInt(16)
-    equipSlot = net.ReadUInt(4)
-    equipSubSlot = net.ReadUInt(4)
+	local item = ply.inventory[itemIndex]
+	if item == nil then return end
 
-    local item = ply.inventory[itemIndex]
-    if item == nil then return end
+	if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end -- can't have multiple of the same item
 
-    if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end -- can't have multiple of the same item
+	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
+		if !item.data.owner or !item.data.timestamp then
+			item.data.owner = ply:SteamID64()
+			item.data.timestamp = os.time()
+		end
 
-    if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
+		DeleteItemFromInventory(ply, itemIndex, true)
+		ply.weaponSlots[equipSlot][equipSubSlot] = item
 
-        if !item.data.owner or !item.data.timestamp then
+		GiveWepWithPresetFromCode(ply, item.name, item.data)
+	end
 
-            item.data.owner = ply:SteamID64()
-            item.data.timestamp = os.time()
-
-        end
-
-        DeleteItemFromInventory(ply, itemIndex, true)
-        ply.weaponSlots[equipSlot][equipSubSlot] = item
-
-        GiveWepWithPresetFromCode(ply, item.name, item.data)
-
-    end
-
-    ReloadSlots(ply)
-    ReloadInventory(ply)
-
+	ReloadSlots(ply)
+	ReloadInventory(ply)
 end)
 
 net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
+	local equipID = net.ReadUInt(4)
+	local equipSlot = net.ReadUInt(4)
 
-    local equipID = net.ReadUInt(4)
-    local equipSlot = net.ReadUInt(4)
+	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
-    if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+	if table.IsEmpty(item) then return end
 
-    local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+	table.Empty(ply.weaponSlots[equipID][equipSlot])
 
-    if table.IsEmpty(item) then return end
+	local wep = ply:GetWeapon(item.name)
 
-    table.Empty(ply.weaponSlots[equipID][equipSlot])
+	if wep != NULL and item.data.att then
+		local atts = table.Copy(wep.Attachments)
+		local str = GenerateAttachString(atts)
+		item.data.att = str
+	end
 
-    local wep = ply:GetWeapon(item.name)
+	local def = EFGMITEMS[item.name]
 
-    if wep != NULL and item.data.att then
+	if wep != NULL and def.displayType != "Grenade" then
+		local clip1 = wep:Clip1()
+		local ammoDef = EFGMITEMS[wep.Ammo]
 
-        local atts = table.Copy(wep.Attachments)
-        local str = GenerateAttachString(atts)
-        item.data.att = str
+		if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+			local data = {}
+			data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
+			FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+		end
 
-    end
+		local clip2 = wep:Clip2()
+		local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
 
-    local def = EFGMITEMS[item.name]
-    if wep != NULL and def.displayType != "Grenade" then
+		if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
+			local data = {}
+			data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
+			FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+		end
+	end
 
-        local clip1 = wep:Clip1()
-        local ammoDef = EFGMITEMS[wep.Ammo]
-        if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+	ply:StripWeapon(item.name)
 
-            local data = {}
-            data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-            FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+	local newItem = ITEM.Instantiate(item.name, item.type, item.data)
+	local index = table.insert(ply.inventory, newItem)
 
-        end
+	net.Start("PlayerInventoryAddItem", false)
+		net.WriteString(item.name)
+		net.WriteUInt(item.type, 4)
+		net.WriteTable(item.data)
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-        local clip2 = wep:Clip2()
-        local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
-        if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
-
-            local data = {}
-            data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-            FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
-
-        end
-
-    end
-
-    ply:StripWeapon(item.name)
-
-    local newItem = ITEM.Instantiate(item.name, item.type, item.data)
-    local index = table.insert(ply.inventory, newItem)
-
-    net.Start("PlayerInventoryAddItem", false)
-    net.WriteString(item.name)
-    net.WriteUInt(item.type, 4)
-    net.WriteTable(item.data)
-    net.WriteUInt(index, 16)
-    net.Send(ply)
-
-    ReloadInventory(ply)
-    ReloadSlots(ply)
-
+	ReloadInventory(ply)
+	ReloadSlots(ply)
 end)
 
 function UnequipAll(ply)
+	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
-    if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		if i == WEAPONSLOTS.MELEE.ID then continue end
 
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if !table.IsEmpty(v) then
+				local item = table.Copy(v)
+				if item == nil then return end
 
-        if i == WEAPONSLOTS.MELEE.ID then continue end
+				table.Empty(ply.weaponSlots[i][k])
 
-        for k, v in ipairs(ply.weaponSlots[i]) do
+				local wep = ply:GetWeapon(item.name)
 
-            if !table.IsEmpty(v) then
+				if wep != NULL and item.data.att then
+					local atts = table.Copy(wep.Attachments)
+					local str = GenerateAttachString(atts)
+					item.data.att = str
+				end
 
-                local item = table.Copy(v)
+				local def = EFGMITEMS[item.name]
 
-                if item == nil then return end
+				if wep != NULL and def.displayType != "Grenade" then
+					local clip1 = wep:Clip1()
+					local ammoDef = EFGMITEMS[wep.Ammo]
 
-                table.Empty(ply.weaponSlots[i][k])
+					if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+						local data = {}
+						data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
+						FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+					end
 
-                local wep = ply:GetWeapon(item.name)
+					local clip2 = wep:Clip2()
+					local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
 
-                if wep != NULL and item.data.att then
+					if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
+						local data = {}
+						data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
+						FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+					end
+				end
 
-                    local atts = table.Copy(wep.Attachments)
-                    local str = GenerateAttachString(atts)
-                    item.data.att = str
+				local newItem = ITEM.Instantiate(item.name, item.type, item.data)
+				local index = table.insert(ply.inventory, newItem)
 
-                end
+				net.Start("PlayerInventoryAddItem", false)
+					net.WriteString(item.name)
+					net.WriteUInt(item.type, 4)
+					net.WriteTable(item.data)
+					net.WriteUInt(index, 16)
+				net.Send(ply)
 
-                local def = EFGMITEMS[item.name]
-                if wep != NULL and def.displayType != "Grenade" then
+				ply:StripWeapon(item.name)
 
-                    local clip1 = wep:Clip1()
-                    local ammoDef = EFGMITEMS[wep.Ammo]
-                    if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+				net.Start("PlayerInventoryUnEquipAll")
+				net.Send(ply)
+			end
+		end
+	end
 
-                        local data = {}
-                        data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-                        FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
-
-                    end
-
-                    local clip2 = wep:Clip2()
-                    local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
-                    if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
-
-                        local data = {}
-                        data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-                        FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
-
-                    end
-
-                end
-
-                local newItem = ITEM.Instantiate(item.name, item.type, item.data)
-                local index = table.insert(ply.inventory, newItem)
-
-                net.Start("PlayerInventoryAddItem", false)
-                net.WriteString(item.name)
-                net.WriteUInt(item.type, 4)
-                net.WriteTable(item.data)
-                net.WriteUInt(index, 16)
-                net.Send(ply)
-
-                ply:StripWeapon(item.name)
-
-                net.Start("PlayerInventoryUnEquipAll")
-                net.Send(ply)
-
-            end
-
-        end
-
-    end
-
-    ReloadInventory(ply)
-
+	ReloadInventory(ply)
 end
 
 net.Receive("PlayerInventoryUnEquipAllCL", function(len, ply)
-
-    UnequipAll(ply)
-
+	UnequipAll(ply)
 end)
 
 function UnequipAllFirearms(ply)
+	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
-    if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		if i == WEAPONSLOTS.MELEE.ID then continue end
 
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if !table.IsEmpty(v) then
+				local item = table.Copy(v)
+				if item == nil then return end
 
-        if i == WEAPONSLOTS.MELEE.ID then continue end
+				table.Empty(ply.weaponSlots[i][k])
 
-        for k, v in ipairs(ply.weaponSlots[i]) do
+				local wep = ply:GetWeapon(item.name)
 
-            if !table.IsEmpty(v) then
+				if wep != NULL and item.data.att then
+					local atts = table.Copy(wep.Attachments)
+					local str = GenerateAttachString(atts)
+					item.data.att = str
+				end
 
-                local item = table.Copy(v)
+				local def = EFGMITEMS[item.name]
 
-                if item == nil then return end
+				if wep != NULL and def.displayType != "Grenade" then
+					local clip1 = wep:Clip1()
+					local ammoDef = EFGMITEMS[wep.Ammo]
 
-                table.Empty(ply.weaponSlots[i][k])
+					if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+						local data = {}
+						data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
+						FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+					end
 
-                local wep = ply:GetWeapon(item.name)
+					local clip2 = wep:Clip2()
+					local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
 
-                if wep != NULL and item.data.att then
+					if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
+						local data = {}
+						data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
+						FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+					end
+				end
 
-                    local atts = table.Copy(wep.Attachments)
-                    local str = GenerateAttachString(atts)
-                    item.data.att = str
+				local newItem = ITEM.Instantiate(item.name, item.type, item.data)
+				local index = table.insert(ply.inventory, newItem)
 
-                end
+				net.Start("PlayerInventoryAddItem", false)
+					net.WriteString(item.name)
+					net.WriteUInt(item.type, 4)
+					net.WriteTable(item.data)
+					net.WriteUInt(index, 16)
+				net.Send(ply)
 
-                local def = EFGMITEMS[item.name]
-                if wep != NULL and def.displayType != "Grenade" then
+				net.Start("PlayerInventoryUnEquipAll")
+				net.Send(ply)
+			end
+		end
+	end
 
-                    local clip1 = wep:Clip1()
-                    local ammoDef = EFGMITEMS[wep.Ammo]
-                    if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
-
-                        local data = {}
-                        data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-                        FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
-
-                    end
-
-                    local clip2 = wep:Clip2()
-                    local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
-                    if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
-
-                        local data = {}
-                        data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-                        FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
-
-                    end
-
-                end
-
-                local newItem = ITEM.Instantiate(item.name, item.type, item.data)
-                local index = table.insert(ply.inventory, newItem)
-
-                net.Start("PlayerInventoryAddItem", false)
-                net.WriteString(item.name)
-                net.WriteUInt(item.type, 4)
-                net.WriteTable(item.data)
-                net.WriteUInt(index, 16)
-                net.Send(ply)
-
-                net.Start("PlayerInventoryUnEquipAll")
-                net.Send(ply)
-
-            end
-
-        end
-
-    end
-
-    ReloadInventory(ply)
-
+	ReloadInventory(ply)
 end
 
 function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if table.IsEmpty(v) then continue end
 
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
+			if v.name == itemName then
+				local oldAtts = v.data.att
 
-        for k, v in ipairs(ply.weaponSlots[i]) do
+				local atts = table.Copy(attsTbl)
+				local str = GenerateAttachString(atts)
+				v.data.att = str
 
-            if table.IsEmpty(v) then continue end
+				if oldAtts != str then
+					local oldAttsTbl = GetPrefixedAttachmentListFromCode(oldAtts)
+					if !oldAttsTbl then return end
 
-            if v.name == itemName then
+					for _, a in ipairs(oldAttsTbl) do
+						local att = EFGMITEMS[a]
+						if att == nil then continue end
 
-                local oldAtts = v.data.att
+						RemoveWeightFromPlayer(ply, a, 1)
+					end
 
-                local atts = table.Copy(attsTbl)
-                local str = GenerateAttachString(atts)
-                v.data.att = str
+					local newAttsTbl = GetPrefixedAttachmentListFromCode(str)
+					if !newAttsTbl then return end
 
-                if oldAtts != str then
+					for _, a in ipairs(newAttsTbl) do
+						local att = EFGMITEMS[a]
+						if att == nil then continue end
 
-                    local oldAttsTbl = GetPrefixedAttachmentListFromCode(oldAtts)
-                    if !oldAttsTbl then return end
+						AddWeightToPlayer(ply, a, 1)
+					end
+				end
 
-                    for _, a in ipairs(oldAttsTbl) do
+				net.Start("PlayerInventoryUpdateEquipped", false)
+					net.WriteTable(v.data)
+					net.WriteUInt(i, 16)
+					net.WriteUInt(k, 16)
+				net.Send(ply)
 
-                        local att = EFGMITEMS[a]
-                        if att == nil then continue end
-
-                        RemoveWeightFromPlayer(ply, a, 1)
-
-                    end
-
-                    local newAttsTbl = GetPrefixedAttachmentListFromCode(str)
-                    if !newAttsTbl then return end
-
-                    for _, a in ipairs(newAttsTbl) do
-
-                        local att = EFGMITEMS[a]
-                        if att == nil then continue end
-
-                        AddWeightToPlayer(ply, a, 1)
-
-                    end
-
-                end
-
-                net.Start("PlayerInventoryUpdateEquipped", false)
-                net.WriteTable(v.data)
-                net.WriteUInt(i, 16)
-                net.WriteUInt(k, 16)
-                net.Send(ply)
-
-                return
-
-            end
-
-        end
-
-    end
-
+				return
+			end
+		end
+	end
 end
 
 function MatchClassWithEquipped(ply, itemName)
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if table.IsEmpty(v) then continue end
 
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
+			if v.name == itemName then
+				return v
+			end
+		end
+	end
 
-        for k, v in ipairs(ply.weaponSlots[i]) do
-
-            if table.IsEmpty(v) then continue end
-
-            if v.name == itemName then
-
-                return v
-
-            end
-
-        end
-
-    end
-
-    return nil
-
+	return nil
 end
 
 net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
+	local equipID = net.ReadUInt(4)
+	local equipSlot = net.ReadUInt(4)
 
-    local equipID = net.ReadUInt(4)
-    local equipSlot = net.ReadUInt(4)
+	if ply:CompareStatus(3) then return end
 
-    if ply:CompareStatus(3) then return end
+	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+	if table.IsEmpty(item) then return end
 
-    local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+	table.Empty(ply.weaponSlots[equipID][equipSlot])
 
-    if table.IsEmpty(item) then return end
+	ply:StripWeapon(item.name)
 
-    table.Empty(ply.weaponSlots[equipID][equipSlot])
+	entity = ents.Create("efgm_dropped_item")
+	entity:SetItem(item.name, item.type, item.data)
 
-    ply:StripWeapon(item.name)
+	local pos, ang = ply:GetShootPos(), ply:EyeAngles()
+	local dir = (ang:Forward() * 32) + (ang:Right() * 6) + (ang:Up() * -5)
 
-    entity = ents.Create("efgm_dropped_item")
-    entity:SetItem(item.name, item.type, item.data)
+	entity:SetPos(pos + dir)
+	entity:Spawn()
+	entity:SetOwner(ply)
+	entity:PhysWake()
 
-    local pos, ang = ply:GetShootPos(), ply:EyeAngles()
-    local dir = (ang:Forward() * 32) + (ang:Right() * 6) + (ang:Up() * -5)
+	local phys = entity:GetPhysicsObject()
+	if IsValid(phys) then
+		phys:ApplyForceCenter(ang:Forward() * 10)
+		phys:ApplyForceOffset(VectorRand(), vector_origin)
+	end
 
-    entity:SetPos(pos + dir)
-    entity:Spawn()
-    entity:SetOwner(ply)
-    entity:PhysWake()
+	RemoveWeightFromPlayer(ply, item.name, item.data.count)
 
-    local phys = entity:GetPhysicsObject()
-    if IsValid(phys) then
-        phys:ApplyForceCenter(ang:Forward() * 10)
-        phys:ApplyForceOffset(VectorRand(), vector_origin)
-    end
+	if item.data.att then
+		local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+		if !atts then return end
 
-    RemoveWeightFromPlayer(ply, item.name, item.data.count)
+		for _, a in ipairs(atts) do
+			local att = EFGMITEMS[a]
+			if att == nil then continue end
 
-    if item.data.att then
-
-        local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-        if !atts then return end
-
-        for _, a in ipairs(atts) do
-
-            local att = EFGMITEMS[a]
-            if att == nil then continue end
-
-            RemoveWeightFromPlayer(ply, a, 1)
-
-        end
-
-    end
-
+			RemoveWeightFromPlayer(ply, a, 1)
+		end
+	end
 end)
 
 net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
+	local container = net.ReadEntity()
+	local index = net.ReadUInt(16)
 
-    local container = net.ReadEntity()
-    local index = net.ReadUInt(16)
+	if !ply:Alive() then return end
+	if container == nil then return end
 
-    if !ply:Alive() then return end
-    if container == nil then return end
+	local newItem = table.Copy(container.Inventory[index])
+	if newItem == nil then return end
 
-    local newItem = table.Copy(container.Inventory[index])
-    if newItem == nil then return end
+	local def = EFGMITEMS[newItem.name]
 
-    local def = EFGMITEMS[newItem.name]
+	if def.equipType == EQUIPTYPE.Weapon and (!newItem.data.owner or !newItem.data.timestamp) then
+		newItem.data.owner = ply:SteamID64()
+		newItem.timestamp = os.time()
+	end
 
-    if def.equipType == EQUIPTYPE.Weapon and (!newItem.data.owner or !newItem.data.timestamp) then
+	FlowItemToInventory(ply, newItem.name, newItem.type, newItem.data)
 
-        newItem.data.owner = ply:SteamID64()
-        newItem.timestamp = os.time()
+	ReloadInventory(ply)
 
-    end
+	if !ply:CompareStatus(0) and !ply:CompareStatus(3) then
+		ply:SetNWInt("ItemsLooted", ply:GetNWInt("ItemsLooted") + 1)
+		ply:SetNWInt("RaidItemsLooted", ply:GetNWInt("RaidItemsLooted") + 1)
+	end
 
-    FlowItemToInventory(ply, newItem.name, newItem.type, newItem.data)
+	table.remove(container.Inventory, index)
 
-    ReloadInventory(ply)
-
-    if !ply:CompareStatus(0) and !ply:CompareStatus(3) then
-
-        ply:SetNWInt("ItemsLooted", ply:GetNWInt("ItemsLooted") + 1)
-        ply:SetNWInt("RaidItemsLooted", ply:GetNWInt("RaidItemsLooted") + 1)
-
-    end
-
-    table.remove(container.Inventory, index)
-
-    if table.IsEmpty(container.Inventory) then container:Remove() end
-
+	if table.IsEmpty(container.Inventory) then container:Remove() end
 end)
 
 net.Receive("PlayerInventoryEquipItemFromContainer", function(len, ply)
+	local container = net.ReadEntity()
+	local index = net.ReadUInt(16)
+	local equipSlot = net.ReadUInt(4)
+	local equipSubSlot = net.ReadUInt(4)
 
-    local container = net.ReadEntity()
-    local index = net.ReadUInt(16)
-    local equipSlot = net.ReadUInt(4)
-    local equipSubSlot = net.ReadUInt(4)
+	if !ply:Alive() then return end
+	if container == nil then return end
 
-    if !ply:Alive() then return end
-    if container == nil then return end
+	local newItem = table.Copy(container.Inventory[index])
+	if newItem == nil then return end
 
-    local newItem = table.Copy(container.Inventory[index])
-    if newItem == nil then return end
+	if AmountInInventory(ply.weaponSlots[equipSlot], newItem.name) > 0 then return end -- can't have multiple of the same item
 
-    if AmountInInventory(ply.weaponSlots[equipSlot], newItem.name) > 0 then return end -- can't have multiple of the same item
+	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
+		if !newItem.data.owner or !newItem.data.timestamp then
+			newItem.data.owner = ply:SteamID64()
+			newItem.data.timestamp = os.time()
+		end
 
-    if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
+		table.remove(container.Inventory, index)
+		ply.weaponSlots[equipSlot][equipSubSlot] = newItem
 
-        if !newItem.data.owner or !newItem.data.timestamp then
+		GiveWepWithPresetFromCode(ply, newItem.name, newItem.data)
+	end
 
-            newItem.data.owner = ply:SteamID64()
-            newItem.data.timestamp = os.time()
+	ReloadSlots(ply)
 
-        end
-
-        table.remove(container.Inventory, index)
-        ply.weaponSlots[equipSlot][equipSubSlot] = newItem
-
-        GiveWepWithPresetFromCode(ply, newItem.name, newItem.data)
-
-    end
-
-    ReloadSlots(ply)
-
-    if table.IsEmpty(container.Inventory) then container:Remove() end
-
+	if table.IsEmpty(container.Inventory) then container:Remove() end
 end)
 
 net.Receive("PlayerInventorySplit", function(len, ply)
+	local invType = net.ReadString()
+	local item = net.ReadString()
+	local count = net.ReadUInt(8)
+	local key = net.ReadUInt(16)
 
-    local invType = net.ReadString()
-    local item = net.ReadString()
-    local count = net.ReadUInt(8)
-    local key = net.ReadUInt(16)
+	if !ply:CompareStatus(0) and invType == "stash" then return false end
 
-    if !ply:CompareStatus(0) and invType == "stash" then return false end
+	local def = EFGMITEMS[item]
+	if def == nil then return end
 
-    local def = EFGMITEMS[item]
+	if invType == "inv" then
+		local data = ply.inventory[key].data
 
-    if invType == "inv" then
+		if AmountInInventory(ply.inventory, item) < count then return false end
 
-        local data = ply.inventory[key].data
+		local newData = table.Copy(data)
+		newData.count = data.count - count
+		UpdateItemFromInventory(ply, key, newData)
 
-        if AmountInInventory(ply.inventory, item) < count then return false end
+		local newNewData = table.Copy(data) -- fuck
+		newNewData.count = count
+		AddItemToInventory(ply, item, def.equipType, newNewData)
 
-        local newData = table.Copy(data)
-        newData.count = data.count - count
-        UpdateItemFromInventory(ply, key, newData)
+		ReloadInventory(ply)
+		return true
+	elseif invType == "stash" then
+		local data = ply.stash[key].data
 
-        local newNewData = table.Copy(data) -- fuck
-        newNewData.count = count
-        AddItemToInventory(ply, item, def.equipType, newNewData)
+		if AmountInInventory(ply.stash, item) < count then return false end
 
-        ReloadInventory(ply)
+		local newData = table.Copy(data)
+		newData.count = data.count - count
+		UpdateItemFromStash(ply, key, newData)
 
-        return true
+		local newNewData = table.Copy(data) -- fuckkkk
+		newNewData.count = count
+		AddItemToStash(ply, item, def.equipType, newNewData)
 
-    elseif invType == "stash" then
-
-        local data = ply.stash[key].data
-
-        if AmountInInventory(ply.stash, item) < count then return false end
-
-        local newData = table.Copy(data)
-        newData.count = data.count - count
-        UpdateItemFromStash(ply, key, newData)
-
-        local newNewData = table.Copy(data) -- fuckkkk
-        newNewData.count = count
-        AddItemToStash(ply, item, def.equipType, newNewData)
-
-        ReloadStash(ply)
-
-        return true
-
-    end
-
+		ReloadStash(ply)
+		return true
+	end
 end)
 
 net.Receive("PlayerInventoryDelete", function(len, ply)
+	local invType = net.ReadString()
+	local key = net.ReadUInt(16)
+	local equipID = net.ReadUInt(4)
+	local equipSlot = net.ReadUInt(4)
 
-    local invType = net.ReadString()
-    local key = net.ReadUInt(16)
-    local equipID = net.ReadUInt(4)
-    local equipSlot = net.ReadUInt(4)
+	if !ply:CompareStatus(0) and invType == "stash" then return false end
 
-    if !ply:CompareStatus(0) and invType == "stash" then return false end
+	if invType == "inv" then
+		local item = ply.inventory[key]
+		if item == nil then return end
 
-    if invType == "inv" then
+		RemoveWeightFromPlayer(ply, item.name, item.data.count)
 
-        local item = ply.inventory[key]
+		if item.data.att then
+			local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+			if !atts then return end
 
-        RemoveWeightFromPlayer(ply, item.name, item.data.count)
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
 
-        if item.data.att then
+				RemoveWeightFromPlayer(ply, a, 1)
+			end
+		end
 
-            local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-            if !atts then return end
+		table.remove(ply.inventory, key)
 
-            for _, a in ipairs(atts) do
+		net.Start("PlayerInventoryDeleteItem", false)
+			net.WriteUInt(key, 16)
+		net.Send(ply)
 
-                local att = EFGMITEMS[a]
-                if att == nil then continue end
+		ReloadInventory(ply)
+		return true
+	elseif invType == "stash" then
+		table.remove(ply.stash, key)
 
-                RemoveWeightFromPlayer(ply, a, 1)
+		net.Start("PlayerStashDeleteItem", false)
+			net.WriteUInt(key, 16)
+		net.Send(ply)
 
-            end
+		ReloadStash(ply)
+		ply:SetNWInt("StashCount", #ply.stash)
+		return true
+	elseif invType == "equipped" then
+		if ply:CompareStatus(3) then return end
 
-        end
+		local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+		if table.IsEmpty(item) then return end
 
-        table.remove(ply.inventory, key)
+		table.Empty(ply.weaponSlots[equipID][equipSlot])
 
-        net.Start("PlayerInventoryDeleteItem", false)
-        net.WriteUInt(key, 16)
-        net.Send(ply)
+		ply:StripWeapon(item.name)
 
-        ReloadInventory(ply)
+		net.Start("PlayerInventoryDeleteEquippedItem", false)
+			net.WriteUInt(equipID, 4)
+			net.WriteUInt(equipSlot, 4)
+		net.Send(ply)
 
-        return true
+		RemoveWeightFromPlayer(ply, item.name, item.data.count)
 
-    elseif invType == "stash" then
+		if item.data.att then
+			local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+			if !atts then return end
 
-        table.remove(ply.stash, key)
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
 
-        net.Start("PlayerStashDeleteItem", false)
-        net.WriteUInt(key, 16)
-        net.Send(ply)
+				RemoveWeightFromPlayer(ply, a, 1)
+			end
+		end
 
-        ReloadStash(ply)
-
-        ply:SetNWInt("StashCount", #ply.stash)
-
-        return true
-
-    elseif invType == "equipped" then
-
-        if ply:CompareStatus(3) then return end
-
-        local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
-
-        table.Empty(ply.weaponSlots[equipID][equipSlot])
-
-        ply:StripWeapon(item.name)
-
-        net.Start("PlayerInventoryDeleteEquippedItem", false)
-        net.WriteUInt(equipID, 4)
-        net.WriteUInt(equipSlot, 4)
-        net.Send(ply)
-
-        RemoveWeightFromPlayer(ply, item.name, item.data.count)
-
-        if item.data.att then
-
-            local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-            if !atts then return end
-
-            for _, a in ipairs(atts) do
-
-                local att = EFGMITEMS[a]
-                if att == nil then continue end
-
-                RemoveWeightFromPlayer(ply, a, 1)
-
-            end
-
-        end
-
-        return true
-
-    end
-
+		return true
+	end
 end)
 
 net.Receive("PlayerInventoryTag", function(len, ply)
+	local tag = net.ReadString()
+	local invType = net.ReadString()
+	local key = net.ReadUInt(16)
+	local equipID = net.ReadUInt(4)
+	local equipSlot = net.ReadUInt(4)
 
-    local tag = net.ReadString()
-    local invType = net.ReadString()
-    local key = net.ReadUInt(16)
-    local equipID = net.ReadUInt(4)
-    local equipSlot = net.ReadUInt(4)
+	if !ply:CompareStatus(0) then return false end
 
-    if !ply:CompareStatus(0) then return false end
+	if invType == "inv" then
+		if ply.inventory[key].data.tag != nil then return end
+		ply.inventory[key].data.tag = tag
+		ply.inventory[key].data.taggedBy = ply:SteamID64()
 
-    if invType == "inv" then
+		net.Start("PlayerInventoryUpdateItem", false)
+			net.WriteTable(ply.inventory[key].data)
+			net.WriteUInt(key, 16)
+		net.Send(ply)
 
-        if ply.inventory[key].data.tag != nil then return end
-        ply.inventory[key].data.tag = tag
-        ply.inventory[key].data.taggedBy = ply:SteamID64()
+		ReloadInventory(ply)
+		return true
+	elseif invType == "stash" then
+		if ply.stash[key].data.tag != nil then return end
+		ply.stash[key].data.tag = tag
+		ply.stash[key].data.taggedBy = ply:SteamID64()
 
-        net.Start("PlayerInventoryUpdateItem", false)
-        net.WriteTable(ply.inventory[key].data)
-        net.WriteUInt(key, 16)
-        net.Send(ply)
+		net.Start("PlayerStashUpdateItem", false)
+			net.WriteTable(ply.stash[key].data)
+			net.WriteUInt(key, 16)
+		net.Send(ply)
 
-        ReloadInventory(ply)
+		ReloadStash(ply)
+		ply:SetNWInt("StashCount", #ply.stash)
+		return true
+	elseif invType == "equipped" then
+		if ply.weaponSlots[equipID][equipSlot].data.tag != nil then return end
+		ply.weaponSlots[equipID][equipSlot].data.tag = tag
+		ply.weaponSlots[equipID][equipSlot].data.taggedBy = ply:SteamID64()
 
-        return true
+		net.Start("PlayerInventoryUpdateEquipped", false)
+			net.WriteTable(ply.weaponSlots[equipID][equipSlot].data)
+			net.WriteUInt(equipID, 16)
+			net.WriteUInt(equipSlot, 16)
+		net.Send(ply)
 
-    elseif invType == "stash" then
-
-        if ply.stash[key].data.tag != nil then return end
-        ply.stash[key].data.tag = tag
-        ply.stash[key].data.taggedBy = ply:SteamID64()
-
-        net.Start("PlayerStashUpdateItem", false)
-        net.WriteTable(ply.stash[key].data)
-        net.WriteUInt(key, 16)
-        net.Send(ply)
-
-        ReloadStash(ply)
-        ply:SetNWInt("StashCount", #ply.stash)
-
-        return true
-
-    elseif invType == "equipped" then
-
-        if ply.weaponSlots[equipID][equipSlot].data.tag != nil then return end
-        ply.weaponSlots[equipID][equipSlot].data.tag = tag
-        ply.weaponSlots[equipID][equipSlot].data.taggedBy = ply:SteamID64()
-
-        net.Start("PlayerInventoryUpdateEquipped", false)
-        net.WriteTable(ply.weaponSlots[equipID][equipSlot].data)
-        net.WriteUInt(equipID, 16)
-        net.WriteUInt(equipSlot, 16)
-        net.Send(ply)
-
-        return true
-
-    end
-
+		return true
+	end
 end)
 
 function ConsumeGrenade(ply)
+	local item = ply.weaponSlots[4][1].name
+	if item == nil then return end
 
-    local item = ply.weaponSlots[4][1].name
+	table.Empty(ply.weaponSlots[4][1])
 
-    table.Empty(ply.weaponSlots[4][1])
+	RemoveWeightFromPlayer(ply, item, 1)
+	ply:StripWeapon(item)
 
-    RemoveWeightFromPlayer(ply, item, 1)
-    ply:StripWeapon(item)
-
-    net.Start("PlayerInventoryConsumeGrenade", false)
-    net.Send(ply)
-
+	net.Start("PlayerInventoryConsumeGrenade", false)
+	net.Send(ply)
 end
 
 function RemoveConsumable(ply)
+	local item = ply.weaponSlots[5][1].name
+	if item == nil then return end
 
-    local item = ply.weaponSlots[5][1].name
+	table.Empty(ply.weaponSlots[5][1])
 
-    table.Empty(ply.weaponSlots[5][1])
+	RemoveWeightFromPlayer(ply, item, 1)
+	ply:StripWeapon(item)
 
-    RemoveWeightFromPlayer(ply, item, 1)
-    ply:StripWeapon(item)
-
-    net.Start("PlayerInventoryRemoveConsumable", false)
-    net.Send(ply)
-
+	net.Start("PlayerInventoryRemoveConsumable", false)
+	net.Send(ply)
 end
 
 function UpdateInventoryString(ply)
+	local inventoryStr = util.TableToJSON(ply.inventory)
+	inventoryStr = util.Compress(inventoryStr)
+	inventoryStr = util.Base64Encode(inventoryStr, true)
+	ply.invStr = inventoryStr
 
-    local inventoryStr = util.TableToJSON(ply.inventory)
-    inventoryStr = util.Compress(inventoryStr)
-    inventoryStr = util.Base64Encode(inventoryStr, true)
-    ply.invStr = inventoryStr
-    return inventoryStr
-
+	return inventoryStr
 end
 
 function UpdateEquippedString(ply)
+	local equippedStr = util.TableToJSON(ply.weaponSlots)
+	equippedStr = util.Compress(equippedStr)
+	equippedStr = util.Base64Encode(equippedStr, true)
+	ply.equStr = equippedStr
 
-    local equippedStr = util.TableToJSON(ply.weaponSlots)
-    equippedStr = util.Compress(equippedStr)
-    equippedStr = util.Base64Encode(equippedStr, true)
-    ply.equStr = equippedStr
-    return equippedStr
-
+	return equippedStr
 end
 
 function AddWeightToPlayer(ply, item, count)
+	local def = EFGMITEMS[item]
 
-    local def = EFGMITEMS[item]
+	if count == 0 then count = 1 end
+	if def.weight == nil then return false end
 
-    if count == 0 then count = 1 end
-    if def.weight == nil then return false end
+	local itemWeight = math.Round(def.weight, 3)
 
-    local itemWeight = math.Round(def.weight, 3)
+	local curWeight = ply:GetNWFloat("InventoryWeight", 0.000)
+	local newWeight = curWeight + math.Round(itemWeight * count, 3)
 
-    local curWeight = ply:GetNWFloat("InventoryWeight", 0.000)
-    local newWeight = curWeight + math.Round(itemWeight * count, 3)
-
-    ply:SetNWFloat("InventoryWeight", newWeight)
-    return newWeight
-
+	ply:SetNWFloat("InventoryWeight", newWeight)
+	return newWeight
 end
 
 function RemoveWeightFromPlayer(ply, item, count)
+	local def = EFGMITEMS[item]
 
-    local def = EFGMITEMS[item]
+	if count == 0 then count = 1 end
+	if def.weight == nil then return false end
 
-    if count == 0 then count = 1 end
-    if def.weight == nil then return false end
+	local itemWeight = math.Round(def.weight, 3)
 
-    local itemWeight = math.Round(def.weight, 3)
+	local curWeight = ply:GetNWFloat("InventoryWeight", 0.000)
+	local newWeight = curWeight - math.Round(itemWeight * count, 3)
 
-    local curWeight = ply:GetNWFloat("InventoryWeight", 0.000)
-    local newWeight = curWeight - math.Round(itemWeight * count, 3)
-
-    ply:SetNWFloat("InventoryWeight", math.max(0.000, newWeight))
-    return newWeight
-
+	ply:SetNWFloat("InventoryWeight", math.max(0.000, newWeight))
+	return newWeight
 end
 
 function CalculateInventoryWeight(ply)
+	local newWeight = 0
 
-    local newWeight = 0
+	for k, v in ipairs(ply.inventory) do
+		local def = EFGMITEMS[v.name]
 
-    for k, v in ipairs(ply.inventory) do
+		local count = v.data.count or 1
+		if def.weight == nil then continue end
 
-        local def = EFGMITEMS[v.name]
-        local count = v.data.count or 1
+		local itemWeight = math.Round(def.weight, 3)
+		newWeight = newWeight + math.Round(itemWeight * count, 3)
 
-        local itemWeight = math.Round(def.weight, 3)
-        newWeight = newWeight + math.Round(itemWeight * count, 3)
+		if v.data.att then
+			local atts = GetPrefixedAttachmentListFromCode(v.data.att)
+			if !atts then return end
 
-        if v.data.att then
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
 
-            local atts = GetPrefixedAttachmentListFromCode(v.data.att)
-            if !atts then return end
+				newWeight = newWeight + math.Round(att.weight, 3)
+			end
+		end
+	end
 
-            for _, a in ipairs(atts) do
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if table.IsEmpty(v) then continue end
 
-                local att = EFGMITEMS[a]
-                if att == nil then continue end
+			local def = EFGMITEMS[v.name]
 
-                newWeight = newWeight + math.Round(att.weight, 3)
+			local count = v.data.count or 1
+			if def.weight == nil then continue end
 
-            end
+			local itemWeight = math.Round(def.weight, 3)
+			newWeight = newWeight + math.Round(itemWeight * count, 3)
 
-        end
+			if v.data.att then
+				local atts = GetPrefixedAttachmentListFromCode(v.data.att)
+				if !atts then return end
 
-    end
+				for _, a in ipairs(atts) do
+					local att = EFGMITEMS[a]
+					if att == nil then continue end
 
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
+					newWeight = newWeight + math.Round(att.weight, 3)
+				end
+			end
+		end
+	end
 
-        for k, v in ipairs(ply.weaponSlots[i]) do
-
-            if table.IsEmpty(v) then continue end
-
-            local def = EFGMITEMS[v.name]
-            local count = v.data.count or 1
-
-            local itemWeight = math.Round(def.weight, 3)
-            newWeight = newWeight + math.Round(itemWeight * count, 3)
-
-            if v.data.att then
-
-                local atts = GetPrefixedAttachmentListFromCode(v.data.att)
-                if !atts then return end
-
-                for _, a in ipairs(atts) do
-
-                    local att = EFGMITEMS[a]
-                    if att == nil then continue end
-
-                    newWeight = newWeight + math.Round(att.weight, 3)
-
-                end
-
-            end
-
-        end
-
-    end
-
-    ply:SetNWFloat("InventoryWeight", math.max(0.000, newWeight))
-    return newWeight
-
+	ply:SetNWFloat("InventoryWeight", math.max(0.000, newWeight))
+	return newWeight
 end
 
 function RemoveFIRFromInventory(ply)
+	for k, v in ipairs(ply.inventory) do
+		v.data.fir = nil
+	end
 
-    for k, v in ipairs(ply.inventory) do
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if table.IsEmpty(v) then continue end
+			v.data.fir = nil
+		end
+	end
 
-        v.data.fir = nil
-
-    end
-
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
-
-        for k, v in ipairs(ply.weaponSlots[i]) do
-
-            if table.IsEmpty(v) then continue end
-
-            v.data.fir = nil
-
-        end
-
-    end
-
-    net.Start("PlayerInventoryClearFIR", false)
-    net.Send(ply)
-
+	net.Start("PlayerInventoryClearFIR", false)
+	net.Send(ply)
 end
 
 local function DecompressTableRecursive(tbl)
+	local result = {}
 
-    local result = {}
+	for _, v in ipairs(tbl) do
+		if v.i then table.insert(result, v.i) end
+		if v.s then
+			local afiousdhaf = DecompressTableRecursive(v.s)
 
-    for _, v in ipairs(tbl) do
+			for _, v in ipairs(afiousdhaf) do
+				table.insert(result, v)
+			end
+		end
+	end
 
-        if v.i then table.insert(result, v.i) end
-
-        if v.s then
-
-            local meow = DecompressTableRecursive(v.s)
-
-            for _, v in ipairs(meow) do
-
-                table.insert(result, v)
-
-            end
-
-        end
-
-    end
-
-    return result
-
+	return result
 end
 
 local function GetAttsFromPreset(str)
+	if !str then return end
+	str = util.Base64Decode(str)
+	str = util.Decompress(str)
+	if !str then return end
 
-    if !str then return end
-    str = util.Base64Decode(str)
-    str = util.Decompress(str)
-    if !str then return end
-    local tbl = util.JSONToTable(str)
-    if !tbl then return end
+	local tbl = util.JSONToTable(str)
+	if !tbl then return end
 
-    return DecompressTableRecursive(tbl)
-
+	return DecompressTableRecursive(tbl)
 end
 
 local function GiveAttsFromList(ply, tbl)
+	-- local take = false
 
-    -- local take = false
+	for i, k in pairs(tbl) do
+		-- ARC9:PlayerGiveAtt(ply, k, 1)
+		take = true
+	end
 
-    for i, k in pairs(tbl) do
-        -- ARC9:PlayerGiveAtt(ply, k, 1)
-        take = true
-    end
-
-    -- if take then ARC9:PlayerSendAttInv(ply) end
-
+	-- if take then ARC9:PlayerSendAttInv(ply) end
 end
 
 function GiveWepWithPresetFromCode(ply, classname, data)
+	if !ply:IsPlayer() then return end
 
-    if !ply:IsPlayer() then return end
+	local swep = list.Get("Weapon")[classname]
+	if swep == nil then return end
 
-    local swep = list.Get("Weapon")[classname]
-    if swep == nil then return end
+	local dataType = "none"
+	if data.att then dataType = "att" elseif data.durability then dataType = "consumable" end
 
-    local dataType = "none"
-    if data.att then dataType = "att" elseif data.durability then dataType = "consumable" end
+	if dataType == "none" then
+		ply:Give(classname)
+		return
+	elseif dataType == "consumable" then
+		local item = ply:Give(classname)
+		local def = EFGMITEMS[classname]
 
-    if dataType == "none" then
+		if !def then return end
 
-        ply:Give(classname)
-        return
+		if def.equipType == EQUIPTYPE.Consumable then
+			item:SetDurability(data.durability)
+		end
 
-    elseif dataType == "consumable" then
+		return
+	else
+		if !GetConVar("arc9_free_atts"):GetBool() then
 
-        local item = ply:Give(classname)
-        local def = EFGMITEMS[classname]
+			local atts = GetAttsFromPreset(data.att)
 
-        if !def then return end
+			if !atts then
+				ply:Give(classname)
+				return
+			end
 
-        if def.equipType == EQUIPTYPE.Consumable then
+			GiveAttsFromList(ply, atts)
+		end
 
-            item:SetDurability(data.durability)
+		if ply:HasWeapon(classname) then
+			local wpn = ply:GetWeapon(classname)
 
-        end
+			if IsValid(wpn) then
+				ply.givingPreset = true
+				wpn:SetNoPresets(true)
 
-        return
+				net.Start("efgm_sendpreset")
+					net.WriteEntity(wpn)
+					net.WriteString(data.att)
+				net.Send(ply)
 
-    else
+				wpn:PostModify()
+			end
+		else
+			local wpn = ply:Give(classname)
 
-        if !GetConVar("arc9_free_atts"):GetBool() then
+			wpn:SetNoPresets(true)
 
-            local atts = GetAttsFromPreset(data.att)
+			timer.Simple(0.1, function()
+				if IsValid(wpn) then
+					ply.givingPreset = true
 
-            if !atts then
-
-                ply:Give(classname)
-                return
-
-            end
-
-            GiveAttsFromList(ply, atts)
-
-        end
-
-        if ply:HasWeapon(classname) then
-
-            local wpn = ply:GetWeapon(classname)
-
-            if IsValid(wpn) then
-
-                ply.givingPreset = true
-                wpn:SetNoPresets(true)
-
-                net.Start("efgm_sendpreset")
-                net.WriteEntity(wpn)
-                net.WriteString(data.att)
-                net.Send(ply)
-
-                wpn:PostModify()
-
-            end
-
-        else
-
-            local wpn = ply:Give(classname)
-
-            wpn:SetNoPresets(true)
-
-            timer.Simple(0.1, function()
-
-                if IsValid(wpn) then
-
-                    ply.givingPreset = true
-
-                    net.Start("efgm_sendpreset")
-                    net.WriteEntity(wpn)
-                    net.WriteString(data.att)
-                    net.Send(ply)
-
-                end
-
-            end)
-
-        end
-
-    end
-
+					net.Start("efgm_sendpreset")
+						net.WriteEntity(wpn)
+						net.WriteString(data.att)
+					net.Send(ply)
+				end
+			end)
+		end
+	end
 end
 
 hook.Add("PlayerSpawn", "GiveEquippedItemsOnSpawn", function(ply)
+	ply.SpawnTimerVManip = CurTime() + 1 -- fuck off
 
-    ply.SpawnTimerVManip = CurTime() + 1 -- fuck off
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(ply.weaponSlots[i]) do
+			if !table.IsEmpty(v) then
+				local item = table.Copy(v)
+				if item == nil then return end
 
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
-
-        for k, v in ipairs(ply.weaponSlots[i]) do
-
-            if !table.IsEmpty(v) then
-
-                local item = table.Copy(v)
-                if item == nil then return end
-
-                GiveWepWithPresetFromCode(ply, item.name, item.data)
-
-            end
-
-        end
-
-    end
-
+				GiveWepWithPresetFromCode(ply, item.name, item.data)
+			end
+		end
+	end
 end)
 
 net.Receive("PlayerInventoryFixDesyncCL", function(len, ply)
+	UpdateStashString(ply)
+	UpdateInventoryString(ply)
+	UpdateEquippedString(ply)
 
-    UpdateStashString(ply)
-    UpdateInventoryString(ply)
-    UpdateEquippedString(ply)
-
-    SendChunkedNet(ply, ply.stashStr, "PlayerNetworkStash")
-    SendChunkedNet(ply, ply.invStr, "PlayerNetworkInventory")
-    SendChunkedNet(ply, ply.equStr, "PlayerNetworkEquipped")
-
+	SendChunkedNet(ply, ply.stashStr, "PlayerNetworkStash")
+	SendChunkedNet(ply, ply.invStr, "PlayerNetworkInventory")
+	SendChunkedNet(ply, ply.equStr, "PlayerNetworkEquipped")
 end)
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+	function GiveItem(ply, name, count)
+		local data = {}
+		local def = EFGMITEMS[name]
 
-    function GiveItem(ply, name, count)
+		if def.consumableType == "key" then
+			data.durability = def.consumableValue
+		end
 
-        local data = {}
-        local def = EFGMITEMS[name]
-        if def.consumableType == "key" then
+		data.count = count or 1
 
-            data.durability = def.consumableValue
+		FlowItemToInventory(ply, name, def.equipType, data)
+		ReloadInventory(ply)
+	end
+	concommand.Add("efgm_debug_giveitem", function(ply, cmd, args) GiveItem(ply, args[1], args[2]) end)
 
-        end
+	function WipeInventory(ply)
+		ply.inventory = {}
+		UpdateInventoryString(ply)
 
-        data.count = count or 1
+		SendChunkedNet(ply, ply.invStr, "PlayerNetworkInventory")
 
-        FlowItemToInventory(ply, name, def.equipType, data)
-        ReloadInventory(ply)
+		CalculateInventoryWeight(ply)
+	end
+	concommand.Add("efgm_debug_wipeinventory", function(ply, cmd, args) WipeInventory(ply) end)
 
-    end
-    concommand.Add("efgm_debug_giveitem", function(ply, cmd, args) GiveItem(ply, args[1], args[2]) end)
+	function WipeEquipped(ply)
+		ply.weaponSlots = {}
+		for k, v in pairs(WEAPONSLOTS) do
+			ply.weaponSlots[v.ID] = {}
+			for i = 1, v.COUNT, 1 do ply.weaponSlots[v.ID][i] = {} end
+		end
+		UpdateEquippedString(ply)
 
-    function WipeInventory(ply)
+		SendChunkedNet(ply, ply.equStr, "PlayerNetworkEquipped")
 
-        ply.inventory = {}
-        UpdateInventoryString(ply)
+		CalculateInventoryWeight(ply)
+	end
+	concommand.Add("efgm_debug_wipeequipped", function(ply, cmd, args) WipeEquipped(ply) end)
 
-        SendChunkedNet(ply, ply.invStr, "PlayerNetworkInventory")
+	function PrintInventoryString(ply)
+		UpdateInventoryString(ply)
+		print(ply.invStr)
+	end
+	concommand.Add("efgm_debug_printinventorystring", function(ply, cmd, args) PrintInventoryString(ply) end)
 
-        CalculateInventoryWeight(ply)
+	function PrintEquippedString(ply)
+		UpdateEquippedString(ply)
+		print(ply.equStr)
+	end
+	concommand.Add("efgm_debug_printequippedstring", function(ply, cmd, args) PrintEquippedString(ply) end)
 
-    end
-    concommand.Add("efgm_debug_wipeinventory", function(ply, cmd, args) WipeInventory(ply) end)
+	-- for save editing and whatnot
+	function PrintCleanInventoryString(ply)
+		local cleanTbl = {}
+		cleanTbl = table.Copy(ply.inventory)
 
-    function WipeEquipped(ply)
+		for k, v in ipairs(ply.inventory) do
+			v.data.fir = nil
+			v.data.owner = nil
+			v.data.timestamp = nil
+		end
 
-        ply.weaponSlots = {}
-        for k, v in pairs(WEAPONSLOTS) do
+		local inventoryStr = util.TableToJSON(cleanTbl)
+		inventoryStr = util.Compress(inventoryStr)
+		inventoryStr = util.Base64Encode(inventoryStr, true)
+		print(inventoryStr)
+	end
+	concommand.Add("efgm_debug_printinventorystring_clean", function(ply, cmd, args) PrintCleanInventoryString(ply) end)
 
-            ply.weaponSlots[v.ID] = {}
-            for i = 1, v.COUNT, 1 do ply.weaponSlots[v.ID][i] = {} end
+	function PrintCleanEquippedString(ply)
+		local cleanTbl = {}
+		cleanTbl = table.Copy(ply.weaponSlots)
 
-        end
-        UpdateEquippedString(ply)
+		for i = 1, #table.GetKeys(WEAPONSLOTS) do
+			for k, v in ipairs(cleanTbl[i]) do
+				if table.IsEmpty(v) then continue end
 
-        SendChunkedNet(ply, ply.equStr, "PlayerNetworkEquipped")
+				v.data.fir = nil
+				v.data.owner = nil
+				v.data.timestamp = nil
+			end
+		end
 
-        CalculateInventoryWeight(ply)
-
-    end
-    concommand.Add("efgm_debug_wipeequipped", function(ply, cmd, args) WipeEquipped(ply) end)
-
-    function PrintInventoryString(ply)
-
-        UpdateInventoryString(ply)
-        print(ply.invStr)
-
-    end
-    concommand.Add("efgm_debug_printinventorystring", function(ply, cmd, args) PrintInventoryString(ply) end)
-
-    function PrintEquippedString(ply)
-
-        UpdateEquippedString(ply)
-        print(ply.equStr)
-
-    end
-    concommand.Add("efgm_debug_printequippedstring", function(ply, cmd, args) PrintEquippedString(ply) end)
-
-    -- for save editing and whatnot
-    function PrintCleanInventoryString(ply)
-
-        local cleanTbl = {}
-        cleanTbl = table.Copy(ply.inventory)
-
-        for k, v in ipairs(ply.inventory) do
-
-            v.data.fir = nil
-            v.data.owner = nil
-            v.data.timestamp = nil
-
-        end
-
-        local inventoryStr = util.TableToJSON(cleanTbl)
-        inventoryStr = util.Compress(inventoryStr)
-        inventoryStr = util.Base64Encode(inventoryStr, true)
-        print(inventoryStr)
-
-    end
-    concommand.Add("efgm_debug_printinventorystring_clean", function(ply, cmd, args) PrintCleanInventoryString(ply) end)
-
-    function PrintCleanEquippedString(ply)
-
-        local cleanTbl = {}
-        cleanTbl = table.Copy(ply.weaponSlots)
-
-        for i = 1, #table.GetKeys(WEAPONSLOTS) do
-
-            for k, v in ipairs(cleanTbl[i]) do
-
-                if table.IsEmpty(v) then continue end
-
-                v.data.fir = nil
-                v.data.owner = nil
-                v.data.timestamp = nil
-
-            end
-
-        end
-
-        local equippedStr = util.TableToJSON(cleanTbl)
-        equippedStr = util.Compress(equippedStr)
-        equippedStr = util.Base64Encode(equippedStr, true)
-        print(equippedStr)
-
-    end
-    concommand.Add("efgm_debug_printequippedstring_clean", function(ply, cmd, args) PrintCleanEquippedString(ply) end)
-
-
+		local equippedStr = util.TableToJSON(cleanTbl)
+		equippedStr = util.Compress(equippedStr)
+		equippedStr = util.Base64Encode(equippedStr, true)
+		print(equippedStr)
+	end
+	concommand.Add("efgm_debug_printequippedstring_clean", function(ply, cmd, args) PrintCleanEquippedString(ply) end)
 end

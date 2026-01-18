@@ -9,6 +9,7 @@ local function readVectorUncompressed()
 	tempVec.x = net.ReadFloat()
 	tempVec.y = net.ReadFloat()
 	tempVec.z = net.ReadFloat()
+
 	return tempVec
 end
 
@@ -25,24 +26,26 @@ net.Receive("suppression_fire_event", function(len)
 		mask = CONTENTS_WINDOW + CONTENTS_SOLID + CONTENTS_AREAPORTAL + CONTENTS_MONSTERCLIP + CONTENTS_CURRENT_0
 	})
 
-	local distance_from_line, nearest_point, dist_along_the_line = util.DistanceToLine(tr.StartPos, tr.HitPos, LocalPlayer():GetPos())
+	local _, nearest_point, _ = util.DistanceToLine(tr.StartPos, tr.HitPos, LocalPlayer():GetPos())
 
 	if LocalPlayer():Alive() and EntitiesWithinBounds(nearest_point, LocalPlayer(), 100) then
 		effect_amount = math.Clamp(effect_amount + 0.08 * buildupspeed, 0, 1)
 		sound.Play("bul_snap/supersonic_snap_" .. math.random(1,18) .. ".wav", nearest_point, 75, 100, 1)
 		sound.Play("bul_flyby/subsonic_" .. math.random(1,27) .. ".wav", nearest_point, 75, 100, 1)
 
-		local angle = Angle(math.Rand(-1.5, 1.5) * (effect_amount * (viewpunch_intensity)), math.Rand(-1.5, 1.5) * (effect_amount * (viewpunch_intensity)), math.Rand(-1.5, 1.5) * (effect_amount * (viewpunch_intensity)))
+		local angle = Angle(math.Rand(-1.5, 1.5) * (effect_amount * viewpunch_intensity), math.Rand(-1.5, 1.5) * (effect_amount * viewpunch_intensity), math.Rand(-1.5, 1.5) * (effect_amount * viewpunch_intensity))
 		Viewpunch(angle)
 	end
 end)
 
 local started_effect = false
-hook.Add("Think", "suppression_loop", function() 
+
+hook.Add("Think", "suppression_loop", function()
 	if effect_amount == 0 then
 		if started_effect then
 			started_effect = false
 		end
+
 	 	return
 	end
 
@@ -51,6 +54,7 @@ hook.Add("Think", "suppression_loop", function()
 end)
 
 local bloom_lerp = 0
+
 hook.Add("RenderScreenspaceEffects", "suppression_ApplySuppression", function()
 	if effect_amount == 0 then return end
 
@@ -60,17 +64,19 @@ end)
 
 local m = Material("overlays/supp_vignette")
 local alphanew = 0
+
 hook.Add("RenderScreenspaceEffects", "suppression_vignette", function()
 	if effect_amount == 0 then return end
 
 	local vigEffectAmount = effect_amount * 0.6
-
 	alphanew = Lerp(6 * FrameTime(), alphanew, vigEffectAmount)
 
 	render.SetMaterial(m)
 	m:SetFloat("$alpha", alphanew)
 
-	for i = 1, 4 do render.DrawScreenQuad() end
+	for i = 1, 4 do
+		render.DrawScreenQuad()
+	end
 end)
 
 hook.Add("PlayerInitialSpawn", "SetEffectOnSpawn", function(ply)

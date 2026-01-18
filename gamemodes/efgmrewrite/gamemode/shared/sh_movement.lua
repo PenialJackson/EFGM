@@ -2,64 +2,64 @@ local plyMeta = FindMetaTable("Player")
 if not plyMeta then Error("Could not find player table") return end
 
 function plyMeta:SetCrouched(value)
-    self.Crouched = value
+	self.Crouched = value
 end
 
 function plyMeta:GetCrouched()
-    return self.Crouched
+	return self.Crouched
 end
 
 function plyMeta:SetEnteringCrouch(value)
-    self.EnteringCrouch = value
+	self.EnteringCrouch = value
 end
 
 function plyMeta:GetEnteringCrouch()
-    return self.EnteringCrouch
+	return self.EnteringCrouch
 end
 
 function plyMeta:SetExitingCrouch(value)
-    self.ExitingCrouch = value
+	self.ExitingCrouch = value
 end
 
 function plyMeta:GetExitingCrouch()
-    return self.ExitingCrouch
+	return self.ExitingCrouch
 end
 
 -- disable crouch jumping because of animation abuse + dynamic crouch toggling
 hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
-    local mvtype = ply:GetMoveType()
-    if mvtype == MOVETYPE_NOCLIP then return end
+	local mvtype = ply:GetMoveType()
+	if mvtype == MOVETYPE_NOCLIP then return end
 
-    if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) or cmd:KeyDown(IN_ATTACK) or cmd:KeyDown(IN_ATTACK2) then
-        cmd:RemoveKey(IN_SPEED)
-    end
+	if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) or cmd:KeyDown(IN_ATTACK) or cmd:KeyDown(IN_ATTACK2) then
+		cmd:RemoveKey(IN_SPEED)
+	end
 
-    if timer.Exists(ply:SteamID64() .. "jumpCD") then
-        cmd:RemoveKey(IN_JUMP)
-    end
+	if timer.Exists(ply:SteamID64() .. "jumpCD") then
+		cmd:RemoveKey(IN_JUMP)
+	end
 
-    if !ply:IsOnGround() then
-        cmd:RemoveKey(IN_SPEED)
-        if ply:GetNW2Int("jump_count", 0) > 1 then cmd:RemoveKey(IN_DUCK) end
-        if ply:Crouching() then
-            cmd:AddKey(IN_DUCK)
-            ply:SetCrouched(true)
-        elseif !ply:Crouching() and ply:GetCrouched() then
-            cmd:RemoveKey(IN_DUCK)
-        end
-    else
-        ply:SetCrouched(false)
-    end
+	if !ply:IsOnGround() then
+		cmd:RemoveKey(IN_SPEED)
+		if ply:GetNW2Int("jump_count", 0) > 1 then cmd:RemoveKey(IN_DUCK) end
+		if ply:Crouching() then
+			cmd:AddKey(IN_DUCK)
+			ply:SetCrouched(true)
+		elseif !ply:Crouching() and ply:GetCrouched() then
+			cmd:RemoveKey(IN_DUCK)
+		end
+	else
+		ply:SetCrouched(false)
+	end
 
-    if !ply:OnGround() then
-        cmd:RemoveKey(IN_ATTACK2)
-    end
+	if !ply:OnGround() then
+		cmd:RemoveKey(IN_ATTACK2)
+	end
 
-    -- disable jumping/slow walking while crouching
-    if ply:Crouching() or ply:GetEnteringCrouch(false) then
-        cmd:RemoveKey(IN_JUMP)
-        cmd:RemoveKey(IN_WALK)
-    end
+	-- disable jumping/slow walking while crouching
+	if ply:Crouching() or ply:GetEnteringCrouch(false) then
+		cmd:RemoveKey(IN_JUMP)
+		cmd:RemoveKey(IN_WALK)
+	end
 end)
 
 local jumpFatigueReset = 1.1
@@ -67,49 +67,43 @@ local jumpFatigueMult = 0.825
 
 -- jump viewpunch and fatigue
 hook.Add("OnPlayerJump", "PlayerJump", function(ply, inWater, onFloater, speed)
+	local ct = CurTime()
+	local jumpCount = ply:GetNW2Int("jump_count", 1)
 
-    local ct = CurTime()
-    local jumpCount = ply:GetNW2Int("jump_count", 1)
+	if ct - ply:GetNW2Float("last_jump", 0) < jumpFatigueReset then
+		jumpCount = jumpCount + 1
+	else
+		jumpCount = 1
+	end
 
-    if ct - ply:GetNW2Float("last_jump", 0) < jumpFatigueReset then
+	ply:SetJumpPower(math.max(85, 140 * (jumpFatigueMult / jumpCount)))
+	ply:SetNW2Int("jump_count", jumpCount)
+	ply:SetNW2Float("last_jump", ct)
 
-        jumpCount = jumpCount + 1
+	if jumpCount > 1 then
+		timer.Create(ply:SteamID64() .. "jumpCD", 0.8, 1, function() end)
+	end
 
-    else
+	timer.Create(ply:SteamID() .. "jumpReset", jumpFatigueReset, 1, function()
+		if !IsValid(ply) then return end
+		ply:SetJumpPower(140)
+		ply:SetNW2Int("jump_count", 1)
+	end)
 
-        jumpCount = 1
-
-    end
-
-    ply:SetJumpPower(math.max(85, 140 * (jumpFatigueMult / jumpCount)))
-    ply:SetNW2Int("jump_count", jumpCount)
-    ply:SetNW2Float("last_jump", ct)
-
-    if jumpCount > 1 then timer.Create(ply:SteamID64() .. "jumpCD", 0.8, 1, function() end) end
-
-    timer.Create(ply:SteamID() .. "jumpReset", jumpFatigueReset, 1, function()
-
-        if !IsValid(ply) then return end
-        ply:SetJumpPower(140)
-        ply:SetNW2Int("jump_count", 1)
-
-    end)
-
-    ply:ViewPunch(Angle(-1, 0, 0))
-
+	ply:ViewPunch(Angle(-1, 0, 0))
 end)
 
 -- jump cooldown
 hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, inWater, onFloater, speed)
-    if speed > 50 then
-        local ang = Angle(math.floor(math.exp(speed / 256)))
-        if ang:Unpack() > 45 then
-            ply:ViewPunch(Angle(45, 0, 0))
-        else
-            ply:ViewPunch(ang)
-        end
-    end
-end )
+	if speed > 50 then
+		local ang = Angle(math.floor(math.exp(speed / 256)))
+		if ang:Unpack() > 45 then
+			ply:ViewPunch(Angle(45, 0, 0))
+		else
+			ply:ViewPunch(ang)
+		end
+	end
+end)
 
 -- leaning
 local distance = 16
@@ -121,182 +115,179 @@ local hull_size_5 = Vector(6.3, 6.3, 6.3)
 local hull_size_5_negative = Vector(-6.3, -6.3, -6.3)
 
 hook.Add("SetupMove", "Leaning", function(ply, mv, cmd)
-    local mvtype = ply:GetMoveType()
-    if mvtype == MOVETYPE_NOCLIP then return end
+	local mvtype = ply:GetMoveType()
+	if mvtype == MOVETYPE_NOCLIP then return end
 
-    local eyepos = ply:EyePos() - ply:GetNW2Vector("leaning_best_head_offset")
-    local angles = cmd:GetViewAngles()
+	local eyepos = ply:EyePos() - ply:GetNW2Vector("leaning_best_head_offset")
+	local angles = cmd:GetViewAngles()
 
-    local fraction = ply:GetNW2Float("leaning_fraction", 0)
+	local fraction = ply:GetNW2Float("leaning_fraction", 0)
 
-    local leaning_left = ply:GetNW2Bool("leaning_left")
-    local leaning_right = ply:GetNW2Bool("leaning_right")
+	local leaning_left = ply:GetNW2Bool("leaning_left")
+	local leaning_right = ply:GetNW2Bool("leaning_right")
 
-    local speed = leanSpeed * math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.0109, 3)))
+	local speed = leanSpeed * math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.0109, 3)))
 
-    if !ply:IsSprinting() then
-        if leaning_left then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, -1) end
-        if leaning_right then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 1) end
-        if !leaning_left and !leaning_right then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 0) end
-    else
-        fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 0)
-        ply:SetNW2Var("leaning_left", false)
-        ply:SetNW2Var("leaning_right", false)
-    end
+	if !ply:IsSprinting() then
+		if leaning_left then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, -1) end
+		if leaning_right then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 1) end
+		if !leaning_left and !leaning_right then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 0) end
+	else
+		fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 0)
+		ply:SetNW2Var("leaning_left", false)
+		ply:SetNW2Var("leaning_right", false)
+	end
 
-    if math.abs(fraction) <= 0.0001 then fraction = 0 end
+	if math.abs(fraction) <= 0.0001 then fraction = 0 end
 
-    ply:SetNW2Float("leaning_fraction", fraction)
+	ply:SetNW2Float("leaning_fraction", fraction)
 
-    local fraction_smooth = ply:GetNW2Float("leaning_fraction_smooth", 0)
-    fraction_smooth = Lerp(FrameTime() * 10 + FrameTime(), fraction_smooth, fraction)
-    if math.abs(fraction_smooth) <= 0.0001 then fraction_smooth = 0 end
-    ply:SetNW2Float("leaning_fraction_smooth", fraction_smooth)
+	local fraction_smooth = ply:GetNW2Float("leaning_fraction_smooth", 0)
+	fraction_smooth = Lerp(FrameTime() * 10 + FrameTime(), fraction_smooth, fraction)
+	if math.abs(fraction_smooth) <= 0.0001 then fraction_smooth = 0 end
+	ply:SetNW2Float("leaning_fraction_smooth", fraction_smooth)
 
-    local amount = fraction_smooth * distance
-    local offsetang = Angle(angles:Unpack())
-    offsetang.x = 0
-    offsetang:RotateAroundAxis(offsetang:Forward(), amount)
+	local amount = fraction_smooth * distance
+	local offsetang = Angle(angles:Unpack())
+	offsetang.x = 0
+	offsetang:RotateAroundAxis(offsetang:Forward(), amount)
 
-    local offset = Vector(0, -amount, 0)
-    offset:Rotate(offsetang)
+	local offset = Vector(0, -amount, 0)
+	offset:Rotate(offsetang)
 
-    if math.abs(fraction_smooth) >= 0.0001 then
-        local tr = util.TraceHull({
-            start = eyepos,
-            endpos = eyepos + offset,
-            maxs = hull_size_5,
-            mins = hull_size_5_negative,
-            mask = MASK_BLOCKLOS,
-            filter = ply
-        })
+	if math.abs(fraction_smooth) >= 0.0001 then
+		local tr = util.TraceHull({
+			start = eyepos,
+			endpos = eyepos + offset,
+			maxs = hull_size_5,
+			mins = hull_size_5_negative,
+			mask = MASK_BLOCKLOS,
+			filter = ply
+		})
 
-        local best_offset = tr.HitPos - eyepos
+		local best_offset = tr.HitPos - eyepos
 
-        ply:SetNW2Vector("leaning_best_head_offset_last", ply:GetNW2Vector("leaning_best_head_offset"))
-        ply:SetNW2Vector("leaning_best_head_offset", best_offset)
+		ply:SetNW2Vector("leaning_best_head_offset_last", ply:GetNW2Vector("leaning_best_head_offset"))
+		ply:SetNW2Vector("leaning_best_head_offset", best_offset)
 
-        local delta = ply:GetNW2Vector("leaning_best_head_offset") - ply:GetNW2Vector("leaning_best_head_offset_last")
+		local delta = ply:GetNW2Vector("leaning_best_head_offset") - ply:GetNW2Vector("leaning_best_head_offset_last")
 
-        ply:SetCurrentViewOffset(ply:GetCurrentViewOffset() + delta)
-        ply:SetViewOffset(vector_up * ply:GetNW2Float("leaning_height") + best_offset)
-        ply:SetViewOffsetDucked(vector_up * ply:GetNW2Float("leaning_height_ducked") + best_offset)
-    else
-        ply:SetNW2Float("leaning_height", ply:GetViewOffset().z)
-        ply:SetNW2Float("leaning_height_ducked", ply:GetViewOffsetDucked().z)
-    end
+		ply:SetCurrentViewOffset(ply:GetCurrentViewOffset() + delta)
+		ply:SetViewOffset(vector_up * ply:GetNW2Float("leaning_height") + best_offset)
+		ply:SetViewOffsetDucked(vector_up * ply:GetNW2Float("leaning_height_ducked") + best_offset)
+	else
+		ply:SetNW2Float("leaning_height", ply:GetViewOffset().z)
+		ply:SetNW2Float("leaning_height_ducked", ply:GetViewOffsetDucked().z)
+	end
 end)
 
 local function AngleOffset(new, old)
-    local _, ang = WorldToLocal(vector_origin, new, vector_origin, old)
-    return ang
+	local _, ang = WorldToLocal(vector_origin, new, vector_origin, old)
+	return ang
 end
 
 local function LeanBones(ply, roll)
-    if CLIENT then ply:SetupBones() end
+	if CLIENT then ply:SetupBones() end
 
-    for _, bone_name in ipairs({"ValveBiped.Bip01_Spine", "ValveBiped.Bip01_Spine1", "ValveBiped.Bip01_Head1"}) do
-        local bone = ply:LookupBone(bone_name)
+	for _, bone_name in ipairs({"ValveBiped.Bip01_Spine", "ValveBiped.Bip01_Spine1", "ValveBiped.Bip01_Head1"}) do
+		local bone = ply:LookupBone(bone_name)
 
-        if !bone then continue end
+		if !bone then continue end
 
-        local ang
-        local old_ang
+		local ang
+		local old_ang
 
-        local matrix = ply:GetBoneMatrix(bone)
+		local matrix = ply:GetBoneMatrix(bone)
 
-        if IsValid(matrix) then
-            ang = matrix:GetAngles()
-            old_ang = matrix:GetAngles()
-        else
-            _, ang = ply:GetBonePosition(bone)
-            _, old_ang = ply:GetBonePosition(bone)
-        end
+		if IsValid(matrix) then
+			ang = matrix:GetAngles()
+			old_ang = matrix:GetAngles()
+		else
+			_, ang = ply:GetBonePosition(bone)
+			_, old_ang = ply:GetBonePosition(bone)
+		end
 
-        if bone_name != "ValveBiped.Bip01_Head1" then
-            local eyeangles = ply:EyeAngles()
-            eyeangles.x = 0
-            local forward = eyeangles:Forward()
-            ang:RotateAroundAxis(forward, roll)
-        else
-            local eyeangles = ply:EyeAngles()
-            local forward = eyeangles:Forward()
-            ang:RotateAroundAxis(forward, -roll)
-        end
+		if bone_name != "ValveBiped.Bip01_Head1" then
+			local eyeangles = ply:EyeAngles()
+			eyeangles.x = 0
+			local forward = eyeangles:Forward()
+			ang:RotateAroundAxis(forward, roll)
+		else
+			local eyeangles = ply:EyeAngles()
+			local forward = eyeangles:Forward()
+			ang:RotateAroundAxis(forward, -roll)
+		end
 
-        ang = AngleOffset(ang, old_ang)
-        ply:ManipulateBoneAngles(bone, ang, false)
-    end
+		ang = AngleOffset(ang, old_ang)
+		ply:ManipulateBoneAngles(bone, ang, false)
+	end
 end
 
 if SERVER then
-    hook.Add("Think", "LeaningBend", function()
+	hook.Add("Think", "LeaningBend", function()
+		for k, ply in ipairs(player.GetHumans()) do
+			local absolute = math.abs(ply:GetNW2Float("leaning_fraction_smooth"))
 
-        for k, ply in ipairs(player.GetHumans()) do
+			if absolute > 0 then ply.stop_leaning_bones = false end
+			if ply.stop_leaning_bones then continue end
 
-            local absolute = math.abs(ply:GetNW2Float("leaning_fraction_smooth"))
+			LeanBones(ply, ply:GetNW2Float("leaning_fraction_smooth") * distance)
 
-            if absolute > 0 then ply.stop_leaning_bones = false end
-            if ply.stop_leaning_bones then continue end
-
-            LeanBones(ply, ply:GetNW2Float("leaning_fraction_smooth") * distance)
-
-            if absolute == 0 then ply.stop_leaning_bones = true end
-
-        end
-    end)
+			if absolute == 0 then ply.stop_leaning_bones = true end
+		end
+	end)
 end
 
 if CLIENT then
-    hook.Add("PreRender", "LeaningBend", function()
-        for k, ply in ipairs(player.GetHumans()) do
-            ply.leaning_fraction_true_smooth = Lerp(FrameTime() / (engine.TickInterval() * interp), ply.leaning_fraction_true_smooth or 0, ply:GetNW2Float("leaning_fraction_smooth") * distance)
-            local absolute = math.abs(ply.leaning_fraction_true_smooth)
+	hook.Add("PreRender", "LeaningBend", function()
+		for k, ply in ipairs(player.GetHumans()) do
+			ply.leaning_fraction_true_smooth = Lerp(FrameTime() / (engine.TickInterval() * interp), ply.leaning_fraction_true_smooth or 0, ply:GetNW2Float("leaning_fraction_smooth") * distance)
+			local absolute = math.abs(ply.leaning_fraction_true_smooth)
 
-            if absolute <= 0.00001 then ply.leaning_fraction_true_smooth = 0 end
-            if absolute > 0 then ply.stop_leaning_bones = false end
-            if ply.stop_leaning_bones then continue end
+			if absolute <= 0.00001 then ply.leaning_fraction_true_smooth = 0 end
+			if absolute > 0 then ply.stop_leaning_bones = false end
+			if ply.stop_leaning_bones then continue end
 
-            LeanBones(ply, ply.leaning_fraction_true_smooth)
+			LeanBones(ply, ply.leaning_fraction_true_smooth)
 
-            if absolute == 0 then ply.stop_leaning_bones = true end
-        end
-    end)
+			if absolute == 0 then ply.stop_leaning_bones = true end
+		end
+	end)
 
-    local lerped_fraction = 0
+	local lerped_fraction = 0
 
-    local last_realtime = 0
-    local realtime = 0
+	local last_realtime = 0
+	local realtime = 0
 
-    hook.Add("CalcView", "LeaningRoll", function(ply, origin, angles, fov, znear, zfar)
-    	last_realtime = realtime
-        realtime = SysTime()
+	hook.Add("CalcView", "LeaningRoll", function(ply, origin, angles, fov, znear, zfar)
+		last_realtime = realtime
+		realtime = SysTime()
 
-        if realtime - last_realtime <= 0.00001 then return end
+		if realtime - last_realtime <= 0.00001 then return end
 
-        lerped_fraction = Lerp(FrameTime() / (engine.TickInterval() * interp), lerped_fraction, ply:GetNW2Float("leaning_fraction_smooth", 0) * distance * 0.5)
-        angles.z = angles.z + lerped_fraction
-    end)
+		lerped_fraction = Lerp(FrameTime() / (engine.TickInterval() * interp), lerped_fraction, ply:GetNW2Float("leaning_fraction_smooth", 0) * distance * 0.5)
+		angles.z = angles.z + lerped_fraction
+	end)
 
-    local vm_last_realtime = 0
-    local vm_realtime = 0
+	local vm_last_realtime = 0
+	local vm_realtime = 0
 
-    hook.Add("CalcViewModelView", "LeaningRollVM", function(wep, vm, oldpos, oldang, pos, ang)
-        vm_last_realtime = vm_realtime
-        vm_realtime = SysTime()
+	hook.Add("CalcViewModelView", "LeaningRollVM", function(wep, vm, oldpos, oldang, pos, ang)
+		vm_last_realtime = vm_realtime
+		vm_realtime = SysTime()
 
-        if vm_realtime - vm_last_realtime <= 0.00001 then return end
-        ang.z = ang.z + lerped_fraction
-    end)
+		if vm_realtime - vm_last_realtime <= 0.00001 then return end
+		ang.z = ang.z + lerped_fraction
+	end)
 end
 
 -- inertia and bobbing (original code my datae)
 local function SetInertia(ply, value)
-    ply:SetNW2Float("inertia", value)
+	ply:SetNW2Float("inertia", value)
 end
 
 local function GetInertia(ply)
-    return ply:GetNW2Float("inertia", 0)
+	return ply:GetNW2Float("inertia", 0)
 end
 
 local SP = game.SinglePlayer()
@@ -325,122 +316,120 @@ VBSightChecks = {
 local VBSightChecks = VBSightChecks
 
 hook.Add("CreateMove", "Inertia", function(cmd)
-    local ply = LocalPlayer()
+	local ply = LocalPlayer()
 	if SP then
 		requestedmove = math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) > 0
 	end
-    local inertia = GetInertia(ply)
+	local inertia = GetInertia(ply)
 
-    if (ply:WaterLevel() < 2 or ply:OnGround()) then
-        cmd:SetForwardMove(cmd:GetForwardMove() * (inertia + 0.06) * 0.09)
-        cmd:SetSideMove(cmd:GetSideMove() * (inertia + 0.06) * 0.09)
+	if (ply:WaterLevel() < 2 or ply:OnGround()) then
+		cmd:SetForwardMove(cmd:GetForwardMove() * (inertia + 0.06) * 0.09)
+		cmd:SetSideMove(cmd:GetSideMove() * (inertia + 0.06) * 0.09)
 
-        if math.abs(cmd:GetSideMove()) > 0 and math.abs(cmd:GetForwardMove()) > 0 then
-            cmd:SetSideMove(cmd:GetSideMove() * 0.707)
-            cmd:SetForwardMove(cmd:GetForwardMove() * 0.707)
-        end
-    end
+		if math.abs(cmd:GetSideMove()) > 0 and math.abs(cmd:GetForwardMove()) > 0 then
+			cmd:SetSideMove(cmd:GetSideMove() * 0.707)
+			cmd:SetForwardMove(cmd:GetForwardMove() * 0.707)
+		end
+	end
 end)
 
 local maxLossMove = 45
 hook.Add("Move", "MovementWeight", function(ply, mv)
+	if !ply:Alive() then return end
 
-    if !ply:Alive() then return end
+	local deduction = math.max(0, math.min(maxLossMove, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.818, 3)))
 
-    local deduction = math.max(0, math.min(maxLossMove, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.818, 3)))
+	ply:SetRunSpeed(220 - deduction)
+	ply:SetWalkSpeed(135 - deduction)
+	ply:SetLadderClimbSpeed(120 - deduction)
+	ply:SetSlowWalkSpeed(95 - deduction)
 
-    ply:SetRunSpeed(220 - deduction)
-    ply:SetWalkSpeed(135 - deduction)
-    ply:SetLadderClimbSpeed(120 - deduction)
-    ply:SetSlowWalkSpeed(95 - deduction)
+	if !ply:IsOnGround() or CLIENT then return end
 
-    if !ply:IsOnGround() or CLIENT then return end
+	if ply:KeyPressed(IN_DUCK) and !ply:Crouching() then
+		ply:EmitSound("char_crouch_0" .. math.random(1, 6), 60, math.random(100, 110), 0.15, CHAN_AUTO)
+	end
 
-    if ply:KeyPressed(IN_DUCK) and !ply:Crouching() then
-        ply:EmitSound("char_crouch_0" .. math.random(1, 6), 60, math.random(100, 110), 0.15, CHAN_AUTO)
-    end
-
-    if ply:KeyReleased(IN_DUCK) and ply:IsFlagSet(FL_ANIMDUCKING) then
-        ply:EmitSound("char_stand_0" .. math.random(1, 6), 60, math.random(100, 110), 0.15, CHAN_AUTO)
-    end
-
+	if ply:KeyReleased(IN_DUCK) and ply:IsFlagSet(FL_ANIMDUCKING) then
+		ply:EmitSound("char_stand_0" .. math.random(1, 6), 60, math.random(100, 110), 0.15, CHAN_AUTO)
+	end
 end)
 
 local maxLossInertiaMult = 0.75
 hook.Add("SetupMove", "VBSetupMove", function(ply, mv, cmd)
-    local mvtype = ply:GetMoveType()
-    if mvtype == MOVETYPE_NOCLIP then return end
+	local mvtype = ply:GetMoveType()
+	if mvtype == MOVETYPE_NOCLIP then return end
 
-    local vel = mv:GetVelocity():GetNormalized():Dot(ply:GetNW2Vector("VBLastDir"), vector_origin)
+	local vel = mv:GetVelocity():GetNormalized():Dot(ply:GetNW2Vector("VBLastDir"), vector_origin)
 
-    if ply:OnGround() and vel < ((mv:KeyDown(IN_SPEED) and 0.99) or 0.998) and vel > 0 then
-        SetInertia(ply, 0.06)
-    end
+	if ply:OnGround() and vel < ((mv:KeyDown(IN_SPEED) and 0.99) or 0.998) and vel > 0 then
+		SetInertia(ply, 0.06)
+	end
 
-    local deductionMult = 1 - math.max(0, math.min(maxLossInertiaMult, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.0136, 3)))
+	local deductionMult = 1 - math.max(0, math.min(maxLossInertiaMult, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.0136, 3)))
 
-    if math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) > 0 then
-        local target = (cmd:KeyDown(IN_WALK) and 0.04) or math.min(1 - 0.15 + 0.25, 1)
-        local target_speed = (cmd:KeyDown(IN_WALK) and 0.85) or 0.125
-        local sprintmult = ((cmd:KeyDown(IN_SPEED) and ply:WaterLevel() < 1) and 3.5) or 1
-        SetInertia(ply, math.Approach(GetInertia(ply), target, (FrameTime() * target_speed * sprintmult * 1.33) * deductionMult))
-    else
-        SetInertia(ply, math.Approach(GetInertia(ply), 0, FrameTime() * deductionMult))
-    end
+	if math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) > 0 then
+		local target = (cmd:KeyDown(IN_WALK) and 0.04) or math.min(1 - 0.15 + 0.25, 1)
+		local target_speed = (cmd:KeyDown(IN_WALK) and 0.85) or 0.125
+		local sprintmult = ((cmd:KeyDown(IN_SPEED) and ply:WaterLevel() < 1) and 3.5) or 1
 
-    requestedmove = math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) > 0
+		SetInertia(ply, math.Approach(GetInertia(ply), target, (FrameTime() * target_speed * sprintmult * 1.33) * deductionMult))
+	else
+		SetInertia(ply, math.Approach(GetInertia(ply), 0, FrameTime() * deductionMult))
+	end
 
-    local stept = ply:GetNW2Float("VMTime", 0) % 0.64
+	requestedmove = math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) > 0
 
-    if !ply:GetNW2Bool("DoStep", false) and stept < ply:GetNW2Float("LastVMTime") and ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK and mv:GetVelocity():Length() > 10 then
-        ply:SetNW2Bool("DoStep", true)
-        return
-    end
+	local stept = ply:GetNW2Float("VMTime", 0) % 0.64
 
-    if ply:GetNW2Bool("DoStep", false) then
-        if SERVER then ply:PlayStepSound(0.25) end
-        ply:SetNW2Bool("DoStep", false)
-        ply:SetNW2Float("LastVMTime", 0)
+	if !ply:GetNW2Bool("DoStep", false) and stept < ply:GetNW2Float("LastVMTime") and ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK and mv:GetVelocity():Length() > 10 then
+		ply:SetNW2Bool("DoStep", true)
 
-        return
-    end
+		return
+	end
 
-    ply:SetNW2Float("LastVMTime", stept)
+	if ply:GetNW2Bool("DoStep", false) then
+		if SERVER then ply:PlayStepSound(0.25) end
+		ply:SetNW2Bool("DoStep", false)
+		ply:SetNW2Float("LastVMTime", 0)
 
-    if ply:OnGround() then
-        ply:SetNW2Vector("VBLastDir", mv:GetVelocity():GetNormalized())
-    end
+		return
+	end
 
-    local FT = FrameTime()
+	ply:SetNW2Float("LastVMTime", stept)
 
-    if ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK then
-        if mv:KeyDown(IN_SPEED) then
-            FT = FT * 1.08
-        end
+	if ply:OnGround() then
+		ply:SetNW2Vector("VBLastDir", mv:GetVelocity():GetNormalized())
+	end
 
-        local runspeed = ply:GetWalkSpeed()
-        local VMTime = ply:GetNW2Float("VMTime", 0)
-        local mod = (VMTime % 0.625)
+	local FT = FrameTime()
 
-        if mod > 0.3125 then
-            mod = -mod
-        end
+	if ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK then
+		if mv:KeyDown(IN_SPEED) then
+			FT = FT * 1.08
+		end
 
-        local target = ply:GetNW2Float("VMTime",0) - mod
-        local increment = (FT * (math.min(mv:GetVelocity():Length(), 300) / (runspeed * 0.75))) * 1
+		local runspeed = ply:GetWalkSpeed()
+		local VMTime = ply:GetNW2Float("VMTime", 0)
+		local mod = (VMTime % 0.625)
 
-        ply:SetNW2Float("VMTime", VMTime + increment)
+		if mod > 0.3125 then
+			mod = -mod
+		end
 
-        if increment == 0 and VMTime != target then
-            ply:SetNW2Float("VMTime", math.Approach(VMTime, target, FT * 0.625))
-        end
+		local target = ply:GetNW2Float("VMTime",0) - mod
+		local increment = (FT * (math.min(mv:GetVelocity():Length(), 300) / (runspeed * 0.75))) * 1
 
-    end
+		ply:SetNW2Float("VMTime", VMTime + increment)
 
-    if math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) == 0 and ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK then
-        mv:SetVelocity(mv:GetVelocity() * 0.9)
-    end
+		if increment == 0 and VMTime != target then
+			ply:SetNW2Float("VMTime", math.Approach(VMTime, target, FT * 0.625))
+		end
+	end
 
+	if math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) == 0 and ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK then
+		mv:SetVelocity(mv:GetVelocity() * 0.9)
+	end
 end)
 
 local math = math
@@ -452,16 +441,14 @@ local DAMPING = 5
 local SPRING_CONSTANT = 80
 
 local function lensqr(ang)
-    return (ang[1] ^ 2) + (ang[2] ^ 2) + (ang[3] ^ 2)
+	return (ang[1] ^ 2) + (ang[2] ^ 2) + (ang[3] ^ 2)
 end
 
 function metavec:Approach(x, y, z, speed)
-    if !isnumber(x) then
-
+	if !isnumber(x) then
 		local vec = x
 		speed = y
 		x, y, z = vec:Unpack()
-
 	end
 
 	self[1] = math.Approach(self[1], x, speed)
@@ -548,7 +535,6 @@ local function Sighted_Process(wep, FT)
 end
 
 local SpringStop = Angle(0.0025,0,0)
-local SpringSway = Angle()
 local SpringTilt = Angle()
 local SpringMove1, SpringMove2 = Angle(), Angle()
 
@@ -556,7 +542,7 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 	local ply = LocalPlayer()
 	if !ply.VBSpringAngle then return end
 
-    if type(wep.GetCustomize) == "function" and wep:GetCustomize() then return end
+	if type(wep.GetCustomize) == "function" and wep:GetCustomize() then return end
 
 	local FT = (SP and FrameTime()) or RealFrameTime()
 	local IFTP = (SP or IsFirstTimePredicted())
@@ -593,28 +579,28 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 		ply:VBSpring(SpringStop)
 	end
 
-    local isSprinting = ply:KeyDown(IN_SPEED) and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
+	local isSprinting = ply:KeyDown(IN_SPEED) and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
 
 	LerpedInertia = Lerp(FT * 5, LerpedInertia, inertiamul)
 	-- VBAngCalc.x = VBAngCalc.x + 10 * LerpedInertia
 	VBAngCalc.z = VBAngCalc.z + 10 * LerpedInertia
 
-    if !GetSighted(wep) then
-	    VBPosCalc.z = VBPosCalc.z + 10 * LerpedInertia
-    end
+	if !GetSighted(wep) then
+		VBPosCalc.z = VBPosCalc.z + 10 * LerpedInertia
+	end
 
-	local sway_y = math.Clamp(math.AngleDifference(LastAng.y, ang.y) * 0.5, -2.5, 2.5) * 0.5
-	local sway_x = math.Clamp(math.AngleDifference(LastAng.x, ang.x), -2.5, 2.5) * 0.5
+	-- local sway_y = math.Clamp(math.AngleDifference(LastAng.y, ang.y) * 0.5, -2.5, 2.5) * 0.5
+	-- local sway_x = math.Clamp(math.AngleDifference(LastAng.x, ang.x), -2.5, 2.5) * 0.5
 
-	local swayt_x = (sway_x == 0 and 6) or 4
-	local swayt_y = (sway_y == 0 and 6) or 4
+	-- local swayt_x = (sway_x == 0 and 6) or 4
+	-- local swayt_y = (sway_y == 0 and 6) or 4
 
 	-- if IFTP and UCT != UnPredictedCurTime() then
-        -- LerpedSway_X = Lerp(FT * swayt_x, LerpedSway_X, sway_x)
-        -- LerpedSway_Y = Lerp(FT * swayt_y, LerpedSway_Y, sway_y)
-        -- SpringSway[1] = LerpedSway_X * -0.005
-        -- SpringSway[2] = LerpedSway_Y * -0.01
-        -- ply:VBSpring(SpringSway)
+		-- LerpedSway_X = Lerp(FT * swayt_x, LerpedSway_X, sway_x)
+		-- LerpedSway_Y = Lerp(FT * swayt_y, LerpedSway_Y, sway_y)
+		-- SpringSway[1] = LerpedSway_X * -0.005
+		-- SpringSway[2] = LerpedSway_Y * -0.01
+		-- ply:VBSpring(SpringSway)
 	-- end
 
 	local r = ang:Right()
@@ -688,18 +674,18 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 end)
 
 if CLIENT then
-    local bobbing = GetConVar("efgm_visuals_headbob"):GetBool()
+	local bobbing = GetConVar("efgm_visuals_headbob"):GetBool()
 
-    hook.Add("CalcView","VBCalcView", function(ply,pos,ang)
-        if bobbing then
-            calcpos:Set(ang:Up() * ((VBAng.x-VBAngPre.x) * 3 + LerpedSway_X - math.abs(LerpedSway_Y * 0.15)))
-            ang.x = ang.x + (VBAng.x-VBAngPre.x) * 0.25
-        end
+	hook.Add("CalcView","VBCalcView", function(ply,pos,ang)
+		if bobbing then
+			calcpos:Set(ang:Up() * ((VBAng.x-VBAngPre.x) * 3 + LerpedSway_X - math.abs(LerpedSway_Y * 0.15)))
+			ang.x = ang.x + (VBAng.x-VBAngPre.x) * 0.25
+		end
 
-        pos:Sub(calcpos)
-    end)
+		pos:Sub(calcpos)
+	end)
 
-    cvars.AddChangeCallback("efgm_visuals_headbob", function(convar_name, value_old, value_new) if value_new == "1" then bobbing = true else bobbing = false end end)
+	cvars.AddChangeCallback("efgm_visuals_headbob", function(convar_name, value_old, value_new) if value_new == "1" then bobbing = true else bobbing = false end end)
 end
 
 local VBAngN = Angle()
@@ -745,7 +731,7 @@ local function ChildBones(vm, ply, boneid)
 end
 
 hook.Add("PostDrawViewModel", "VBPostDrawViewModel", function(vm,ply,wep)
-    if type(wep.GetCustomize) == "function" and wep:GetCustomize() then return end
+	if type(wep.GetCustomize) == "function" and wep:GetCustomize() then return end
 
 	if !ply.VBSpringAngle then return end
 

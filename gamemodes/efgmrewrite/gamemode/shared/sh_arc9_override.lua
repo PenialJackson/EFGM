@@ -879,7 +879,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             presetpanel:AlphaTo(255, 0.1, 0, nil)
 
             local cornercut = ARC9ScreenScale(3.5)
-            presetpanel.Paint = function(self2, w, h) 
+            presetpanel.Paint = function(self2, w, h)
                 draw.NoTexture()
                 surface.SetDrawColor(ARC9.GetHUDColor("bg"))
                 surface.DrawPoly({{x = cornercut, y = h},{x = 0, y = h-cornercut}, {x = 0, y = cornercut},{x = cornercut, y = 0}, {x = w-cornercut, y = 0},{x = w, y = cornercut}, {x = w, y = h-cornercut}, {x = w-cornercut, y = h}})
@@ -897,11 +897,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             local presetscroller = vgui.Create("ARC9ScrollPanel", presetpanel)
             presetscroller:SetSize(presetpanel:GetWide() - ARC9ScreenScale(4), presetpanel:GetTall()-ARC9ScreenScale(26))
             presetscroller:SetPos(ARC9ScreenScale(2), ARC9ScreenScale(4))
-            -- presetscroller.Paint = function(self2, w, h) 
+            -- presetscroller.Paint = function(self2, w, h)
             --     surface.SetDrawColor(ARC9.GetHUDColor("bg"))
             --     surface.DrawRect(0, 0, w, h)
             -- end
-            
+
             local savebtn = vgui.Create("ARC9TopButton", presetpanel)
             surface.SetFont("ARC9_12")
             local savetxt = ARC9:GetPhrase("customize.presets.save")
@@ -1067,14 +1067,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     -- surface.PlaySound(applysound)
                 end
 
-                if preset == "random" then 
+                if preset == "random" then
                     presetbtn.name = ARC9:GetPhrase("customize.presets.random")
                     presetbtn.attcount = "?"
                     presetbtn.icon = mat_random
                     presetbtn.def = true
                     presetbtn.DoClick = function(self2)
                         if GetConVar("arc9_atts_nocustomize"):GetBool() then return end
-                        -- self:NPC_Initialize()        
+                        -- self:NPC_Initialize()
                         net.Start("arc9_randomizeatts")
                         net.SendToServer()
 
@@ -1098,11 +1098,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 --     presetbtn.icon = Material("materials/arc9/arc9_sus.png")
                 -- end
 
-                presetbtn.Paint = function(self2, w, h) 
+                presetbtn.Paint = function(self2, w, h)
                     surface.SetDrawColor(ARC9.GetHUDColor("bg"))
                     surface.DrawRect(0, 0, w, h)
                     if self2:IsHovered() then
-                        if self2:IsDown() then 
+                        if self2:IsDown() then
                             surface.SetDrawColor(ARC9.GetHUDColor("hi", 100))
                         end
                         if !GetConVar("arc9_atts_nocustomize"):GetBool() then
@@ -1183,7 +1183,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                         end
                     end
                 end
-                
+
                 if !undeletable and !presetbtn.def or undeletable and !presetbtn.def then
                     local preset_delete = vgui.Create("ARC9TopButton", presetbtn)
                     presetbtn.delbutton = preset_delete
@@ -2366,7 +2366,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 elseif ((tossable and owner:KeyDown(IN_ATTACK2)) or
                 owner:KeyDown(IN_ATTACK)) and
                     (!owner:KeyDown(IN_USE) or !self:GetProcessedValue("PrimaryBash", true)) and
-                    !IsValid(self:GetDetonatorEntity()) and !self:RunHook("HookP_BlockFire") 
+                    !IsValid(self:GetDetonatorEntity()) and !self:RunHook("HookP_BlockFire")
                     then
                     self:SetGrenadePrimed(true)
                     self:SetGrenadePrimedTime(CurTime())

@@ -1,8 +1,6 @@
 ENT.Type = "point"
 ENT.Base = "base_point"
 
--- These are defined by the entity in hammer
-
 ENT.KeyName = ""
 ENT.KeyLockTime = 0
 ENT.PlayersUsed = {}
@@ -11,7 +9,6 @@ ENT.ShowOnMap = true
 ENT.AutoRelock = false
 
 function ENT:KeyValue(key, value)
-
 	if key == "keyName" then
 		self.KeyName = tostring(value)
 	end
@@ -27,105 +24,81 @@ function ENT:KeyValue(key, value)
 	if key == "Lock" then
 		self:StoreOutput(key, value)
 	end
-
 end
 
 function ENT:Initialize()
-
 	local flags = tonumber(self:GetSpawnFlags())
 
 	self.ShowOnMap = bit.band(flags, 1) == 1
 	self.AutoRelock = bit.band(flags, 2) == 2
-
 end
 
 function ENT:AcceptInput(name, ply, caller, data)
+	if name == "CheckKey" then
+		if AmountInInventory(ply.inventory, self.KeyName) == 0 and self.PlayersUsed[ply:SteamID64()] == nil then
+			self:TriggerOutput("OnNotHasKey", ply, data)
 
-    PrintTable(self.PlayersUsed)
+			net.Start("SendNotification", false)
+				net.WriteString("This door is locked!")
+				net.WriteString("icons/nokey_icon.png")
+				net.WriteString("ui/door_closed.wav")
+			net.Send(ply)
+		else
+			local keyWithLowestDura = 0
+			local lowestDura = 0
 
-    if name == "CheckKey" then
+			for k, v in ipairs(ply.inventory) do
+				if !table.IsEmpty(v) and v.name == self.KeyName and v.data.durability > lowestDura then
+					keyWithLowestDura = k
+					lowestDura = v.data.durability
+				end
+			end
 
-        if AmountInInventory(ply.inventory, self.KeyName) == 0 and self.PlayersUsed[ply:SteamID64()] == nil then
+			if keyWithLowestDura == 0 then return end
 
-            self:TriggerOutput("OnNotHasKey", ply, data)
-            net.Start("SendNotification", false)
-            net.WriteString("This door is locked!")
-            net.WriteString("icons/nokey_icon.png")
-            net.WriteString("ui/door_closed.wav")
-            net.Send(ply)
+			self:TriggerOutput("OnHasKey", ply, data)
 
-        else
+			ply:SetNWInt("KeysUsed", ply:GetNWInt("KeysUsed") + 1)
+			ply:SetNWInt("RaidKeysUsed", ply:GetNWInt("RaidKeysUsed") + 1)
 
-            local keyWithLowestDura = 0
-            local lowestDura = 0
+			local item = ply.inventory[keyWithLowestDura]
+			local durability = item.data.durability
 
-            for k, v in ipairs(ply.inventory) do
+			ply.inventory[keyWithLowestDura].data.durability = durability - 1
 
-                if !table.IsEmpty(v) and v.name == self.KeyName and v.data.durability > lowestDura then
+			if ply.inventory[keyWithLowestDura].data.durability > 0 then
+				net.Start("PlayerInventoryUpdateItem", false)
+					net.WriteTable(item.data)
+					net.WriteUInt(keyWithLowestDura, 16)
+				net.Send(ply)
 
-                    keyWithLowestDura = k
-                    lowestDura = v.data.durability
+				UpdateInventoryString(ply)
+			else
+				net.Start("PlayerInventoryDeleteItem", false)
+					net.WriteUInt(keyWithLowestDura, 16)
+				net.Send(ply)
 
-                end
+				table.remove(ply.inventory, keyWithLowestDura)
 
-            end
+				UpdateInventoryString(ply)
+				RemoveWeightFromPlayer(ply, item.name, item.data.count)
+			end
 
-            if keyWithLowestDura == 0 then return end
+			-- so opening a double door or something doesn't take up two uses
+			self.PlayersUsed[ply:SteamID64()] = true
 
-            self:TriggerOutput("OnHasKey", ply, data)
+			if self.AutoRelock and self.KeyLockTime > 0 then
+				net.Start("SendNotification", false)
+					net.WriteString("This door will relock in " .. self.KeyLockTime .. "s!")
+					net.WriteString("icons/relock_icon.png")
+					net.WriteString("ui/door_opened.wav")
+				net.Send(ply)
 
-            ply:SetNWInt("KeysUsed", ply:GetNWInt("KeysUsed") + 1)
-            ply:SetNWInt("RaidKeysUsed", ply:GetNWInt("RaidKeysUsed") + 1)
-
-            local item = ply.inventory[keyWithLowestDura]
-            local durability = item.data.durability
-
-            ply.inventory[keyWithLowestDura].data.durability = durability - 1
-
-            if ply.inventory[keyWithLowestDura].data.durability > 0 then
-
-                net.Start("PlayerInventoryUpdateItem", false)
-                net.WriteTable(item.data)
-                net.WriteUInt(keyWithLowestDura, 16)
-                net.Send(ply)
-
-                UpdateInventoryString(ply)
-
-            else
-
-                net.Start("PlayerInventoryDeleteItem", false)
-                net.WriteUInt(keyWithLowestDura, 16)
-                net.Send(ply)
-
-                table.remove(ply.inventory, keyWithLowestDura)
-
-                UpdateInventoryString(ply)
-                RemoveWeightFromPlayer(ply, item.name, item.data.count)
-
-            end
-
-            -- so opening a double door or something doesn't take up two uses
-            self.PlayersUsed[ply:SteamID64()] = true
-
-            if self.AutoRelock and self.KeyLockTime > 0 then
-
-                net.Start("SendNotification", false)
-                net.WriteString("This door will relock in " .. self.KeyLockTime .. "s !")
-                net.WriteString("icons/relock_icon.png")
-                net.WriteString("ui/door_opened.wav")
-                net.Send(ply)
-
-                timer.Simple(self.KeyLockTime, function()
-
-                    self:TriggerOutput("Lock", ply, data)
-                    self.PlayersUsed = {}
-
-                end)
-
-            end
-
-        end
-
-    end
-
+				timer.Simple(self.KeyLockTime, function()
+					self:TriggerOutput("Lock", ply, data)
+					self.PlayersUsed = {}
+				end)
+			end
+		end
+	end
 end

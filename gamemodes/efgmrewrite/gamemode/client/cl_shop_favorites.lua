@@ -1,80 +1,58 @@
 EFGM.Favorites = {}
 
 function EFGM:LoadFavorites()
+	local f = file.Open("efgm_market_favorites.txt", "r", "DATA")
+	if !f then return end
 
-    local f = file.Open("efgm_market_favorites.txt", "r", "DATA")
-    if !f then return end
+	EFGM.Favorites = {}
 
-    EFGM.Favorites = {}
+	while !f:EndOfFile() do
+		local line = f:ReadLine()
+		line = string.Trim(line, "\n")
 
-    while !f:EndOfFile() do
+		EFGM.Favorites[line] = true
+	end
 
-        local line = f:ReadLine()
-        line = string.Trim(line, "\n")
-
-        EFGM.Favorites[line] = true
-
-    end
-
-    f:Close()
-
+	f:Close()
 end
 
 function EFGM:SaveFavorites()
+	local f = file.Open("efgm_market_favorites.txt", "w", "DATA")
 
-    local f = file.Open("efgm_market_favorites.txt", "w", "DATA")
+	for i, k in pairs(EFGM.Favorites) do
+		f:Write(i)
+		f:Write("\n")
+	end
 
-    for i, k in pairs(EFGM.Favorites) do
-
-        f:Write(i)
-        f:Write("\n")
-
-    end
-
-    f:Close()
-
+	f:Close()
 end
 
 function EFGM:AddAttToFavorites(item)
-
-    EFGM.Favorites[item] = true
-    EFGM:SaveFavorites()
-
+	EFGM.Favorites[item] = true
+	EFGM:SaveFavorites()
 end
 
 function EFGM:RemoveAttFromFavorites(item)
-
-    EFGM.Favorites[item] = nil
-    EFGM:SaveFavorites()
-
+	EFGM.Favorites[item] = nil
+	EFGM:SaveFavorites()
 end
 
 function EFGM:ToggleFavorite(item)
+	if EFGM.Favorites[item] then
+		EFGM.Favorites[item] = nil
+		surface.PlaySound("arc9/newui/ui_part_favourite2.ogg")
+	else
+		EFGM.Favorites[item] = true
+		surface.PlaySound("arc9/newui/ui_part_favourite1.ogg")
+	end
 
-    if EFGM.Favorites[item] then
-
-        EFGM.Favorites[item] = nil
-        surface.PlaySound("arc9/newui/ui_part_favourite2.ogg")
-
-    else
-
-        EFGM.Favorites[item] = true
-        surface.PlaySound("arc9/newui/ui_part_favourite1.ogg")
-
-    end
-
-    EFGM:SaveFavorites()
-
+	EFGM:SaveFavorites()
 end
 
 hook.Add("PreGamemodeLoaded", "LoadShopFavorites", function()
-
-    EFGM:LoadFavorites()
-
+	EFGM:LoadFavorites()
 end)
 
 hook.Add("OnReloaded", "ReloadShopFavorites", function()
-
-    EFGM:LoadFavorites()
-
+	EFGM:LoadFavorites()
 end)

@@ -1,582 +1,444 @@
-
 local chunkedInv = {}
 local chunkedEqu = {}
 
 hook.Add("OnInventoryChunked", "NetworkInventory", function(str, uID)
+	local inventoryStr = str
+	inventoryStr = util.Base64Decode(inventoryStr)
+	inventoryStr = util.Decompress(inventoryStr)
 
-    local inventoryStr = str
-    inventoryStr = util.Base64Decode(inventoryStr)
-    inventoryStr = util.Decompress(inventoryStr)
+	if !inventoryStr then return end
 
-    if !inventoryStr then return end
+	local inventoryTbl = util.JSONToTable(inventoryStr)
 
-    local inventoryTbl = util.JSONToTable(inventoryStr)
-
-    playerInventory = inventoryTbl
-    if playerInventory == nil then playerInventory = {} end
-
+	playerInventory = inventoryTbl
+	if playerInventory == nil then playerInventory = {} end
 end)
 
 hook.Add("OnEquippedChunked", "NetworkEquipped", function(str, uID)
+	local equippedStr = str
 
-    local equippedStr = str
+	equippedStr = util.Base64Decode(equippedStr)
+	equippedStr = util.Decompress(equippedStr)
 
-    equippedStr = util.Base64Decode(equippedStr)
-    equippedStr = util.Decompress(equippedStr)
+	if !equippedStr then return end
 
-    if !equippedStr then return end
+	local equippedTbl = util.JSONToTable(equippedStr)
+	playerWeaponSlots = equippedTbl
 
-    local equippedTbl = util.JSONToTable(equippedStr)
+	if playerWeaponSlots == nil then
+		playerWeaponSlots = {}
+		for k, v in pairs(WEAPONSLOTS) do
+			playerWeaponSlots[v.ID] = {}
 
-    playerWeaponSlots = equippedTbl
-    if playerWeaponSlots == nil then
-
-        playerWeaponSlots = {}
-        for k, v in pairs(WEAPONSLOTS) do
-
-            playerWeaponSlots[v.ID] = {}
-
-            for i = 1, v.COUNT, 1 do
-
-                playerWeaponSlots[v.ID][i] = {}
-
-            end
-
-        end
-
-    end
-
+			for i = 1, v.COUNT, 1 do
+				playerWeaponSlots[v.ID][i] = {}
+			end
+		end
+	end
 end)
 
-net.Receive("PlayerNetworkInventory", function(len, ply)
+net.Receive("PlayerNetworkInventory", function(len)
+	local uID = net.ReadFloat()
+	local index = net.ReadUInt(16)
+	local chunkCount = net.ReadUInt(16)
+	local chunk = net.ReadString()
 
-    local uID = net.ReadFloat()
-    local index = net.ReadUInt(16)
-    local chunkCount = net.ReadUInt(16)
-    local chunk = net.ReadString()
+	if !chunkedInv[uID] then
+		chunkedInv[uID] = {
+			Chunks = {},
+			ReceivedCount = 0,
+			TotalCount = chunkCount
+		}
+	end
 
-    if !chunkedInv[uID] then
+	chunkedInv[uID].Chunks[index] = chunk
+	chunkedInv[uID].ReceivedCount = chunkedInv[uID].ReceivedCount + 1
 
-        chunkedInv[uID] = {
+	if chunkedInv[uID].ReceivedCount == chunkedInv[uID].TotalCount then
+		local str = ""
 
-            Chunks = {},
-            ReceivedCount = 0,
-            TotalCount = chunkCount
+		for i = 1, chunkCount do
+			str = str .. chunkedInv[uID].Chunks[i]
+		end
 
-        }
+		hook.Run("OnInventoryChunked", str, uID)
+		chunkedInv[uID] = nil
+	end
+end)
 
-    end
+net.Receive("PlayerNetworkEquipped", function(len)
+	local uID = net.ReadFloat()
+	local index = net.ReadUInt(16)
+	local chunkCount = net.ReadUInt(16)
+	local chunk = net.ReadString()
 
-    chunkedInv[uID].Chunks[index] = chunk
-    chunkedInv[uID].ReceivedCount = chunkedInv[uID].ReceivedCount + 1
+	if !chunkedEqu[uID] then
+		chunkedEqu[uID] = {
+			Chunks = {},
+			ReceivedCount = 0,
+			TotalCount = chunkCount
+		}
+	end
 
-    if chunkedInv[uID].ReceivedCount == chunkedInv[uID].TotalCount then
+	chunkedEqu[uID].Chunks[index] = chunk
+	chunkedEqu[uID].ReceivedCount = chunkedEqu[uID].ReceivedCount + 1
 
-        local str = ""
+	if chunkedEqu[uID].ReceivedCount == chunkedEqu[uID].TotalCount then
+		local str = ""
 
-        for i = 1, chunkCount do
+		for i = 1, chunkCount do
+			str = str .. chunkedEqu[uID].Chunks[i]
+		end
 
-            str = str .. chunkedInv[uID].Chunks[i]
-
-        end
-
-        hook.Run("OnInventoryChunked", str, uID)
-        chunkedInv[uID] = nil
-
-    end
-
-end )
-
-net.Receive("PlayerNetworkEquipped", function(len, ply)
-
-    local uID = net.ReadFloat()
-    local index = net.ReadUInt(16)
-    local chunkCount = net.ReadUInt(16)
-    local chunk = net.ReadString()
-
-    if !chunkedEqu[uID] then
-
-        chunkedEqu[uID] = {
-
-            Chunks = {},
-            ReceivedCount = 0,
-            TotalCount = chunkCount
-
-        }
-
-    end
-
-    chunkedEqu[uID].Chunks[index] = chunk
-    chunkedEqu[uID].ReceivedCount = chunkedEqu[uID].ReceivedCount + 1
-
-    if chunkedEqu[uID].ReceivedCount == chunkedEqu[uID].TotalCount then
-
-        local str = ""
-
-        for i = 1, chunkCount do
-
-            str = str .. chunkedEqu[uID].Chunks[i]
-
-        end
-
-        hook.Run("OnEquippedChunked", str, uID)
-        chunkedEqu[uID] = nil
-
-    end
-
-end )
+		hook.Run("OnEquippedChunked", str, uID)
+		chunkedEqu[uID] = nil
+	end
+end)
 
 function ReinstantiateInventory()
+	playerInventory = {}
 
-    playerInventory = {}
+	local equMelee = table.Copy(playerWeaponSlots[WEAPONSLOTS.MELEE.ID])
+	playerWeaponSlots = {}
 
-    local equMelee = table.Copy(playerWeaponSlots[WEAPONSLOTS.MELEE.ID])
+	for k, v in pairs(WEAPONSLOTS) do
+		playerWeaponSlots[v.ID] = {}
 
-    playerWeaponSlots = {}
-    for k, v in pairs(WEAPONSLOTS) do
+		for i = 1, v.COUNT, 1 do
+			playerWeaponSlots[v.ID][i] = {}
+		end
+	end
 
-        playerWeaponSlots[v.ID] = {}
-
-        for i = 1, v.COUNT, 1 do
-
-            playerWeaponSlots[v.ID][i] = {}
-
-        end
-
-    end
-
-    if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
-
+	if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
 end
 
-net.Receive("PlayerReinstantiateInventory", function(len, ply) ReinstantiateInventory() end)
+net.Receive("PlayerReinstantiateInventory", function(len)
+	ReinstantiateInventory()
+end)
 
-net.Receive("PlayerInventoryReload", function(len, ply)
+net.Receive("PlayerInventoryReload", function(len)
+	Menu.ReloadInventory()
+end)
 
-    Menu.ReloadInventory()
+net.Receive("PlayerSlotsReload", function(len)
+	Menu.ReloadSlots()
+end)
 
-end )
+net.Receive("PlayerInventoryAddItem", function(len)
+	local name, type, data, index
 
-net.Receive("PlayerSlotsReload", function(len, ply)
+	name = net.ReadString()
+	type = net.ReadUInt(4)
+	data = net.ReadTable()
+	index = net.ReadUInt(16)
 
-    Menu.ReloadSlots()
+	table.insert(playerInventory, index, ITEM.Instantiate(name, type, data))
+end)
 
-end )
+net.Receive("PlayerInventoryUpdateItem", function(len)
+	local newData, index
 
-net.Receive("PlayerInventoryAddItem", function(len, ply)
+	newData = net.ReadTable()
+	index = net.ReadUInt(16)
 
-    local name, type, data, index
+	playerInventory[index].data = newData
+end)
 
-    name = net.ReadString()
-    type = net.ReadUInt(4)
-    data = net.ReadTable()
-    index = net.ReadUInt(16)
+net.Receive("PlayerInventoryDeleteItem", function(len)
+	local index
+	index = net.ReadUInt(16)
 
-    table.insert(playerInventory, index, ITEM.Instantiate(name, type, data))
+	table.remove(playerInventory, index)
+end)
 
-end )
+net.Receive("PlayerInventoryUnEquipAll", function(len)
+	local equMelee = table.Copy(playerWeaponSlots[WEAPONSLOTS.MELEE.ID])
+	playerWeaponSlots = {}
 
-net.Receive("PlayerInventoryUpdateItem", function(len, ply)
+	for k, v in pairs(WEAPONSLOTS) do
+		if v.ID == WEAPONSLOTS.MELEE.ID then continue end
 
-    local newData, index
+		playerWeaponSlots[v.ID] = {}
 
-    newData = net.ReadTable()
-    index = net.ReadUInt(16)
+		for i = 1, v.COUNT, 1 do
+			playerWeaponSlots[v.ID][i] = {}
+		end
+	end
 
-    playerInventory[index].data = newData
+	if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
 
-end )
-
-net.Receive("PlayerInventoryDeleteItem", function(len, ply)
-
-    local index
-
-    index = net.ReadUInt(16)
-
-    table.remove(playerInventory, index)
-
-end )
-
-net.Receive("PlayerInventoryUnEquipAll", function(len, ply)
-
-    local equMelee = table.Copy(playerWeaponSlots[WEAPONSLOTS.MELEE.ID])
-
-    playerWeaponSlots = {}
-    for k, v in pairs(WEAPONSLOTS) do
-
-        if v.ID == WEAPONSLOTS.MELEE.ID then continue end
-
-        playerWeaponSlots[v.ID] = {}
-
-        for i = 1, v.COUNT, 1 do
-
-            playerWeaponSlots[v.ID][i] = {}
-
-        end
-
-    end
-
-    if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
-
-    Menu.ReloadSlots()
-
-end )
+	Menu.ReloadSlots()
+end)
 
 function UnequipAll()
-
-    net.Start("PlayerInventoryUnEquipAllCL", false)
-    net.SendToServer()
-
+	net.Start("PlayerInventoryUnEquipAllCL", false)
+	net.SendToServer()
 end
 
-net.Receive("PlayerInventoryUpdateEquipped", function(len, ply)
+net.Receive("PlayerInventoryUpdateEquipped", function(len)
+	local newData, index, key
 
-    local newData, index, key
+	newData = net.ReadTable()
+	index = net.ReadUInt(16)
+	key = net.ReadUInt(16)
 
-    newData = net.ReadTable()
-    index = net.ReadUInt(16)
-    key = net.ReadUInt(16)
-
-    playerWeaponSlots[index][key].data = newData
-    Menu.ReloadSlots()
-
+	playerWeaponSlots[index][key].data = newData
+	Menu.ReloadSlots()
 end )
 
-net.Receive("PlayerInventoryDeleteEquippedItem", function(len, ply)
+net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
+	local equipID, equipSlot
 
-    local equipID, equipSlot
+	equipID = net.ReadUInt(4)
+	equipSlot = net.ReadUInt(4)
 
-    equipID = net.ReadUInt(4)
-    equipSlot = net.ReadUInt(4)
+	table.Empty(playerWeaponSlots[equipID][equipSlot])
 
-    table.Empty(playerWeaponSlots[equipID][equipSlot])
-
-    Menu.ReloadSlots()
-
+	Menu.ReloadSlots()
 end )
 
 function DropItemFromInventory(itemIndex)
+	if LocalPlayer():CompareStatus(3) then return end
 
-    if LocalPlayer():CompareStatus(3) then return end
+	net.Start("PlayerInventoryDropItem", false)
+		net.WriteUInt(itemIndex, 16)
+	net.SendToServer()
 
-    net.Start("PlayerInventoryDropItem", false)
-    net.WriteUInt(itemIndex, 16)
-    net.SendToServer()
-
-    table.remove(playerInventory, itemIndex)
-    Menu.ReloadInventory()
-
+	table.remove(playerInventory, itemIndex)
+	Menu.ReloadInventory()
 end
 
 -- returns bool whether or not it could equip an item clientside (desync may be an issue since server could disagree and neither side would know)
 function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
+	local item = playerInventory[itemIndex]
+	if item == nil then return end
 
-    local item = playerInventory[itemIndex]
-    if item == nil then return end
+	if AmountInInventory(playerWeaponSlots[equipSlot], item.name) != 0 then return end -- can't have multiple of the same item
 
-    if AmountInInventory(playerWeaponSlots[equipSlot], item.name) != 0 then return end -- can't have multiple of the same item
+	-- checking item equip slots
+	if equipSlot == 1 and primaryPref != nil then
+		if primaryPref == 1 then
+			playerWeaponSlots[equipSlot][1] = item
 
-    -- checking item equip slots
-    if equipSlot == 1 and primaryPref != nil then
+			net.Start("PlayerInventoryEquipItem", false)
+				net.WriteUInt(itemIndex, 16)
+				net.WriteUInt(equipSlot, 4)
+				net.WriteUInt(1, 4)
+			net.SendToServer()
 
-        if primaryPref == 1 then
+			return true
+		else
+			playerWeaponSlots[equipSlot][2] = item
 
-            playerWeaponSlots[equipSlot][1] = item
+			net.Start("PlayerInventoryEquipItem", false)
+				net.WriteUInt(itemIndex, 16)
+				net.WriteUInt(equipSlot, 4)
+				net.WriteUInt(2, 4)
+			net.SendToServer()
 
-            net.Start("PlayerInventoryEquipItem", false)
-                net.WriteUInt(itemIndex, 16)
-                net.WriteUInt(equipSlot, 4)
-                net.WriteUInt(1, 4)
-            net.SendToServer()
+			return true
+		end
+	else
+		for k, v in ipairs(playerWeaponSlots[equipSlot]) do
+			if table.IsEmpty(v) then
+				playerWeaponSlots[equipSlot][k] = item
 
-            return true
+				net.Start("PlayerInventoryEquipItem", false)
+					net.WriteUInt(itemIndex, 16)
+					net.WriteUInt(equipSlot, 4)
+					net.WriteUInt(k, 4)
+				net.SendToServer()
 
-        else
+				return true
+			end
+		end
+	end
 
-            playerWeaponSlots[equipSlot][2] = item
-
-            net.Start("PlayerInventoryEquipItem", false)
-                net.WriteUInt(itemIndex, 16)
-                net.WriteUInt(equipSlot, 4)
-                net.WriteUInt(2, 4)
-            net.SendToServer()
-
-            return true
-
-        end
-
-    else
-
-        for k, v in ipairs(playerWeaponSlots[equipSlot]) do
-
-            if table.IsEmpty(v) then
-
-                playerWeaponSlots[equipSlot][k] = item
-
-                net.Start("PlayerInventoryEquipItem", false)
-                    net.WriteUInt(itemIndex, 16)
-                    net.WriteUInt(equipSlot, 4)
-                    net.WriteUInt(k, 4)
-                net.SendToServer()
-
-                return true
-
-            end
-
-        end
-
-    end
-
-    return false
-
+	return false
 end
 
 function UnEquipItemFromInventory(equipID, equipSlot)
+	if (LocalPlayer():CompareFaction(false) and LocalPlayer():CompareStatus(0)) then return end
 
-    if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	local item = playerWeaponSlots[equipID][equipSlot]
+	if table.IsEmpty(item) then return end
 
-    local item = playerWeaponSlots[equipID][equipSlot]
+	table.Empty(playerWeaponSlots[equipID][equipSlot])
 
-    if table.IsEmpty(item) then return end
-
-    table.Empty(playerWeaponSlots[equipID][equipSlot])
-
-    net.Start("PlayerInventoryUnEquipItem", false)
-        net.WriteUInt(equipID, 4)
-        net.WriteUInt(equipSlot, 4)
-    net.SendToServer()
-
+	net.Start("PlayerInventoryUnEquipItem", false)
+		net.WriteUInt(equipID, 4)
+		net.WriteUInt(equipSlot, 4)
+	net.SendToServer()
 end
 
 function DropEquippedItem(equipID, equipSlot)
+	if LocalPlayer():CompareStatus(3) then return end
 
-    if LocalPlayer():CompareStatus(3) then return end
+	local item = playerWeaponSlots[equipID][equipSlot]
+	if table.IsEmpty(item) then return end
 
-    local item = playerWeaponSlots[equipID][equipSlot]
+	table.Empty(playerWeaponSlots[equipID][equipSlot])
 
-    if table.IsEmpty(item) then return end
+	net.Start("PlayerInventoryDropEquippedItem", false)
+		net.WriteUInt(equipID, 4)
+		net.WriteUInt(equipSlot, 4)
+	net.SendToServer()
 
-    table.Empty(playerWeaponSlots[equipID][equipSlot])
-
-    net.Start("PlayerInventoryDropEquippedItem", false)
-        net.WriteUInt(equipID, 4)
-        net.WriteUInt(equipSlot, 4)
-    net.SendToServer()
-
-    Menu.ReloadSlots()
-
+	Menu.ReloadSlots()
 end
 
-net.Receive("PlayerInventoryConsumeGrenade", function(len, ply)
+net.Receive("PlayerInventoryConsumeGrenade", function(len)
+	table.Empty(playerWeaponSlots[4][1])
+	Menu.ReloadSlots()
 
-    table.Empty(playerWeaponSlots[4][1])
-    Menu.ReloadSlots()
-
-    if !table.IsEmpty(playerWeaponSlots[1][1]) then
-
-        local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
-
-        local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
-
-        local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    end
-
+	if !table.IsEmpty(playerWeaponSlots[1][1]) then
+		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
+		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
+		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	end
 end)
 
-net.Receive("PlayerInventoryRemoveConsumable", function(len, ply)
+net.Receive("PlayerInventoryRemoveConsumable", function(len)
+	table.Empty(playerWeaponSlots[5][1])
+	Menu.ReloadSlots()
 
-    table.Empty(playerWeaponSlots[5][1])
-    Menu.ReloadSlots()
-
-    if !table.IsEmpty(playerWeaponSlots[1][1]) then
-
-        local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
-
-        local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
-
-        local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    end
-
+	if !table.IsEmpty(playerWeaponSlots[1][1]) then
+		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
+		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
+		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	end
 end)
 
-net.Receive("PlayerInventoryClearFIR", function(len, ply)
+net.Receive("PlayerInventoryClearFIR", function(len)
+	for k, v in ipairs(playerInventory) do
+		v.data.fir = nil
+	end
 
-    for k, v in ipairs(playerInventory) do
+	for i = 1, #table.GetKeys(WEAPONSLOTS) do
+		for k, v in ipairs(playerWeaponSlots[i]) do
+			if table.IsEmpty(v) then continue end
+			v.data.fir = nil
+		end
+	end
 
-        v.data.fir = nil
-
-    end
-
-    for i = 1, #table.GetKeys(WEAPONSLOTS) do
-
-        for k, v in ipairs(playerWeaponSlots[i]) do
-
-            if table.IsEmpty(v) then continue end
-
-            v.data.fir = nil
-
-        end
-
-    end
-
-    Menu.ReloadInventory()
-    Menu.ReloadSlots()
-
+	Menu.ReloadInventory()
+	Menu.ReloadSlots()
 end)
 
 net.Receive("efgm_sendpreset", function(len)
+	local wpn = net.ReadEntity()
+	local preset = net.ReadString()
 
-    local wpn = net.ReadEntity()
-    local preset = net.ReadString()
-
-    if IsValid(wpn) and wpn.ARC9 then
-
-        wpn:LoadPresetFromTable(wpn:ImportPresetCode(preset))
-
-    end
-
+	if IsValid(wpn) and wpn.ARC9 then
+		wpn:LoadPresetFromTable(wpn:ImportPresetCode(preset))
+	end
 end)
 
 concommand.Add("efgm_inventory_equip", function(ply, cmd, args)
+	-- if subslot is specified it tries to equip that specific slot, and if not it cycles through all subslots for that slot type (eg, for grenades or utility)
+	local equipSlot = tonumber(args[1])
+	if equipSlot == nil then return end
+	local equipSubSlot = tonumber(args[2])
 
-    -- if subslot is specified it tries to equip that specific slot, and if not it cycles through all subslots for that slot type (eg, for grenades or utility)
-    local equipSlot = tonumber(args[1])
-    if equipSlot == nil then return end
-    local equipSubSlot = tonumber(args[2])
+	if equipSubSlot == nil then
+		local subSlotCount = #playerWeaponSlots[equipSlot]
 
-    if equipSubSlot == nil then
+		if subSlotCount == 1 then -- selecting first subslot
+			local item = playerWeaponSlots[equipSlot][1]
+			if !istable(item) then return end
+			if table.IsEmpty(item) then return end
 
-        local subSlotCount = #playerWeaponSlots[equipSlot]
+			weapon = LocalPlayer():GetWeapon(item.name)
+			if weapon != NULL then input.SelectWeapon(weapon) end
+		else -- cycling to next subslot
+			for i = 1, subSlotCount do
+				local item = playerWeaponSlots[equipSlot][i]
+				if !istable(item) then return end
+				if table.IsEmpty(item) then return end
 
-        if subSlotCount == 1 then -- selecting first subslot
+				weapon = LocalPlayer():GetWeapon(item.name)
+				if weapon != NULL then input.SelectWeapon(weapon) end
+			end
+		end
+	else -- selecting from subslot
+		local item = playerWeaponSlots[equipSlot][equipSubSlot]
+		if !istable(item) then return end
+		if table.IsEmpty(item) then return end
+		if item == NULL then return end
 
-            local item = playerWeaponSlots[equipSlot][1]
-            if !istable(item) then return end
-            if table.IsEmpty(item) then return end
-
-            weapon = LocalPlayer():GetWeapon(item.name)
-            if weapon != NULL then input.SelectWeapon(weapon) end
-
-        else -- cycling to next subslot
-
-            for i = 1, subSlotCount do
-
-                local item = playerWeaponSlots[equipSlot][i]
-                if !istable(item) then return end
-                if table.IsEmpty(item) then return end
-
-                weapon = LocalPlayer():GetWeapon(item.name)
-                if weapon != NULL then input.SelectWeapon(weapon) end
-
-            end
-
-        end
-
-    else -- selecting from subslot
-
-        local item = playerWeaponSlots[equipSlot][equipSubSlot]
-        if !istable(item) then return end
-        if table.IsEmpty(item) then return end
-        if item == NULL then return end
-
-        weapon = LocalPlayer():GetWeapon(item.name)
-        if weapon != NULL then input.SelectWeapon(weapon) end
-
-    end
-
+		weapon = LocalPlayer():GetWeapon(item.name)
+		if weapon != NULL then input.SelectWeapon(weapon) end
+	end
 end)
 
 function SplitFromInventory(inv, item, count, key)
-
-    net.Start("PlayerInventorySplit", false)
-    net.WriteString(inv)
-    net.WriteString(item)
-    net.WriteUInt(count, 8)
-    net.WriteUInt(key, 16)
-    net.SendToServer()
-
+	net.Start("PlayerInventorySplit", false)
+		net.WriteString(inv)
+		net.WriteString(item)
+		net.WriteUInt(count, 8)
+		net.WriteUInt(key, 16)
+	net.SendToServer()
 end
 
 function DeleteFromInventory(inv, item, key, eID, eSlot)
-
-    net.Start("PlayerInventoryDelete", false)
-    net.WriteString(inv)
-    net.WriteUInt(key, 16)
-    net.WriteUInt(eID, 4)
-    net.WriteUInt(eSlot, 4)
-    net.SendToServer()
-
+	net.Start("PlayerInventoryDelete", false)
+		net.WriteString(inv)
+		net.WriteUInt(key, 16)
+		net.WriteUInt(eID, 4)
+		net.WriteUInt(eSlot, 4)
+	net.SendToServer()
 end
 
 function TagFromInventory(tag, inv, item, key, eID, eSlot)
-
-    net.Start("PlayerInventoryTag", false)
-    net.WriteString(tag)
-    net.WriteString(inv)
-    net.WriteUInt(key, 16)
-    net.WriteUInt(eID, 4)
-    net.WriteUInt(eSlot, 4)
-    net.SendToServer()
-
+	net.Start("PlayerInventoryTag", false)
+		net.WriteString(tag)
+		net.WriteString(inv)
+		net.WriteUInt(key, 16)
+		net.WriteUInt(eID, 4)
+		net.WriteUInt(eSlot, 4)
+	net.SendToServer()
 end
 
-
 function PurchaseItem(item, count)
-
-    net.Start("PlayerMarketPurchaseItem", false)
-    net.WriteString(item)
-    net.WriteUInt(count, 16)
-    net.SendToServer()
-
+	net.Start("PlayerMarketPurchaseItem", false)
+		net.WriteString(item)
+		net.WriteUInt(count, 16)
+	net.SendToServer()
 end
 
 function PurchaseItemToInv(item, count)
-
-    net.Start("PlayerMarketPurchaseItemToInventory", false)
-    net.WriteString(item)
-    net.WriteUInt(count, 16)
-    net.SendToServer()
-
+	net.Start("PlayerMarketPurchaseItemToInventory", false)
+		net.WriteString(item)
+		net.WriteUInt(count, 16)
+	net.SendToServer()
 end
 
 function PurchasePresetToInventory(atts)
-
-    net.Start("PlayerMarketPurchasePresetToInventory", false)
-    net.WriteTable(atts)
-    net.SendToServer()
-
+	net.Start("PlayerMarketPurchasePresetToInventory", false)
+		net.WriteTable(atts)
+	net.SendToServer()
 end
 
 function SellItem(item, count, key)
-
-    net.Start("PlayerMarketSellItem", false)
-    net.WriteString(item)
-    net.WriteUInt(count, 8)
-    net.WriteUInt(key, 16)
-    net.SendToServer()
-
+	net.Start("PlayerMarketSellItem", false)
+		net.WriteString(item)
+		net.WriteUInt(count, 8)
+		net.WriteUInt(key, 16)
+	net.SendToServer()
 end
 
 function SellBulk(ids)
-
-    net.Start("PlayerMarketSellBulk", false)
-    net.WriteTable(ids)
-    net.SendToServer()
-
+	net.Start("PlayerMarketSellBulk", false)
+		net.WriteTable(ids)
+	net.SendToServer()
 end

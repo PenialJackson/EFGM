@@ -1,8 +1,4 @@
-
 -- To make the map image:
-
-
--- Take picture of map overhead:
 
 -- Run "sv_cheats 1; r_drawviewmodel 0; r_skybox 0; fog_override 1; fog_enable 0; mat_bloom_scalefactor_scalar 0; mat_specular 0;"
 -- and
@@ -39,184 +35,164 @@
 
 local wsLandmark1Xa = 0
 local wsLandmark1Ya = 0
-
 local wsLandmark2Xa = 0
 local wsLandmark2Ya = 0
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+	concommand.Add("efgm_debug_setlandmark1", function(ply, cmd, args)
+		pos = ply:GetPos()
+		wsLandmark1Xa = pos.x
+		wsLandmark1Ya = pos.y
 
-    concommand.Add("efgm_debug_setlandmark1", function(ply, cmd, args)
+		print(wsLandmark1Xa .. " " .. wsLandmark1Ya .. " " .. wsLandmark2Xa .. " " .. wsLandmark2Ya)
+	end)
 
-        pos = ply:GetPos()
-        wsLandmark1Xa = pos.x
-        wsLandmark1Ya = pos.y
+	concommand.Add("efgm_debug_setlandmark2", function(ply, cmd, args)
+		pos = ply:GetPos()
+		wsLandmark2Xa = pos.x
+		wsLandmark2Ya = pos.y
 
-        print(wsLandmark1Xa .." ".. wsLandmark1Ya .." ".. wsLandmark2Xa .." ".. wsLandmark2Ya)
+		print(wsLandmark1Xa .. " " .. wsLandmark1Ya .. " " .. wsLandmark2Xa .. " " .. wsLandmark2Ya)
+	end)
 
-    end)
+	concommand.Add("efgm_debug_drawmap", function(ply, cmd, args)
+		local mapSizeX = ScrW()
+		local mapSizeY = ScrH()
 
-    concommand.Add("efgm_debug_setlandmark2", function(ply, cmd, args)
+		local mapName = args[1]
 
-        pos = ply:GetPos()
-        wsLandmark2Xa = pos.x
-        wsLandmark2Ya = pos.y
+		local wsLandmark1X = tonumber(args[2])
+		local wsLandmark1Y = tonumber(args[3])
 
-        print(wsLandmark1Xa .." ".. wsLandmark1Ya .." ".. wsLandmark2Xa .." ".. wsLandmark2Ya)
+		local wsLandmark2X = tonumber(args[4])
+		local wsLandmark2Y = tonumber(args[5])
 
-    end)
+		local dbmapFrame = vgui.Create("DFrame")
+		dbmapFrame:SetSize(mapSizeX, mapSizeY)
+		dbmapFrame:Center()
+		dbmapFrame:SetTitle("[DEBUG] " .. mapName .. " Map")
+		dbmapFrame:SetVisible(true)
+		dbmapFrame:SetDeleteOnClose(true)
+		dbmapFrame:MakePopup()
 
+		local mapPanel = vgui.Create("DPanel", dbmapFrame)
+		mapPanel:SetSize(mapSizeX, mapSizeY - 240)
+		mapPanel:Dock(TOP)
 
-    concommand.Add("efgm_debug_drawmap", function(ply, cmd, args)
+		local mapLandmarkText = vgui.Create("DLabel", dbmapFrame)
+		mapLandmarkText:Dock(TOP)
+		mapLandmarkText:SetText("Map Space Landmarks")
 
-        local mapSizeX = ScrW()
-        local mapSizeY = ScrH()
+		local landmark1X = vgui.Create("DNumSlider", dbmapFrame)
+		landmark1X:Dock(TOP)
+		landmark1X:SetText("Landmark 1 X Pos")
+		landmark1X:SetMax(mapSizeX)
+		landmark1X:SetMin(0)
+		landmark1X:SetDecimals(2)
 
-        local mapName = args[1]
+		local landmark1Y = vgui.Create("DNumSlider", dbmapFrame)
+		landmark1Y:Dock(TOP)
+		landmark1Y:SetText("Landmark 1 Y Pos")
+		landmark1Y:SetMax(mapSizeY - 240)
+		landmark1Y:SetMin(0)
+		landmark1Y:SetDecimals(2)
 
-        local wsLandmark1X = tonumber( args[2] )
-        local wsLandmark1Y = tonumber( args[3] )
+		local landmark2X = vgui.Create("DNumSlider", dbmapFrame)
+		landmark2X:Dock(TOP)
+		landmark2X:SetText("Landmark 2 X Pos")
+		landmark2X:SetMax(mapSizeX)
+		landmark2X:SetMin(0)
+		landmark2X:SetDecimals(2)
 
-        local wsLandmark2X = tonumber( args[4] )
-        local wsLandmark2Y = tonumber( args[5] )
+		local landmark2Y = vgui.Create("DNumSlider", dbmapFrame)
+		landmark2Y:Dock(TOP)
+		landmark2Y:SetText("Landmark 2 Y Pos")
+		landmark2Y:SetMax(mapSizeY - 240)
+		landmark2Y:SetMin(0)
+		landmark2Y:SetDecimals(2)
 
-        local dbmapFrame = vgui.Create("DFrame")
-        dbmapFrame:SetSize(mapSizeX, mapSizeY)
-        dbmapFrame:Center()
-        dbmapFrame:SetTitle("[DEBUG] "..mapName.." Map")
-        dbmapFrame:SetVisible(true)
-        dbmapFrame:SetDeleteOnClose(true)
-        dbmapFrame:MakePopup()
+		local mapInfo = util.JSONToTable(file.Read("efgmdev/" .. mapName .. "_mapreport.json", "DATA"))
 
-        local mapPanel = vgui.Create("DPanel", dbmapFrame)
-        mapPanel:SetSize(mapSizeX, mapSizeY - 240)
-        mapPanel:Dock(TOP)
+		local generateInfo = vgui.Create("DButton", dbmapFrame)
+		generateInfo:Dock(TOP)
+		generateInfo:SetText("Generate Final " .. mapName .. " Map JSON")
 
-        local mapLandmarkText = vgui.Create("DLabel", dbmapFrame)
-        mapLandmarkText:Dock(TOP)
-        mapLandmarkText:SetText("Map Space Landmarks")
+		function generateInfo:DoClick()
+			local factorX = ((landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X))
+			local factorY = ((landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y))
 
-        local landmark1X = vgui.Create("DNumSlider", dbmapFrame)
-        landmark1X:Dock(TOP)
-        landmark1X:SetText("Landmark 1 X Pos")
-        landmark1X:SetMax(mapSizeX)
-        landmark1X:SetMin(0)
-        landmark1X:SetDecimals(2)
+			local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
+			local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-        local landmark1Y = vgui.Create("DNumSlider", dbmapFrame)
-        landmark1Y:Dock(TOP)
-        landmark1Y:SetText("Landmark 1 Y Pos")
-        landmark1Y:SetMax(mapSizeY - 240)
-        landmark1Y:SetMin(0)
-        landmark1Y:SetDecimals(2)
+			RunConsoleCommand("efgm_debug_mapreport_final", mapName, "false", tostring(factorX / mapSizeX), tostring(factorY / (mapSizeY - 240)), tostring(offsetX / mapSizeX), tostring(offsetY / (mapSizeY - 240)))
+		end
 
-        local landmark2X = vgui.Create("DNumSlider", dbmapFrame)
-        landmark2X:Dock(TOP)
-        landmark2X:SetText("Landmark 2 X Pos")
-        landmark2X:SetMax(mapSizeX)
-        landmark2X:SetMin(0)
-        landmark2X:SetDecimals(2)
+		function mapPanel:Paint(w, h)
+			surface.SetDrawColor(255, 255, 255, 255)
+			surface.SetMaterial(Material("maps/" .. mapName .. ".png", "smooth"))
+			surface.DrawTexturedRect(0, 0, w, h)
 
-        local landmark2Y = vgui.Create("DNumSlider", dbmapFrame)
-        landmark2Y:Dock(TOP)
-        landmark2Y:SetText("Landmark 2 Y Pos")
-        landmark2Y:SetMax(mapSizeY - 240)
-        landmark2Y:SetMin(0)
-        landmark2Y:SetDecimals(2)
+			surface.SetDrawColor(52, 124, 218, 240)
+			for k, v in pairs(mapInfo.spawns) do
+				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
+				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
 
-        local mapInfo = util.JSONToTable(file.Read("efgmdev/" .. mapName .. "_mapreport.json", "DATA"))
+				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
+				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-        local generateInfo = vgui.Create("DButton", dbmapFrame)
-        generateInfo:Dock(TOP)
-        generateInfo:SetText("Generate Final " .. mapName .. " Map JSON")
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5)
+				if v.type == 1 then draw.DrawText("PMC Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER)
+				elseif v.type == 2 then draw.DrawText("SCAV Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER)
+				else draw.DrawText("Global Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER) end
+			end
 
-        function generateInfo:DoClick()
+			surface.SetDrawColor(19, 196, 34, 240)
+			for k, v in pairs(mapInfo.extracts) do
+				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
+				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
 
-            local factorX = ((landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X))
-            local factorY = ((landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y))
+				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
+				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-            local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
-            local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5)
+				surface.SetTextPos((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY)
+				draw.DrawText(v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(19, 196, 34, 240), TEXT_ALIGN_CENTER)
+			end
 
-            RunConsoleCommand("efgm_debug_mapreport_final", mapName, "false", tostring(factorX / mapSizeX), tostring(factorY / (mapSizeY - 240)), tostring(offsetX / mapSizeX), tostring(offsetY / (mapSizeY - 240)))
+			surface.SetDrawColor(202, 20, 20, 240)
+			for k, v in pairs(mapInfo.locations) do
+				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
+				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
 
-        end
+				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
+				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-        function mapPanel:Paint(w, h)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5)
+				surface.SetTextPos((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY)
+				draw.DrawText(v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(202, 20, 20, 240), TEXT_ALIGN_CENTER)
+			end
 
-            surface.SetDrawColor(255, 255, 255, 255)
-            surface.SetMaterial(Material("maps/" .. mapName .. ".png", "smooth"))
-            surface.DrawTexturedRect(0, 0, w, h)
+			surface.SetDrawColor(252, 152, 2, 240)
+			for k, v in pairs(mapInfo.keys) do
+				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
+				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
 
-            surface.SetDrawColor(52, 124, 218, 240)
-            for k, v in pairs(mapInfo.spawns) do
+				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
+				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-                local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
-                local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 3)
+				surface.SetTextPos((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY)
+				draw.DrawText(v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(252, 152, 2, 240), TEXT_ALIGN_CENTER)
+			end
 
-                local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
-                local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
+			surface.SetDrawColor(Color(251, 255, 0))
+			surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 15)
+			surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 2)
 
-                surface.DrawCircle( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5 )
-                if v.type == 1 then draw.DrawText( "PMC Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER )
-                elseif v.type == 2 then draw.DrawText( "SCAV Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER )
-                else draw.DrawText( "Global Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER ) end
+			surface.SetDrawColor(Color(153, 0, 255))
+			surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 15)
+			surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 2)
 
-            end
-
-            surface.SetDrawColor(19, 196, 34, 240)
-            for k, v in pairs(mapInfo.extracts) do
-
-                local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
-                local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
-
-                local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
-                local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
-
-                surface.DrawCircle( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5 )
-                surface.SetTextPos( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY )
-                draw.DrawText( v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(19, 196, 34, 240), TEXT_ALIGN_CENTER )
-
-            end
-
-            surface.SetDrawColor(202, 20, 20, 240)
-            for k, v in pairs(mapInfo.locations) do
-
-                local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
-                local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
-
-                local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
-                local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
-
-                surface.DrawCircle( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5 )
-                surface.SetTextPos( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY ) 
-                draw.DrawText( v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(202, 20, 20, 240), TEXT_ALIGN_CENTER )
-
-            end
-
-            surface.SetDrawColor(252, 152, 2, 240)
-            for k, v in pairs(mapInfo.keys) do
-
-                local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
-                local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
-
-                local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
-                local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
-
-                surface.DrawCircle( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 3 )
-                surface.SetTextPos( (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY ) 
-                draw.DrawText( v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(252, 152, 2, 240), TEXT_ALIGN_CENTER )
-
-            end
-
-            surface.SetDrawColor(Color(251, 255, 0))
-            surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 15)
-            surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 2)
-            surface.SetDrawColor(Color(153, 0, 255))
-            surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 15)
-            surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 2)
-
-        end
-
-    end)
-
+		end
+	end)
 end

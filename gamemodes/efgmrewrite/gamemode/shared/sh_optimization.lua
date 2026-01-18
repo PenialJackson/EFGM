@@ -1,13 +1,14 @@
 -- removing unneccessary server hook
 if SERVER then
-	hook.Add("Initialize", "SVHookRemoval", function() if timer.Exists("CheckHookTimes") then timer.Remove("CheckHookTimes") end end)
+	hook.Add("Initialize", "SVHookRemoval", function()
+		if timer.Exists("CheckHookTimes") then timer.Remove("CheckHookTimes") end
+	end)
 end
 
 if CLIENT then
 	-- optimized indexs
 	local function RWEnt()
 		local M_Entity = FindMetaTable("Entity")
-
 		local E_GetTable = M_Entity.GetTable
 
 		local val
@@ -26,7 +27,6 @@ if CLIENT then
 	local function RWPly()
 		local M_Player = FindMetaTable("Player")
 		local M_Entity = FindMetaTable("Entity")
-
 		local E_GetTable = M_Entity.GetTable
 
 		local val
@@ -48,7 +48,6 @@ if CLIENT then
 	local function RWWep()
 		local M_Weapon = FindMetaTable("Weapon")
 		local M_Entity = FindMetaTable("Entity")
-
 		local E_GetTable = M_Entity.GetTable
 		local E_GetOwner = M_Entity.GetOwner
 
@@ -76,24 +75,12 @@ if CLIENT then
 
 	-- removing unneccessary client hooks
 	hook.Add("InitPostEntity", "CLHookRemoval", function()
-		hook.Remove("RenderScreenspaceEffects", "RenderColorModify")
-		-- hook.Remove("RenderScreenspaceEffects", "RenderBloom")
-		hook.Remove("RenderScreenspaceEffects", "RenderToyTown")
-		hook.Remove("RenderScreenspaceEffects", "RenderTexturize")
-		hook.Remove("RenderScreenspaceEffects", "RenderSunbeams")
-		hook.Remove("RenderScreenspaceEffects", "RenderSobel")
-		hook.Remove("RenderScreenspaceEffects", "RenderMaterialOverlay")
-		hook.Remove("RenderScreenspaceEffects", "RenderMotionBlur")
-		hook.Remove("RenderScene", "RenderStereoscopy")
 		hook.Remove("RenderScene", "RenderSuperDoF")
 		hook.Remove("GUIMousePressed", "SuperDOFMouseDown")
 		hook.Remove("GUIMouseReleased", "SuperDOFMouseUp")
 		hook.Remove("PreventScreenClicks", "SuperDOFPreventClicks")
-		hook.Remove("PostRender", "RenderFrameBlend")
-		hook.Remove("PreRender", "PreRenderFrameBlend")
 		hook.Remove("Think", "DOFThink")
 		hook.Remove("PostDrawEffects", "RenderWidgets")
-		-- hook.Remove("PostDrawEffects", "RenderHalos")
 	end)
 
 	-- remove widget code every tick
@@ -337,8 +324,8 @@ function draw.SimpleTextOutlined(text, font, x, y, colour, xalign, yalign, outli
 	local steps = (outlinewidth * 2) / 3
 	if steps < 1 then steps = 1 end
 
-	for _x=-outlinewidth, outlinewidth, steps do
-		for _y=-outlinewidth, outlinewidth, steps do
+	for _x = -outlinewidth, outlinewidth, steps do
+		for _y = -outlinewidth, outlinewidth, steps do
 			draw_SimpleText(text, font, x + _x, y + _y, outlinecolour, xalign, yalign)
 		end
 	end
@@ -361,6 +348,7 @@ local SpeakFlexes = {
 }
 local GESTURE_SLOT_VCD = GESTURE_SLOT_VCD
 local ACT_GMOD_IN_CHAT = ACT_GMOD_IN_CHAT
+
 hook.Add("Initialize", "InstallFunctions", function()
 	function GAMEMODE:MouthMoveAnimation(pl)
 		if pl:IsSpeaking() then

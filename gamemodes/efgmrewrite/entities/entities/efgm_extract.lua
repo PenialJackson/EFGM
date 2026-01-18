@@ -15,10 +15,10 @@ ENT.InstantExtract = false
 ENT.ShowOnMap = true
 
 function ENT:KeyValue(key, value)
-
 	if key == "targetname" then
 		self.InternalName = value
 	end
+
 	if key == "extractTime" then
 		self.ExtractTime = tonumber(value)
 	end
@@ -54,73 +54,69 @@ function ENT:KeyValue(key, value)
 	if key == "OnExtractDisabled" then
 		self:StoreOutput(key, value)
 	end
-
 end
 
 function ENT:Initialize()
-
 	local flags = tonumber(self:GetSpawnFlags())
 
 	self.IsDisabled = bit.band(flags, 1) == 1
 	self.IsGuranteed = bit.band(flags, 2) == 2
 	self.InstantExtract = bit.band(flags, 4) == 4
 	self.ShowOnMap = bit.band(flags, 8) == 8
-
 end
 
 function ENT:AcceptInput(name, ply, caller, data)
-
 	if name == "EnableExtract" then
-        self.IsDisabled = false
-        self:TriggerOutput( "OnExtractEnabled", ply, data )
-    end
+		self.IsDisabled = false
+		self:TriggerOutput("OnExtractEnabled", ply, data)
+	end
 
 	if name == "DisableExtract" then
-        self.IsDisabled = true
-        self:TriggerOutput( "OnExtractDisabled", ply, data )
+		self.IsDisabled = true
+		self:TriggerOutput("OnExtractDisabled", ply, data)
 
-        for k, v in ipairs( player.GetHumans() ) do
-            self:Fire( "StopExtractingPlayer", nil, 0, ply, caller )
-        end
-    end
-
-	if name == "ToggleExtract" then
-        if self.IsDisabled then
-            self:Fire( "EnableExtract", nil, 0, ply, caller )
-            self:TriggerOutput( "OnExtractEnabled", ply, data )
-        else
-            self:Fire( "DisableExtract", nil, 0, ply, caller )
-            self:TriggerOutput( "OnExtractDisabled", ply, data )
+		for k, v in ipairs(player.GetHumans()) do
+			self:Fire("StopExtractingPlayer", nil, 0, ply, caller)
 		end
 	end
 
-	if name == "StartExtractingPlayer" && ply:IsPlayer() then
+	if name == "ToggleExtract" then
+		if self.IsDisabled then
+			self:Fire("EnableExtract", nil, 0, ply, caller)
+			self:TriggerOutput("OnExtractEnabled", ply, data)
+		else
+			self:Fire("DisableExtract", nil, 0, ply, caller)
+			self:TriggerOutput("OnExtractDisabled", ply, data)
+		end
+	end
+
+	if name == "StartExtractingPlayer" and ply:IsPlayer() then
 		if !IsValid(ply) or ply:CompareStatus(0) or !ply:CompareSpawnGroup(self.ExtractGroup) then return end
 
 		if self.IsDisabled then -- disabled
 			net.Start("SendNotification", false)
-			net.WriteString(self.DisabledMessage)
-			net.WriteString("icons/extract_disabled_icon.png")
-			net.WriteString("ui/squad_leave.wav")
+				net.WriteString(self.DisabledMessage)
+				net.WriteString("icons/extract_disabled_icon.png")
+				net.WriteString("ui/squad_leave.wav")
 			net.Send(ply)
-		elseif self.Accessibility != 0 && self.Accessibility != ply:GetNWInt("PlayerRaidStatus", 0) then
+		elseif self.Accessibility != 0 and self.Accessibility != ply:GetNWInt("PlayerRaidStatus", 0) then
 			net.Start("SendNotification", false)
-			net.WriteString("This extract can not be used by your faction!")
-			net.WriteString("icons/extract_disabled_icon.png")
-			net.WriteString("ui/squad_leave.wav")
+				net.WriteString("This extract can not be used by your faction!")
+				net.WriteString("icons/extract_disabled_icon.png")
+				net.WriteString("ui/squad_leave.wav")
 			net.Send(ply)
-		elseif self.RequiredItem != "" && !HasInInventory(ply.inventory, self.RequiredItem) then -- doesn't have req. item
+		elseif self.RequiredItem != "" and !HasInInventory(ply.inventory, self.RequiredItem) then -- doesn't have req. item
 			net.Start("SendNotification", false)
-			net.WriteString("You are missing the required item! (" .. EFGMITEMS[self.RequiredItem].fullName .. ")")
-			net.WriteString("icons/extract_disabled_icon.png")
-			net.WriteString("ui/squad_leave.wav")
+				net.WriteString("You are missing the required item! (" .. EFGMITEMS[self.RequiredItem].fullName .. ")")
+				net.WriteString("icons/extract_disabled_icon.png")
+				net.WriteString("ui/squad_leave.wav")
 			net.Send(ply)
 		else -- met all reqs.
 			self:StartExtract(ply)
 		end
 	end
 
-	if name == "StopExtractingPlayer" && !self.IsDisabled && ply:IsPlayer() then
+	if name == "StopExtractingPlayer" and !self.IsDisabled and ply:IsPlayer() then
 		if IsValid(ply) and !ply:CompareStatus(0) and ply:CompareSpawnGroup(self.ExtractGroup) then self:StopExtract(ply) end
 	end
 
@@ -131,10 +127,8 @@ function ENT:AcceptInput(name, ply, caller, data)
 
 	if name == "InstantlyExtractPlayeIgnoreDisabled" and ply:IsPlayer() then
 		if ply:CompareStatus(0) or !ply:CompareSpawnGroup(self.ExtractGroup) then return end
-
 		self:Extract(ply)
 	end
-
 end
 
 function ENT:StartExtract(ply)
@@ -142,8 +136,8 @@ function ENT:StartExtract(ply)
 	if self.InstantExtract then self.Extract(ply) return end
 
 	net.Start("SendExtractionStatus")
-	net.WriteBool(true) -- true signals that the player entered the extraction points boundaries
-	net.WriteInt(self.ExtractTime, 16)
+		net.WriteBool(true) -- true signals that the player entered the extraction points boundaries
+		net.WriteInt(self.ExtractTime, 16)
 	net.Send(ply)
 
 	-- defines the timerName as for example "ExTimer_90071996842377216214"
@@ -163,7 +157,7 @@ function ENT:StopExtract(ply)
 	if !IsValid(ply) then return end
 
 	net.Start("SendExtractionStatus")
-	net.WriteBool(false) -- false signals that the player left the extraction points boundaries
+		net.WriteBool(false) -- false signals that the player left the extraction points boundaries
 	net.Send(ply)
 
 	-- read StartExtract you lazy ass
@@ -171,8 +165,6 @@ function ENT:StopExtract(ply)
 
 	-- if player somehow hasnt begun extracting yet (okay listen i watched a portal 2 speedrunning explained video and now im afraid people are going to purposefully push the limits of the source engine just to ratfuck my gamemode)
 	if !timer.Exists(timerName) then return end
-
-	-- actual stop extract logic
 	timer.Remove(timerName)
 end
 

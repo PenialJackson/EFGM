@@ -1,4 +1,3 @@
-
 -- If requirements aren't set, task is unlocked at start
 -- Also, tasks are only unlocked if ALL requirements are met, this should change at some point
 REQUIREMENT = {}
@@ -26,371 +25,331 @@ SAVEON.Extract = 2
 SAVEON.ObjectiveComplete = 3
 SAVEON.TaskComplete = 4
 
--- Requirement functions
+-- requirment functions
+NewRequirement = {}
 
-    NewRequirement = {}
+function NewRequirement.PlayerStat(count, stat)
+	local req = {}
 
-    function NewRequirement.PlayerStat(count, stat)
+	req.type = REQUIREMENT.PlayerStat
+	req.count = count or 1
+	req.info = stat
 
-        local req = {}
+	return req
+end
 
-        req.type = REQUIREMENT.PlayerStat
-        req.count = count or 1
-        req.info = stat
+function NewRequirement.QuestCompletion(taskName)
+	local req = {}
 
-        return req
+	req.type = REQUIREMENT.QuestCompletion
+	req.count = 1
+	req.info = taskName
 
-    end
+	return req
+end
 
-    function NewRequirement.QuestCompletion(taskName)
+-- objective functions
+NewObjective = {}
 
-        local req = {}
+function NewObjective.Kill(count, mapName, areaName, areaDisplayName, weapon, useCategory, minRange, maxRange, reqHeadshot, whenToSave, customObjectiveText)
+	local obj = {}
 
-        req.type = REQUIREMENT.QuestCompletion
-        req.count = 1
-        req.info = taskName
+	obj.type = OBJECTIVE.Kill
+	obj.count = count or 1
+	obj.mapName = mapName
+	obj.areaName = areaName
+	obj.areaDisplayName = areaDisplayName
+	obj.weapon = weapon
+	obj.useCategory = useCategory
+	obj.minRange = minRange
+	obj.maxRange = maxRange
+	obj.reqHeadshot = reqHeadshot
+	obj.whenToSave = whenToSave or SAVEON.Progress
+	obj.customObjectiveText = customObjectiveText
 
-        return req
+	return obj
+end
 
-    end
+function NewObjective.Extract(count, mapName, extractName, extractDisplayName, whenToSave, customObjectiveText)
+	local obj = {}
 
--- Objective functions
+	obj.type = OBJECTIVE.Extract
+	obj.count = count or 1
+	obj.mapName = mapName
+	obj.extractName = extractName
+	obj.extractDisplayName = extractDisplayName
+	obj.whenToSave = whenToSave or SAVEON.Progress
+	obj.customObjectiveText = customObjectiveText
 
-    NewObjective = {}
+	return obj
+end
 
-    function NewObjective.Kill(count, mapName, areaName, areaDisplayName, weapon, useCategory, minRange, maxRange, reqHeadshot, whenToSave, customObjectiveText)
+function NewObjective.GiveItem(count, itemName, isFIR, customObjectiveText)
+	local obj = {}
 
-        local obj = {}
+	obj.type = OBJECTIVE.GiveItem
+	obj.count = count or 1
+	obj.itemName = itemName
+	obj.isFIR = isFIR
+	obj.whenToSave = SAVEON.Progress
+	obj.customObjectiveText = customObjectiveText
 
-        obj.type = OBJECTIVE.Kill
-        obj.count = count or 1
-        obj.mapName = mapName
-        obj.areaName = areaName
-        obj.areaDisplayName = areaDisplayName
-        obj.weapon = weapon
-        obj.useCategory = useCategory
-        obj.minRange = minRange
-        obj.maxRange = maxRange
-        obj.reqHeadshot = reqHeadshot
-        obj.whenToSave = whenToSave or SAVEON.Progress
-        obj.customObjectiveText = customObjectiveText
+	return obj
+end
 
-        return obj
+function NewObjective.Pay(count, customObjectiveText)
+	local obj = {}
 
-    end
+	obj.type = OBJECTIVE.Pay
+	obj.count = count or 1
+	obj.whenToSave = SAVEON.Progress
+	obj.customObjectiveText = customObjectiveText
 
-    function NewObjective.Extract(count, mapName, extractName, extractDisplayName, whenToSave, customObjectiveText)
+	return obj
+end
 
-        local obj = {}
+function NewObjective.QuestItem(itemName, mapName, areaDisplayName, customObjectiveText)
+	local obj = {}
 
-        obj.type = OBJECTIVE.Extract
-        obj.count = count or 1
-        obj.mapName = mapName
-        obj.extractName = extractName
-        obj.extractDisplayName = extractDisplayName
-        obj.whenToSave = whenToSave or SAVEON.Progress
-        obj.customObjectiveText = customObjectiveText
+	obj.type = OBJECTIVE.QuestItem
+	obj.itemName = itemName
+	obj.mapName = mapName
+	obj.areaDisplayName = areaDisplayName
+	obj.whenToSave = SAVEON.Extract
+	obj.customObjectiveText = customObjectiveText
 
-        return obj
+	return obj
+end
 
-    end
+function NewObjective.VisitArea(mapName, areaName, areaDisplayName, whenToSave)
+	local obj = {}
 
-    function NewObjective.GiveItem(count, itemName, isFIR, customObjectiveText)
+	obj.type = OBJECTIVE.VisitArea
+	obj.mapName = mapName
+	obj.areaName = areaName
+	obj.areaDisplayName = areaDisplayName
+	obj.whenToSave = whenToSave or SAVEON.Progress
+	obj.customObjectiveText = customObjectiveText
 
-        local obj = {}
+	return obj
+end
 
-        obj.type = OBJECTIVE.GiveItem
-        obj.count = count or 1
-        obj.itemName = itemName
-        obj.isFIR = isFIR
-        obj.whenToSave = SAVEON.Progress
-        obj.customObjectiveText = customObjectiveText
+-- objective conditions
+NewCondition = {}
 
-        return obj
+function NewCondition.RangeMin(rangeMeters)
+	local cond = {}
 
-    end
+	cond.type = OBJCONDITION.RangeMin
+	cond.count = rangeMeters
 
-    function NewObjective.Pay(count, customObjectiveText)
+	return cond
+end
 
-        local obj = {}
+function NewCondition.RangeMax(rangeMeters)
+	local cond = {}
 
-        obj.type = OBJECTIVE.Pay
-        obj.count = count or 1
-        obj.whenToSave = SAVEON.Progress
-        obj.customObjectiveText = customObjectiveText
+	cond.type = OBJCONDITION.RangeMax
+	cond.count = rangeMeters
 
-        return obj
+	return cond
+end
 
-    end
+-- reward functions
+NewReward = {}
 
-    function NewObjective.QuestItem(itemName, mapName, areaDisplayName, customObjectiveText)
+function NewReward.PlayerStat(count, stat)
+	local reward = {}
 
-        local obj = {}
+	reward.type = REWARD.PlayerStat
+	reward.count = count or 1
+	reward.info = stat
 
-        obj.type = OBJECTIVE.QuestItem
-        obj.itemName = itemName
-        obj.mapName = mapName
-        obj.areaDisplayName = areaDisplayName
-        obj.whenToSave = SAVEON.Extract
-        obj.customObjectiveText = customObjectiveText
-
-        return obj
-
-    end
-
-    function NewObjective.VisitArea(mapName, areaName, areaDisplayName, whenToSave)
-
-        local obj = {}
-
-        obj.type = OBJECTIVE.VisitArea
-        obj.mapName = mapName
-        obj.areaName = areaName
-        obj.areaDisplayName = areaDisplayName
-        obj.whenToSave = whenToSave or SAVEON.Progress
-        obj.customObjectiveText = customObjectiveText
-
-        return obj
-
-    end
-
--- Objective Conditions
-
-    NewCondition = {}
-
-    function NewCondition.RangeMin(rangeMeters)
-
-        local cond = {}
-
-        cond.type = OBJCONDITION.RangeMin
-        cond.count = rangeMeters
-
-        return cond
-
-    end
-
-    function NewCondition.RangeMax(rangeMeters)
-
-        local cond = {}
-        
-        cond.type = OBJCONDITION.RangeMax
-        cond.count = rangeMeters
-
-        return cond
-
-    end
-
--- Reward functions
-
-    NewReward = {}
-
-    function NewReward.PlayerStat(count, stat)
-
-        local reward = {}
-
-        reward.type = REWARD.PlayerStat
-        reward.count = count or 1
-        reward.info = stat
-
-        return reward
-
-    end
+	return reward
+end
 
 EFGMTASKS = {}
 
 -- wip tasks to spruce up playtesting maybe
 -- for the record i havent wrote a story since like third grade and that shit was ass
 EFGMTASKS["connections"] = {
+	name = "Connections",
+	description = "Hey, soldier. I don't think I've seen you before. What do you want? Guns? Ammunition? Vodka? " ..
+	"Oh, I should've guessed, you want to escape the city. Well, I can't say I can help you there, but I might know a guy who knows a guy. " ..
+	"You're not gonna get any names out of me yet, though, I don't trust you. How about this? I have a job that needs doing, and I have some " ..
+	"roubles burning a hole in my pocket. You're familiar with that Concrete place, right? South of the capital? I had some guys get ambushed " ..
+	"there the other day, and I gotta make sure it doesn't happen again. I want you to scout out some vantage points around the location... " ..
+	"say, the top of the hotel, and the roof of the workshop. You know, that white building up north, with the bigass awning at the front. " ..
+	"While you're at it, get rid of some of the locals, let's say three of them. Let's see you get that done, then we can talk about connections.",
 
-    name = "Connections",
-    description = "Hey, soldier. I don't think I've seen you before. What do you want? Guns? Ammunition? Vodka? " ..
-    "Oh, I should've guessed, you want to escape the city. Well, I can't say I can help you there, but I might know a guy who knows a guy. " ..
-    "You're not gonna get any names out of me yet, though, I don't trust you. How about this? I have a job that needs doing, and I have some " ..
-    "roubles burning a hole in my pocket. You're familiar with that Concrete place, right? South of the capital? I had some guys get ambushed " ..
-    "there the other day, and I gotta make sure it doesn't happen again. I want you to scout out some vantage points around the location... " ..
-    "say, the top of the hotel, and the roof of the workshop. You know, that white building up north, with the bigass awning at the front. " ..
-    "While you're at it, get rid of some of the locals, let's say three of them. Let's see you get that done, then we can talk about connections.",
+	traderName = "Bartender",
+	traderIcon = Material("traders/generic.png", "smooth"),
 
-    traderName = "Bartender",
-    traderIcon = Material("traders/generic.png", "smooth"),
+	requirements = {
+		NewRequirement.PlayerStat(2, "Level")
+	},
 
-    requirements = {
-        NewRequirement.PlayerStat(2, "Level")
-    },
+	objectives = {
+		NewObjective.VisitArea("efgm_concrete", "qa_hotel_roof", "Hotel Roof"),
+		NewObjective.VisitArea("efgm_concrete", "qa_workshop_roof", "Workshop Roof"),
+		NewObjective.Kill(3, "efgm_concrete")
+	},
 
-    objectives = {
-        NewObjective.VisitArea("efgm_concrete", "qa_hotel_roof", "Hotel Roof"),
-        NewObjective.VisitArea("efgm_concrete", "qa_workshop_roof", "Workshop Roof"),
-        NewObjective.Kill(3, "efgm_concrete")
-    },
+	rewards = {
+		NewReward.PlayerStat(2000, "Experience"),
+		NewReward.PlayerStat(30000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(2000, "Experience"),
-        NewReward.PlayerStat(30000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/general.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
 EFGMTASKS["shooter"] = {
+	name = "The Garkov Shooter - Part 1",
+	description = "[description here]",
 
-    name = "The Garkov Shooter - Part 1",
-    description = "[description here]",
+	traderName = "Bartender",
+	traderIcon = Material("traders/generic.png", "smooth"),
 
-    traderName = "Bartender",
-    traderIcon = Material("traders/generic.png", "smooth"),
+	requirements = {
+		NewRequirement.PlayerStat(2, "Level"),
+		NewRequirement.QuestCompletion("connections")
+	},
 
-    requirements = {
-        NewRequirement.PlayerStat(2, "Level"),
-        NewRequirement.QuestCompletion("connections")
-    },
+	objectives = {
+		NewObjective.Kill(30, "efgm_concrete"),
+		NewObjective.Kill(30, "efgm_belmont"),
+		NewObjective.Kill(30, "efgm_factory")
+	},
 
-    objectives = {
-        NewObjective.Kill(30, "efgm_concrete"),
-        NewObjective.Kill(30, "efgm_belmont"),
-        NewObjective.Kill(30, "efgm_factory")
-    },
+	rewards = {
+		NewReward.PlayerStat(8000, "Experience"),
+		NewReward.PlayerStat(125000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(8000, "Experience"),
-        NewReward.PlayerStat(125000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/general.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
 EFGMTASKS["restock"] = {
+	name = "Restocking",
+	description = "[Description Here] The body armor plates are in the locked armory room in the workshop, check your map. They'll look like a briefcase because I haven't modeled them yet.",
 
-    name = "Restocking",
-    description = "[Description Here] The body armor plates are in the locked armory room in the workshop, check your map. They'll look like a briefcase because I haven't modeled them yet.",
+	traderName = "Bartender",
+	traderIcon = Material("traders/generic.png", "smooth"),
 
-    traderName = "Bartender",
-    traderIcon = Material("traders/generic.png", "smooth"),
+	requirements = {
+		NewRequirement.PlayerStat(5, "Level"),
+		NewRequirement.QuestCompletion("connections")
+	},
 
-    requirements = {
-        NewRequirement.PlayerStat(5, "Level"),
-        NewRequirement.QuestCompletion("connections")
-    },
+	objectives = {
+		NewObjective.Kill(5),
+		NewObjective.QuestItem("plates", "efgm_concrete")
+	},
 
-    objectives = {
-        NewObjective.Kill(5),
-        NewObjective.QuestItem("plates", "efgm_concrete")
-    },
+	rewards = {
+		NewReward.PlayerStat(3000, "Experience"),
+		NewReward.PlayerStat(85000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(3000, "Experience"),
-        NewReward.PlayerStat(85000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/general.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
 EFGMTASKS["civs1"] = {
+	name = "Civilians - Part 1",
+	description = "Greetings, operator. I am Aleksei, a PMC like yourself, and I have a request for you. " ..
+	"Earlier, as I was scouting out the southern parts of the city for an associate, I came across a few civilians in a bombed out building, " ..
+	"with a small child among them. Usually, I would mind my own business, but against my better judgement I promised to guide them to a " ..
+	"safer part of the city once my job is complete. Anyway, I decided on a place for them, but to get there I'll have to guide them straight " ..
+	"through Concrete.\n\nFor their sake and for mine, I want to make sure this trip is as uneventful as possible. I'll need you to verify some safe " ..
+	"extraction routes, and to dispatch any threats you come across while doing so. In the meantime, I will stay with the family, and make sure no " ..
+	"harm comes their way. Good luck, and let me know when it is done.",
 
-    name = "Civilians - Part 1",
-    description = "Greetings, operator. I am Aleksei, a PMC like yourself, and I have a request for you. " ..
-    "Earlier, as I was scouting out the southern parts of the city for an associate, I came across a few civilians in a bombed out building, " ..
-    "with a small child among them. Usually, I would mind my own business, but against my better judgement I promised to guide them to a " ..
-    "safer part of the city once my job is complete. Anyway, I decided on a place for them, but to get there I'll have to guide them straight " ..
-    "through Concrete.\n\nFor their sake and for mine, I want to make sure this trip is as uneventful as possible. I'll need you to verify some safe " ..
-    "extraction routes, and to dispatch any threats you come across while doing so. In the meantime, I will stay with the family, and make sure no " ..
-    "harm comes their way. Good luck, and let me know when it is done.",
+	traderName = "Aleksei",
+	traderIcon = Material("traders/soldier.png", "smooth"),
 
-    traderName = "Aleksei",
-    traderIcon = Material("traders/soldier.png", "smooth"),
+	requirements = {
+		NewRequirement.PlayerStat(7, "Level")
+	},
 
-    requirements = {
-        NewRequirement.PlayerStat(7, "Level")
-    },
+	objectives = {
+		NewObjective.Extract(1, "efgm_concrete", "extract_driver", "Getaway Driver"),
+		NewObjective.Extract(1, "efgm_concrete", "extract_helicopter", "USEC Helicopter"),
+		NewObjective.Extract(1, "efgm_concrete", "extract_manhole", "Sewer Manhole"),
+		NewObjective.Extract(1, "efgm_concrete", "extract_railway", "Railway to Belmont"),
+	},
 
-    objectives = {
-        NewObjective.Extract(1, "efgm_concrete", "extract_driver", "Getaway Driver"),
-        NewObjective.Extract(1, "efgm_concrete", "extract_helicopter", "USEC Helicopter"),
-        NewObjective.Extract(1, "efgm_concrete", "extract_manhole", "Sewer Manhole"),
-        NewObjective.Extract(1, "efgm_concrete", "extract_railway", "Railway to Belmont"),
-    },
+	rewards = {
+		NewReward.PlayerStat(2500, "Experience"),
+		NewReward.PlayerStat(100000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(2500, "Experience"),
-        NewReward.PlayerStat(100000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/outdoors.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/outdoors.jpg", "smooth")
 }
 
 EFGMTASKS["civs2"] = {
+	name = "Civilians - Part 2",
+	description = "Hello again, operator. Thanks to you, I managed to guide them through Concrete unharmed. Unfortunately, " ..
+	"there is still more to be done before I feel comfortable leaving the family. For one, the safehouse " ..
+	"I had planned for them to stay at had been looted by the locals. Although some of the supplies have been untouched, " ..
+	"the threat of bandits returning makes it an unsuitable location for these civilians to stay long-term. As such, we made the decision that they would " ..
+	"accompany me to my own base of operations, many kilometers north of here. It will be a dangerous journey for them, which is " ..
+	"why I must ask more of you.\n\nI need good quality supplies; rations, medicine, ammunition, utilities, and weapons for the family. " ..
+	"I also need you to retrieve a briefcase left behind on Concrete. If memory serves, it would have been lost on the floor of " ..
+	"that old car dealership. It contains documents and other items of importance to the family, so it must be " ..
+	"returned to them prior to our expedition. Here is my location; please return shortly.",
 
-    name = "Civilians - Part 2",
-    description = "Hello again, operator. Thanks to you, I managed to guide them through Concrete unharmed. Unfortunately, " ..
-    "there is still more to be done before I feel comfortable leaving the family. For one, the safehouse " ..
-    "I had planned for them to stay at had been looted by the locals. Although some of the supplies have been untouched, " ..
-    "the threat of bandits returning makes it an unsuitable location for these civilians to stay long-term. As such, we made the decision that they would " ..
-    "accompany me to my own base of operations, many kilometers north of here. It will be a dangerous journey for them, which is " ..
-    "why I must ask more of you.\n\nI need good quality supplies; rations, medicine, ammunition, utilities, and weapons for the family. " ..
-    "I also need you to retrieve a briefcase left behind on Concrete. If memory serves, it would have been lost on the floor of " ..
-    "that old car dealership. It contains documents and other items of importance to the family, so it must be " ..
-    "returned to them prior to our expedition. Here is my location; please return shortly.",
+	traderName = "Aleksei",
+	traderIcon = Material("traders/soldier.png", "smooth"),
 
-    traderName = "Aleksei",
-    traderIcon = Material("traders/soldier.png", "smooth"),
+	requirements = {
+		NewRequirement.QuestCompletion("civs1")
+	},
 
-    requirements = {
-        NewRequirement.QuestCompletion("civs1")
-    },
+	objectives = {
+		NewObjective.Kill(10, "efgm_concrete"),
+		NewObjective.QuestItem("briefcase", "efgm_concrete")
+	},
 
-    objectives = {
-        NewObjective.Kill(10, "efgm_concrete"),
-        NewObjective.QuestItem("briefcase", "efgm_concrete")
-    },
+	rewards = {
+		NewReward.PlayerStat(3500, "Experience"),
+		NewReward.PlayerStat(125000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(3500, "Experience"),
-        NewReward.PlayerStat(125000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/outdoors.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/outdoors.jpg", "smooth")
 }
 
 EFGMTASKS["paytest"] = {
+	name = "testing the pay system",
+	description = "i hate fuckin lua",
+	messageOverride = "I FUCKING HATE LUA",
+	traderIcon = Material("traders/generic.png", "smooth"),
 
-    name = "testing the pay system",
-    description = "i hate fuckin lua",
-    messageOverride = "I FUCKING HATE LUA",
-    traderIcon = Material("traders/generic.png", "smooth"),
+	objectives = {
+		NewObjective.Pay(100000)
+	},
 
-    objectives = {
-        NewObjective.Pay(100000)
-    },
+	rewards = {
+		NewReward.PlayerStat(420, "Experience"),
+		NewReward.PlayerStat(100000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(420, "Experience"),
-        NewReward.PlayerStat(100000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/general.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
 EFGMTASKS["qitest"] = {
+	name = "testing quest items",
+	description = "i hate fuckin lua",
+	messageOverride = "I FUCKING HATE LUA",
+	traderIcon = Material("traders/generic.png", "smooth"),
 
-    name = "testing quest items",
-    description = "i hate fuckin lua",
-    messageOverride = "I FUCKING HATE LUA",
-    traderIcon = Material("traders/generic.png", "smooth"),
+	objectives = {
+		NewObjective.QuestItem("briefcase", "efgm_concrete")
+	},
 
-    objectives = {
-        NewObjective.QuestItem("briefcase", "efgm_concrete")
-    },
+	rewards = {
+		NewReward.PlayerStat(420, "Experience"),
+		NewReward.PlayerStat(100000, "Money")
+	},
 
-    rewards = {
-        NewReward.PlayerStat(420, "Experience"),
-        NewReward.PlayerStat(100000, "Money")
-    },
-
-    uibackground = Material("taskbg/concrete/general.jpg", "smooth")
-
+	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }

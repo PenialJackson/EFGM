@@ -1,6 +1,3 @@
-
--- TODO: Find better name for this file
-
 local interval = 0.2
 
 local raidPositions = {}
@@ -13,77 +10,63 @@ DeathPosition = {}
 KillPositions = {}
 
 local function UpdateTrackedPosition(trackRegardless)
-
-    if ((LocalPlayer():GetNWInt("PlayerRaidStatus", 0) == 0) and !trackRegardless) or MAPINFO[game.GetMap()] == nil then return end
-
-    table.insert(raidPositions, WorldToMapSpace(LocalPlayer():GetPos()))
-
+	if ((LocalPlayer():GetNWInt("PlayerRaidStatus", 0) == 0) and !trackRegardless) or MAPINFO[game.GetMap()] == nil then return end
+	table.insert(raidPositions, WorldToMapSpace(LocalPlayer():GetPos()))
 end
 
 hook.Add("efgm_raid_enter", "efgm_tracker_start", function()
+	if MAPINFO[game.GetMap()] == nil then return end
 
-    if MAPINFO[game.GetMap()] == nil then return end
+	UpdateTrackedPosition(false)
 
-    UpdateTrackedPosition(false)
+	InsideRaidLength = nil
+	RaidPositions = {}
+	DeathPosition = {}
+	KillPositions = {}
 
-    InsideRaidLength = nil
-    RaidPositions = {}
-    DeathPosition = {}
-    KillPositions = {}
+	enterRaidTime = SysTime()
 
-    enterRaidTime = SysTime()
-
-    timer.Create("efgm_tracker", interval, 0, function() UpdateTrackedPosition(false) end)
-
+	timer.Create("efgm_tracker", interval, 0, function() UpdateTrackedPosition(false) end)
 end)
 
 hook.Add("efgm_raid_exit", "efgm_tracker_stop", function(wasExtract)
+	if MAPINFO[game.GetMap()] == nil then return end
 
-    if MAPINFO[game.GetMap()] == nil then return end
+	if enterRaidTime == nil then
+		InsideRaidLength = nil
+		RaidPositions = {}
+		DeathPosition = {}
+		KillPositions = {}
+		enterRaidTime = nil
 
-    if enterRaidTime == nil then
+		return
+	end
 
-        InsideRaidLength = nil
-        RaidPositions = {}
-        DeathPosition = {}
-        KillPositions = {}
-        enterRaidTime = nil
-        return
+	if !wasExtract then
+		UpdateTrackedPosition(true)
+		DeathPosition = WorldToMapSpace(LocalPlayer():GetPos())
+	end
 
-    end
+	timer.Remove("efgm_tracker")
 
-    if !wasExtract then
+	RaidPositions = raidPositions
+	KillPositions = killPositions
+	InsideRaidLength = SysTime() - enterRaidTime
 
-        UpdateTrackedPosition(true)
-
-        DeathPosition = WorldToMapSpace(LocalPlayer():GetPos())
-
-    end
-
-    timer.Remove("efgm_tracker")
-
-    RaidPositions = raidPositions
-    KillPositions = killPositions
-    InsideRaidLength = SysTime() - enterRaidTime
-
-    killPositions = {}
-    raidPositions = {}
-    enterRaidTime = nil
-
+	killPositions = {}
+	raidPositions = {}
+	enterRaidTime = nil
 end)
 
-hook.Add("entity_killed", "efgm_tracker_kill", function(data) 
+hook.Add("entity_killed", "efgm_tracker_kill", function(data)
+	if MAPINFO[game.GetMap()] == nil then return end
 
-    if MAPINFO[game.GetMap()] == nil then return end
+	local attacker = data.entindex_attacker
+	if attacker != LocalPlayer():EntIndex() then return end
 
-    local attacker = data.entindex_attacker
+	local pos = WorldToMapSpace(LocalPlayer():GetPos())
 
-    if attacker != LocalPlayer():EntIndex() then return end
+	local killTable = {x = pos.x, y = pos.y, time = #raidPositions}
 
-    local pos = WorldToMapSpace(LocalPlayer():GetPos())
-
-    local killTable = {x = pos.x, y = pos.y, time = #raidPositions}
-
-    table.insert(killPositions, killTable)
-
-end )
+	table.insert(killPositions, killTable)
+end)

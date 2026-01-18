@@ -1,10 +1,10 @@
 function EFFECT:Init(data)
 	local wpn = data:GetEntity()
 
-    local owner, lp = wpn.Owner, LocalPlayer()
+	local owner, lp = wpn.Owner, LocalPlayer()
 
 	if !IsValid(wpn) then self:Remove() return end
-    if owner != lp then self:Remove() return end
+	if owner != lp then self:Remove() return end
 
 	local smoke = wpn:GetProcessedValue("AfterShotParticle", true)
 

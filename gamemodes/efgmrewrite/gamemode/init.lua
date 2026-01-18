@@ -38,23 +38,20 @@ end
 util.AddNetworkString("PlayerReinstantiateInventory")
 
 function GM:Initialize()
-
 	print("Escape From Garry's Mod Rewrite has been initialized on " .. game.GetMap())
 
-	RunConsoleCommand("sv_airaccelerate", "2") 		-- what is a titanmod?
-	RunConsoleCommand("mp_falldamage", "1") 		-- what is a titanmod? part two, electric boogaloo
-	RunConsoleCommand("mp_show_voice_icons", "0") 	-- disable vc icons over heads
+	RunConsoleCommand("sv_airaccelerate", "2") -- what is a titanmod?
+	RunConsoleCommand("mp_falldamage", "1") -- what is a titanmod? part two, electric boogaloo
+	RunConsoleCommand("mp_show_voice_icons", "0")
 	RunConsoleCommand("decalfrequency", "1")
-
 end
 
--- player models
+-- PMs
 local usecPMs = {"models/eft/pmcs/usec_extended_pm.mdl"}
 local bearPMs = {"models/eft/pmcs/bear_extended_pm.mdl"}
 local allPMs = {"models/eft/pmcs/usec_extended_pm.mdl", "models/eft/pmcs/bear_extended_pm.mdl"}
 
 function GM:PlayerSpawn(ply)
-
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
 	ply:SetNWBool("InRange", false) -- just in case
 
@@ -71,21 +68,12 @@ function GM:PlayerSpawn(ply)
 	ply:SetDuckSpeed(0.4)
 	ply:SetUnDuckSpeed(0.4)
 
-	if ply:GetInfoNum("efgm_faction_preference", 0) == 1 then
-
-		-- USEC prefered
+	if ply:GetInfoNum("efgm_faction_preference", 0) == 1 then -- USEC prefered
 		ply:SetModel(usecPMs[math.random(#usecPMs)])
-
-	elseif ply:GetInfoNum("efgm_faction_preference", 0) == 2 then
-
-		-- BEAR prefered
+	elseif ply:GetInfoNum("efgm_faction_preference", 0) == 2 then -- BEAR prefered
 		ply:SetModel(bearPMs[math.random(#bearPMs)])
-
 	else
-
-		-- no preference
 		ply:SetModel(allPMs[math.random(#allPMs)])
-
 	end
 
 	ply:SetBodygroup(0, math.random(0, 4)) -- head
@@ -107,14 +95,11 @@ function GM:PlayerSpawn(ply)
 	ply:SetNW2Bool("DoStep", false)
 
 	CalculateInventoryWeight(ply)
-
 end
 
 util.AddNetworkString("CreateDeathInformation")
 function GM:PlayerDeath(victim, inflictor, attacker)
-
 	if !victim:CompareStatus(0) and !victim:CompareStatus(3) then
-
 		UnequipAll(victim) -- unload all equipped items into inventory, helps clean this all up
 
 		local tagData = {}
@@ -126,53 +111,70 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		tagData.fir = true
 
 		if !IsValid(attacker) or victim == attacker or !attacker:IsPlayer() then
-
 			tagData.tagCauseOfDeath = "Suicide"
-
 		else
-
 			tagData.tagCauseOfDeath = attacker:GetActiveWeapon():GetClass() or "Unknown"
 			tagData.tagWoundOrigin = victim:LastHitGroup()
 			tagData.tagKiller = attacker:GetName()
-
 		end
 
 		local item = ITEM.Instantiate("efgm_tag_default", EQUIPTYPE.None, tagData)
 		table.insert(victim.inventory, item)
 
 		if !table.IsEmpty(victim.inventory) then
-
 			local backpack = ents.Create("efgm_backpack")
 			backpack:SetPos(victim:GetPos() + Vector(0, 0, 64))
 			backpack:Spawn()
 			backpack:Activate()
 			backpack:SetBagData(victim.inventory, victim:GetName() .. "'s Corpse")
-
 		end
 
 		ReinstantiateInventory(victim)
 		net.Start("PlayerReinstantiateInventory", false)
 		net.Send(victim)
-
 	else
-
 		-- to not show outdated information if suiciding in hideout
 		ResetRaidStats(victim)
-
 	end
 
 	local victimHitgroup = victim:LastHitGroup()
 
 	-- death sound
-	if victimHitgroup != HITGROUP_HEAD then victim:EmitSound(Sound("deathsounds/death" .. math.random(1, 116) .. ".wav"), 84) end -- holy shit thats a few
+	if victimHitgroup != HITGROUP_HEAD then victim:EmitSound(Sound("deathsounds/death" .. math.random(1, 116) .. ".wav"), math.random(80, 90), math.random(90, 110)) end -- holy shit thats a few
 	victim:SetNWInt("RaidTime", 0)
 
 	-- when a player suicides
 	if !IsValid(attacker) or victim == attacker or !attacker:IsPlayer() then
-
 		local xpMult = (victim:CompareStatus(2) and 0.25) or 0.5
 
 		net.Start("CreateDeathInformation")
+			net.WriteFloat(xpMult)
+			if victim:CompareStatus(0) or victim:CompareStatus(3) then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
+			net.WriteInt(victim:GetNWInt("RaidTime", 0), 16)
+			net.WriteInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
+			net.WriteInt(victim:GetNWInt("ExperienceCombat", 0), 16)
+			net.WriteInt(victim:GetNWInt("ExperienceExploration", 0), 16)
+			net.WriteInt(victim:GetNWInt("ExperienceLooting", 0), 16)
+			net.WriteInt(victim:GetNWInt("ExperienceBonus", 0), 16)
+			net.WriteEntity(victim)
+			net.WriteInt(0, 8)
+			net.WriteTable({})
+			net.WriteInt(0, 16)
+			net.WriteInt(0, 5)
+		net.Send(victim)
+
+		UnequipAllFirearms(victim)
+		ApplyPlayerExperience(victim, xpMult)
+
+		return
+	end
+
+	local rawDistance = victim:GetPos():Distance(attacker:GetPos())
+	local distance = units_to_meters(rawDistance)
+
+	local xpMult = (victim:CompareStatus(2) and 0.25) or 0.5
+
+	net.Start("CreateDeathInformation")
 		net.WriteFloat(xpMult)
 		if victim:CompareStatus(0) or victim:CompareStatus(3) then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
 		net.WriteInt(victim:GetNWInt("RaidTime", 0), 16)
@@ -181,188 +183,116 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		net.WriteInt(victim:GetNWInt("ExperienceExploration", 0), 16)
 		net.WriteInt(victim:GetNWInt("ExperienceLooting", 0), 16)
 		net.WriteInt(victim:GetNWInt("ExperienceBonus", 0), 16)
-		net.WriteEntity(victim)
-		net.WriteInt(0, 8)
-		net.WriteTable({})
-		net.WriteInt(0, 16)
-		net.WriteInt(0, 5)
-		net.Send(victim)
-
-		UnequipAllFirearms(victim)
-		ApplyPlayerExperience(victim, xpMult)
-		return
-
-	end
-
-	local rawDistance = victim:GetPos():Distance(attacker:GetPos())
-	local distance = units_to_meters(rawDistance) -- convert hammer units to meters
-
-	local xpMult = (victim:CompareStatus(2) and 0.25) or 0.5
-
-	net.Start("CreateDeathInformation")
-	net.WriteFloat(xpMult)
-	if victim:CompareStatus(0) or victim:CompareStatus(3) then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
-	net.WriteInt(victim:GetNWInt("RaidTime", 0), 16)
-	net.WriteInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
-	net.WriteInt(victim:GetNWInt("ExperienceCombat", 0), 16)
-	net.WriteInt(victim:GetNWInt("ExperienceExploration", 0), 16)
-	net.WriteInt(victim:GetNWInt("ExperienceLooting", 0), 16)
-	net.WriteInt(victim:GetNWInt("ExperienceBonus", 0), 16)
-	net.WriteEntity(attacker)
-	net.WriteInt(math.Clamp(attacker:Health(), 0, attacker:GetMaxHealth()), 8)
-	net.WriteTable(MatchClassWithEquipped(attacker, attacker:GetActiveWeapon():GetClass() or nil))
-	net.WriteInt(distance, 16)
-	net.WriteInt(victimHitgroup, 5)
+		net.WriteEntity(attacker)
+		net.WriteInt(math.Clamp(attacker:Health(), 0, attacker:GetMaxHealth()), 8)
+		net.WriteTable(MatchClassWithEquipped(attacker, attacker:GetActiveWeapon():GetClass() or nil))
+		net.WriteInt(distance, 16)
+		net.WriteInt(victimHitgroup, 5)
 	net.Send(victim)
 
 	if !attacker:CompareStatus(0) and !attacker:CompareStatus(3) then
-
 		attacker:SetNWInt("ExperienceCombat", attacker:GetNWInt("ExperienceCombat") + 300)
 		attacker:SetNWInt("RaidKills", attacker:GetNWInt("RaidKills") + 1)
-
 	end
 
 	UnequipAllFirearms(victim)
 	ApplyPlayerExperience(victim, xpMult)
-
 end
 
 hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
-
 	for k, v in ipairs(player.GetHumans()) do
-
 		if !v:CompareStatus(0) and !v:CompareStatus(3) then
-
 			v:SetNWFloat("ExperienceTime", v:GetNWFloat("ExperienceTime") + 0.5)
 			v:SetNWInt("RaidTime", v:GetNWInt("RaidTime", 0) + 1)
 			v:SetNWInt("Time", v:GetNWInt("Time") + 1)
-
 		end
-
 	end
-
 end)
 
 hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
-
 	local time = respawnTime
 	if ply:CompareStatus(0) or ply:CompareStatus(3) then time = noRaidRespawnTime end
 	timer.Create(ply:SteamID() .. "respawnTime", time, 1, function() end)
 	ply:SetNWBool("RaidReady", false)
-
 end)
 
 util.AddNetworkString("PlayerRequestRespawn")
 net.Receive("PlayerRequestRespawn", function(len, ply)
-
 	if !timer.Exists(ply:SteamID() .. "respawnTime") then ply:Spawn() end
-
-end )
+end)
 
 hook.Add("PlayerDeathSound", "RemoveDefaultDeathSound", function()
-
 	return true
-
 end)
 
 -- more lethal fall damage
 hook.Add("GetFallDamage", "FallDmgCalc", function(ply, speed)
-
 	local dmg = speed / 7
 
 	ply:SetNWInt("RaidDamageRecievedFalling", ply:GetNWInt("RaidDamageRecievedFalling") + math.min(dmg, ply:Health() or 100))
 	return dmg
-
 end)
 
 -- hit flinch
 hook.Add("EntityTakeDamage", "HitFlinch", function(target, dmginfo)
-
 	if IsValid(target) and target:IsPlayer() then
-
-		util.ScreenShake(target:GetPos(), 0.33, 3, 0.1, 500)
-
+		util.ScreenShake(target:GetPos(), math.random(0.25, 0.35), 3, math.random(0.08, 0.12), 500)
 	end
-
 end)
 
 -- players in the lobby cant take damage
 hook.Add("PlayerShouldTakeDamage", "AntiLobbyKill", function(victim, attacker)
-
 	return !victim:CompareStatus(0)
-
-end )
+end)
 
 -- prevent respawning if under a respawn timer
 hook.Add("PlayerDeathThink", "SpawnLock", function(ply)
-
 	if timer.Exists(ply:SteamID() .. "respawnTime") then return false end
-
-end )
+end)
 
 -- modifies voice chat to be proximity based
 hook.Add("PlayerCanHearPlayersVoice", "ProxVOIP", function(listener,talker)
-
-	if (tonumber(listener:GetPos():Distance(talker:GetPos())) > 1048 ) or !talker:Alive() then -- 20~ meter voice distance, not able to talk while dead but can still hear others
-
+	if (tonumber(listener:GetPos():Distance(talker:GetPos())) > 1048) or !talker:Alive() then -- 20~ meter voice distance, not able to talk while dead but can still hear others
 		return false, false
-
 	else
-
 		return true, true
-
 	end
-
-end )
+end)
 
 hook.Add("PlayerSpray", "PlayerSpraying", function(ply)
-
 	return false
-
-end )
+end)
 
 -- temp. health regen
 local healthRegenSpeed = 1.5
 local healthRegenDamageDelay = 20
 local function Regeneration()
-
 	for _, ply in pairs(player.GetAll()) do
-
 		if ply:Alive() then
-
 			if (ply:Health() < (ply.LastHealth or 0)) then ply.HealthRegenNext = CurTime() + healthRegenDamageDelay end
 
 			if (CurTime() > (ply.HealthRegenNext or 0)) then
-
 				ply.HealthRegen = (ply.HealthRegen or 0) + FrameTime()
-				if (ply.HealthRegen >= healthRegenSpeed) then
 
+				if (ply.HealthRegen >= healthRegenSpeed) then
 					local add = math.floor(ply.HealthRegen / healthRegenSpeed)
 					ply.HealthRegen = ply.HealthRegen - (add * healthRegenSpeed)
 
 					if (ply:Health() < 100 or healthRegenSpeed < 0) then
-
 						ply:SetNWInt("HealthHealed", ply:GetNWInt("HealthHealed") + add)
 						ply:SetNWInt("RaidHealthHealed", ply:GetNWInt("RaidHealthHealed") + add)
 						ply:SetHealth(math.min(ply:Health() + add, 100))
-
 					end
-
 				end
-
 			end
 
 			ply.LastHealth = ply:Health()
-
 		end
-
 	end
-
 end
 hook.Add("Think", "HealthRegen", Regeneration)
 
 function ApplyPlayerExperience(ply, mult)
-
 	local exp = 0
 
 	exp = exp + math.Round(ply:GetNWFloat("ExperienceTime", 0) * mult, 0)
@@ -377,23 +307,19 @@ function ApplyPlayerExperience(ply, mult)
 	local curLvl = ply:GetNWInt("Level")
 
 	while (curExp >= ply:GetNWInt("ExperienceToNextLevel")) do
-
 		curExp = curExp - ply:GetNWInt("ExperienceToNextLevel")
 		ply:SetNWInt("Level", curLvl + 1)
 		ply:SetNWInt("Experience", curExp)
 
 		for k, v in ipairs(levelArray) do
-
 			if (curLvl + 1) == k then ply:SetNWInt("ExperienceToNextLevel", v) end
-
 		end
 
 		net.Start("SendNotification", false)
-		net.WriteString("You have leveled up!")
-		net.WriteString("icons/increase_icon.png")
-		net.WriteString("achivement_earned.wav")
+			net.WriteString("You have leveled up!")
+			net.WriteString("icons/increase_icon.png")
+			net.WriteString("achivement_earned.wav")
 		net.Send(ply)
-
 	end
 
 	ply:SetNWFloat("ExperienceTime", 0)
@@ -401,26 +327,20 @@ function ApplyPlayerExperience(ply, mult)
 	ply:SetNWInt("ExperienceExploration", 0)
 	ply:SetNWInt("ExperienceLooting", 0)
 	ply:SetNWInt("ExperienceBonus", 0)
-
 end
 
 -- disable prop pickups
 hook.Add("AllowPlayerPickup", "DisablePickups", function(ply, ent)
-
 	return false
-
 end)
 
 -- dropped weapons shouldn't be possible as all dropped items use our custom system, but just in case
 hook.Add("PlayerCanPickupWeapon", "InventoryWeaponPickup", function(ply, weapon)
-
 	if (ply:HasWeapon(weapon:GetClass())) then return false end
-
 end)
 
 -- should be sandbox derive only
 hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
-
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then return false end
 
 	if !EFGMITEMS[class] then return true end -- if sm1 wants a camera or something
@@ -435,7 +355,6 @@ hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
 	ReloadInventory(ply)
 
 	return false
-
 end)
 
 hook.Add("PlayerSpawnSWEP", "SpawnBlockSWEPOnGround", function(ply, class, info) return false end)

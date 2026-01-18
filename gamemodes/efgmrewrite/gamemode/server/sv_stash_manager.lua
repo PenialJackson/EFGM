@@ -1,4 +1,3 @@
-
 util.AddNetworkString("PlayerStashReload")
 util.AddNetworkString("PlayerStashAddItem")
 util.AddNetworkString("PlayerStashUpdateItem")
@@ -11,528 +10,420 @@ util.AddNetworkString("PlayerStashEquipItem")
 util.AddNetworkString("PlayerStashPinItem")
 
 function ReloadStash(ply)
-
-    net.Start("PlayerStashReload", false)
-    net.Send(ply)
-
+	net.Start("PlayerStashReload", false)
+	net.Send(ply)
 end
 
 function AddItemToStash(ply, name, type, data)
+	local def = EFGMITEMS[name]
 
-    local def = EFGMITEMS[name]
+	data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
 
-    data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
+	if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
+		data.owner = ply:SteamID64()
+		data.timestamp = os.time()
+	end
 
-    if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
+	local item = ITEM.Instantiate(name, type, data)
+	local index = table.insert(ply.stash, item)
 
-        data.owner = ply:SteamID64()
-        data.timestamp = os.time()
+	net.Start("PlayerStashAddItem", false)
+		net.WriteString(name)
+		net.WriteUInt(type, 4)
+		net.WriteTable(data) -- writing a table isn't great but we ball for now
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-    end
-
-    local item = ITEM.Instantiate(name, type, data)
-    local index = table.insert(ply.stash, item)
-
-    net.Start("PlayerStashAddItem", false)
-    net.WriteString(name)
-    net.WriteUInt(type, 4)
-    net.WriteTable(data) -- writing a table isn't great but we ball for now
-    net.WriteUInt(index, 16)
-    net.Send(ply)
-
-    ply:SetNWInt("StashCount", #ply.stash)
-
+	ply:SetNWInt("StashCount", #ply.stash)
 end
 
 function UpdateItemFromStash(ply, index, data)
+	local item = ply.stash[index]
+	if item == nil then return end
 
-    local item = ply.stash[index]
+	ply.stash[index].data = data
 
-    ply.stash[index].data = data
+	net.Start("PlayerStashUpdateItem", false)
+		net.WriteTable(ply.stash[index].data)
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-    net.Start("PlayerStashUpdateItem", false)
-    net.WriteTable(ply.stash[index].data)
-    net.WriteUInt(index, 16)
-    net.Send(ply)
+	ply:SetNWInt("StashCount", #ply.stash)
 
-    ply:SetNWInt("StashCount", #ply.stash)
-
-    return item
-
+	return item
 end
 
 function DeleteItemFromStash(ply, index)
+	local item = ply.stash[index]
+	if item == nil then return end
 
-    local item = ply.stash[index]
+	table.remove(ply.stash, index)
 
-    table.remove(ply.stash, index)
+	net.Start("PlayerStashDeleteItem", false)
+		net.WriteUInt(index, 16)
+	net.Send(ply)
 
-    net.Start("PlayerStashDeleteItem", false)
-    net.WriteUInt(index, 16)
-    net.Send(ply)
+	ply:SetNWInt("StashCount", #ply.stash)
 
-    ply:SetNWInt("StashCount", #ply.stash)
-
-    return item
-
+	return item
 end
 
 function FlowItemToStash(ply, name, type, data)
+	local def = EFGMITEMS[name]
+	local stackSize = def.stackSize
+	local amount = tonumber(data.count) or 1
 
-    local def = EFGMITEMS[name]
-    local stackSize = def.stackSize
-    local amount = tonumber(data.count) or 1
+	if stackSize == 1 then -- items that can't stack do not need to flow
+		for i = 1, amount do
+			AddItemToStash(ply, name, type, data)
+		end
 
-    if stackSize == 1 then -- items that can't stack do not need to flow
+		return
+	end
 
-        for i = 1, amount do
+	local inv = {}
+	for k, v in ipairs(ply.stash) do
+		inv[k] = {}
+		inv[k].name = v.name
+		inv[k].data = v.data
+		inv[k].id = k
+	end
 
-            AddItemToStash(ply, name, type, data)
+	table.sort(inv, function(a, b) return a.data.count > b.data.count end)
 
-        end
+	for k, v in ipairs(inv) do
+		if v.name == name and v.data.count != def.stackSize and amount > 0 then
+			local countToMax = stackSize - v.data.count
 
-        return
+			if amount >= countToMax then
+				local newData = {}
+				newData.count = stackSize
+				UpdateItemFromStash(ply, v.id, newData)
+				amount = amount - countToMax
+			elseif amount < countToMax then
+				local newData = {}
+				newData.count = ply.stash[v.id].data.count + amount
+				UpdateItemFromStash(ply, v.id, newData)
+				amount = 0
+				break
+			end
+		end
+	end
 
-    end
-
-    local inv = {}
-
-    for k, v in ipairs(ply.stash) do
-
-        inv[k] = {}
-        inv[k].name = v.name
-        inv[k].data = v.data
-        inv[k].id = k
-
-    end
-
-    table.sort(inv, function(a, b) return a.data.count > b.data.count end)
-
-    for k, v in ipairs(inv) do
-
-        if v.name == name and v.data.count != def.stackSize and amount > 0 then
-
-            local countToMax = stackSize - v.data.count
-
-            if amount >= countToMax then
-
-                local newData = {}
-                newData.count = stackSize
-                UpdateItemFromStash(ply, v.id, newData)
-                amount = amount - countToMax
-
-            elseif amount < countToMax then
-
-                local newData = {}
-                newData.count = ply.stash[v.id].data.count + amount
-                UpdateItemFromStash(ply, v.id, newData)
-                amount = 0
-                break
-
-            end
-
-        end
-
-    end
-
-    -- if leftover after checking every similar item type
-    while amount > 0 do
-
-        if amount >= stackSize then
-
-            local newData = {}
-            newData.count = stackSize
-            AddItemToStash(ply, name, type, newData)
-            amount = amount - stackSize
-
-        else
-
-            local newData = {}
-            newData.count = amount
-            AddItemToStash(ply, name, type, newData)
-            break
-
-        end
-
-    end
-
+	-- if leftover after checking every similar item type
+	while amount > 0 do
+		if amount >= stackSize then
+			local newData = {}
+			newData.count = stackSize
+			AddItemToStash(ply, name, type, newData)
+			amount = amount - stackSize
+		else
+			local newData = {}
+			newData.count = amount
+			AddItemToStash(ply, name, type, newData)
+			break
+		end
+	end
 end
 
 function DeflowItemsFromStash(ply, name, count)
+	local amount = count
 
-    local amount = count
-    local inv = {}
+	local inv = {}
+	for k, v in ipairs(ply.stash) do
+		inv[k] = {}
+		inv[k].name = v.name
+		inv[k].data = v.data
+		inv[k].id = k
+	end
 
-    for k, v in ipairs(ply.stash) do
+	table.sort(inv, function(a, b) return a.data.count < b.data.count end)
 
-        inv[k] = {}
-        inv[k].name = v.name
-        inv[k].data = v.data
-        inv[k].id = k
+	for k, v in ipairs(inv) do
+		if v.name == name and v.data.count > 0 and amount > 0 then
+			if amount >= v.data.count then
+				amount = amount - v.data.count
+				DeleteItemFromStash(ply, v.id)
+				DeflowItemsFromStash(ply, name, amount)
+				return
+			else
+				local newData = {}
+				newData.count = ply.stash[v.id].data.count - amount
+				UpdateItemFromStash(ply, v.id, newData)
+				break
+			end
+		end
+	end
 
-    end
-
-    table.sort(inv, function(a, b) return a.data.count < b.data.count end)
-
-    for k, v in ipairs(inv) do
-
-        if v.name == name and v.data.count > 0 and amount > 0 then
-
-            if amount >= v.data.count then
-
-                amount = amount - v.data.count
-                DeleteItemFromStash(ply, v.id)
-                DeflowItemsFromStash(ply, name, amount)
-                return
-
-            else
-
-                local newData = {}
-                newData.count = ply.stash[v.id].data.count - amount
-                UpdateItemFromStash(ply, v.id, newData)
-                break
-
-            end
-
-        end
-
-    end
-
-    return amount
-
+	return amount
 end
 
 net.Receive("PlayerStashAddItemFromInventory", function(len, ply)
+	local itemIndex = net.ReadUInt(16)
 
-    if !ply:CompareStatus(0) then return end
-    if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
+	if !ply:CompareStatus(0) then return end
+	if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
 
-    local itemIndex = net.ReadUInt(16)
-    local item = DeleteItemFromInventory(ply, itemIndex, false)
+	local item = DeleteItemFromInventory(ply, itemIndex, false)
+	if item == nil then return end
 
-    if item == nil then return end
+	FlowItemToStash(ply, item.name, item.type, item.data)
 
-    FlowItemToStash(ply, item.name, item.type, item.data)
+	ReloadInventory(ply)
+	ReloadStash(ply)
 
-    ReloadInventory(ply)
-    ReloadStash(ply)
-
-    ply:SetNWInt("StashCount", #ply.stash)
-
+	ply:SetNWInt("StashCount", #ply.stash)
 end)
 
 net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
+	local equipID = net.ReadUInt(4)
+	local equipSlot = net.ReadUInt(4)
 
-    if !ply:CompareStatus(0) then return end
-    if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
+	if !ply:CompareStatus(0) then return end
+	if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
+	if equipID != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
 
-    local equipID = net.ReadUInt(4)
-    local equipSlot = net.ReadUInt(4)
+	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+	if table.IsEmpty(item) then return end
 
-    if equipID != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
+	table.Empty(ply.weaponSlots[equipID][equipSlot])
 
-    local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
+	local wep = ply:GetWeapon(item.name)
 
-    if table.IsEmpty(item) then return end
+	if wep != NULL and item.data.att then
+		local atts = table.Copy(wep.Attachments)
+		local str = GenerateAttachString(atts)
+		item.data.att = str
+	end
 
-    table.Empty(ply.weaponSlots[equipID][equipSlot])
+	local def = EFGMITEMS[item.name]
+	if wep != NULL and def.displayType != "Grenade" then
+		local clip1 = wep:Clip1()
+		local ammoDef = EFGMITEMS[wep.Ammo]
 
-    local wep = ply:GetWeapon(item.name)
+		if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+			local data = {}
+			data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
+			FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+		end
 
-    if wep != NULL and item.data.att then
+		local clip2 = wep:Clip2()
+		local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
 
-        local atts = table.Copy(wep.Attachments)
-        local str = GenerateAttachString(atts)
-        item.data.att = str
+		if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
+			local data = {}
+			data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
+			FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+		end
 
-    end
+		ReloadInventory(ply)
+	end
 
-    local def = EFGMITEMS[item.name]
-    if wep != NULL and def.displayType != "Grenade" then
+	ReloadSlots(ply)
 
-        local clip1 = wep:Clip1()
-        local ammoDef = EFGMITEMS[wep.Ammo]
-        if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
+	ply:StripWeapon(item.name)
 
-            local data = {}
-            data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-            FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+	RemoveWeightFromPlayer(ply, item.name, item.data.count)
 
-        end
+	if item.data.att then
+		local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+		if !atts then return end
 
-        local clip2 = wep:Clip2()
-        local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
-        if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
+		for _, a in ipairs(atts) do
+			local att = EFGMITEMS[a]
+			if att == nil then continue end
 
-            local data = {}
-            data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-            FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+			RemoveWeightFromPlayer(ply, a, 1)
+		end
+	end
 
-        end
-
-        ReloadInventory(ply)
-
-    end
-
-    ReloadSlots(ply)
-
-    ply:StripWeapon(item.name)
-
-    RemoveWeightFromPlayer(ply, item.name, item.data.count)
-
-    if item.data.att then
-
-        local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-        if !atts then return end
-
-        for _, a in ipairs(atts) do
-
-            local att = EFGMITEMS[a]
-            if att == nil then continue end
-
-            RemoveWeightFromPlayer(ply, a, 1)
-
-        end
-
-    end
-
-    AddItemToStash(ply, item.name, item.type, item.data)
-
-    ReloadStash(ply)
-
+	AddItemToStash(ply, item.name, item.type, item.data)
+	ReloadStash(ply)
 end)
 
 function StashAllFromInventory(ply)
+	if !ply:CompareStatus(0) then return end
 
-    if !ply:CompareStatus(0) then return end
+	local indexes = #ply.inventory
+	local indexesNuked = 0
 
-    local indexes = #ply.inventory
-    local indexesNuked = 0
+	for i = 1, indexes do
+		if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
 
-    for i = 1, indexes do
+		local itemIndex = i - indexesNuked
+		local item = DeleteItemFromInventory(ply, itemIndex, false)
+		indexesNuked = indexesNuked + 1
 
-        if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
+		if item == nil then return end
 
-        local itemIndex = i - indexesNuked
-        local item = DeleteItemFromInventory(ply, itemIndex, false)
-        indexesNuked = indexesNuked + 1
+		FlowItemToStash(ply, item.name, item.type, item.data)
+	end
 
-        if item == nil then return end
-
-        FlowItemToStash(ply, item.name, item.type, item.data)
-
-        ply:SetNWInt("StashCount", #ply.stash)
-
-    end
-
-    ReloadInventory(ply)
-    ReloadStash(ply)
-
+	ReloadInventory(ply)
+	ReloadStash(ply)
 end
 
-net.Receive("PlayerStashAddAllFromInventory", function(len, ply) StashAllFromInventory(ply) end)
+net.Receive("PlayerStashAddAllFromInventory", function(len, ply)
+	StashAllFromInventory(ply)
+end)
 
 net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
+	local itemIndex = net.ReadUInt(16)
 
-    if !ply:CompareStatus(0) then return end
-    if ply:CompareFaction(false) then return end
+	if !ply:CompareStatus(0) then return end
+	if ply:CompareFaction(false) then return end
 
-    local itemIndex = net.ReadUInt(16)
-    local item = DeleteItemFromStash(ply, itemIndex)
+	local item = DeleteItemFromStash(ply, itemIndex)
+	if item == nil then return end
 
-    if item == nil then return end
-    item.data.pin = nil
+	item.data.pin = nil
 
-    FlowItemToInventory(ply, item.name, item.type, item.data)
+	FlowItemToInventory(ply, item.name, item.type, item.data)
 
-    ReloadStash(ply)
-    ReloadInventory(ply)
-
-    ply:SetNWInt("StashCount", #ply.stash)
-
+	ReloadStash(ply)
+	ReloadInventory(ply)
 end)
 
 net.Receive("PlayerStashEquipItem", function(len, ply)
+	local itemIndex, equipSlot, equipSubSlot
 
-    if !ply:CompareStatus(0) then return end
+	itemIndex = net.ReadUInt(16)
+	equipSlot = net.ReadUInt(4)
+	equipSubSlot = net.ReadUInt(16)
 
-    local itemIndex, equipSlot, equipSubSlot
+	if !ply:CompareStatus(0) then return end
+	if equipSlot != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
 
-    itemIndex = net.ReadUInt(16)
-    equipSlot = net.ReadUInt(4)
-    equipSubSlot = net.ReadUInt(16)
+	local item = ply.stash[itemIndex]
+	if item == nil then return end
+	if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end
 
-    local item = ply.stash[itemIndex]
-    if item == nil then return end
+	item.data.pin = nil
 
-    if equipSlot != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
+	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
+		DeleteItemFromStash(ply, itemIndex)
+		ply.weaponSlots[equipSlot][equipSubSlot] = item
+		AddWeightToPlayer(ply, item.name, item.data.count)
 
-    item.data.pin = nil
+		if item.data.att then
+			local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+			if !atts then return end
 
-    if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
 
-    if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
+				AddWeightToPlayer(ply, a, 1)
+			end
+		end
 
-        DeleteItemFromStash(ply, itemIndex)
-        ply.weaponSlots[equipSlot][equipSubSlot] = item
-        AddWeightToPlayer(ply, item.name, item.data.count)
+		GiveWepWithPresetFromCode(ply, item.name, item.data)
 
-        if item.data.att then
-
-            local atts = GetPrefixedAttachmentListFromCode(item.data.att)
-            if !atts then return end
-
-            for _, a in ipairs(atts) do
-
-                local att = EFGMITEMS[a]
-                if att == nil then continue end
-
-                AddWeightToPlayer(ply, a, 1)
-
-            end
-
-        end
-
-        GiveWepWithPresetFromCode(ply, item.name, item.data)
-
-        ReloadStash(ply)
-        ReloadSlots(ply)
-
-    end
-
+		ReloadStash(ply)
+		ReloadSlots(ply)
+	end
 end)
 
 net.Receive("PlayerStashPinItem", function(len, ply)
+	local itemIndex = net.ReadUInt(16)
 
-    if !ply:CompareStatus(0) then return end
+	if !ply:CompareStatus(0) then return end
 
-    local itemIndex = net.ReadUInt(16)
+	if ply.stash[itemIndex].data.pin != 1 then
+		ply.stash[itemIndex].data.pin = 1
+	else
+		ply.stash[itemIndex].data.pin = nil
+	end
 
-    if ply.stash[itemIndex].data.pin != 1 then
+	net.Start("PlayerStashUpdateItem", false)
+		net.WriteTable(ply.stash[itemIndex].data)
+		net.WriteUInt(itemIndex, 16)
+	net.Send(ply)
 
-        ply.stash[itemIndex].data.pin = 1
-
-    else
-
-        ply.stash[itemIndex].data.pin = nil
-
-    end
-
-    net.Start("PlayerStashUpdateItem", false)
-    net.WriteTable(ply.stash[itemIndex].data)
-    net.WriteUInt(itemIndex, 16)
-    net.Send(ply)
-
-    ReloadStash(ply)
-
+	ReloadStash(ply)
 end)
 
 function CalculateStashValue(ply)
+	local value = 0
 
-    local value = 0
+	for k, v in ipairs(ply.stash) do
+		local def = EFGMITEMS[v.name]
+		local count = math.Clamp(v.data.count, 1, def.stackSize) or 1
 
-    for k, v in ipairs(ply.stash) do
+		if def.consumableType != "heal" and def.consumableType != "key" then
+			value = value + (def.value * count)
+		else
+			value = value + math.floor(def.value * (v.data.durability / def.consumableValue))
+		end
 
-        local def = EFGMITEMS[v.name]
-        local count = math.Clamp(v.data.count, 1, def.stackSize) or 1
+		if def.equipType == EQUIPTYPE.Weapon and v.data.att then
+			local atts = GetPrefixedAttachmentListFromCode(v.data.att)
+			if !atts then return end
 
-        if def.consumableType != "heal" and def.consumableType != "key" then
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
 
-            value = value + (def.value * count)
+				value = value + att.value
+			end
+		end
+	end
 
-        else
-
-            value = value + math.floor(def.value * (v.data.durability / def.consumableValue))
-
-        end
-
-        if def.equipType == EQUIPTYPE.Weapon and v.data.att then
-
-            local atts = GetPrefixedAttachmentListFromCode(v.data.att)
-            if !atts then return end
-
-            for _, a in ipairs(atts) do
-
-                local att = EFGMITEMS[a]
-                if att == nil then continue end
-
-                value = value + att.value
-
-            end
-
-        end
-
-    end
-
-    ply:SetNWInt("StashValue", value)
-    return value
-
+	ply:SetNWInt("StashValue", value)
+	return value
 end
 
 function UpdateStashString(ply)
+	local stashStr = util.TableToJSON(ply.stash)
+	stashStr = util.Compress(stashStr)
+	stashStr = util.Base64Encode(stashStr, true)
+	ply.stashStr = stashStr
 
-    local stashStr = util.TableToJSON(ply.stash)
-    stashStr = util.Compress(stashStr)
-    stashStr = util.Base64Encode(stashStr, true)
-    ply.stashStr = stashStr
-    return stashStr
-
+	return stashStr
 end
 
 function DecodeStash(ply, str)
+	if !str then return end
+	str = util.Base64Decode(str)
+	str = util.Decompress(str)
+	if !str then return end
 
-    if !str then return end
-    str = util.Base64Decode(str)
-    str = util.Decompress(str)
-    if !str then return end
-
-    local tbl = util.JSONToTable(str)
-
-    return tbl
-
+	local tbl = util.JSONToTable(str)
+	return tbl
 end
 
 function WipeStash(ply)
-
 	ply.stash = {}
-    UpdateStashString(ply)
-
-    SendChunkedNet(ply, ply.stashStr, "PlayerNetworkStash")
-
+	UpdateStashString(ply)
+	SendChunkedNet(ply, ply.stashStr, "PlayerNetworkStash")
 end
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+	concommand.Add("efgm_debug_wipestash", function(ply, cmd, args)
+		WipeStash(ply)
+	end)
 
-    concommand.Add("efgm_debug_wipestash", function(ply, cmd, args) WipeStash(ply) end)
+	function PrintStashString(ply)
+		UpdateStashString(ply)
+		print(ply.stashStr)
+	end
+	concommand.Add("efgm_debug_printstashstring", function(ply, cmd, args) PrintStashString(ply) end)
 
-    function PrintStashString(ply)
+	-- for save editing and whatnot
+	function PrintCleanStashString(ply)
+		local cleanTbl = {}
+		cleanTbl = table.Copy(ply.stash)
 
-        UpdateStashString(ply)
-        print(ply.stashStr)
+		for k, v in ipairs(ply.stash) do
+			v.data.fir = nil
+			v.data.owner = nil
+			v.data.timestamp = nil
+		end
 
-    end
-    concommand.Add("efgm_debug_printstashstring", function(ply, cmd, args) PrintStashString(ply) end)
-
-    -- for save editing and whatnot
-    function PrintCleanStashString(ply)
-
-        local cleanTbl = {}
-        cleanTbl = table.Copy(ply.stash)
-
-        for k, v in ipairs(ply.stash) do
-
-            v.data.fir = nil
-            v.data.owner = nil
-            v.data.timestamp = nil
-
-        end
-
-        local stashStr = util.TableToJSON(cleanTbl)
-        stashStr = util.Compress(stashStr)
-        stashStr = util.Base64Encode(stashStr, true)
-        print(stashStr)
-
-    end
-    concommand.Add("efgm_debug_printstashstring_clean", function(ply, cmd, args) PrintCleanStashString(ply) end)
-
+		local stashStr = util.TableToJSON(cleanTbl)
+		stashStr = util.Compress(stashStr)
+		stashStr = util.Base64Encode(stashStr, true)
+		print(stashStr)
+	end
+	concommand.Add("efgm_debug_printstashstring_clean", function(ply, cmd, args) PrintCleanStashString(ply) end)
 end

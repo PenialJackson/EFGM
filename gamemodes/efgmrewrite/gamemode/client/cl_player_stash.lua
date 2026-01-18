@@ -1,227 +1,181 @@
-
 local chunkedStash = {}
 
 hook.Add("OnStashChunked", "NetworkStash", function(str, uID)
+	local stashStr = str
 
-    local stashStr = str
+	stashStr = util.Base64Decode(stashStr)
+	stashStr = util.Decompress(stashStr)
 
-    stashStr = util.Base64Decode(stashStr)
-    stashStr = util.Decompress(stashStr)
+	if !stashStr then return end
 
-    if !stashStr then return end
+	local stashTbl = util.JSONToTable(stashStr)
 
-    local stashTbl = util.JSONToTable(stashStr)
-
-    playerStash = stashTbl
-    if playerStash == nil then playerStash = {} end
-
+	playerStash = stashTbl
+	if playerStash == nil then playerStash = {} end
 end)
 
-net.Receive("PlayerNetworkStash", function(len, ply)
+net.Receive("PlayerNetworkStash", function(len)
+	local uID = net.ReadFloat()
+	local index = net.ReadUInt(16)
+	local chunkCount = net.ReadUInt(16)
+	local chunk = net.ReadString()
 
-    local uID = net.ReadFloat()
-    local index = net.ReadUInt(16)
-    local chunkCount = net.ReadUInt(16)
-    local chunk = net.ReadString()
+	if !chunkedStash[uID] then
+		chunkedStash[uID] = {
+			Chunks = {},
+			ReceivedCount = 0,
+			TotalCount = chunkCount
+		}
+	end
 
-    if !chunkedStash[uID] then
+	chunkedStash[uID].Chunks[index] = chunk
+	chunkedStash[uID].ReceivedCount = chunkedStash[uID].ReceivedCount + 1
 
-        chunkedStash[uID] = {
+	if chunkedStash[uID].ReceivedCount == chunkedStash[uID].TotalCount then
+		local str = ""
 
-            Chunks = {},
-            ReceivedCount = 0,
-            TotalCount = chunkCount
+		for i = 1, chunkCount do
+			str = str .. chunkedStash[uID].Chunks[i]
+		end
 
-        }
+		hook.Run("OnStashChunked", str, uID)
+		chunkedStash[uID] = nil
+	end
+end)
 
-    end
+net.Receive("PlayerStashReload", function(len)
+	Menu.ReloadStash()
+end)
 
-    chunkedStash[uID].Chunks[index] = chunk
-    chunkedStash[uID].ReceivedCount = chunkedStash[uID].ReceivedCount + 1
+net.Receive("PlayerStashAddItem", function(len)
+	local name, type, data, index
 
-    if chunkedStash[uID].ReceivedCount == chunkedStash[uID].TotalCount then
+	name = net.ReadString()
+	type = net.ReadUInt(4)
+	data = net.ReadTable()
+	index = net.ReadUInt(16)
 
-        local str = ""
+	table.insert(playerStash, index, ITEM.Instantiate(name, type, data))
+end)
 
-        for i = 1, chunkCount do
+net.Receive("PlayerStashUpdateItem", function(len)
+	local newData, index
 
-            str = str .. chunkedStash[uID].Chunks[i]
+	newData = net.ReadTable()
+	index = net.ReadUInt(16)
 
-        end
+	playerStash[index].data = newData
+end)
 
-        hook.Run("OnStashChunked", str, uID)
-        chunkedStash[uID] = nil
+net.Receive("PlayerStashDeleteItem", function(len)
+	local index
 
-    end
+	index = net.ReadUInt(16)
 
-end )
-
-net.Receive("PlayerStashReload", function(len, ply)
-
-    Menu.ReloadStash()
-
-end )
-
-net.Receive("PlayerStashAddItem", function(len, ply)
-
-    local name, type, data, index
-
-    name = net.ReadString()
-    type = net.ReadUInt(4)
-    data = net.ReadTable()
-    index = net.ReadUInt(16)
-
-    table.insert(playerStash, index, ITEM.Instantiate(name, type, data))
-
-end )
-
-net.Receive("PlayerStashUpdateItem", function(len, ply)
-
-    local newData, index
-
-    newData = net.ReadTable()
-    index = net.ReadUInt(16)
-
-    playerStash[index].data = newData
-
-end )
-
-net.Receive("PlayerStashDeleteItem", function(len, ply)
-
-    local index
-
-    index = net.ReadUInt(16)
-
-    table.remove(playerStash, index)
-
-end )
+	table.remove(playerStash, index)
+end)
 
 function StashItemFromInventory(itemIndex)
+	if !LocalPlayer():CompareStatus(0) then return end
 
-    if !ply:CompareStatus(0) then return end
+	local item = playerInventory[itemIndex]
+	if item == nil then return end
 
-    local item = playerInventory[itemIndex]
-    if item == nil then return end
-
-    net.Start("PlayerStashAddItemFromInventory", false)
-        net.WriteUInt(itemIndex, 16)
-    net.SendToServer()
-
+	net.Start("PlayerStashAddItemFromInventory", false)
+		net.WriteUInt(itemIndex, 16)
+	net.SendToServer()
 end
 
 function StashItemFromEquipped(equipID, equipSlot)
+	if !LocalPlayer():CompareStatus(0) then return end
+	if equipID != WEAPONSLOTS.MELEE.ID and LocalPlayer():CompareFaction(false) then return end
 
-    if !ply:CompareStatus(0) then return end
-    if equipID != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
+	local item = playerWeaponSlots[equipID][equipSlot]
+	if table.IsEmpty(item) then return end
 
-    local item = playerWeaponSlots[equipID][equipSlot]
+	table.Empty(playerWeaponSlots[equipID][equipSlot])
 
-    if table.IsEmpty(item) then return end
-
-    table.Empty(playerWeaponSlots[equipID][equipSlot])
-
-    net.Start("PlayerStashAddItemFromEquipped", false)
-        net.WriteUInt(equipID, 4)
-        net.WriteUInt(equipSlot, 4)
-    net.SendToServer()
-
+	net.Start("PlayerStashAddItemFromEquipped", false)
+		net.WriteUInt(equipID, 4)
+		net.WriteUInt(equipSlot, 4)
+	net.SendToServer()
 end
 
 function UnloadInventoryToStash()
-
-    net.Start("PlayerStashAddAllFromInventory", false)
-    net.SendToServer()
-
+	net.Start("PlayerStashAddAllFromInventory", false)
+	net.SendToServer()
 end
 
 function TakeFromStashToInventory(itemIndex)
+	if !LocalPlayer():CompareStatus(0) then return end
+	if LocalPlayer():CompareFaction(false) then return end
 
-    if !ply:CompareStatus(0) then return end
-    if ply:CompareFaction(false) then return end
+	local item = playerStash[itemIndex]
+	if item == nil then return end
 
-    local item = playerStash[itemIndex]
-    if item == nil then return end
-
-    net.Start("PlayerStashTakeItemToInventory", false)
-        net.WriteUInt(itemIndex, 16)
-    net.SendToServer()
-
+	net.Start("PlayerStashTakeItemToInventory", false)
+		net.WriteUInt(itemIndex, 16)
+	net.SendToServer()
 end
 
 function EquipItemFromStash(itemIndex, equipSlot, primaryPref)
+	if !LocalPlayer():CompareStatus(0) then return end
+	if equipSlot != WEAPONSLOTS.MELEE.ID and LocalPlayer():CompareFaction(false) then return end
 
-    if !ply:CompareStatus(0) then return end
-    if equipSlot != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
+	local item = playerStash[itemIndex]
+	if item == nil then return end
 
-    local item = playerStash[itemIndex]
-    if item == nil then return end
+	if AmountInInventory(playerWeaponSlots[equipSlot], item.name) != 0 then return end
 
-    if AmountInInventory(playerWeaponSlots[equipSlot], item.name) != 0 then return end
+	-- checking item equip slots
+	if equipSlot == 1 and primaryPref != nil then
+		if primaryPref == 1 then
+			playerWeaponSlots[equipSlot][1] = item
 
-    -- checking item equip slots
-    if equipSlot == 1 and primaryPref != nil then
+			net.Start("PlayerStashEquipItem", false)
+				net.WriteUInt(itemIndex, 16)
+				net.WriteUInt(equipSlot, 4)
+				net.WriteUInt(1, 16)
+			net.SendToServer()
 
-        if primaryPref == 1 then
+			return true
+		else
+			playerWeaponSlots[equipSlot][2] = item
 
-            playerWeaponSlots[equipSlot][1] = item
+			net.Start("PlayerStashEquipItem", false)
+				net.WriteUInt(itemIndex, 16)
+				net.WriteUInt(equipSlot, 4)
+				net.WriteUInt(2, 16)
+			net.SendToServer()
 
-            net.Start("PlayerStashEquipItem", false)
-                net.WriteUInt(itemIndex, 16)
-                net.WriteUInt(equipSlot, 4)
-                net.WriteUInt(1, 16)
-            net.SendToServer()
+			return true
+		end
+	else
+		for k, v in ipairs(playerWeaponSlots[equipSlot]) do
+			if table.IsEmpty(v) then
+				playerWeaponSlots[equipSlot][k] = item
 
-            return true
+				net.Start("PlayerStashEquipItem", false)
+					net.WriteUInt(itemIndex, 16)
+					net.WriteUInt(equipSlot, 4)
+					net.WriteUInt(k, 16)
+				net.SendToServer()
 
-        else
+				return true
+			end
+		end
+	end
 
-            playerWeaponSlots[equipSlot][2] = item
-
-            net.Start("PlayerStashEquipItem", false)
-                net.WriteUInt(itemIndex, 16)
-                net.WriteUInt(equipSlot, 4)
-                net.WriteUInt(2, 16)
-            net.SendToServer()
-
-            return true
-
-        end
-
-    else
-
-        for k, v in ipairs(playerWeaponSlots[equipSlot]) do
-
-            if table.IsEmpty(v) then
-
-                playerWeaponSlots[equipSlot][k] = item
-
-                net.Start("PlayerStashEquipItem", false)
-                    net.WriteUInt(itemIndex, 16)
-                    net.WriteUInt(equipSlot, 4)
-                    net.WriteUInt(k, 16)
-                net.SendToServer()
-
-                return true
-
-            end
-
-        end
-
-    end
-
-    return false
-
+	return false
 end
 
 function PinItemFromStash(itemIndex)
+	if !LocalPlayer():CompareStatus(0) then return end
 
-    if !ply:CompareStatus(0) then return end
+	local item = playerStash[itemIndex]
+	if item == nil then return end
 
-    local item = playerStash[itemIndex]
-    if item == nil then return end
-
-    net.Start("PlayerStashPinItem", false)
-        net.WriteUInt(itemIndex, 16)
-    net.SendToServer()
-
+	net.Start("PlayerStashPinItem", false)
+		net.WriteUInt(itemIndex, 16)
+	net.SendToServer()
 end

@@ -4,155 +4,127 @@
 
 -- raid
 function GetValidRaidSpawn(status)
+	if status == 0 or status == 3 then status = 1 end -- shouldn't be possible but i am going to play it safe
 
-    if status == 0 or status == 3 then status = 1 end -- shouldn't be possible but i am going to play it safe
+	local spawns = ents.FindByClass("efgm_raid_spawn")
+	table.Shuffle(spawns)
 
-    local spawns = ents.FindByClass("efgm_raid_spawn")
-    table.Shuffle(spawns)
+	local radius = GetSpawnProt()
 
-    local radius = GetSpawnProt()
+	for _, spawn in ipairs(spawns) do
+		if status == 1 and spawn.SpawnType == 2 then continue end
+		if status == 2 and spawn.SpawnType == 1 then continue end
+		if spawn.Pending == true then continue end
 
-    for _, spawn in ipairs(spawns) do
+		local spawnRad = (spawn.SpawnRadiusOverride > 0 and spawn.SpawnRadiusOverride) or radius
 
-        if status == 1 and spawn.SpawnType == 2 then continue end
-        if status == 2 and spawn.SpawnType == 1 then continue end
-        if spawn.Pending == true then continue end
+		local entities = ents.FindInSphere(spawn:GetPos(), spawnRad)
+		local blocked = false
 
-        local spawnRad = (spawn.SpawnRadiusOverride > 0 and spawn.SpawnRadiusOverride) or radius
+		for _, e in ipairs(entities) do
+			-- player
+			if e:IsPlayer() and e:Alive() and (e:CompareStatus(1) or e:CompareStatus(2)) and !e:GetNWBool("PlayerInIntro", false) then
+				blocked = true
+				break
+			end
 
-        local entities = ents.FindInSphere(spawn:GetPos(), spawnRad)
-        local blocked = false
+			-- grenades
+			if e.Base == "arc9_eft_grenade_ent_base" and e.harmless != true then
+				blocked = true
+				break
+			end
+		end
 
-        for _, e in ipairs(entities) do
+		if !blocked then return spawn end
+	end
 
-            -- player
-            if e:IsPlayer() and e:Alive() and (e:CompareStatus(1) or e:CompareStatus(2)) and !e:GetNWBool("PlayerInIntro", false) then
+	-- fallback if no spawn is suitable
+	local plys = player.GetHumans()
+	local safestSpawn = nil
+	local maxMinDistance = -1
 
-                blocked = true
-                break
+	table.Shuffle(spawns)
 
-            end
+	for _, spawn in ipairs(spawns) do
+		if status == 1 and spawn.SpawnType == 2 then continue end
+		if status == 2 and spawn.SpawnType == 1 then continue end
+		if spawn.Pending == true then continue end
 
-            -- grenades
-            if e.Base == "arc9_eft_grenade_ent_base" and e.harmless != true then
+		local minDistance = math.huge
 
-                blocked = true
-                break
+		for _, ply in ipairs(plys) do
+			if ply:Alive() and (ply:CompareStatus(1) or ply:CompareStatus(2)) and !ply:GetNWBool("PlayerInIntro", false) then
+				local distance = spawn:GetPos():DistToSqr(ply:GetPos())
+				minDistance = math.min(minDistance, distance)
+			end
+		end
 
-            end
+		if minDistance > maxMinDistance then
+			maxMinDistance = minDistance
+			safestSpawn = spawn
+		end
+	end
 
-        end
-
-        if !blocked then return spawn end
-
-    end
-
-    -- fallback if no spawn is suitable
-    local plys = player.GetHumans()
-    local safestSpawn = nil
-    local maxMinDistance = -1
-
-    table.Shuffle(spawns)
-
-    for _, spawn in ipairs(spawns) do
-
-        if status == 1 and spawn.SpawnType == 2 then continue end
-        if status == 2 and spawn.SpawnType == 1 then continue end
-        if spawn.Pending == true then continue end
-
-        local minDistance = math.huge
-
-        for _, ply in ipairs(plys) do
-
-            if ply:Alive() and (ply:CompareStatus(1) or ply:CompareStatus(2)) and !ply:GetNWBool("PlayerInIntro", false) then
-
-                local distance = spawn:GetPos():DistToSqr(ply:GetPos())
-                minDistance = math.min(minDistance, distance)
-
-            end
-
-        end
-
-        if minDistance > maxMinDistance then
-
-            maxMinDistance = minDistance
-            safestSpawn = spawn
-
-        end
-
-    end
-
-    return safestSpawn
-
+	return safestSpawn
 end
 
 -- hideout
 -- on extract
 function GetValidHideoutSpawn(spawnType)
+	-- 0: normal spawn
+	-- 1: extracted from raid
+	-- 2: won duel
 
-    -- 0: normal spawn
-    -- 1: extracted from raid
-    -- 2: won duel
+	local spawns
+	if spawnType == 1 then
+		spawns = ents.FindByClass("efgm_lobby_spawn")
+	elseif spawnType == 2 then
+		spawns = (ents.FindByClass("efgm_duel_end_spawn") or ents.FindByClass("efgm_lobby_spawn"))
+	else
+		spawns = ents.FindByClass("info_player_start")
+	end
 
-    local spawns
-    if spawnType == 1 then spawns = ents.FindByClass("efgm_lobby_spawn") elseif spawnType == 2 then spawns = (ents.FindByClass("efgm_duel_end_spawn") or ents.FindByClass("efgm_lobby_spawn")) else spawns = ents.FindByClass("info_player_start") end
-    table.Shuffle(spawns)
+	table.Shuffle(spawns)
 
-    for _, spawn in ipairs(spawns) do
+	for _, spawn in ipairs(spawns) do
+		local entities = ents.FindInSphere(spawn:GetPos(), 32)
+		local blocked = false
 
-        local entities = ents.FindInSphere(spawn:GetPos(), 32)
-        local blocked = false
+		for _, e in ipairs(entities) do
+			if !e:IsPlayer() then continue end
+			if e:Alive() and (e:CompareStatus(0) or e:CompareStatus(3)) then
+				blocked = true
+				break
+			end
+		end
 
-        for _, e in ipairs(entities) do
+		if !blocked then return spawn end
+	end
 
-            if !e:IsPlayer() then continue end
-            if e:Alive() and (e:CompareStatus(0) or e:CompareStatus(3)) then
-
-                blocked = true
-                break
-
-            end
-
-        end
-
-        if !blocked then return spawn end
-
-    end
-
-    return BetterRandom(spawns)
-
+	return BetterRandom(spawns)
 end
 
 -- on a normal spawn
 hook.Add("PlayerSelectSpawn", "HideoutSpawning", function(ply)
-
-    return GetValidHideoutSpawn(0)
-
+	return GetValidHideoutSpawn(0)
 end)
 
 -- duels
 function RandomDuelSpawns()
-
-    local spawns = ents.FindByClass("efgm_duel_spawn")
-    table.Shuffle(spawns)
-    return spawns
-
+	local spawns = ents.FindByClass("efgm_duel_spawn")
+	table.Shuffle(spawns)
+	return spawns
 end
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+	function PrintSpawnStatuses()
+		local spawns = ents.FindByClass("efgm_raid_spawn")
 
-    function PrintSpawnStatuses()
-
-        local spawns = ents.FindByClass("efgm_raid_spawn")
-        for _, spawn in ipairs(spawns) do
-
-            print("[" .. string.upper(spawn.SpawnName) .. "]")
-            print("pending: " .. tostring(spawn.Pending))
-            print("type: " .. spawn.SpawnType)
-
-        end
-
-    end
-    concommand.Add("efgm_debug_printspawns", function(ply, cmd, args) PrintSpawnStatuses() end)
-
+		for _, spawn in ipairs(spawns) do
+			print("[" .. string.upper(spawn.SpawnName) .. "]")
+			print("pending: " .. tostring(spawn.Pending))
+			print("type: " .. spawn.SpawnType)
+		end
+	end
+	concommand.Add("efgm_debug_printspawns", function(ply, cmd, args) PrintSpawnStatuses() end)
 end

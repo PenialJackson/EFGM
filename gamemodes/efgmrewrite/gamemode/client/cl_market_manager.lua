@@ -3,54 +3,42 @@ local chunkedMarket = {}
 hook.Add("OnReloaded", "MarketOnReload", function() marketLimits = {} end)
 
 hook.Add("OnMarketChunked", "NetworkMarket", function(str, uID)
+	local marketStr = str
+	marketStr = util.Base64Decode(marketStr)
+	marketStr = util.Decompress(marketStr)
 
-    local marketStr = str
-    marketStr = util.Base64Decode(marketStr)
-    marketStr = util.Decompress(marketStr)
+	if !marketStr then return end
 
-    if !marketStr then return end
+	local marketTbl = util.JSONToTable(marketStr)
 
-    local marketTbl = util.JSONToTable(marketStr)
-
-    marketLimits = marketTbl
-
+	marketLimits = marketTbl
 end)
 
 net.Receive("PlayerNetworkMarket", function(len, ply)
+	local uID = net.ReadFloat()
+	local index = net.ReadUInt(16)
+	local chunkCount = net.ReadUInt(16)
+	local chunk = net.ReadString()
 
-    local uID = net.ReadFloat()
-    local index = net.ReadUInt(16)
-    local chunkCount = net.ReadUInt(16)
-    local chunk = net.ReadString()
+	if !chunkedMarket[uID] then
+		chunkedMarket[uID] = {
+			Chunks = {},
+			ReceivedCount = 0,
+			TotalCount = chunkCount
+		}
+	end
 
-    if !chunkedMarket[uID] then
+	chunkedMarket[uID].Chunks[index] = chunk
+	chunkedMarket[uID].ReceivedCount = chunkedMarket[uID].ReceivedCount + 1
 
-        chunkedMarket[uID] = {
+	if chunkedMarket[uID].ReceivedCount == chunkedMarket[uID].TotalCount then
+		local str = ""
 
-            Chunks = {},
-            ReceivedCount = 0,
-            TotalCount = chunkCount
+		for i = 1, chunkCount do
+			str = str .. chunkedMarket[uID].Chunks[i]
+		end
 
-        }
-
-    end
-
-    chunkedMarket[uID].Chunks[index] = chunk
-    chunkedMarket[uID].ReceivedCount = chunkedMarket[uID].ReceivedCount + 1
-
-    if chunkedMarket[uID].ReceivedCount == chunkedMarket[uID].TotalCount then
-
-        local str = ""
-
-        for i = 1, chunkCount do
-
-            str = str .. chunkedMarket[uID].Chunks[i]
-
-        end
-
-        hook.Run("OnMarketChunked", str, uID)
-        chunkedMarket[uID] = nil
-
-    end
-
-end )
+		hook.Run("OnMarketChunked", str, uID)
+		chunkedMarket[uID] = nil
+	end
+end)
