@@ -18,6 +18,7 @@ function ENT:Initialize()
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)
 	self:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
+	self:DrawShadow(false)
 
 	self:SetUseType(SIMPLE_USE)
 

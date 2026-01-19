@@ -16,6 +16,7 @@ function ENT:Initialize()
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)
 	self:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
+	self:DrawShadow(false)
 
 	self:SetUseType(SIMPLE_USE)
 
@@ -56,11 +57,9 @@ function ENT:Use(activator)
 	activator:SetNWInt("ContainersLooted", activator:GetNWInt("ContainersLooted") + 1)
 	activator:SetNWInt("RaidContainersLooted", activator:GetNWInt("RaidContainersLooted") + 1)
 
-	for k, v in pairs(self.Inventory) do
+	for k, v in ipairs(self.Inventory) do
 		activator:SetNWInt("ExperienceLooting", activator:GetNWInt("ExperienceLooting") + math.random(3, 8))
 	end
 
 	self.PlayersSearched[activator:SteamID64()] = activator:GetNWInt("RaidsPlayed", 0)
 end
-
-ENT.OnTakeDamage = nil

@@ -12,7 +12,6 @@ ENT.CooldownMin = 480
 ENT.CooldownMax = 780
 
 ENT.SpawnOnStart = false -- currently does nothing idrk why
-ENT.HasValidType = true
 
 function ENT:KeyValue(key, value)
 	if key == "spawn_chance" then
@@ -120,7 +119,6 @@ function ENT:SpawnContainer(tbl)
 end
 
 function ENT:BeginLootCooldown()
-	if !self.HasValidType then return end
 	if self.WaitingCooldown == true then return end
 
 	self.WaitingCooldown = true
@@ -142,8 +140,6 @@ function ENT:BeginLootCooldown()
 end
 
 function ENT:AcceptInput(name, activator, caller, data)
-	if !self.HasValidType then return end
-
 	-- map start
 	if name == "SpawnStartLoot" then
 		local items = self:SelectItems()

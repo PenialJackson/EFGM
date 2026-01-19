@@ -13,8 +13,9 @@ function ENT:Initialize()
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)
 	self:SetCollisionGroup(COLLISION_GROUP_WEAPON)
-	self:UseTriggerBounds(true, 24)
+	self:DrawShadow(false)
 
+	self:UseTriggerBounds(true, 24)
 	self:SetUseType(SIMPLE_USE)
 
 	local phys = self:GetPhysicsObject()
@@ -33,7 +34,6 @@ function ENT:SetItem(name, type, data)
 	self.ItemData = data
 end
 
-
 function ENT:Use(activator)
 	self:Remove()
 
@@ -45,5 +45,3 @@ function ENT:Use(activator)
 		ReloadStash(activator)
 	end
 end
-
-ENT.OnTakeDamage = nil

@@ -1,6 +1,5 @@
 -- could this be made entirely using hammer's I/O system? yeah
 -- do I know how to do this entirely inside hammer's I/O system? uhh
-
 ENT.Type = "point"
 ENT.Base = "base_point"
 
