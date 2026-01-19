@@ -496,7 +496,7 @@ hook.Add("PlayerDisconnected", "PlayerUninitializeStats", function(ply)
 	if !ply:CompareStatus(0) and !ply:CompareStatus(3) then
 		UnequipAll(ply)
 
-		if !table.IsEmpty(ply.inventory) then
+		if ply.inventory[1] != 0 then
 			local backpack = ents.Create("efgm_backpack")
 			backpack:SetPos(ply:GetPos() + Vector(0, 0, 64))
 			backpack:Spawn()

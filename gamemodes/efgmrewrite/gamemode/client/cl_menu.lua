@@ -9773,6 +9773,18 @@ function Menu.OpenTab.Settings()
 	lodDistance:SetMax(3)
 	lodDistance:SetDecimals(1)
 
+	local interactableGlowPanel = vgui.Create("DPanel", visuals)
+	interactableGlowPanel:Dock(TOP)
+	interactableGlowPanel:SetSize(0, EFGM.MenuScale(50))
+	function interactableGlowPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Interactable Object Outline Glow", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+	end
+
+	local interactableGlow = vgui.Create("DCheckBox", interactableGlowPanel)
+	interactableGlow:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
+	interactableGlow:SetConVar("efgm_visuals_interactableglow")
+	interactableGlow:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
+
 	-- account
 	local factionPreferencePanel = vgui.Create("DPanel", account)
 	factionPreferencePanel:Dock(TOP)

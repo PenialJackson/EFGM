@@ -360,6 +360,31 @@ local function RenderVOIPIndicator()
 	surface.DrawTexturedRect(EFGM.ScreenScale(121) + HUD.Padding, ScrH() - EFGM.ScreenScale(90), EFGM.ScreenScale(60), EFGM.ScreenScale(60))
 end
 
+local interactables = {
+	["efgm_container"] = true,
+	["efgm_filing_cabinet"] = true,
+	["efgm_safe"] = true,
+	["efgm_backpack"] = true,
+	["efgm_dropped_item"] = true,
+	["efgm_quest_item"] = true,
+	["prop_door_rotating"] = true
+}
+
+-- interactable halos
+hook.Add("PreDrawHalos", "InteractableHalos", function()
+	if !ply:IsValid() or !ply:Alive() or GetConVar("efgm_visuals_interactableglow"):GetInt() == 0 then return end
+
+	local tr = util.QuickTrace(ply:EyePos(), ply:GetAimVector() * 96, ply)
+	if !tr.Hit then return end
+
+	local ent = tr.Entity
+	if !IsValid(ent) then return end
+
+	if interactables[ent:GetClass()] == true then
+		halo.Add({ent}, Colors.whiteColor, 2, 2, 1, true, false)
+	end
+end)
+
 -- invites
 function RenderInvite()
 	if IsValid(invite) then return end
@@ -2342,19 +2367,11 @@ hook.Add("RenderScreenspaceEffects", "Vignette", function()
 	end
 end)
 
-local function default_trace()
-	local eye_pos = EyePos()
-	return util.TraceLine({
-		start = eye_pos,
-		endpos = eye_pos + EyeAngles():Forward() * 6000,
-		filter = ply,
-	})
-end
-
 function DrawTarget()
+	if !ply:Alive() then return end
 	if !ply:CompareStatus(0) then return false end
 
-	local ent = (ply:Alive() and ply:GetEyeTrace() or default_trace()).Entity
+	local ent = ply:GetEyeTrace()
 	if !IsValid(ent) then return end
 
 	RenderPlayerInfo(ent)

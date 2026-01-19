@@ -29,77 +29,53 @@ if GetConVar("efgm_derivesbox"):GetInt() == 0 then
 	concommand.Remove("arc9_settings_open")
 end
 
-EFGM.ScrW = ScrW()
-EFGM.ScrH = ScrH()
+local cScrW = ScrW()
+local cScrH = ScrH()
+
+function ScrW()
+	return cScrW
+end
+
+function ScrH()
+	return cScrH
+end
 
 -- screen scale function, makes my life (penial) easier because i will most definently be doing most if not all of the user interface
--- all interfaces and fonts are developed on a 1920x1080 monitor
-local screenScaleCache = {}
-local screenScaleRoundedCache = {}
+-- all interfaces and fonts are (for the most part) created on a 2560x1440 monitor
 local efgm_hud_scale = GetConVar("efgm_hud_scale"):GetFloat()
 cvars.AddChangeCallback("efgm_hud_scale", function(convar_name, value_old, value_new)
-	screenScaleCache = {}
-	screenScaleRoundedCache = {}
 	efgm_hud_scale = math.Round(tonumber(value_new), 2)
 end)
 
 EFGM.ScreenScale = function(size)
-	if screenScaleCache[size] then return screenScaleCache[size] end
-
-	local ratio = (EFGM.ScrW / EFGM.ScrH <= 1.8) and (EFGM.ScrW / 1920.0) or (EFGM.ScrH / 1080.0)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
 	local scaled = size * ratio * efgm_hud_scale
-	local result = size > 0 and math.max(1, scaled) or math.min(-1, scaled)
-	screenScaleCache[size] = result
-
-	return result
+	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
 end
 
 EFGM.ScreenScaleRounded = function(size) -- we are actually gonna floor but this is named better imo
-	if screenScaleRoundedCache[size] then return screenScaleRoundedCache[size] end
-
-	local ratio = (EFGM.ScrW / EFGM.ScrH <= 1.8) and (EFGM.ScrW / 1920.0) or (EFGM.ScrH / 1080.0)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
 	local scaled = size * ratio * efgm_hud_scale
-	local result = size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
-	screenScaleRoundedCache[size] = result
-
-	return result
+	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
 end
 
 -- i can't be asked to support player controlled menu scaling, way too problematic, so we will seperate the HUDs scale and the menus scale
-local menuScaleCache = {}
 EFGM.MenuScale = function(size)
-	if menuScaleCache[size] then return menuScaleCache[size] end
-
-	local ratio = (EFGM.ScrW / EFGM.ScrH <= 1.8) and (EFGM.ScrW / 1920.0) or (EFGM.ScrH / 1080.0)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
 	local scaled = size * ratio
-	local result = size > 0 and math.max(1, scaled) or math.min(-1, scaled)
-	menuScaleCache[size] = result
-
-	return result
+	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
 end
 
-local menuScaleRoundedCache = {}
 EFGM.MenuScaleRounded = function(size)
-	if menuScaleRoundedCache[size] then return menuScaleRoundedCache[size] end
-
-	local ratio = (EFGM.ScrW / EFGM.ScrH <= 1.8) and (EFGM.ScrW / 1920.0) or (EFGM.ScrH / 1080.0)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
 	local scaled = size * ratio
-	local result = size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
-	menuScaleRoundedCache[size] = result
-
-	return result
+	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
 end
 
-hook.Add("OnScreenSizeChanged", "ClearScalingCache", function()
-	EFGM.ScrW = ScrW()
-	EFGM.ScrH = ScrH()
-
-	screenScaleCache = {}
-	screenScaleRoundedCache = {}
-	menuScaleCache = {}
-	menuScaleRoundedCache = {}
-
-	HUD.Padding = GetConVar("efgm_hud_padding"):GetInt() * (4 * (EFGM.ScrW / 1920.0))
+hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
+	cScrW = newW
+	cScrH = newH
+	HUD.Padding = GetConVar("efgm_hud_padding"):GetInt() * (4 * (newW / 1920.0))
 
 	CreateFonts()
 end)

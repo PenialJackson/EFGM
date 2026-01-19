@@ -121,7 +121,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		local item = ITEM.Instantiate("efgm_tag_default", EQUIPTYPE.None, tagData)
 		table.insert(victim.inventory, item)
 
-		if !table.IsEmpty(victim.inventory) then
+		if victim.inventory[1] != nil then
 			local backpack = ents.Create("efgm_backpack")
 			backpack:SetPos(victim:GetPos() + Vector(0, 0, 64))
 			backpack:Spawn()
