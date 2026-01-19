@@ -8951,7 +8951,7 @@ function Menu.OpenTab.Settings()
 	toggleCrouchPanel:Dock(TOP)
 	toggleCrouchPanel:SetSize(0, EFGM.MenuScale(50))
 	function toggleCrouchPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Crouching", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Crouch", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
 	local toggleCrouch = vgui.Create("DCheckBox", toggleCrouchPanel)
@@ -8976,7 +8976,7 @@ function Menu.OpenTab.Settings()
 	toggleLeanPanel:Dock(TOP)
 	toggleLeanPanel:SetSize(0, EFGM.MenuScale(50))
 	function toggleLeanPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Leaning", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Lean", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
 	local toggleLean = vgui.Create("DCheckBox", toggleLeanPanel)
