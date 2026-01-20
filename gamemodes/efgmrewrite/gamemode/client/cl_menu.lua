@@ -290,7 +290,7 @@ function Menu:Initialize(openTo, container)
 		roublePopOut.Paint = function(s, w, h)
 			if !IsValid(s) then return end
 
-			BlurPanel(s, EFGM.MenuScale(3))
+			BlurPanel(s, 3)
 
 			x, y = Menu.MouseX, Menu.MouseY
 
@@ -355,7 +355,7 @@ function Menu:Initialize(openTo, container)
 		levelPopOut.Paint = function(s, w, h)
 			if !IsValid(s) then return end
 
-			BlurPanel(s, EFGM.MenuScale(3))
+			BlurPanel(s, 3)
 
 			x, y = Menu.MouseX, Menu.MouseY
 
@@ -1710,7 +1710,7 @@ function Menu.ConfirmPurchase(item, sendTo, closeMenu)
 		confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
 		confirmPanel:SetX(Menu.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -1968,7 +1968,7 @@ function Menu.ConfirmSell(item, data, key)
 		confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
 		confirmPanel:SetX(Menu.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -2130,7 +2130,7 @@ function Menu.ConfirmSplit(item, data, key, inv)
 		confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
 		confirmPanel:SetX(Menu.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -2277,7 +2277,7 @@ function Menu.ConfirmDelete(item, key, inv, eID, eSlot)
 		confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
 		confirmPanel:SetX(Menu.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -2398,7 +2398,7 @@ function Menu.ConfirmTag(item, key, inv, eID, eSlot)
 		confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
 		confirmPanel:SetX(Menu.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -2567,7 +2567,7 @@ function Menu.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	confirmPanel.Paint = function(s, w, h)
 		confirmPanel:SetX(Menu.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -5158,7 +5158,7 @@ function Menu.OpenTab.Inventory(container)
 	playerPanel:Dock(LEFT)
 	playerPanel:SetSize(EFGM.MenuScale(613), 0)
 	playerPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5231,7 +5231,7 @@ function Menu.OpenTab.Inventory(container)
 	secondaryWeaponHolder:SetPos(equipmentHolder:GetWide() - secondaryWeaponHolder:GetWide(), equipmentHolder:GetTall() - secondaryWeaponHolder:GetTall())
 
 	function secondaryWeaponHolder:Paint(w, h)
-		BlurPanel(secondaryWeaponHolder, EFGM.MenuScale(3))
+		BlurPanel(secondaryWeaponHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5268,7 +5268,7 @@ function Menu.OpenTab.Inventory(container)
 	primaryWeaponHolder:SetPos(equipmentHolder:GetWide() - primaryWeaponHolder:GetWide(), secondaryWeaponHolder:GetY() - primaryWeaponHolder:GetTall() - EFGM.MenuScale(40))
 
 	function primaryWeaponHolder:Paint(w, h)
-		BlurPanel(primaryWeaponHolder, EFGM.MenuScale(3))
+		BlurPanel(primaryWeaponHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5305,7 +5305,7 @@ function Menu.OpenTab.Inventory(container)
 	holsterWeaponHolder:SetPos(equipmentHolder:GetWide() - holsterWeaponHolder:GetWide(), primaryWeaponHolder:GetY() - holsterWeaponHolder:GetTall() - EFGM.MenuScale(40))
 
 	function holsterWeaponHolder:Paint(w, h)
-		BlurPanel(holsterWeaponHolder, EFGM.MenuScale(3))
+		BlurPanel(holsterWeaponHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5342,7 +5342,7 @@ function Menu.OpenTab.Inventory(container)
 	meleeWeaponHolder:SetPos(equipmentHolder:GetWide() - meleeWeaponHolder:GetWide(), holsterWeaponHolder:GetY() - meleeWeaponHolder:GetTall() - EFGM.MenuScale(40))
 
 	function meleeWeaponHolder:Paint(w, h)
-		BlurPanel(meleeWeaponHolder, EFGM.MenuScale(3))
+		BlurPanel(meleeWeaponHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5379,7 +5379,7 @@ function Menu.OpenTab.Inventory(container)
 	nadeWeaponHolder:SetPos(equipmentHolder:GetWide() - nadeWeaponHolder:GetWide(), meleeWeaponHolder:GetY() - nadeWeaponHolder:GetTall() - EFGM.MenuScale(40))
 
 	function nadeWeaponHolder:Paint(w, h)
-		BlurPanel(nadeWeaponHolder, EFGM.MenuScale(3))
+		BlurPanel(nadeWeaponHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5416,7 +5416,7 @@ function Menu.OpenTab.Inventory(container)
 	consumableItemHolder:SetPos(0, consumableHolder:GetTall() - consumableItemHolder:GetTall())
 
 	function consumableItemHolder:Paint(w, h)
-		BlurPanel(consumableItemHolder, EFGM.MenuScale(3))
+		BlurPanel(consumableItemHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5821,7 +5821,7 @@ function Menu.OpenTab.Inventory(container)
 	inventoryPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 	inventoryPanel:SetSize(EFGM.MenuScale(613), 0)
 	inventoryPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -5862,7 +5862,7 @@ function Menu.OpenTab.Inventory(container)
 		weightText = usedWeight .. " / " .. maxWeight .. "KG"
 		weightTextSize = surface.GetTextSize(weightText)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, weightTextSize + EFGM.MenuScale(220), h)
@@ -5945,7 +5945,7 @@ function Menu.OpenTab.Inventory(container)
 		weightPopOut.Paint = function(s, w, h)
 			if !IsValid(s) then return end
 
-			BlurPanel(s, EFGM.MenuScale(3))
+			BlurPanel(s, 3)
 
 			x, y = Menu.MouseX, Menu.MouseY
 
@@ -6127,7 +6127,7 @@ function Menu.OpenTab.Inventory(container)
 	playerItemsHolder:SetPos(0, EFGM.MenuScale(32))
 	playerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 	function playerItemsHolder:Paint(w, h)
-		BlurPanel(playerItemsHolder, EFGM.MenuScale(3))
+		BlurPanel(playerItemsHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -6203,7 +6203,7 @@ function Menu.OpenTab.Inventory(container)
 		containerPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 		containerPanel:SetSize(EFGM.MenuScale(613), 0)
 		containerPanel.Paint = function(s, w, h)
-			BlurPanel(s, EFGM.MenuScale(10))
+			BlurPanel(s, 5)
 
 			surface.SetDrawColor(Colors.containerBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
@@ -6232,7 +6232,7 @@ function Menu.OpenTab.Inventory(container)
 		containerItemsHolder:SetPos(0, EFGM.MenuScale(32))
 		containerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 		function containerItemsHolder:Paint(w, h)
-			BlurPanel(containerItemsHolder, EFGM.MenuScale(3))
+			BlurPanel(containerItemsHolder, 3)
 
 			surface.SetDrawColor(Colors.containerBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
@@ -6285,7 +6285,7 @@ function Menu.OpenTab.Inventory(container)
 	stashPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 	stashPanel:SetSize(EFGM.MenuScale(613), 0)
 	stashPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -6324,7 +6324,7 @@ function Menu.OpenTab.Inventory(container)
 		valueText = "EST. VALUE: ₽" .. comma_value(stashValue)
 		valueTextSize = surface.GetTextSize(valueText)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, valueTextSize + EFGM.MenuScale(10), h)
@@ -6430,7 +6430,7 @@ function Menu.OpenTab.Inventory(container)
 	stashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
 	stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(18), stashHolderDocker:GetTall())
 	function stashItemsHolder:Paint(w, h)
-		BlurPanel(stashItemsHolder, EFGM.MenuScale(3))
+		BlurPanel(stashItemsHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -6535,7 +6535,7 @@ function Menu.OpenTab.Market()
 	marketStashPanel:Dock(LEFT)
 	marketStashPanel:SetSize(EFGM.MenuScale(613), 0)
 	marketStashPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -6574,7 +6574,7 @@ function Menu.OpenTab.Market()
 		valueText = "EST. VALUE: ₽" .. comma_value(stashValue)
 		valueTextSize = surface.GetTextSize(valueText)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, valueTextSize + EFGM.MenuScale(10), h)
@@ -6680,7 +6680,7 @@ function Menu.OpenTab.Market()
 	marketStashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
 	marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(18), marketStashItemsDocker:GetTall())
 	function marketStashItemsHolder:Paint(w, h)
-		BlurPanel(marketStashItemsHolder, EFGM.MenuScale(3))
+		BlurPanel(marketStashItemsHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -6762,7 +6762,7 @@ function Menu.OpenTab.Market()
 	marketPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 	marketPanel:SetSize(EFGM.MenuScale(1239), 0)
 	marketPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -6798,7 +6798,7 @@ function Menu.OpenTab.Market()
 		local pageText = "PAGE " .. currentPage .. "/" .. totalPages
 		pageTextSize = surface.GetTextSize(pageText)
 
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, pageTextSize + EFGM.MenuScale(54), h)
@@ -6842,7 +6842,7 @@ function Menu.OpenTab.Market()
 	marketEntryHolder:SetPos(0, EFGM.MenuScale(32))
 	marketEntryHolder:SetSize(EFGM.MenuScale(1219), EFGM.MenuScale(872))
 	function marketEntryHolder:Paint(w, h)
-		BlurPanel(marketEntryHolder, EFGM.MenuScale(3))
+		BlurPanel(marketEntryHolder, 3)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -7724,7 +7724,7 @@ function Menu.OpenTab.Match()
 	mapHolder:SetPos(EFGM.MenuScale(10), EFGM.MenuScale(40))
 	mapHolder:SetSize(EFGM.MenuScale(1210), EFGM.MenuScale(920))
 	function mapHolder:Paint(w, h)
-		BlurPanel(self, EFGM.MenuScale(5))
+		BlurPanel(self, 5)
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 	end
@@ -7772,7 +7772,7 @@ function Menu.OpenTab.Match()
 	mapLegend:SetPos(mapHolder:GetWide() - math.max(mapNameTextSize + EFGM.MenuScale(30), EFGM.MenuScale(110)), EFGM.MenuScale(10))
 	mapLegend:SetSize(math.max(mapNameTextSize + EFGM.MenuScale(20), EFGM.MenuScale(100)), EFGM.MenuScale(140))
 	mapLegend.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(4))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 155))
 		surface.DrawRect(0, 0, w, h)
@@ -8040,7 +8040,7 @@ function Menu.OpenTab.Match()
 					squadPopOut.Paint = function(s, w, h)
 						if !IsValid(s) then return end
 
-						BlurPanel(s, EFGM.MenuScale(3))
+						BlurPanel(s, 3)
 
 						x, y = Menu.MouseX, Menu.MouseY
 
@@ -8309,7 +8309,7 @@ function Menu.OpenTab.Match()
 						transferPopOut.Paint = function(s, w, h)
 							if !IsValid(s) then return end
 
-							BlurPanel(s, EFGM.MenuScale(3))
+							BlurPanel(s, 3)
 
 							x, y = Menu.MouseX, Menu.MouseY
 
@@ -8386,7 +8386,7 @@ function Menu.OpenTab.Match()
 						kickPopOut.Paint = function(s, w, h)
 							if !IsValid(s) then return end
 
-							BlurPanel(s, EFGM.MenuScale(3))
+							BlurPanel(s, 3)
 
 							x, y = Menu.MouseX, Menu.MouseY
 
@@ -8767,7 +8767,7 @@ function Menu.OpenTab.Skills()
 			skillPopOut.Paint = function(s, w, h)
 				if !IsValid(s) then return end
 
-				BlurPanel(s, EFGM.MenuScale(3))
+				BlurPanel(s, 3)
 
 				x, y = Menu.MouseX, Menu.MouseY
 
@@ -9668,11 +9668,23 @@ function Menu.OpenTab.Settings()
 	menuSearchMode:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	-- visuals
+	local adsFOVPanel = vgui.Create("DPanel", visuals)
+	adsFOVPanel:Dock(TOP)
+	adsFOVPanel:SetSize(0, EFGM.MenuScale(50))
+	function adsFOVPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Aim Down Sights FOV Scaling", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+	end
+
+	local adsFOV = vgui.Create("DCheckBox", adsFOVPanel)
+	adsFOV:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
+	adsFOV:SetConVar("efgm_visuals_adsfov")
+	adsFOV:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
+
 	local vmFOVPanel = vgui.Create("DPanel", visuals)
 	vmFOVPanel:Dock(TOP)
 	vmFOVPanel:SetSize(0, EFGM.MenuScale(50))
 	function vmFOVPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Viewmodel FOV Scale [EXPERIMENTAL]", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Viewmodel FOV Scale", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
 	local vmFOV = vgui.Create("DNumSlider", vmFOVPanel)
@@ -9930,7 +9942,7 @@ function Menu.OpenTab.Tasks()
 	taskList:Dock(LEFT)
 	taskList:SetSize(EFGM.MenuScale(550), 0)
 	taskList.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -10020,7 +10032,7 @@ function Menu.OpenTab.Tasks()
 	taskDisplay:SetSize(EFGM.MenuScale(1305), 0)
 	taskDisplay:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 	taskDisplay.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(10))
+		BlurPanel(s, 5)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)

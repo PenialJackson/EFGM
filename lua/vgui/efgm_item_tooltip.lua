@@ -36,7 +36,7 @@ end
 
 function PANEL:Paint(w, h)
 	self:PositionTooltip()
-	BlurPanel(self, EFGM.MenuScale(3))
+	BlurPanel(self, 3)
 	derma.SkinHook("Paint", "Tooltip", self, w, h)
 end
 

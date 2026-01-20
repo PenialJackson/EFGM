@@ -638,8 +638,7 @@ net.Receive("PlayerRaidTransition", function()
 
 	RaidTransition.Paint = function(self, w, h)
 		if !RaidTransition:IsValid() then return end
-		BlurPanel(RaidTransition, EFGM.ScreenScale(13))
-		BlurPanel(RaidTransition, EFGM.ScreenScale(13))
+		BlurPanel(RaidTransition, 13, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -680,8 +679,7 @@ net.Receive("PlayerDuelTransition", function()
 
 	RaidTransition.Paint = function(self, w, h)
 		if !RaidTransition:IsValid() then return end
-		BlurPanel(RaidTransition, EFGM.ScreenScale(13))
-		BlurPanel(RaidTransition, EFGM.ScreenScale(13))
+		BlurPanel(RaidTransition, 13, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -813,7 +811,7 @@ net.Receive("CreateDeathInformation", function()
 		DeathPopup:SetKeyboardInputEnabled(true)
 
 		DeathPopup.Paint = function(self, w, h)
-			BlurPanel(DeathPopup, EFGM.MenuScale(5))
+			BlurPanel(DeathPopup, 5)
 
 			draw.SimpleTextOutlined("KILLED IN ACTION", "PuristaBold64", w / 2, EFGM.MenuScale(35), Color(255, 0, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.whiteColor)
 			draw.SimpleTextOutlined(string.format("%02d:%02d", minutes, seconds) .. " TIME IN RAID", "PuristaBold22", w / 2, EFGM.MenuScale(90), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
@@ -890,7 +888,7 @@ net.Receive("CreateDeathInformation", function()
 			RewardsPanel:SetPos(DeathPopup:GetWide() / 2 - EFGM.MenuScale(510), EFGM.MenuScale(140))
 
 			RewardsPanel.Paint = function(self, w, h)
-				BlurPanel(RewardsPanel, EFGM.MenuScale(3))
+				BlurPanel(RewardsPanel, 3)
 
 				surface.SetDrawColor(Color(80, 80, 80, 10))
 				surface.DrawRect(0, 0, w, h)
@@ -1034,7 +1032,7 @@ net.Receive("CreateDeathInformation", function()
 			AttackerPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
 			AttackerPanel.Paint = function(self, w, h)
-				BlurPanel(AttackerPanel, EFGM.MenuScale(3))
+				BlurPanel(AttackerPanel, 3)
 
 				surface.SetDrawColor(Color(80, 80, 80, 10))
 				surface.DrawRect(0, 0, w, h)
@@ -1190,7 +1188,7 @@ net.Receive("CreateDeathInformation", function()
 				weaponHolder:SetPos(EFGM.MenuScale(5), EFGM.MenuScale(746) - weaponHolder:GetTall() - EFGM.MenuScale(5))
 
 				function weaponHolder:Paint(w, h)
-					BlurPanel(weaponHolder, EFGM.MenuScale(3))
+					BlurPanel(weaponHolder, 3)
 
 					surface.SetDrawColor(Colors.containerBackgroundColor)
 					surface.DrawRect(0, 0, w, h)
@@ -1379,7 +1377,7 @@ net.Receive("CreateExtractionInformation", function()
 	ExtractionPopup:SetKeyboardInputEnabled(true)
 
 	ExtractionPopup.Paint = function(self, w, h)
-		BlurPanel(ExtractionPopup, EFGM.MenuScale(5))
+		BlurPanel(ExtractionPopup, 5)
 
 		surface.SetDrawColor(Color(10, 10, 10, 155))
 		surface.DrawRect(0, 0, w, h)
@@ -1441,7 +1439,7 @@ net.Receive("CreateExtractionInformation", function()
 	RewardsPanel:SetPos(ExtractionPopup:GetWide() / 2 - EFGM.MenuScale(255), EFGM.MenuScale(140))
 
 	RewardsPanel.Paint = function(self, w, h)
-		BlurPanel(RewardsPanel, EFGM.MenuScale(3))
+		BlurPanel(RewardsPanel, 3)
 
 		surface.SetDrawColor(Color(80, 80, 80, 10))
 		surface.DrawRect(0, 0, w, h)
@@ -1671,7 +1669,7 @@ function CreateNotification(text, icon, snd)
 	if snd then surface.PlaySound(snd) end
 
 	notif.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.ScreenScale(3))
+		BlurPanel(s, 3)
 		surface.SetDrawColor(0, 0, 0, 200)
 		surface.DrawRect(0, 0, w, h)
 		surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -1772,7 +1770,7 @@ function HUDInspectItem(item, data, panel)
 	inspectPanel:AlphaTo(255, 0.1, 0, nil)
 
 	inspectPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(3))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -1848,7 +1846,7 @@ function HUDInspectItem(item, data, panel)
 			firPopOut.Paint = function(w, h)
 				if !IsValid(s) then return end
 
-				BlurPanel(s, EFGM.MenuScale(3))
+				BlurPanel(s, 3)
 
 				-- panel position follows mouse position
 				x, y = Menu.MouseX, Menu.MouseY
@@ -1888,7 +1886,7 @@ function HUDInspectItem(item, data, panel)
 	itemPullOutPanel:Hide()
 
 	itemPullOutPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(1))
+		BlurPanel(s, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -1910,8 +1908,6 @@ function HUDInspectItem(item, data, panel)
 	itemInfoButton:SetText("")
 
 	itemInfoButton.Paint = function(s, w, h)
-		BlurPanel(s, 0.5)
-
 		s:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28))
 
 		surface.SetDrawColor(Color(80, 80, 80, 10))
@@ -1933,8 +1929,6 @@ function HUDInspectItem(item, data, panel)
 	itemWikiButton:SetText("")
 
 	itemWikiButton.Paint = function(s, w, h)
-		BlurPanel(s, 0.5)
-
 		s:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28))
 
 		surface.SetDrawColor(Color(80, 80, 80, 10))

@@ -108,18 +108,19 @@ end
 -- panel/frame blur
 -- TODO: create similar function for segments of the screen instead of blurring a specific function, would let us blur HUD elements that are not held in a panel/frame
 local blurMat = Material("pp/blurscreen")
-function BlurPanel(panel, strength)
+function BlurPanel(panel, strength, steps)
 	if panel == nil or !ispanel(panel) then return end
+
+	local blurX, blurY = panel:LocalToScreen(0, 0)
+	local newStrength = strength * 0.33
 
 	surface.SetMaterial(blurMat)
 	surface.SetDrawColor(255, 255, 255, 255)
 
-	local blurX, blurY = panel:LocalToScreen(0, 0)
-
-	for i = 0.33, 1, 0.33 do
-		blurMat:SetFloat("$blur", strength * i)
+	for i = 1, steps or 3 do
+		blurMat:SetFloat("$blur", i * newStrength)
 		blurMat:Recompute()
-		if (render) then render.UpdateScreenEffectTexture() end
+		if render then render.UpdateScreenEffectTexture() end
 		surface.DrawTexturedRect(blurX * -1, blurY * -1, ScrW(), ScrH())
 	end
 end

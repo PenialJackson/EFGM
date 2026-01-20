@@ -19,6 +19,7 @@ if CLIENT then
 	CreateClientConVar("efgm_menu_sellprompt_stacked", 1, true, true, "Adjust if a confirmation prompt appears when selling a single item", 0, 1)
 	CreateClientConVar("efgm_menu_search_automatic", 1, true, true, "Adjust if inventory search boxes automatically begin searching on text change, or if it requires the enter key to be pressed to search", 0, 1)
 	CreateClientConVar("efgm_menu_closeonhit", 1, true, true, "Determines if your menu automatically closes upon taking damage", 0, 1)
+	CreateClientConVar("efgm_visuals_adsfov", 1, true, true, "Adjust if aiming down sights affects your cameras field of view", 0, 1)
 	CreateClientConVar("efgm_visuals_highqualimpactfx", 1, true, true, "Adjust the quality of the bullets impact effects", 0, 1)
 	CreateClientConVar("efgm_visuals_headbob", 1, true, true, "Adjust the bobbing motion of the players view while moving", 0, 1)
 	CreateClientConVar("efgm_visuals_lensflare", 1, true, true, "Adjust the lens flare when looking near or directly at the sun", 0, 1)
@@ -251,7 +252,7 @@ function GetAttachmentListFromCode(str)
 		end
 	end)
 
-	for i = 0, #cleanAttTbl do
+	for i = 1, #cleanAttTbl do
 		if !cleanAttTbl[i] then continue end
 		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. comma_value(EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].value)
 		if i != #cleanAttTbl then cleanAttStr = cleanAttStr .. "\n" end
