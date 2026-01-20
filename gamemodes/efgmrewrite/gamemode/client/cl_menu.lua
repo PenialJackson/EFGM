@@ -160,6 +160,49 @@ function Menu:Initialize(openTo, container)
 	self.MenuFrame = menuFrame
 	self.Container = container
 
+	local tooltip = vgui.Create("DPanel", menuFrame)
+	tooltip:SetMouseInputEnabled(false)
+	tooltip:SetAlpha(0)
+	tooltip:Hide()
+	tooltip.TipPaint = nil
+
+	function tooltip:SetSide()
+		local x, y = Menu.MouseX, Menu.MouseY
+		self.SideH = x <= (ScrW() / 2) and true or false
+		self.SideV = y <= (ScrH() / 2) and true or false
+	end
+
+	function tooltip:DisplayTip(w, h, delay)
+		self.Closing = false
+		self:SetSize(w, h)
+		self:SetSide()
+		self:MoveToFront()
+		self:Show()
+		self:AlphaTo(255, 0.1, delay or 0, nil)
+	end
+
+	function tooltip:RemoveTip()
+		self.Closing = true
+		self:AlphaTo(0, 0.1, 0, function()
+			if !IsValid(self) or !self.Closing then return end
+			self:Hide()
+			self.TipPaint = nil
+		end)
+	end
+
+	function tooltip:Paint(w, h)
+		if self.TipPaint == nil then return end
+
+		BlurPanel(self, 3)
+
+		local x, y = Menu.MouseX, Menu.MouseY
+		self:SetPos(self.SideH and math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - w - EFGM.MenuScale(10)) or math.Clamp(x - w - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - w - EFGM.MenuScale(10)), self.SideV and math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - h - EFGM.MenuScale(20)) or math.Clamp(y - h + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - h - EFGM.MenuScale(20)))
+
+		self:TipPaint()
+	end
+
+	self.Tooltip = tooltip
+
 	local ultrawide = (ScrW() / ScrH() <= 1.8) and false or true
 
 	local tabParentPanel = vgui.Create("DPanel", self.MenuFrame)
@@ -257,45 +300,10 @@ function Menu:Initialize(openTo, container)
 	end
 
 	roubleIcon.OnCursorEntered = function(s)
-		local x, y = Menu.MouseX, Menu.MouseY
-		local sideH, sideV
-
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-		if x <= (ScrW() / 2) then sideH = true else sideH = false end
-		if y <= (ScrH() / 2) then sideV = true else sideV = false end
-
-		local function UpdatePopOutPos()
-			if sideH == true then
-				roublePopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - roublePopOut:GetWide() - EFGM.MenuScale(10)))
-			else
-				roublePopOut:SetX(math.Clamp(x - roublePopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - roublePopOut:GetWide() - EFGM.MenuScale(10)))
-			end
-
-			if sideV == true then
-				roublePopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - roublePopOut:GetTall() - EFGM.MenuScale(20)))
-			else
-				roublePopOut:SetY(math.Clamp(y - roublePopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - roublePopOut:GetTall() - EFGM.MenuScale(20)))
-
-			end
-		end
-
-		if IsValid(roublePopOut) then roublePopOut:Remove() end
-		roublePopOut = vgui.Create("DPanel", Menu.MenuFrame)
-		roublePopOut:SetSize(EFGM.MenuScale(625), EFGM.MenuScale(50))
-		UpdatePopOutPos()
-		roublePopOut:AlphaTo(255, 0.1, 0, nil)
-		roublePopOut:SetMouseInputEnabled(false)
-
-		roublePopOut.Paint = function(s, w, h)
-			if !IsValid(s) then return end
-
-			BlurPanel(s, 3)
-
-			x, y = Menu.MouseX, Menu.MouseY
-
-			UpdatePopOutPos()
-
+		Menu.Tooltip.TipPaint = function()
+			local w, h = Menu.Tooltip:GetSize()
 			surface.SetDrawColor(Color(0, 0, 0, 205))
 			surface.DrawRect(0, 0, w, h)
 
@@ -314,12 +322,12 @@ function Menu:Initialize(openTo, container)
 			draw.SimpleTextOutlined("ROUBLES", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			draw.SimpleTextOutlined("Your primary currency when purchasing goods, using services and trading with other operatives.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		end
+
+		Menu.Tooltip:DisplayTip(EFGM.MenuScale(625), EFGM.MenuScale(50))
 	end
 
 	roubleIcon.OnCursorExited = function(s)
-		if IsValid(roublePopOut) then
-			roublePopOut:AlphaTo(0, 0.1, 0, function() roublePopOut:Remove() end)
-		end
+		Menu.Tooltip:RemoveTip()
 	end
 
 	levelIcon.OnCursorEntered = function(s)
