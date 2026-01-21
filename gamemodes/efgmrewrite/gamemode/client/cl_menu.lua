@@ -2670,16 +2670,23 @@ function Menu.ReloadInventory()
 		local def = EFGMITEMS[v.name]
 		if def == nil then continue end
 
-		local consumableType = def.consumableType
+		local count = math.min(math.max(v.data.count, 1), def.stackSize)
 		local baseValue = def.value
+		local isConsumable = (def.consumableType == "heal" or def.consumableType == "key")
+
+		local value
+		if !isConsumable then
+			value = baseValue * count
+		else
+			value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+		end
 
 		plyItems[k] = {
 			name = v.name,
 			id = k,
 			data = v.data,
-			value = (consumableType != "heal" and consumableType != "key") and (baseValue * math.min(math.max(v.data.count, 1), def.stackSize))
-			or math.floor(baseValue * (v.data.durability / def.consumableValue)),
-			weight = def.weight or 0.1,
+			value = value,
+			weight = (def.weight or 0.1) * count,
 			def = def
 		}
 
@@ -2853,10 +2860,16 @@ function Menu.ReloadInventory()
 
 			surface.SetFont("PuristaBold18")
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
 
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
@@ -2864,10 +2877,10 @@ function Menu.ReloadInventory()
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(tipCol)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(tipColHeader)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3124,8 +3137,64 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		primaryItem.OnCursorEntered = function(s)
+		local value = i.value
+		local weight = i.weight or 0.1
+
+		if playerWeaponSlots[1][1].data.att then
+			local atts = GetPrefixedAttachmentListFromCode(playerWeaponSlots[1][1].data.att)
+			if !atts then return end
+
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
+
+				value = value + att.value
+				weight = weight + (att.weight or 0.1)
+			end
+		end
+
+		function primaryItem:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipCol)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipColHeader)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function primaryItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function primaryItem:DoClick()
@@ -3328,8 +3397,64 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		secondaryItem.OnCursorEntered = function(s)
+		local value = i.value
+		local weight = i.weight or 0.1
+
+		if playerWeaponSlots[1][2].data.att then
+			local atts = GetPrefixedAttachmentListFromCode(playerWeaponSlots[1][2].data.att)
+			if !atts then return end
+
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
+
+				value = value + att.value
+				weight = weight + (att.weight or 0.1)
+			end
+		end
+
+		function secondaryItem:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipCol)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipColHeader)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function secondaryItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function secondaryItem:DoDoubleClick()
@@ -3532,8 +3657,64 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		holsterItem.OnCursorEntered = function(s)
+		local value = i.value
+		local weight = i.weight or 0.1
+
+		if playerWeaponSlots[2][1].data.att then
+			local atts = GetPrefixedAttachmentListFromCode(playerWeaponSlots[2][1].data.att)
+			if !atts then return end
+
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
+
+				value = value + att.value
+				weight = weight + (att.weight or 0.1)
+			end
+		end
+
+		function holsterItem:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipCol)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipColHeader)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function holsterItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function holsterItem:DoClick()
@@ -3699,8 +3880,64 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		meleeItem.OnCursorEntered = function(s)
+		local value = i.value
+		local weight = i.weight or 0.1
+
+		if playerWeaponSlots[3][1].data.att then
+			local atts = GetPrefixedAttachmentListFromCode(playerWeaponSlots[3][1].data.att)
+			if !atts then return end
+
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
+
+				value = value + att.value
+				weight = weight + (att.weight or 0.1)
+			end
+		end
+
+		function meleeItem:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipCol)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipColHeader)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function meleeItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function meleeItem:DoClick()
@@ -3870,8 +4107,64 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		nadeItem.OnCursorEntered = function(s)
+		local value = i.value
+		local weight = i.weight or 0.1
+
+		if playerWeaponSlots[4][1].data.att then
+			local atts = GetPrefixedAttachmentListFromCode(playerWeaponSlots[4][1].data.att)
+			if !atts then return end
+
+			for _, a in ipairs(atts) do
+				local att = EFGMITEMS[a]
+				if att == nil then continue end
+
+				value = value + att.value
+				weight = weight + (att.weight or 0.1)
+			end
+		end
+
+		function nadeItem:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipCol)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipColHeader)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function nadeItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function nadeItem:DoClick()
@@ -4042,8 +4335,51 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		consumableItem.OnCursorEntered = function(s)
+		local value = math.floor(i.value * ((v.data.durability or def.consumableValue) / def.consumableValue))
+		local weight = i.weight or 0.1
+
+		function consumableItem:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipCol)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(tipColHeader)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function consumableItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function consumableItem:DoClick()
@@ -4208,9 +4544,9 @@ function Menu.ReloadStash()
 		local def = EFGMITEMS[v.name]
 		if def == nil then continue end
 
+		local count = math.min(math.max(v.data.count or 1, 1), def.stackSize)
 		local baseValue = def.value
 		local isConsumable = (def.consumableType == "heal" or def.consumableType == "key")
-		local count = math.min(math.max(v.data.count or 1, 1), def.stackSize)
 
 		local value
 		if !isConsumable then
@@ -4224,7 +4560,7 @@ function Menu.ReloadStash()
 			id = k,
 			data = v.data,
 			value = value,
-			weight = def.weight or 0.1,
+			weight = (def.weight or 0.1) * count,
 			def = def
 		}
 
@@ -4425,10 +4761,16 @@ function Menu.ReloadStash()
 
 			surface.SetFont("PuristaBold18")
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
 
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
@@ -4436,10 +4778,10 @@ function Menu.ReloadStash()
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(tipCol)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(tipColHeader)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4601,8 +4943,6 @@ local marketStashItemSearchText = ""
 function Menu.ReloadMarketStash()
 	if !IsValid(marketStashItems) then return end
 
-	print("yeehaw")
-
 	marketStashItems:Clear()
 	stashValue = 0
 	marketPlyStashItems = {}
@@ -4611,23 +4951,29 @@ function Menu.ReloadMarketStash()
 		local def = EFGMITEMS[v.name]
 		if def == nil then continue end
 
-		local consumableType = def.consumableType
-		local consumableValue = def.consumableValue
+		local count = math.min(math.max(v.data.count, 1), def.stackSize)
 		local baseValue = def.value
-		local isConsumable = consumableType == "heal" or consumableType == "key"
+		local isConsumable = (def.consumableType == "heal" or def.consumableType == "key")
+
+		local value, rawValue
+		if !isConsumable then
+			value = (baseValue * sellMultiplier) * count
+			rawValue = baseValue * count
+		else
+			value = math.floor((baseValue * sellMultiplier) * ((v.data.durability or def.consumableValue) / def.consumableValue))
+			rawValue = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+		end
 
 		marketPlyStashItems[k] = {
 			name = v.name,
 			id = k,
 			data = v.data,
-			value = !isConsumable and math.floor((baseValue * sellMultiplier) * math.min(math.max(v.data.count, 1), def.stackSize))
-			or math.floor((baseValue * sellMultiplier) * (v.data.durability / consumableValue)),
-			weight = def.weight or 0.1,
+			value = value,
+			weight = (def.weight or 0.1) * count,
 			def = def
 		}
 
-		stashValue = stashValue + (!isConsumable and (baseValue * math.min(math.max(v.data.count, 1), def.stackSize))
-		or math.floor(baseValue * (v.data.durability / consumableValue)))
+		stashValue = stashValue + rawValue
 
 		if v.data.att then
 			local atts = GetPrefixedAttachmentListFromCode(v.data.att)
@@ -4820,10 +5166,16 @@ function Menu.ReloadMarketStash()
 
 			surface.SetFont("PuristaBold18")
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
 
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
@@ -4831,10 +5183,10 @@ function Menu.ReloadMarketStash()
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(tipCol)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(tipColHeader)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4916,16 +5268,23 @@ function Menu.ReloadContainer()
 		local def = EFGMITEMS[v.name]
 		if def == nil then continue end
 
-		local consumableType = def.consumableType
+		local count = math.min(math.max(v.data.count, 1), def.stackSize)
 		local baseValue = def.value
+		local isConsumable = (def.consumableType == "heal" or def.consumableType == "key")
+
+		local value
+		if !isConsumable then
+			value = baseValue * count
+		else
+			value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+		end
 
 		conItems[k] = {
 			name = v.name,
 			id = k,
 			data = v.data,
-			value = (consumableType != "heal" and consumableType != "key") and (baseValue * math.min(math.max(v.data.count, 1), def.stackSize))
-			or math.floor(baseValue * (v.data.durability / def.consumableValue)),
-			weight = def.weight or 0.1,
+			value = value,
+			weight = (def.weight or 0.1) * count,
 			def = def
 		}
 
@@ -5076,10 +5435,16 @@ function Menu.ReloadContainer()
 
 			surface.SetFont("PuristaBold18")
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local tipCol = i.iconColor or Colors.itemColor
+			local tipColHeader = tipCol
+			tipCol.a = 45
+			tipColHeader.a = 255
 
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
@@ -5087,10 +5452,10 @@ function Menu.ReloadContainer()
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(tipCol)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(tipColHeader)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
