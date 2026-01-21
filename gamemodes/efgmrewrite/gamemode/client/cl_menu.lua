@@ -172,13 +172,16 @@ function Menu:Initialize(openTo, container)
 		self.SideV = y <= (ScrH() / 2) and true or false
 	end
 
-	function tooltip:DisplayTip(w, h, delay)
-		self.Closing = false
-		self:SetSize(w, h)
-		self:SetSide()
-		self:MoveToFront()
-		self:Show()
-		self:AlphaTo(255, 0.1, delay or 0, nil)
+	function tooltip:DisplayTip(parent, w, h, delay)
+		timer.Simple(delay or 0, function()
+			if !parent:IsHovered() then return end
+			self.Closing = false
+			self:SetSize(w, h)
+			self:SetSide()
+			self:MoveToFront()
+			self:Show()
+			self:AlphaTo(255, 0.1, 0, nil)
+		end)
 	end
 
 	function tooltip:RemoveTip()
@@ -299,11 +302,12 @@ function Menu:Initialize(openTo, container)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	roubleIcon.OnCursorEntered = function(s)
+	function roubleIcon:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
 		Menu.Tooltip.TipPaint = function()
 			local w, h = Menu.Tooltip:GetSize()
+
 			surface.SetDrawColor(Color(0, 0, 0, 205))
 			surface.DrawRect(0, 0, w, h)
 
@@ -323,51 +327,18 @@ function Menu:Initialize(openTo, container)
 			draw.SimpleTextOutlined("Your primary currency when purchasing goods, using services and trading with other operatives.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		end
 
-		Menu.Tooltip:DisplayTip(EFGM.MenuScale(625), EFGM.MenuScale(50))
+		Menu.Tooltip:DisplayTip(self, EFGM.MenuScale(625), EFGM.MenuScale(50))
 	end
 
-	roubleIcon.OnCursorExited = function(s)
+	function roubleIcon:OnCursorExited()
 		Menu.Tooltip:RemoveTip()
 	end
 
-	levelIcon.OnCursorEntered = function(s)
-		local x, y = Menu.MouseX, Menu.MouseY
-		local sideH, sideV
-
+	function levelIcon:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-		if x <= (ScrW() / 2) then sideH = true else sideH = false end
-		if y <= (ScrH() / 2) then sideV = true else sideV = false end
-
-		local function UpdatePopOutPos()
-			if sideH == true then
-				levelPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - levelPopOut:GetWide() - EFGM.MenuScale(10)))
-			else
-				levelPopOut:SetX(math.Clamp(x - levelPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - levelPopOut:GetWide() - EFGM.MenuScale(10)))
-			end
-
-			if sideV == true then
-				levelPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - levelPopOut:GetTall() - EFGM.MenuScale(20)))
-			else
-				levelPopOut:SetY(math.Clamp(y - levelPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - levelPopOut:GetTall() - EFGM.MenuScale(20)))
-			end
-		end
-
-		if IsValid(levelPopOut) then levelPopOut:Remove() end
-		levelPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-		levelPopOut:SetSize(EFGM.MenuScale(515), EFGM.MenuScale(90))
-		UpdatePopOutPos()
-		levelPopOut:AlphaTo(255, 0.1, 0, nil)
-		levelPopOut:SetMouseInputEnabled(false)
-
-		levelPopOut.Paint = function(s, w, h)
-			if !IsValid(s) then return end
-
-			BlurPanel(s, 3)
-
-			x, y = Menu.MouseX, Menu.MouseY
-
-			UpdatePopOutPos()
+		Menu.Tooltip.TipPaint = function()
+			local w, h = Menu.Tooltip:GetSize()
 
 			surface.SetDrawColor(Color(0, 0, 0, 205))
 			surface.DrawRect(0, 0, w, h)
@@ -404,12 +375,12 @@ function Menu:Initialize(openTo, container)
 			surface.SetDrawColor(255, 255, 255, 175)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(75), (Menu.Player:GetNWInt("Experience", 0) / Menu.Player:GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(505), EFGM.MenuScale(10))
 		end
+
+		Menu.Tooltip:DisplayTip(self, EFGM.MenuScale(515), EFGM.MenuScale(90))
 	end
 
-	levelIcon.OnCursorExited = function(s)
-		if IsValid(levelPopOut) then
-			levelPopOut:AlphaTo(0, 0.1, 0, function() levelPopOut:Remove() end)
-		end
+	function levelIcon:OnCursorExited()
+		Menu.Tooltip:RemoveTip()
 	end
 
 	local lowerPanel = vgui.Create("DPanel", self.MenuFrame)
@@ -1147,44 +1118,11 @@ function Menu.InspectItem(item, data)
 			surface.DrawTexturedRect(0, 0, EFGM.MenuScale(12), EFGM.MenuScale(12))
 		end
 
-		firIcon.OnCursorEntered = function(s, w, h)
-			local x, y = Menu.MouseX, Menu.MouseY
-			local sideH, sideV
-
+		function firIcon:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-			if x <= (ScrW() / 2) then sideH = true else sideH = false end
-			if y <= (ScrH() / 2) then sideV = true else sideV = false end
-
-			local function UpdatePopOutPos()
-				if sideH == true then
-					firPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - firPopOut:GetWide() - EFGM.MenuScale(10)))
-				else
-					firPopOut:SetX(math.Clamp(x - firPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - firPopOut:GetWide() - EFGM.MenuScale(10)))
-				end
-
-				if sideV == true then
-					firPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - firPopOut:GetTall() - EFGM.MenuScale(20)))
-				else
-					firPopOut:SetY(math.Clamp(y - firPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - firPopOut:GetTall() - EFGM.MenuScale(20)))
-				end
-			end
-
-			if IsValid(firPopOut) then firPopOut:Remove() end
-			firPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-			firPopOut:SetSize(EFGM.MenuScale(455), EFGM.MenuScale(50))
-			UpdatePopOutPos()
-			firPopOut:AlphaTo(255, 0.1, 0, nil)
-			firPopOut:SetMouseInputEnabled(false)
-
-			firPopOut.Paint = function(s, w, h)
-				if !IsValid(s) then return end
-
-				BlurPanel(s, EFGM.MenuScale(3))
-
-				x, y = Menu.MouseX, Menu.MouseY
-
-				UpdatePopOutPos()
+			Menu.Tooltip.TipPaint = function()
+				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
@@ -1204,12 +1142,12 @@ function Menu.InspectItem(item, data)
 				draw.SimpleTextOutlined("FOUND IN RAID", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				draw.SimpleTextOutlined("This item will lose its 'found in raid' status if brought into another raid.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
+
+			Menu.Tooltip:DisplayTip(self, EFGM.MenuScale(455), EFGM.MenuScale(50))
 		end
 
-		firIcon.OnCursorExited = function(s)
-			if IsValid(firPopOut) then
-				firPopOut:AlphaTo(0, 0.1, 0, function() firPopOut:Remove() end)
-			end
+		function firIcon:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 	end
 
