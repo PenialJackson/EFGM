@@ -20,7 +20,7 @@ function PANEL:Think()
 end
 
 function PANEL:OnFocusChanged(focus)
-	if !focus then self:AlphaTo(0, 0.1, 0, function() self:Remove() end) end
+	if !focus then self:AlphaTo(0, 0.05, 0, function() self:Remove() end) end
 end
 
 function PANEL:SetTallAfterCTX()

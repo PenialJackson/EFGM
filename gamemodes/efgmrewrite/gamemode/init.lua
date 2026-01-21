@@ -195,6 +195,9 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		attacker:SetNWInt("RaidKills", attacker:GetNWInt("RaidKills") + 1)
 	end
 
+	attacker:AddFrags(1)
+	victim:AddDeaths(1)
+
 	UnequipAllFirearms(victim)
 	ApplyPlayerExperience(victim, xpMult)
 end
@@ -224,6 +227,12 @@ end)
 hook.Add("PlayerDeathSound", "RemoveDefaultDeathSound", function()
 	return true
 end)
+
+function GM:DoPlayerDeath(ply, attacker, dmginfo)
+	if (!dmginfo:IsDamageType(DMG_REMOVENORAGDOLL)) then
+		ply:CreateRagdoll()
+	end
+end
 
 -- more lethal fall damage
 hook.Add("GetFallDamage", "FallDmgCalc", function(ply, speed)

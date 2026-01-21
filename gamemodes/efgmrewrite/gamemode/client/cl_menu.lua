@@ -13,9 +13,6 @@ Menu.Closing = false
 Menu.IsOpen = false
 Menu.PerferredShopDestination = nil
 
-Menu.LastStashScroll = 0
-Menu.LastMarketStashScroll = 0
-
 Menu.StashFilter = 1
 Menu.MarketStashFilter = 1
 
@@ -164,7 +161,6 @@ function Menu:Initialize(openTo, container)
 	tooltip:SetMouseInputEnabled(false)
 	tooltip:SetAlpha(0)
 	tooltip:Hide()
-	tooltip.TipPaint = nil
 
 	function tooltip:SetSide()
 		local x, y = Menu.MouseX, Menu.MouseY
@@ -172,11 +168,18 @@ function Menu:Initialize(openTo, container)
 		self.SideV = y <= (ScrH() / 2) and true or false
 	end
 
-	function tooltip:DisplayTip(parent, w, h, delay)
-		timer.Simple(delay or 0, function()
-			if !parent:IsHovered() then return end
-			self.Closing = false
+	function tooltip:DisplayTip(parent, paint, w, h, delay)
+		timer.Remove("tooltip")
+		local ct = CurTime()
+		self.LastTip = ct
+		self.Closing = false
+		self.Parent = parent
+
+		timer.Create("tooltip", delay or 0, 1, function()
+			if self.LastTip != ct then return end
+			self.TipPaint = paint
 			self:SetSize(w, h)
+			local x, y = Menu.MouseX, Menu.MouseY
 			self:SetSide()
 			self:MoveToFront()
 			self:Show()
@@ -185,23 +188,34 @@ function Menu:Initialize(openTo, container)
 	end
 
 	function tooltip:RemoveTip()
+		timer.Remove("tooltip")
+		local closingTime = CurTime()
+		self.LastTip = closingTime
 		self.Closing = true
-		self:AlphaTo(0, 0.1, 0, function()
-			if !IsValid(self) or !self.Closing then return end
+
+		if self:IsVisible() and self:GetAlpha() > 0 then
+			self:AlphaTo(0, 0.05, 0, function()
+				if self.LastTip == closingTime then
+					self:Hide()
+					self.TipPaint = nil
+				end
+			end)
+		else
 			self:Hide()
 			self.TipPaint = nil
-		end)
+		end
 	end
 
 	function tooltip:Paint(w, h)
 		if self.TipPaint == nil then return end
+		if (!self.Parent:IsHovered() or self.Parent:IsDragging()) and !self.Closing then self:RemoveTip() end
 
 		BlurPanel(self, 3)
 
 		local x, y = Menu.MouseX, Menu.MouseY
-		self:SetPos(self.SideH and math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - w - EFGM.MenuScale(10)) or math.Clamp(x - w - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - w - EFGM.MenuScale(10)), self.SideV and math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - h - EFGM.MenuScale(20)) or math.Clamp(y - h + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - h - EFGM.MenuScale(20)))
+		self:SetPos(self.SideH and math.Clamp(x + EFGM.MenuScale(15), 0, ScrW() - w) or math.Clamp(x - w - EFGM.MenuScale(15), 0, ScrW() - w), self.SideV and math.Clamp(y + EFGM.MenuScale(15), 0, ScrH() - h) or math.Clamp(y - h + EFGM.MenuScale(15), 0, ScrH() - h))
 
-		self:TipPaint()
+		if isfunction(self.TipPaint) then self:TipPaint() end
 	end
 
 	self.Tooltip = tooltip
@@ -305,7 +319,7 @@ function Menu:Initialize(openTo, container)
 	function roubleIcon:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-		Menu.Tooltip.TipPaint = function()
+		local paint = function()
 			local w, h = Menu.Tooltip:GetSize()
 
 			surface.SetDrawColor(Color(0, 0, 0, 205))
@@ -327,7 +341,7 @@ function Menu:Initialize(openTo, container)
 			draw.SimpleTextOutlined("Your primary currency when purchasing goods, using services and trading with other operatives.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		end
 
-		Menu.Tooltip:DisplayTip(self, EFGM.MenuScale(625), EFGM.MenuScale(50))
+		Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(625), EFGM.MenuScale(50))
 	end
 
 	function roubleIcon:OnCursorExited()
@@ -337,7 +351,7 @@ function Menu:Initialize(openTo, container)
 	function levelIcon:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-		Menu.Tooltip.TipPaint = function()
+		local paint = function()
 			local w, h = Menu.Tooltip:GetSize()
 
 			surface.SetDrawColor(Color(0, 0, 0, 205))
@@ -376,7 +390,7 @@ function Menu:Initialize(openTo, container)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(75), (Menu.Player:GetNWInt("Experience", 0) / Menu.Player:GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(505), EFGM.MenuScale(10))
 		end
 
-		Menu.Tooltip:DisplayTip(self, EFGM.MenuScale(515), EFGM.MenuScale(90))
+		Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(515), EFGM.MenuScale(90))
 	end
 
 	function levelIcon:OnCursorExited()
@@ -413,11 +427,13 @@ function Menu:Initialize(openTo, container)
 		else
 			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + Menu.ParallaxX, EFGM.MenuScale(1060) / 2 - (920 / 2) + Menu.ParallaxY)
 		end
+
+		if IsValid(contextMenu) and !Menu.Tooltip.Closing then Menu.Tooltip:RemoveTip() end
 	end
 
 	function lowerPanel:OnMouseWheeled(delta)
 		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.1, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
 	end
 
 	self.MenuFrame.LowerPanel = lowerPanel
@@ -1121,7 +1137,7 @@ function Menu.InspectItem(item, data)
 		function firIcon:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-			Menu.Tooltip.TipPaint = function()
+			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
@@ -1143,7 +1159,7 @@ function Menu.InspectItem(item, data)
 				draw.SimpleTextOutlined("This item will lose its 'found in raid' status if brought into another raid.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, EFGM.MenuScale(455), EFGM.MenuScale(50))
+			Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(455), EFGM.MenuScale(50))
 		end
 
 		function firIcon:OnCursorExited()
@@ -2663,6 +2679,7 @@ function Menu.ReloadInventory()
 			data = v.data,
 			value = (consumableType != "heal" and consumableType != "key") and (baseValue * math.min(math.max(v.data.count, 1), def.stackSize))
 			or math.floor(baseValue * (v.data.durability / def.consumableValue)),
+			weight = def.weight or 0.1,
 			def = def
 		}
 
@@ -2675,6 +2692,7 @@ function Menu.ReloadInventory()
 				if att == nil then continue end
 
 				plyItems[k].value = plyItems[k].value + att.value
+				plyItems[k].weight = plyItems[k].weight + (att.weight or 0.1)
 			end
 		end
 	end
@@ -2830,8 +2848,43 @@ function Menu.ReloadInventory()
 			end
 		end
 
-		item.OnCursorEntered = function(s)
+		function item:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55))
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function item:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function item:DoClick()
@@ -4171,6 +4224,7 @@ function Menu.ReloadStash()
 			id = k,
 			data = v.data,
 			value = value,
+			weight = def.weight or 0.1,
 			def = def
 		}
 
@@ -4185,6 +4239,7 @@ function Menu.ReloadStash()
 				if att == nil then continue end
 
 				plyStashItems[k].value = plyStashItems[k].value + att.value
+				plyStashItems[k].weight = plyStashItems[k].weight + (att.weight or 0.1)
 				stashValue = stashValue + att.value
 			end
 		end
@@ -4365,8 +4420,43 @@ function Menu.ReloadStash()
 			end
 		end
 
-		item.OnCursorEntered = function(s)
+		function item:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55))
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function item:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function item:DoClick()
@@ -4511,6 +4601,8 @@ local marketStashItemSearchText = ""
 function Menu.ReloadMarketStash()
 	if !IsValid(marketStashItems) then return end
 
+	print("yeehaw")
+
 	marketStashItems:Clear()
 	stashValue = 0
 	marketPlyStashItems = {}
@@ -4530,6 +4622,7 @@ function Menu.ReloadMarketStash()
 			data = v.data,
 			value = !isConsumable and math.floor((baseValue * sellMultiplier) * math.min(math.max(v.data.count, 1), def.stackSize))
 			or math.floor((baseValue * sellMultiplier) * (v.data.durability / consumableValue)),
+			weight = def.weight or 0.1,
 			def = def
 		}
 
@@ -4545,6 +4638,7 @@ function Menu.ReloadMarketStash()
 				if att == nil then continue end
 
 				marketPlyStashItems[k].value = marketPlyStashItems[k].value + math.floor(att.value * sellMultiplier)
+				marketPlyStashItems[k].weight = marketPlyStashItems[k].weight + (att.weight or 0.1)
 				stashValue = stashValue + att.value
 			end
 		end
@@ -4715,14 +4809,49 @@ function Menu.ReloadMarketStash()
 			end
 
 			if i.sizeX > 1 then
-				draw.SimpleTextOutlined("₽" .. v.value, "PuristaBold18", w / 2, h / 2 - EFGM.MenuScale(9), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("₽" .. comma_value(v.value), "PuristaBold18", w / 2, h / 2 - EFGM.MenuScale(9), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			else
-				draw.SimpleTextOutlined("₽" .. v.value, "PuristaBold14", w / 2, h / 2 - EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("₽" .. comma_value(v.value), "PuristaBold14", w / 2, h / 2 - EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 		end
 
-		item.OnCursorEntered = function(s)
+		function item:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55))
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function item:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function item:DoClick()
@@ -4796,6 +4925,7 @@ function Menu.ReloadContainer()
 			data = v.data,
 			value = (consumableType != "heal" and consumableType != "key") and (baseValue * math.min(math.max(v.data.count, 1), def.stackSize))
 			or math.floor(baseValue * (v.data.durability / def.consumableValue)),
+			weight = def.weight or 0.1,
 			def = def
 		}
 
@@ -4808,6 +4938,7 @@ function Menu.ReloadContainer()
 				if att == nil then continue end
 
 				conItems[k].value = conItems[k].value + att.value
+				conItems[k].weight = conItems[k].weight + (att.weight or 0.1)
 			end
 		end
 	end
@@ -4940,8 +5071,43 @@ function Menu.ReloadContainer()
 			end
 		end
 
-		item.OnCursorEntered = function(s)
+		function item:OnCursorEntered()
 			surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+			local tipItemNameSize = surface.GetTextSize(tipItemName)
+			surface.SetFont("Purista14")
+			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local tipDescSize = surface.GetTextSize(tipDesc)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Color(55, 55, 55))
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+		end
+
+		function item:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 
 		function item:DoClick()
@@ -5852,35 +6018,8 @@ function Menu.OpenTab.Inventory(container)
 		surface.DrawTexturedRect(0, EFGM.MenuScale(1), EFGM.MenuScale(28), EFGM.MenuScale(28))
 	end
 
-	weightIcon.OnCursorEntered = function(s)
-		local x, y = Menu.MouseX, Menu.MouseY
-		local sideH, sideV
-
+	function weightIcon:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-
-		if x <= (ScrW() / 2) then sideH = true else sideH = false end
-		if y <= (ScrH() / 2) then sideV = true else sideV = false end
-
-		local function UpdatePopOutPos()
-			if sideH == true then
-				weightPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - weightPopOut:GetWide() - EFGM.MenuScale(10)))
-			else
-				weightPopOut:SetX(math.Clamp(x - weightPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - weightPopOut:GetWide() - EFGM.MenuScale(10)))
-			end
-
-			if sideV == true then
-				weightPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - weightPopOut:GetTall() - EFGM.MenuScale(20)))
-			else
-				weightPopOut:SetY(math.Clamp(y - weightPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - weightPopOut:GetTall() - EFGM.MenuScale(20)))
-			end
-		end
-
-		if IsValid(weightPopOut) then weightPopOut:Remove() end
-		weightPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-		weightPopOut:SetSize(EFGM.MenuScale(560), EFGM.MenuScale(165))
-		UpdatePopOutPos()
-		weightPopOut:AlphaTo(255, 0.1, 0, nil)
-		weightPopOut:SetMouseInputEnabled(false)
 
 		local maxLossMove = 45
 		local maxLossInertia = 0.75
@@ -5888,14 +6027,8 @@ function Menu.OpenTab.Inventory(container)
 		local maxLossSway = 1.2
 		local maxLossLean = 0.6
 
-		weightPopOut.Paint = function(s, w, h)
-			if !IsValid(s) then return end
-
-			BlurPanel(s, 3)
-
-			x, y = Menu.MouseX, Menu.MouseY
-
-			UpdatePopOutPos()
+		local paint = function()
+			local w, h = Menu.Tooltip:GetSize()
 
 			surface.SetDrawColor(Color(0, 0, 0, 205))
 			surface.DrawRect(0, 0, w, h)
@@ -5940,12 +6073,12 @@ function Menu.OpenTab.Inventory(container)
 			surface.SetDrawColor(weightColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(150), math.min(usedWeight / maxWeight * EFGM.MenuScale(550), EFGM.MenuScale(550)), EFGM.MenuScale(10))
 		end
+
+		Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(560), EFGM.MenuScale(165))
 	end
 
-	weightIcon.OnCursorExited = function(s)
-		if IsValid(weightPopOut) then
-			weightPopOut:AlphaTo(0, 0.1, 0, function() weightPopOut:Remove() end)
-		end
+	function weightIcon:OnCursorExited()
+		Menu.Tooltip:RemoveTip()
 	end
 
 	local unloadText = ""
@@ -6088,7 +6221,7 @@ function Menu.OpenTab.Inventory(container)
 	function playerItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
 		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.1, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
 	end
 
 	function playerItemsHolder:PaintOver(w, h)
@@ -6193,7 +6326,7 @@ function Menu.OpenTab.Inventory(container)
 		function containerItemsHolder:OnVScroll(offset)
 			self.pnlCanvas:SetPos(0, offset)
 			if !IsValid(contextMenu) then return end
-			contextMenu:AlphaTo(0, 0.1, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
+			contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
 		end
 
 		containerItems = vgui.Create("DIconLayout", containerItemsHolder)
@@ -6391,7 +6524,7 @@ function Menu.OpenTab.Inventory(container)
 	function stashItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
 		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.1, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
 	end
 
 	stashItemsHolder:Receiver("items", function(self, panels, dropped, _, x, y)
@@ -6417,7 +6550,6 @@ function Menu.OpenTab.Inventory(container)
 	stashItemsBar:SetHideButtons(true)
 	stashItemsBar:SetSize(EFGM.MenuScale(5), 0)
 	function stashItemsBar:Paint(w, h)
-		if self:GetScroll() != 0 then Menu.LastStashScroll = self:GetOffset() end
 		draw.RoundedBox(0, 0, 0, EFGM.MenuScale(5), h, Colors.scrollerColor)
 	end
 	function stashItemsBar.btnGrip:Paint(w, h)
@@ -6641,7 +6773,7 @@ function Menu.OpenTab.Market()
 	function marketStashItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
 		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.1, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() hook.Remove("Think", "CheckIfContextMenuStillFocused") end)
 	end
 
 	marketStashItems = vgui.Create("DIconLayout", marketStashItemsHolder)
@@ -6653,7 +6785,6 @@ function Menu.OpenTab.Market()
 	marketStashItemsBar:SetHideButtons(true)
 	marketStashItemsBar:SetSize(EFGM.MenuScale(5), 0)
 	function marketStashItemsBar:Paint(w, h)
-		if self:GetScroll() != 0 then Menu.LastMarketStashScroll = self:GetOffset() end
 		draw.RoundedBox(0, 0, 0, EFGM.MenuScale(5), h, Colors.scrollerColor)
 	end
 	function marketStashItemsBar.btnGrip:Paint(w, h)
@@ -8218,49 +8349,14 @@ function Menu.OpenTab.Match()
 						surface.DrawTexturedRect(0, 0, EFGM.MenuScale(24), EFGM.MenuScale(24))
 					end
 
-					transferToMember.OnCursorEntered = function(s)
-						local x, y = Menu.MouseX, Menu.MouseY
-						local sideH, sideV
-
+					function transferToMember:OnCursorEntered()
 						surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-
-						if x <= (ScrW() / 2) then sideH = true else sideH = false end
-						if y <= (ScrH() / 2) then sideV = true else sideV = false end
 
 						surface.SetFont("Purista18")
 						local text = "Transfer ownership to " .. v:GetName()
 						local textSize = surface.GetTextSize(text)
 
-						local function UpdatePopOutPos()
-							if sideH == true then
-								transferPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - transferPopOut:GetWide() - EFGM.MenuScale(10)))
-							else
-								transferPopOut:SetX(math.Clamp(x - transferPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - transferPopOut:GetWide() - EFGM.MenuScale(10)))
-							end
-
-							if sideV == true then
-								transferPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - transferPopOut:GetTall() - EFGM.MenuScale(20)))
-							else
-								transferPopOut:SetY(math.Clamp(y - transferPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - transferPopOut:GetTall() - EFGM.MenuScale(20)))
-							end
-						end
-
-						if IsValid(transferPopOut) then transferPopOut:Remove() end
-						transferPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-						transferPopOut:SetSize(EFGM.MenuScale(10) + textSize, EFGM.MenuScale(24))
-						UpdatePopOutPos()
-						transferPopOut:AlphaTo(255, 0.1, 0, nil)
-						transferPopOut:SetMouseInputEnabled(false)
-
-						transferPopOut.Paint = function(s, w, h)
-							if !IsValid(s) then return end
-
-							BlurPanel(s, 3)
-
-							x, y = Menu.MouseX, Menu.MouseY
-
-							UpdatePopOutPos()
-
+						local paint = function()
 							surface.SetDrawColor(Color(25, 25, 25, 155))
 							surface.DrawRect(0, 0, w, h)
 
@@ -8272,12 +8368,12 @@ function Menu.OpenTab.Match()
 
 							draw.SimpleTextOutlined(text, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 						end
+
+						Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(10) + textSize, EFGM.MenuScale(24))
 					end
 
-					transferToMember.OnCursorExited = function(s)
-						if IsValid(transferPopOut) then
-							transferPopOut:AlphaTo(0, 0.1, 0, function() transferPopOut:Remove() end)
-						end
+					function transferToMember:OnCursorExited()
+						Menu.Tooltip:RemoveTip()
 					end
 
 					function transferToMember:DoClick()
@@ -8295,48 +8391,15 @@ function Menu.OpenTab.Match()
 						surface.DrawTexturedRect(0, 0, EFGM.MenuScale(24), EFGM.MenuScale(24))
 					end
 
-					kickMember.OnCursorEntered = function(s)
-						local x, y = Menu.MouseX, Menu.MouseY
-						local sideH, sideV
-
+					function kickMember:OnCursorEntered()
 						surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-
-						if x <= (ScrW() / 2) then sideH = true else sideH = false end
-						if y <= (ScrH() / 2) then sideV = true else sideV = false end
 
 						surface.SetFont("Purista18")
 						local text = "Kick " .. v:GetName()
 						local textSize = surface.GetTextSize(text)
 
-						local function UpdatePopOutPos()
-							if sideH == true then
-								kickPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - kickPopOut:GetWide() - EFGM.MenuScale(10)))
-							else
-								kickPopOut:SetX(math.Clamp(x - kickPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - kickPopOut:GetWide() - EFGM.MenuScale(10)))
-							end
-
-							if sideV == true then
-								kickPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - kickPopOut:GetTall() - EFGM.MenuScale(20)))
-							else
-								kickPopOut:SetY(math.Clamp(y - kickPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - kickPopOut:GetTall() - EFGM.MenuScale(20)))
-							end
-						end
-
-						if IsValid(kickPopOut) then kickPopOut:Remove() end
-						kickPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-						kickPopOut:SetSize(EFGM.MenuScale(10) + textSize, EFGM.MenuScale(24))
-						UpdatePopOutPos()
-						kickPopOut:AlphaTo(255, 0.1, 0, nil)
-						kickPopOut:SetMouseInputEnabled(false)
-
-						kickPopOut.Paint = function(s, w, h)
-							if !IsValid(s) then return end
-
-							BlurPanel(s, 3)
-
-							x, y = Menu.MouseX, Menu.MouseY
-
-							UpdatePopOutPos()
+						local paint = function()
+							local w, h = Menu.Tooltip:GetSize()
 
 							surface.SetDrawColor(Color(25, 25, 25, 155))
 							surface.DrawRect(0, 0, w, h)
@@ -8349,12 +8412,12 @@ function Menu.OpenTab.Match()
 
 							draw.SimpleTextOutlined(text, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 						end
+
+						Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(10) + textSize, EFGM.MenuScale(24))
 					end
 
-					kickMember.OnCursorExited = function(s)
-						if IsValid(kickPopOut) then
-							kickPopOut:AlphaTo(0, 0.1, 0, function() kickPopOut:Remove() end)
-						end
+					function kickMember:OnCursorExited()
+						Menu.Tooltip:RemoveTip()
 					end
 
 					function kickMember:DoClick()
@@ -8677,48 +8740,13 @@ function Menu.OpenTab.Skills()
 			draw.SimpleTextOutlined("0/10", "Purista18", w - EFGM.MenuScale(4), EFGM.MenuScale(64), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		end
 
-		skillItem.OnCursorEntered = function(s)
-			local x, y = Menu.MouseX, Menu.MouseY
-			local sideH, sideV
-
+		function skillItem:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-
-			if x <= (ScrW() / 2) then sideH = true else sideH = false end
-			if y <= (ScrH() / 2) then sideV = true else sideV = false end
 
 			surface.SetFont("Purista18")
 			local skillDescTextSize = surface.GetTextSize(v1.Description)
 
-			local function UpdatePopOutPos()
-				if sideH == true then
-					skillPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - skillPopOut:GetWide() - EFGM.MenuScale(10)))
-				else
-					skillPopOut:SetX(math.Clamp(x - skillPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - skillPopOut:GetWide() - EFGM.MenuScale(10)))
-				end
-
-				if sideV == true then
-					skillPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - skillPopOut:GetTall() - EFGM.MenuScale(20)))
-				else
-					skillPopOut:SetY(math.Clamp(y - skillPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - skillPopOut:GetTall() - EFGM.MenuScale(20)))
-				end
-			end
-
-			if IsValid(skillPopOut) then skillPopOut:Remove() end
-			skillPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-			skillPopOut:SetSize(EFGM.MenuScale(10) + skillDescTextSize, EFGM.MenuScale(80))
-			UpdatePopOutPos()
-			skillPopOut:AlphaTo(255, 0.1, 0, nil)
-			skillPopOut:SetMouseInputEnabled(false)
-
-			skillPopOut.Paint = function(s, w, h)
-				if !IsValid(s) then return end
-
-				BlurPanel(s, 3)
-
-				x, y = Menu.MouseX, Menu.MouseY
-
-				UpdatePopOutPos()
-
+			local paint = function()
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
@@ -8741,12 +8769,12 @@ function Menu.OpenTab.Skills()
 				draw.SimpleTextOutlined(v1.Description, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(55), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				draw.SimpleTextOutlined("1", "PuristaBold64", w - EFGM.MenuScale(5), EFGM.MenuScale(-10), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
+
+			Menu.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(10) + skillDescTextSize, EFGM.MenuScale(80))
 		end
 
-		skillItem.OnCursorExited = function(s)
-			if IsValid(skillPopOut) then
-				skillPopOut:AlphaTo(0, 0.1, 0, function() skillPopOut:Remove() end)
-			end
+		function skillItem:OnCursorExited()
+			Menu.Tooltip:RemoveTip()
 		end
 	end
 end
