@@ -2866,21 +2866,16 @@ function Menu.ReloadInventory()
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3163,21 +3158,16 @@ function Menu.ReloadSlots()
 			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3423,21 +3413,16 @@ function Menu.ReloadSlots()
 			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3683,21 +3668,16 @@ function Menu.ReloadSlots()
 			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3906,21 +3886,16 @@ function Menu.ReloadSlots()
 			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4133,21 +4108,16 @@ function Menu.ReloadSlots()
 			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4335,7 +4305,7 @@ function Menu.ReloadSlots()
 			end
 		end
 
-		local value = math.floor(i.value * ((v.data.durability or def.consumableValue) / def.consumableValue))
+		local value = math.floor(i.value * ((playerWeaponSlots[5][1].data.durability or i.consumableValue) / i.consumableValue))
 		local weight = i.weight or 0.1
 
 		function consumableItem:OnCursorEntered()
@@ -4348,21 +4318,16 @@ function Menu.ReloadSlots()
 			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4767,21 +4732,16 @@ function Menu.ReloadStash()
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -5172,21 +5132,16 @@ function Menu.ReloadMarketStash()
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -5441,21 +5396,16 @@ function Menu.ReloadContainer()
 			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
-			local tipCol = i.iconColor or Colors.itemColor
-			local tipColHeader = tipCol
-			tipCol.a = 45
-			tipColHeader.a = 255
-
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
 				surface.SetDrawColor(Color(0, 0, 0, 205))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipCol)
+				surface.SetDrawColor(Color(55, 55, 55, 45))
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(tipColHeader)
+				surface.SetDrawColor(Color(55, 55, 55))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
