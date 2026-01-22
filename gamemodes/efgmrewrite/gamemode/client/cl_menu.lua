@@ -322,7 +322,7 @@ function Menu:Initialize(openTo, container)
 		local paint = function()
 			local w, h = Menu.Tooltip:GetSize()
 
-			surface.SetDrawColor(Color(0, 0, 0, 205))
+			surface.SetDrawColor(Colors.tooltipBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
 			surface.SetDrawColor(Color(50, 100, 50, 45))
@@ -354,7 +354,7 @@ function Menu:Initialize(openTo, container)
 		local paint = function()
 			local w, h = Menu.Tooltip:GetSize()
 
-			surface.SetDrawColor(Color(0, 0, 0, 205))
+			surface.SetDrawColor(Colors.tooltipBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
 			surface.SetDrawColor(Color(100, 100, 50, 45))
@@ -1140,13 +1140,13 @@ function Menu.InspectItem(item, data)
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -2877,13 +2877,13 @@ function Menu.ReloadInventory()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3169,13 +3169,13 @@ function Menu.ReloadSlots()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3424,13 +3424,13 @@ function Menu.ReloadSlots()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3679,13 +3679,13 @@ function Menu.ReloadSlots()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -3897,13 +3897,13 @@ function Menu.ReloadSlots()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4119,13 +4119,13 @@ function Menu.ReloadSlots()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4329,13 +4329,13 @@ function Menu.ReloadSlots()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -4751,13 +4751,13 @@ function Menu.ReloadStash()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -5159,13 +5159,13 @@ function Menu.ReloadMarketStash()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -5431,13 +5431,13 @@ function Menu.ReloadContainer()
 			local paint = function()
 				local w, h = Menu.Tooltip:GetSize()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -6377,13 +6377,13 @@ function Menu.OpenTab.Inventory(container)
 		local paint = function()
 			local w, h = Menu.Tooltip:GetSize()
 
-			surface.SetDrawColor(Color(0, 0, 0, 205))
+			surface.SetDrawColor(Colors.tooltipBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Color(55, 55, 55, 45))
+			surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Color(55, 55, 55))
+			surface.SetDrawColor(Colors.tooltipHeaderColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 			surface.SetDrawColor(Colors.transparentWhiteColor)
@@ -8470,7 +8470,7 @@ function Menu.OpenTab.Match()
 
 						UpdatePopOutPos()
 
-						surface.SetDrawColor(Color(0, 0, 0, 205))
+						surface.SetDrawColor(Colors.tooltipBackgroundColor)
 						surface.DrawRect(0, 0, w, h)
 
 						surface.SetDrawColor(Color(color.RED, color.GREEN, color.BLUE, 45))
@@ -9094,7 +9094,7 @@ function Menu.OpenTab.Skills()
 			local skillDescTextSize = surface.GetTextSize(v1.Description)
 
 			local paint = function()
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
 				skillTypeTbl[v1.Category].a = 45

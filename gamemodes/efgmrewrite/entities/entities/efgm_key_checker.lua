@@ -89,7 +89,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 
 			if self.AutoRelock and self.KeyLockTime > 0 then
 				net.Start("SendNotification", false)
-					net.WriteString("This door will relock in " .. self.KeyLockTime .. "s!")
+					net.WriteString("Door unlocked, will relock in " .. self.KeyLockTime .. "s!")
 					net.WriteString("icons/relock_icon.png")
 					net.WriteString("ui/door_opened.wav")
 				net.Send(ply)
@@ -98,6 +98,12 @@ function ENT:AcceptInput(name, ply, caller, data)
 					self:TriggerOutput("Lock", ply, data)
 					self.PlayersUsed = {}
 				end)
+			else
+				net.Start("SendNotification", false)
+					net.WriteString("Door Unlocked!")
+					net.WriteString("icons/unlock_icon.png")
+					net.WriteString("ui/door_opened.wav")
+				net.Send(ply)
 			end
 		end
 	end

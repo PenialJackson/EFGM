@@ -799,17 +799,28 @@ net.Receive("CreateDeathInformation", function()
 		local MapPanel = nil
 		local respawnButton = nil
 
-		DeathPopup = vgui.Create("DPanel")
+		local DeathDocker = vgui.Create("DPanel")
+		DeathDocker:SetSize(ScrW(), ScrH())
+		DeathDocker:SetPos(0, 0)
+		DeathDocker:SetAlpha(0)
+
+		function DeathDocker:Paint(w, h)
+			BlurPanel(self, 5)
+
+			surface.SetDrawColor(Color(10, 10, 10, 155))
+			surface.DrawRect(0, 0, w, h)
+		end
+
+		DeathDocker:AlphaTo(255, 0.2, 0, nil)
+
+		DeathPopup = vgui.Create("DPanel", DeathDocker)
 		DeathPopup:SetSize(ScrW(), ScrH())
 		DeathPopup:SetPos(0, 0)
-		DeathPopup:SetAlpha(0)
 		DeathPopup:MakePopup()
 		DeathPopup:SetMouseInputEnabled(true)
 		DeathPopup:SetKeyboardInputEnabled(true)
 
 		DeathPopup.Paint = function(self, w, h)
-			BlurPanel(DeathPopup, 5)
-
 			draw.SimpleTextOutlined("KILLED IN ACTION", "PuristaBold64", w / 2, EFGM.MenuScale(35), Color(255, 0, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.whiteColor)
 			draw.SimpleTextOutlined(string.format("%02d:%02d", minutes, seconds) .. " TIME IN RAID", "PuristaBold22", w / 2, EFGM.MenuScale(90), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			draw.SimpleTextOutlined(quote, "Purista18Italic", w / 2, EFGM.MenuScale(108), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
@@ -854,7 +865,6 @@ net.Receive("CreateDeathInformation", function()
 			if respawnButton then respawnButton:SetX(ScrW() / 2 - respawnButton:GetWide() / 2) end
 		end
 
-		DeathPopup:AlphaTo(255, 0.2, 0, nil)
 		if respawnTime > noRaidRespawnTime then surface.PlaySound("extract_failed.wav") end
 
 		respawnButton = vgui.Create("DButton", DeathPopup)
@@ -876,7 +886,7 @@ net.Receive("CreateDeathInformation", function()
 			net.SendToServer()
 
 			surface.PlaySound("ui/element_select.wav")
-			DeathPopup:AlphaTo(0, 0.1, 0, function() DeathPopup:Remove() end)
+			DeathDocker:AlphaTo(0, 0.1, 0, function() DeathDocker:Remove() end)
 		end
 
 		if respawnTime > noRaidRespawnTime then
@@ -1365,20 +1375,28 @@ net.Receive("CreateExtractionInformation", function()
 	local MapPanel = nil
 	local respawnButton = nil
 
-	ExtractionPopup = vgui.Create("DPanel")
+	local ExtractDocker = vgui.Create("DPanel")
+	ExtractDocker:SetSize(ScrW(), ScrH())
+	ExtractDocker:SetPos(0, 0)
+	ExtractDocker:SetAlpha(0)
+
+	function ExtractDocker:Paint(w, h)
+		BlurPanel(self, 5)
+
+		surface.SetDrawColor(Color(10, 10, 10, 155))
+		surface.DrawRect(0, 0, w, h)
+	end
+
+	ExtractDocker:AlphaTo(255, 0.2, 0, nil)
+
+	ExtractionPopup = vgui.Create("DPanel", ExtractDocker)
 	ExtractionPopup:SetSize(ScrW(), ScrH())
 	ExtractionPopup:SetPos(0, 0)
-	ExtractionPopup:SetAlpha(0)
 	ExtractionPopup:MakePopup()
 	ExtractionPopup:SetMouseInputEnabled(true)
 	ExtractionPopup:SetKeyboardInputEnabled(true)
 
 	ExtractionPopup.Paint = function(self, w, h)
-		BlurPanel(ExtractionPopup, 5)
-
-		surface.SetDrawColor(Color(10, 10, 10, 155))
-		surface.DrawRect(0, 0, w, h)
-
 		draw.SimpleTextOutlined("EXTRACTED", "PuristaBold64", w / 2, EFGM.MenuScale(35), Color(0, 255, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.whiteColor)
 		draw.SimpleTextOutlined(string.format("%02d:%02d", minutes, seconds) .. " TIME IN RAID", "PuristaBold22", w / 2, EFGM.MenuScale(90), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
@@ -1408,7 +1426,6 @@ net.Receive("CreateExtractionInformation", function()
 		if respawnButton then respawnButton:SetX(ScrW() / 2 - respawnButton:GetWide() / 2) end
 	end
 
-	ExtractionPopup:AlphaTo(255, 0.2, 0, nil)
 	surface.PlaySound("storytask_end.wav")
 
 	respawnButton = vgui.Create("DButton", ExtractionPopup)
@@ -1428,7 +1445,7 @@ net.Receive("CreateExtractionInformation", function()
 
 	function respawnButton:DoClick()
 		surface.PlaySound("ui/element_select.wav")
-		ExtractionPopup:AlphaTo(0, 0.1, 0, function() ExtractionPopup:Remove() end)
+		ExtractDocker:AlphaTo(0, 0.1, 0, function() ExtractDocker:Remove() end)
 	end
 
 	RewardsPanel = vgui.Create("DPanel", ExtractionPopup)
@@ -1850,13 +1867,13 @@ function HUDInspectItem(item, data, panel)
 
 				UpdatePopOutPos()
 
-				surface.SetDrawColor(Color(0, 0, 0, 205))
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55, 45))
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Color(55, 55, 55))
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 				surface.SetDrawColor(Colors.transparentWhiteColor)

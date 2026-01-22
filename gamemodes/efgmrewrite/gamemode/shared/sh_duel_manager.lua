@@ -200,7 +200,7 @@ if SERVER then
 
 	hook.Add("EndedRaid", "EndDuelOnMapChange", function(time)
 		timer.Simple(time - 20, function() DUEL.Allowed = false end) -- disable any new duels
-		timer.Simple(time - 3, function() DUEL:CancelDuel() end)    -- force cancel current duel
+		timer.Simple(time - 3, function() DUEL:CancelDuel() end) -- force cancel current duel
 	end)
 
 	function ReinstantiateInventoryForDuel(ply)

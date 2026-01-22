@@ -18,7 +18,7 @@ playerStatus = {
 	LOBBY = 0,
 	PMC = 1,
 	SCAV = 2,
-	DUEL = 3,
+	DUEL = 3
 }
 
 -- raid status

@@ -153,75 +153,63 @@ function FlowItemToInventory(ply, name, type, data)
 		return
 	end
 
-	local inv = {}
+	local indices = {}
 	for k, v in ipairs(ply.inventory) do
-		inv[k] = {}
-		inv[k].name = v.name
-		inv[k].data = v.data
-		inv[k].id = k
+		if v.name == name then
+			table.insert(indices, k)
+		end
 	end
 
-	table.sort(inv, function(a, b) return a.data.count > b.data.count end)
+	table.sort(indices, function(a, b) return ply.inventory[a].data.count > ply.inventory[b].data.count end)
 
-	for k, v in ipairs(inv) do
-		if v.name == name and v.data.count != stackSize and amount > 0 then
+	-- fill existing stacks
+	for _, idx in ipairs(indices) do
+		if amount <= 0 then break end
+
+		local v = ply.inventory[idx]
+		if v.data.count < stackSize then
 			local countToMax = stackSize - v.data.count
+			local addAmount = math.min(amount, countToMax)
 
-			if amount >= countToMax then
-				local newData = {}
-				newData.count = stackSize
-				UpdateItemFromInventory(ply, v.id, newData)
-				amount = amount - countToMax
-			elseif amount < countToMax then
-				local newData = {}
-				newData.count = ply.inventory[v.id].data.count + amount
-				UpdateItemFromInventory(ply, v.id, newData)
-				amount = 0
-				break
-			end
+			UpdateItemFromInventory(ply, idx, {count = v.data.count + addAmount})
+			amount = amount - addAmount
 		end
 	end
 
-	-- if leftover after checking every similar item type
+	-- create new stacks
 	while amount > 0 do
-		if amount >= stackSize then
-			local newData = {}
-			newData.count = stackSize
-			AddItemToInventory(ply, name, type, newData)
-			amount = amount - stackSize
-		else
-			local newData = {}
-			newData.count = amount
-			AddItemToInventory(ply, name, type, newData)
-			break
-		end
+		local stackAmount = math.min(amount, stackSize)
+		AddItemToInventory(ply, name, type, {count = stackAmount})
+		amount = amount - stackAmount
 	end
 end
 
 function DeflowItemsFromInventory(ply, name, count)
 	local amount = count
 
-	local inv = {}
+	local indices = {}
 	for k, v in ipairs(ply.inventory) do
-		inv[k] = {}
-		inv[k].name = v.name
-		inv[k].data = v.data
-		inv[k].id = k
+		if v.name == name then
+			table.insert(indices, k)
+		end
 	end
 
-	table.sort(inv, function(a, b) return a.data.count < b.data.count end)
+	table.sort(indices, function(a, b) return ply.inventory[a].data.count < ply.inventory[b].data.count end)
 
-	for k, v in ipairs(inv) do
-		if v.name == name and v.data.count > 0 and amount > 0 then
+	for i = #indices, 1, -1 do
+		if amount <= 0 then break end
+
+		local idx = indices[i]
+		local v = ply.inventory[idx]
+
+		if v and v.data.count > 0 then
 			if amount >= v.data.count then
 				amount = amount - v.data.count
-				DeleteItemFromInventory(ply, v.id, false)
-				DeflowItemsFromInventory(ply, name, amount)
-				return
+				DeleteItemFromInventory(ply, idx, false)
 			else
-				local newData = {}
-				newData.count = ply.inventory[v.id].data.count - amount
-				UpdateItemFromInventory(ply, v.id, newData)
+				UpdateItemFromInventory(ply, idx, {count = v.data.count - amount})
+				amount = 0
+
 				break
 			end
 		end
