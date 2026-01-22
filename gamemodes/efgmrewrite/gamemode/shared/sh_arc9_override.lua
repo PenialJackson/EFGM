@@ -580,81 +580,52 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
         local flaremat = Material("effects/arc9_lensflare", "mips smooth")
         local badcolor = Color(255, 255, 255)
         local arc9_allflash = GetConVar("arc9_allflash")
-        local irflashcolor = Color(106, 255, 218)
         local fuckingbullshit = Vector(0, 0, 0.001)
         local gunoffset = Vector(0, 0, -16)
-
-        local nvgon = false
-        local function checknvg(wpn)
-            local lp = LocalPlayer()
-            if !IsValid(lp) then return end
-            local sight = wpn:GetSight()
-            if sight and wpn:GetSightAmount() > 0.8 and !wpn.Peeking and sight.atttbl and sight.atttbl.RTScopeNightVision and ARC9.RTScopeRender then return true end
-            return false
-        end
 
         function SWEP:CreateFlashlights()
             self:KillFlashlights()
             self.Flashlights = {}
 
-            local total_lights = 0
-            local lp = LocalPlayer()
-            nvgon = checknvg(self)
-
             for _, k in ipairs(self:GetSubSlotList()) do
                 if !k.Installed then continue end
+
                 local atttbl = self:GetFinalAttTable(k)
+                if !atttbl.Flashlight then continue end
 
-                if atttbl.Flashlight then
-                    local newlight = {
-                        slottbl = k,
-                        light = ProjectedTexture(),
-                        col = atttbl.FlashlightColor or color_white,
-                        br = atttbl.FlashlightBrightness or 3,
-                        qca = atttbl.FlashlightAttachment,
-                        nodotter = atttbl.Flashlight360
-                    }
+                local l = ProjectedTexture()
+                if !IsValid(l) then continue end
 
-                    if nvgon and atttbl.FlashlightIR then
-                        newlight.col = irflashcolor
-                        newlight.br = 1
-                    end
+                local fov = atttbl.FlashlightFOV or 50
+                local col = atttbl.FlashlightColor or color_white
+                local br = atttbl.FlashlightBrightness or 3
 
-                    total_lights = total_lights + 1
+                l:SetFOV(fov)
+                l:SetFarZ(atttbl.FlashlightDistance / 1.5 or 1024)
+                l:SetNearZ(0)
+                l:SetQuadraticAttenuation(100)
+                l:SetColor(col)
+                l:SetTexture(atttbl.FlashlightMaterial or "effects/flashlight001")
+                l:SetBrightness(br)
+                l:SetEnableShadows(false)
+                l:Update()
 
-                    local l = newlight.light
-                    if !IsValid(l) then continue end
+                local newlight = {
+                    slottbl = k,
+                    light = l,
+                    col = col,
+                    br = br,
+                    qca = atttbl.FlashlightAttachment,
+                    nodotter = atttbl.Flashlight360
+                }
+                table.insert(self.Flashlights, newlight)
 
-                    table.insert(self.Flashlights, newlight)
+                table.insert(ARC9.FlashlightPile, {
+                    Weapon = self,
+                    ProjectedTexture = l
+                })
 
-                    l:SetFOV(atttbl.FlashlightFOV or 50)
-
-                    l:SetFarZ(atttbl.FlashlightDistance / 1.5 or 1024)
-                    -- l:SetNearZ(4)
-                    l:SetNearZ(0) -- setting to 4 when drawing to prevent flicker (position here is undefined)
-
-                    l:SetQuadraticAttenuation(100)
-
-                    l:SetColor(atttbl.FlashlightColor or color_white)
-                    l:SetTexture(atttbl.FlashlightMaterial or "effects/flashlight001")
-                    l:SetBrightness(atttbl.FlashlightBrightness or 3)
-
-                    if nvgon and atttbl.FlashlightIR then
-                        l:SetFOV((atttbl.FlashlightFOV or 50) * 1.5)
-                        l:SetColor(irflashcolor)
-                        l:SetBrightness(1)
-                    end
-
-                    l:SetEnableShadows(false)
-                    l:Update()
-
-                    local g_light = {
-                        Weapon = self,
-                        ProjectedTexture = l
-                    }
-
-                    table.insert(ARC9.FlashlightPile, g_light)
-                end
+                return
             end
         end
 
@@ -666,23 +637,17 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             if isotherplayer and !arc9_allflash:GetBool() then return end
             if !isotherplayer and !owner:ShouldDrawLocalPlayer() then return end
 
-            if !self.Flashlights then
-                self:CreateFlashlights()
-            end
+            if !self.Flashlights then self:CreateFlashlights() end
 
             if isotherplayer and lp:EyePos():DistToSqr(owner:EyePos()) > 2048^2 then self:KillFlashlights() return end
             local wmnotdrawn = self.LastWMDrawn != FrameNumber() and isotherplayer
 
-            local anydrawn = false
             for i, k in ipairs(self.Flashlights) do
                 local model = (k.slottbl or {}).WModel
 
-                -- if !IsValid(model) then continue end
-                anydrawn = true
                 if k.br == 0 then continue end
 
                 local pos, ang
-
 
                 if wmnotdrawn or !IsValid(model) then
                     pos = owner:EyePos() + gunoffset
@@ -699,12 +664,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 end
 
                 self:DrawLightFlare(pos + fuckingbullshit, ang, k.col, k.br / 6, nil, k.nodotter)
+
                 local tr = util.TraceLine({
                     start = pos,
                     endpos = pos + ang:Forward() * 16,
                     mask = MASK_OPAQUE,
                     filter = lp,
                 })
+
                 if tr.Fraction < 1 then -- We need to push the flashlight back
                     local tr2 = util.TraceLine({
                         start = pos,
@@ -712,6 +679,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                         mask = MASK_OPAQUE,
                         filter = lp,
                     })
+
                     -- push it as back as the area behind us allows
                     pos = pos + -ang:Forward() * 16 * math.min(1 - tr.Fraction, tr2.Fraction)
                 else
@@ -722,40 +690,31 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 k.light:SetPos(pos)
                 k.light:SetAngles(ang)
                 k.light:Update()
-            end
 
-            if anydrawn and nvgon != checknvg(self) then
-                self:CreateFlashlights()
+                self:CreateFlashlights() -- one light per weapon
+                return
             end
         end
 
         function SWEP:DrawFlashlightsVM()
-            if !self.Flashlights then
-                self:CreateFlashlights()
-            end
-
             local owner = self:GetOwner()
             local lp = LocalPlayer()
             if !IsValid(owner) then return end
+            if owner != lp then return end -- we don't need other VM lights benig rendered on other players right?
+
+            if !self.Flashlights then self:CreateFlashlights() end
+
             local eyepos = owner:EyePos()
 
-            local anydrawn = false
             for i, k in ipairs(self.Flashlights) do
                 local model = (k.slottbl or {}).VModel
 
                 if !IsValid(model) then continue end
-                anydrawn = true
                 if k.br == 0 then continue end
 
                 local pos, ang
-
-                if !model then
-                    pos = eyepos
-                    ang = owner:EyeAngles()
-                else
-                    pos = model:GetPos()
-                    ang = model:GetAngles()
-                end
+                pos = model:GetPos()
+                ang = model:GetAngles()
 
                 if k.qca then
                     a = model:GetAttachment(k.qca)
@@ -767,7 +726,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     end
                 end
 
-                self:DrawLightFlare(pos, ang, k.col, k.br / 3, true, k.nodotter, -ang:Right())
+                self:DrawLightFlare(pos, ang, k.col, k.br / 6, true, k.nodotter, -ang:Right())
 
                 if k.qca then ang:RotateAroundAxis(ang:Up(), 90) end
 
@@ -777,6 +736,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     mask = MASK_OPAQUE,
                     filter = lp,
                 })
+
                 if tr.Fraction < 1 then -- We need to push the flashlight back
                     local tr2 = util.TraceLine({
                         start = eyepos,
@@ -784,43 +744,44 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                         mask = MASK_OPAQUE,
                         filter = lp,
                     })
+
                     -- push it as back as the area behind us allows
                     pos = pos + -ang:Forward() * 32 * math.min(1 - tr.Fraction, tr2.Fraction)
                 end
 
-                k.light:SetNearZ(4)
-                k.light:SetPos(pos)
-                k.light:SetAngles(ang)
-                k.light:Update()
-            end
+                -- this might break literally everything
+                -- k.light:SetNearZ(4)
+                -- k.light:SetPos(pos)
+                -- k.light:SetAngles(ang)
+                -- k.light:Update()
 
-            if anydrawn and nvgon != checknvg(self) then
-                self:CreateFlashlights()
+                self:CreateFlashlights() -- one light per weapon
+                return
             end
         end
 
-        function SWEP:DrawLightFlare(pos, ang, col, size, vm, nodotter, dir) -- mostly tacrp
+        function SWEP:DrawLightFlare(pos, ang, col, size, vm, nodotter, dir)
             col = col or badcolor
-            size = size * 4 or 4
+            size = size * 4
 
             local lp, owner = LocalPlayer(), self:GetOwner()
             if !vm and owner == lp and !lp:ShouldDrawLocalPlayer() then return end
 
             dir = dir or ang:Forward()
+            local diff = EyePos() - pos
+            local diffNorm = diff:GetNormalized()
 
             local dot = -dir:Dot(EyeAngles():Forward())
-            local dot2 = dir:Dot((EyePos() - pos):GetNormalized())
+            local dot2 = dir:Dot(diffNorm)
             dot = (dot + dot2) / 2
 
             if nodotter then dot, dot2 = 1, 1 end
-
             if dot < 0 then return end
-
-            local diff = EyePos() - pos
 
             dot = dot ^ 4
             local tr = util.QuickTrace(pos, diff, {owner, lp, lp:GetViewEntity()})
-            local s = math.Clamp(1 - diff:Length() / 700, 0, 1) ^ 1 * dot * 500 * math.Rand(0.95, 1.05) * size
+            local distanceScale = math.Clamp(1 - diff:Length() / 600, 0, 1)
+            local s = distanceScale * dot * 500 * math.Rand(0.95, 1.05) * size
 
             local rtt = render.GetRenderTarget()
             if rtt and rtt:GetName() == "_rt_waterreflection" then tr.Fraction = 1 end -- mirror fix
@@ -836,13 +797,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
                 if !vm and size > 0.1 then
                     local rad = 128 * size * dot2
-                    col.a = 50 + size * 205
-
-                    pos = pos + ang:Forward() * 2
-                    pos = pos + diff:GetNormalized() * (2 + 14 * size)
+                    local colCopy = Color(col.r, col.g, col.b, 50 + size * 205)
+                    local spritePos = pos + ang:Forward() * 2 + diffNorm * (2 + 14 * size)
 
                     render.SetMaterial(flaremat)
-                    render.DrawSprite(pos, rad, rad, col)
+                    render.DrawSprite(spritePos, rad, rad, colCopy)
                 end
             end
         end
