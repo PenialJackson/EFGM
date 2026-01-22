@@ -101,11 +101,11 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 		-- team inviting
 		if button == ply:GetInfoNum("efgm_bind_teaminvite", KEY_F3) then
-			if !ply:CompareStatus(0) and !ply:CompareStatus(3) then return end
+			if !ply:Alive() or (!ply:CompareStatus(0) and !ply:CompareStatus(3)) then return end
 
-			local ent = (ply:Alive() and ply:GetEyeTrace() or default_trace()).Entity
-			if !ent:IsPlayer() then return end
+			local ent = ply:GetEyeTrace().Entity
 			if !IsValid(ent) then return end
+			if !ent:IsPlayer() then return end
 			if !ent:CompareStatus(0) and !ent:CompareStatus(3) then return end
 
 			InvitePlayerToSquad(ply, ent)
@@ -114,11 +114,12 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 		-- duel inviting
 		if button == ply:GetInfoNum("efgm_bind_duelinvite", KEY_F4) then
-			if !ply:CompareStatus(0) and !ply:CompareStatus(3) then return end
+			if !ply:Alive() or (!ply:CompareStatus(0) and !ply:CompareStatus(3)) then return end
 
-			local ent = (ply:Alive() and ply:GetEyeTrace() or default_trace()).Entity
-			if !ent:IsPlayer() then return end
+			local ent = ply:GetEyeTrace().Entity
 			if !IsValid(ent) then return end
+			if !ent:IsPlayer() then return end
+			if !ent:CompareStatus(0) and !ent:CompareStatus(3) then return end
 
 			InvitePlayerToDuel(ply, ent)
 			return
@@ -126,11 +127,12 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 		-- view profile
 		if button == ply:GetInfoNum("efgm_bind_viewprofile", KEY_P) then
-			if !ply:CompareStatus(0) and !ply:CompareStatus(3) then return end
+			if !ply:Alive() or (!ply:CompareStatus(0) and !ply:CompareStatus(3)) then return end
 
-			local ent = (ply:Alive() and ply:GetEyeTrace() or default_trace()).Entity
-			if !ent:IsPlayer() then return end
+			local ent = ply:GetEyeTrace().Entity
 			if !IsValid(ent) then return end
+			if !ent:IsPlayer() then return end
+			if !ent:CompareStatus(0) and !ent:CompareStatus(3) then return end
 
 			CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav")
 			return
@@ -138,7 +140,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 		-- accept invite
 		if button == ply:GetInfoNum("efgm_bind_invites_accept", KEY_F3) then
-			if !ply:CompareStatus(0) and !ply:CompareStatus(3) then return end
+			if !ply:Alive() or (!ply:CompareStatus(0) and !ply:CompareStatus(3)) then return end
 
 			AcceptInvite(ply)
 			return
@@ -146,7 +148,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 		-- decline invite
 		if button == ply:GetInfoNum("efgm_bind_invites_decline", KEY_F4) then
-			if !ply:CompareStatus(0) and !ply:CompareStatus(3) then return end
+			if !ply:Alive() or (!ply:CompareStatus(0) and !ply:CompareStatus(3)) then return end
 
 			DeclineInvite(ply)
 			return

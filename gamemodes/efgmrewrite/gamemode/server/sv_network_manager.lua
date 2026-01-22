@@ -383,11 +383,18 @@ function SetupPlayerData(ply)
 	if ply.stash == nil then ply.stash = {} end
 
 	-- check for stash corruption
-	for k, v in ipairs(ply.stash) do
-		if EFGMITEMS[v.name] == nil then table.remove(ply.stash, k) end
+	local stashSafe = false
+	while !stashSafe do
+		stashSafe = true
+		for k, v in ipairs(ply.stash) do
+			if EFGMITEMS[v.name] == nil then
+				table.remove(ply.stash, k)
+				stashSafe = false
+			end
+		end
 	end
-
 	ply:SetNWInt("StashCount", #ply.stash)
+	stashString = UpdateStashString(ply)
 
 	-- inventory
 	local inventoryString = InitializeInventoryString(ply, query, "XQAAAQDBAgAAAAAAAAAtnsBHRAlDnI+0YTROtE2yTNKO569j8mi1Et/q/uD6XoR8aAKYh4+i0E43RHwCTGGK1Ufk5ZnamNm+qFP2TG/4QauCin2hqeXjQafGUo91uqfd77g8/tUBPE6ntJHIITVBqMYHTEM3luulBGmv0wUzGyxSC3QSo4M7QrajX58FiDKJgao59N2F+uJeZifcnqgxtBJhXpgVGpUbJwgA")
@@ -395,9 +402,17 @@ function SetupPlayerData(ply)
 	if ply.inventory == nil then ply.inventory = {} end
 
 	-- check for inventory corruption
-	for k, v in ipairs(ply.inventory) do
-		if EFGMITEMS[v.name] == nil then table.remove(ply.inventory, k) end
+	local invSafe = false
+	while !invSafe do
+		invSafe = true
+		for k, v in ipairs(ply.inventory) do
+			if EFGMITEMS[v.name] == nil then
+				table.remove(ply.inventory, k)
+				invSafe = false
+			end
+		end
 	end
+	inventoryString = UpdateInventoryString(ply)
 
 	local equippedString = InitializeEquippedString(ply, query, "XQAAAQACBAAAAAAAAAAt4ehEdDypZhc/rwkz9T5cWFAkvV80LpgNDXdx7ZcvkQ48bkdcTutVcWuPY6g9iYL4pId4H/c6huobRq6wio3vn/D6wsHmjv0jX5jFArouQrXAp7Nqcp9jReC2mZi57kUSWOCls/HcNJsu+E4r/MGO2d0iYZu31u1dL6JGl8qKQFul37F2giNouXIR6Bo9Er8glK7bmOM5f0G/93foF8f4Z/80WcWF40H0xGKWimgkoS6BpeZtleGDcMvszg+0RApZr5GbjGmLHzKk7cZrERaVn4AO2hEGwVvLRmirCVvKgNLLJQFHsTljH9sMB0hNqyITlyWxazalOa2IhrGw5IkNyPMcVxJoRwL+eM3HTGcsSdqMYTtDBzV7UuYRRI/hO/YYZuWOkTcGSso+6YMN1BQVs3S+3zpwmwdN42mvPz16aHfhsg6szAqj6v5eS5MKLPK4BNV1lVHI8t5XQApM41MbnDaMjrSIn8MwEUSLHHnyAKJC74NH5g1KvaVO7mlf6y03+swUw1r1B5+/5vsy+XVOfSmR0hmt/yyNIKvc19x51JsnjruWN7OuT8Hn5gJncgSdNL+9nZg+F8a771zUE1NmrYyaC3C1Ju0pAJNWHyaJH1prnfyOXdyPvBvMCzdx8Mk4A2H/uuwBm8TAK1H4tt9vgTLYN4UZDDRirx9sGyXo7HqPq+NfULb1YjR124WYsbCeMkFy6G5fdv0pRJmZhsbOE1WfKpFdHA8p2orsj1mrY9ZPjjEyFVJ7urEOPrB5TLsLUmZFxwAnSOm3//aWYGFZsQEz0sfE0u5OvJn2qP7XbgePkkMNQ3ceM2Ne1kJxfx4GgczKa9lg2OHpMo7OwOLdpV2OTzChb/lPh81A8QDOdbkSoXIXp2wrYf5Pr81sRZU=")
 	ply.weaponSlots = DecodeStash(ply, equippedString)
@@ -409,6 +424,21 @@ function SetupPlayerData(ply)
 			for i = 1, v.COUNT, 1 do ply.weaponSlots[v.ID][i] = {} end
 		end
 	end
+
+	-- check for equipped item corruption
+	local equSafe = false
+	while !equSafe do
+		equSafe = true
+		for i = 1, #table.GetKeys(WEAPONSLOTS) do
+			for k, v in ipairs(ply.weaponSlots[i]) do
+				if !table.IsEmpty(v) and EFGMITEMS[v.name] == nil then
+					ply.weaponSlots[i][k] = {}
+					equSafe = false
+				end
+			end
+		end
+	end
+	equippedString = UpdateEquippedString(ply)
 
 	local taskString = InitializeTaskString(ply, query, "")
 	ply.tasks = DecodeStash(ply, taskString)

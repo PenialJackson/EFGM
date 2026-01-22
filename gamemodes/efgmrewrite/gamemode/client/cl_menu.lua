@@ -2707,8 +2707,16 @@ function Menu.ReloadInventory()
 	if plyItems[1] == nil then return end
 
 	table.sort(plyItems, function(a, b)
+		if a == nil and b == nil then return false end
+		if a == nil then return false end
+		if b == nil then return true end
+
 		local a_def = a.def or EFGMITEMS[a.name]
 		local b_def = b.def or EFGMITEMS[b.name]
+
+		if a_def == nil and b_def == nil then return false end
+		if a_def == nil then return false end
+		if b_def == nil then return true end
 
 		local a_size = a_def.sizeX * a_def.sizeY
 		local b_size = b_def.sizeX * b_def.sizeY
@@ -4549,8 +4557,16 @@ function Menu.ReloadStash()
 	if plyStashItems[1] == nil then return end
 
 	table.sort(plyStashItems, function(a, b)
+		if a == nil and b == nil then return false end
+		if a == nil then return false end
+		if b == nil then return true end
+
 		local a_def = a.def or EFGMITEMS[a.name]
 		local b_def = b.def or EFGMITEMS[b.name]
+
+		if a_def == nil and b_def == nil then return false end
+		if a_def == nil then return false end
+		if b_def == nil then return true end
 
 		local a_pin = a.data.pin or 0
 		local b_pin = b.data.pin or 0
@@ -4917,7 +4933,7 @@ function Menu.ReloadMarketStash()
 
 		local value, rawValue
 		if !isConsumable then
-			value = (baseValue * sellMultiplier) * count
+			value = math.floor(baseValue * sellMultiplier * count)
 			rawValue = baseValue * count
 		else
 			value = math.floor((baseValue * sellMultiplier) * ((v.data.durability or def.consumableValue) / def.consumableValue))
@@ -4953,8 +4969,16 @@ function Menu.ReloadMarketStash()
 	if marketPlyStashItems[1] == nil then return end
 
 	table.sort(marketPlyStashItems, function(a, b)
+		if a == nil and b == nil then return false end
+		if a == nil then return false end
+		if b == nil then return true end
+
 		local a_def = a.def or EFGMITEMS[a.name]
 		local b_def = b.def or EFGMITEMS[b.name]
+
+		if a_def == nil and b_def == nil then return false end
+		if a_def == nil then return false end
+		if b_def == nil then return true end
 
 		local a_pin = a.data.pin or 0
 		local b_pin = b.data.pin or 0
@@ -5260,8 +5284,16 @@ function Menu.ReloadContainer()
 	if conItems[1] == nil then return end
 
 	table.sort(conItems, function(a, b)
+		if a == nil and b == nil then return false end
+		if a == nil then return false end
+		if b == nil then return true end
+
 		local a_def = a.def or EFGMITEMS[a.name]
 		local b_def = b.def or EFGMITEMS[b.name]
+
+		if a_def == nil and b_def == nil then return false end
+		if a_def == nil then return false end
+		if b_def == nil then return true end
 
 		local a_size = a_def.sizeX * a_def.sizeY
 		local b_size = b_def.sizeX * b_def.sizeY

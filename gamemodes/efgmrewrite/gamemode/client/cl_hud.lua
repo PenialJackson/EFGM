@@ -319,9 +319,6 @@ function RenderCompass()
 end
 
 function RenderPlayerInfo(ent)
-	if !ent:IsPlayer() then return end
-	if hook.Run("ShouldDrawTargetID", ent) == false then return end
-
 	local inHideout = ent:CompareStatus(0)
 
 	local name = string.upper(ent:Name())
@@ -2363,13 +2360,13 @@ end)
 
 function DrawTarget()
 	if !ply:Alive() then return end
-	if !ply:CompareStatus(0) then return false end
+	if !ply:CompareStatus(0) then return end
 
-	local ent = ply:GetEyeTrace()
+	local ent = ply:GetEyeTrace().Entity
 	if !IsValid(ent) then return end
+	if !ent:IsPlayer() then return end
 
 	RenderPlayerInfo(ent)
-	return true
 end
 hook.Add("HUDDrawTargetID", "HidePlayerInfo", DrawTarget)
 

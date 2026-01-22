@@ -308,7 +308,7 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
 
-	table.Empty(ply.weaponSlots[equipID][equipSlot])
+	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
 
@@ -367,7 +367,7 @@ function UnequipAll(ply)
 				local item = table.Copy(v)
 				if item == nil then return end
 
-				table.Empty(ply.weaponSlots[i][k])
+				ply.weaponSlots[i][k] = {}
 
 				local wep = ply:GetWeapon(item.name)
 
@@ -435,7 +435,7 @@ function UnequipAllFirearms(ply)
 				local item = table.Copy(v)
 				if item == nil then return end
 
-				table.Empty(ply.weaponSlots[i][k])
+				ply.weaponSlots[i][k] = {}
 
 				local wep = ply:GetWeapon(item.name)
 
@@ -533,6 +533,8 @@ function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
 end
 
 function MatchClassWithEquipped(ply, itemName)
+	if itemName == nil then return end
+
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
 		for k, v in ipairs(ply.weaponSlots[i]) do
 			if table.IsEmpty(v) then continue end
@@ -555,7 +557,7 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
 
-	table.Empty(ply.weaponSlots[equipID][equipSlot])
+	ply.weaponSlots[equipID][equipSlot] = {}
 
 	ply:StripWeapon(item.name)
 
@@ -747,7 +749,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 		local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 		if table.IsEmpty(item) then return end
 
-		table.Empty(ply.weaponSlots[equipID][equipSlot])
+		ply.weaponSlots[equipID][equipSlot] = {}
 
 		ply:StripWeapon(item.name)
 
@@ -827,7 +829,7 @@ function ConsumeGrenade(ply)
 	local item = ply.weaponSlots[4][1].name
 	if item == nil then return end
 
-	table.Empty(ply.weaponSlots[4][1])
+	ply.weaponSlots[4][1] = {}
 
 	RemoveWeightFromPlayer(ply, item, 1)
 	ply:StripWeapon(item)
@@ -840,7 +842,7 @@ function RemoveConsumable(ply)
 	local item = ply.weaponSlots[5][1].name
 	if item == nil then return end
 
-	table.Empty(ply.weaponSlots[5][1])
+	ply.weaponSlots[5][1] = {}
 
 	RemoveWeightFromPlayer(ply, item, 1)
 	ply:StripWeapon(item)

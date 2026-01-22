@@ -93,7 +93,7 @@ function StashItemFromEquipped(equipID, equipSlot)
 	local item = playerWeaponSlots[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
 
-	table.Empty(playerWeaponSlots[equipID][equipSlot])
+	playerWeaponSlots[equipID][equipSlot] = {}
 
 	net.Start("PlayerStashAddItemFromEquipped", false)
 		net.WriteUInt(equipID, 4)

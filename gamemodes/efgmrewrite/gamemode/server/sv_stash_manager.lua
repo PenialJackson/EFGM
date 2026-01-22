@@ -186,7 +186,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
 
-	table.Empty(ply.weaponSlots[equipID][equipSlot])
+	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
 

@@ -192,7 +192,7 @@ net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
 	equipID = net.ReadUInt(4)
 	equipSlot = net.ReadUInt(4)
 
-	table.Empty(playerWeaponSlots[equipID][equipSlot])
+	playerWeaponSlots[equipID][equipSlot] = {}
 
 	Menu.ReloadSlots()
 end )
@@ -263,7 +263,7 @@ function UnEquipItemFromInventory(equipID, equipSlot)
 	local item = playerWeaponSlots[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
 
-	table.Empty(playerWeaponSlots[equipID][equipSlot])
+	playerWeaponSlots[equipID][equipSlot] = {}
 
 	net.Start("PlayerInventoryUnEquipItem", false)
 		net.WriteUInt(equipID, 4)
@@ -277,7 +277,7 @@ function DropEquippedItem(equipID, equipSlot)
 	local item = playerWeaponSlots[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
 
-	table.Empty(playerWeaponSlots[equipID][equipSlot])
+	playerWeaponSlots[equipID][equipSlot] = {}
 
 	net.Start("PlayerInventoryDropEquippedItem", false)
 		net.WriteUInt(equipID, 4)
@@ -288,7 +288,7 @@ function DropEquippedItem(equipID, equipSlot)
 end
 
 net.Receive("PlayerInventoryConsumeGrenade", function(len)
-	table.Empty(playerWeaponSlots[4][1])
+	playerWeaponSlots[4][1] = {}
 	Menu.ReloadSlots()
 
 	if !table.IsEmpty(playerWeaponSlots[1][1]) then
@@ -304,7 +304,7 @@ net.Receive("PlayerInventoryConsumeGrenade", function(len)
 end)
 
 net.Receive("PlayerInventoryRemoveConsumable", function(len)
-	table.Empty(playerWeaponSlots[5][1])
+	playerWeaponSlots[5][1] = {}
 	Menu.ReloadSlots()
 
 	if !table.IsEmpty(playerWeaponSlots[1][1]) then
