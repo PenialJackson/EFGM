@@ -10,9 +10,7 @@ TASKSTATUSSTRING[2] = "Completed"
 TASKSTATUSSTRING[3] = "Accept Pending"
 TASKSTATUSSTRING[4] = "Completion Pending"
 
-TASK = {}
-
-function TASK.Instantiate(name, status, progress, tempProgress)
+function InstantiateTask(name, status, progress, tempProgress)
 	if name == nil then return nil end
 
 	local task = {}
@@ -45,4 +43,10 @@ end
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	concommand.Add("efgm_debug_gettasks", function(ply, cmd, args) PrintTable(ply.tasks) end)
+end
+
+function GetTaskInstanceProgress(taskInstance)
+	if taskInstance == nil then return end
+
+	return taskInstance.progress + taskInstance.tempProgress
 end

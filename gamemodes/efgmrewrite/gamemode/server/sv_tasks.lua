@@ -68,24 +68,28 @@ function TaskProgressObjectivesFromTable(ply, objTable, count)
 
 		for _, objIndex in ipairs(taskObjectives) do
 			local objInfo = taskInfo.objectives[objIndex]
+			local fullProgress = GetTaskInstanceProgress(ply.tasks[taskName])
+			local objCount = objInfo.count or 1
 
-			if objInfo.whenToSave == SAVEON.Progress then
-				if ply.tasks[taskName].progress[objIndex] + count < (objInfo.count or 1) then
-					ply.tasks[taskName].progress[objIndex] = ply.tasks[taskName].progress[objIndex] + count
-				elseif ply.tasks[taskName].progress[objIndex] + count >= (objInfo.count or 1) then
-					ply.tasks[taskName].progress[objIndex] = (objInfo.count or 1)
+			if fullProgress < objInfo.count or 1 then
+				if objInfo.whenToSave == SAVEON.Progress then
+					if ply.tasks[taskName].progress[objIndex] + count < objCount then
+						ply.tasks[taskName].progress[objIndex] = ply.tasks[taskName].progress[objIndex] + count
+					elseif ply.tasks[taskName].progress[objIndex] + count >= objCount then
+						ply.tasks[taskName].progress[objIndex] = objCount
 
-					NotifyObjectiveComplete(ply, taskName)
-					TaskCheckComplete(ply, taskName)
-				end
-			else
-				if ply.tasks[taskName].progress[objIndex] + ply.tasks[taskName].tempProgress[objIndex] + count < (objInfo.count or 1) then
-					ply.tasks[taskName].tempProgress[objIndex] = ply.tasks[taskName].tempProgress[objIndex] + count
-				elseif ply.tasks[taskName].progress[objIndex] + ply.tasks[taskName].tempProgress[objIndex] + count >= (objInfo.count or 1) then
-					ply.tasks[taskName].tempProgress[objIndex] = (objInfo.count or 1) - ply.tasks[taskName].progress[objIndex]
+						NotifyObjectiveComplete(ply, taskName)
+						TaskCheckComplete(ply, taskName)
+					end
+				else
+					if fullProgress + count < objCount then
+						ply.tasks[taskName].tempProgress[objIndex] = ply.tasks[taskName].tempProgress[objIndex] + count
+					elseif fullProgress + count >= objCount then
+						ply.tasks[taskName].tempProgress[objIndex] = objCount - ply.tasks[taskName].progress[objIndex]
 
-					if objInfo.type == OBJECTIVE.QuestItem then NotifyQuestItemPickup(ply, EFGMQUESTITEM[objInfo.itemName].name) end
-					TaskCheckComplete(ply, taskName)
+						if objInfo.type == OBJECTIVE.QuestItem then NotifyQuestItemPickup(ply, EFGMQUESTITEM[objInfo.itemName].name) end
+						TaskCheckComplete(ply, taskName)
+					end
 				end
 			end
 		end
@@ -215,7 +219,7 @@ end
 -- assignment
 function TaskAssignFromTable(ply, tasksToAssign)
 	for k, taskName in ipairs(tasksToAssign) do
-		ply.tasks[taskName] = TASK.Instantiate(taskName)
+		ply.tasks[taskName] = InstantiateTask(taskName)
 	end
 end
 
