@@ -166,7 +166,7 @@ if CLIENT then
 
 	-- performance
 	RunConsoleCommand("arc9_cheapscopes", "0")
-	RunConsoleCommand("arc9_allflash", "1")
+	RunConsoleCommand("arc9_allflash", "1]")
 
 	-- fx
 	RunConsoleCommand("arc9_cust_blur", "1")

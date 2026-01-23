@@ -2376,14 +2376,15 @@ hook.Add("RenderScreenspaceEffects", "Vignette", function()
 end)
 
 function DrawTarget()
-	if !ply:Alive() then return end
-	if !ply:CompareStatus(0) then return end
+	if !ply:Alive() then return false end
+	if !ply:CompareStatus(0) then return false end
 
 	local ent = ply:GetEyeTrace().Entity
-	if !IsValid(ent) then return end
-	if !ent:IsPlayer() then return end
+	if !IsValid(ent) then return false end
+	if !ent:IsPlayer() then return false end
 
 	RenderPlayerInfo(ent)
+	return false
 end
 hook.Add("HUDDrawTargetID", "HidePlayerInfo", DrawTarget)
 

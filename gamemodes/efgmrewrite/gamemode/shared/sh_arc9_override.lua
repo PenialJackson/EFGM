@@ -583,6 +583,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
         local fuckingbullshit = Vector(0, 0, 0.001)
         local gunoffset = Vector(0, 0, -16)
 
+        local nvgon = false
+        local function checknvg(wpn)
+            return false
+        end
+
         function SWEP:CreateFlashlights()
             self:KillFlashlights()
             self.Flashlights = {}
@@ -629,6 +634,18 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             end
         end
 
+        function SWEP:KillFlashlights()
+            if !self.Flashlights then return end
+
+            for i, k in ipairs(self.Flashlights) do
+                if k.light and k.light:IsValid() then
+                    k.light:Remove()
+                end
+            end
+
+            self.Flashlights = nil
+        end
+
         function SWEP:DrawFlashlightsWM()
             local owner = self:GetOwner()
             local lp = LocalPlayer()
@@ -663,7 +680,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     end
                 end
 
-                self:DrawLightFlare(pos + fuckingbullshit, ang, k.col, k.br / 6, nil, k.nodotter)
+                self:DrawLightFlare(pos + fuckingbullshit, ang, k.col, k.br / 9, nil, k.nodotter)
 
                 local tr = util.TraceLine({
                     start = pos,
@@ -691,7 +708,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 k.light:SetAngles(ang)
                 k.light:Update()
 
-                self:CreateFlashlights() -- one light per weapon
+                if nvgon != checknvg(self) then self:CreateFlashlights() end
                 return
             end
         end
@@ -726,7 +743,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     end
                 end
 
-                self:DrawLightFlare(pos, ang, k.col, k.br / 6, true, k.nodotter, -ang:Right())
+                self:DrawLightFlare(pos, ang, k.col, k.br / 9, true, k.nodotter, -ang:Right())
 
                 if k.qca then ang:RotateAroundAxis(ang:Up(), 90) end
 
@@ -749,13 +766,12 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     pos = pos + -ang:Forward() * 32 * math.min(1 - tr.Fraction, tr2.Fraction)
                 end
 
-                -- this might break literally everything
-                -- k.light:SetNearZ(4)
-                -- k.light:SetPos(pos)
-                -- k.light:SetAngles(ang)
-                -- k.light:Update()
+                k.light:SetNearZ(4)
+                k.light:SetPos(pos)
+                k.light:SetAngles(ang)
+                k.light:Update()
 
-                self:CreateFlashlights() -- one light per weapon
+                if nvgon != checknvg(self) then self:CreateFlashlights() end
                 return
             end
         end

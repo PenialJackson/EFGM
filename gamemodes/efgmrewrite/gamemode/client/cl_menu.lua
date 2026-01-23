@@ -2658,8 +2658,6 @@ end
 
 Menu.OpenTab = {}
 
-local itemSearchText = ""
-
 function Menu.ReloadInventory()
 	if !IsValid(playerItems) then return end
 
@@ -2768,18 +2766,6 @@ function Menu.ReloadInventory()
 			if !ownerName then
 				steamworks.RequestPlayerInfo(v.data.owner, function(steamName) ownerName = steamName or "" EFGM.SteamNameCache[v.data.owner] = steamName or "" end)
 			end
-		end
-
-		if itemSearchText then itemSearch = itemSearchText end
-
-		local searchFor = (itemSearch and itemSearch:lower()) or ""
-
-		if searchFor != "" and
-			!string.find((i.fullName):lower(), searchFor, 1, true) and
-			!string.find((i.displayName):lower(), searchFor, 1, true) and
-			!string.find((i.displayType):lower(), searchFor, 1, true) and
-			!string.find((tostring(v.data.tag) or ""):lower(), searchFor, 1, true) and
-			!string.find((ownerName or ""):lower(), searchFor, 1, true) then continue
 		end
 
 		local item = playerItems:Add("EFGMInventoryEntry")
@@ -6464,92 +6450,7 @@ function Menu.OpenTab.Inventory(container)
 		end
 	end
 
-	surface.SetFont("PuristaBold24")
-	local searchText = "SEARCH"
-	local searchTextSize = surface.GetTextSize(searchText)
-	local searchButtonSize = searchTextSize + EFGM.MenuScale(10)
-
-	local searchButton = vgui.Create("DButton", itemsHolder)
-	searchButton:SetPos(EFGM.MenuScale(240) + weightTextSize + unloadTextSize, 0)
-	searchButton:SetSize(searchButtonSize, EFGM.MenuScale(28))
-	searchButton:SetText("")
-	searchButton.Paint = function(s, w, h)
-		searchButton:SetX(EFGM.MenuScale(240) + weightTextSize + unloadTextSize)
-
-		surface.SetDrawColor(Colors.containerBackgroundColor)
-		surface.DrawRect(0, 0, searchTextSize + EFGM.MenuScale(10), h)
-
-		surface.SetDrawColor(Colors.transparentWhiteColor)
-		surface.DrawRect(0, 0, searchTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
-
-		draw.SimpleTextOutlined(searchText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-	end
-
-	searchOpen = false
-	itemSearchText = ""
-
-	searchBox = vgui.Create("DTextEntry", itemsHolder)
-	searchBox:SetSize(EFGM.MenuScale(593) - searchButton:GetX() - searchButton:GetWide(), EFGM.MenuScale(28))
-	searchBox:SetPos(searchButton:GetX() + searchButtonSize, 0)
-	searchBox:SetPlaceholderText("search...")
-	searchBox:SetUpdateOnType(true)
-	searchBox:SetTextColor(Colors.whiteColor)
-	searchBox:SetCursorColor(Colors.whiteColor)
-	searchBox:SetAlpha(0)
-	searchBox:SetEditable(false)
-
-	function searchBox:AllowInput(char)
-		if char == "[" or char == "]" then return true end
-	end
-
-	searchBox.Think = function(s)
-		searchBox:SetWide(EFGM.MenuScale(593) - searchButton:GetX() - searchButton:GetWide())
-		searchBox:SetX(searchButton:GetX() + searchButtonSize)
-	end
-
-	searchBox.OnChange = function(self)
-		local value = self:GetValue():lower()
-
-		if value:match("^%s+") then
-			self:SetText(value:match("^%s*(.-)$"))
-			return
-		end
-
-		if !GetConVar("efgm_menu_search_automatic"):GetBool() then return end
-
-		itemSearchText = value
-		Menu.ReloadInventory()
-	end
-
-	searchBox.OnEnter = function(self)
-		if GetConVar("efgm_menu_search_automatic"):GetBool() then return end
-		itemSearchText = self:GetValue():lower()
-		Menu.ReloadInventory()
-	end
-
-	searchButton.OnCursorEntered = function(s)
-		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-	end
-
-	function searchButton:DoClick()
-		surface.PlaySound("ui/element_select.wav")
-
-		if searchOpen == false then
-			searchBox:AlphaTo(255, 0.1, 0)
-			searchBox:SetEditable(true)
-			searchBox:RequestFocus()
-			searchOpen = true
-		else
-			searchBox:AlphaTo(0, 0.1, 0)
-			searchBox:SetEditable(false)
-			searchBox:SetValue("")
-			itemSearchText = ""
-			searchOpen = false
-			Menu.ReloadInventory()
-		end
-	end
-
-	playerItemsHolder = vgui.Create("DScrollPanel", itemsHolder)
+	local playerItemsHolder = vgui.Create("DScrollPanel", itemsHolder)
 	playerItemsHolder:SetPos(0, EFGM.MenuScale(32))
 	playerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 	function playerItemsHolder:Paint(w, h)
@@ -6786,7 +6687,7 @@ function Menu.OpenTab.Inventory(container)
 	stashItemSearchText = ""
 	Menu.StashFilter = 1
 
-	stashSearchBox = vgui.Create("DTextEntry", stashHolder)
+	local stashSearchBox = vgui.Create("DTextEntry", stashHolder)
 	stashSearchBox:SetSize(EFGM.MenuScale(593) - stashSearchButton:GetX() - stashSearchButton:GetWide(), EFGM.MenuScale(28))
 	stashSearchBox:SetPos(stashSearchButton:GetX() + stashSearchButtonSize, 0)
 	stashSearchBox:SetPlaceholderText("search...")
@@ -7035,7 +6936,7 @@ function Menu.OpenTab.Market()
 	marketStashItemSearchText = ""
 	Menu.MarketStashFilter = 1
 
-	marketStashSearchBox = vgui.Create("DTextEntry", marketStashHolder)
+	local marketStashSearchBox = vgui.Create("DTextEntry", marketStashHolder)
 	marketStashSearchBox:SetSize(EFGM.MenuScale(593) - marketStashSearchButton:GetX() - marketStashSearchButton:GetWide(), EFGM.MenuScale(28))
 	marketStashSearchBox:SetPos(marketStashSearchButton:GetX() + marketStashSearchButtonSize, 0)
 	marketStashSearchBox:SetPlaceholderText("search...")
@@ -7101,7 +7002,7 @@ function Menu.OpenTab.Market()
 	marketStashItemsDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 	marketStashItemsDocker.Paint = nil
 
-	marketStashItemsHolder = vgui.Create("DScrollPanel", marketStashItemsDocker)
+	local marketStashItemsHolder = vgui.Create("DScrollPanel", marketStashItemsDocker)
 	marketStashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
 	marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(18), marketStashItemsDocker:GetTall())
 	function marketStashItemsHolder:Paint(w, h)
