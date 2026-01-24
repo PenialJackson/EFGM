@@ -2,6 +2,7 @@
 MAPS = {
 	["efgm_belmont"] = {name = "Belmont", spawnProt = 3200},
 	["efgm_concrete"] = {name = "Concrete", spawnProt = 2304},
+	["efgm_concrete_night"] = {name = "Concrete", spawnProt = 2304},
 	["efgm_factory"] = {name = "Factory", spawnProt = 1536}
 }
 
