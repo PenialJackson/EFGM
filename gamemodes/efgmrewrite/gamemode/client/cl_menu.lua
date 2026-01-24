@@ -181,6 +181,7 @@ function Menu:Initialize(openTo, container)
 			self:SetSize(w, h)
 			local x, y = Menu.MouseX, Menu.MouseY
 			self:SetSide()
+			self:SetPos(self.SideH and math.Clamp(x + EFGM.MenuScale(15), 0, ScrW() - w) or math.Clamp(x - w - EFGM.MenuScale(15), 0, ScrW() - w), self.SideV and math.Clamp(y + EFGM.MenuScale(15), 0, ScrH() - h) or math.Clamp(y - h + EFGM.MenuScale(15), 0, ScrH() - h))
 			self:MoveToFront()
 			self:Show()
 			self:AlphaTo(255, 0.1, 0, nil)
@@ -6832,8 +6833,35 @@ function Menu.OpenTab.Inventory(container)
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		end
 
-		stashFilterButton.OnCursorEntered = function(s)
+		function stashFilterButton:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipName = string.upper(filter.name)
+			local tipNameSize = surface.GetTextSize(tipName)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 		end
 
 		function stashFilterButton:DoClick()
@@ -7067,8 +7095,35 @@ function Menu.OpenTab.Market()
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		end
 
-		marketStashFilterButton.OnCursorEntered = function(s)
+		function marketStashFilterButton:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipName = string.upper(filter.name)
+			local tipNameSize = surface.GetTextSize(tipName)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 		end
 
 		function marketStashFilterButton:DoClick()

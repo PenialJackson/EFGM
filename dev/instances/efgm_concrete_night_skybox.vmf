@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "104"
+	"mapversion" "109"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -89,12 +89,12 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "104"
+	"mapversion" "109"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxpropscreenwidth" "-1"
-	"skyname" "sky_day01_09_hdr"
+	"skyname" "sky_borealis01"
 	solid
 	{
 		"id" "255"
@@ -1735,15 +1735,13 @@ entity
 	"classname" "sky_camera"
 	"angles" "0 0 0"
 	"fogblend" "1"
-	"fogcolor" "43 45 57"
-	"fogcolor2" "43 45 57"
-	"fogcolor2_hdr" "0 0 0"
-	"fogcolor_hdr" "0 0 0"
+	"fogcolor" "10 10 30"
+	"fogcolor2" "5 5 5"
 	"fogdir" "1 0 0"
 	"fogenable" "1"
-	"fogend" "15000.0"
+	"fogend" "11250.0"
 	"fogmaxdensity" "1"
-	"fogstart" "1000.0"
+	"fogstart" "750.0"
 	"gmod_allowphysgun" "1"
 	"scale" "16"
 	"origin" "-488 1172 -134"
@@ -2706,7 +2704,9 @@ entity
 	"id" "3442"
 	"classname" "prop_static"
 	"angles" "0 18.5 0"
+	"disableselfshadowing" "0"
 	"disableshadows" "0"
+	"disablevertexlighting" "0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"lightmapresolutionx" "32"
@@ -4497,6 +4497,31 @@ entity
 	editor
 	{
 		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "6583"
+	"classname" "light_environment"
+	"_ambient" "5 5 5 0"
+	"_ambientHDR" "-1 -1 -1 -1"
+	"_AmbientScaleHDR" "0.7"
+	"_castentityshadow" "1"
+	"_light" "10 10 30 1"
+	"_lightHDR" "-1 -1 -1 -1"
+	"_lightscaleHDR" "0.6"
+	"_shadoworiginoffset" "0 0 0"
+	"angles" "-2 5 0"
+	"gmod_allowphysgun" "1"
+	"pitch" "-2"
+	"SunSpreadAngle" "0"
+	"origin" "-468 1171 -133"
+	editor
+	{
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

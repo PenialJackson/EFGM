@@ -597,6 +597,29 @@ if SERVER then
 		local extracts = RAID.GetCurrentExtracts(ply)
 		if !istable(extracts) or extracts == nil then return end
 
+		table.sort(extracts, function(a, b)
+			local a_show = a.ShowOnMap == true and 1 or 0
+			local b_show = b.ShowOnMap == true and 1 or 0
+
+			local a_disabled = a.IsDisabled == true and 1 or 0
+			local b_disabled = b.IsDisabled == true and 1 or 0
+
+			local a_name = a.ExtractName or ""
+			local b_name = b.ExtractName or ""
+
+			if a_disabled != b_disabled then
+				return a_disabled < b_disabled
+			end
+
+			if a_show != b_show then
+				return a_show > b_show
+			end
+
+			if a_name != b_name then
+				return a_name < b_name
+			end
+		end)
+
 		net.Start("SendExtractList")
 			net.WriteTable(extracts)
 		net.Send(ply)
