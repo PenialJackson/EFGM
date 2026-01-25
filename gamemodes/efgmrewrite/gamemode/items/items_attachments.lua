@@ -44526,3 +44526,883 @@ EFGMITEMS["arc9_att_eft_vsk_top_stock"] = {
 	["lootWeight"] = 100,
 	["canPurchase"] = true,
 }
+
+EFGMITEMS["arc9_att_eft_scorpion_barrel_12"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 carbine length 12 inch barrel",
+	["displayName"] = 'EVO 3 12"',
+	["displayType"] = "Attachment",
+	["description"] = "Carbine length 12 inch barrel for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/b12.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_barrel_14"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 carbine length 14 inch barrel",
+	["displayName"] = 'EVO 3 14"',
+	["displayType"] = "Attachment",
+	["description"] = "Carbine length 14 inch barrel for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/b14.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_barrel_5"] = {
+	["fullName"] = "CZ Scorpion EVO 3 PDW 5 inch barrel",
+	["displayName"] = 'EVO 3 5"',
+	["displayType"] = "Attachment",
+	["description"] = "PDW length 5 inch barrel for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/4.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_barrel_8"] = {
+	["fullName"] = "CZ Scorpion EVO 3 8 inch barrel",
+	["displayName"] = 'EVO 3 8"',
+	["displayType"] = "Attachment",
+	["description"] = "Standard 8 inch barrel for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/b8.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_barrel_int"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 5 inch integral barrel",
+	["displayName"] = 'EVO 3 5" Int',
+	["displayType"] = "Attachment",
+	["description"] = "Ported 5 inch barrel designed to be used with an integral suppressor system for the CZ Scorpion EVO 3 S1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/bt.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_ch_deltared"] = {
+	["fullName"] = "HB Industries CZ Scorpion EVO 3 DELTA extended charging handle (Red)",
+	["displayName"] = "Delta-R",
+	["displayType"] = "Attachment",
+	["description"] = "Extended charging handle for the CZ Scorpion EVO 3 platform, manufactured by HB Industries.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/delta.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_ch_pro"] = {
+	["fullName"] = "HB Industries CZ Scorpion EVO 3 ProStock charging handle",
+	["displayName"] = "Pro",
+	["displayType"] = "Attachment",
+	["description"] = "Alternate charging handle for the CZ Scorpion EVO 3 that offers a slightly larger footprint for better ergonomics over the standard charging handle.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/pro.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_ch_std"] = {
+	["fullName"] = "CZ Scorpion EVO 3 charging handle",
+	["displayName"] = "EVO 3 CH",
+	["displayType"] = "Attachment",
+	["description"] = "Standard charging handle for the CZ Scorpion EVO 3 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/ch.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_fs_std"] = {
+	["fullName"] = "CZ Scorpion EVO 3 front sight",
+	["displayName"] = "EVO 3 FS",
+	["displayType"] = "Attachment",
+	["description"] = "Standard fixed front sight for the CZ Scorpion EVO 3.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/fs.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_a1"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 polymer handguard",
+	["displayName"] = "EVO 3 HG",
+	["displayType"] = "Attachment",
+	["description"] = "Standard railed polymer handguard for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/h.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_ang"] = {
+	["fullName"] = "HB Industries CZ Scorpion EVO 3 A1 angled M-LOK handguard",
+	["displayName"] = "HB ANGLED",
+	["displayType"] = "Attachment",
+	["description"] = "A mid-length angled handguard with M-LOK capability for the CZ Scorpion EVO 3 manufactured by HB Industries.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hang.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_carb"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 carbine handguard",
+	["displayName"] = "Carbine HG",
+	["displayType"] = "Attachment",
+	["description"] = "Extended carbine M-LOK handguard for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hcarb.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_ext"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 extended tactical handguard",
+	["displayName"] = "EVO EXT",
+	["displayType"] = "Attachment",
+	["description"] = "An extended railed tactical handguard for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hlong.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_hbmid"] = {
+	["fullName"] = "HB Industries CZ Scorpion EVO 3 A1 mid-length M-LOK handguard",
+	["displayName"] = "HB MID",
+	["displayType"] = "Attachment",
+	["description"] = "A mid-length handguard with M-LOK capability for the CZ Scorpion EVO 3 manufactured by HB Industries.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hmid.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_micro"] = {
+	["fullName"] = "HB Industries CZ Scorpion EVO 3 A1 micro M-LOK handguard",
+	["displayName"] = "HB MICRO",
+	["displayType"] = "Attachment",
+	["description"] = "A PDW length micro handguard with M-LOK capability for the CZ Scorpion EVO 3 manufactured by HB Industries.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hmicro.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_mid"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 tactical mid-length railed handguard",
+	["displayName"] = "EVO MID",
+	["displayType"] = "Attachment",
+	["description"] = "A mid-length railed tactical handguard for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/htac.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hg_pdw"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 railed PDW handguard",
+	["displayName"] = "PDW HG",
+	["displayType"] = "Attachment",
+	["description"] = "A PDW length railed handguard for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hpdw.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hs_mlok"] = {
+	["fullName"] = "Magpul M-LOK hand stop",
+	["displayName"] = "HS M-LOK",
+	["displayType"] = "Attachment",
+	["description"] = "Tactical hand stop that is compatible with M-LOK rail systems, manufactured by Magpul.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hsm.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_hs_pic"] = {
+	["fullName"] = "CZ Scorpion EVO 3 picatinny hand stop",
+	["displayName"] = "HS",
+	["displayType"] = "Attachment",
+	["description"] = "Picatinny front hand stop for the CZ Scorpion EVO 3 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/hs.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_mag_20"] = {
+	["fullName"] = "CZ Scorpion EVO 3 Plus 9x19 20-round polymer magazine",
+	["displayName"] = "3 Plus-20",
+	["displayType"] = "Attachment",
+	["description"] = "A standard 20-round 9x19 magazine for the Scorpion EVO 3 and 3 Plus. Fits any scorpion model.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/20.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_mag_20tr"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 9x19 20-round polymer transparent magazine",
+	["displayName"] = "EVO 20",
+	["displayType"] = "Attachment",
+	["description"] = "Standard 20-round 9x19 transparent magazine for the CZ Scorpion EVO 3 A1.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/20tr.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_mag_30"] = {
+	["fullName"] = "CZ Scorpion EVO 3 Plus 9x19 30-round polymer magazine",
+	["displayName"] = "3 Plus-30",
+	["displayType"] = "Attachment",
+	["description"] = "A standard 30-round 9x19 magazine for the Scorpion EVO 3 and 3 Plus. Fits any scorpion model.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/30.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_mag_35"] = {
+	["fullName"] = "CZ Scorpion EVO 9x19 Magpul PMAG EV9 35-round magazine",
+	["displayName"] = "EV9",
+	["displayType"] = "Attachment",
+	["description"] = "The PMAG 35 EV9 is a lightweight, 35-round, 9x19mm CZ Scorpion EVO 3 compatible magazine.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/35.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_mag_35t"] = {
+	["fullName"] = "CZ Scorpion EVO 9x19 Magpul PMAG EV9 35-round magazine (Taped)",
+	["displayName"] = "EV9-T",
+	["displayType"] = "Attachment",
+	["description"] = "The PMAG 35 EV9 is a lightweight, 35-round, 9x19mm CZ Scorpion EVO 3 compatible magazine.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/35t.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_mag_50"] = {
+	["fullName"] = "CZ Scorpion EVO 9x19 50-round drum magazine",
+	["displayName"] = "EVO Drum 50",
+	["displayType"] = "Attachment",
+	["description"] = "A 50-round 9x19 drum magazine designed for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/50.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_muzzle_comp"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 carbine compensator",
+	["displayName"] = "Carbine Comp",
+	["displayType"] = "Attachment",
+	["description"] = "Standard multi-port compensator for the CZ Scorpion EVO 3 carbine.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/mc.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_muzzle_fh"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 flash hider",
+	["displayName"] = "EVO 3 FH",
+	["displayType"] = "Attachment",
+	["description"] = "Standard bird-cage style flash hider for the CZ Scorpion Evo 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/m.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_pgrip_moe"] = {
+	["fullName"] = "Magpul MOE-EVO CZ Scorpion EVO 3 pistol grip",
+	["displayName"] = "MOE",
+	["displayType"] = "Attachment",
+	["description"] = "Optimized drop-in pistol grip upgrade for the CZ Scorpion EVO 3 family of pistols and carbines.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/moe.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_pgrip_std"] = {
+	["fullName"] = "CZ Scorpion EVO 3 pistol grip",
+	["displayName"] = "EVO 3 Grip",
+	["displayType"] = "Attachment",
+	["description"] = "Standard polymer pistol grip for the CZ Scorpion Evo 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/grip.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_pgrip_ye"] = {
+	["fullName"] = "Yeti Wurks Switchback CZ Scorpion EVO 3 pistol grip",
+	["displayName"] = "Switchback",
+	["displayType"] = "Attachment",
+	["description"] = "An ergonomic pistol grip for the CZ Scorpion EVO 3 9x19 submachine gun, manufactured by Yeti Wurks.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/y.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_rs_std"] = {
+	["fullName"] = "CZ Scorpion EVO 3 rear sight",
+	["displayName"] = "EVO 3 RS",
+	["displayType"] = "Attachment",
+	["description"] = "Standard fixed rear sight for the CZ Scorpion EVO 3.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/rs.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_sc9"] = {
+	["fullName"] = "Innovative Arms IA-SC9 integral suppressor",
+	["displayName"] = "IA-SC9",
+	["displayType"] = "Attachment",
+	["description"] = "Integral suppressor designed specifically for the CZ Scorpion EVO 3 platform. Functioning similarly to an MP5-SD or other integral suppressor systems, the suppressor reduces velocity of standard cartridges to subsonic speeds to reduce overall sound signature.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/sh.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_shroud"] = {
+	["fullName"] = "CZ Scorpion EVO 3 barrel shroud",
+	["displayName"] = "Shroud",
+	["displayType"] = "Attachment",
+	["description"] = "A barrel shroud designed to be used on the CZ Scorpion integral barrel when the weapon is operating without an integral suppressor.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/sc9.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_a1"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 polymer stock",
+	["displayName"] = "EVO 3 Stock",
+	["displayType"] = "Attachment",
+	["description"] = "Standard polymer folding stock for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/stock.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_adv"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 Advanced Combat stock",
+	["displayName"] = "EVO ACR",
+	["displayType"] = "Attachment",
+	["description"] = "An ACR style polymer folding stock for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/arc.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_buff"] = {
+	["fullName"] = "CZ Scorpion EVO 3 folding buffer tube adapter",
+	["displayName"] = "EVO BUFFER",
+	["displayType"] = "Attachment",
+	["description"] = "A folding buffer tube adapter for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/buff.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_pdw"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 PDW collapsible stock",
+	["displayName"] = "PDW",
+	["displayType"] = "Attachment",
+	["description"] = "An ergonomic PDW style collapsible stock for the CZ Scorpion EVO A3 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/pdw.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_slider"] = {
+	["fullName"] = "Manticore Arms CZ Scorpion EVO 3 A1 Slider stock",
+	["displayName"] = "Manticore",
+	["displayType"] = "Attachment",
+	["description"] = "A collapsible stock for the CZ Scorpion EVO A3, inspired by the MP5A3 telescoping stock.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/manti.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_tac"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 tactical stock",
+	["displayName"] = "EVO TAC",
+	["displayType"] = "Attachment",
+	["description"] = "A tactical polymer folding stock for the CZ Scorpion EVO 3 A1 9x19 submachine gun.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/tac.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_scorpion_stock_zhu"] = {
+	["fullName"] = "CZ Scorpion EVO 3 A1 Magpul Zhukov stock adapter",
+	["displayName"] = "EVO ZHUKOV",
+	["displayType"] = "Attachment",
+	["description"] = "Magpul Zhukov polymer stock fitted to a CZ Scorpion EVO 3 stock adapter.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/wtt_scorpion_attachments/zh.png", "smooth"),
+
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}

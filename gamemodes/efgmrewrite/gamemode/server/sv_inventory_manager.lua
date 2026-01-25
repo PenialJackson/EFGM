@@ -56,6 +56,7 @@ function AddItemToInventory(ply, name, type, data)
 	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
 	local def = EFGMITEMS[name]
+	if def == nil then return end
 
 	data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
 
@@ -142,6 +143,8 @@ function FlowItemToInventory(ply, name, type, data)
 	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
 
 	local def = EFGMITEMS[name]
+	if def == nil then return end
+
 	local stackSize = def.stackSize
 	local amount = tonumber(data.count) or 1
 

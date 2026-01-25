@@ -452,7 +452,7 @@ if CLIENT and GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		local arc9atts = ARC9.Attachments
 
 		for k, v in SortedPairs(arc9atts) do
-			if EFGMITEMS[v.ShortName] then continue end
+			if EFGMITEMS["arc9_att_" .. v.ShortName] then continue end
 			if v.Free then continue end
 
 			local dname = v.CompactName or v.PrintName

@@ -1060,7 +1060,7 @@ function Menu.InspectItem(item, data)
 
 	surface.SetFont("PuristaBold18")
 	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(comma_value(value))
-	if i.canPurchase == true or i.canPurchase == nil then itemDescText = itemDescText .. " / LEVEL " .. string.upper(i.levelReq) end
+	if i.canPurchase == true or i.canPurchase == nil then itemDescText = itemDescText .. " / LEVEL " .. i.levelReq end
 	local itemDescSize = surface.GetTextSize(itemDescText)
 
 	local iconSizeX = EFGM.MenuScale(114 * i.sizeX)
@@ -2858,7 +2858,9 @@ function Menu.ReloadInventory()
 			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. comma_value(v.value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -3150,7 +3152,9 @@ function Menu.ReloadSlots()
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. comma_value(value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -3405,7 +3409,9 @@ function Menu.ReloadSlots()
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. comma_value(value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -3660,7 +3666,9 @@ function Menu.ReloadSlots()
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. comma_value(value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -3878,7 +3886,9 @@ function Menu.ReloadSlots()
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. comma_value(value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -4100,7 +4110,9 @@ function Menu.ReloadSlots()
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. comma_value(value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -4310,7 +4322,9 @@ function Menu.ReloadSlots()
 			local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = weight .. "kg / ₽" .. comma_value(value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. comma_value(value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -4732,7 +4746,9 @@ function Menu.ReloadStash()
 			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. comma_value(v.value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -5140,7 +5156,9 @@ function Menu.ReloadMarketStash()
 			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. comma_value(v.value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()
@@ -5412,7 +5430,9 @@ function Menu.ReloadContainer()
 			if v.data.count > 1 then tipItemName = v.data.count .. "x " .. tipItemName end
 			local tipItemNameSize = surface.GetTextSize(tipItemName)
 			surface.SetFont("Purista14")
-			local tipDesc = v.weight .. "kg / ₽" .. comma_value(v.value)
+			local canPurchase = i.canPurchase == true or i.canPurchase == nil
+			local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. comma_value(v.value)
+			if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq end
 			local tipDescSize = surface.GetTextSize(tipDesc)
 
 			local paint = function()

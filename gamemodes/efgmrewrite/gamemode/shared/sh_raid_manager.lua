@@ -652,6 +652,10 @@ function plyMeta:CompareStatus(status) -- if player is in raid then status of 0 
 	return self:GetNWInt("PlayerRaidStatus", 0) == status
 end
 
+function plyMeta:IsInRaid()
+	return self:GetNWInt("PlayerRaidStatus", 0) == 1 or self:GetNWInt("PlayerRaidStatus", 0) == 2
+end
+
 function plyMeta:CompareFaction(status) -- if player is a PMC then status of true will return true
 	return self:GetNWBool("PlayerIsPMC", true) == status
 end

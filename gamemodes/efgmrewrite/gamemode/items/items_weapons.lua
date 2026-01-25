@@ -3293,6 +3293,35 @@ EFGMITEMS["arc9_eft_mp7a2"] = {
 	}
 }
 
+EFGMITEMS["arc9_eft_scorpion"] = {
+	["fullName"] = "CZ Scorpion EVO 3 9x19 submachine gun",
+	["displayName"] = "Scorpion EVO",
+	["displayType"] = "Submachine Gun",
+	["weight"] = 2.4,
+	["value"] = 141000,
+	["levelReq"] = 38,
+	["equipType"] = EQUIPTYPE.Weapon,
+	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/weapons/scorpion.png", "smooth"),
+
+	["sizeX"] = 3,
+	["sizeY"] = 2,
+
+	["canPurchase"] = false,
+	["lootWeight"] = 50,
+
+	["caliber"] = "9x19",
+	["ammoID"] = "efgm_ammo_9x19",
+	["defAtts"] = "XQAAAQB5AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSSsLSi6YzbWy5XwG5b8qAMwDjOhit/kvKyRDNPsFDUWf5XjMeQrPZm+k8DIqrJuZz2U93938uThfBr/QwsvB+zjoGefEPmwAteKgx9eqbzO5kERMmtKdWbBF718AvmLdVerx3QXq/t0PgRARlBNpVRa98gecjcCNzGPsXMk5idXhYOJmpyJf3ZbKSbFw45t1wN0GiBghHENmcxR5HBdYe104Psq4",
+	["duelAtts"] = {
+		"XQAAAQB5AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSSsLSi6YzbWy5XwG5b8qAMwDjOhit/kvKyRDNPsFDUWf5XjMeQrPZm+k8DIqrJuZz2U93938uThfBr/QwsvB+zjoGefEPmwAteKgx9eqbzO5kERMmtKdWbBF718AvmLdVerx3QXq/t0PgRARlBNpVRa98gecjcCNzGPsXMk5idXhYOJmpyJf3ZbKSbFw45t1wN0GiBghHENmcxR5HBdYe104Psq4",
+		"XQAAAQCSAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSSsLSi6YzbWy5XwG5b8qAF6D3yk6oDX618tiIT8dVsh7c8Tp8OsecKpTkyjJXRLZJzM/A92lTNda6EvcaP2rqfhXzipg3ZpfndJUfUa0qoluBfi1YeZgngG904ZP0Vf0Ix+XB5bTdrHj29znnWuFc0glcD/fLrD5vdAVthv2t5fwa2ugeuehEXLAFU8opWJiMpUl551YVSVRgm5i2Azy8DNe/IsFjR+2NrGZtphe86pbpObSH2qzLq6DYJbpIxiM6YJ/8YpiLYRn2hFUIFKFYM38IjU4jLGb2uBgOM7NQSl0YexECuhjjqL0jQVBH2NQUOU/3tpe5muSJ6/K0gA=",
+		"XQAAAQCtAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSSsLSi6YzbWy5XwG5b8qBBb19LSuR+ciEIEv8dNhN8vmPawbxnS4lNcB1wXkLQ9gcngAhVICsf0FXq4AzFmNht30fl/snYXtttnZ/4+76LzAhmho93lQCXikjqgd07NERZX4PHQaVd7PtzcSKB/vN5JYdM2mKjQxzur2NWyuRIFF4PQreloBIKPahLPaWhfKQz3g2QR1M4kr5EsjLzOsbbnfzuZAnk6jdGIvP+mlqSoEN6ZORRtXwZ0xRO66xTVQbZxzsyEA"
+	}
+}
+
 EFGMITEMS["arc9_eft_ump"] = {
 	["fullName"] = "HK UMP .45 ACP submachine gun",
 	["displayName"] = "UMP .45",
