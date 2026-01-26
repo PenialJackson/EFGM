@@ -631,14 +631,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     lastPos = Vector(0, 0, 0),
                     lastAng = Angle(0, 0, 0)
                 }
-                table.insert(self.Flashlights, newlight)
+                self.Flashlights = {newlight}
 
                 table.insert(ARC9.FlashlightPile, {
                     Weapon = self,
                     ProjectedTexture = l
                 })
 
-                return
+                break
             end
         end
 
@@ -651,6 +651,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 end
             end
 
+            if ARC9.FlashlightPile then
+                for i = #ARC9.FlashlightPile, 1, -1 do
+                    if ARC9.FlashlightPile[i].Weapon == self then
+                        table.remove(ARC9.FlashlightPile, i)
+                    end
+                end
+            end
+
             self.Flashlights = nil
         end
 
@@ -659,14 +667,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             local lp = LocalPlayer()
 
             local isotherplayer = owner != lp
-            if isotherplayer then return end
             if isotherplayer and !arc9_allflash:GetBool() then return end
             if !isotherplayer and !owner:ShouldDrawLocalPlayer() then return end
-
-            if !self.Flashlights then self:CreateFlashlights() end
-
             if isotherplayer and lp:IsInRaid() != owner:IsInRaid() then self:KillFlashlights() return end
             if isotherplayer and lp:EyePos():DistToSqr(owner:EyePos()) > 2048^2 then self:KillFlashlights() return end
+
+            if !self.Flashlights then self:CreateFlashlights() end
+            if !self.Flashlights then return end
+
             local wmnotdrawn = self.LastWMDrawn != FrameNumber() and isotherplayer
 
             local curTime = CurTime()
@@ -674,6 +682,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             local shouldRaycast = (lastFlashlightRaycastWM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL * 2 <= curTime
 
             for i, k in ipairs(self.Flashlights) do
+                if !k.light or !k.light:IsValid() then continue end
+
                 local model = (k.slottbl or {}).WModel
 
                 if k.br == 0 then continue end
@@ -695,8 +705,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 end
 
                 self:DrawLightFlare(pos + fuckingbullshit, ang, k.col, k.br / 9, nil, k.nodotter)
-
-                if isotherplayer then return end
 
                 if shouldRaycast then
                     local tr = util.TraceLine({
@@ -734,7 +742,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     k.lastAng = Angle(ang)
                     lastFlashlightUpdateWM[self] = curTime
                 end
-                return
+
+                break
             end
         end
 
@@ -745,6 +754,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             if owner != lp then return end
 
             if !self.Flashlights then self:CreateFlashlights() end
+            if !self.Flashlights then return end
 
             local eyepos = owner:EyePos()
             local curTime = CurTime()
@@ -753,6 +763,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             local shouldRaycast = (lastFlashlightRaycastVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL * 2 <= curTime
 
             for i, k in ipairs(self.Flashlights) do
+                if !k.light or !k.light:IsValid() then continue end
+
                 local model = (k.slottbl or {}).VModel
 
                 if !IsValid(model) then continue end
@@ -807,7 +819,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     lastFlashlightUpdateVM[self] = curTime
                 end
 
-                return
+                break
             end
         end
 
@@ -821,6 +833,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
             dir = dir or ang:Forward()
             local diff = EyePos() - pos
+            local diffLength = diff:LengthSqr()
+
+            if diffLength > 360000 then return end
+
             local diffNorm = diff:GetNormalized()
 
             local dot = -dir:Dot(EyeAngles():Forward())
@@ -832,7 +848,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
             dot = dot ^ 4
             local tr = util.QuickTrace(pos, diff, {owner, lp, lp:GetViewEntity()})
-            local distanceScale = math.Clamp(1 - diff:Length() / 600, 0, 1)
+            local distanceScale = math.Clamp(1 - math.sqrt(diffLength) / 600, 0, 1)
             local s = distanceScale * dot * 500 * math.Rand(0.95, 1.05) * size
 
             if vm or tr.Fraction == 1 then
@@ -854,6 +870,26 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 end
             end
         end
+
+        hook.Add("PostDrawEffects", "ARC9_CleanFlashlights", function()
+            local newflashlightpile = {}
+
+            for _, k in ipairs(ARC9.FlashlightPile) do
+                if IsValid(k.Weapon) then
+                    local owner = k.Weapon:GetOwner()
+                    if IsValid(owner) and owner:IsPlayer() and owner:GetActiveWeapon() == k.Weapon and (arc9_allflash:GetBool() or owner == LocalPlayer()) then
+                        table.insert(newflashlightpile, k)
+                        continue
+                    end
+                end
+
+                if IsValid(k.ProjectedTexture) then
+                    k.ProjectedTexture:Remove()
+                end
+            end
+
+            ARC9.FlashlightPile = newflashlightpile
+        end)
 
         local arc9_atts_nocustomize = GetConVar("arc9_atts_nocustomize")
         local arc9_autosave = GetConVar("arc9_autosave")
