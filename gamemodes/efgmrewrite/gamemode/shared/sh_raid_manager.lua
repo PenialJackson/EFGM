@@ -32,7 +32,13 @@ if SERVER then
 
 	RAID.MapPool = {}
 	for id, _ in pairs(MAPS) do
-		table.insert(RAID.MapPool, {name = id, votes = 0})
+		if id == "efgm_concrete_night" then continue end
+
+		local mapName = id
+		if id == "efgm_concrete" and math.random() < 0.5 then
+			mapName = "efgm_concrete_night"
+		end
+		table.insert(RAID.MapPool, {name = mapName, votes = 0})
 	end
 
 	table.Shuffle(RAID.MapPool)
