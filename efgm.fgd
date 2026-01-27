@@ -1,5 +1,41 @@
 @include "base.fgd"
 
+@AutoVisgroup = "Loot"
+	[
+		"Loot"
+		[
+		"efgm_loot"
+		]
+	]
+
+@AutoVisgroup = "Spawns"
+	[
+		"Raid Spawns"
+		[
+			"efgm_raid_spawn"
+		]
+
+		"Team Spawns"
+		[
+			"efgm_team_spawn"
+		]
+
+		"Lobby Spawns"
+		[
+			"efgm_lobby_spawn"
+		]
+
+		"Duel Spawns"
+		[
+			"efgm_duel_spawn"
+		]
+
+		"Duel End Spawns"
+		[
+			"efgm_duel_end_spawn"
+		]
+	]
+
 @PointClass base(Targetname) = efgm_raid_interface : "Raid System Interface"
 [
 	raid_time(integer) : "Raid Time" : 1500 : "The time the raid lasts, in seconds."
@@ -181,4 +217,9 @@
 
 	output MoveToStart(void) : ""
 	output MoveToEnd(void) : ""
+]
+
+@SolidClass base(Trigger, Angles) = efgm_interactable : "Interactable"
+[
+	// only exists to allow custom items to show an interactable glow
 ]

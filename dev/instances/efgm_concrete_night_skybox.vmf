@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "110"
+	"mapversion" "115"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -11,7 +11,7 @@ visgroups
 }
 viewsettings
 {
-	"bSnapToGrid" "0"
+	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
 	"nGridSpacing" "32"
@@ -89,12 +89,12 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "110"
+	"mapversion" "115"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxpropscreenwidth" "-1"
-	"skyname" "sky_borealis01"
+	"skyname" "hd_grimmnight_"
 	solid
 	{
 		"id" "255"
@@ -1735,8 +1735,8 @@ entity
 	"classname" "sky_camera"
 	"angles" "0 0 0"
 	"fogblend" "1"
-	"fogcolor" "10 10 30"
-	"fogcolor2" "5 5 5"
+	"fogcolor" "0 0 0"
+	"fogcolor2" "0 0 0"
 	"fogdir" "1 0 0"
 	"fogenable" "1"
 	"fogend" "11250.0"
@@ -2655,7 +2655,6 @@ entity
 	"id" "5144"
 	"classname" "func_door"
 	"angles" "0 0 0"
-	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadows" "1"
 	"dmg" "0"
@@ -2663,7 +2662,6 @@ entity
 	"gmod_allowphysgun" "1"
 	"ignoredebris" "0"
 	"lip" "4608"
-	"locked_sentence" "0"
 	"loopmovesound" "0"
 	"movedir" "0 0 0"
 	"origin" "1440 960 620"
@@ -2675,7 +2673,6 @@ entity
 	"spawnpos" "0"
 	"speed" "64"
 	"targetname" "plane"
-	"unlocked_sentence" "0"
 	"wait" "-1"
 	solid
 	{
@@ -2832,7 +2829,7 @@ entity
 {
 	"id" "6583"
 	"classname" "light_environment"
-	"_ambient" "5 5 5 0"
+	"_ambient" "0 0 0 0"
 	"_ambientHDR" "-1 -1 -1 -1"
 	"_AmbientScaleHDR" "0.7"
 	"_castentityshadow" "1"
