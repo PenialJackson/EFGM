@@ -679,7 +679,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
             local curTime = CurTime()
             local shouldUpdateLight = (lastFlashlightUpdateWM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
-            local shouldRaycast = (lastFlashlightRaycastWM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL * 2 <= curTime
+            local shouldRaycast = (lastFlashlightRaycastWM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
 
             for i, k in ipairs(self.Flashlights) do
                 if !k.light or !k.light:IsValid() then continue end
@@ -757,10 +757,13 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             if !self.Flashlights then return end
 
             local eyepos = owner:EyePos()
-            local curTime = CurTime()
+            -- local curTime = CurTime()
 
-            local shouldUpdateLight = (lastFlashlightUpdateVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
-            local shouldRaycast = (lastFlashlightRaycastVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL * 2 <= curTime
+            -- local shouldUpdateLight = (lastFlashlightUpdateVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
+            -- local shouldRaycast = (lastFlashlightRaycastVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
+
+            local shouldUpdateLight = true
+            local shouldRaycast = true
 
             for i, k in ipairs(self.Flashlights) do
                 if !k.light or !k.light:IsValid() then continue end

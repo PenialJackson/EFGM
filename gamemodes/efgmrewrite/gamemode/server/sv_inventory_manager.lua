@@ -199,7 +199,7 @@ function DeflowItemsFromInventory(ply, name, count)
 
 	table.sort(indices, function(a, b) return ply.inventory[a].data.count < ply.inventory[b].data.count end)
 
-	for i = #indices, 1, -1 do
+	for i = 1, #indices do
 		if amount <= 0 then break end
 
 		local idx = indices[i]
