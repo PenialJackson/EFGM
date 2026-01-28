@@ -580,6 +580,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
         local flaremat = Material("effects/arc9_lensflare", "mips smooth")
         local badcolor = Color(255, 255, 255)
         local arc9_allflash = GetConVar("arc9_allflash")
+        local flashlightQuality = GetConVar("efgm_visuals_highqualflashlight"):GetBool()
         local fuckingbullshit = Vector(0, 0, 0.001)
         local gunoffset = Vector(0, 0, -16)
 
@@ -589,6 +590,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
         local lastFlashlightRaycastWM = {}
         local lastFlashlightRaycastVM = {}
 
+        cvars.AddChangeCallback("efgm_visuals_highqualflashlight", function(convar_name, value_old, value_new)
+            flashlightQuality = tobool(value_new)
+        end)
+
         function SWEP:CreateFlashlights()
             self:KillFlashlights()
             self.Flashlights = {}
@@ -597,6 +602,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             lastFlashlightUpdateVM[self] = 0
             lastFlashlightRaycastWM[self] = 0
             lastFlashlightRaycastVM[self] = 0
+
+            local owner = self:GetOwner()
+            local lp = LocalPlayer()
+
+            local isotherplayer = owner != lp
 
             for _, k in ipairs(self:GetSubSlotList()) do
                 if !k.Installed then continue end
@@ -618,7 +628,13 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                 l:SetColor(col)
                 l:SetTexture(atttbl.FlashlightMaterial or "effects/flashlight001")
                 l:SetBrightness(br)
-                l:SetEnableShadows(false)
+                if isotherplayer then
+                    l:SetEnableShadows(false)
+                elseif flashlightQuality then
+                    l:SetEnableShadows(true)
+                else
+                    l:SetEnableShadows(false)
+                end
                 l:Update()
 
                 local newlight = {

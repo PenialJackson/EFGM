@@ -10056,6 +10056,18 @@ function Menu.OpenTab.Settings()
 	impactFX:SetConVar("efgm_visuals_highqualimpactfx")
 	impactFX:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
+	local flashlightFXPanel = vgui.Create("DPanel", visuals)
+	flashlightFXPanel:Dock(TOP)
+	flashlightFXPanel:SetSize(0, EFGM.MenuScale(50))
+	function flashlightFXPanel:Paint(w, h)
+		draw.SimpleTextOutlined("High Quality Flashlights", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+	end
+
+	local flashlightFX = vgui.Create("DCheckBox", flashlightFXPanel)
+	flashlightFX:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
+	flashlightFX:SetConVar("efgm_visuals_highqualflashlight")
+	flashlightFX:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
+
 	local ejectedShellLifePanel = vgui.Create("DPanel", visuals)
 	ejectedShellLifePanel:Dock(TOP)
 	ejectedShellLifePanel:SetSize(0, EFGM.MenuScale(50))

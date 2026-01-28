@@ -26,6 +26,9 @@ function plyMeta:GetExitingCrouch()
 end
 
 hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
+	local mvtype = ply:GetMoveType()
+	if mvtype == MOVETYPE_NOCLIP then return end
+
 	if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) then
 		cmd:RemoveKey(IN_SPEED)
 	end
