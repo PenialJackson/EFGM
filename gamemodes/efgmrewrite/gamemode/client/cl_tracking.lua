@@ -26,7 +26,9 @@ hook.Add("efgm_raid_enter", "efgm_tracker_start", function()
 
 	enterRaidTime = SysTime()
 
-	timer.Create("efgm_tracker", interval, 0, function() UpdateTrackedPosition(false) end)
+	timer.Create("efgm_tracker", interval, 0, function()
+		UpdateTrackedPosition(false)
+	end)
 end)
 
 hook.Add("efgm_raid_exit", "efgm_tracker_stop", function(wasExtract)

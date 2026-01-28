@@ -33,7 +33,6 @@ if SERVER then
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
 			v:Freeze(true)
-			v:SetMoveType(MOVETYPE_NOCLIP)
 			v:SetRaidStatus(3, "")
 			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
 			v:SetNWBool("RaidReady", false)
@@ -99,7 +98,9 @@ if SERVER then
 		winningPly:GodEnable()
 		if winningPly:GetActiveWeapon() != NULL then winningPly:GetActiveWeapon():SetClip1(-1) end
 
-		timer.Simple(0.5, function() winningPly:Freeze(true) winningPly:SetMoveType(MOVETYPE_NOCLIP) end)
+		timer.Simple(0.5, function()
+			winningPly:Freeze(true)
+		end)
 
 		timer.Simple(1, function()
 			ReinstantiateInventoryAfterDuel(winningPly)

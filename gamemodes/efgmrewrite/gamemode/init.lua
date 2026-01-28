@@ -83,7 +83,6 @@ function GM:PlayerSpawn(ply)
 
 	ply:SetupHands()
 	ply:AddEFlags(EFL_NO_DAMAGE_FORCES) -- disables knockback being applied when damage is taken
-	ply:SetMoveType(MOVETYPE_WALK)
 	ply:UnLock()
 	ply:Freeze(false)
 	ply:SendLua("RunConsoleCommand('r_cleardecals')") -- clear decals for that extra 2 fps

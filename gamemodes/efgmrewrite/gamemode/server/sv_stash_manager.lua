@@ -30,7 +30,7 @@ function AddItemToStash(ply, name, type, data)
 	net.Start("PlayerStashAddItem", false)
 		net.WriteString(name)
 		net.WriteUInt(type, 4)
-		net.WriteTable(data) -- writing a table isn't great but we ball for now
+		net.WriteTable(data)
 		net.WriteUInt(index, 16)
 	net.Send(ply)
 

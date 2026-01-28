@@ -26,9 +26,6 @@ function plyMeta:GetExitingCrouch()
 end
 
 hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
-	local mvtype = ply:GetMoveType()
-	if mvtype == MOVETYPE_NOCLIP then return end
-
 	if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) then
 		cmd:RemoveKey(IN_SPEED)
 	end
@@ -125,9 +122,6 @@ local hull_size_5 = Vector(6.3, 6.3, 6.3)
 local hull_size_5_negative = Vector(-6.3, -6.3, -6.3)
 
 hook.Add("SetupMove", "Leaning", function(ply, mv, cmd)
-	local mvtype = ply:GetMoveType()
-	if mvtype == MOVETYPE_NOCLIP then return end
-
 	local eyepos = ply:EyePos() - ply:GetNW2Vector("leaning_best_head_offset")
 	local angles = cmd:GetViewAngles()
 
@@ -367,9 +361,6 @@ end)
 
 local maxLossInertiaMult = 0.75
 hook.Add("SetupMove", "VBSetupMove", function(ply, mv, cmd)
-	local mvtype = ply:GetMoveType()
-	if mvtype == MOVETYPE_NOCLIP then return end
-
 	local vel = mv:GetVelocity():GetNormalized():Dot(ply:GetNW2Vector("VBLastDir"), vector_origin)
 
 	if ply:OnGround() and vel < ((mv:KeyDown(IN_SPEED) and 0.99) or 0.998) and vel > 0 then

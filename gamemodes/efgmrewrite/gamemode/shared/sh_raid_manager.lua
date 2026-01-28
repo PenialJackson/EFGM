@@ -32,12 +32,18 @@ if SERVER then
 
 	RAID.MapPool = {}
 	for id, _ in pairs(MAPS) do
-		if id == "efgm_concrete_night" then continue end
+		if id == "efgm_concrete_night" or id == "efgm_factory_night" then continue end
 
 		local mapName = id
+
 		if id == "efgm_concrete" and math.random() < 0.5 then
 			mapName = "efgm_concrete_night"
 		end
+
+		if id == "efgm_factory" and math.random < 0.5 then
+			mapName = "efgm_factory_night"
+		end
+
 		table.insert(RAID.MapPool, {name = mapName, votes = 0})
 	end
 
@@ -151,8 +157,6 @@ if SERVER then
 			local introAnimString, introSpaceIndex = IntroGetFreeSpace()
 
 			v:Freeze(true)
-			v:SetMoveType(MOVETYPE_NOCLIP)
-
 			v:SetRaidStatus(status, "")
 			v:SetNWBool("PlayerIsPMC", true)
 
@@ -193,7 +197,6 @@ if SERVER then
 
 					local tempPos = ents.FindByName("TP_" .. string.Explode("|", introAnimString)[1])[1]
 					v:Teleport(tempPos:GetPos(), tempPos:GetAngles(), Vector(0, 0, 0)) -- just so the player isnt clogging the lobby or getting beamed in raid
-					v:SetMoveType(MOVETYPE_NOCLIP)
 
 					animModel:Fire("SetAnimation", "sequence", 0, v, v)
 
@@ -489,7 +492,6 @@ if SERVER then
 		self:SetPos(position)
 		self:SetEyeAngles(angles)
 		self:SetLocalVelocity(velocity)
-		self:SetMoveType(MOVETYPE_WALK)
 	end
 
 	function plyMeta:GetRaidStatus()
@@ -506,7 +508,6 @@ if SERVER then
 		net.Send(ply)
 
 		ply:Lock()
-		ply:SetMoveType(MOVETYPE_NOCLIP)
 
 		local prevStatus = ply:GetNWInt("PlayerRaidStatus", 0)
 		ply:SetRaidStatus(0, "")

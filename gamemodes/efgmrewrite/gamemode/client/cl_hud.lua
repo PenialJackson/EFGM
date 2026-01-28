@@ -614,11 +614,22 @@ net.Receive("PlayerRaidTransition", function()
 	local status = net.ReadUInt(2)
 
 	if status == 1 then
-		timer.Simple(1, function() hook.Run("efgm_raid_enter") HUD.InIntro = false end)
-		timer.Simple(1.5, function() RenderRaidIntro() end)
-		timer.Simple(2.5, function() RenderExtracts() end)
+		timer.Simple(1, function()
+			HUD.InIntro = false
+		end)
+
+		timer.Simple(1.5, function()
+			hook.Run("efgm_raid_enter")
+			RenderRaidIntro()
+		end)
+
+		timer.Simple(2.5, function()
+			RenderExtracts()
+		end)
 	elseif status == 0 then
-		timer.Simple(1, function() HUD.InIntro = true end)
+		timer.Simple(1, function()
+			HUD.InIntro = true
+		end)
 	end
 
 	HUD.InTransition = true
