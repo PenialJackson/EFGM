@@ -40,7 +40,7 @@ if SERVER then
 			mapName = "efgm_concrete_night"
 		end
 
-		if id == "efgm_factory" and math.random < 0.5 then
+		if id == "efgm_factory" and math.random() < 0.5 then
 			mapName = "efgm_factory_night"
 		end
 
@@ -109,7 +109,9 @@ if SERVER then
 		net.Broadcast()
 
 		for k, v in ipairs(player.GetHumans()) do
-			if !v:CompareStatus(0) and !v:CompareStatus(3) and !v:HasGodMode() then v:Kill() end
+			if v:IsInRaid() then
+				v:Kill()
+			end
 		end
 	end
 
@@ -141,12 +143,12 @@ if SERVER then
 		for k, v in ipairs(plys) do
 			if !v:IsPlayer() then return end
 
-			if !v:CompareStatus(0) and !v:CompareStatus(3) then
+			if v:IsInRaid() then
 				local curStatus, _ = v:GetRaidStatus()
 				print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", but they're probably fine to join anyway?")
 			end
 
-			if v:CompareStatus(3) then
+			if v:IsInDuel() then
 				local curStatus, _ = v:GetRaidStatus()
 				print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", this means they are in a duel, this shouldn't be possible at all, let's not let them join!")
 				return
@@ -295,7 +297,7 @@ if SERVER then
 	end
 
 	function RAID.GetCurrentExtracts(ply)
-		if ply:CompareStatus(0) or ply:CompareStatus(3) or ply:GetNWBool("PlayerInIntro", false) then return nil end
+		if !ply:IsInRaid() or ply:GetNWBool("PlayerInIntro", false) then return nil end
 
 		local extracts = {}
 
@@ -460,7 +462,7 @@ if SERVER then
 	end
 
 	function plyMeta:SetFaction(fac)
-		if !self:CompareStatus(0) then return end
+		if !self:IsInHideout() then return end
 
 		if self:GetNW2String("PlayerInSquad", "nil") != "nil" then
 			net.Start("SendNotification", false)
@@ -659,12 +661,36 @@ function plyMeta:CompareStatus(status) -- if player is in raid then status of 0 
 	return self:GetNWInt("PlayerRaidStatus", 0) == status
 end
 
+function plyMeta:IsInHideout()
+	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.LOBBY
+end
+
 function plyMeta:IsInRaid()
 	return self:GetNWInt("PlayerRaidStatus", 0) == 1 or self:GetNWInt("PlayerRaidStatus", 0) == 2
 end
 
+function plyMeta:IsInRaidPMC()
+	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.PMC
+end
+
+function plyMeta:IsInRaidScav()
+	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.SCAV
+end
+
+function plyMeta:IsInDuel()
+	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.DUEL
+end
+
 function plyMeta:CompareFaction(status) -- if player is a PMC then status of true will return true
 	return self:GetNWBool("PlayerIsPMC", true) == status
+end
+
+function plyMeta:IsPMC()
+	return self:GetNWBool("PlayerIsPMC", true) == true
+end
+
+function plyMeta:IsScav()
+	return self:GetNWBool("PlayerIsPMC", true) == false
 end
 
 -- i love debugging commands omg
@@ -676,7 +702,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	concommand.Add("efgm_debug_spawn", function(ply, cmd, args) ForceSpawnPlayer(ply) end)
 
 	function ForceExtractPlayer(ply)
-		if ply:CompareStatus(0) then return end
+		if !ply:IsInRaid() then return end
 		hook.Run("PlayerExtraction", ply, 67, true, "imgonnaendit")
 	end
 	concommand.Add("efgm_debug_extract", function(ply, cmd, args) ForceExtractPlayer(ply) end)

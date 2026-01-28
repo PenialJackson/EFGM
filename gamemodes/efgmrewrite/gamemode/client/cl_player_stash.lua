@@ -76,7 +76,7 @@ net.Receive("PlayerStashDeleteItem", function(len)
 end)
 
 function StashItemFromInventory(itemIndex)
-	if !LocalPlayer():CompareStatus(0) then return end
+	if !LocalPlayer():IsInHideout() then return end
 
 	local item = playerInventory[itemIndex]
 	if item == nil then return end
@@ -87,7 +87,7 @@ function StashItemFromInventory(itemIndex)
 end
 
 function StashItemFromEquipped(equipID, equipSlot)
-	if !LocalPlayer():CompareStatus(0) then return end
+	if !LocalPlayer():IsInHideout() then return end
 	if equipID != WEAPONSLOTS.MELEE.ID and LocalPlayer():CompareFaction(false) then return end
 
 	local item = playerWeaponSlots[equipID][equipSlot]
@@ -107,7 +107,7 @@ function UnloadInventoryToStash()
 end
 
 function TakeFromStashToInventory(itemIndex)
-	if !LocalPlayer():CompareStatus(0) then return end
+	if !LocalPlayer():IsInHideout() then return end
 	if LocalPlayer():CompareFaction(false) then return end
 
 	local item = playerStash[itemIndex]
@@ -119,7 +119,7 @@ function TakeFromStashToInventory(itemIndex)
 end
 
 function EquipItemFromStash(itemIndex, equipSlot, primaryPref)
-	if !LocalPlayer():CompareStatus(0) then return end
+	if !LocalPlayer():IsInHideout() then return end
 	if equipSlot != WEAPONSLOTS.MELEE.ID and LocalPlayer():CompareFaction(false) then return end
 
 	local item = playerStash[itemIndex]
@@ -170,7 +170,7 @@ function EquipItemFromStash(itemIndex, equipSlot, primaryPref)
 end
 
 function PinItemFromStash(itemIndex)
-	if !LocalPlayer():CompareStatus(0) then return end
+	if !LocalPlayer():IsInHideout() then return end
 
 	local item = playerStash[itemIndex]
 	if item == nil then return end

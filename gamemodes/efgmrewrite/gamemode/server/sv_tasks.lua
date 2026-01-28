@@ -364,8 +364,7 @@ end
 
 -- passive progression hooks
 hook.Add("PlayerDeath", "TaskKill", function(victim, inflictor, attacker)
-
-	if victim:IsPlayer() and !victim:CompareStatus(0) and !victim:CompareStatus(3) then
+	if victim:IsPlayer() and victim:IsInRaid() then
 		TaskTempProgressWipeAll(victim)
 	end
 

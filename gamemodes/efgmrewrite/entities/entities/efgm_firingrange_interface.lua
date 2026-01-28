@@ -45,7 +45,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 				net.WriteString("range_enter.wav")
 			net.Send(ply)
 		else
-			if ply:CompareStatus(3) then return end
+			if ply:IsInDuel() then return end
 
 			for _, wep in ipairs(ply:GetWeapons()) do
 				local def = EFGMITEMS[wep:GetClass()]

@@ -534,7 +534,7 @@ end)
 
 hook.Add("PlayerDisconnected", "PlayerUninitializeStats", function(ply)
 	-- in raid
-	if !ply:CompareStatus(0) and !ply:CompareStatus(3)  then
+	if ply:IsInRaid() then
 		UnequipAll(ply)
 
 		if ply.inventory[1] != nil then
@@ -553,7 +553,7 @@ hook.Add("PlayerDisconnected", "PlayerUninitializeStats", function(ply)
 	end
 
 	-- in duel
-	if ply:CompareStatus(3) then -- the player wasn't a part of the duel
+	if ply:IsInDuel() then
 		ReinstantiateInventoryAfterDuel(ply)
 		DUEL:EndDuel(ply)
 	end
@@ -572,7 +572,7 @@ end)
 
 hook.Add("ShutDown", "ServerUninitializeStats", function()
 	for _, ply in ipairs(player.GetHumans()) do
-		if ply:CompareStatus(3) then
+		if ply:IsInDuel() then
 			ReinstantiateInventoryAfterDuel(ply)
 		end
 

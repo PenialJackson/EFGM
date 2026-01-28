@@ -437,10 +437,10 @@ if SERVER then
 		if type == 1 then -- entity based
 			local attacker = ent:GetOwner()
 			if !attacker:IsPlayer() then return end
-			if attacker:CompareStatus(0) or attacker:CompareStatus(3) then return end
+			if !attacker:IsInRaid() then return end
 
 			for k, v in ipairs(player.GetHumans()) do
-				if v:CompareStatus(0) or v:CompareStatus(3) then return end
+				if !v:IsInRaid() then return end
 
 				local class = ent:GetClass()
 				if shotCaliber[class] == nil then return end
@@ -480,10 +480,10 @@ if SERVER then
 			if attacker == NULL then attacker = ent end -- failsafe
 			if !attacker:IsPlayer() then return end
 			if cal == nil then return end
-			if attacker:CompareStatus(0) or attacker:CompareStatus(3) then return end
+			if !attacker:IsInRaid() then return end
 
 			for k, v in ipairs(player.GetHumans()) do
-				if v:CompareStatus(0) or v:CompareStatus(3) then return end
+				if !v:IsInRaid() then return end
 				if shotCaliber[cal] == nil then return end
 
 				local shootPos = Vector(attacker:GetPos())

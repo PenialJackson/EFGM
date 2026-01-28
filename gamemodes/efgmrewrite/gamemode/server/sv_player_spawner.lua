@@ -23,7 +23,7 @@ function GetValidRaidSpawn(status)
 
 		for _, e in ipairs(entities) do
 			-- player
-			if e:IsPlayer() and e:Alive() and (e:CompareStatus(1) or e:CompareStatus(2)) and !e:GetNWBool("PlayerInIntro", false) then
+			if e:IsPlayer() and e:Alive() and e:IsInRaid() and !e:GetNWBool("PlayerInIntro", false) then
 				blocked = true
 				break
 			end
@@ -53,7 +53,7 @@ function GetValidRaidSpawn(status)
 		local minDistance = math.huge
 
 		for _, ply in ipairs(plys) do
-			if ply:Alive() and (ply:CompareStatus(1) or ply:CompareStatus(2)) and !ply:GetNWBool("PlayerInIntro", false) then
+			if ply:Alive() and e:IsInRaid() and !ply:GetNWBool("PlayerInIntro", false) then
 				local distance = spawn:GetPos():DistToSqr(ply:GetPos())
 				minDistance = math.min(minDistance, distance)
 			end
@@ -92,7 +92,7 @@ function GetValidHideoutSpawn(spawnType)
 
 		for _, e in ipairs(entities) do
 			if !e:IsPlayer() then continue end
-			if e:Alive() and (e:CompareStatus(0) or e:CompareStatus(3)) then
+			if e:Alive() and (!e:IsInRaid()) then
 				blocked = true
 				break
 			end

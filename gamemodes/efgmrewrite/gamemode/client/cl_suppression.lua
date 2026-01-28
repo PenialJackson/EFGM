@@ -18,7 +18,7 @@ net.Receive("suppression_fire_event", function(len)
 	local dir = readVectorUncompressed()
 	local entity = net.ReadEntity()
 	if entity == LocalPlayer() then return end
-	if LocalPlayer():CompareStatus(0) then return end
+	if LocalPlayer():IsInHideout() then return end
 
 	local tr = util.TraceLine({
 		start = src,

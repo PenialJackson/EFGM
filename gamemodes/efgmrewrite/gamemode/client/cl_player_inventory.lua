@@ -198,7 +198,7 @@ net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
 end )
 
 function DropItemFromInventory(itemIndex)
-	if LocalPlayer():CompareStatus(3) then return end
+	if LocalPlayer():IsInDuel() then return end
 
 	net.Start("PlayerInventoryDropItem", false)
 		net.WriteUInt(itemIndex, 16)
@@ -258,7 +258,7 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 end
 
 function UnEquipItemFromInventory(equipID, equipSlot)
-	if (LocalPlayer():CompareFaction(false) and LocalPlayer():CompareStatus(0)) then return end
+	if (LocalPlayer():CompareFaction(false) and LocalPlayer():IsInHideout()) then return end
 
 	local item = playerWeaponSlots[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
@@ -272,7 +272,7 @@ function UnEquipItemFromInventory(equipID, equipSlot)
 end
 
 function DropEquippedItem(equipID, equipSlot)
-	if LocalPlayer():CompareStatus(3) then return end
+	if LocalPlayer():IsInDuel() then return end
 
 	local item = playerWeaponSlots[equipID][equipSlot]
 	if table.IsEmpty(item) then return end

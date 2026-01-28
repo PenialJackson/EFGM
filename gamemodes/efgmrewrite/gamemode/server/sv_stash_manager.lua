@@ -149,7 +149,7 @@ end
 net.Receive("PlayerStashAddItemFromInventory", function(len, ply)
 	local itemIndex = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 	if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
 
 	local item = DeleteItemFromInventory(ply, itemIndex, false)
@@ -167,7 +167,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 	if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
 	if equipID != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
 
@@ -230,7 +230,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 end)
 
 function StashAllFromInventory(ply)
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 
 	local indexes = #ply.inventory
 	local indexesNuked = 0
@@ -258,7 +258,7 @@ end)
 net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
 	local itemIndex = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 	if ply:CompareFaction(false) then return end
 
 	local item = DeleteItemFromStash(ply, itemIndex)
@@ -279,7 +279,7 @@ net.Receive("PlayerStashEquipItem", function(len, ply)
 	equipSlot = net.ReadUInt(4)
 	equipSubSlot = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 	if equipSlot != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
 
 	local item = ply.stash[itemIndex]
@@ -315,7 +315,7 @@ end)
 net.Receive("PlayerStashPinItem", function(len, ply)
 	local itemIndex = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 
 	if ply.stash[itemIndex].data.pin != 1 then
 		ply.stash[itemIndex].data.pin = 1

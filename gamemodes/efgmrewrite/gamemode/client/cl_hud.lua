@@ -319,7 +319,7 @@ function RenderCompass()
 end
 
 function RenderPlayerInfo(ent)
-	local inHideout = ent:CompareStatus(0)
+	local inHideout = ent:IsInHideout()
 
 	local name = string.upper(ent:Name())
 	surface.SetFont("BenderExfilTimerMenu")
@@ -419,7 +419,7 @@ function RenderInvite()
 
 	invite.Paint = function(self, w, h)
 		if !ply:Alive() then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 		if Invites.invitedBy == nil or Invites.invitedType == nil or !Invites.allow then invite:AlphaTo(0, 0.1, 9.9, function() invite:Remove() end) return end
 
 		surface.SetDrawColor(Colors.hudBackground)
@@ -512,7 +512,7 @@ function RenderDuelLoadout()
 
 	DuelLoadout.Paint = function(self, w, h)
 		if !ply:Alive() then return end
-		if !ply:CompareStatus(3) then return end
+		if !ply:IsInDuel() then return end
 
 		surface.SetDrawColor(Colors.hudBackground)
 		surface.DrawRect(ScrW() / 2 - (loadoutSize / 2), ScrH() - loadoutSizeY - EFGM.ScreenScale(20), loadoutSize, loadoutSizeY)
@@ -2388,7 +2388,7 @@ end)
 
 function DrawTarget()
 	if !ply:Alive() then return false end
-	if !ply:CompareStatus(0) then return false end
+	if !ply: IsInHideout() then return false end
 
 	local ent = ply:GetEyeTrace().Entity
 	if !IsValid(ent) then return false end

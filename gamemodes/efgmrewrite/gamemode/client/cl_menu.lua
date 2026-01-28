@@ -568,7 +568,7 @@ function Menu:Initialize(openTo, container)
 			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
 		end)
 
-		if Menu.Player:CompareStatus(0) then
+		if Menu.Player:IsInHideout() then
 			net.Start("AddPlayerSquadRF")
 			net.SendToServer()
 		end
@@ -638,7 +638,7 @@ function Menu:Initialize(openTo, container)
 	marketTab:Dock(LEFT)
 	marketTab:SetSize(EFGM.MenuScale(38), 0)
 
-	if !Menu.Player:CompareStatus(0) then marketTab:Hide(true) end
+	if !Menu.Player:IsInHideout() then marketTab:Hide(true) end
 
 	local marketIcon = vgui.Create("DButton", marketTab)
 	marketIcon:SetPos(EFGM.MenuScale(2), EFGM.MenuScale(2))
@@ -677,7 +677,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	function marketIcon:DoClick()
-		if !Menu.Player:CompareStatus(0) then
+		if !Menu.Player:IsInHideout() then
 			surface.PlaySound("common/wpn_denyselect.wav")
 			return
 		end
@@ -2785,7 +2785,7 @@ function Menu.ReloadInventory()
 			if item.SLOT == WEAPONSLOTS.CONSUMABLE.ID then item:Droppable("slot_consumable") end
 		end
 
-		if Menu.Player:CompareStatus(0) and (IsValid(Menu.Container) and table.IsEmpty(Menu.Container)) then item:Droppable("stash") end
+		if Menu.Player:IsInHideout() and (IsValid(Menu.Container) and table.IsEmpty(Menu.Container)) then item:Droppable("stash") end
 
 		function item:Paint(w, h)
 			if !self:IsHovered() then surface.SetDrawColor(Colors.itemBackgroundColor) else surface.SetDrawColor(Colors.itemBackgroundColorHovered) end
@@ -2893,7 +2893,7 @@ function Menu.ReloadInventory()
 		end
 
 		function item:DoClick()
-			if input.IsKeyDown(KEY_LSHIFT) and (Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container)) then
+			if input.IsKeyDown(KEY_LSHIFT) and (Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container)) then
 				surface.PlaySound("ui/inv_item_tostash_" .. math.random(1, 7) .. ".wav")
 				StashItemFromInventory(v.id)
 			end
@@ -2945,13 +2945,13 @@ function Menu.ReloadInventory()
 				ammoBuyable = false
 			}
 
-			actions.stashable = Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container)
+			actions.stashable = Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container)
 			actions.equipable = i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable
 			actions.splittable = i.stackSize > 1 and v.data.count > 1
-			actions.consumable = !Menu.Player:CompareStatus(0) and i.equipType == EQUIPTYPE.Consumable
-			actions.deletable = Menu.Player:CompareStatus(0)
-			actions.ammoBuyable = Menu.Player:CompareStatus(0) and i.ammoID
-			actions.taggable = Menu.Player:CompareStatus(0) and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
+			actions.consumable = !Menu.Player:IsInHideout() and i.equipType == EQUIPTYPE.Consumable
+			actions.deletable = Menu.Player:IsInHideout()
+			actions.ammoBuyable = Menu.Player:IsInHideout() and i.ammoID
+			actions.taggable = Menu.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
 
 			if actions.stashable then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
@@ -3222,7 +3222,7 @@ function Menu.ReloadSlots()
 				Menu.InspectItem(playerWeaponSlots[1][1].name, playerWeaponSlots[1][1].data)
 			end
 
-			if Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container) then
+			if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
 				stashButton:SetText("STASH")
 				stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -3239,7 +3239,7 @@ function Menu.ReloadSlots()
 				UnEquipItemFromInventory(primaryItem.SLOTID, primaryItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				if i.ammoID then
 					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
@@ -3264,7 +3264,7 @@ function Menu.ReloadSlots()
 				DropEquippedItem(primaryItem.SLOTID, primaryItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
 				deleteButton:SetText("DELETE")
 				deleteButton.OnClickSound = "nil"
@@ -3479,7 +3479,7 @@ function Menu.ReloadSlots()
 				Menu.InspectItem(playerWeaponSlots[1][2].name, playerWeaponSlots[1][2].data)
 			end
 
-			if Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container) then
+			if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
 				stashButton:SetText("STASH")
 				stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -3496,7 +3496,7 @@ function Menu.ReloadSlots()
 				UnEquipItemFromInventory(secondaryItem.SLOTID, secondaryItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				if i.ammoID then
 					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
@@ -3521,7 +3521,7 @@ function Menu.ReloadSlots()
 				DropEquippedItem(secondaryItem.SLOTID, secondaryItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
 				deleteButton:SetText("DELETE")
 				deleteButton.OnClickSound = "nil"
@@ -3736,7 +3736,7 @@ function Menu.ReloadSlots()
 				Menu.InspectItem(playerWeaponSlots[2][1].name, playerWeaponSlots[2][1].data)
 			end
 
-			if Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container) then
+			if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
 				stashButton:SetText("STASH")
 				stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -3753,7 +3753,7 @@ function Menu.ReloadSlots()
 				UnEquipItemFromInventory(holsterItem.SLOTID, holsterItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				if i.ammoID then
 					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
@@ -3778,7 +3778,7 @@ function Menu.ReloadSlots()
 				DropEquippedItem(holsterItem.SLOTID, holsterItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
 				deleteButton:SetText("DELETE")
 				deleteButton.OnClickSound = "nil"
@@ -3956,7 +3956,7 @@ function Menu.ReloadSlots()
 				Menu.InspectItem(playerWeaponSlots[3][1].name, playerWeaponSlots[3][1].data)
 			end
 
-			if Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container) then
+			if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
 				stashButton:SetText("STASH")
 				stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -3973,7 +3973,7 @@ function Menu.ReloadSlots()
 				UnEquipItemFromInventory(meleeItem.SLOTID, meleeItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				if i.ammoID then
 					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
@@ -3998,7 +3998,7 @@ function Menu.ReloadSlots()
 				DropEquippedItem(meleeItem.SLOTID, meleeItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
 				deleteButton:SetText("DELETE")
 				deleteButton.OnClickSound = "nil"
@@ -4180,7 +4180,7 @@ function Menu.ReloadSlots()
 				Menu.InspectItem(playerWeaponSlots[4][1].name, playerWeaponSlots[4][1].data)
 			end
 
-			if Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container) then
+			if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
 				stashButton:SetText("STASH")
 				stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -4197,7 +4197,7 @@ function Menu.ReloadSlots()
 				UnEquipItemFromInventory(nadeItem.SLOTID, nadeItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				if i.ammoID then
 					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
@@ -4222,7 +4222,7 @@ function Menu.ReloadSlots()
 				DropEquippedItem(nadeItem.SLOTID, nadeItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
 				deleteButton:SetText("DELETE")
 				deleteButton.OnClickSound = "nil"
@@ -4392,7 +4392,7 @@ function Menu.ReloadSlots()
 				Menu.InspectItem(playerWeaponSlots[5][1].name, playerWeaponSlots[5][1].data)
 			end
 
-			if Menu.Player:CompareStatus(0) and table.IsEmpty(Menu.Container) then
+			if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
 				local stashButton = vgui.Create("EFGMContextButton", contextMenu)
 				stashButton:SetText("STASH")
 				stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -4415,7 +4415,7 @@ function Menu.ReloadSlots()
 				DropEquippedItem(consumableItem.SLOTID, consumableItem.SLOT)
 			end
 
-			if Menu.Player:CompareStatus(0) then
+			if Menu.Player:IsInHideout() then
 				local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
 				deleteButton:SetText("DELETE")
 				deleteButton.OnClickSound = "nil"
@@ -4840,8 +4840,8 @@ function Menu.ReloadStash()
 			actions.equipable = i.equipType == EQUIPTYPE.Weapon
 			actions.splittable = i.stackSize > 1 and v.data.count > 1
 			actions.consumable = i.equipType == EQUIPTYPE.Consumable
-			actions.ammoBuyable = Menu.Player:CompareStatus(0) and i.ammoID
-			actions.taggable = Menu.Player:CompareStatus(0) and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
+			actions.ammoBuyable = Menu.Player:IsInHideout() and i.ammoID
+			actions.taggable = Menu.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
 
 			if actions.equipable then
 				local equipButton = vgui.Create("EFGMContextButton", contextMenu)
@@ -6208,7 +6208,7 @@ function Menu.OpenTab.Inventory(container)
 		draw.SimpleTextOutlined("HEALTH", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
-	if Menu.Player:CompareStatus(0) then
+	if Menu.Player:IsInHideout() then
 		surface.SetFont("PuristaBold24")
 		local unloadText = "UNEQUIP ALL"
 		local unloadTextSize = surface.GetTextSize(unloadText)
@@ -6439,7 +6439,7 @@ function Menu.OpenTab.Inventory(container)
 	local unloadTextSize = EFGM.MenuScale(-15)
 	local unloadButtonSize = 0
 
-	if Menu.Player:CompareStatus(0) then
+	if Menu.Player:IsInHideout() then
 		surface.SetFont("PuristaBold24")
 		unloadText = "STASH ALL"
 		unloadTextSize = surface.GetTextSize(unloadText)
@@ -6627,7 +6627,7 @@ function Menu.OpenTab.Inventory(container)
 	end
 
 	-- dont show stash when player is in a raid
-	if !Menu.Player:CompareStatus(0) and table.IsEmpty(container) then return end
+	if !Menu.Player:IsInHideout() and table.IsEmpty(container) then return end
 	local stashPanel = vgui.Create("DPanel", contents)
 	stashPanel:Dock(LEFT)
 	stashPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
@@ -8007,7 +8007,7 @@ function Menu.OpenTab.Match()
 	pmcPanel:SetSize(EFGM.MenuScale(320), 0)
 	pmcPanel.Paint = nil
 
-	if Menu.Player:CompareStatus(0) then
+	if Menu.Player:IsInHideout() then
 		local pmcTitle = vgui.Create("DPanel", pmcPanel)
 		pmcTitle:Dock(TOP)
 		pmcTitle:SetSize(0, EFGM.MenuScale(32))
@@ -8044,7 +8044,11 @@ function Menu.OpenTab.Match()
 				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(25), Colors.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(25), Colors.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				if v:CompareStatus(1) or v:CompareStatus(2) then draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor) elseif v:CompareStatus(3) then draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor) end
+				if v:IsInRaid() then
+					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				elseif v:IsInDuel() then
+					draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				end
 			end
 
 			local pmcPFP = vgui.Create("AvatarImage", pmcEntry)
@@ -8060,7 +8064,7 @@ function Menu.OpenTab.Match()
 				local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav") end)
 				gameProfile:SetIcon("icon16/chart_bar.png")
 
-				if v != Menu.Player and v:CompareStatus(0) then
+				if v != Menu.Player and v:IsInHideout() then
 					dropdown:AddSpacer()
 
 					local inviteToSquad = dropdown:AddOption("Invite To Squad", function() InvitePlayerToSquad(Menu.Player, v) end)
@@ -8192,7 +8196,7 @@ function Menu.OpenTab.Match()
 		draw.SimpleTextOutlined("KEYS ■", "PuristaBold18", w - EFGM.MenuScale(10), EFGM.MenuScale(115), Colors.mapKey, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
-	if Menu.Player:CompareStatus(0) then
+	if Menu.Player:IsInHideout() then
 		local squad = Menu.Player:GetNW2String("PlayerInSquad", nil)
 
 		local squadPanel = vgui.Create("DPanel", contents)
@@ -8628,7 +8632,7 @@ function Menu.OpenTab.Match()
 					local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav") end)
 					gameProfile:SetIcon("icon16/chart_bar.png")
 
-					if v != Menu.Player and v:CompareStatus(0) then
+					if v != Menu.Player and v:IsInHideout() then
 						dropdown:AddSpacer()
 
 						local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(Menu.Player, v) end)
@@ -10359,7 +10363,7 @@ function Menu.OpenTab.Tasks()
 
 		end
 
-		if playerTasks[taskName].status == TASKSTATUS.AcceptPending and Menu.Player:CompareStatus(0) then
+		if playerTasks[taskName].status == TASKSTATUS.AcceptPending and Menu.Player:IsInHideout() then
 			local acceptButton = vgui.Create("DButton", taskDisplay)
 			acceptButton:Dock(TOP)
 			acceptButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
@@ -10393,7 +10397,7 @@ function Menu.OpenTab.Tasks()
 			end
 		end
 
-		if playerTasks[taskName].status == TASKSTATUS.CompletePending and Menu.Player:CompareStatus(0) then
+		if playerTasks[taskName].status == TASKSTATUS.CompletePending and Menu.Player:IsInHideout() then
 			local completeButton = vgui.Create("DButton", taskDisplay)
 			completeButton:Dock(TOP)
 			completeButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
@@ -10578,7 +10582,7 @@ function Menu.OpenTab.Tasks()
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			if curProgress != maxProgress and objInfo.type == OBJECTIVE.Pay and playerTasks[taskName].status == TASKSTATUS.InProgress and Menu.Player:CompareStatus(0) then
+			if curProgress != maxProgress and objInfo.type == OBJECTIVE.Pay and playerTasks[taskName].status == TASKSTATUS.InProgress and Menu.Player:IsInHideout() then
 				local payAmount = math.Clamp(maxProgress - curProgress, 0, Menu.Player:GetNWInt("Money", 0))
 
 				local payButton = vgui.Create("DButton", objective)

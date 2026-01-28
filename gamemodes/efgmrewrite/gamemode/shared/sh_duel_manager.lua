@@ -193,7 +193,7 @@ if SERVER then
 	end
 
 	hook.Add("PlayerDeath", "EndDuelOnDeath", function(victim, weapon, attacker)
-		if !victim:CompareStatus(3) then return end -- the player wasn't a part of the duel
+		if !victim:IsInDuel() then return end -- the player wasn't a part of the duel
 
 		ReinstantiateInventoryAfterDuel(victim)
 		DUEL:EndDuel(victim)

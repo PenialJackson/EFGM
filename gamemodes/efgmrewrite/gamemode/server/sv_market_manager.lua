@@ -32,7 +32,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	local item = net.ReadString()
 	local count = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return false end
+	if !ply:IsInHideout() then return false end
 
 	local def = EFGMITEMS[item]
 
@@ -91,7 +91,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	local item = net.ReadString()
 	local count = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return false end
+	if !ply:IsInHideout() then return false end
 	if ply:CompareFaction(false) then return false end
 
 	local def = EFGMITEMS[item]
@@ -149,7 +149,7 @@ end)
 net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 	local presetAtts = net.ReadTable()
 
-	if !ply:CompareStatus(0) then return false end
+	if !ply:IsInHideout() then return false end
 	if ply:CompareFaction(false) then return false end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
@@ -190,7 +190,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 	local count = net.ReadUInt(8)
 	local key = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) then return false end
+	if !ply:IsInHideout() then return false end
 
 	if AmountInInventory(ply.stash, item) < count then return false end
 	if ply.stash[key] == nil then return false end

@@ -96,7 +96,7 @@ if SERVER then
 
 	net.Receive("PlayerCreateSquad", function(len, ply)
 		if PlayerInSquad(ply) then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 
 		local name = net.ReadString()
 
@@ -129,7 +129,7 @@ if SERVER then
 		local password = net.ReadString()
 
 		if PlayerInSquad(ply) then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 		if #SQUADS[squad].MEMBERS >= SQUADS[squad].LIMIT then return end
 		if !PasswordCheck(ply, squad, password) then return end
 
@@ -162,7 +162,7 @@ if SERVER then
 
 	net.Receive("PlayerLeaveSquad", function(len, ply)
 		if !PlayerInSquad(ply) then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 
 		local squad = GetSquadOfPlayer(ply)
 
@@ -201,7 +201,7 @@ if SERVER then
 
 	net.Receive("PlayerTransferSquad", function(len, ply)
 		if !PlayerInSquad(ply) then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 
 		local newOwner = net.ReadString()
 		local squad = GetSquadOfPlayer(ply)
@@ -232,7 +232,7 @@ if SERVER then
 
 	net.Receive("PlayerKickSquad", function(len, ply)
 		if !PlayerInSquad(ply) then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 
 		local kickedPly = net.ReadString()
 		local squad = GetSquadOfPlayer(ply)
@@ -266,7 +266,7 @@ if SERVER then
 
 	net.Receive("PlayerDisbandSquad", function(len, ply)
 		if !PlayerInSquad(ply) then return end
-		if !ply:CompareStatus(0) then return end
+		if !ply:IsInHideout() then return end
 
 		local squad = GetSquadOfPlayer(ply)
 
@@ -382,6 +382,6 @@ end
 
 -- remove player from team chat channel on death if they were in a raid
 hook.Add("PlayerDeath", "ClearEffectOnDeath", function(ply)
-	if ply:CompareStatus(0) or ply:CompareStatus(3) then return end
+	if !ply:IsInRaid() then return end
 	ply:SetNW2String("TeamChatChannel", "nil")
 end)

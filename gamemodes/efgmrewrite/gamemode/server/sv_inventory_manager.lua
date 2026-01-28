@@ -53,7 +53,7 @@ end
 
 function AddItemToInventory(ply, name, type, data)
 	if !ply:Alive() then return end
-	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
 	local def = EFGMITEMS[name]
 	if def == nil then return end
@@ -140,7 +140,7 @@ end
 
 function FlowItemToInventory(ply, name, type, data)
 	if !ply:Alive() then return end
-	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
 	local def = EFGMITEMS[name]
 	if def == nil then return end
@@ -225,7 +225,7 @@ net.Receive("PlayerInventoryDropItem", function(len, ply)
 	local itemIndex = net.ReadUInt(16)
 	local item = ply.inventory[itemIndex]
 
-	if ply:CompareStatus(3) then return end
+	if ply:IsInDuel() then return end
 
 	if item == nil then return false end
 
@@ -294,7 +294,7 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
 	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
@@ -348,7 +348,7 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 end)
 
 function UnequipAll(ply)
-	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
 		if i == WEAPONSLOTS.MELEE.ID then continue end
@@ -416,7 +416,7 @@ net.Receive("PlayerInventoryUnEquipAllCL", function(len, ply)
 end)
 
 function UnequipAllFirearms(ply)
-	if (ply:CompareFaction(false) and ply:CompareStatus(0)) then return end
+	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
 		if i == WEAPONSLOTS.MELEE.ID then continue end
@@ -543,7 +543,7 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if ply:CompareStatus(3) then return end
+	if ply:IsInDuel() then return end
 
 	local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
@@ -605,7 +605,7 @@ net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
 
 	ReloadInventory(ply)
 
-	if !ply:CompareStatus(0) and !ply:CompareStatus(3) then
+	if ply:IsInRaid() then
 		ply:SetNWInt("ItemsLooted", ply:GetNWInt("ItemsLooted") + 1)
 		ply:SetNWInt("RaidItemsLooted", ply:GetNWInt("RaidItemsLooted") + 1)
 	end
@@ -652,7 +652,7 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 	local count = net.ReadUInt(8)
 	local key = net.ReadUInt(16)
 
-	if !ply:CompareStatus(0) and invType == "stash" then return false end
+	if !ply:IsInHideout() and invType == "stash" then return false end
 
 	local def = EFGMITEMS[item]
 	if def == nil then return end
@@ -696,7 +696,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if !ply:CompareStatus(0) and invType == "stash" then return false end
+	if !ply:IsInHideout() and invType == "stash" then return false end
 
 	if invType == "inv" then
 		local item = ply.inventory[key]
@@ -735,7 +735,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 		ply:SetNWInt("StashCount", #ply.stash)
 		return true
 	elseif invType == "equipped" then
-		if ply:CompareStatus(3) then return end
+		if ply:IsInDuel() then return end
 
 		local item = table.Copy(ply.weaponSlots[equipID][equipSlot])
 		if table.IsEmpty(item) then return end
@@ -774,7 +774,7 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if !ply:CompareStatus(0) then return false end
+	if !ply:IsInHideout() then return false end
 
 	if invType == "inv" then
 		if ply.inventory[key].data.tag != nil then return end

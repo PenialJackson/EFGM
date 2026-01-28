@@ -15,7 +15,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 	if !IsValid(invitedPly) then return end
 	if !Invites.allow then CreateNotification("Invites are now disabled!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if invitedPly:GetNW2String("PlayerInSquad", "nil") != "nil" then CreateNotification("This player is already in a squad!", Mats.inviteErrorIcon, "ui/error.wav") return end
-	if !invitedPly:CompareStatus(0) then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
+	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if CurTime() - Invites.lastInviteSentTime < 10 then CreateNotification("You can send invites again in " .. 10 - math.Round(CurTime() - Invites.lastInviteSentTime, 1) .. " seconds!", Mats.inviteErrorIcon, "ui/error.wav") return end
 
 	-- local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
@@ -66,7 +66,7 @@ function InvitePlayerToDuel(ply, invitedPly)
 	if GetGlobalInt("DuelStatus") != duelStatus.PENDING then CreateNotification("Another duel is already taking place, please wait for it to end!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if Invites.invitedType == "duel" and Invites.invitedBy == invitedPly then AcceptInvite(ply) return end
 	if CurTime() - Invites.lastInviteSentTime < 10 then CreateNotification("You can send invites again in " .. 10 - math.Round(CurTime() - Invites.lastInviteSentTime, 1) .. " seconds!", Mats.inviteErrorIcon, "ui/error.wav") return end
-	if !invitedPly:CompareStatus(0) then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
+	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if Invites.invitedBy != nil or Invites.invitedType != nil then CreateNotification("Cannot send an invite while pending confirmation!", Mats.inviteErrorIcon, "ui/error.wav") return end
 
 	Invites.lastInviteSentTime = CurTime()
@@ -123,7 +123,7 @@ function AcceptInvite(ply)
 		return
 	end
 
-	if !ply:CompareStatus(0) then return end
+	if !ply:IsInHideout() then return end
 	if Invites.invitedBy == nil or Invites.invitedType == nil then return end
 
 	net.Start("PlayerAcceptInvite")
@@ -154,12 +154,16 @@ hook.Add("efgm_raid_enter", "RemovePendingInviteIfRaidEnter", function()
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
 	Invites.inviteData = nil
+	Invites.lastInviteSentTime = 0
+	Invites.lastSquadInviteSentTime = 0
 end)
 
 hook.Add("efgm_duel_enter", "RemovePendingInviteIfDuelEnter", function()
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
 	Invites.inviteData = nil
+	Invites.lastInviteSentTime = 0
+	Invites.lastSquadInviteSentTime = 0
 end)
 
 net.Receive("PlayerDisableInvites", function(len)

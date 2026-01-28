@@ -464,7 +464,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
         if self:SprintLock() then return end
 
-        if self:GetOwner():GetNWBool("InRange", false) == false and self:GetOwner():CompareStatus(0) then return end
+        if self:GetOwner():GetNWBool("InRange", false) == false and self:GetOwner():IsInHideout() then return end
 
         local nthShot = self:GetNthShot()
 
@@ -1153,9 +1153,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
                     if table.IsEmpty(neededAtts) then self:LoadPreset(preset) surface.PlaySound(applysound) return end
 
-                    if !self:GetOwner():CompareStatus(0) then return end
+                    if !self:GetOwner():IsInHideout() then return end
 
-                    ply:ConCommand("efgm_gamemenu Market")
+                    self:GetOwner():ConCommand("efgm_gamemenu Market")
                     timer.Simple(0.1, function() Menu.ConfirmPreset(neededAtts, presetName, preset, true) end)
 
                     -- self:LoadPreset(preset)
@@ -1168,14 +1168,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
                     presetbtn.icon = mat_random
                     presetbtn.def = true
                     presetbtn.DoClick = function(self2)
-                        if GetConVar("arc9_atts_nocustomize"):GetBool() then return end
+                        -- if GetConVar("arc9_atts_nocustomize"):GetBool() then return end
                         -- self:NPC_Initialize()
-                        net.Start("arc9_randomizeatts")
-                        net.SendToServer()
+                        -- net.Start("arc9_randomizeatts")
+                        -- net.SendToServer()
 
-                        surface.PlaySound(randomizesound)
+                        -- surface.PlaySound(randomizesound)
 
-                        timer.Simple(0.1, function() if IsValid(self) then self:CreateHUD_Bottom() end end)
+                        -- timer.Simple(0.1, function() if IsValid(self) then self:CreateHUD_Bottom() end end)
                     end
                 else
                     presetbtn.preset = preset
@@ -1779,11 +1779,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
         local owner = self:GetOwner()
 
-        if SERVER and IsValid(owner) and owner:IsPlayer() and !owner:CompareStatus(0) and !owner:CompareStatus(3) then
-
+        if SERVER and IsValid(owner) and owner:IsPlayer() and owner:IsInRaid() then
             owner:SetNWInt("ShotsFired", owner:GetNWInt("ShotsFired") + 1)
             owner:SetNWInt("RaidShotsFired", owner:GetNWInt("RaidShotsFired") + 1)
-
         end
 
         local triggerStartFireAnim = self:GetProcessedValue("TriggerStartFireAnim", true)
@@ -1986,19 +1984,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
         -- NPC damage nerf
         local owner = self:GetOwner()
-        if owner:IsNPC() and !arc9_npc_equality:GetBool() then
-            dmgv = dmgv * 0.25
-        end
 
         -- Limb multipliers
         local traceEntity = tr.Entity
         local hitGroup = tr.HitGroup
 
-        if SERVER and IsValid(owner) and owner:IsPlayer() and traceEntity:IsPlayer() and !owner:CompareStatus(0) and !owner:CompareStatus(3) then
-
+        if SERVER and IsValid(owner) and owner:IsPlayer() and traceEntity:IsPlayer() and owner:IsInRaid() then
             owner:SetNWInt("ShotsHit", owner:GetNWInt("ShotsHit") + 1)
             owner:SetNWInt("RaidShotsHit", owner:GetNWInt("RaidShotsHit") + 1)
-
         end
 
         if !ARC9.NoBodyPartsDamageMults then
@@ -2133,17 +2126,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             local cfilter = nil
             local owner = self:GetOwner()
             if SERVER and !sp and IsValid(owner) and owner:IsPlayer() then
-
-                if owner:CompareStatus(0) or owner:CompareStatus(3) then -- in the hideout/dueling
-
+                if !owner:IsInRaid() then
                     cfilter = CRF[1]
-
-                elseif owner:CompareStatus(1) or owner:CompareStatus(2) then -- in a raid
-
+                else -- in a raid
                     cfilter = CRF[2]
-
                 end
-
             end
 
             entityEmitSound(self,
@@ -2336,10 +2323,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             self:StartLoop()
 
             local attacker = self:GetOwner()
-            if attacker:CompareStatus(0) or attacker:CompareStatus(3) then return end
+            if !attacker:IsInRaid() then return end
 
             for k, v in ipairs(player.GetHumans()) do
-                if v:CompareStatus(0) or v:CompareStatus(3) then return end
+                if !v:IsInRaid() then return end
                 if shotCaliber[ammo] == nil then return end
 
                 local shootPos = attacker:GetPos()
@@ -2377,7 +2364,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
     function SWEP:RollJam()
         if !self:GetProcessedValue("Malfunction", true) then return end
         if self:Clip1() == 0 and self.MalfunctionNeverLastShoot then return end
-        if self:GetOwner():CompareStatus(3) then return end
+        if self:GetOwner():IsInDuel() then return end
 
         local chance = 1 / self:GetProcessedValue("MalfunctionMeanShotsToFail")
 
@@ -2413,7 +2400,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
             owner.ARC9QuickthrowPls = nil
             local QuicknadeBind = owner:KeyDown(IN_GRENADE1)
 
-            if owner:CompareStatus(0) then return end
+            if owner:IsInHideout() then return end
 
             if self:GetSafe() and owner:KeyPressed(IN_ATTACK) then self:ToggleSafety(false) return end
 
@@ -2681,7 +2668,7 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
     if !wpn or !IsValid(wpn) or !wpn.ARC9 then return end
 
     if bind == "+menu_context" then
-        if LocalPlayer():CompareStatus(3) then return end
+        if LocalPlayer():IsInDuel() then return end
         if !wpn:GetInSights() and !LocalPlayer():KeyDown(IN_USE) then
 
             ARC9.KeyPressed_Menu = pressed
@@ -2715,7 +2702,7 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 
         if bind == "+reload" then
 
-            if !ply:CompareStatus(0) then return end
+            if !ply:IsInHideout() then return end
 
             if wpn.CustomizeLastHovered and wpn.CustomizeLastHovered:IsHovered() then
                 local att = wpn.CustomizeLastHovered.att

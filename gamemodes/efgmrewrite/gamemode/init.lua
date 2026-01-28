@@ -98,7 +98,7 @@ end
 
 util.AddNetworkString("CreateDeathInformation")
 function GM:PlayerDeath(victim, inflictor, attacker)
-	if !victim:CompareStatus(0) and !victim:CompareStatus(3) then
+	if victim:IsInRaid() then
 		UnequipAll(victim) -- unload all equipped items into inventory, helps clean this all up
 
 		local tagData = {}
@@ -144,11 +144,11 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 	-- when a player suicides
 	if !IsValid(attacker) or victim == attacker or !attacker:IsPlayer() then
-		local xpMult = (victim:CompareStatus(2) and 0.25) or 0.5
+		local xpMult = (victim:IsInRaidScav() and 0.25) or 0.5
 
 		net.Start("CreateDeathInformation")
 			net.WriteFloat(xpMult)
-			if victim:CompareStatus(0) or victim:CompareStatus(3) then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
+			if !victim:IsInRaid() then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
 			net.WriteInt(victim:GetNWInt("RaidTime", 0), 16)
 			net.WriteInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 			net.WriteInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -171,11 +171,11 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 	local rawDistance = victim:GetPos():Distance(attacker:GetPos())
 	local distance = units_to_meters(rawDistance)
 
-	local xpMult = (victim:CompareStatus(2) and 0.25) or 0.5
+	local xpMult = (victim:IsInRaidScav() and 0.25) or 0.5
 
 	net.Start("CreateDeathInformation")
 		net.WriteFloat(xpMult)
-		if victim:CompareStatus(0) or victim:CompareStatus(3) then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
+		if !victim:IsInRaid() then net.WriteInt(noRaidRespawnTime, 8) else net.WriteInt(respawnTime, 8) end
 		net.WriteInt(victim:GetNWInt("RaidTime", 0), 16)
 		net.WriteInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 		net.WriteInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -189,7 +189,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		net.WriteInt(victimHitgroup, 5)
 	net.Send(victim)
 
-	if !attacker:CompareStatus(0) and !attacker:CompareStatus(3) then
+	if attacker:IsInRaid() then
 		attacker:SetNWInt("ExperienceCombat", attacker:GetNWInt("ExperienceCombat") + 300)
 		attacker:SetNWInt("RaidKills", attacker:GetNWInt("RaidKills") + 1)
 
@@ -203,7 +203,7 @@ end
 
 hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
 	for k, v in ipairs(player.GetHumans()) do
-		if !v:CompareStatus(0) and !v:CompareStatus(3) then
+		if v:IsInRaid() then
 			v:SetNWFloat("ExperienceTime", v:GetNWFloat("ExperienceTime") + 0.5)
 			v:SetNWInt("RaidTime", v:GetNWInt("RaidTime", 0) + 1)
 			v:SetNWInt("Time", v:GetNWInt("Time") + 1)
@@ -213,7 +213,7 @@ end)
 
 hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
 	local time = respawnTime
-	if ply:CompareStatus(0) or ply:CompareStatus(3) then time = noRaidRespawnTime end
+	if !ply:IsInRaid() then time = noRaidRespawnTime end
 	timer.Create(ply:SteamID() .. "respawnTime", time, 1, function() end)
 	ply:SetNWBool("RaidReady", false)
 end)
@@ -250,7 +250,7 @@ end)
 
 -- players in the lobby cant take damage
 hook.Add("PlayerShouldTakeDamage", "AntiLobbyKill", function(victim, attacker)
-	return !victim:CompareStatus(0)
+	return !victim:IsInHideout()
 end)
 
 -- prevent respawning if under a respawn timer
