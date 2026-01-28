@@ -435,6 +435,15 @@ hook.Add("InitPostEntity", "GenerateLootTables", function()
 	GenerateDuelLoadouts()
 	GenerateMarketLimits()
 	GenerateScavLoadouts()
+
+	local arc9atts = ARC9.Attachments
+
+	-- make base arc9 camos free
+	for k, v in SortedPairs(arc9atts) do
+		if string.find(v.ShortName, "camo_arc9") then
+			v.Free = true
+		end
+	end
 end)
 
 hook.Add("OnReloaded", "GenerateLootTablesOnReload", function()
@@ -480,9 +489,9 @@ if CLIENT and GetConVar("efgm_derivesbox"):GetInt() == 1 then
 			'["equipType"] = ' .. EQUIPTYPE.Attachment .. ',\n' .. '\t' ..
 			'["appearInInventory"] = true,\n' .. '\t' ..
 			'["stackSize"] = 1,\n' .. '\t' ..
-			'["icon"] = Material("' .. icon .. '.png", "smooth"),\n\n\n' .. '\t' ..
+			'["icon"] = Material("' .. icon .. '.png", "smooth"),\n\n' .. '\t' ..
 			'["sizeX"] = ' .. sizeX .. ',\n' .. '\t' ..
-			'["sizeY"] = ' .. sizeY .. ',\n\n\n' .. '\t' ..
+			'["sizeY"] = ' .. sizeY .. ',\n\n' .. '\t' ..
 			'["levelReq"] = ' .. level .. ',\n' .. '\t' ..
 			'["lootWeight"] = ' .. lootWeight .. ',\n' .. '\t' ..
 			'["canPurchase"] = ' .. canPurchase .. ',\n' ..

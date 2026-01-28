@@ -37,7 +37,7 @@ end
 function ENT:Use(activator)
 	self:Remove()
 
-	if !ply:IsScav() and !activator:IsInRaid() then
+	if !activator:IsScav() and !activator:IsInRaid() then
 		FlowItemToInventory(activator, self.ItemName, self.ItemType, self.ItemData)
 		ReloadInventory(activator)
 	else

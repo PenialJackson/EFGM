@@ -44539,10 +44539,8 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_12"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/b12.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44561,10 +44559,8 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_14"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/b14.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44583,10 +44579,8 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_5"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/4.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44605,10 +44599,8 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_8"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/b8.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44627,10 +44619,8 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_int"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/bt.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44649,10 +44639,8 @@ EFGMITEMS["arc9_att_eft_scorpion_ch_deltared"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/delta.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44671,10 +44659,8 @@ EFGMITEMS["arc9_att_eft_scorpion_ch_pro"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/pro.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44693,10 +44679,8 @@ EFGMITEMS["arc9_att_eft_scorpion_ch_std"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/ch.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44715,10 +44699,8 @@ EFGMITEMS["arc9_att_eft_scorpion_fs_std"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/fs.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44737,10 +44719,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_a1"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/h.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44759,10 +44739,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_ang"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hang.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44781,10 +44759,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_carb"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hcarb.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44803,10 +44779,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_ext"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hlong.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44825,10 +44799,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_hbmid"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hmid.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44847,10 +44819,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_micro"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hmicro.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44869,10 +44839,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_mid"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/htac.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44891,10 +44859,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_pdw"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hpdw.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44913,10 +44879,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hs_mlok"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hsm.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44935,10 +44899,8 @@ EFGMITEMS["arc9_att_eft_scorpion_hs_pic"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hs.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44957,10 +44919,8 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_20"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/20.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -44979,10 +44939,8 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_20tr"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/20tr.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45001,10 +44959,8 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_30"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/30.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45023,10 +44979,8 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_35"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/35.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45045,10 +44999,8 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_35t"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/35t.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45067,10 +45019,8 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_50"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/50.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45089,10 +45039,8 @@ EFGMITEMS["arc9_att_eft_scorpion_muzzle_comp"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/mc.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45111,10 +45059,8 @@ EFGMITEMS["arc9_att_eft_scorpion_muzzle_fh"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/m.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45133,10 +45079,8 @@ EFGMITEMS["arc9_att_eft_scorpion_pgrip_moe"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/moe.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45155,10 +45099,8 @@ EFGMITEMS["arc9_att_eft_scorpion_pgrip_std"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/grip.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45177,10 +45119,8 @@ EFGMITEMS["arc9_att_eft_scorpion_pgrip_ye"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/y.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45199,10 +45139,8 @@ EFGMITEMS["arc9_att_eft_scorpion_rs_std"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/rs.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45221,10 +45159,8 @@ EFGMITEMS["arc9_att_eft_scorpion_sc9"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/sh.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45243,10 +45179,8 @@ EFGMITEMS["arc9_att_eft_scorpion_shroud"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/sc9.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45265,10 +45199,8 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_a1"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/stock.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45287,10 +45219,8 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_adv"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/arc.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45309,10 +45239,8 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_buff"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/buff.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45331,10 +45259,8 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_pdw"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/pdw.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45353,10 +45279,8 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_slider"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/manti.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45375,10 +45299,8 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_tac"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/tac.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
@@ -45397,10 +45319,28 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_zhu"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("entities/wtt_scorpion_attachments/zh.png", "smooth"),
 
-
 	["sizeX"] = 1,
 	["sizeY"] = 1,
 
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGMITEMS["arc9_att_eft_hg_svd_std"] = {
+	["fullName"] = "Wooden SVD handguard",
+	["displayName"] = "SVD",
+	["displayType"] = "Attachment",
+	["description"] = "Classic SVD handguard manufactured by Izhmash.",
+	["weight"] = 0.1,
+	["value"] = 10000,
+	["equipType"] = 6,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("entities/eft_svd_attachments/hg.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
 
 	["levelReq"] = 1,
 	["lootWeight"] = 100,
