@@ -100,6 +100,19 @@ function BetterRandom(haystack)
 	return haystack[math.random(#haystack)]
 end
 
+function reverseipairs(tbl)
+	local i = #tbl + 1
+
+	return function()
+		i = i - 1
+		local value = tbl[i]
+
+		if i >= 1 then
+			return i, value
+		end
+	end
+end
+
 -- works with raw vectors too
 function EntitiesWithinBounds(ent1, ent2, dist)
 	local pos1

@@ -15,6 +15,8 @@ Menu.PerferredShopDestination = nil
 
 Menu.StashFilter = 1
 Menu.MarketStashFilter = 1
+Menu.StashSort = 1
+Menu.MarketStashSort = 1
 
 local holdtypes = {
 	"idle_revolver",
@@ -2729,6 +2731,10 @@ function Menu.ReloadInventory()
 		local b_name = b_def.displayName
 		if a_name != b_name then return a_name < b_name end
 
+		local a_fullName = a_def.fullName
+		local b_fullName = b_def.fullName
+		if a_fullName != b_fullName then return a_fullName < b_fullName end
+
 		local a_tag = a.data.tag
 		local b_tag = b.data.tag
 		if a_tag != b_tag then
@@ -2885,7 +2891,7 @@ function Menu.ReloadInventory()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function item:OnCursorExited()
@@ -3179,7 +3185,7 @@ function Menu.ReloadSlots()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function primaryItem:OnCursorExited()
@@ -3436,7 +3442,7 @@ function Menu.ReloadSlots()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function secondaryItem:OnCursorExited()
@@ -3693,7 +3699,7 @@ function Menu.ReloadSlots()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function holsterItem:OnCursorExited()
@@ -3913,7 +3919,7 @@ function Menu.ReloadSlots()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function meleeItem:OnCursorExited()
@@ -4137,7 +4143,7 @@ function Menu.ReloadSlots()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function nadeItem:OnCursorExited()
@@ -4349,7 +4355,7 @@ function Menu.ReloadSlots()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function consumableItem:OnCursorExited()
@@ -4503,6 +4509,26 @@ local filters = {
 	}
 }
 
+-- sort name, sort icon
+local sorts = {
+	[1] = {
+		name = "Default Sorting",
+		icon = Mats.sortDefaultIcon
+	},
+	[2] = {
+		name = "Sort By Value",
+		icon = Mats.sortValueIcon
+	},
+	[3] = {
+		name = "Sort By Level",
+		icon = Mats.sortLevelIcon
+	},
+	[4] = {
+		name = "Sort By Date Acquired",
+		icon = Mats.sortTimeIcon
+	}
+}
+
 local stashItemSearchText = ""
 
 function Menu.ReloadStash()
@@ -4569,45 +4595,191 @@ function Menu.ReloadStash()
 		if a_def == nil then return false end
 		if b_def == nil then return true end
 
-		local a_pin = a.data.pin or 0
-		local b_pin = b.data.pin or 0
-		if a_pin != b_pin then return a_pin > b_pin end
+		if Menu.StashSort == 1 then
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
 
-		local a_size = a_def.sizeX * a_def.sizeY
-		local b_size = b_def.sizeX * b_def.sizeY
-		if a_size != b_size then return a_size > b_size end
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
 
-		local a_type = a_def.equipType
-		local b_type = b_def.equipType
-		if a_type != b_type then return a_type < b_type end
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
 
-		local a_name = a_def.displayName
-		local b_name = b_def.displayName
-		if a_name != b_name then return a_name < b_name end
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
 
-		local a_tag = a.data.tag
-		local b_tag = b.data.tag
-		if a_tag != b_tag then
-			if !a_tag then return false end
-			if !b_tag then return true end
-			return string.upper(a_tag) < string.upper(b_tag)
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
+		elseif Menu.StashSort == 2 then
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
+
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
+
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
+
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
+
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
+		elseif Menu.StashSort == 3 then
+			local a_lvl = a_def.levelReq or 1
+			local b_lvl = b_def.levelReq or 1
+			if a_lvl != b_lvl then return a_lvl > b_lvl end
+
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
+
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
+
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
+
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
+
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
+		elseif Menu.StashSort == 4 then
+			local a_time = a.data.timestamp or 0
+			local b_time = b.data.timestamp or 0
+			if a_time != b_time then return a_time > b_time end
+
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
+
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
+
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
+
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
+
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
 		end
-
-		local a_durability = a.data.durability
-		local b_durability = b.data.durability
-		if a_durability != b_durability then return a_durability > b_durability end
-
-		local a_count = a.data.count
-		local b_count = b.data.count
-		if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
-
-		local a_value = a.value
-		local b_value = b.value
-		if a_value != b_value then return a_value > b_value end
-
-		local a_fir = (a.data.fir == true and 1) or 0
-		local b_fir = (b.data.fir == true and 1) or 0
-		if a_fir and b_fir then return a_fir > b_fir end
 	end)
 
 	surface.SetFont("Purista18")
@@ -4665,6 +4837,7 @@ function Menu.ReloadStash()
 
 		function item:Paint(w, h)
 			if !self:IsHovered() then surface.SetDrawColor(Colors.itemBackgroundColor) else surface.SetDrawColor(Colors.itemBackgroundColorHovered) end
+
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -4773,7 +4946,7 @@ function Menu.ReloadStash()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function item:OnCursorExited()
@@ -4983,46 +5156,194 @@ function Menu.ReloadMarketStash()
 		if a_def == nil then return false end
 		if b_def == nil then return true end
 
-		local a_pin = a.data.pin or 0
-		local b_pin = b.data.pin or 0
-		if a_pin != b_pin then return a_pin > b_pin end
+		if Menu.MarketStashSort == 1 then
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
 
-		local a_size = a_def.sizeX * a_def.sizeY
-		local b_size = b_def.sizeX * b_def.sizeY
-		if a_size != b_size then return a_size > b_size end
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
 
-		local a_type = a_def.equipType
-		local b_type = b_def.equipType
-		if a_type != b_type then return a_type < b_type end
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
 
-		local a_name = a_def.displayName
-		local b_name = b_def.displayName
-		if a_name != b_name then return a_name < b_name end
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
 
-		local a_tag = a.data.tag
-		local b_tag = b.data.tag
-		if a_tag != b_tag then
-			if !a_tag then return false end
-			if !b_tag then return true end
-			return string.upper(a_tag) < string.upper(b_tag)
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
+		elseif Menu.MarketStashSort == 2 then
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
+
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
+
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
+
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
+
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
+		elseif Menu.MarketStashSort == 3 then
+			local a_lvl = a_def.levelReq or 1
+			local b_lvl = b_def.levelReq or 1
+			if a_lvl != b_lvl then return a_lvl > b_lvl end
+
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
+
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
+
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
+
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
+
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
+		elseif Menu.MarketStashSort == 4 then
+			local a_time = a.data.timestamp or 0
+			local b_time = b.data.timestamp or 0
+			if a_time != b_time then return a_time > b_time end
+
+			local a_pin = a.data.pin or 0
+			local b_pin = b.data.pin or 0
+			if a_pin != b_pin then return a_pin > b_pin end
+
+			local a_size = a_def.sizeX * a_def.sizeY
+			local b_size = b_def.sizeX * b_def.sizeY
+			if a_size != b_size then return a_size > b_size end
+
+			local a_type = a_def.equipType
+			local b_type = b_def.equipType
+			if a_type != b_type then return a_type < b_type end
+
+			local a_name = a_def.displayName
+			local b_name = b_def.displayName
+			if a_name != b_name then return a_name < b_name end
+
+			local a_fullName = a_def.fullName
+			local b_fullName = b_def.fullName
+			if a_fullName != b_fullName then return a_fullName < b_fullName end
+
+			local a_tag = a.data.tag
+			local b_tag = b.data.tag
+			if a_tag != b_tag then
+				if !a_tag then return false end
+				if !b_tag then return true end
+				return string.upper(a_tag) < string.upper(b_tag)
+			end
+
+			local a_durability = a.data.durability
+			local b_durability = b.data.durability
+			if a_durability != b_durability then return a_durability > b_durability end
+
+			local a_count = a.data.count
+			local b_count = b.data.count
+			if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
+
+			local a_value = a.value
+			local b_value = b.value
+			if a_value != b_value then return a_value > b_value end
+
+			local a_fir = (a.data.fir == true and 1) or 0
+			local b_fir = (b.data.fir == true and 1) or 0
+			if a_fir and b_fir then return a_fir > b_fir end
 		end
-
-		local a_durability = a.data.durability
-		local b_durability = b.data.durability
-		if a_durability != b_durability then return a_durability > b_durability end
-
-		local a_count = a.data.count
-		local b_count = b.data.count
-		if a_count > 1 and b_count > 1 and a_count != b_count then return a_count > b_count end
-
-		local a_value = a.value
-		local b_value = b.value
-		if a_value != b_value then return a_value > b_value end
-
-		local a_fir = (a.data.fir == true and 1) or 0
-		local b_fir = (b.data.fir == true and 1) or 0
-		if a_fir and b_fir then return a_fir > b_fir end
 	end)
+
+	surface.SetFont("Purista18")
 
 	-- stash item entry
 	for k, v in ipairs(marketPlyStashItems) do
@@ -5079,8 +5400,6 @@ function Menu.ReloadMarketStash()
 			surface.SetMaterial(i.icon)
 			surface.DrawTexturedRect(0, 0, w, h)
 		end
-
-		surface.SetFont("Purista18")
 
 		local nameSize = surface.GetTextSize(i.displayName)
 		local nameFont
@@ -5183,7 +5502,7 @@ function Menu.ReloadMarketStash()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function item:OnCursorExited()
@@ -5311,6 +5630,10 @@ function Menu.ReloadContainer()
 		local a_name = a_def.displayName
 		local b_name = b_def.displayName
 		if a_name != b_name then return a_name < b_name end
+
+		local a_fullName = a_def.fullName
+		local b_fullName = b_def.fullName
+		if a_fullName != b_fullName then return a_fullName < b_fullName end
 
 		local a_tag = a.data.tag
 		local b_tag = b.data.tag
@@ -5457,7 +5780,7 @@ function Menu.ReloadContainer()
 				draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.5)
+			Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 		end
 
 		function item:OnCursorExited()
@@ -6707,6 +7030,7 @@ function Menu.OpenTab.Inventory(container)
 	stashSearchOpen = false
 	stashItemSearchText = ""
 	Menu.StashFilter = 1
+	Menu.StashSort = 1
 
 	local stashSearchBox = vgui.Create("DTextEntry", stashHolder)
 	stashSearchBox:SetSize(EFGM.MenuScale(593) - stashSearchButton:GetX() - stashSearchButton:GetWide(), EFGM.MenuScale(28))
@@ -6774,7 +7098,7 @@ function Menu.OpenTab.Inventory(container)
 	stashHolderDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 	stashHolderDocker.Paint = nil
 
-	stashItemsHolder = vgui.Create("DScrollPanel", stashHolderDocker)
+	local stashItemsHolder = vgui.Create("DScrollPanel", stashHolderDocker)
 	stashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
 	stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(18), stashHolderDocker:GetTall())
 	function stashItemsHolder:Paint(w, h)
@@ -6811,7 +7135,7 @@ function Menu.OpenTab.Inventory(container)
 	end)
 
 	stashItems = vgui.Create("DIconLayout", stashItemsHolder)
-	stashItems:Dock(FILL)
+	stashItems:Dock(TOP)
 	stashItems:SetSpaceY(0)
 	stashItems:SetSpaceX(0)
 
@@ -6889,6 +7213,64 @@ function Menu.OpenTab.Inventory(container)
 
 			surface.PlaySound("ui/element_select.wav")
 			Menu.StashFilter = id
+			Menu.ReloadStash()
+		end
+	end
+
+	for id, sort in reverseipairs(sorts) do
+		local stashSortButton = vgui.Create("DButton", stashFilterHolder)
+		stashSortButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+		stashSortButton:Dock(BOTTOM)
+		stashSortButton:SetText("")
+
+		function stashSortButton:Paint(w, h)
+			if !self:IsHovered() then surface.SetDrawColor(Colors.containerBackgroundColor) else surface.SetDrawColor(Colors.marketItemValueColor) end
+			surface.DrawRect(0, 0, w, h)
+
+			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetMaterial(sort.icon)
+			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+
+			surface.SetDrawColor(Colors.weaponSilhouetteColor)
+			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+		end
+
+		function stashSortButton:OnCursorEntered()
+			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipName = string.upper(sort.name)
+			local tipNameSize = surface.GetTextSize(tipName)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
+		end
+
+		function stashSortButton:DoClick()
+			if Menu.StashSort == id then return end
+
+			surface.PlaySound("ui/element_select.wav")
+			Menu.StashSort = id
 			Menu.ReloadStash()
 		end
 	end
@@ -6983,6 +7365,7 @@ function Menu.OpenTab.Market()
 	marketStashSearchOpen = false
 	marketStashItemSearchText = ""
 	Menu.MarketStashFilter = 1
+	Menu.MarketStashSort = 1
 
 	local marketStashSearchBox = vgui.Create("DTextEntry", marketStashHolder)
 	marketStashSearchBox:SetSize(EFGM.MenuScale(593) - marketStashSearchButton:GetX() - marketStashSearchButton:GetWide(), EFGM.MenuScale(28))
@@ -7151,6 +7534,64 @@ function Menu.OpenTab.Market()
 
 			surface.PlaySound("ui/element_select.wav")
 			Menu.MarketStashFilter = id
+			Menu.ReloadMarketStash()
+		end
+	end
+
+	for id, sort in reverseipairs(sorts) do
+		local marketStashSortButton = vgui.Create("DButton", marketStashFilterHolder)
+		marketStashSortButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+		marketStashSortButton:Dock(BOTTOM)
+		marketStashSortButton:SetText("")
+
+		function marketStashSortButton:Paint(w, h)
+			if !self:IsHovered() then surface.SetDrawColor(Colors.containerBackgroundColor) else surface.SetDrawColor(Colors.marketItemValueColor) end
+			surface.DrawRect(0, 0, w, h)
+
+			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetMaterial(sort.icon)
+			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+
+			surface.SetDrawColor(Colors.weaponSilhouetteColor)
+			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+		end
+
+		function marketStashSortButton:OnCursorEntered()
+			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+
+			surface.SetFont("PuristaBold18")
+			local tipName = string.upper(sort.name)
+			local tipNameSize = surface.GetTextSize(tipName)
+
+			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.DrawRect(0, 0, w, h)
+
+				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			end
+
+			Menu.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
+		end
+
+		function marketStashSortButton:DoClick()
+			if Menu.MarketStashSort == id then return end
+
+			surface.PlaySound("ui/element_select.wav")
+			Menu.MarketStashSort = id
 			Menu.ReloadMarketStash()
 		end
 	end
