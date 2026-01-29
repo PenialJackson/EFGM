@@ -19,6 +19,8 @@ if CLIENT then
 	CreateClientConVar("efgm_menu_sellprompt_stacked", 1, true, false, "Adjust if a confirmation prompt appears when selling a single item", 0, 1)
 	CreateClientConVar("efgm_menu_search_automatic", 1, true, false, "Adjust if inventory search boxes automatically begin searching on text change, or if it requires the enter key to be pressed to search", 0, 1)
 	CreateClientConVar("efgm_menu_closeonhit", 1, true, false, "Determines if your menu automatically closes upon taking damage", 0, 1)
+	CreateClientConVar("efgm_menu_savetab_hideout", 1, true, false, "Determines if your menu saves the previous tab while in the hideout", 0, 1)
+	CreateClientConVar("efgm_menu_savetab_raid", 0, true, false, "Determines if your menu saves the previous tab while in a raid", 0, 1)
 	CreateClientConVar("efgm_visuals_adsfov", 1, true, false, "Adjust if aiming down sights affects your cameras field of view", 0, 1)
 	CreateClientConVar("efgm_visuals_highqualimpactfx", 1, true, false, "Adjust the quality of the bullets impact effects", 0, 1)
 	CreateClientConVar("efgm_visuals_highqualflashlight", 0, true, false, "Adjust the quality of the players own flashlight, does not affect the flashlight of others", 0, 1)

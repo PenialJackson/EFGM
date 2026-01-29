@@ -200,7 +200,7 @@ function PANEL:Paint(w, h)
 		surface.SetDrawColor(Colors.mapWhite)
 		surface.SetMaterial(Mats.mapOverviewDeath)
 		surface.DrawTexturedRect(posX - EFGM.MenuScale(16), posY - EFGM.MenuScale(16), EFGM.MenuScale(32), EFGM.MenuScale(32))
-	else
+	elseif !table.IsEmpty(RaidPositions) then
 		local posX = (RaidPositions[#RaidPositions].x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 		local posY = (RaidPositions[#RaidPositions].y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 

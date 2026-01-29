@@ -1009,7 +1009,12 @@ function Menu:Initialize(openTo, container)
 		end)
 	end
 
-	local tab = openTo == "match" and "match" or (Menu.PerferredTab or openTo)
+	local tab
+	if !Menu.Player:IsInRaid() then
+		tab = openTo == "match" and "match" or !table.IsEmpty(Menu.Container) and "inventory" or ((GetConVar("efgm_menu_savetab_hideout"):GetBool() and Menu.PerferredTab) or openTo)
+	else
+		tab = openTo == "match" and "match" or !table.IsEmpty(Menu.Container) and "inventory" or ((GetConVar("efgm_menu_savetab_raid"):GetBool() and Menu.PerferredTab) or openTo)
+	end
 
 	if tab == "stats" then
 		Menu.OpenTab.Stats()
@@ -9211,6 +9216,8 @@ function Menu.OpenTab.Match()
 						local textSize = surface.GetTextSize(text)
 
 						local paint = function()
+							local w, h = Menu.Tooltip:GetSize()
+
 							surface.SetDrawColor(Color(25, 25, 25, 155))
 							surface.DrawRect(0, 0, w, h)
 
@@ -9601,6 +9608,8 @@ function Menu.OpenTab.Skills()
 			local skillDescTextSize = surface.GetTextSize(v1.Description)
 
 			local paint = function()
+				local w, h = Menu.Tooltip:GetSize()
+
 				surface.SetDrawColor(Colors.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
@@ -10446,6 +10455,30 @@ function Menu.OpenTab.Settings()
 	menuScalingMethod.OnSelect = function(self, value)
 		RunConsoleCommand("efgm_menu_scalingmethod", value - 1)
 	end
+
+	local menuSaveTabHideoutPanel = vgui.Create("DPanel", interface)
+	menuSaveTabHideoutPanel:Dock(TOP)
+	menuSaveTabHideoutPanel:SetSize(0, EFGM.MenuScale(50))
+	function menuSaveTabHideoutPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Save Previous Menu Tab In Hideout", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+	end
+
+	local menuSaveTabHideout = vgui.Create("DCheckBox", menuSaveTabHideoutPanel)
+	menuSaveTabHideout:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
+	menuSaveTabHideout:SetConVar("efgm_menu_savetab_hideout")
+	menuSaveTabHideout:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
+
+	local menuSaveTabRaidPanel = vgui.Create("DPanel", interface)
+	menuSaveTabRaidPanel:Dock(TOP)
+	menuSaveTabRaidPanel:SetSize(0, EFGM.MenuScale(50))
+	function menuSaveTabRaidPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Save Previous Menu Tab In Raid", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+	end
+
+	local menuSaveTabRaid = vgui.Create("DCheckBox", menuSaveTabRaidPanel)
+	menuSaveTabRaid:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
+	menuSaveTabRaid:SetConVar("efgm_menu_savetab_raid")
+	menuSaveTabRaid:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local menuDeletePromptPanel = vgui.Create("DPanel", interface)
 	menuDeletePromptPanel:Dock(TOP)

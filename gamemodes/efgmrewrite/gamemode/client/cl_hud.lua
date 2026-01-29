@@ -750,10 +750,11 @@ net.Receive("CreateDeathInformation", function()
 		local MapPanel = nil
 		local respawnButton = nil
 
-		local DeathDocker = vgui.Create("DPanel")
+		local DeathDocker = vgui.Create("DPanel", GetHUDPanel())
 		DeathDocker:SetSize(ScrW(), ScrH())
 		DeathDocker:SetPos(0, 0)
 		DeathDocker:SetAlpha(0)
+		DeathDocker:AlphaTo(255, 0.2, 0, nil)
 
 		function DeathDocker:Paint(w, h)
 			BlurPanel(self, 5)
@@ -762,11 +763,11 @@ net.Receive("CreateDeathInformation", function()
 			surface.DrawRect(0, 0, w, h)
 		end
 
-		DeathDocker:AlphaTo(255, 0.2, 0, nil)
-
 		DeathPopup = vgui.Create("DPanel", DeathDocker)
 		DeathPopup:SetSize(ScrW(), ScrH())
 		DeathPopup:SetPos(0, 0)
+		DeathPopup:SetAlpha(0)
+		DeathPopup:AlphaTo(255, 0.2, 0, nil)
 		DeathPopup:MakePopup()
 		DeathPopup:SetMouseInputEnabled(true)
 		DeathPopup:SetKeyboardInputEnabled(true)
@@ -1326,10 +1327,11 @@ net.Receive("CreateExtractionInformation", function()
 	local MapPanel = nil
 	local respawnButton = nil
 
-	local ExtractDocker = vgui.Create("DPanel")
+	local ExtractDocker = vgui.Create("DPanel", GetHUDPanel())
 	ExtractDocker:SetSize(ScrW(), ScrH())
 	ExtractDocker:SetPos(0, 0)
 	ExtractDocker:SetAlpha(0)
+	ExtractDocker:AlphaTo(255, 0.2, 0, nil)
 
 	function ExtractDocker:Paint(w, h)
 		BlurPanel(self, 5)
@@ -1338,14 +1340,15 @@ net.Receive("CreateExtractionInformation", function()
 		surface.DrawRect(0, 0, w, h)
 	end
 
-	ExtractDocker:AlphaTo(255, 0.2, 0, nil)
-
 	ExtractionPopup = vgui.Create("DPanel", ExtractDocker)
 	ExtractionPopup:SetSize(ScrW(), ScrH())
 	ExtractionPopup:SetPos(0, 0)
+	ExtractionPopup:SetAlpha(0)
+	ExtractionPopup:AlphaTo(255, 0.2, 0, nil)
 	ExtractionPopup:MakePopup()
 	ExtractionPopup:SetMouseInputEnabled(true)
 	ExtractionPopup:SetKeyboardInputEnabled(true)
+	ExtractionPopup:AlphaTo(255, 0.2, 0, nil)
 
 	ExtractionPopup.Paint = function(self, w, h)
 		draw.SimpleTextOutlined("EXTRACTED", "PuristaBold64", w / 2, EFGM.MenuScale(35), Color(0, 255, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.whiteColor)
