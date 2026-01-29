@@ -52,6 +52,10 @@ elseif CLIENT then
 	end)
 end
 
+function GM:GrabEarAnimation()
+	return false
+end
+
 function CommaValue(amount)
 	local formatted = tostring(amount)
 	local num

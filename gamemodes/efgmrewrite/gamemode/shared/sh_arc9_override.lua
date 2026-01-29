@@ -1171,7 +1171,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
                     if !self:GetOwner():IsInHideout() then return end
 
-                    self:GetOwner():ConCommand("efgm_gamemenu Market")
+                    self:GetOwner():ConCommand("efgm_gamemenu market")
                     timer.Simple(0.1, function() Menu.ConfirmPreset(neededAtts, presetName, preset, true) end)
 
                     -- self:LoadPreset(preset)
@@ -2728,7 +2728,7 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 
                 if efgmItem == nil then return end
 
-                ply:ConCommand("efgm_gamemenu Market")
+                ply:ConCommand("efgm_gamemenu market")
                 timer.Simple(0.1, function() Menu.ConfirmPurchase(efgmAtt, "inv", true) end)
             end
 

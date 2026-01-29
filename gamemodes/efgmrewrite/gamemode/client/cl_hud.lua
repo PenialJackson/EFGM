@@ -1226,8 +1226,7 @@ net.Receive("CreateDeathInformation", function()
 			MapPanel = vgui.Create("DPanel", DeathPopup)
 			MapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
 			MapPanel:SetPos(DeathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
-
-			MapPanel.Paint = nil
+			MapPanel:SetPaintBackground(false)
 
 			local mapRawName = game.GetMap()
 			local mapOverhead = Material("maps/" .. mapRawName .. ".png", "smooth")
@@ -1549,8 +1548,7 @@ net.Receive("CreateExtractionInformation", function()
 		MapPanel = vgui.Create("DPanel", ExtractionPopup)
 		MapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
 		MapPanel:SetPos(ExtractionPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
-
-		MapPanel.Paint = nil
+		MapPanel:SetPaintBackground(false)
 
 		local mapRawName = game.GetMap()
 		local mapOverhead = Mats.curMapOverhad
@@ -1849,7 +1847,7 @@ function HUDInspectItem(item, data, panel)
 	end
 
 	local itemPullOutPanel = vgui.Create("DPanel", inspectPanel)
-	itemPullOutPanel:SetSize(inspectPanel:GetWide(), inspectPanel:GetTall() - EFGM.MenuScale(75))
+	itemPullOutPanel:SetSize(inspectPanel:GetWide(), inspectPanel:GetTall() - EFGM.MenuScale(85))
 	itemPullOutPanel:SetPos(0, inspectPanel:GetTall() - EFGM.MenuScale(1))
 	itemPullOutPanel:Hide()
 
@@ -1917,8 +1915,7 @@ function HUDInspectItem(item, data, panel)
 	pullOutContent:Dock(FILL)
 	pullOutContent:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	pullOutContent:SetAlpha(0)
-
-	pullOutContent.Paint = nil
+	pullOutContent:SetPaintBackground(false)
 
 	itemPullOutPanel.content = pullOutContent
 
@@ -1931,8 +1928,7 @@ function HUDInspectItem(item, data, panel)
 		infoContent:Dock(FILL)
 		infoContent:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 		infoContent:SetAlpha(0)
-
-		infoContent.Paint = nil
+		infoContent:SetPaintBackground(false)
 
 		local infoContentText = vgui.Create("RichText", infoContent)
 		infoContentText:Dock(FILL)
@@ -1997,8 +1993,7 @@ function HUDInspectItem(item, data, panel)
 		wikiContent:Dock(FILL)
 		wikiContent:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 		wikiContent:SetAlpha(0)
-
-		wikiContent.Paint = nil
+		wikiContent:SetPaintBackground(false)
 
 		local wikiContentText = vgui.Create("RichText", wikiContent)
 		wikiContentText:Dock(FILL)
@@ -2220,7 +2215,7 @@ function HUDInspectItem(item, data, panel)
 		surface.PlaySound("ui/element_select.wav")
 
 		itemPullOutPanel:Show()
-		itemPullOutPanel:MoveTo(0, EFGM.MenuScale(75), 0.1, 0, 0.3)
+		itemPullOutPanel:MoveTo(0, EFGM.MenuScale(85), 0.1, 0, 0.3)
 
 		itemPullOutPanel.content:AlphaTo(0, 0.05, 0, function()
 			itemPullOutPanel.content:Remove()
@@ -2239,7 +2234,7 @@ function HUDInspectItem(item, data, panel)
 		surface.PlaySound("ui/element_select.wav")
 
 		itemPullOutPanel:Show()
-		itemPullOutPanel:MoveTo(0, EFGM.MenuScale(75), 0.1, 0, 0.3)
+		itemPullOutPanel:MoveTo(0, EFGM.MenuScale(85), 0.1, 0, 0.3)
 
 		itemPullOutPanel.content:AlphaTo(0, 0.05, 0, function()
 			itemPullOutPanel.content:Remove()
