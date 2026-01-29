@@ -256,68 +256,6 @@ function RenderRaidIntro()
 	intro:AlphaTo(0, 1, 5.65, function() intro:Remove() end)
 end
 
--- compass
-function RenderCompass()
-	if IsValid(compass) then return end
-
-	local panel = GetHUDPanel()
-
-	compass = vgui.Create("DPanel", panel)
-	compass:SetSize(ScrW(), ScrH())
-	compass:SetPos(0, 0)
-	compass:SetAlpha(0)
-	compass:MoveToFront()
-
-	local color = Color(255, 255, 255)
-	local adv_compass_tbl = {
-		[0] = "N",
-		[45] = "NE",
-		[90] = "E",
-		[135] = "SE",
-		[180] = "S",
-		[225] = "SW",
-		[270] = "W",
-		[315] = "NW",
-		[360] = "N"
-	}
-
-	compass.Paint = function(self, w, h)
-		if !ply:Alive() then return end
-
-		local ang = ply:EyeAngles()
-
-		surface.SetDrawColor(color)
-		surface.DrawLine(ScrW() / 2, 0, ScrW() / 2, EFGM.ScreenScale(6))
-
-		local compassX, compassY = (ScrW() / 2), EFGM.ScreenScale(-5)
-		local width, height = (EFGM.ScreenScale(ScrW()) / 2), EFGM.ScreenScale(10)
-
-		spacing = width / 360
-		numOfLines = width / spacing
-		fadeDistMultiplier = EFGM.ScreenScale(25)
-		fadeDistance = (ScrW() / 2) / fadeDistMultiplier
-
-		for i = math.Round(-ang.y) % 360, (math.Round(-ang.y) % 360) + numOfLines do
-			local x = ((compassX - (width / 2)) + (((i + ang.y) % 360) * spacing))
-			local value = math.abs(x - compassX)
-			local calc = 1 - ((value + (value - fadeDistance)) / (width / 2))
-			local calculation = 255 * math.Clamp(calc, 0.001, 1)
-
-			local i_offset = -(math.Round(i - 0 - (numOfLines / 2))) % 360
-
-			if i_offset % 45 == 0 and i_offset >= 0 then
-				local a = i_offset
-				local text = adv_compass_tbl[360 - (a % 360)] and adv_compass_tbl[360 - (a % 360)] or 360 - (a % 360)
-
-				draw.DrawText(text, "BenderExfilList", x, compassY + height * EFGM.ScreenScale(0.6), Color(color.r, color.g, color.b, calculation), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
-			end
-		end
-	end
-
-	compass:AlphaTo(255, 0.35, 0, nil)
-	compass:AlphaTo(0, 1, 4.65, function() compass:Remove() end)
-end
-
 function RenderPlayerInfo(ent)
 	local inHideout = ent:IsInHideout()
 
@@ -633,6 +571,7 @@ net.Receive("PlayerRaidTransition", function()
 	end
 
 	HUD.InTransition = true
+	Menu.PerferredTab = nil
 
 	if IsValid(notif) then notif:Remove() end
 
@@ -674,6 +613,7 @@ net.Receive("PlayerDuelTransition", function()
 	end
 
 	HUD.InTransition = true
+	Menu.PerferredTab = nil
 
 	if IsValid(notif) then notif:Remove() end
 
@@ -1762,8 +1702,8 @@ function HUDInspectItem(item, data, panel)
 	end
 
 	surface.SetFont("PuristaBold18")
-	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(comma_value(value))
-	if i.canPurchase == true or i.canPurchase == nil then itemDescText = itemDescText .. " / LEVEL " .. string.upper(i.levelReq) end
+	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(CommaValue(value))
+	if i.canPurchase == true or i.canPurchase == nil then itemDescText = itemDescText .. " / LEVEL " .. i.levelReq else itemDescText = itemDescText .. " / FIR ONLY" end
 	local itemDescSize = surface.GetTextSize(itemDescText)
 
 	local iconSizeX = EFGM.MenuScale(114 * i.sizeX)
@@ -2083,7 +2023,7 @@ function HUDInspectItem(item, data, panel)
 		end
 
 		if i.value then
-			wikiContentText:AppendText("BASE VALUE: ₽" .. comma_value(i.value) .. "\n")
+			wikiContentText:AppendText("BASE VALUE: ₽" .. CommaValue(i.value) .. "\n")
 		end
 
 		if i.lootWeight then

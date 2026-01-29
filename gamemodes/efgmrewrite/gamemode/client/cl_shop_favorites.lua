@@ -1,7 +1,7 @@
 EFGM.Favorites = {}
 
 function EFGM:LoadFavorites()
-	local f = file.Open("efgm_market_favorites.txt", "r", "DATA")
+	local f = file.Open("efgm/efgm_market_favorites.txt", "r", "DATA")
 	if !f then return end
 
 	EFGM.Favorites = {}
@@ -17,7 +17,8 @@ function EFGM:LoadFavorites()
 end
 
 function EFGM:SaveFavorites()
-	local f = file.Open("efgm_market_favorites.txt", "w", "DATA")
+	file.CreateDir("efgm")
+	local f = file.Open("efgm/efgm_market_favorites.txt", "w", "DATA")
 
 	for i, k in pairs(EFGM.Favorites) do
 		f:Write(i)

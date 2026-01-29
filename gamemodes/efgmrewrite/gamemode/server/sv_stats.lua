@@ -32,7 +32,7 @@ hook.Add("PlayerDeath", "DeathUpdateStats", function(victim, weapon, attacker)
 	if victim:LastHitGroup() == HITGROUP_HEAD then attacker:SetNWInt("Headshots", attacker:GetNWInt("Headshots", 0) + 1) end
 
 	local rawDistance = victim:GetPos():Distance(attacker:GetPos())
-	local distance = units_to_meters(rawDistance)
+	local distance = UnitsToMeters(rawDistance)
 	if distance >= attacker:GetNWInt("FarthestKill", 0) then attacker:SetNWInt("FarthestKill", distance) end
 	if distance >= attacker:GetNWInt("RaidFarthestKill", 0) then attacker:SetNWInt("RaidFarthestKill", distance) end
 end)

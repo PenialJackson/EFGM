@@ -169,7 +169,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 	end
 
 	local rawDistance = victim:GetPos():Distance(attacker:GetPos())
-	local distance = units_to_meters(rawDistance)
+	local distance = UnitsToMeters(rawDistance)
 
 	local xpMult = (victim:IsInRaidScav() and 0.25) or 0.5
 
@@ -351,13 +351,18 @@ end)
 hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then return false end
 
-	if !EFGMITEMS[class] then return true end -- if sm1 wants a camera or something
+	local def = EFGMITEMS[class]
+	if !def then return true end -- if sm1 wants a camera or something
 
 	local data = {}
 	data.att = EFGMITEMS[class].defAtts
 	data.count = 1
 	data.owner = ply:SteamID64()
 	data.timestamp = os.time()
+
+	if def.equipType == EQUIPTYPE.Consumable then
+		data.durability = def.consumableValue
+	end
 
 	AddItemToInventory(ply, class, EQUIPTYPE.Weapon, data)
 	ReloadInventory(ply)

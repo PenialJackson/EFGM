@@ -1,7 +1,7 @@
 -- self explanitory (erm actually its explanatory 🤓) (fuck off porty)
 if CLIENT then
 	CreateClientConVar("efgm_bind_menu", KEY_TAB, true, true, "Determines the keybind that will display the menu")
-	CreateClientConVar("efgm_bind_showcompass", KEY_M, true, true, "Determines the keybind that shows the compass")
+	CreateClientConVar("efgm_bind_map", KEY_M, true, true, "Determines the keybind that will display the map menu")
 	CreateClientConVar("efgm_bind_raidinfo", KEY_O, true, true, "Determines the keybind that will display available extracts and time remaining in the raid")
 	CreateClientConVar("efgm_bind_leanleft", KEY_Q, true, true, "Determines the keybind that will begin a left lean")
 	CreateClientConVar("efgm_bind_leanright", KEY_E, true, true, "Determines the keybind that will begin a right lean")
@@ -54,13 +54,13 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 	if CLIENT and IsFirstTimePredicted() then
 		-- toggle menu
 		if button == ply:GetInfoNum("efgm_bind_menu", KEY_TAB) then
-			ply:ConCommand("efgm_gamemenu Stats")
+			ply:ConCommand("efgm_gamemenu inventory")
 			return
 		end
 
-		-- show compass
-		if button == ply:GetInfoNum("efgm_bind_showcompass", KEY_M) then
-			RenderCompass(ply)
+		-- show map
+		if button == ply:GetInfoNum("efgm_bind_map", KEY_M) then
+			ply:ConCommand("efgm_gamemenu match")
 			return
 		end
 
@@ -277,13 +277,13 @@ if game.SinglePlayer() then
 		if SERVER then
 			-- toggle menu
 			if button == ply:GetInfoNum("efgm_bind_menu", KEY_TAB) then
-				ply:ConCommand("efgm_gamemenu Stats")
+				ply:ConCommand("efgm_gamemenu inventory")
 				return
 			end
 
-			-- show compass
-			if button == ply:GetInfoNum("efgm_bind_showcompass", KEY_M) then
-				ply:SendLua("RenderCompass(ply)")
+			-- show map
+			if button == ply:GetInfoNum("efgm_bind_map", KEY_M) then
+				ply:ConCommand("efgm_gamemenu match")
 				return
 			end
 

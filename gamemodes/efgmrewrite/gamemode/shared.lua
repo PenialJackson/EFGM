@@ -50,15 +50,7 @@ elseif CLIENT then
 	end)
 end
 
--- misc. functions
-function table.removeKey(tbl, key)
-	local element = tbl[key]
-	tbl[key] = nil
-
-	return element
-end
-
-function comma_value(amount)
+function CommaValue(amount)
 	local formatted = tostring(amount)
 	local num
 
@@ -70,7 +62,7 @@ function comma_value(amount)
 	return formatted
 end
 
-function format_seconds(s)
+function FormatSeconds(s)
 	local hours = math.floor(s / 3600)
 	local minutes = math.floor((s % 3600) / 60)
 	local seconds = s % 60
@@ -78,13 +70,13 @@ function format_seconds(s)
 	return string.format("%2d:%02d:%02d", hours, minutes, seconds)
 end
 
-function units_to_meters(u)
+function UnitsToMeters(u)
 	return math.Round(u * 0.01905)
 end
 
 local charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-function generate_rand_string(l)
+function GenerateRandString(l)
 	local str = ""
 
 	for i = 1, l do
@@ -268,7 +260,7 @@ function GetAttachmentListFromCode(str)
 
 	for i = 1, #cleanAttTbl do
 		if !cleanAttTbl[i] then continue end
-		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. comma_value(EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].value)
+		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. CommaValue(EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].value)
 		if i != #cleanAttTbl then cleanAttStr = cleanAttStr .. "\n" end
 	end
 
