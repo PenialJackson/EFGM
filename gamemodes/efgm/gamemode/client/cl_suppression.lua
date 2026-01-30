@@ -28,7 +28,7 @@ net.Receive("suppression_fire_event", function(len)
 
 	local _, nearest_point, _ = util.DistanceToLine(tr.StartPos, tr.HitPos, LocalPlayer():GetPos())
 
-	if LocalPlayer():Alive() and EntitiesWithinBounds(nearest_point, LocalPlayer(), 100) then
+	if LocalPlayer():Alive() and util.EntitiesWithinBounds(nearest_point, LocalPlayer(), 100) then
 		effect_amount = math.Clamp(effect_amount + 0.08 * buildupspeed, 0, 1)
 		sound.Play("bul_snap/supersonic_snap_" .. math.random(1,18) .. ".wav", nearest_point, 75, 100, 1)
 		sound.Play("bul_flyby/subsonic_" .. math.random(1,27) .. ".wav", nearest_point, 75, 100, 1)

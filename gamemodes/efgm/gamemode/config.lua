@@ -1,6 +1,7 @@
 respawnTime = 7
 noRaidRespawnTime = 2.5
 underweightLimit = 30
+sellMultiplier = 0.5
 
 levelArray = {}
 levelArray[1] = 350
@@ -21,7 +22,16 @@ if SERVER then
 	RunConsoleCommand("arc9_mod_bodydamagecancel", "1")
 	RunConsoleCommand("arc9_mod_damage", "1")
 	RunConsoleCommand("arc9_mod_damagerand", "1")
+
 	RunConsoleCommand("arc9_mod_headshotdamage", GetConVar("efgm_oneshotheadshot"):GetInt() == 1 and "5" or "1")
+	cvars.AddChangeCallback("efgm_oneshotheadshot", function(convar_name, value_old, value_new)
+		if value_new == "1" then
+			RunConsoleCommand("arc9_mod_headshotdamage", "5")
+		else
+			RunConsoleCommand("arc9_mod_headshotdamage", "1")
+		end
+	end)
+
 	RunConsoleCommand("arc9_mod_malfunction", "0.15")
 	RunConsoleCommand("arc9_mod_muzzlevelocity", "1.2")
 	RunConsoleCommand("arc9_mod_recoil", "0.75")
@@ -35,6 +45,8 @@ if SERVER then
 	-- damage falloff (in meters)
 	RunConsoleCommand("arc9_eft_mindmgrange", "160")
 	RunConsoleCommand("arc9_eft_mindmgrange_sg", "40")
+
+	-- damage type multipliers
 	RunConsoleCommand("arc9_eft_mult_338", "0.55")
 	RunConsoleCommand("arc9_eft_mult_bigrifle", "0.65")
 	RunConsoleCommand("arc9_eft_mult_carabine", "0.4")
@@ -71,11 +83,9 @@ if SERVER then
 	RunConsoleCommand("arc9_bullet_lifetime", "5")
 	RunConsoleCommand("arc9_bullet_imaginary", "0")
 
-	-- true names
+	-- hud
 	RunConsoleCommand("arc9_truenames_enforced", "1")
 	RunConsoleCommand("arc9_truenames_default", "1")
-
-	-- hud
 	RunConsoleCommand("arc9_hud_force_disable", "1")
 
 	-- attachments
@@ -87,10 +97,6 @@ if SERVER then
 	RunConsoleCommand("arc9_free_atts", "0")
 
 	-- caching
-	RunConsoleCommand("arc9_precache_sounds_onfirsttake", "0")
-	RunConsoleCommand("arc9_precache_attsmodels_onfirsttake", "0")
-	RunConsoleCommand("arc9_precache_wepmodels_onfirsttake", "0")
-
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then
 		RunConsoleCommand("arc9_precache_allsounds_onstartup", "1")
 		RunConsoleCommand("arc9_precache_attsmodels_onstartup", "1")
@@ -101,14 +107,6 @@ if SERVER then
 		RunConsoleCommand("arc9_precache_attsmodels_onstartup", "0")
 		RunConsoleCommand("arc9_precache_wepmodels_onstartup", "0")
 	end
-
-	cvars.AddChangeCallback("efgm_oneshotheadshot", function(convar_name, value_old, value_new)
-		if value_new == "1" then
-			RunConsoleCommand("arc9_mod_headshotdamage", "5")
-		else
-			RunConsoleCommand("arc9_mod_headshotdamage", "1")
-		end
-	end)
 end
 
 -- variables for ARC9 multipliers and range, used for modifications that I will make directly in SWEPS
@@ -199,7 +197,6 @@ if CLIENT then
 
 	-- visuals
 	RunConsoleCommand("cl_new_impact_effects", GetConVar("efgm_visuals_highqualimpactfx"):GetInt())
-
 	cvars.AddChangeCallback("efgm_visuals_highqualimpactfx", function(convar_name, value_old, value_new)
 		if value_new == "1" then
 			RunConsoleCommand("cl_new_impact_effects", "1")
@@ -209,7 +206,6 @@ if CLIENT then
 	end)
 
 	RunConsoleCommand("cl_drawownshadow", GetConVar("efgm_visuals_selfshadow"):GetInt())
-
 	cvars.AddChangeCallback("efgm_visuals_selfshadow", function(convar_name, value_old, value_new)
 		if value_new == "1" then
 			RunConsoleCommand("cl_drawownshadow", "1")

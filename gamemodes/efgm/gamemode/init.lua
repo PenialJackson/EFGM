@@ -1,50 +1,52 @@
-AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
-include("shared.lua")
-AddCSLuaFile("!config.lua")
-include("!config.lua")
-AddCSLuaFile("shared/sh_enums.lua")
-include("shared/sh_enums.lua")
-AddCSLuaFile("shared/sh_inventory_system.lua")
-include("shared/sh_inventory_system.lua")
+AddCSLuaFile("util.lua")
+AddCSLuaFile("enums.lua")
+AddCSLuaFile("config.lua")
+AddCSLuaFile("items/items_init.lua")
 
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/shared/*.lua", "GAME", "nameasc")) do
-	if f == "sh_enums.lua" or f == "sh_inventory_system.lua" then continue end
+include("shared.lua")
+include("util.lua")
+include("enums.lua")
+include("config.lua")
+include("items/items_init.lua")
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	AddCSLuaFile("shared/" .. f)
 	include("shared/" .. f)
 end
 
-AddCSLuaFile("items/items_init.lua")
-include("items/items_init.lua")
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/server/*.lua", "GAME", "nameasc")) do
+	include("server/" .. f)
+end
 
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/items/*.lua", "GAME", "nameasc")) do
+AddCSLuaFile("cl_init.lua")
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/client/*.lua", "GAME", "nameasc")) do
+	AddCSLuaFile("client/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "nameasc")) do
+	AddCSLuaFile("vgui/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nameasc")) do
 	if f == "items_init.lua" then continue end
+
 	AddCSLuaFile("items/" .. f)
 	include("items/" .. f)
 end
 
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/client/*.lua", "GAME", "nameasc")) do
-	AddCSLuaFile("client/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/server/*.lua", "GAME", "nameasc")) do
-	include("server/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/intel/*.lua", "GAME", "nameasc")) do
-	AddCSLuaFile("intel/" .. f)
-end
-
-util.AddNetworkString("PlayerReinstantiateInventory")
-
 function GM:Initialize()
-	print("Escape From Garry's Mod Rewrite has been initialized on " .. game.GetMap())
+	print("Escape From Garry's Mod (EFGM) initialized, playing on " .. game.GetMap() .. " at unix time " .. os.time())
 
-	RunConsoleCommand("sv_airaccelerate", "2") -- what is a titanmod?
+	RunConsoleCommand("sv_airaccelerate", "3") -- what is a titanmod?
 	RunConsoleCommand("mp_falldamage", "1") -- what is a titanmod? part two, electric boogaloo
 	RunConsoleCommand("mp_show_voice_icons", "0")
 	RunConsoleCommand("decalfrequency", "1")
 end
+
+util.AddNetworkString("CreateDeathInformation")
+util.AddNetworkString("PlayerRequestRespawn")
 
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
@@ -85,7 +87,6 @@ function GM:PlayerSpawn(ply)
 	CalculateInventoryWeight(ply)
 end
 
-util.AddNetworkString("CreateDeathInformation")
 function GM:PlayerDeath(victim, inflictor, attacker)
 	if victim:IsInRaid() then
 		UnequipAll(victim) -- unload all equipped items into inventory, helps clean this all up
@@ -207,7 +208,6 @@ hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
 	ply:SetNWBool("RaidReady", false)
 end)
 
-util.AddNetworkString("PlayerRequestRespawn")
 net.Receive("PlayerRequestRespawn", function(len, ply)
 	if !timer.Exists(ply:SteamID() .. "respawnTime") then ply:Spawn() end
 end)

@@ -1,32 +1,19 @@
-include("shared.lua")
-
--- client globals
 EFGM = {}
 
-local function DeepSkinOverride(children, skin)
-	for k, v in pairs(children) do
-		v:SetSkin(skin)
-		if #v:GetChildren() != 0 then DeepSkinOverride(v:GetChildren(), skin) end
-	end
+include("shared.lua")
+include("util.lua")
+include("enums.lua")
+include("config.lua")
+include("items/items_init.lua")
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
+	include("shared/" .. f)
 end
 
-concommand.Add("efgm_dermarefresh", function()
-	DeepSkinOverride(vgui.GetWorldPanel():GetChildren(), "efgm")
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nameasc")) do
+	if f == "items_init.lua" then continue end
 
-	for k, v in pairs(derma.GetSkinTable()) do
-		if v.GwenTexture then
-			local tex = v.GwenTexture:GetTexture("$basetexture")
-			if tex then tex:Download() end
-		end
-	end
-
-	derma.RefreshSkins()
-end)
-
--- disable ARC9 settings menu when needed
-if GetConVar("efgm_derivesbox"):GetInt() == 0 then
-	function ARC9_OpenSettings(page) return end
-	concommand.Remove("arc9_settings_open")
+	include("items/" .. f)
 end
 
 local cScrW = ScrW()
@@ -80,30 +67,21 @@ hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
 	CreateFonts()
 end)
 
-EFGM.SteamNameCache = {}
-
-include("!config.lua")
-include("shared/sh_enums.lua")
-include("shared/sh_inventory_system.lua")
-include("items/items_init.lua")
-
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/items/*.lua", "GAME", "nameasc")) do
-	if f == "items_init.lua" then continue end
-	include("items/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/shared/*.lua", "GAME", "nameasc")) do
-	if f == "sh_enums.lua" or f == "sh_inventory_system.lua" then continue end
-	include("shared/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/client/*.lua", "GAME", "nameasc")) do
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/client/*.lua", "GAME", "nameasc")) do
 	include("client/" .. f)
 end
 
-for _, f in ipairs(file.Find("gamemodes/efgmrewrite/gamemode/intel/*.lua", "GAME", "nameasc")) do
-	include("intel/" .. f)
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "nameasc")) do
+	include("vgui/" .. f)
 end
+
+-- disable ARC9 settings menu when needed
+if GetConVar("efgm_derivesbox"):GetInt() == 0 then
+	function ARC9_OpenSettings(page) return end
+	concommand.Remove("arc9_settings_open")
+end
+
+EFGM.SteamNameCache = {}
 
 -- panel/frame blur
 -- TODO: create similar function for segments of the screen instead of blurring a specific function, would let us blur HUD elements that are not held in a panel/frame
@@ -123,6 +101,10 @@ function BlurPanel(panel, strength, steps)
 		if render then render.UpdateScreenEffectTexture() end
 		surface.DrawTexturedRect(blurX * -1, blurY * -1, ScrW(), ScrH())
 	end
+end
+
+-- override ear animation
+function GM:GrabEarAnimation()
 end
 
 -- death perspective

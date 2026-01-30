@@ -1,7 +1,3 @@
--- basically makes a bunch of convenience variables for menus and shit
--- will interit mostly from efgm "Constants for easy use" while i figure out what im actually doing
--- also on a sidenote, searching "fuck" in efgmrewrite previously yielded 19 results (now 20) as of 1:40 PM CDT, 3/13/2023 and I may have a problem
-
 -- colors
 Colors = {}
 
@@ -108,7 +104,6 @@ Mats.inventoryIcon = Material("icons/inventory_icon.png", "smooth")
 Mats.marketIcon = Material("icons/market_icon.png", "smooth")
 Mats.tasksIcon = Material("icons/tasks_icon.png", "smooth")
 Mats.skillsIcon = Material("icons/skills_icon.png", "smooth")
-Mats.intelIcon = Material("icons/intel_icon.png", "smooth")
 Mats.achievementIcon = Material("icons/achievement_icon.png", "smooth")
 Mats.settingsIcon = Material("icons/settings_icon.png", "smooth")
 Mats.invPrimaryIcon = Material("icons/inventory_primary_icon.png", "smooth")

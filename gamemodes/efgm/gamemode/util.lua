@@ -1,7 +1,14 @@
 if not util then return end
 
+local math = math
 local string = string
 local table = table
+
+-- built in NULL check
+function IsPlayer(ent)
+	print("mrow")
+	return ent and ent:IsValid() and ent:IsPlayer()
+end
 
 -- format given number with commas (typically used with currency values) [###### -> ###,###]
 function string.FormatComma(val)
@@ -46,4 +53,60 @@ end
 -- better table.Random() for sequential tables
 function table.SeqRandom(tbl)
 	return tbl[math.random(#tbl)]
+end
+
+-- ipairs but reverse
+function reverseipairs(tbl)
+	local i = #tbl + 1
+
+	return function()
+		i = i - 1
+		local value = tbl[i]
+
+		if i >= 1 then
+			return i, value
+		end
+	end
+end
+
+-- check if the distance of two entities (or vectors) is within a specified distance
+function util.EntitiesWithinBounds(ent1, ent2, dist)
+	local pos1
+	local pos2
+
+	if isentity(pos1) then pos1 = ent1:GetPos() else pos1 = ent1 end
+	if isentity(pos2) then pos2 = ent2:GetPos() else pos2 = ent2 end
+
+	local distSqr = dist * dist
+	return pos1:DistToSqr(pos2:GetPos()) < distSqr
+end
+
+-- override with a return
+local rand = math.random
+function table.Shuffle(t)
+	local n = #t
+
+	while n > 1 do
+		local k = rand(n)
+		t[n], t[k] = t[k], t[n]
+		n = n - 1
+	end
+
+	return t
+end
+
+-- returns the number of bits required to network an integer
+function util.BitsRequired(num, signed)
+	local bits, max = 0, 1
+
+	while max <= num do
+		bits = bits + 1
+		max = max + max
+	end
+
+	if signed then
+		bits = math.min(bits + 1, 32)
+	end
+
+	return bits
 end

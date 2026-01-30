@@ -1,4 +1,4 @@
-# Escape From Garry's Mod
+# Escape From Garry's Mod (EFGM)
 
 A heavily work in progress [Garry's Mod](https://store.steampowered.com/app/4000/Garrys_Mod/) gamemode, the sequel to the original Escape From Garry's Mod, relatively unpolished and missing many gameplay mechanics and elements, do not play if you don't know what you are doing
 

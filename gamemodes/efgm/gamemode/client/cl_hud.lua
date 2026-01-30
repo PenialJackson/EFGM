@@ -1777,8 +1777,8 @@ function HUDInspectItem(item, data, panel)
 	inspectPanel:SetScreenLock(true)
 	inspectPanel:AlphaTo(255, 0.1, 0, nil)
 
-	inspectPanel.Paint = function(s, w, h)
-		BlurPanel(s, 3)
+	function inspectPanel:Paint(w, h)
+		BlurPanel(self, EFGM.MenuScale(3))
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -1786,7 +1786,7 @@ function HUDInspectItem(item, data, panel)
 		surface.SetDrawColor(Colors.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Color(255, 255, 255, 25))
+		surface.SetDrawColor(Colors.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -1799,7 +1799,7 @@ function HUDInspectItem(item, data, panel)
 			draw.SimpleTextOutlined(data.tag, "PuristaBold14", EFGM.MenuScale(5), EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		end
 
-		surface.SetDrawColor(255, 255, 255, 255)
+		surface.SetDrawColor(Colors.pureWhiteColor)
 		surface.SetMaterial(i.icon)
 
 		-- panel width = 198, panel height = 216
@@ -1809,97 +1809,18 @@ function HUDInspectItem(item, data, panel)
 		surface.DrawTexturedRect(x, y, newPanelWidth, newPanelHeight)
 	end
 
-	if data.fir then
-		local firIcon = vgui.Create("DButton", inspectPanel)
-		firIcon:SetPos(itemDescSize + EFGM.MenuScale(7), EFGM.MenuScale(29))
-		firIcon:SetSize(EFGM.MenuScale(12), EFGM.MenuScale(12))
-		firIcon:SetText("")
-
-		firIcon.Paint = function(s, w, h)
-			surface.SetDrawColor(Colors.pureWhiteColor)
-			surface.SetMaterial(Mats.firIcon)
-			surface.DrawTexturedRect(0, 0, EFGM.MenuScale(12), EFGM.MenuScale(12))
-		end
-
-		firIcon.OnCursorEntered = function(s)
-			local x, y = Menu.MouseX, Menu.MouseY
-			local sideH, sideV
-
-			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-
-			if x <= (ScrW() / 2) then sideH = true else sideH = false end
-			if y <= (ScrH() / 2) then sideV = true else sideV = false end
-
-			local function UpdatePopOutPos()
-				if sideH == true then
-					firPopOut:SetX(math.Clamp(x + EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - firPopOut:GetWide() - EFGM.MenuScale(10)))
-				else
-					firPopOut:SetX(math.Clamp(x - firPopOut:GetWide() - EFGM.MenuScale(15), EFGM.MenuScale(10), ScrW() - firPopOut:GetWide() - EFGM.MenuScale(10)))
-				end
-
-				if sideV == true then
-					firPopOut:SetY(math.Clamp(y + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - firPopOut:GetTall() - EFGM.MenuScale(20)))
-				else
-					firPopOut:SetY(math.Clamp(y - firPopOut:GetTall() + EFGM.MenuScale(15), EFGM.MenuScale(60), ScrH() - firPopOut:GetTall() - EFGM.MenuScale(20)))
-				end
-			end
-
-			if IsValid(firPopOut) then firPopOut:Remove() end
-			firPopOut = vgui.Create("DPanel", Menu.MenuFrame)
-			firPopOut:SetSize(EFGM.MenuScale(455), EFGM.MenuScale(50))
-			UpdatePopOutPos()
-			firPopOut:AlphaTo(255, 0.1, 0, nil)
-			firPopOut:SetMouseInputEnabled(false)
-
-			firPopOut.Paint = function(w, h)
-				if !IsValid(s) then return end
-
-				BlurPanel(s, 3)
-
-				-- panel position follows mouse position
-				x, y = Menu.MouseX, Menu.MouseY
-
-				UpdatePopOutPos()
-
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
-				surface.DrawRect(0, 0, w, h)
-
-				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
-				surface.DrawRect(0, 0, w, h)
-
-				surface.SetDrawColor(Colors.tooltipHeaderColor)
-				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
-
-				surface.SetDrawColor(Colors.transparentWhiteColor)
-				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
-				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
-				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
-				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
-
-				draw.SimpleTextOutlined("FOUND IN RAID", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined("This item will lose its 'found in raid' status if brought into another raid.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			end
-		end
-
-		firIcon.OnCursorExited = function(s)
-			if IsValid(firPopOut) then
-				firPopOut:AlphaTo(0, 0.1, 0, function() firPopOut:Remove() end)
-			end
-		end
-	end
-
 	local itemPullOutPanel = vgui.Create("DPanel", inspectPanel)
 	itemPullOutPanel:SetSize(inspectPanel:GetWide(), inspectPanel:GetTall() - EFGM.MenuScale(85))
-	itemPullOutPanel:SetPos(0, inspectPanel:GetTall() - EFGM.MenuScale(1))
+	itemPullOutPanel:SetPos(0, inspectPanel:GetTall() - 1)
 	itemPullOutPanel:Hide()
 
-	itemPullOutPanel.Paint = function(s, w, h)
-		BlurPanel(s, 3)
+	function itemPullOutPanel:Paint(w, h)
+		BlurPanel(self, 1)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Color(255, 255, 255, 25))
+		surface.SetDrawColor(Colors.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -1979,6 +1900,10 @@ function HUDInspectItem(item, data, panel)
 
 		if ownerName then
 			infoContentText:AppendText("OWNER: " .. ownerName .. "\n")
+		end
+
+		if data.timestamp then
+			infoContentText:AppendText("AQUIRED AT: " .. os.date("%x, %I:%M:%S %p", data.timestamp) .. "\n")
 		end
 
 		if data.count != 0 and data.count != 1 and data.count != nil then
@@ -2119,16 +2044,20 @@ function HUDInspectItem(item, data, panel)
 
 			if firemodes then
 				local str = ""
-
 				for k, v in pairs(firemodes) do
 					if v.PrintName then
 						str = str .. v.PrintName .. ", "
 					else
 						if v.Mode then
-							if v.Mode == 0 then str = str .. "Safe" .. ", "
-							elseif v.Mode < 0 then str = str .. "Auto" .. ", "
-							elseif v.Mode == 1 then str = str .. "Single" .. ", "
-							elseif v.Mode > 1 then str = str .. tostring(v.Mode) .. "-" .. "Burst" .. ", " end
+							if v.Mode == 0 then
+								str = str .. "Safe" .. ", "
+							elseif v.Mode < 0 then
+								str = str .. "Auto" .. ", "
+							elseif v.Mode == 1 then
+								str = str .. "Single" .. ", "
+							elseif v.Mode > 1 then
+								str = str .. tostring(v.Mode) .. "-" .. "Burst" .. ", "
+							end
 						end
 					end
 				end
@@ -2247,11 +2176,11 @@ function HUDInspectItem(item, data, panel)
 		itemPullOutPanel.content = wikiContent
 	end
 
-	itemInfoButton.OnCursorEntered = function(s)
-		surface.PlaySound("ui/element_hover.wav")
+	function itemInfoButton:OnCursorEntered()
+		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
-	itemInfoButton.DoClick = function(s)
+	function itemInfoButton:DoClick()
 		if tab == "Info" then return end
 
 		surface.PlaySound("ui/element_select.wav")
@@ -2266,11 +2195,11 @@ function HUDInspectItem(item, data, panel)
 		end)
 	end
 
-	itemWikiButton.OnCursorEntered = function(s)
-		surface.PlaySound("ui/element_hover.wav")
+	function itemWikiButton:OnCursorEntered()
+		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
-	itemWikiButton.DoClick = function(s)
+	function itemWikiButton:DoClick()
 		if tab == "Wiki" then return end
 
 		surface.PlaySound("ui/element_select.wav")
@@ -2285,24 +2214,26 @@ function HUDInspectItem(item, data, panel)
 		end)
 	end
 
-	inspectPanel.OnMousePressed = function(s)
-		itemPullOutPanel:MoveTo(0, inspectPanel:GetTall() - 1, 0.1, 0, 0.3, function() itemPullOutPanel:Hide() end)
+	function inspectPanel:OnMousePressed()
+		itemPullOutPanel:MoveTo(0, self:GetTall() - 1, 0.1, 0, 0.3, function() itemPullOutPanel:Hide() end)
 
 		tab = nil
 
 		itemPullOutPanel.content:AlphaTo(0, 0.05, 0, nil)
 
-		local screenX, screenY = s:LocalToScreen(0, 0)
+		local screenX, screenY = self:LocalToScreen(0, 0)
 
-		if (s.m_bSizable and gui.MouseX() > (screenX + s:GetWide() - 20) and gui.MouseY() > (screenY + s:GetTall() - 20)) then
-			s.Sizing = {gui.MouseX() - s:GetWide(), gui.MouseY() - s:GetTall()}
-			s:MouseCapture(true)
+		if (self.m_bSizable and gui.MouseX() > (screenX + self:GetWide() - 20) and gui.MouseY() > (screenY + self:GetTall() - 20)) then
+			self.Sizing = {gui.MouseX() - self:GetWide(), gui.MouseY() - self:GetTall()}
+			self:MouseCapture(true)
+
 			return
 		end
 
-		if (s:GetDraggable() and gui.MouseY() < (screenY + 24)) then
-			s.Dragging = {gui.MouseX() - s.x, gui.MouseY() - s.y}
-			s:MouseCapture(true)
+		if (self:GetDraggable() and gui.MouseY() < (screenY + 24)) then
+			self.Dragging = {gui.MouseX() - self.x, gui.MouseY() - self.y}
+			self:MouseCapture(true)
+
 			return
 		end
 	end
@@ -2312,14 +2243,14 @@ function HUDInspectItem(item, data, panel)
 	closeButton:SetPos(inspectPanel:GetWide() - EFGM.MenuScale(32), EFGM.MenuScale(5))
 	closeButton:SetText("")
 
-	closeButton.Paint = function(s, w, h)
-		surface.SetDrawColor(255, 255, 255, 255)
+	function closeButton:Paint(w, h)
+		surface.SetDrawColor(Colors.pureWhiteColor)
 		surface.SetMaterial(Mats.closeButtonIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(32), EFGM.MenuScale(32))
 	end
 
-	closeButton.OnCursorEntered = function(s)
-		surface.PlaySound("ui/element_hover.wav")
+	function closeButton:OnCursorEntered()
+		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
 	function closeButton:DoClick()

@@ -705,5 +705,8 @@ function DPropertySheet:Init()
 	self.Items = {}
 end
 
-derma.DefineSkin("EFGM Derma Skin", "Custom Derma skin for use in Escape From Garry's Mod", SKIN);
-derma.RefreshSkins();
+derma.DefineSkin("EFGM Derma Skin", "Custom Derma skin for use in Escape From Garry's Mod", SKIN)
+hook.Add("ForceDermaSkin", "ForceEFGMDerma", function()
+	return "EFGM Derma Skin"
+end)
+derma.RefreshSkins()

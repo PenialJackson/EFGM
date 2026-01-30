@@ -24,9 +24,6 @@ EQUIPTYPE.None = 9
 -- item array
 EFGMITEMS = {}
 
--- sell multiplier
-sellMultiplier = 0.5
-
 -- types:
 -- 1 == any item (barring keys and attachments)
 -- 2 == military box (weapons, attachments, ammunition)

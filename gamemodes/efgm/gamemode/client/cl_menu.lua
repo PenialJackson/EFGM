@@ -536,7 +536,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local matchBGColor = Colors.transparent
-	local matchText = "#menu.tab.match"
+	local matchText = "MATCH"
 	local matchTextSize = surface.GetTextSize(matchText)
 
 	matchTab.Paint = function(s, w, h)
@@ -595,7 +595,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local inventoryBGColor = Colors.transparent
-	local inventoryText = "#menu.tab.inventory"
+	local inventoryText = "INVENTORY"
 	local inventoryTextSize = surface.GetTextSize(inventoryText)
 
 	inventoryTab.Paint = function(s, w, h)
@@ -656,7 +656,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local marketBGColor = Colors.transparent
-	local marketText = "#menu.tab.market"
+	local marketText = "MARKET"
 	local marketTextSize = surface.GetTextSize(marketText)
 
 	marketTab.Paint = function(s, w, h)
@@ -722,7 +722,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local tasksBGColor = Colors.transparent
-	local tasksText = "#menu.tab.tasks"
+	local tasksText = "TASKS"
 	local tasksTextSize = surface.GetTextSize(tasksText)
 
 	tasksTab.Paint = function(s, w, h)
@@ -790,7 +790,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local skillsBGColor = Colors.transparent
-	local skillsText = "#menu.tab.skills"
+	local skillsText = "SKILLS"
 	local skillsTextSize = surface.GetTextSize(skillsText)
 
 	skillsTab.Paint = function(s, w, h)
@@ -832,67 +832,6 @@ function Menu:Initialize(openTo, container)
 		end)
 	end
 
-	-- intel
-	local intelTab = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
-	intelTab:Dock(LEFT)
-	intelTab:SetSize(EFGM.MenuScale(38), 0)
-
-	intelTab:Hide(true)
-
-	local intelIcon = vgui.Create("DButton", intelTab)
-	intelIcon:SetPos(EFGM.MenuScale(2), EFGM.MenuScale(2))
-	intelIcon:SetSize(EFGM.MenuScale(36), EFGM.MenuScale(36))
-	intelIcon:SetText("")
-
-	intelIcon.Paint = function(s, w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.intelIcon)
-		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
-	end
-
-	local intelBGColor = Colors.transparent
-	local intelText = "#menu.tab.intel"
-	local intelTextSize = surface.GetTextSize(intelText)
-
-	intelTab.Paint = function(s, w, h)
-		surface.SetDrawColor(intelBGColor)
-		surface.DrawRect(0, 0, w, h)
-
-		draw.SimpleTextOutlined(intelText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-
-		if Menu.ActiveTab == "intel" then
-			surface.SetDrawColor(Colors.whiteColor)
-			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
-		end
-	end
-
-	intelIcon.OnCursorEntered = function(s)
-		intelTab:SizeTo(EFGM.MenuScale(46) + intelTextSize, intelTab:GetTall(), 0.15, 0, 0.5)
-		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-	end
-
-	intelIcon.OnCursorExited = function(s)
-		intelTab:SizeTo(EFGM.MenuScale(38), intelTab:GetTall(), 0.15, 0, 0.5)
-	end
-
-	function intelIcon:DoClick()
-		if Menu.ActiveTab == "intel" then return end
-
-		surface.PlaySound("ui/element_select.wav")
-
-		if Menu.ActiveTab == "match" then
-			net.Start("RemovePlayerSquadRF")
-			net.SendToServer()
-		end
-
-		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
-			Menu.MenuFrame.LowerPanel.Contents:Remove()
-			Menu.OpenTab.Intel()
-			Menu.ActiveTab = "intel"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
-		end)
-	end
-
 	-- achievements
 	local achievementsTab = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
 	achievementsTab:Dock(LEFT)
@@ -912,7 +851,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local achievementsBGColor = Colors.transparent
-	local achievementsText = "#menu.tab.achievements"
+	local achievementsText = "ACHIEVMENTS"
 	local achievementsTextSize = surface.GetTextSize(achievementsText)
 
 	achievementsTab.Paint = function(s, w, h)
@@ -961,7 +900,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local settingsBGColor = Colors.transparent
-	local settingsText = "#menu.tab.settings"
+	local settingsText = "SETTINGS"
 	local settingsTextSize = surface.GetTextSize(settingsText)
 
 	settingsTab.Paint = function(s, w, h)
@@ -1131,8 +1070,8 @@ function Menu.InspectItem(item, data)
 	inspectPanel:SetScreenLock(true)
 	inspectPanel:AlphaTo(255, 0.1, 0, nil)
 
-	inspectPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(3))
+	function inspectPanel:Paint(w, h)
+		BlurPanel(self, EFGM.MenuScale(3))
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -1169,7 +1108,7 @@ function Menu.InspectItem(item, data)
 		firIcon:SetSize(EFGM.MenuScale(12), EFGM.MenuScale(12))
 		firIcon:SetText("")
 
-		firIcon.Paint = function(s, w, h)
+		function firIcon:Paint(w, h)
 			surface.SetDrawColor(Colors.pureWhiteColor)
 			surface.SetMaterial(Mats.firIcon)
 			surface.DrawTexturedRect(0, 0, EFGM.MenuScale(12), EFGM.MenuScale(12))
@@ -1212,8 +1151,9 @@ function Menu.InspectItem(item, data)
 	itemPullOutPanel:SetSize(inspectPanel:GetWide(), inspectPanel:GetTall() - EFGM.MenuScale(85))
 	itemPullOutPanel:SetPos(0, inspectPanel:GetTall() - 1)
 	itemPullOutPanel:Hide()
-	itemPullOutPanel.Paint = function(s, w, h)
-		BlurPanel(s, EFGM.MenuScale(1))
+
+	function itemPullOutPanel:Paint(w, h)
+		BlurPanel(self, 1)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
@@ -1233,16 +1173,17 @@ function Menu.InspectItem(item, data)
 	itemInfoButton:SetPos(EFGM.MenuScale(1), itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 	itemInfoButton:SetSize(infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 	itemInfoButton:SetText("")
-	itemInfoButton.Paint = function(s, w, h)
-		BlurPanel(s, 0.5)
 
-		s:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
+	function itemInfoButton:Paint(w, h)
+		BlurPanel(self, 0.5)
+
+		self:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), h)
 
 		surface.SetDrawColor(Colors.transparentWhiteColor)
-		if !s:IsHovered() then surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2)) else surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(3)) end
+		if !self:IsHovered() then surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2)) else surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(3)) end
 
 		draw.SimpleTextOutlined(infoText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
@@ -1255,16 +1196,17 @@ function Menu.InspectItem(item, data)
 	itemWikiButton:SetPos(itemInfoButton:GetWide() + EFGM.MenuScale(1), itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 	itemWikiButton:SetSize(wikiTextSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 	itemWikiButton:SetText("")
-	itemWikiButton.Paint = function(s, w, h)
-		BlurPanel(s, 0.5)
 
-		s:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
+	function itemWikiButton:Paint(w, h)
+		BlurPanel(self, 0.5)
+
+		self:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
 		surface.DrawRect(0, 0, wikiTextSize + EFGM.MenuScale(10), h)
 
 		surface.SetDrawColor(Colors.transparentWhiteColor)
-		if !s:IsHovered() then surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2)) else surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(3)) end
+		if !self:IsHovered() then surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2)) else surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(3)) end
 
 		draw.SimpleTextOutlined(wikiText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
@@ -1576,11 +1518,11 @@ function Menu.InspectItem(item, data)
 		itemPullOutPanel.content = wikiContent
 	end
 
-	itemInfoButton.OnCursorEntered = function(s)
+	function itemInfoButton:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
-	itemInfoButton.DoClick = function(s)
+	function itemInfoButton:DoClick()
 		if tab == "Info" then return end
 
 		surface.PlaySound("ui/element_select.wav")
@@ -1595,11 +1537,11 @@ function Menu.InspectItem(item, data)
 		end)
 	end
 
-	itemWikiButton.OnCursorEntered = function(s)
+	function itemWikiButton:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
-	itemWikiButton.DoClick = function(s)
+	function itemWikiButton:DoClick()
 		if tab == "Wiki" then return end
 
 		surface.PlaySound("ui/element_select.wav")
@@ -1614,25 +1556,25 @@ function Menu.InspectItem(item, data)
 		end)
 	end
 
-	inspectPanel.OnMousePressed = function(s)
-		itemPullOutPanel:MoveTo(0, inspectPanel:GetTall() - 1, 0.1, 0, 0.3, function() itemPullOutPanel:Hide() end)
+	function inspectPanel:OnMousePressed()
+		itemPullOutPanel:MoveTo(0, self:GetTall() - 1, 0.1, 0, 0.3, function() itemPullOutPanel:Hide() end)
 
 		tab = nil
 
 		itemPullOutPanel.content:AlphaTo(0, 0.05, 0, nil)
 
-		local screenX, screenY = s:LocalToScreen(0, 0)
+		local screenX, screenY = self:LocalToScreen(0, 0)
 
-		if (s.m_bSizable and gui.MouseX() > (screenX + s:GetWide() - 20) and gui.MouseY() > (screenY + s:GetTall() - 20)) then
-			s.Sizing = {gui.MouseX() - s:GetWide(), gui.MouseY() - s:GetTall()}
-			s:MouseCapture(true)
+		if (self.m_bSizable and gui.MouseX() > (screenX + self:GetWide() - 20) and gui.MouseY() > (screenY + self:GetTall() - 20)) then
+			self.Sizing = {gui.MouseX() - self:GetWide(), gui.MouseY() - self:GetTall()}
+			self:MouseCapture(true)
 
 			return
 		end
 
-		if (s:GetDraggable() and gui.MouseY() < (screenY + 24)) then
-			s.Dragging = {gui.MouseX() - s.x, gui.MouseY() - s.y}
-			s:MouseCapture(true)
+		if (self:GetDraggable() and gui.MouseY() < (screenY + 24)) then
+			self.Dragging = {gui.MouseX() - self.x, gui.MouseY() - self.y}
+			self:MouseCapture(true)
 
 			return
 		end
@@ -1642,13 +1584,14 @@ function Menu.InspectItem(item, data)
 	closeButton:SetSize(EFGM.MenuScale(32), EFGM.MenuScale(32))
 	closeButton:SetPos(inspectPanel:GetWide() - EFGM.MenuScale(32), EFGM.MenuScale(5))
 	closeButton:SetText("")
-	closeButton.Paint = function(s, w, h)
+
+	function closeButton:Paint(w, h)
 		surface.SetDrawColor(Colors.pureWhiteColor)
 		surface.SetMaterial(Mats.closeButtonIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(32), EFGM.MenuScale(32))
 	end
 
-	closeButton.OnCursorEntered = function(s)
+	function closeButton:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
