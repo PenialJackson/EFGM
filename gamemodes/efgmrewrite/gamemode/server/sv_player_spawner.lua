@@ -101,7 +101,7 @@ function GetValidHideoutSpawn(spawnType)
 		if !blocked then return spawn end
 	end
 
-	return BetterRandom(spawns)
+	return table.SeqRandom(spawns)
 end
 
 -- on a normal spawn

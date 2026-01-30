@@ -1,5 +1,3 @@
-if engine.ActiveGamemode() != "efgmrewrite" then return end
-
 SWEP.Base = "weapon_base"
 SWEP.Category = "Escape From Garry's Mod"
 SWEP.Spawnable = false

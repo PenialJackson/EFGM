@@ -48,54 +48,12 @@ if SERVER then
 elseif CLIENT then
 	include("skins/efgm.lua")
 	hook.Add("ForceDermaSkin", "EFGMDermaSkin", function()
-		return "Escape From Garry's Mod Derma Skin"
+		return "EFGM Derma Skin"
 	end)
 end
 
 function GM:GrabEarAnimation()
 	return false
-end
-
-function CommaValue(amount)
-	local formatted = tostring(amount)
-	local num
-
-	while true do
-		formatted, num = string.gsub(formatted, "^(-?%d+)(%d%d%d)", "%1,%2")
-		if (num == 0) then break end
-	end
-
-	return formatted
-end
-
-function FormatSeconds(s)
-	local hours = math.floor(s / 3600)
-	local minutes = math.floor((s % 3600) / 60)
-	local seconds = s % 60
-
-	return string.format("%2d:%02d:%02d", hours, minutes, seconds)
-end
-
-function UnitsToMeters(u)
-	return math.Round(u * 0.01905)
-end
-
-local charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-function GenerateRandString(l)
-	local str = ""
-
-	for i = 1, l do
-		local randIndex = math.random(1, #charset)
-		str = str .. string.sub(charset, randIndex, randIndex)
-	end
-
-	return str
-end
-
--- for seq. tables
-function BetterRandom(haystack)
-	return haystack[math.random(#haystack)]
 end
 
 function reverseipairs(tbl)
@@ -266,7 +224,7 @@ function GetAttachmentListFromCode(str)
 
 	for i = 1, #cleanAttTbl do
 		if !cleanAttTbl[i] then continue end
-		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. CommaValue(EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].value)
+		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. string.FormatComma(EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].value)
 		if i != #cleanAttTbl then cleanAttStr = cleanAttStr .. "\n" end
 	end
 

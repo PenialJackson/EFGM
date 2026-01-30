@@ -178,7 +178,7 @@ if SERVER then
 		end
 
 		if ply == SQUADS[squad].OWNER then
-			local newOwner = BetterRandom(SQUADS[squad].MEMBERS)
+			local newOwner = table.SeqRandom(SQUADS[squad].MEMBERS)
 			ReplaceSquadOwner(newOwner, squad)
 		end
 
@@ -307,7 +307,7 @@ if SERVER then
 		end
 
 		if ply == SQUADS[squad].OWNER then
-			local newOwner = BetterRandom(SQUADS[squad].MEMBERS)
+			local newOwner = table.SeqRandom(SQUADS[squad].MEMBERS)
 			ReplaceSquadOwner(newOwner, squad)
 		end
 

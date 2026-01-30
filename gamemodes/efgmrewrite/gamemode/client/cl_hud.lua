@@ -1745,7 +1745,7 @@ function HUDInspectItem(item, data, panel)
 	end
 
 	surface.SetFont("PuristaBold18")
-	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(CommaValue(value))
+	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(string.FormatComma(value))
 	if i.canPurchase == true or i.canPurchase == nil then itemDescText = itemDescText .. " / LEVEL " .. i.levelReq else itemDescText = itemDescText .. " / FIR ONLY" end
 	local itemDescSize = surface.GetTextSize(itemDescText)
 
@@ -2063,7 +2063,7 @@ function HUDInspectItem(item, data, panel)
 		end
 
 		if i.value then
-			wikiContentText:AppendText("BASE VALUE: ₽" .. CommaValue(i.value) .. "\n")
+			wikiContentText:AppendText("BASE VALUE: ₽" .. string.FormatComma(i.value) .. "\n")
 		end
 
 		if i.lootWeight then

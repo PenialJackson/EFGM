@@ -493,7 +493,7 @@ if SERVER then
 
 			if fac == true then -- PMC
 				local mdls = PLAYERMODELS[self:GetInfoNum("efgm_faction_preference", 0) + 1]
-				self:SetModel(BetterRandom(mdls))
+				self:SetModel(table.SeqRandom(mdls))
 				self:SetBodygroup(0, math.random(0, 4)) -- head
 				self:SetBodygroup(1, math.random(0, 18)) -- body
 				self:SetBodygroup(2, math.random(0, 15)) -- legs
@@ -501,7 +501,7 @@ if SERVER then
 				self:SetupHands()
 			else -- scav
 				local mdls = PLAYERMODELS[4]
-				self:SetModel(BetterRandom(mdls))
+				self:SetModel(table.SeqRandom(mdls))
 				self:SetupHands()
 			end
 		end)

@@ -233,7 +233,7 @@ function Menu:Initialize(openTo, container)
 
 	surface.SetFont("PuristaBold32")
 
-	local roubles = CommaValue(Menu.Player:GetNWInt("Money", 0))
+	local roubles = string.FormatComma(Menu.Player:GetNWInt("Money", 0))
 	local roublesTextSize = surface.GetTextSize(roubles)
 
 	local level = Menu.Player:GetNWInt("Level", 1)
@@ -255,7 +255,7 @@ function Menu:Initialize(openTo, container)
 	function tabParentPanel:Paint(w, h)
 		surface.SetFont("PuristaBold32")
 
-		roubles = CommaValue(Menu.Player:GetNWInt("Money", 0))
+		roubles = string.FormatComma(Menu.Player:GetNWInt("Money", 0))
 		roublesTextSize = surface.GetTextSize(roubles)
 
 		level = Menu.Player:GetNWInt("Level", 1)
@@ -1099,7 +1099,7 @@ function Menu.InspectItem(item, data)
 	end
 
 	surface.SetFont("PuristaBold18")
-	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(CommaValue(value))
+	local itemDescText = string.upper(i.displayType) .. " / " .. string.upper(weight) .. "KG" .. " / ₽" .. string.upper(string.FormatComma(value))
 	if i.canPurchase == true or i.canPurchase == nil then itemDescText = itemDescText .. " / LEVEL " .. i.levelReq else itemDescText = itemDescText .. " / FIR ONLY" end
 	local itemDescSize = surface.GetTextSize(itemDescText)
 
@@ -1388,7 +1388,7 @@ function Menu.InspectItem(item, data)
 		end
 
 		if i.value then
-			wikiContentText:AppendText("BASE VALUE: ₽" .. CommaValue(i.value) .. "\n")
+			wikiContentText:AppendText("BASE VALUE: ₽" .. string.FormatComma(i.value) .. "\n")
 		end
 
 		if i.lootWeight then
@@ -1720,7 +1720,7 @@ function Menu.ConfirmPurchase(item, sendTo, closeMenu)
 	if i.equipSlot == WEAPONSLOTS.PRIMARY.ID or i.equipSlot == WEAPONSLOTS.HOLSTER.ID or i.equipSlot == WEAPONSLOTS.MELEE.ID or i.equipType == EQUIPTYPE.Attachment then maxTransactionCount = 1 end
 
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Purchase " .. math.Clamp(transactionCount, 1, maxTransactionCount) .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. CommaValue(transactionCost) .. "?"
+	local confirmText = "Purchase " .. math.Clamp(transactionCount, 1, maxTransactionCount) .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelHeight = EFGM.MenuScale(110)
@@ -1895,7 +1895,7 @@ function Menu.ConfirmPurchase(item, sendTo, closeMenu)
 			transactionCost = i.value * num
 
 			surface.SetFont("PuristaBold24")
-			confirmText = "Purchase " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. CommaValue(transactionCost) .. "?"
+			confirmText = "Purchase " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 			confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 			confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
@@ -1985,7 +1985,7 @@ function Menu.ConfirmSell(item, data, key)
 	local transactionCount = maxTransactionCount
 
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Sell " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. CommaValue(transactionCost) .. "?"
+	local confirmText = "Sell " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelHeight = EFGM.MenuScale(70)
@@ -2101,7 +2101,7 @@ function Menu.ConfirmSell(item, data, key)
 			end
 
 			surface.SetFont("PuristaBold24")
-			confirmText = "Sell " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. CommaValue(transactionCost) .. "?"
+			confirmText = "Sell " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 			confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 			confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
@@ -2574,7 +2574,7 @@ function Menu.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	end
 
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Buy attachments for the " .. string.upper(presetName) .. " preset for ₽" .. CommaValue(transactionCost) .. "?"
+	local confirmText = "Buy attachments for the " .. string.upper(presetName) .. " preset for ₽" .. string.FormatComma(transactionCost) .. "?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelSize = confirmTextSize + EFGM.MenuScale(10)
@@ -2940,7 +2940,7 @@ function Menu.ReloadInventory()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. CommaValue(v.value)
+				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. string.FormatComma(v.value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -3254,7 +3254,7 @@ function Menu.ReloadSlots()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. CommaValue(value)
+				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. string.FormatComma(value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -3524,7 +3524,7 @@ function Menu.ReloadSlots()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. CommaValue(value)
+				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. string.FormatComma(value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -3794,7 +3794,7 @@ function Menu.ReloadSlots()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. CommaValue(value)
+				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. string.FormatComma(value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -4025,7 +4025,7 @@ function Menu.ReloadSlots()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. CommaValue(value)
+				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. string.FormatComma(value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -4260,7 +4260,7 @@ function Menu.ReloadSlots()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. CommaValue(value)
+				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. string.FormatComma(value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -4482,7 +4482,7 @@ function Menu.ReloadSlots()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. CommaValue(value)
+				local tipDesc = i.displayType .. " / " .. weight .. "kg / ₽" .. string.FormatComma(value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -4973,7 +4973,6 @@ function Menu.ReloadStash()
 
 			local item = stashItems:Add("EFGMInventoryEntry")
 			item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
-			item:SetText("")
 			item:Droppable("items")
 			item.ID = v.id
 			item.SLOT = i.equipSlot
@@ -5088,7 +5087,7 @@ function Menu.ReloadStash()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. CommaValue(v.value)
+				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. string.FormatComma(v.value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -5600,9 +5599,9 @@ function Menu.ReloadMarketStash()
 				end
 
 				if i.sizeX > 1 then
-					draw.SimpleTextOutlined("₽" .. CommaValue(v.value), "PuristaBold18", w / 2, h / 2 - EFGM.MenuScale(9), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined("₽" .. string.FormatComma(v.value), "PuristaBold18", w / 2, h / 2 - EFGM.MenuScale(9), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				else
-					draw.SimpleTextOutlined("₽" .. CommaValue(v.value), "PuristaBold14", w / 2, h / 2 - EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined("₽" .. string.FormatComma(v.value), "PuristaBold14", w / 2, h / 2 - EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				end
 			end
 
@@ -5621,7 +5620,7 @@ function Menu.ReloadMarketStash()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. CommaValue(v.value)
+				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. string.FormatComma(v.value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -5935,7 +5934,7 @@ function Menu.ReloadContainer()
 				local tipItemNameSize = surface.GetTextSize(tipItemName)
 				surface.SetFont("Purista14")
 				local canPurchase = i.canPurchase == true or i.canPurchase == nil
-				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. CommaValue(v.value)
+				local tipDesc = i.displayType .. " / " .. v.weight .. "kg / ₽" .. string.FormatComma(v.value)
 				if canPurchase then tipDesc = tipDesc .. " / LVL " .. i.levelReq else tipDesc = tipDesc .. " / FIR only" end
 				local tipDescSize = surface.GetTextSize(tipDesc)
 
@@ -7207,7 +7206,7 @@ function Menu.OpenTab.Inventory(container)
 		if !IsValid(stashInfoText) then return end
 
 		surface.SetFont("PuristaBold24")
-		valueText = "EST. VALUE: ₽" .. CommaValue(value)
+		valueText = "EST. VALUE: ₽" .. string.FormatComma(value)
 		valueTextSize = surface.GetTextSize(valueText) + EFGM.MenuScale(10)
 		stashInfoText:SetSize(valueTextSize, 0)
 	end
@@ -7582,7 +7581,7 @@ function Menu.OpenTab.Market()
 		if !IsValid(marketStashInfoText) then return end
 
 		surface.SetFont("PuristaBold24")
-		valueText = "EST. VALUE: ₽" .. CommaValue(value)
+		valueText = "EST. VALUE: ₽" .. string.FormatComma(value)
 		valueTextSize = surface.GetTextSize(valueText) + EFGM.MenuScale(10)
 		marketStashInfoText:SetSize(valueTextSize, 0)
 	end
@@ -8219,7 +8218,7 @@ function Menu.OpenTab.Market()
 
 					surface.SetFont("PuristaBold22")
 					local itemValueText
-					if marketLimits[v.id] != 0 then itemValueText = CommaValue(value) else itemValueText = "SOLD OUT" end
+					if marketLimits[v.id] != 0 then itemValueText = string.FormatComma(value) else itemValueText = "SOLD OUT" end
 					local itemValueTextSize = surface.GetTextSize(itemValueText)
 
 					if v.canPurchase then
@@ -9466,39 +9465,39 @@ function Menu.OpenTab.Stats()
 	local statsTbl = {}
 
 	statsTbl["Level"] = Menu.Player:GetNWInt("Level")
-	statsTbl["Experience"] = CommaValue(Menu.Player:GetNWInt("Experience"))
-	statsTbl["Money Earned"] = "₽" .. CommaValue(Menu.Player:GetNWInt("MoneyEarned"))
-	statsTbl["Money Spent"] = "₽" .. CommaValue(Menu.Player:GetNWInt("MoneySpent"))
-	statsTbl["Time"] = FormatSeconds(Menu.Player:GetNWInt("Time"))
-	statsTbl["Stash Value"] = "₽" .. CommaValue(Menu.Player:GetNWInt("StashValue"))
-	statsTbl["Items Looted"] = CommaValue(Menu.Player:GetNWInt("ItemsLooted"))
-	statsTbl["Containers Opened"] = CommaValue(Menu.Player:GetNWInt("ContainersLooted"))
-	statsTbl["Keys Used"] = CommaValue(Menu.Player:GetNWInt("KeysUsed"))
+	statsTbl["Experience"] = string.FormatComma(Menu.Player:GetNWInt("Experience"))
+	statsTbl["Money Earned"] = "₽" .. string.FormatComma(Menu.Player:GetNWInt("MoneyEarned"))
+	statsTbl["Money Spent"] = "₽" .. string.FormatComma(Menu.Player:GetNWInt("MoneySpent"))
+	statsTbl["Time"] = util.FormatTime(Menu.Player:GetNWInt("Time"))
+	statsTbl["Stash Value"] = "₽" .. string.FormatComma(Menu.Player:GetNWInt("StashValue"))
+	statsTbl["Items Looted"] = string.FormatComma(Menu.Player:GetNWInt("ItemsLooted"))
+	statsTbl["Containers Opened"] = string.FormatComma(Menu.Player:GetNWInt("ContainersLooted"))
+	statsTbl["Keys Used"] = string.FormatComma(Menu.Player:GetNWInt("KeysUsed"))
 
-	statsTbl["Kills"] = CommaValue(Menu.Player:GetNWInt("Kills"))
-	statsTbl["Deaths"] = CommaValue(Menu.Player:GetNWInt("Deaths"))
-	statsTbl["Suicides"] = CommaValue(Menu.Player:GetNWInt("Suicides"))
-	statsTbl["Damage Dealt"] = CommaValue(math.Round(Menu.Player:GetNWInt("DamageDealt")))
-	statsTbl["Damage Received"] = CommaValue(math.Round(Menu.Player:GetNWInt("DamageRecieved")))
-	statsTbl["Health Healed"] = CommaValue(math.Round(Menu.Player:GetNWInt("HealthHealed")))
-	statsTbl["Shots Fired"] = CommaValue(Menu.Player:GetNWInt("ShotsFired"))
-	statsTbl["Shots Hit"] = CommaValue(Menu.Player:GetNWInt("ShotsHit"))
-	statsTbl["Headshots"] = CommaValue(Menu.Player:GetNWInt("Headshots"))
-	statsTbl["Farthest Kill"] = CommaValue(Menu.Player:GetNWInt("FarthestKill"))
+	statsTbl["Kills"] = string.FormatComma(Menu.Player:GetNWInt("Kills"))
+	statsTbl["Deaths"] = string.FormatComma(Menu.Player:GetNWInt("Deaths"))
+	statsTbl["Suicides"] = string.FormatComma(Menu.Player:GetNWInt("Suicides"))
+	statsTbl["Damage Dealt"] = string.FormatComma(math.Round(Menu.Player:GetNWInt("DamageDealt")))
+	statsTbl["Damage Received"] = string.FormatComma(math.Round(Menu.Player:GetNWInt("DamageRecieved")))
+	statsTbl["Health Healed"] = string.FormatComma(math.Round(Menu.Player:GetNWInt("HealthHealed")))
+	statsTbl["Shots Fired"] = string.FormatComma(Menu.Player:GetNWInt("ShotsFired"))
+	statsTbl["Shots Hit"] = string.FormatComma(Menu.Player:GetNWInt("ShotsHit"))
+	statsTbl["Headshots"] = string.FormatComma(Menu.Player:GetNWInt("Headshots"))
+	statsTbl["Farthest Kill"] = string.FormatComma(Menu.Player:GetNWInt("FarthestKill"))
 
-	statsTbl["Extractions"] = CommaValue(Menu.Player:GetNWInt("Extractions"))
-	statsTbl["Quits"] = CommaValue(Menu.Player:GetNWInt("Quits"))
-	statsTbl["Raids Played"] = CommaValue(Menu.Player:GetNWInt("RaidsPlayed"))
+	statsTbl["Extractions"] = string.FormatComma(Menu.Player:GetNWInt("Extractions"))
+	statsTbl["Quits"] = string.FormatComma(Menu.Player:GetNWInt("Quits"))
+	statsTbl["Raids Played"] = string.FormatComma(Menu.Player:GetNWInt("RaidsPlayed"))
 
-	statsTbl["Duels Played"] = CommaValue(Menu.Player:GetNWInt("DuelsPlayed"))
-	statsTbl["Duels Won"] = CommaValue(Menu.Player:GetNWInt("DuelsWon"))
+	statsTbl["Duels Played"] = string.FormatComma(Menu.Player:GetNWInt("DuelsPlayed"))
+	statsTbl["Duels Won"] = string.FormatComma(Menu.Player:GetNWInt("DuelsWon"))
 
-	statsTbl["Current Kill Streak"] = CommaValue(Menu.Player:GetNWInt("CurrentKillStreak"))
-	statsTbl["Best Kill Streak"] = CommaValue(Menu.Player:GetNWInt("BestKillStreak"))
-	statsTbl["Current Extraction Streak"] = CommaValue(Menu.Player:GetNWInt("CurrentExtractionStreak"))
-	statsTbl["Best Extraction Streak"] = CommaValue(Menu.Player:GetNWInt("BestExtractionStreak"))
-	statsTbl["Current Duel Win Streak"] = CommaValue(Menu.Player:GetNWInt("CurrentDuelWinStreak"))
-	statsTbl["Best Duel Win Streak"] = CommaValue(Menu.Player:GetNWInt("BestDuelWinStreak"))
+	statsTbl["Current Kill Streak"] = string.FormatComma(Menu.Player:GetNWInt("CurrentKillStreak"))
+	statsTbl["Best Kill Streak"] = string.FormatComma(Menu.Player:GetNWInt("BestKillStreak"))
+	statsTbl["Current Extraction Streak"] = string.FormatComma(Menu.Player:GetNWInt("CurrentExtractionStreak"))
+	statsTbl["Best Extraction Streak"] = string.FormatComma(Menu.Player:GetNWInt("BestExtractionStreak"))
+	statsTbl["Current Duel Win Streak"] = string.FormatComma(Menu.Player:GetNWInt("CurrentDuelWinStreak"))
+	statsTbl["Best Duel Win Streak"] = string.FormatComma(Menu.Player:GetNWInt("BestDuelWinStreak"))
 
 	statsTbl["K/D Ratio"] = math.Round(Menu.Player:GetNWInt("Kills") / math.min(Menu.Player:GetNWInt("Deaths"), 1), 3)
 	statsTbl["Survival Rate"] = math.Round(Menu.Player:GetNWInt("Extractions") / Menu.Player:GetNWInt("RaidsPlayed") * 100) .. "%"
@@ -9574,11 +9573,11 @@ function Menu.OpenTab.Stats()
 
 			--asdofiauhasdofiauashydafasdifa
 			if selectedBoardName == "Money Earned" or selectedBoardName == "Money Spent" or selectedBoardName == "Stash Value" then
-				draw.SimpleTextOutlined("₽" .. CommaValue(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("₽" .. string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			elseif selectedBoardName == "Time" then
-				draw.SimpleTextOutlined(CommaValue(v.Value) .. "s", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(string.FormatComma(v.Value) .. "s", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			else
-				draw.SimpleTextOutlined(CommaValue(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 		end
 	end
@@ -11195,12 +11194,12 @@ function Menu.OpenTab.Tasks()
 
 				if playerTasks[taskName].status == TASKSTATUS.AcceptPending then
 					surface.SetFont("PuristaBold24")
-					progressText = "0/" .. CommaValue(maxProgress)
+					progressText = "0/" .. string.FormatComma(maxProgress)
 					progressTextSize = surface.GetTextSize(progressText)
 					draw.SimpleTextOutlined(progressText, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(6), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				else
 					surface.SetFont("PuristaBold24")
-					progressText = CommaValue(curProgressTotal) .. "/" .. CommaValue(maxProgress)
+					progressText = string.FormatComma(curProgressTotal) .. "/" .. string.FormatComma(maxProgress)
 					progressTextSize = surface.GetTextSize(progressText)
 
 					if curTempProgress > 0 then
@@ -11345,7 +11344,7 @@ function GetObjectiveText(obj)
 
 	if obj.type == OBJECTIVE.Pay then
 		if obj.count != 1 then
-			return "Pay " .. CommaValue(obj.count) .. " roubles"
+			return "Pay " .. string.FormatComma(obj.count) .. " roubles"
 		else
 			return "Pay a singular rouble..."
 		end
@@ -11363,7 +11362,7 @@ function GetObjectiveText(obj)
 end
 
 function GetRewardText(reward)
-	local amount = CommaValue(reward.count) .. "x" or "1x"
+	local amount = string.FormatComma(reward.count) .. "x" or "1x"
 	if amount == "1x" then amount = "" end
 
 	if reward.type == REWARD.PlayerStat then

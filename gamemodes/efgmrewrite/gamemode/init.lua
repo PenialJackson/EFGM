@@ -64,7 +64,7 @@ function GM:PlayerSpawn(ply)
 	ply:SetUnDuckSpeed(0.4)
 
 	local mdls = ply:IsPMC() and PLAYERMODELS[ply:GetInfoNum("efgm_faction_preference", 0) + 1] or PLAYERMODELS[4]
-	ply:SetModel(BetterRandom(mdls))
+	ply:SetModel(table.SeqRandom(mdls))
 	ply:SetBodygroup(0, math.random(0, 4)) -- head
 	ply:SetBodygroup(1, math.random(0, 18)) -- body
 	ply:SetBodygroup(2, math.random(0, 15)) -- legs
@@ -158,7 +158,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 	end
 
 	local rawDistance = victim:GetPos():Distance(attacker:GetPos())
-	local distance = UnitsToMeters(rawDistance)
+	local distance = math.UnitsToMeters(rawDistance)
 
 	local xpMult = (victim:IsInRaidScav() and 0.25) or 0.5
 
