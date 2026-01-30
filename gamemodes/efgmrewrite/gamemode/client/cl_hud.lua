@@ -389,11 +389,11 @@ function RenderDuelLoadout()
 	DuelLoadout:SetAlpha(0)
 	DuelLoadout:MoveToFront()
 
-	local primary = playerWeaponSlots[1][1] or {}
-	local holster = playerWeaponSlots[2][1] or {}
+	local primary = playerWeaponSlots[1][1] or nil
+	local holster = playerWeaponSlots[2][1] or nil
 
-	local hasPrimary = !table.IsEmpty(primary)
-	local hasHolster = !table.IsEmpty(holster)
+	local hasPrimary = playerWeaponSlots[1][1] != nil
+	local hasHolster = playerWeaponSlots[2][1] != nil
 
 	if !hasPrimary and !hasHolster then return end
 
@@ -548,6 +548,44 @@ net.Receive("SendIntroCamera", function()
 	HUD.IntroEnt = ent or NULL
 end)
 
+local transition
+
+net.Receive("PlayerTransition", function()
+	HUD.InTransition = true
+
+	if IsValid(transition) then transition:Remove() end
+	if IsValid(notif) then notif:Remove() end
+
+	transition = vgui.Create("DPanel", GetHUDPanel())
+	transition:SetSize(ScrW(), ScrH())
+	transition:SetPos(0, 0)
+	transition:SetAlpha(0)
+	transition:MoveToFront()
+
+	function transition:Paint(w, h)
+		if !transition:IsValid() then return end
+		BlurPanel(transition, 13, 6)
+
+		surface.SetDrawColor(0, 0, 0, 255)
+		surface.DrawRect(0, 0, ScrW(), ScrH())
+	end
+
+	transition:AlphaTo(255, 0.5, 0, nil)
+	transition:AlphaTo(0, 0.35, 1, function()
+		HUD.InTransition = false
+		transition:Remove()
+	end)
+
+	if Menu.MenuFrame == nil then return end
+	if Menu.MenuFrame:IsActive() != true then return end
+
+	Menu:RunOnClose()
+
+	Menu.MenuFrame:AlphaTo(0, 0.05, 0, function()
+		Menu.MenuFrame:Close()
+	end)
+end)
+
 net.Receive("PlayerRaidTransition", function()
 	local status = net.ReadUInt(2)
 
@@ -573,33 +611,35 @@ net.Receive("PlayerRaidTransition", function()
 	HUD.InTransition = true
 	Menu.PerferredTab = nil
 
+	if IsValid(transition) then transition:Remove() end
 	if IsValid(notif) then notif:Remove() end
 
-	local panel = GetHUDPanel()
+	transition = vgui.Create("DPanel", GetHUDPanel())
+	transition:SetSize(ScrW(), ScrH())
+	transition:SetPos(0, 0)
+	transition:SetAlpha(0)
+	transition:MoveToFront()
 
-	RaidTransition = vgui.Create("DPanel", panel)
-	RaidTransition:SetSize(ScrW(), ScrH())
-	RaidTransition:SetPos(0, 0)
-	RaidTransition:SetAlpha(0)
-	RaidTransition:MoveToFront()
-
-	RaidTransition.Paint = function(self, w, h)
-		if !RaidTransition:IsValid() then return end
-		BlurPanel(RaidTransition, 13, 6)
+	transition.Paint = function(self, w, h)
+		if !transition:IsValid() then return end
+		BlurPanel(transition, 13, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
 	end
 
-	RaidTransition:AlphaTo(255, 0.5, 0, nil)
-	RaidTransition:AlphaTo(0, 0.35, 1, function() HUD.InTransition = false RaidTransition:Remove() end)
+	transition:AlphaTo(255, 0.5, 0, nil)
+	transition:AlphaTo(0, 0.35, 1, function()
+		HUD.InTransition = false
+		transition:Remove()
+	end)
 
 	if Menu.MenuFrame == nil then return end
 	if Menu.MenuFrame:IsActive() != true then return end
 
 	Menu:RunOnClose()
 
-	Menu.MenuFrame:AlphaTo(0, 0.1, 0, function()
+	Menu.MenuFrame:AlphaTo(0, 0.05, 0, function()
 		Menu.MenuFrame:Close()
 	end)
 end)
@@ -615,33 +655,35 @@ net.Receive("PlayerDuelTransition", function()
 	HUD.InTransition = true
 	Menu.PerferredTab = nil
 
+	if IsValid(transition) then transition:Remove() end
 	if IsValid(notif) then notif:Remove() end
 
-	local panel = GetHUDPanel()
+	transition = vgui.Create("DPanel", GetHUDPanel())
+	transition:SetSize(ScrW(), ScrH())
+	transition:SetPos(0, 0)
+	transition:SetAlpha(0)
+	transition:MoveToFront()
 
-	RaidTransition = vgui.Create("DPanel", panel)
-	RaidTransition:SetSize(ScrW(), ScrH())
-	RaidTransition:SetPos(0, 0)
-	RaidTransition:SetAlpha(0)
-	RaidTransition:MoveToFront()
-
-	RaidTransition.Paint = function(self, w, h)
-		if !RaidTransition:IsValid() then return end
-		BlurPanel(RaidTransition, 13, 6)
+	transition.Paint = function(self, w, h)
+		if !transition:IsValid() then return end
+		BlurPanel(transition, 13, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
 	end
 
-	RaidTransition:AlphaTo(255, 0.5, 0, nil)
-	RaidTransition:AlphaTo(0, 0.35, 1, function() HUD.InTransition = false RaidTransition:Remove() end)
+	transition:AlphaTo(255, 0.5, 0, nil)
+	transition:AlphaTo(0, 0.35, 1, function()
+		HUD.InTransition = false
+		transition:Remove()
+	end)
 
 	if Menu.MenuFrame == nil then return end
 	if Menu.MenuFrame:IsActive() != true then return end
 
 	Menu:RunOnClose()
 
-	Menu.MenuFrame:AlphaTo(0, 0.1, 0, function()
+	Menu.MenuFrame:AlphaTo(0, 0.05, 0, function()
 		Menu.MenuFrame:Close()
 	end)
 end)

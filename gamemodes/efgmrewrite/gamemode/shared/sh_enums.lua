@@ -61,6 +61,13 @@ HITGROUPS = {
 	[7] = "RIGHT LEG"
 }
 
+PLAYERMODELS = {
+	[1] = {"models/eft/pmcs/usec_extended_pm.mdl", "models/eft/pmcs/bear_extended_pm.mdl"},
+	[2] = {"models/eft/pmcs/usec_extended_pm.mdl"},
+	[3] = {"models/eft/pmcs/bear_extended_pm.mdl"},
+	[4] = {"models/player/Group01/male_01.mdl", "models/player/Group01/male_02.mdl", "models/player/Group01/male_03.mdl", "models/player/Group01/male_04.mdl", "models/player/Group01/male_05.mdl", "models/player/Group01/male_06.mdl", "models/player/Group01/male_07.mdl", "models/player/Group01/male_08.mdl", "models/player/Group01/male_09.mdl"}
+}
+
 QUOTES = {
 	"nobody is sending any quotes so have this one! -penial",
 }

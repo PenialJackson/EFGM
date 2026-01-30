@@ -46,11 +46,6 @@ function GM:Initialize()
 	RunConsoleCommand("decalfrequency", "1")
 end
 
--- PMs
-local usecPMs = {"models/eft/pmcs/usec_extended_pm.mdl"}
-local bearPMs = {"models/eft/pmcs/bear_extended_pm.mdl"}
-local allPMs = {"models/eft/pmcs/usec_extended_pm.mdl", "models/eft/pmcs/bear_extended_pm.mdl"}
-
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
 	ply:SetNWBool("InRange", false) -- just in case
@@ -68,20 +63,14 @@ function GM:PlayerSpawn(ply)
 	ply:SetDuckSpeed(0.4)
 	ply:SetUnDuckSpeed(0.4)
 
-	if ply:GetInfoNum("efgm_faction_preference", 0) == 1 then -- USEC prefered
-		ply:SetModel(usecPMs[math.random(#usecPMs)])
-	elseif ply:GetInfoNum("efgm_faction_preference", 0) == 2 then -- BEAR prefered
-		ply:SetModel(bearPMs[math.random(#bearPMs)])
-	else
-		ply:SetModel(allPMs[math.random(#allPMs)])
-	end
-
+	local mdls = ply:IsPMC() and PLAYERMODELS[ply:GetInfoNum("efgm_faction_preference", 0) + 1] or PLAYERMODELS[4]
+	ply:SetModel(BetterRandom(mdls))
 	ply:SetBodygroup(0, math.random(0, 4)) -- head
 	ply:SetBodygroup(1, math.random(0, 18)) -- body
 	ply:SetBodygroup(2, math.random(0, 15)) -- legs
 	ply:SetBodygroup(3, math.random(0, 14)) -- face
-
 	ply:SetupHands()
+
 	ply:AddEFlags(EFL_NO_DAMAGE_FORCES) -- disables knockback being applied when damage is taken
 	ply:UnLock()
 	ply:Freeze(false)

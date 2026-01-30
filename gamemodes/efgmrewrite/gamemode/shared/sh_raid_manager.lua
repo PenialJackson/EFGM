@@ -18,6 +18,7 @@ if SERVER then
 	util.AddNetworkString("RequestExtracts")
 
 	util.AddNetworkString("SendExtractionStatus")
+	util.AddNetworkString("PlayerTransition")
 	util.AddNetworkString("PlayerRaidTransition")
 	util.AddNetworkString("PlayerSwitchFactions")
 
@@ -477,12 +478,34 @@ if SERVER then
 		if fac == self:GetNWBool("PlayerIsPMC", true) then return end
 		fac = fac or !self:GetNWBool("PlayerIsPMC", true) -- switches if faction isn't specified
 
-		if fac == false then -- scav
+		self:Freeze(true)
+
+		net.Start("PlayerTransition")
+		net.Send(self)
+
+		if fac == false then
 			UnequipAll(self)
 			StashAllFromInventory(self)
 		end
 
-		-- nothing PMC specific for now
+		timer.Simple(0.5, function()
+			self:Freeze(false)
+
+			if fac == true then -- PMC
+				local mdls = PLAYERMODELS[self:GetInfoNum("efgm_faction_preference", 0) + 1]
+				self:SetModel(BetterRandom(mdls))
+				self:SetBodygroup(0, math.random(0, 4)) -- head
+				self:SetBodygroup(1, math.random(0, 18)) -- body
+				self:SetBodygroup(2, math.random(0, 15)) -- legs
+				self:SetBodygroup(3, math.random(0, 14)) -- face
+				self:SetupHands()
+			else -- scav
+				local mdls = PLAYERMODELS[4]
+				self:SetModel(BetterRandom(mdls))
+				self:SetupHands()
+			end
+		end)
+
 		self:SetNWBool("PlayerIsPMC", fac)
 	end
 
