@@ -27,4 +27,4 @@ function PANEL:SetTallAfterCTX()
 	self:SetTall(self:GetTall() + self.ctxHeight)
 end
 
-vgui.Register("EFGMContextMenu", PANEL, "DPanel")
+vgui.Register("EContextMenu", PANEL, "DPanel")

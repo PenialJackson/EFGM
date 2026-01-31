@@ -1,5 +1,5 @@
 respawnTime = 7
-noRaidRespawnTime = 2.5
+noRaidRespawnTime = 3
 underweightLimit = 30
 sellMultiplier = 0.5
 

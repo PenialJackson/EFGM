@@ -1,15 +1,3 @@
-if not util then return end
-
-local math = math
-local string = string
-local table = table
-
--- built in NULL check
-function IsPlayer(ent)
-	print("mrow")
-	return ent and ent:IsValid() and ent:IsPlayer()
-end
-
 -- format given number with commas (typically used with currency values) [###### -> ###,###]
 function string.FormatComma(val)
 	local formatted = tostring(val)
@@ -30,6 +18,14 @@ function util.FormatTime(val)
 	local seconds = val % 60
 
 	return string.format("%2d:%02d:%02d", hours, minutes, seconds)
+end
+
+function util.FormatTimePretty(val)
+	local hours = math.floor(val / 3600)
+	local minutes = math.floor((val % 3600) / 60)
+	local seconds = val % 60
+
+	return string.format("%2dh %02dm %02ds", hours, minutes, seconds)
 end
 
 -- convert units to meters

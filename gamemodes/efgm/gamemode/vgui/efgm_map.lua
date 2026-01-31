@@ -229,4 +229,4 @@ function PANEL:Paint(w, h)
 	surface.DrawTexturedRect(startPos.x - EFGM.MenuScale(16), startPos.y - EFGM.MenuScale(26), EFGM.MenuScale(32), EFGM.MenuScale(32))
 end
 
-vgui.Register("EFGMMap", PANEL, "DPanel")
+vgui.Register("EMap", PANEL, "DPanel")

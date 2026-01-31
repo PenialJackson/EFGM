@@ -138,7 +138,7 @@ function ENT:StartExtract(ply)
 
 	net.Start("SendExtractionStatus")
 		net.WriteBool(true) -- true signals that the player entered the extraction points boundaries
-		net.WriteInt(self.ExtractTime, 16)
+		net.WriteUInt(self.ExtractTime, 8)
 	net.Send(ply)
 
 	-- defines the timerName as for example "ExTimer_90071996842377216214"

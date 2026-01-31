@@ -553,12 +553,12 @@ if SERVER then
 
 			net.Start("CreateExtractionInformation")
 				net.WriteFloat(xpMult)
-				net.WriteInt(ply:GetNWInt("RaidTime", 0), 16)
-				net.WriteInt(math.Round(ply:GetNWFloat("ExperienceTime", 0)), 16)
-				net.WriteInt(ply:GetNWInt("ExperienceCombat", 0), 16)
-				net.WriteInt(ply:GetNWInt("ExperienceExploration", 0), 16)
-				net.WriteInt(ply:GetNWInt("ExperienceLooting", 0), 16)
-				net.WriteInt(ply:GetNWInt("ExperienceBonus", 0), 16)
+				net.WriteUInt(ply:GetNWInt("RaidTime", 0), 12)
+				net.WriteUInt(math.Round(ply:GetNWFloat("ExperienceTime", 0)), 16)
+				net.WriteUInt(ply:GetNWInt("ExperienceCombat", 0), 16)
+				net.WriteUInt(ply:GetNWInt("ExperienceExploration", 0), 16)
+				net.WriteUInt(ply:GetNWInt("ExperienceLooting", 0), 16)
+				net.WriteUInt(ply:GetNWInt("ExperienceBonus", 0), 16)
 			net.Send(ply)
 
 			ply:SetNWInt("RaidTime", 0)

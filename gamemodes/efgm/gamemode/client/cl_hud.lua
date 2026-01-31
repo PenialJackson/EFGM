@@ -695,7 +695,7 @@ net.Receive("SendExtractionStatus", function()
 	if status then
 		if IsValid(ExtractPopup) then return end
 
-		local exitTime = net.ReadInt(16)
+		local exitTime = net.ReadUInt(8)
 		local exitTimeLeft = exitTime
 		timer.Create("TimeToExit", exitTime, 1, function()
 			ExtractPopup:Remove()
@@ -741,8 +741,8 @@ net.Receive("CreateDeathInformation", function()
 
 	local xpMult = net.ReadFloat()
 
-	local respawnTime = net.ReadInt(8)
-	local timeInRaid = net.ReadInt(16)
+	local respawnTime = net.ReadUInt(8)
+	local timeInRaid = net.ReadUInt(12)
 
 	local statsTbl = {
 		["DAMAGE DEALT:"] = math.Round(ply:GetNWInt("RaidDamageDealt", 0)),
@@ -762,17 +762,17 @@ net.Receive("CreateDeathInformation", function()
 	}
 	table.SortByKey(statsTbl)
 
-	local xpTime = net.ReadInt(16)
-	local xpCombat = net.ReadInt(16)
-	local xpExploration = net.ReadInt(16)
-	local xpLooting = net.ReadInt(16)
-	local xpBonus = net.ReadInt(16)
+	local xpTime = net.ReadUInt(16)
+	local xpCombat = net.ReadUInt(16)
+	local xpExploration = net.ReadUInt(16)
+	local xpLooting = net.ReadUInt(16)
+	local xpBonus = net.ReadUInt(16)
 
 	local killedBy = net.ReadEntity()
-	local killedByHealth = net.ReadInt(8)
+	local killedByHealth = net.ReadUInt(8)
 	local killedByWeapon = net.ReadTable()
-	local killedFrom = net.ReadInt(16)
-	local hitGroup = net.ReadInt(5)
+	local killedFrom = net.ReadUInt(16)
+	local hitGroup = net.ReadUInt(4)
 
 	local minutes = math.floor(timeInRaid / 60)
 	local seconds = timeInRaid % 60
@@ -1305,7 +1305,7 @@ net.Receive("CreateDeathInformation", function()
 
 			if yDiff > xDiff and mapSizeX > mapSizeY then minZoom = math.min(xDiff, yDiff) end
 
-			local map = vgui.Create("EFGMMap", MapHolder)
+			local map = vgui.Create("EMap", MapHolder)
 			map:SetSize(mapSizeX, mapSizeY)
 			map:SetMouseInputEnabled(true)
 			map:SetCursor("crosshair")
@@ -1333,7 +1333,7 @@ net.Receive("CreateExtractionInformation", function()
 	hook.Run("efgm_raid_exit", true)
 
 	local xpMult = net.ReadFloat()
-	local timeInRaid = net.ReadInt(16)
+	local timeInRaid = net.ReadUInt(12)
 
 	local statsTbl = {
 		["DAMAGE DEALT:"] = math.Round(ply:GetNWInt("RaidDamageDealt", 0)),
@@ -1350,11 +1350,11 @@ net.Receive("CreateExtractionInformation", function()
 	}
 	table.SortByKey(statsTbl)
 
-	local xpTime = net.ReadInt(16)
-	local xpCombat = net.ReadInt(16)
-	local xpExploration = net.ReadInt(16)
-	local xpLooting = net.ReadInt(16)
-	local xpBonus = net.ReadInt(16)
+	local xpTime = net.ReadUInt(16)
+	local xpCombat = net.ReadUInt(16)
+	local xpExploration = net.ReadUInt(16)
+	local xpLooting = net.ReadUInt(16)
+	local xpBonus = net.ReadUInt(16)
 
 	local minutes = math.floor(timeInRaid / 60)
 	local seconds = timeInRaid % 60
@@ -1627,7 +1627,7 @@ net.Receive("CreateExtractionInformation", function()
 
 		if yDiff > xDiff and mapSizeX > mapSizeY then minZoom = math.min(xDiff, yDiff) end
 
-		local map = vgui.Create("EFGMMap", MapHolder)
+		local map = vgui.Create("EMap", MapHolder)
 		map:SetSize(mapSizeX, mapSizeY)
 		map:SetMouseInputEnabled(true)
 		map:SetCursor("crosshair")

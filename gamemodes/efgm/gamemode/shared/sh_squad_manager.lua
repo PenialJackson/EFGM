@@ -105,11 +105,11 @@ if SERVER then
 		if table.HasValue(currentSquadNames, name) or name == "nil" then return end
 
 		local password = net.ReadString()
-		local limit = net.ReadInt(4)
-		local r = net.ReadInt(9)
-		local g = net.ReadInt(9)
-		local b = net.ReadInt(9)
-		local faction = net.ReadInt(4)
+		local limit = net.ReadUInt(3)
+		local r = net.ReadUInt(8)
+		local g = net.ReadUInt(8)
+		local b = net.ReadUInt(8)
+		local faction = net.ReadUInt(4)
 
 		SQUADS[name] = {OWNER = ply, PASSWORD = password, LIMIT = limit, COLOR = {RED = r, GREEN = g, BLUE = b}, FACTION = faction, MEMBERS = {ply}}
 
@@ -335,11 +335,11 @@ if CLIENT then
 		net.Start("PlayerCreateSquad")
 			net.WriteString(name)
 			net.WriteString(password)
-			net.WriteInt(limit, 4)
-			net.WriteInt(red, 9)
-			net.WriteInt(green, 9)
-			net.WriteInt(blue, 9)
-			net.WriteInt(faction, 4)
+			net.WriteUInt(limit, 3)
+			net.WriteUInt(red, 8)
+			net.WriteUInt(green, 8)
+			net.WriteUInt(blue, 8)
+			net.WriteUInt(faction, 4)
 		net.SendToServer()
 	end)
 

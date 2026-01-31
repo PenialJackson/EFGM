@@ -2305,14 +2305,20 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			self:StartLoop()
 
 			local attacker = self:GetOwner()
+			if !attacker:IsPlayer() then return end
 			if !attacker:IsInRaid() then return end
 
 			for k, v in ipairs(player.GetHumans()) do
+				if v == attacker then return end
 				if !v:IsInRaid() then return end
 				if shotCaliber[ammo] == nil then return end
 
 				local shootPos = attacker:GetPos()
-				local plyDistance = attacker:GetPos():Distance(v:GetPos())
+				local plyDistance = attacker:GetPos():DistanceSqr(v:GetPos())
+
+				if plyDistance < (2500 * 2500) then return end
+				plyDistance = math.sqrt(plyDistance)
+
 				local bulletPitch = shotCaliber[ammo][1] or 100
 				local threshold = shotCaliber[ammo][2] or 6000
 				local style = shotCaliber[ammo][3] == "bullet" -- returns true if bullet, false if explosive
@@ -2328,16 +2334,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				end
 
 				for i = 1, self.Num do
-					if plyDistance >= 2500 and v != attacker then
-						net.Start("DistantGunAudio")
-						net.WriteVector(shootPos)
-						net.WriteFloat(plyDistance)
-						net.WriteInt(bulletPitch, 9)
-						net.WriteInt(threshold, 16)
-						net.WriteFloat(volume)
-						net.WriteBool(style)
-						net.Send(v)
-					end
+					net.Start("DistantGunAudio")
+					net.WriteVector(shootPos)
+					net.WriteFloat(plyDistance)
+					net.WriteUInt(bulletPitch, 8)
+					net.WriteUInt(threshold, 16)
+					net.WriteFloat(volume)
+					net.WriteBool(style)
+					net.Send(v)
 				end
 			end
 		end

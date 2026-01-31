@@ -53,7 +53,3 @@ end
 hook.Add("PreGamemodeLoaded", "LoadShopFavorites", function()
 	EFGM:LoadFavorites()
 end)
-
-hook.Add("OnReloaded", "ReloadShopFavorites", function()
-	EFGM:LoadFavorites()
-end)

@@ -1,13 +1,12 @@
 local PANEL = {}
 
-PANEL.AllowUpdate = true
-
 function PANEL:Init()
 	self:SetMouseInputEnabled(true)
 	self:SetCursor("hand")
 	self:SetTall(0)
 	self:SetPaintBackgroundEnabled(false)
 	self:SetPaintBorderEnabled(false)
+	self:SetPaintBackground(false)
 end
 
 function PANEL:Think()
@@ -25,4 +24,4 @@ end
 function PANEL:OnCursorExited()
 end
 
-vgui.Register("EFGMInventoryEntry", PANEL, "DLabel")
+vgui.Register("EItemContainer", PANEL, "DLabel")

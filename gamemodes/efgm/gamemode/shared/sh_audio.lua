@@ -451,28 +451,29 @@ if SERVER then
 					shootPos = Vector(ext.pos)
 				end
 
-				local plyDistance = shootPos:Distance(v:GetPos())
+				local plyDistance = shootPos:DistanceSqr(v:GetPos())
+
+				local dist = 2500
+				if ext.dist then dist = ext.dist end
+				if plyDistance < (dist * dist) then return end
+				plyDistance = math.sqrt(plyDistance)
+
 				local bulletPitch = shotCaliber[class][1] or 100
 				local threshold = shotCaliber[class][2] or 6000
 				local style = shotCaliber[class][3] == "bullet" -- returns true if bullet, false if explosive
 				local volume = 1
 
-				local dist = 2500
-				if ext.dist then dist = ext.dist end
-
 				if indoor then volume = volume * 0.4 end
 
 				for i = 1, num do
-					if plyDistance >= dist then
-						net.Start("DistantGunAudio")
-							net.WriteVector(shootPos)
-							net.WriteFloat(plyDistance)
-							net.WriteInt(bulletPitch, 9)
-							net.WriteInt(threshold, 16)
-							net.WriteFloat(volume)
-							net.WriteBool(style)
-						net.Send(v)
-					end
+					net.Start("DistantGunAudio")
+						net.WriteVector(shootPos)
+						net.WriteFloat(plyDistance)
+						net.WriteUInt(bulletPitch, 8)
+						net.WriteUInt(threshold, 16)
+						net.WriteFloat(volume)
+						net.WriteBool(style)
+					net.Send(v)
 				end
 			end
 		else -- ammunition based
@@ -492,52 +493,49 @@ if SERVER then
 					shootPos = Vector(ext.pos)
 				end
 
-				local plyDistance =  shootPos:Distance(v:GetPos())
+				local plyDistance =  shootPos:DistanceSqr(v:GetPos())
+
+				local dist = 2500
+				if ext.dist then dist = ext.dist end
+				if plyDistance < (dist * dist) then return end
+				plyDistance = math.sqrt(plyDistance)
+
 				local bulletPitch = shotCaliber[cal][1] or 100
 				local threshold = shotCaliber[cal][2] or 6000
 				local style = shotCaliber[cal][3] == "bullet" -- returns true if bullet, false if explosive
 				local volume = 1
 
-				local dist = 2500
-				if ext.dist then dist = ext.dist end
-
 				if indoor then volume = volume * 0.4 end
 
 				for i = 1, num do
-					if plyDistance >= dist then
-						net.Start("DistantGunAudio")
-							net.WriteVector(shootPos)
-							net.WriteFloat(plyDistance)
-							net.WriteInt(bulletPitch, 9)
-							net.WriteInt(threshold, 16)
-							net.WriteFloat(volume)
-							net.WriteBool(style)
-						net.Send(v)
-					end
+					net.Start("DistantGunAudio")
+						net.WriteVector(shootPos)
+						net.WriteFloat(plyDistance)
+						net.WriteUInt(bulletPitch, 8)
+						net.WriteUInt(threshold, 16)
+						net.WriteFloat(volume)
+						net.WriteBool(style)
+					net.Send(v)
 				end
 			end
 		end
 	end
 end
 
+local nilVector = Vector(0, 0, 0)
+
 if CLIENT then
 	net.Receive("DistantGunAudio", function()
-		local chosenSound
 		local receivedVect = net.ReadVector()
+		if receivedVect == nilVector then return end
+
 		local distance = net.ReadFloat()
-		local pitch = net.ReadInt(9)
-		local threshold = net.ReadInt(16)
+		local pitch = net.ReadUInt(8)
+		local threshold = net.ReadUInt(16)
 		local volume = net.ReadFloat()
 		local style = net.ReadBool()
+		local chosenSound = style and shotSounds[math.random(#shotSounds)] or boomSounds[math.random(#boomSounds)]
 
-		if style == true then
-			chosenSound = shotSounds[math.random(#shotSounds)]
-		else
-			chosenSound = boomSounds[math.random(#boomSounds)]
-		end
-
-		if receivedVect then
-			sound.Play(chosenSound, receivedVect, math.min(150, (150 * threshold) / distance), math.Clamp(pitch, 0, 254) + math.random(-15, 15), math.Rand(volume - 0.2, volume))
-		end
+		sound.Play(chosenSound, receivedVect, math.min(150, (150 * threshold) / distance), math.Clamp(pitch, 0, 254) + math.random(-15, 15), math.Rand(volume - 0.2, volume))
 	end)
 end

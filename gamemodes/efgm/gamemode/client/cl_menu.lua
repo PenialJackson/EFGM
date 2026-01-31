@@ -6,6 +6,7 @@ Menu.MouseY = 0
 Menu.Player = LocalPlayer()
 Menu.PlayerHealth = 0
 Menu.Closing = false
+Menu.SwitchingTab = false
 Menu.IsOpen = false
 Menu.PerferredTab = nil
 Menu.PerferredShopDestination = nil
@@ -32,6 +33,16 @@ local holdtypes = {
 	"pose_standing_02",
 	"pose_standing_03",
 	"pose_standing_04"
+}
+
+local tabList = {
+	["stats"] = 1,
+	["match"] = 2,
+	["inventory"] = 3,
+	["market"] = 4,
+	["tasks"] = 5,
+	["skills"] = 6,
+	["settings"] = 7
 }
 
 local plyItems = {}
@@ -104,6 +115,7 @@ function Menu:Initialize(openTo, container)
 	self.Player = LocalPlayer()
 	self.Unblur = false
 	self.Closing = false
+	self.SwitchingTab = false
 	self.PlayerHealth = Menu.Player:Health()
 
 	function menuFrame:Paint(w, h)
@@ -172,23 +184,32 @@ function Menu:Initialize(openTo, container)
 		self.SideV = y <= (ScrH() / 2) and true or false
 	end
 
+	function tooltip:BeginShowing(t, paint, w, h)
+		if self.LastTip != t then return end
+		self.TipPaint = paint
+		self:SetSize(w, h)
+		local x, y = Menu.MouseX, Menu.MouseY
+		self:SetSide()
+		self:SetPos(self.SideH and math.Clamp(x + EFGM.MenuScale(15), 0, ScrW() - w) or math.Clamp(x - w - EFGM.MenuScale(15), 0, ScrW() - w), self.SideV and math.Clamp(y + EFGM.MenuScale(15), 0, ScrH() - h) or math.Clamp(y - h + EFGM.MenuScale(15), 0, ScrH() - h))
+		self:MoveToFront()
+		self:Show()
+		self:AlphaTo(255, 0.1, 0, nil)
+	end
+
 	function tooltip:DisplayTip(parent, paint, w, h, delay)
 		timer.Remove("tooltip")
 		local ct = CurTime()
 		self.LastTip = ct
-		self.Closing = false
 		self.Parent = parent
 
-		timer.Create("tooltip", delay or 0, 1, function()
-			if self.LastTip != ct then return end
-			self.TipPaint = paint
-			self:SetSize(w, h)
-			local x, y = Menu.MouseX, Menu.MouseY
-			self:SetSide()
-			self:SetPos(self.SideH and math.Clamp(x + EFGM.MenuScale(15), 0, ScrW() - w) or math.Clamp(x - w - EFGM.MenuScale(15), 0, ScrW() - w), self.SideV and math.Clamp(y + EFGM.MenuScale(15), 0, ScrH() - h) or math.Clamp(y - h + EFGM.MenuScale(15), 0, ScrH() - h))
-			self:MoveToFront()
-			self:Show()
-			self:AlphaTo(255, 0.1, 0, nil)
+		if delay == nil or delay == 0 then
+			self:BeginShowing(ct, paint, w, h)
+			return
+		end
+
+		self.TipPaint = nil
+		timer.Create("tooltip", delay, 1, function()
+			self:BeginShowing(ct, paint, w, h)
 		end)
 	end
 
@@ -196,24 +217,15 @@ function Menu:Initialize(openTo, container)
 		timer.Remove("tooltip")
 		local closingTime = CurTime()
 		self.LastTip = closingTime
-		self.Closing = true
 
-		if self:IsVisible() and self:GetAlpha() > 0 then
-			self:AlphaTo(0, 0.05, 0, function()
-				if self.LastTip == closingTime then
-					self:Hide()
-					self.TipPaint = nil
-				end
-			end)
-		else
-			self:Hide()
-			self.TipPaint = nil
-		end
+		self:SetAlpha(0)
+		self:Hide()
+		self.TipPaint = nil
 	end
 
 	function tooltip:Paint(w, h)
 		if self.TipPaint == nil then return end
-		if (!self.Parent:IsHovered() or self.Parent:IsDragging()) and !self.Closing then self:RemoveTip() end
+		if (!self.Parent:IsHovered() or self.Parent:IsDragging()) then self:RemoveTip() end
 
 		BlurPanel(self, 3)
 
@@ -405,6 +417,9 @@ function Menu:Initialize(openTo, container)
 	local lowerPanel = vgui.Create("DPanel", self.MenuFrame)
 	lowerPanel:SetSize(EFGM.MenuScale(1880), EFGM.MenuScale(980))
 	lowerPanel:NoClipping(true)
+	lowerPanel:SetPaintBackgroundEnabled(false)
+	lowerPanel:SetPaintBorderEnabled(false)
+	lowerPanel:SetPaintBackground(false)
 
 	function lowerPanel:Paint(w, h)
 		if !Menu.Player:Alive() then
@@ -416,7 +431,7 @@ function Menu:Initialize(openTo, container)
 			return
 		end
 
-		if Menu.Closing then return end
+		if Menu.Closing or Menu.SwitchingTab then return end
 		Menu.MouseX, Menu.MouseY = menuFrame:LocalCursorPos()
 
 		if GetConVar("efgm_menu_parallax"):GetInt() == 1 then
@@ -511,11 +526,17 @@ function Menu:Initialize(openTo, container)
 			net.SendToServer()
 		end
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "stats"
+
+		Menu.SwitchingTab = true
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Stats()
-			Menu.ActiveTab = "stats"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 	end
 
@@ -565,11 +586,15 @@ function Menu:Initialize(openTo, container)
 
 		surface.PlaySound("ui/element_select.wav")
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "match"
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Match()
-			Menu.ActiveTab = "match"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 
 		if Menu.Player:IsInHideout() then
@@ -629,11 +654,15 @@ function Menu:Initialize(openTo, container)
 
 		surface.PlaySound("ui/element_select.wav")
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "inventory"
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Inventory(Menu.Container)
-			Menu.ActiveTab = "inventory"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 	end
 
@@ -695,11 +724,15 @@ function Menu:Initialize(openTo, container)
 
 		surface.PlaySound("ui/element_select.wav")
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "market"
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Market()
-			Menu.ActiveTab = "market"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 	end
 
@@ -763,11 +796,15 @@ function Menu:Initialize(openTo, container)
 
 		surface.PlaySound("ui/element_select.wav")
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "tasks"
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Tasks()
-			Menu.ActiveTab = "tasks"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 	end
 
@@ -824,11 +861,15 @@ function Menu:Initialize(openTo, container)
 
 		surface.PlaySound("ui/element_select.wav")
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "skills"
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Skills()
-			Menu.ActiveTab = "skills"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 	end
 
@@ -883,7 +924,6 @@ function Menu:Initialize(openTo, container)
 	end
 
 	-- settings
-
 	local settingsTab = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
 	settingsTab:Dock(LEFT)
 	settingsTab:SetSize(EFGM.MenuScale(38), 0)
@@ -934,11 +974,15 @@ function Menu:Initialize(openTo, container)
 			net.SendToServer()
 		end
 
+		local prevTab = Menu.ActiveTab
+		Menu.ActiveTab = "settings"
+
 		Menu.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
 			Menu.MenuFrame.LowerPanel.Contents:Remove()
 			Menu.OpenTab.Settings()
-			Menu.ActiveTab = "settings"
-			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, nil)
+			Menu.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+				Menu.SwitchingTab = false
+			end)
 		end)
 	end
 
@@ -2776,7 +2820,7 @@ function Menu.ReloadInventory()
 			local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
 			local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 
-			local item = playerItems:Add("EFGMInventoryEntry")
+			local item = playerItems:Add("EItemInventory")
 			item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
 			item:SetText("")
 			item:Droppable("items")
@@ -2946,14 +2990,14 @@ function Menu.ReloadInventory()
 				if y <= (itemsHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", itemsHolder)
+				contextMenu = vgui.Create("EContextMenu", itemsHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(v.name, v.data)
@@ -2980,7 +3024,7 @@ function Menu.ReloadInventory()
 				actions.taggable = Menu.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
 
 				if actions.stashable then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/inv_item_tostash_" .. math.random(1, 7) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -2989,7 +3033,7 @@ function Menu.ReloadInventory()
 				end
 
 				if actions.equipable then
-					local equipButton = vgui.Create("EFGMContextButton", contextMenu)
+					local equipButton = vgui.Create("EContextButton", contextMenu)
 					equipButton:SetText("EQUIP")
 					equipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					equipButton.OnClickEvent = function()
@@ -2999,7 +3043,7 @@ function Menu.ReloadInventory()
 				end
 
 				if actions.ammoBuyable then
-					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+					local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
 					buyAmmoButton.OnClickSound = "nil"
 					buyAmmoButton.OnClickEvent = function()
@@ -3008,7 +3052,7 @@ function Menu.ReloadInventory()
 				end
 
 				if actions.taggable then
-					local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+					local tagButton = vgui.Create("EContextButton", contextMenu)
 					tagButton:SetText("SET TAG")
 					tagButton.OnClickEvent = function()
 						Menu.ConfirmTag(v.name, v.id, "inv", 0, 0)
@@ -3016,7 +3060,7 @@ function Menu.ReloadInventory()
 				end
 
 				if actions.splittable then
-					local splitButton = vgui.Create("EFGMContextButton", contextMenu)
+					local splitButton = vgui.Create("EContextButton", contextMenu)
 					splitButton:SetText("SPLIT")
 					splitButton.OnClickSound = "nil"
 					splitButton.OnClickEvent = function()
@@ -3025,7 +3069,7 @@ function Menu.ReloadInventory()
 				end
 
 				if actions.droppable then
-					local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+					local dropButton = vgui.Create("EContextButton", contextMenu)
 					dropButton:SetText("DROP")
 					dropButton.OnClickEvent = function()
 						DropItemFromInventory(v.id)
@@ -3033,7 +3077,7 @@ function Menu.ReloadInventory()
 				end
 
 				if actions.deletable then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -3255,21 +3299,21 @@ function Menu.ReloadSlots()
 				if y <= (equipmentHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", equipmentHolder)
+				contextMenu = vgui.Create("EContextMenu", equipmentHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(name, data)
 				end
 
 				if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -3277,7 +3321,7 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local unequipButton = vgui.Create("EFGMContextButton", contextMenu)
+				local unequipButton = vgui.Create("EContextButton", contextMenu)
 				unequipButton:SetText("UNEQUIP")
 				unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 				unequipButton.OnClickEvent = function()
@@ -3287,7 +3331,7 @@ function Menu.ReloadSlots()
 
 				if Menu.Player:IsInHideout() then
 					if i.ammoID then
-						local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+						local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 						buyAmmoButton:SetText("BUY AMMO")
 						buyAmmoButton.OnClickSound = "nil"
 						buyAmmoButton.OnClickEvent = function()
@@ -3296,7 +3340,7 @@ function Menu.ReloadSlots()
 					end
 
 					if data.tag == nil then
-						local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+						local tagButton = vgui.Create("EContextButton", contextMenu)
 						tagButton:SetText("SET TAG")
 						tagButton.OnClickEvent = function()
 							Menu.ConfirmTag(name, 0, "equipped", primaryItem.SLOTID, primaryItem.SLOT)
@@ -3304,14 +3348,14 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+				local dropButton = vgui.Create("EContextButton", contextMenu)
 				dropButton:SetText("DROP")
 				dropButton.OnClickEvent = function()
 					DropEquippedItem(primaryItem.SLOTID, primaryItem.SLOT)
 				end
 
 				if Menu.Player:IsInHideout() then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -3525,21 +3569,21 @@ function Menu.ReloadSlots()
 				if y <= (equipmentHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", equipmentHolder)
+				contextMenu = vgui.Create("EContextMenu", equipmentHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(name, data)
 				end
 
 				if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -3547,7 +3591,7 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local unequipButton = vgui.Create("EFGMContextButton", contextMenu)
+				local unequipButton = vgui.Create("EContextButton", contextMenu)
 				unequipButton:SetText("UNEQUIP")
 				unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 				unequipButton.OnClickEvent = function()
@@ -3557,7 +3601,7 @@ function Menu.ReloadSlots()
 
 				if Menu.Player:IsInHideout() then
 					if i.ammoID then
-						local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+						local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 						buyAmmoButton:SetText("BUY AMMO")
 						buyAmmoButton.OnClickSound = "nil"
 						buyAmmoButton.OnClickEvent = function()
@@ -3566,7 +3610,7 @@ function Menu.ReloadSlots()
 					end
 
 					if data.tag == nil then
-						local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+						local tagButton = vgui.Create("EContextButton", contextMenu)
 						tagButton:SetText("SET TAG")
 						tagButton.OnClickEvent = function()
 							Menu.ConfirmTag(name, 0, "equipped", secondaryItem.SLOTID, secondaryItem.SLOT)
@@ -3574,14 +3618,14 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+				local dropButton = vgui.Create("EContextButton", contextMenu)
 				dropButton:SetText("DROP")
 				dropButton.OnClickEvent = function()
 					DropEquippedItem(secondaryItem.SLOTID, secondaryItem.SLOT)
 				end
 
 				if Menu.Player:IsInHideout() then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -3795,21 +3839,21 @@ function Menu.ReloadSlots()
 				if y <= (equipmentHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", equipmentHolder)
+				contextMenu = vgui.Create("EContextMenu", equipmentHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(name, data)
 				end
 
 				if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -3817,7 +3861,7 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local unequipButton = vgui.Create("EFGMContextButton", contextMenu)
+				local unequipButton = vgui.Create("EContextButton", contextMenu)
 				unequipButton:SetText("UNEQUIP")
 				unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 				unequipButton.OnClickEvent = function()
@@ -3827,7 +3871,7 @@ function Menu.ReloadSlots()
 
 				if Menu.Player:IsInHideout() then
 					if i.ammoID then
-						local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+						local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 						buyAmmoButton:SetText("BUY AMMO")
 						buyAmmoButton.OnClickSound = "nil"
 						buyAmmoButton.OnClickEvent = function()
@@ -3836,7 +3880,7 @@ function Menu.ReloadSlots()
 					end
 
 					if data.tag == nil then
-						local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+						local tagButton = vgui.Create("EContextButton", contextMenu)
 						tagButton:SetText("SET TAG")
 						tagButton.OnClickEvent = function()
 							Menu.ConfirmTag(name, 0, "equipped", holsterItem.SLOTID, holsterItem.SLOT)
@@ -3844,14 +3888,14 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+				local dropButton = vgui.Create("EContextButton", contextMenu)
 				dropButton:SetText("DROP")
 				dropButton.OnClickEvent = function()
 					DropEquippedItem(holsterItem.SLOTID, holsterItem.SLOT)
 				end
 
 				if Menu.Player:IsInHideout() then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -4026,21 +4070,21 @@ function Menu.ReloadSlots()
 				if y <= (equipmentHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", equipmentHolder)
+				contextMenu = vgui.Create("EContextMenu", equipmentHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(name, data)
 				end
 
 				if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -4048,7 +4092,7 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local unequipButton = vgui.Create("EFGMContextButton", contextMenu)
+				local unequipButton = vgui.Create("EContextButton", contextMenu)
 				unequipButton:SetText("UNEQUIP")
 				unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 				unequipButton.OnClickEvent = function()
@@ -4058,7 +4102,7 @@ function Menu.ReloadSlots()
 
 				if Menu.Player:IsInHideout() then
 					if i.ammoID then
-						local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+						local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 						buyAmmoButton:SetText("BUY AMMO")
 						buyAmmoButton.OnClickSound = "nil"
 						buyAmmoButton.OnClickEvent = function()
@@ -4067,7 +4111,7 @@ function Menu.ReloadSlots()
 					end
 
 					if data.tag == nil then
-						local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+						local tagButton = vgui.Create("EContextButton", contextMenu)
 						tagButton:SetText("SET TAG")
 						tagButton.OnClickEvent = function()
 							Menu.ConfirmTag(name, 0, "equipped", meleeItem.SLOTID, meleeItem.SLOT)
@@ -4075,14 +4119,14 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+				local dropButton = vgui.Create("EContextButton", contextMenu)
 				dropButton:SetText("DROP")
 				dropButton.OnClickEvent = function()
 					DropEquippedItem(meleeItem.SLOTID, meleeItem.SLOT)
 				end
 
 				if Menu.Player:IsInHideout() then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -4261,21 +4305,21 @@ function Menu.ReloadSlots()
 				if y <= (equipmentHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", equipmentHolder)
+				contextMenu = vgui.Create("EContextMenu", equipmentHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(name, data)
 				end
 
 				if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -4283,7 +4327,7 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local unequipButton = vgui.Create("EFGMContextButton", contextMenu)
+				local unequipButton = vgui.Create("EContextButton", contextMenu)
 				unequipButton:SetText("UNEQUIP")
 				unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 				unequipButton.OnClickEvent = function()
@@ -4293,7 +4337,7 @@ function Menu.ReloadSlots()
 
 				if Menu.Player:IsInHideout() then
 					if i.ammoID then
-						local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+						local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 						buyAmmoButton:SetText("BUY AMMO")
 						buyAmmoButton.OnClickSound = "nil"
 						buyAmmoButton.OnClickEvent = function()
@@ -4302,7 +4346,7 @@ function Menu.ReloadSlots()
 					end
 
 					if data.tag == nil then
-						local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+						local tagButton = vgui.Create("EContextButton", contextMenu)
 						tagButton:SetText("SET TAG")
 						tagButton.OnClickEvent = function()
 							Menu.ConfirmTag(name, 0, "equipped", nadeItem.SLOTID, nadeItem.SLOT)
@@ -4310,14 +4354,14 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+				local dropButton = vgui.Create("EContextButton", contextMenu)
 				dropButton:SetText("DROP")
 				dropButton.OnClickEvent = function()
 					DropEquippedItem(nadeItem.SLOTID, nadeItem.SLOT)
 				end
 
 				if Menu.Player:IsInHideout() then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -4483,21 +4527,21 @@ function Menu.ReloadSlots()
 				if y <= (consumableHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", consumableHolder)
+				contextMenu = vgui.Create("EContextMenu", consumableHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(name, data)
 				end
 
 				if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
-					local stashButton = vgui.Create("EFGMContextButton", contextMenu)
+					local stashButton = vgui.Create("EContextButton", contextMenu)
 					stashButton:SetText("STASH")
 					stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					stashButton.OnClickEvent = function()
@@ -4505,7 +4549,7 @@ function Menu.ReloadSlots()
 					end
 				end
 
-				local unequipButton = vgui.Create("EFGMContextButton", contextMenu)
+				local unequipButton = vgui.Create("EContextButton", contextMenu)
 				unequipButton:SetText("UNEQUIP")
 				unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 				unequipButton.OnClickEvent = function()
@@ -4513,14 +4557,14 @@ function Menu.ReloadSlots()
 					UnEquipItemFromInventory(consumableItem.SLOTID, consumableItem.SLOT)
 				end
 
-				local dropButton = vgui.Create("EFGMContextButton", contextMenu)
+				local dropButton = vgui.Create("EContextButton", contextMenu)
 				dropButton:SetText("DROP")
 				dropButton.OnClickEvent = function()
 					DropEquippedItem(consumableItem.SLOTID, consumableItem.SLOT)
 				end
 
 				if Menu.Player:IsInHideout() then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -4914,8 +4958,9 @@ function Menu.ReloadStash()
 			local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 			local isPinned = v.data.pin == 1
 
-			local item = stashItems:Add("EFGMInventoryEntry")
+			local item = stashItems:Add("EItemStash")
 			item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
+			item:SetText("")
 			item:Droppable("items")
 			item.ID = v.id
 			item.SLOT = i.equipSlot
@@ -5093,20 +5138,20 @@ function Menu.ReloadStash()
 				if y <= (stashHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", stashHolder)
+				contextMenu = vgui.Create("EContextMenu", stashHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(v.name, v.data)
 				end
 
-				local takeButton = vgui.Create("EFGMContextButton", contextMenu)
+				local takeButton = vgui.Create("EContextButton", contextMenu)
 				takeButton:SetText("TAKE")
 				takeButton.OnClickSound = "ui/inv_item_toinv_" .. math.random(1, 7) .. ".wav"
 				takeButton.OnClickEvent = function()
@@ -5129,7 +5174,7 @@ function Menu.ReloadStash()
 				actions.taggable = Menu.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
 
 				if actions.equipable then
-					local equipButton = vgui.Create("EFGMContextButton", contextMenu)
+					local equipButton = vgui.Create("EContextButton", contextMenu)
 					equipButton:SetText("EQUIP")
 					equipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					equipButton.OnClickEvent = function()
@@ -5139,7 +5184,7 @@ function Menu.ReloadStash()
 				end
 
 				if actions.ammoBuyable then
-					local buyAmmoButton = vgui.Create("EFGMContextButton", contextMenu)
+					local buyAmmoButton = vgui.Create("EContextButton", contextMenu)
 					buyAmmoButton:SetText("BUY AMMO")
 					buyAmmoButton.OnClickSound = "nil"
 					buyAmmoButton.OnClickEvent = function()
@@ -5148,7 +5193,7 @@ function Menu.ReloadStash()
 				end
 
 				if actions.taggable then
-					local tagButton = vgui.Create("EFGMContextButton", contextMenu)
+					local tagButton = vgui.Create("EContextButton", contextMenu)
 					tagButton:SetText("SET TAG")
 					tagButton.OnClickEvent = function()
 						Menu.ConfirmTag(v.name, v.id, "stash", 0, 0)
@@ -5156,7 +5201,7 @@ function Menu.ReloadStash()
 				end
 
 				if actions.splittable then
-					local splitButton = vgui.Create("EFGMContextButton", contextMenu)
+					local splitButton = vgui.Create("EContextButton", contextMenu)
 					splitButton:SetText("SPLIT")
 					splitButton.OnClickSound = "nil"
 					splitButton.OnClickEvent = function()
@@ -5164,7 +5209,7 @@ function Menu.ReloadStash()
 					end
 				end
 
-				local pinButton = vgui.Create("EFGMContextButton", contextMenu)
+				local pinButton = vgui.Create("EContextButton", contextMenu)
 				if v.data.pin == 1 then
 					pinButton:SetText("UNPIN")
 					pinButton.OnClickSound = "ui/element_unpinned.wav"
@@ -5177,7 +5222,7 @@ function Menu.ReloadStash()
 				end
 
 				if actions.deletable then
-					local deleteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local deleteButton = vgui.Create("EContextButton", contextMenu)
 					deleteButton:SetText("DELETE")
 					deleteButton.OnClickSound = "nil"
 					deleteButton.OnClickEvent = function()
@@ -5455,7 +5500,7 @@ function Menu.ReloadMarketStash()
 			local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 			local isPinned = v.data.pin == 1
 
-			local item = marketStashItems:Add("EFGMInventoryEntry")
+			local item = marketStashItems:Add("EItemMarketStash")
 			item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
 			item:SetText("")
 			item.ID = v.id
@@ -5612,20 +5657,20 @@ function Menu.ReloadMarketStash()
 				if y <= (marketStashHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", marketStashHolder)
+				contextMenu = vgui.Create("EContextMenu", marketStashHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(v.name, v.data)
 				end
 
-				local sellButton = vgui.Create("EFGMContextButton", contextMenu)
+				local sellButton = vgui.Create("EContextButton", contextMenu)
 				sellButton:SetText("SELL")
 				sellButton.OnClickEvent = function()
 					Menu.ConfirmSell(v.name, v.data, v.id)
@@ -5772,7 +5817,7 @@ function Menu.ReloadContainer()
 			local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
 			local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 
-			local item = containerItems:Add("EFGMInventoryEntry")
+			local item = containerItems:Add("EItemContainer")
 			item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
 			item:SetText("")
 			item:Droppable("items")
@@ -5971,14 +6016,14 @@ function Menu.ReloadContainer()
 				if y <= (containerHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 				if IsValid(contextMenu) then contextMenu:Remove() end
-				contextMenu = vgui.Create("EFGMContextMenu", containerHolder)
+				contextMenu = vgui.Create("EContextMenu", containerHolder)
 				contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 				contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 				contextMenu:SetAlpha(0)
 				contextMenu:AlphaTo(255, 0.1, 0, nil)
 				contextMenu:RequestFocus()
 
-				local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+				local inspectButton = vgui.Create("EContextButton", contextMenu)
 				inspectButton:SetText("INSPECT")
 				inspectButton.OnClickEvent = function()
 					Menu.InspectItem(v.name, v.data)
@@ -5994,7 +6039,7 @@ function Menu.ReloadContainer()
 				actions.equipable = i.equipType == EQUIPTYPE.Weapon
 
 				if actions.lootable then
-					local lootButton = vgui.Create("EFGMContextButton", contextMenu)
+					local lootButton = vgui.Create("EContextButton", contextMenu)
 					lootButton:SetText("LOOT")
 					lootButton.OnClickSound = "ui/inv_item_toinv_" .. math.random(1, 7) .. ".wav"
 					lootButton.OnClickEvent = function()
@@ -6011,7 +6056,7 @@ function Menu.ReloadContainer()
 				end
 
 				if actions.equipable then
-					local equipButton = vgui.Create("EFGMContextButton", contextMenu)
+					local equipButton = vgui.Create("EContextButton", contextMenu)
 					equipButton:SetText("EQUIP")
 					equipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 					equipButton.OnClickEvent = function()
@@ -8234,14 +8279,14 @@ function Menu.OpenTab.Market()
 					if y <= (marketItemHolder:GetTall() / 2) then sideV = true else sideV = false end
 
 					if IsValid(contextMenu) then contextMenu:Remove() end
-					contextMenu = vgui.Create("EFGMContextMenu", marketItemHolder)
+					contextMenu = vgui.Create("EContextMenu", marketItemHolder)
 					contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 					contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 					contextMenu:SetAlpha(0)
 					contextMenu:AlphaTo(255, 0.1, 0, nil)
 					contextMenu:RequestFocus()
 
-					local inspectButton = vgui.Create("EFGMContextButton", contextMenu)
+					local inspectButton = vgui.Create("EContextButton", contextMenu)
 					inspectButton:SetText("INSPECT")
 					inspectButton.OnClickEvent = function()
 						local data = {
@@ -8250,7 +8295,7 @@ function Menu.OpenTab.Market()
 						Menu.InspectItem(v.id, data)
 					end
 
-					local favoriteButton = vgui.Create("EFGMContextButton", contextMenu)
+					local favoriteButton = vgui.Create("EContextButton", contextMenu)
 					favoriteButton:SetText("FAVORITE")
 					favoriteButton.OnClickSound = "nil"
 					favoriteButton.OnClickEvent = function()
@@ -8262,7 +8307,7 @@ function Menu.OpenTab.Market()
 					end
 
 					if v.canPurchase and plyLevel >= v.level and marketLimits[v.id] != 0 then
-						local buyButton = vgui.Create("EFGMContextButton", contextMenu)
+						local buyButton = vgui.Create("EContextButton", contextMenu)
 						buyButton:SetText("BUY")
 						buyButton.OnClickSound = "nil"
 						buyButton.OnClickEvent = function()
@@ -8695,7 +8740,7 @@ function Menu.OpenTab.Match()
 	local minZoom = math.max(xDiff, yDiff)
 	if yDiff > xDiff and mapSizeX > mapSizeY then minZoom = math.min(xDiff, yDiff) end
 
-	local map = vgui.Create("EFGMMap", mapHolder)
+	local map = vgui.Create("EMap", mapHolder)
 	map:SetSize(mapSizeX, mapSizeY)
 	map:SetMouseInputEnabled(true)
 	map:SetCursor("crosshair")
@@ -9411,7 +9456,7 @@ function Menu.OpenTab.Stats()
 	statsTbl["Experience"] = string.FormatComma(Menu.Player:GetNWInt("Experience"))
 	statsTbl["Money Earned"] = "₽" .. string.FormatComma(Menu.Player:GetNWInt("MoneyEarned"))
 	statsTbl["Money Spent"] = "₽" .. string.FormatComma(Menu.Player:GetNWInt("MoneySpent"))
-	statsTbl["Time"] = util.FormatTime(Menu.Player:GetNWInt("Time"))
+	statsTbl["Time"] = util.FormatTimePretty(Menu.Player:GetNWInt("Time"))
 	statsTbl["Stash Value"] = "₽" .. string.FormatComma(Menu.Player:GetNWInt("StashValue"))
 	statsTbl["Items Looted"] = string.FormatComma(Menu.Player:GetNWInt("ItemsLooted"))
 	statsTbl["Containers Opened"] = string.FormatComma(Menu.Player:GetNWInt("ContainersLooted"))
@@ -9517,8 +9562,8 @@ function Menu.OpenTab.Stats()
 			--asdofiauhasdofiauashydafasdifa
 			if selectedBoardName == "Money Earned" or selectedBoardName == "Money Spent" or selectedBoardName == "Stash Value" then
 				draw.SimpleTextOutlined("₽" .. string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			elseif selectedBoardName == "Time" then
-				draw.SimpleTextOutlined(string.FormatComma(v.Value) .. "s", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			elseif selectedBoardName == "Time Played" then
+				draw.SimpleTextOutlined(util.FormatTimePretty(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			else
 				draw.SimpleTextOutlined(string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end

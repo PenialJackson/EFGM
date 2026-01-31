@@ -1,10 +1,10 @@
-local BUTTON = {}
+local PANEL = {}
 
-BUTTON.Parent = nil
-BUTTON.OnClickEvent = nil
-BUTTON.OnClickSound = nil
+PANEL.Parent = nil
+PANEL.OnClickEvent = nil
+PANEL.OnClickSound = nil
 
-function BUTTON:Init()
+function PANEL:Init()
 	self:Dock(TOP)
 	self:SetFont("PuristaBold16")
 	self:SetTall(EFGM.MenuScale(25))
@@ -13,11 +13,11 @@ function BUTTON:Init()
 	if self.Parent then self.Parent.ctxHeight = self.Parent.ctxHeight + EFGM.MenuScale(25) end
 end
 
-function BUTTON:OnCursorEntered()
+function PANEL:OnCursorEntered()
 	surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 end
 
-function BUTTON:DoClick()
+function PANEL:DoClick()
 	if !isfunction(self.OnClickEvent) then surface.PlaySound("ui/element_deselect.wav") return end
 
 	if Menu.Closing then return end
@@ -27,4 +27,4 @@ function BUTTON:DoClick()
 	self.OnClickEvent()
 end
 
-vgui.Register("EFGMContextButton", BUTTON, "DButton")
+vgui.Register("EContextButton", PANEL, "DButton")
