@@ -117,11 +117,11 @@ net.Receive("PlayerReinstantiateInventory", function(len)
 end)
 
 net.Receive("PlayerInventoryReload", function(len)
-	Menu.ReloadInventory()
+	Menu:ReloadInventory()
 end)
 
 net.Receive("PlayerSlotsReload", function(len)
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 end)
 
 net.Receive("PlayerInventoryAddItem", function(len)
@@ -167,7 +167,7 @@ net.Receive("PlayerInventoryUnEquipAll", function(len)
 
 	if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
 
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 end)
 
 function UnequipAll()
@@ -183,7 +183,7 @@ net.Receive("PlayerInventoryUpdateEquipped", function(len)
 	key = net.ReadUInt(16)
 
 	playerWeaponSlots[index][key].data = newData
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 end )
 
 net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
@@ -194,7 +194,7 @@ net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
 
 	playerWeaponSlots[equipID][equipSlot] = {}
 
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 end )
 
 function DropItemFromInventory(itemIndex)
@@ -205,7 +205,7 @@ function DropItemFromInventory(itemIndex)
 	net.SendToServer()
 
 	table.remove(playerInventory, itemIndex)
-	Menu.ReloadInventory()
+	Menu:ReloadInventory()
 end
 
 -- returns bool whether or not it could equip an item clientside (desync may be an issue since server could disagree and neither side would know)
@@ -284,12 +284,12 @@ function DropEquippedItem(equipID, equipSlot)
 		net.WriteUInt(equipSlot, 4)
 	net.SendToServer()
 
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 end
 
 net.Receive("PlayerInventoryConsumeGrenade", function(len)
 	playerWeaponSlots[4][1] = {}
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 
 	if !table.IsEmpty(playerWeaponSlots[1][1]) then
 		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
@@ -305,7 +305,7 @@ end)
 
 net.Receive("PlayerInventoryRemoveConsumable", function(len)
 	playerWeaponSlots[5][1] = {}
-	Menu.ReloadSlots()
+	Menu:ReloadSlots()
 
 	if !table.IsEmpty(playerWeaponSlots[1][1]) then
 		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
@@ -331,8 +331,8 @@ net.Receive("PlayerInventoryClearFIR", function(len)
 		end
 	end
 
-	Menu.ReloadInventory()
-	Menu.ReloadSlots()
+	Menu:ReloadInventory()
+	Menu:ReloadSlots()
 end)
 
 net.Receive("efgm_sendpreset", function(len)

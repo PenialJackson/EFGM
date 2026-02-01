@@ -44,7 +44,7 @@ net.Receive("PlayerNetworkStash", function(len)
 end)
 
 net.Receive("PlayerStashReload", function(len)
-	Menu.ReloadStash()
+	if Menu.ActiveTab == "inventory" then Menu:ReloadStash() else Menu:ReloadMarketStash() end
 end)
 
 net.Receive("PlayerStashAddItem", function(len)

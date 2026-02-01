@@ -29,20 +29,18 @@ end
 
 -- screen scale function, makes my life (penial) easier because i will most definently be doing most if not all of the user interface
 -- all interfaces and fonts are (for the most part) created on a 2560x1440 monitor
-local efgm_hud_scale = GetConVar("efgm_hud_scale"):GetFloat()
-cvars.AddChangeCallback("efgm_hud_scale", function(convar_name, value_old, value_new)
-	efgm_hud_scale = math.Round(tonumber(value_new), 2)
-end)
+local hudscaleCVar = GetConVar("efgm_hud_scale")
+local paddingCVar = GetConVar("efgm_hud_padding")
 
 EFGM.ScreenScale = function(size)
 	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
-	local scaled = size * ratio * efgm_hud_scale
+	local scaled = size * ratio * hudscaleCVar:GetFloat()
 	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
 end
 
 EFGM.ScreenScaleRounded = function(size) -- we are actually gonna floor but this is named better imo
 	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
-	local scaled = size * ratio * efgm_hud_scale
+	local scaled = size * ratio * hudscaleCVar:GetFloat()
 	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
 end
 
@@ -62,7 +60,7 @@ end
 hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
 	cScrW = newW
 	cScrH = newH
-	HUD.Padding = GetConVar("efgm_hud_padding"):GetInt() * (4 * (newW / 1920.0))
+	HUD.Padding = paddingCVar:GetInt() * (4 * (newW / 1920.0))
 
 	CreateFonts()
 end)
