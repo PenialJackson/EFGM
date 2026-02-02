@@ -10,16 +10,15 @@ HUD.VotedMap = nil
 local paddingCVar = GetConVar("efgm_hud_padding")
 HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 
+local raidStatusTbl = {
+	[0] = Colors.statusPending, -- raid pending
+	[1] = Colors.statusActive, -- raid active
+	[2] = Colors.statusEnded  -- raid ended
+}
+
 local function RenderRaidTime()
-	-- time logic
 	local raidTime = string.FormattedTime(GetGlobalInt("RaidTimeLeft", 0), "%02i:%02i")
 	local raidStatus = GetGlobalInt("RaidStatus", 0)
-
-	local raidStatusTbl = {
-		[0] = Colors.statusPending, -- raid pending
-		[1] = Colors.statusActive, -- raid active
-		[2] = Colors.statusEnded  -- raid ended
-	}
 
 	surface.SetDrawColor(raidStatusTbl[raidStatus])
 	surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
@@ -32,8 +31,8 @@ local function RenderPlayerWeapon()
 	if wep == NULL then return end
 
 	local name = wep:GetPrintName()
+	if name == nil then return end
 
-	-- weapon name
 	draw.DrawText(name, "BenderWeaponName", ScrW() - EFGM.ScreenScale(20) - HUD.Padding, ScrH() - EFGM.ScreenScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT)
 
 	local ammo = wep:Clip1()
@@ -41,7 +40,6 @@ local function RenderPlayerWeapon()
 	local magstatus
 	local status = nil
 
-	-- calculate approx. ammo remaining
 	if ammo >= ammoMax * 0.9 then magstatus = "Full"
 	elseif ammo >= ammoMax * 0.8 then magstatus = "Nearly full"
 	elseif ammo >= ammoMax * 0.4 then magstatus = "About half"
@@ -53,7 +51,6 @@ local function RenderPlayerWeapon()
 	surface.SetFont("BenderAmmoCount")
 	local ammoTextSize = surface.GetTextSize(magstatus) + EFGM.ScreenScale(10)
 
-	-- ammo
 	local wepColor = Colors.whiteColor
 	if wep.Hook_RedPrintName then status = wep:RunHook("Hook_RedPrintName") end
 	if status then wepColor = Colors.deadColor end
@@ -395,8 +392,8 @@ function RenderDuelLoadout()
 	local primary = playerWeaponSlots[1][1] or nil
 	local holster = playerWeaponSlots[2][1] or nil
 
-	local hasPrimary = playerWeaponSlots[1][1] != nil
-	local hasHolster = playerWeaponSlots[2][1] != nil
+	local hasPrimary = playerWeaponSlots[1][1].name != nil
+	local hasHolster = playerWeaponSlots[2][1].name != nil
 
 	if !hasPrimary and !hasHolster then return end
 
@@ -567,7 +564,7 @@ net.Receive("PlayerTransition", function()
 
 	function transition:Paint(w, h)
 		if !transition:IsValid() then return end
-		BlurPanel(self, 13, 6)
+		BlurPanel(self, 5, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -624,7 +621,7 @@ net.Receive("PlayerRaidTransition", function()
 	transition:MoveToFront()
 
 	function transition:Paint(w, h)
-		BlurPanel(self, 13, 6)
+		BlurPanel(self, 5, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -667,7 +664,7 @@ net.Receive("PlayerDuelTransition", function()
 	transition:MoveToFront()
 
 	function transition:Paint(self, w, h)
-		BlurPanel(self, 13, 6)
+		BlurPanel(self, 5, 6)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())

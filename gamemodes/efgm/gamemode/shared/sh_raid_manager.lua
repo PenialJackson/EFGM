@@ -159,7 +159,7 @@ if SERVER then
 
 			local introAnimString, introSpaceIndex = IntroGetFreeSpace()
 
-			v:Freeze(true)
+			v:Lock()
 			v:SetRaidStatus(status, "")
 			v:SetNWBool("PlayerIsPMC", true)
 
@@ -214,7 +214,7 @@ if SERVER then
 							v:SetRaidStatus(status, spawnGroup)
 							v:SetNWBool("PlayerInIntro", false)
 							v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-							v:Freeze(false)
+							v:UnLock()
 
 							masterSpawn.Pending = true
 							timer.Simple(10, function() masterSpawn.Pending = false end)
@@ -238,7 +238,7 @@ if SERVER then
 					v:SetRaidStatus(status, spawnGroup)
 					v:SetNWBool("PlayerInIntro", false)
 					v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-					v:Freeze(false)
+					v:UnLock()
 
 					masterSpawn.Pending = true
 					timer.Simple(10, function() masterSpawn.Pending = false end)
@@ -478,7 +478,7 @@ if SERVER then
 		if fac == self:GetNWBool("PlayerIsPMC", true) then return end
 		fac = fac or !self:GetNWBool("PlayerIsPMC", true) -- switches if faction isn't specified
 
-		self:Freeze(true)
+		self:Lock()
 
 		net.Start("PlayerTransition")
 		net.Send(self)
@@ -489,7 +489,7 @@ if SERVER then
 		end
 
 		timer.Simple(0.5, function()
-			self:Freeze(false)
+			self:UnLock()
 
 			if fac == true then -- PMC
 				local mdls = PLAYERMODELS[self:GetInfoNum("efgm_faction_preference", 0) + 1]

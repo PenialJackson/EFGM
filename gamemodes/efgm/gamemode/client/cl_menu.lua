@@ -140,7 +140,7 @@ function Menu:Initialize(openTo, container)
 
 		surface.SetDrawColor(Colors.frameColor)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
-		BlurPanel(self, 4)
+		BlurPanel(self, 2, 2)
 	end
 
 	-- close menu with the game menu keybind
@@ -240,7 +240,7 @@ function Menu:Initialize(openTo, container)
 
 		self.TipPaint = nil
 		timer.Create("tooltip", delay, 1, function()
-			if Menu.IsClosing then return end
+			if Menu.IsClosing or !self then return end
 			self:BeginShowing(ct, paint, w, h)
 		end)
 	end
@@ -482,7 +482,7 @@ function Menu:Initialize(openTo, container)
 			Menu.ParallaxY = 0
 		end
 
-		if scalingCVar:GetBool() then
+		if !scalingCVar:GetBool() then
 			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + Menu.ParallaxX, EFGM.MenuScale(70) + Menu.ParallaxY)
 		else
 			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + Menu.ParallaxX, EFGM.MenuScale(1060) / 2 - (920 / 2) + Menu.ParallaxY)
@@ -1257,8 +1257,6 @@ function Menu.InspectItem(item, data)
 	itemInfoButton:SetText("")
 
 	function itemInfoButton:Paint(w, h)
-		BlurPanel(self, 0.5)
-
 		self:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
@@ -1280,8 +1278,6 @@ function Menu.InspectItem(item, data)
 	itemWikiButton:SetText("")
 
 	function itemWikiButton:Paint(w, h)
-		BlurPanel(self, 0.5)
-
 		self:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 
 		surface.SetDrawColor(Colors.containerBackgroundColor)
@@ -8125,6 +8121,8 @@ function Menu.OpenTab.Match()
 
 		net.Receive("SendSquadData", function(len, ply)
 			squad = Menu.Player:GetNW2String("PlayerInSquad", nil)
+
+			if Menu.ActiveTab != "match" then return end
 
 			availableSquadsList:Clear()
 			currentSquadPanel:Clear()

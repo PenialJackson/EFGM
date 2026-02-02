@@ -451,7 +451,7 @@ if SERVER then
 					shootPos = Vector(ext.pos)
 				end
 
-				local plyDistance = shootPos:DistanceSqr(v:GetPos())
+				local plyDistance = shootPos:DistToSqr(v:GetPos())
 
 				local dist = 2500
 				if ext.dist then dist = ext.dist end
@@ -493,7 +493,7 @@ if SERVER then
 					shootPos = Vector(ext.pos)
 				end
 
-				local plyDistance =  shootPos:DistanceSqr(v:GetPos())
+				local plyDistance =  shootPos:DistToSqr(v:GetPos())
 
 				local dist = 2500
 				if ext.dist then dist = ext.dist end

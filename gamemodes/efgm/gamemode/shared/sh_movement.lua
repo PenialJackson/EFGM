@@ -36,7 +36,7 @@ hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
 	local wep = ply:GetActiveWeapon()
 	local base = wep.Base
 
-	if base and string.find(base, "arc9") and base != "arc9_eft_melee_base" and (cmd:KeyDown(IN_ATTACK) or cmd:KeyDown(IN_ATTACK2)) then
+	if base and string.find(base, "arc9") and base != "arc9_eft_melee_base" and base != "arc9_eft_grenade_base" and (cmd:KeyDown(IN_ATTACK) or cmd:KeyDown(IN_ATTACK2)) then
 		cmd:RemoveKey(IN_SPEED)
 	end
 
@@ -112,6 +112,13 @@ hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, inWater, onFloater, sp
 		else
 			ply:ViewPunch(ang)
 		end
+	end
+end)
+
+-- consistent bhopping on higher tick rate
+hook.Add("SetupMove", "FixHighTickBhop", function(ply, mv, cmd)
+	if mv:KeyPressed(IN_JUMP) and ply:OnGround() then
+		mv:SetButtons(bit.bor(mv:GetButtons(), IN_JUMP))
 	end
 end)
 
@@ -409,7 +416,7 @@ hook.Add("SetupMove", "VBSetupMove", function(ply, mv, cmd)
 	local FT = FrameTime()
 
 	if ply:OnGround() and ply:GetMoveType() == MOVETYPE_WALK then
-		if mv:KeyDown(IN_SPEED) then
+		if mv:KeyDown(IN_SPEED) and !ply:Crouching() then
 			FT = FT * 1.08
 		end
 
@@ -583,7 +590,7 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 		ply:VBSpring(SpringStop)
 	end
 
-	local isSprinting = ply:KeyDown(IN_SPEED) and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
+	local isSprinting = ply:KeyDown(IN_SPEED) and !ply:Crouching() and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
 
 	LerpedInertia = Lerp(FT * 5, LerpedInertia, inertiamul)
 	-- VBAngCalc.x = VBAngCalc.x + 10 * LerpedInertia

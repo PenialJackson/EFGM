@@ -3,7 +3,7 @@ local PANEL = {}
 PANEL.ctxHeight = 0
 
 function PANEL:Paint(w, h)
-	BlurPanel(self, 3)
+	BlurPanel(self, 2, 2)
 
 	surface.SetDrawColor(Colors.contextBackgroundColor)
 	surface.DrawRect(0, 0, w, h)

@@ -117,10 +117,12 @@ net.Receive("PlayerReinstantiateInventory", function(len)
 end)
 
 net.Receive("PlayerInventoryReload", function(len)
+	if Menu.ActiveTab != "inventory" then return end
 	Menu:ReloadInventory()
 end)
 
 net.Receive("PlayerSlotsReload", function(len)
+	if Menu.ActiveTab != "inventory" then return end
 	Menu:ReloadSlots()
 end)
 
@@ -291,14 +293,19 @@ net.Receive("PlayerInventoryConsumeGrenade", function(len)
 	playerWeaponSlots[4][1] = {}
 	Menu:ReloadSlots()
 
-	if !table.IsEmpty(playerWeaponSlots[1][1]) then
-		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
+	local weapon = NULL
+	local primary = playerWeaponSlots[1][1].name
+	local secondary = playerWeaponSlots[1][2].name
+	local holster = playerWeaponSlots[2][1].name
+
+	if primary then
+		weapon = LocalPlayer():GetWeapon(primary)
 		if weapon != NULL then input.SelectWeapon(weapon) end
-	elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
-		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
+	elseif secondary then
+		weapon = LocalPlayer():GetWeapon(secondary)
 		if weapon != NULL then input.SelectWeapon(weapon) end
-	elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
-		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
+	elseif holster then
+		weapon = LocalPlayer():GetWeapon(holster)
 		if weapon != NULL then input.SelectWeapon(weapon) end
 	end
 end)
@@ -309,13 +316,13 @@ net.Receive("PlayerInventoryRemoveConsumable", function(len)
 
 	if !table.IsEmpty(playerWeaponSlots[1][1]) then
 		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
-		if weapon != NULL then input.SelectWeapon(weapon) end
+		if weapon != nil then input.SelectWeapon(weapon) end
 	elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
 		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
-		if weapon != NULL then input.SelectWeapon(weapon) end
+		if weapon != nil then input.SelectWeapon(weapon) end
 	elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
 		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
-		if weapon != NULL then input.SelectWeapon(weapon) end
+		if weapon != nil then input.SelectWeapon(weapon) end
 	end
 end)
 
@@ -348,23 +355,23 @@ concommand.Add("efgm_inventory_equip", function(ply, cmd, args)
 	-- if subslot is specified it tries to equip that specific slot, and if not it cycles through all subslots for that slot type (eg, for grenades or utility)
 	local equipSlot = tonumber(args[1])
 	if equipSlot == nil then return end
+
 	local equipSubSlot = tonumber(args[2])
+	local weapon = nil
 
 	if equipSubSlot == nil then
 		local subSlotCount = #playerWeaponSlots[equipSlot]
 
 		if subSlotCount == 1 then -- selecting first subslot
 			local item = playerWeaponSlots[equipSlot][1]
-			if !istable(item) then return end
-			if table.IsEmpty(item) then return end
+			if !istable(item) or item.name == nil then return end
 
 			weapon = LocalPlayer():GetWeapon(item.name)
 			if weapon != NULL then input.SelectWeapon(weapon) end
 		else -- cycling to next subslot
 			for i = 1, subSlotCount do
 				local item = playerWeaponSlots[equipSlot][i]
-				if !istable(item) then return end
-				if table.IsEmpty(item) then return end
+				if !istable(item) or item.name == nil then return end
 
 				weapon = LocalPlayer():GetWeapon(item.name)
 				if weapon != NULL then input.SelectWeapon(weapon) end
@@ -372,9 +379,7 @@ concommand.Add("efgm_inventory_equip", function(ply, cmd, args)
 		end
 	else -- selecting from subslot
 		local item = playerWeaponSlots[equipSlot][equipSubSlot]
-		if !istable(item) then return end
-		if table.IsEmpty(item) then return end
-		if item == NULL then return end
+		if !istable(item) or item.name == nil then return end
 
 		weapon = LocalPlayer():GetWeapon(item.name)
 		if weapon != NULL then input.SelectWeapon(weapon) end

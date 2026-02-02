@@ -48,3 +48,7 @@ CreateFonts()
 
 -- reload fonts on hud scale change
 cvars.AddChangeCallback("efgm_hud_scale", function() CreateFonts() end)
+
+hook.Add("OnScreenSizeChanged", "RefreshFonts", function(_, _, newW, newH)
+	timer.Simple(3, function() CreateFonts() end)
+end)

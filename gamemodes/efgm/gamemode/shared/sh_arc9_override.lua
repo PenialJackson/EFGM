@@ -2314,7 +2314,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				if shotCaliber[ammo] == nil then return end
 
 				local shootPos = attacker:GetPos()
-				local plyDistance = attacker:GetPos():DistanceSqr(v:GetPos())
+				local plyDistance = attacker:GetPos():DistToSqr(v:GetPos())
 
 				if plyDistance < (2500 * 2500) then return end
 				plyDistance = math.sqrt(plyDistance)

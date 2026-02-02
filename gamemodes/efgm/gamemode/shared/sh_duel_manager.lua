@@ -32,7 +32,7 @@ if SERVER then
 		local primaryItem, secondaryItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
-			v:Freeze(true)
+			v:Lock()
 			v:SetRaidStatus(3, "")
 			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
 			v:SetNWBool("RaidReady", false)
@@ -63,7 +63,7 @@ if SERVER then
 			timer.Simple(1, function()
 				v:SetHealth(v:GetMaxHealth())
 				v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-				v:Freeze(false)
+				v:UnLock()
 
 				timer.Simple(0.2, function() DUEL:ReloadLoadoutItems(v) end) -- ughhhhhhh
 			end)
@@ -99,7 +99,7 @@ if SERVER then
 		if winningPly:GetActiveWeapon() != NULL then winningPly:GetActiveWeapon():SetClip1(-1) end
 
 		timer.Simple(0.5, function()
-			winningPly:Freeze(true)
+			winningPly:Lock()
 		end)
 
 		timer.Simple(1, function()
@@ -112,7 +112,7 @@ if SERVER then
 			winningPly:SetHealth(winningPly:GetMaxHealth())
 			winningPly:SendLua("RunConsoleCommand('r_cleardecals')")
 			winningPly:Teleport(spawn:GetPos(), spawn:GetAngles(), Vector(0, 0, 0))
-			winningPly:Freeze(false)
+			winningPly:UnLock()
 		end)
 	end
 

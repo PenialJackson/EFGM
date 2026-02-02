@@ -61,8 +61,6 @@ hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
 	cScrW = newW
 	cScrH = newH
 	HUD.Padding = paddingCVar:GetInt() * (4 * (newW / 1920.0))
-
-	CreateFonts()
 end)
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/client/*.lua", "GAME", "nameasc")) do
@@ -73,7 +71,6 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "name
 	include("vgui/" .. f)
 end
 
--- disable ARC9 settings menu when needed
 if GetConVar("efgm_derivesbox"):GetInt() == 0 then
 	function ARC9_OpenSettings(page) return end
 	concommand.Remove("arc9_settings_open")
@@ -81,24 +78,42 @@ end
 
 EFGM.SteamNameCache = {}
 
--- panel/frame blur
--- TODO: create similar function for segments of the screen instead of blurring a specific function, would let us blur HUD elements that are not held in a panel/frame
 local blurMat = Material("pp/blurscreen")
-function BlurPanel(panel, strength, steps)
+local blurCol = Color(255, 255, 255)
+
+function BlurPanel(panel, strength, passes)
 	if panel == nil or !ispanel(panel) then return end
 
-	local blurX, blurY = panel:LocalToScreen(0, 0)
-	local newStrength = strength * 0.33
+	local x, y = panel:LocalToScreen(0, 0)
+	local w, h = panel:GetSize()
+
+	render.SetScissorRect(x, y, x + w, y + h, true)
 
 	surface.SetMaterial(blurMat)
-	surface.SetDrawColor(255, 255, 255, 255)
+	surface.SetDrawColor(blurCol)
 
-	for i = 1, steps or 3 do
-		blurMat:SetFloat("$blur", i * newStrength)
+	for i = 1, (passes or 3) do
+		blurMat:SetFloat("$blur", (i / (passes or 3)) * (strength or 3))
 		blurMat:Recompute()
-		if render then render.UpdateScreenEffectTexture() end
-		surface.DrawTexturedRect(blurX * -1, blurY * -1, ScrW(), ScrH())
+		render.UpdateScreenEffectTexture()
+		surface.DrawTexturedRect(-x, -y, ScrW(), ScrH())
 	end
+
+	render.SetScissorRect(0, 0, 0, 0, false)
+end
+
+function BlurRect(x, y, w, h, strength, passes)
+	surface.SetMaterial(blurMat)
+	surface.SetDrawColor(blurCol)
+
+	render.SetScissorRect(x, y, x + w, y + h, true)
+		for i = 1, (passes or 3) do
+			blurMat:SetFloat("$blur", (i / (passes or 3)) * (strength or 3))
+			blurMat:Recompute()
+			render.UpdateScreenEffectTexture()
+			surface.DrawTexturedRect(0, 0, ScrW(), ScrH())
+		end
+	render.SetScissorRect(0, 0, 0, 0, false)
 end
 
 -- override ear animation
