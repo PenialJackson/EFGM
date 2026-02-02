@@ -1,6 +1,6 @@
 hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
-	local base = swep.Base
-	if !string.find(base, "arc9") then return end
+	local b = swep.Base
+	if !string.find(b, "arc9") then return "" end
 
 	local sp = game.SinglePlayer()
 
@@ -167,7 +167,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local client = self:GetOwner()
 		local validplayerowner = IsValid(client) and client:IsPlayer()
 
-		-- local base = baseclass.Get(self:GetClass())
+		local base = baseclass.Get(self:GetClass())
 
 		if ARC9:UseTrueNames() then
 			self.PrintName = base.TrueName
@@ -2608,142 +2608,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	end
 end)
 
-hook.Add("ARC9_PlayerGetAtts", "ARC9GetAtts", function(ply, att, wep)
-	local inventory = {}
-
-	if SERVER then
-		inventory = ply.inventory
-		if ply.givingPreset == true then return 999 end
-	else
-		inventory = playerInventory
-	end
-
-	return AmountInInventory(inventory, "arc9_att_" .. att)
-end)
-
-hook.Add("ARC9_PlayerGiveAtt", "ARC9GiveAtt", function(ply, att, amt)
-	local data = {}
-	data.count = amt
-
-	if SERVER then
-		FlowItemToInventory(ply, "arc9_att_" .. att, EQUIPTYPE.Attachment, data)
-		ReloadInventory(ply)
-
-		return
-	end
-end)
-
-hook.Add("ARC9_PlayerTakeAtt", "ARC9TakeAtt", function(ply, att, amt)
-	local i = DeflowItemsFromInventory(ply, "arc9_att_" .. att, amt)
-	ReloadInventory(ply)
-
-	return i
-end)
-
-ARC9.KeyPressed_Menu = false
-
-hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
-	local wpn = ply:GetActiveWeapon()
-
-	if !wpn or !IsValid(wpn) or !wpn.ARC9 then return end
-
-	if bind == "+menu_context" then
-		if LocalPlayer():IsInDuel() then return end
-		if !wpn:GetInSights() and !LocalPlayer():KeyDown(IN_USE) then
-
-			ARC9.KeyPressed_Menu = pressed
-
-			return true
-		elseif wpn:GetInSights() and !LocalPlayer():KeyDown(IN_USE) then
-			return true
-		end
-	end
-
-	if !pressed then return end
-
-	local plususe = ((ARC9.ControllerMode() and bind == "+zoom" and !LocalPlayer():KeyDown(IN_ZOOM)) -- Gamepad
-					or (!ARC9.ControllerMode() and bind == "+use" and !LocalPlayer():KeyDown(IN_USE)))
-
-
-	if wpn:GetCustomize() then
-		if bind == "impulse 100" then
-			if wpn.CustomizeLastHovered and wpn.CustomizeLastHovered:IsHovered() then
-				local att = wpn.CustomizeLastHovered.att
-				ARC9:ToggleFavorite(att)
-				if ARC9.Favorites[att] and wpn.BottomBarFolders["!favorites"] then
-					wpn.BottomBarFolders["!favorites"][att] = true
-				elseif wpn.BottomBarFolders["!favorites"] then
-					wpn.BottomBarFolders["!favorites"][att] = nil
-				end
-			end
-			return true
-		end
-
-		if bind == "+reload" then
-			if !ply:IsInHideout() then return end
-
-			if wpn.CustomizeLastHovered and wpn.CustomizeLastHovered:IsHovered() then
-				local att = wpn.CustomizeLastHovered.att
-
-				local efgmAtt = "arc9_att_" .. att
-				local efgmItem = EFGMITEMS[efgmAtt]
-
-				if efgmItem == nil then return end
-
-				ply:ConCommand("efgm_gamemenu market")
-				timer.Simple(0.1, function() Menu.ConfirmPurchase(efgmAtt, "inv", true) end)
-			end
-
-			return true
-		end
-
-		if plususe then
-			local attpnl = wpn.CustomizeLastHovered
-			local addr
-
-			local slotpnl2 = wpn.CustomizeLastHoveredSlot2
-
-			if attpnl and attpnl:IsHovered() then
-				addr = attpnl.address
-			end
-
-			if slotpnl2 and slotpnl2.fuckinghovered then
-				addr = slotpnl2.Address
-			end
-
-			if addr then
-				local atttbl = wpn:GetFinalAttTable(wpn:GetFilledMergeSlot(addr))
-
-				if ((atttbl.ToggleStats and !atttbl.AdvancedCamoSupport) or (atttbl.AdvancedCamoSupport and wpn.AdvancedCamoCache)) then
-					wpn:EmitSound(wpn:RandomChoice(wpn:GetProcessedValue("ToggleAttSound", true)), 75, 100, 1, CHAN_ITEM)
-					wpn:ToggleStat(addr, input.IsKeyDown(KEY_LSHIFT) and -1 or 1)
-					wpn:PostModify()
-				end
-			end
-
-			return true
-		end
-	else
-		if plususe then
-			return ARC9.AttemptGiveNPCWeapon()
-		end
-
-		if wpn:GetInSights() then
-			if bind == "invnext" then
-				wpn:Scroll(1)
-				wpn.Peeking = false
-
-				return true
-			elseif bind == "invprev" then
-				wpn:Scroll(-1)
-				wpn.Peeking = false
-
-				return true
-			end
-		end
-	end
-end)
-
 function PruneUnnecessaryAttachmentDataRecursive(tbl)
 	tbl.t = tbl.ToggleNum
 	tbl.i = tbl.Installed
@@ -2907,6 +2771,142 @@ function GetPrefixedAttachmentListFromCode(str)
 
 	return prefixAttTbl
 end
+
+hook.Add("ARC9_PlayerGetAtts", "ARC9GetAtts", function(ply, att, wep)
+	local inventory = {}
+
+	if SERVER then
+		inventory = ply.inventory
+		if ply.givingPreset == true then return 999 end
+	else
+		inventory = playerInventory
+	end
+
+	return AmountInInventory(inventory, "arc9_att_" .. att)
+end)
+
+hook.Add("ARC9_PlayerGiveAtt", "ARC9GiveAtt", function(ply, att, amt)
+	local data = {}
+	data.count = amt
+
+	if SERVER then
+		FlowItemToInventory(ply, "arc9_att_" .. att, EQUIPTYPE.Attachment, data)
+		ReloadInventory(ply)
+
+		return
+	end
+end)
+
+hook.Add("ARC9_PlayerTakeAtt", "ARC9TakeAtt", function(ply, att, amt)
+	local i = DeflowItemsFromInventory(ply, "arc9_att_" .. att, amt)
+	ReloadInventory(ply)
+
+	return i
+end)
+
+ARC9.KeyPressed_Menu = false
+
+hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
+	local wpn = ply:GetActiveWeapon()
+
+	if !wpn or !IsValid(wpn) or !wpn.ARC9 then return end
+
+	if bind == "+menu_context" then
+		if LocalPlayer():IsInDuel() then return end
+		if !wpn:GetInSights() and !LocalPlayer():KeyDown(IN_USE) then
+
+			ARC9.KeyPressed_Menu = pressed
+
+			return true
+		elseif wpn:GetInSights() and !LocalPlayer():KeyDown(IN_USE) then
+			return true
+		end
+	end
+
+	if !pressed then return end
+
+	local plususe = ((ARC9.ControllerMode() and bind == "+zoom" and !LocalPlayer():KeyDown(IN_ZOOM)) -- Gamepad
+					or (!ARC9.ControllerMode() and bind == "+use" and !LocalPlayer():KeyDown(IN_USE)))
+
+
+	if wpn:GetCustomize() then
+		if bind == "impulse 100" then
+			if wpn.CustomizeLastHovered and wpn.CustomizeLastHovered:IsHovered() then
+				local att = wpn.CustomizeLastHovered.att
+				ARC9:ToggleFavorite(att)
+				if ARC9.Favorites[att] and wpn.BottomBarFolders["!favorites"] then
+					wpn.BottomBarFolders["!favorites"][att] = true
+				elseif wpn.BottomBarFolders["!favorites"] then
+					wpn.BottomBarFolders["!favorites"][att] = nil
+				end
+			end
+			return true
+		end
+
+		if bind == "+reload" then
+			if !ply:IsInHideout() then return end
+
+			if wpn.CustomizeLastHovered and wpn.CustomizeLastHovered:IsHovered() then
+				local att = wpn.CustomizeLastHovered.att
+
+				local efgmAtt = "arc9_att_" .. att
+				local efgmItem = EFGMITEMS[efgmAtt]
+
+				if efgmItem == nil then return end
+
+				ply:ConCommand("efgm_gamemenu market")
+				timer.Simple(0.1, function() Menu.ConfirmPurchase(efgmAtt, "inv", true) end)
+			end
+
+			return true
+		end
+
+		if plususe then
+			local attpnl = wpn.CustomizeLastHovered
+			local addr
+
+			local slotpnl2 = wpn.CustomizeLastHoveredSlot2
+
+			if attpnl and attpnl:IsHovered() then
+				addr = attpnl.address
+			end
+
+			if slotpnl2 and slotpnl2.fuckinghovered then
+				addr = slotpnl2.Address
+			end
+
+			if addr then
+				local atttbl = wpn:GetFinalAttTable(wpn:GetFilledMergeSlot(addr))
+
+				if ((atttbl.ToggleStats and !atttbl.AdvancedCamoSupport) or (atttbl.AdvancedCamoSupport and wpn.AdvancedCamoCache)) then
+					wpn:EmitSound(wpn:RandomChoice(wpn:GetProcessedValue("ToggleAttSound", true)), 75, 100, 1, CHAN_ITEM)
+					wpn:ToggleStat(addr, input.IsKeyDown(KEY_LSHIFT) and -1 or 1)
+					wpn:PostModify()
+				end
+			end
+
+			return true
+		end
+	else
+		if plususe then
+			return ARC9.AttemptGiveNPCWeapon()
+		end
+
+		if wpn:GetInSights() then
+			if bind == "invnext" then
+				wpn:Scroll(1)
+				wpn.Peeking = false
+
+				return true
+			elseif bind == "invprev" then
+				wpn:Scroll(-1)
+				wpn.Peeking = false
+
+				return true
+			end
+		end
+	end
+end)
 
 if CLIENT then
 	local ARC9ScreenScale = ARC9.ScreenScale
