@@ -291,6 +291,7 @@ local function RenderVOIPIndicator()
 end
 
 local interactables = {
+	["efgm_interactable"] = true,
 	["efgm_container"] = true,
 	["efgm_filing_cabinet"] = true,
 	["efgm_safe"] = true,
@@ -563,8 +564,7 @@ net.Receive("PlayerTransition", function()
 	transition:MoveToFront()
 
 	function transition:Paint(w, h)
-		if !transition:IsValid() then return end
-		BlurPanel(self, 5, 6)
+		BlurPanel(self, 6, 4)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -621,14 +621,17 @@ net.Receive("PlayerRaidTransition", function()
 	transition:MoveToFront()
 
 	function transition:Paint(w, h)
-		BlurPanel(self, 5, 6)
+		BlurPanel(self, 6, 4)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
 	end
 
+	local fadeOutTime = 0.35
+	if status == 1 then fadeOutTime = 1.5 end
+
 	transition:AlphaTo(255, 0.5, 0, nil)
-	transition:AlphaTo(0, 0.35, 1, function()
+	transition:AlphaTo(0, fadeOutTime, 1, function()
 		HUD.InTransition = false
 		transition:Remove()
 	end)
@@ -664,7 +667,7 @@ net.Receive("PlayerDuelTransition", function()
 	transition:MoveToFront()
 
 	function transition:Paint(self, w, h)
-		BlurPanel(self, 5, 6)
+		BlurPanel(self, 6, 4)
 
 		surface.SetDrawColor(0, 0, 0, 255)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -713,6 +716,8 @@ net.Receive("SendExtractionStatus", function()
 		ExtractPopup:MoveToFront()
 
 		function ExtractPopup:Paint(w, h)
+			BlurPanel(self, 2, 2)
+
 			surface.SetDrawColor(120, 180, 40, 125)
 			surface.DrawRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(300), EFGM.ScreenScale(250), EFGM.ScreenScale(80))
 
@@ -799,9 +804,9 @@ net.Receive("CreateDeathInformation", function()
 		DeathDocker:AlphaTo(255, 0.2, 0, nil)
 
 		function DeathDocker:Paint(w, h)
-			BlurPanel(self, 5)
+			BlurPanel(self, 6, 4)
 
-			surface.SetDrawColor(Color(10, 10, 10, 155))
+			surface.SetDrawColor(Color(0, 0, 0, 255))
 			surface.DrawRect(0, 0, w, h)
 		end
 
@@ -881,7 +886,8 @@ net.Receive("CreateDeathInformation", function()
 			net.SendToServer()
 
 			surface.PlaySound("ui/element_select.wav")
-			DeathDocker:AlphaTo(0, 0.1, 0, function() DeathDocker:Remove() end)
+			DeathPopup:AlphaTo(0, 0.1, 0, function() DeathPopup:Remove() end)
+			DeathDocker:AlphaTo(0, 0.9, 0.1, function() DeathDocker:Remove() end)
 		end
 
 		if respawnTime > noRaidRespawnTime then
@@ -1369,9 +1375,9 @@ net.Receive("CreateExtractionInformation", function()
 	ExtractDocker:AlphaTo(255, 0.2, 0, nil)
 
 	function ExtractDocker:Paint(w, h)
-		BlurPanel(self, 5)
+		BlurPanel(self, 6, 4)
 
-		surface.SetDrawColor(Color(10, 10, 10, 155))
+		surface.SetDrawColor(Color(10, 10, 10, 205))
 		surface.DrawRect(0, 0, w, h)
 	end
 
