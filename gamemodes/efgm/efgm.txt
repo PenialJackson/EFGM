@@ -16,7 +16,7 @@
 			"type"			"CheckBox"
 			"default"		"0"
 			"singleplayer"	"true"
-			"replicate"		"true
+			"replicate"		"true"
 		}
 	}
 }
