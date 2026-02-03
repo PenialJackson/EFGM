@@ -16,6 +16,16 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 	include("items/" .. f)
 end
 
+local lcply
+
+function LocalPlayer()
+	return lcply or LocalPlayer()
+end
+
+hook.Add("InitPostEntity", "LPCache", function()
+	lcply = LocalPlayer()
+end)
+
 local cScrW = ScrW()
 local cScrH = ScrH()
 

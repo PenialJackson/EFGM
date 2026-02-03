@@ -152,15 +152,15 @@ function PANEL:Paint(w, h)
 		end
 	end
 
-	if !self.DrawRaidInfo or InsideRaidLength == nil then return end
+	if !self.DrawRaidInfo or Tracking.inRaidLength == nil then return end
 
-	local timeToDraw = math.min(InsideRaidLength / 4, 60)
+	local timeToDraw = math.min(Tracking.inRaidLength / 4, 60)
 	local progress = (SysTime() % timeToDraw) / timeToDraw
 
 	local previousPos = {}
 	local startPos = {}
 
-	for k, v in ipairs(RaidPositions) do
+	for k, v in ipairs(Tracking.raidPositions) do
 		local posX = (v.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 		local posY = (v.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
@@ -178,7 +178,7 @@ function PANEL:Paint(w, h)
 				{x = previousPos.x - normal.x + perpNormal.x, y = previousPos.y - normal.y + perpNormal.y}
 			}
 
-			if k / #RaidPositions <= progress then
+			if k / #Tracking.raidPositions <= progress then
 				surface.SetDrawColor(Colors.mapOverviewLine)
 			else
 				surface.SetDrawColor(Colors.mapOverviewLoadedLine)
@@ -193,16 +193,16 @@ function PANEL:Paint(w, h)
 		previousPos = {x = posX, y = posY}
 	end
 
-	if !table.IsEmpty(DeathPosition) then
-		local posX = (DeathPosition.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
-		local posY = (DeathPosition.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
+	if Tracking.deathPosition then
+		local posX = (Tracking.deathPosition.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
+		local posY = (Tracking.deathPosition.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
 		surface.SetDrawColor(Colors.mapWhite)
 		surface.SetMaterial(Mats.mapOverviewDeath)
 		surface.DrawTexturedRect(posX - EFGM.MenuScale(16), posY - EFGM.MenuScale(16), EFGM.MenuScale(32), EFGM.MenuScale(32))
-	elseif !table.IsEmpty(RaidPositions) then
-		local posX = (RaidPositions[#RaidPositions].x * self.MapSizeX * self.Zoom) + self.PanOffset.x
-		local posY = (RaidPositions[#RaidPositions].y * self.MapSizeY * self.Zoom) + self.PanOffset.y
+	elseif !table.IsEmpty(Tracking.raidPositions) then
+		local posX = (Tracking.raidPositions[#Tracking.raidPositions].x * self.MapSizeX * self.Zoom) + self.PanOffset.x
+		local posY = (Tracking.raidPositions[#Tracking.raidPositions].y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
 		surface.SetDrawColor(Colors.mapWhite)
 		surface.SetMaterial(Mats.mapOverviewExtract)
@@ -210,11 +210,11 @@ function PANEL:Paint(w, h)
 	end
 
 	surface.SetDrawColor(Colors.mapOverviewLine)
-	for k, v in ipairs(KillPositions) do
+	for k, v in ipairs(Tracking.killPositions) do
 		local posX = (v.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 		local posY = (v.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-		if v.time / #RaidPositions <= progress then
+		if v.time / #Tracking.raidPositions <= progress then
 			surface.SetDrawColor(Colors.mapWhite)
 		else
 			surface.SetDrawColor(Colors.mapOverviewUnloadedKill)

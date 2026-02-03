@@ -1,4 +1,4 @@
-playerTasks = {}
+playerTasks = playerTasks or {}
 
 concommand.Add("efgm_task_pay", function(ply, cmd, args)
 	local task, amount = args[1], tonumber(args[2])

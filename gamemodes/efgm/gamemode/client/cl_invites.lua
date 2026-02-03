@@ -1,4 +1,4 @@
-Invites = {}
+Invites = Invites or {}
 
 Invites.inviteCD = 0
 Invites.lastInviteSentTime = 0

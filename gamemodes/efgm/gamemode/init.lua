@@ -1,3 +1,5 @@
+EFGM = EFGM or {}
+
 AddCSLuaFile("shared.lua")
 AddCSLuaFile("util.lua")
 AddCSLuaFile("enums.lua")
@@ -37,10 +39,6 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 end
 
 local msgs = {
-	-- gameplay
-	"DistantGunAudio",
-	"NetworkBlood",
-
 	-- raid, gameplay, match and maps
 	"DistantGunAudio",
 	"NetworkBlood",
@@ -150,14 +148,14 @@ for _, msg in ipairs(msgs) do
 	util.AddNetworkString(msg)
 end
 
-function GM:Initialize()
-	print("Escape From Garry's Mod (EFGM) initialized, playing on " .. game.GetMap() .. " at unix time " .. os.time())
+hook.Add("Initialize", "EFGMInitialized", function()
+	print("Escape From Garry's Mod (EFGM) initialized, playing on " .. game.GetMap() .. " at Unix time " .. os.time())
 
 	RunConsoleCommand("sv_airaccelerate", "3") -- what is a titanmod?
 	RunConsoleCommand("mp_falldamage", "1") -- what is a titanmod? part two, electric boogaloo
 	RunConsoleCommand("mp_show_voice_icons", "0")
 	RunConsoleCommand("decalfrequency", "1")
-end
+end)
 
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'

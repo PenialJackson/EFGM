@@ -1,4 +1,4 @@
-EFGM.Favorites = {}
+EFGM.Favorites = EFGM.Favorites or {}
 
 function EFGM:LoadFavorites()
 	local f = file.Open("efgm/efgm_market_favorites.txt", "r", "DATA")

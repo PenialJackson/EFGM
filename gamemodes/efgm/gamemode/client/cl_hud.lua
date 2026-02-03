@@ -1265,7 +1265,7 @@ net.Receive("CreateDeathInformation", function()
 			end
 		end
 
-		if InsideRaidLength != nil then
+		if Tracking.inRaidLength then
 			MapPanel = vgui.Create("DPanel", DeathPopup)
 			MapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
 			MapPanel:SetPos(DeathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
@@ -1580,7 +1580,7 @@ net.Receive("CreateExtractionInformation", function()
 		surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), (ply:GetNWInt("Experience", 0) / ply:GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(470), EFGM.MenuScale(10))
 	end
 
-	if InsideRaidLength != nil then
+	if Tracking.inRaidLength then
 		MapPanel = vgui.Create("DPanel", ExtractionPopup)
 		MapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
 		MapPanel:SetPos(ExtractionPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))

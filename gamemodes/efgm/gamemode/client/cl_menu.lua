@@ -1,4 +1,4 @@
-Menu = {}
+Menu = Menu or {}
 
 Menu.ActiveTab = nil
 Menu.MouseX = 0
@@ -67,7 +67,6 @@ local marketPlyStashItems = {}
 
 hook.Add("OnReloaded", "MenuReload", function()
 	if !IsValid(Menu.MenuFrame) then return end
-	Menu.Player = LocalPlayer()
 	Menu.MenuFrame:Close()
 end)
 

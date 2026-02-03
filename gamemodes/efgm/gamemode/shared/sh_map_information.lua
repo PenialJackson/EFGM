@@ -7,19 +7,9 @@ MAPINFO.efgm_factory = util.JSONToTable([[{"locations":[{"loot":4,"name":"Office
 MAPINFO.efgm_factory = MAPINFO.efgm_factory
 
 MAPNAMES = {}
+
 MAPNAMES["efgm_belmont"] = "Belmont"
 MAPNAMES["efgm_concrete"] = "Concrete"
 MAPNAMES["efgm_concrete_night"] = "Concrete"
 MAPNAMES["efgm_factory"] = "Factory"
 MAPNAMES["efgm_factory_night"] = "Factory"
-
-function WorldToMapSpace(position, map)
-	local mapInfo = MAPINFO[map or game.GetMap()]
-	if mapInfo == nil then return end
-
-	local adjustedPos = {}
-	adjustedPos.x = (position.x * mapInfo.factor.x) + mapInfo.offset.x
-	adjustedPos.y = (position.y * mapInfo.factor.y) + mapInfo.offset.y
-
-	return adjustedPos
-end

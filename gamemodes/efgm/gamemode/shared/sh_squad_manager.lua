@@ -3,12 +3,12 @@ hook.Add("PlayerInitialSpawn", "SquadFirstSpawn", function(ply)
 	ply:SetNW2String("TeamChatChannel", "nil")
 end)
 
-function GM:OnReloaded()
-	for k, v in pairs(player:GetAll()) do
+hook.Add("OnReloaded", "ReloadSquads", function()
+	for k, v in ipairs(player.GetAll()) do
 		v:SetNW2String("PlayerInSquad", "nil")
 		v:SetNW2String("TeamChatChannel", "nil")
 	end
-end
+end)
 
 if SERVER then
 	SQUADS = {}

@@ -107,6 +107,18 @@ function util.BitsRequired(num, signed)
 	return bits
 end
 
+-- convert in game position into 2D map position
+function WorldToMapSpace(position, map)
+	local mapInfo = MAPINFO[map or game.GetMap()]
+	if mapInfo == nil then return end
+
+	local adjustedPos = {}
+	adjustedPos.x = (position.x * mapInfo.factor.x) + mapInfo.offset.x
+	adjustedPos.y = (position.y * mapInfo.factor.y) + mapInfo.offset.y
+
+	return adjustedPos
+end
+
 -- get bodygroups of an entity
 function GetEntityBodygroups(ent)
 	local bg = {}
