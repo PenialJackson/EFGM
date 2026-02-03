@@ -29,7 +29,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 
 		-- CreateNotification("Invite Sent!", Mats.inviteSentIcon, nil)
 
-		-- net.Start("PlayerSendInvite")
+		-- net.Start("PlayerInviteSend")
 		-- 		net.WriteEntity(invitedPly)
 		-- 		net.WriteString("squad")
 		-- 		net.WriteString(plySquad)
@@ -50,7 +50,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 
 	CreateNotification("Invite Sent!", Mats.inviteSentIcon, "ui/squad_disband.wav")
 
-	net.Start("PlayerSendInvite")
+	net.Start("PlayerInviteSend")
 		net.WriteEntity(invitedPly)
 		net.WriteString("squad")
 		net.WriteString(ply:GetName() .. "'s Squad")
@@ -73,7 +73,7 @@ function InvitePlayerToDuel(ply, invitedPly)
 
 	CreateNotification("Invite Sent!", Mats.inviteSentIcon, "ui/squad_disband.wav")
 
-	net.Start("PlayerSendInvite")
+	net.Start("PlayerInviteSend")
 		net.WriteEntity(invitedPly)
 		net.WriteString("duel")
 		net.WriteString("")
@@ -84,7 +84,7 @@ Invites.invitedBy = nil
 Invites.invitedType = nil
 Invites.inviteData = nil
 
-net.Receive("PlayerReceiveInvite", function(len, ply)
+net.Receive("PlayerInviteReceive", function(len, ply)
 	if IsValid(invite) then return end -- player already has a pending invite
 
 	local invitedBy = net.ReadEntity()
@@ -126,7 +126,7 @@ function AcceptInvite(ply)
 	if !ply:IsInHideout() then return end
 	if Invites.invitedBy == nil or Invites.invitedType == nil then return end
 
-	net.Start("PlayerAcceptInvite")
+	net.Start("PlayerInviteAccept")
 		net.WriteEntity(Invites.invitedBy)
 		net.WriteString(Invites.invitedType)
 		net.WriteString(Invites.inviteData)
@@ -166,7 +166,7 @@ hook.Add("efgm_duel_enter", "RemovePendingInviteIfDuelEnter", function()
 	Invites.lastSquadInviteSentTime = 0
 end)
 
-net.Receive("PlayerDisableInvites", function(len)
+net.Receive("PlayerInviteLock", function(len)
 	Invites.allow = false
 	Invites.mapVoting = true
 

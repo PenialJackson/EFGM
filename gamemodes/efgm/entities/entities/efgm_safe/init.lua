@@ -3,8 +3,6 @@ AddCSLuaFile("shared.lua")
 
 include("shared.lua")
 
-util.AddNetworkString("PlayerOpenContainer")
-
 ENT.Inventory = {}
 ENT.Name = ""
 ENT.PlayersSearched = {}

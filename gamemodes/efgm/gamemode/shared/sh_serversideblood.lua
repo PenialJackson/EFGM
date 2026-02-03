@@ -19,7 +19,7 @@ if CLIENT then
 		output = traceres,
 	}
 
-	net.Receive("serverside_bloodimpacts", function()
+	net.Receive("NetworkBlood", function()
 		local victim = Entity(net.ReadUInt(maxplayers_bits))
 
 		if not IsValid(victim) then
@@ -91,8 +91,6 @@ if CLIENT then
 end
 
 if SERVER then
-	util.AddNetworkString("serverside_bloodimpacts")
-
 	local maxplayers_bits = math.ceil(math.log(game.MaxPlayers()) / math.log(2))
 	local dmgtypes = bit.bor(DMG_CRUSH, DMG_BULLET, DMG_SLASH, DMG_BLAST, DMG_CLUB, DMG_AIRBOAT)
 
@@ -115,7 +113,7 @@ if SERVER then
 		local blood = victim:GetBloodColor()
 		if blood == DONT_BLEED then return end
 
-		net.Start("serverside_bloodimpacts")
+		net.Start("NetworkBlood")
 			net.WriteUInt(victim:EntIndex(), maxplayers_bits)
 			net.WriteUInt(blood, 3)
 			net.WriteNormal(dir)

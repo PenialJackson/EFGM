@@ -4,9 +4,6 @@ local plyMeta = FindMetaTable("Player")
 if !plyMeta then Error("Could not find player table") return end
 
 if SERVER then
-	util.AddNetworkString("PlayerDuelTransition")
-	util.AddNetworkString("PlayerInventoryReloadForDuel")
-
 	SetGlobalInt("DuelStatus", duelStatus.PENDING)
 
 	DUEL.Players = {}
@@ -32,7 +29,7 @@ if SERVER then
 		local primaryItem, secondaryItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
-			v:Lock()
+			v:AddFlags(FL_GODMODE, FL_FROZEN)
 			v:SetRaidStatus(3, "")
 			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
 			v:SetNWBool("RaidReady", false)
@@ -47,11 +44,11 @@ if SERVER then
 			net.Start("PlayerReinstantiateInventory", false)
 			net.Send(v)
 
-			local holsterEquDelay = 0.3
-			if primaryItem == nil then holsterEquDelay = 0.6 end
+			local holsterEquDelay = 0.4
+			if primaryItem == nil then holsterEquDelay = 0.8 end
 
 			if secondaryItem != nil then timer.Simple(holsterEquDelay, function() DUEL:EquipHolster(v, secondaryItem, primaryItem == nil) end) end
-			if primaryItem != nil then timer.Simple(0.6, function() DUEL:EquipPrimary(v, primaryItem) end) end
+			if primaryItem != nil then timer.Simple(0.8, function() DUEL:EquipPrimary(v, primaryItem) end) end
 
 			net.Start("PlayerInventoryReloadForDuel")
 				net.WriteTable(primaryItem or {})
@@ -62,10 +59,11 @@ if SERVER then
 
 			timer.Simple(1, function()
 				v:SetHealth(v:GetMaxHealth())
+				v:SendLua("RunConsoleCommand('r_cleardecals')")
 				v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-				v:UnLock()
+				v:RemoveFlags(FL_GODMODE, FL_FROZEN)
 
-				timer.Simple(0.2, function() DUEL:ReloadLoadoutItems(v) end) -- ughhhhhhh
+				timer.Simple(0.8, function() DUEL:ReloadLoadoutItems(v) end) -- ughhhhhhh
 			end)
 		end
 	end
@@ -99,7 +97,7 @@ if SERVER then
 		if winningPly:GetActiveWeapon() != NULL then winningPly:GetActiveWeapon():SetClip1(-1) end
 
 		timer.Simple(0.5, function()
-			winningPly:Lock()
+			winningPly:AddFlags(FL_GODMODE, FL_FROZEN)
 		end)
 
 		timer.Simple(1, function()
@@ -112,7 +110,7 @@ if SERVER then
 			winningPly:SetHealth(winningPly:GetMaxHealth())
 			winningPly:SendLua("RunConsoleCommand('r_cleardecals')")
 			winningPly:Teleport(spawn:GetPos(), spawn:GetAngles(), Vector(0, 0, 0))
-			winningPly:UnLock()
+			winningPly:RemoveFlags(FL_GODMODE, FL_FROZEN)
 		end)
 	end
 
@@ -185,10 +183,8 @@ if SERVER then
 
 	function DUEL:ReloadLoadoutItems(ply)
 		for k, v in ipairs(ply:GetWeapons()) do
-			timer.Simple(k * 0.25, function()
-				v:SetClip1(v:GetMaxClip1())
-				v:SetClip2(v:GetMaxClip2())
-			end)
+			v:SetClip1(v:GetMaxClip1())
+			v:SetClip2(v:GetMaxClip2())
 		end
 	end
 

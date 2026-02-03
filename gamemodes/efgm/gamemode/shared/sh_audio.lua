@@ -431,8 +431,6 @@ shotCaliber["shrapnel"] =           {190, 3000, "bullet"}
 
 -- code for firearms can be found in sh_arc9_override, the serverside stuff below is for things like explosions or shrapnel
 if SERVER then
-	util.AddNetworkString("DistantGunAudio")
-
 	function ManualDistantSound(type, num, indoor, ent, cal, ext)
 		if type == 1 then -- entity based
 			local attacker = ent:GetOwner()

@@ -106,3 +106,30 @@ function util.BitsRequired(num, signed)
 
 	return bits
 end
+
+-- get bodygroups of an entity
+function GetEntityBodygroups(ent)
+	local bg = {}
+
+	for i = 0, ent:GetNumBodyGroups() - 1 do
+		if ent:GetBodygroupCount(i) <= 1 then continue end
+		bg[i] = ent:GetBodygroup(i)
+	end
+
+	if next(bg) then return bg end
+end
+
+-- get skin of an entity
+function GetEntitySkin(ent)
+	if ent:SkinCount() > 1 then return ent:GetSkin() end
+end
+
+-- get bodygroups and skin of an entity
+function GetEntityGroups(ent)
+	local groups = {}
+
+	groups.Bodygroups = GetEntityBodygroups(ent)
+	groups.Skin = GetEntitySkin(ent)
+
+	if next(groups) then return groups end
+end

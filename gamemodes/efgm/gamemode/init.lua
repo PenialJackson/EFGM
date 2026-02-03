@@ -36,6 +36,120 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 	include("items/" .. f)
 end
 
+local msgs = {
+	-- gameplay
+	"DistantGunAudio",
+	"NetworkBlood",
+
+	-- raid, gameplay, match and maps
+	"DistantGunAudio",
+	"NetworkBlood",
+	"VoteableMaps",
+	"SendVote",
+	"SendExtractionStatus",
+	"PlayerSwitchFactions",
+	"GrabExtractList",
+	"SendExtractList",
+
+	-- inventory
+	"PlayerReinstantiateInventory",
+	"PlayerInventoryReload",
+	"PlayerInventoryReloadForDuel",
+	"PlayerSlotsReload",
+	"PlayerOpenContainer",
+	"PlayerInventoryAddItem",
+	"PlayerInventoryUpdateItem",
+	"PlayerInventoryDeleteItem",
+	"PlayerInventoryDropItem",
+	"PlayerInventoryEquipItem",
+	"PlayerInventoryUnEquipItem",
+	"PlayerInventoryUnEquipAll",
+	"PlayerInventoryUnEquipAllCL",
+	"PlayerInventoryUpdateEquipped",
+	"PlayerInventoryDropEquippedItem",
+	"PlayerInventoryDeleteEquippedItem",
+	"PlayerInventoryLootItemFromContainer",
+	"PlayerInventoryEquipItemFromContainer",
+	"PlayerInventorySplit",
+	"PlayerInventoryDelete",
+	"PlayerInventoryTag",
+	"PlayerInventoryConsumeGrenade",
+	"PlayerInventoryRemoveConsumable",
+	"PlayerInventoryClearFIR",
+	"PlayerInventoryFixDesyncCL",
+	"PlayerInventorySendWeaponPreset",
+
+	-- stash
+	"PlayerStashReload",
+	"PlayerStashAddItem",
+	"PlayerStashUpdateItem",
+	"PlayerStashDeleteItem",
+	"PlayerStashEquipItem",
+	"PlayerStashPinItem",
+	"PlayerStashAddItemFromInventory",
+	"PlayerStashAddItemFromEquipped",
+	"PlayerStashAddAllFromInventory",
+	"PlayerStashTakeItemToInventory",
+
+	-- market
+	"PlayerNetworkMarket",
+	"PlayerMarketPurchaseItem",
+	"PlayerMarketPurchaseItemToInventory",
+	"PlayerMarketPurchasePresetToInventory",
+	"PlayerMarketSellItem",
+	"PlayerMarketSellBulk",
+
+	-- tasks
+	"TaskPay",
+	"TaskGiveItem",
+	"TaskAccept",
+	"TaskTryComplete",
+	"TaskRequestAll",
+	"TaskSendAll",
+
+	-- squads
+	"AddPlayerSquadRF",
+	"RemovePlayerSquadRF",
+	"GrabSquadData",
+	"SendSquadData",
+	"PlayerSquadCreate",
+	"PlayerSquadJoin",
+	"PlayerSquadLeave",
+	"PlayerSquadTransfer",
+	"PlayerSquadKick",
+	"PlayerSquadDisband",
+
+	-- interface, menu and animations
+	"SendNotification",
+	"PlayerTransition",
+	"PlayerRaidTransition",
+	"PlayerDuelTransition",
+	"RequestExtracts",
+	"SendIntroCamera",
+	"PlayerRequestRespawn",
+	"CreateDeathInformation",
+	"CreateExtractionInformation",
+
+	-- invites
+	"PlayerInviteSend",
+	"PlayerInviteReceive",
+	"PlayerInviteAccept",
+	"PlayerInviteLock",
+
+	-- saves and networking
+	"PlayerNetworkStash",
+	"PlayerNetworkInventory",
+	"PlayerNetworkEquipped",
+
+	-- leaderboards
+	"GrabLeaderboardData",
+	"SendLeaderboardData"
+}
+
+for _, msg in ipairs(msgs) do
+	util.AddNetworkString(msg)
+end
+
 function GM:Initialize()
 	print("Escape From Garry's Mod (EFGM) initialized, playing on " .. game.GetMap() .. " at unix time " .. os.time())
 
@@ -44,9 +158,6 @@ function GM:Initialize()
 	RunConsoleCommand("mp_show_voice_icons", "0")
 	RunConsoleCommand("decalfrequency", "1")
 end
-
-util.AddNetworkString("CreateDeathInformation")
-util.AddNetworkString("PlayerRequestRespawn")
 
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
@@ -237,7 +348,7 @@ end)
 
 -- players in the lobby cant take damage
 hook.Add("PlayerShouldTakeDamage", "AntiLobbyKill", function(victim, attacker)
-	return !victim:IsInHideout()
+	return (!attacker:IsInHideout() and !victim:IsInHideout())
 end)
 
 -- prevent respawning if under a respawn timer
@@ -262,7 +373,7 @@ end)
 local healthRegenSpeed = 1.5
 local healthRegenDamageDelay = 20
 local function Regeneration()
-	for _, ply in pairs(player.GetAll()) do
+	for _, ply in ipairs(player.GetAll()) do
 		if ply:Alive() then
 			if (ply:Health() < (ply.LastHealth or 0)) then ply.HealthRegenNext = CurTime() + healthRegenDamageDelay end
 

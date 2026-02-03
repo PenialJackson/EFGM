@@ -1,10 +1,3 @@
-util.AddNetworkString("PlayerNetworkMarket")
-util.AddNetworkString("PlayerMarketPurchaseItem")
-util.AddNetworkString("PlayerMarketPurchaseItemToInventory")
-util.AddNetworkString("PlayerMarketPurchasePresetToInventory")
-util.AddNetworkString("PlayerMarketSellItem")
-util.AddNetworkString("PlayerMarketSellBulk")
-
 PLYMARKETLIMITS = {}
 
 function NetworkMarketLimits(ply)

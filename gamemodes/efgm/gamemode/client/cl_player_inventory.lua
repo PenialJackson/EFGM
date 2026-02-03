@@ -342,7 +342,7 @@ net.Receive("PlayerInventoryClearFIR", function(len)
 	Menu:ReloadSlots()
 end)
 
-net.Receive("efgm_sendpreset", function(len)
+net.Receive("PlayerInventorySendWeaponPreset", function(len)
 	local wpn = net.ReadEntity()
 	local preset = net.ReadString()
 

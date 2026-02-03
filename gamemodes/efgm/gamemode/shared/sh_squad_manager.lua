@@ -14,19 +14,6 @@ if SERVER then
 	SQUADS = {}
 	NETWORKEDPLAYERS = RecipientFilter()
 
-	util.AddNetworkString("AddPlayerSquadRF")
-	util.AddNetworkString("RemovePlayerSquadRF")
-
-	util.AddNetworkString("GrabSquadData")
-	util.AddNetworkString("SendSquadData")
-
-	util.AddNetworkString("PlayerCreateSquad")
-	util.AddNetworkString("PlayerJoinSquad")
-	util.AddNetworkString("PlayerLeaveSquad")
-	util.AddNetworkString("PlayerTransferSquad")
-	util.AddNetworkString("PlayerKickSquad")
-	util.AddNetworkString("PlayerDisbandSquad")
-
 	-- send squad information to every client that will need it
 	function NetworkSquadInfoToClients()
 		net.Start("SendSquadData", true)
@@ -94,7 +81,7 @@ if SERVER then
 		NetworkSquadInfoToClients()
 	end)
 
-	net.Receive("PlayerCreateSquad", function(len, ply)
+	net.Receive("PlayerSquadCreate", function(len, ply)
 		if PlayerInSquad(ply) then return end
 		if !ply:IsInHideout() then return end
 
@@ -124,7 +111,7 @@ if SERVER then
 		net.Send(ply)
 	end)
 
-	net.Receive("PlayerJoinSquad", function(len, ply)
+	net.Receive("PlayerSquadJoin", function(len, ply)
 		local squad = net.ReadString()
 		local password = net.ReadString()
 
@@ -160,7 +147,7 @@ if SERVER then
 		end
 	end)
 
-	net.Receive("PlayerLeaveSquad", function(len, ply)
+	net.Receive("PlayerSquadLeave", function(len, ply)
 		if !PlayerInSquad(ply) then return end
 		if !ply:IsInHideout() then return end
 
@@ -199,7 +186,7 @@ if SERVER then
 		end
 	end)
 
-	net.Receive("PlayerTransferSquad", function(len, ply)
+	net.Receive("PlayerSquadTransfer", function(len, ply)
 		if !PlayerInSquad(ply) then return end
 		if !ply:IsInHideout() then return end
 
@@ -230,7 +217,7 @@ if SERVER then
 		NetworkSquadInfoToClients()
 	end)
 
-	net.Receive("PlayerKickSquad", function(len, ply)
+	net.Receive("PlayerSquadKick", function(len, ply)
 		if !PlayerInSquad(ply) then return end
 		if !ply:IsInHideout() then return end
 
@@ -264,7 +251,7 @@ if SERVER then
 		end
 	end)
 
-	net.Receive("PlayerDisbandSquad", function(len, ply)
+	net.Receive("PlayerSquadDisband", function(len, ply)
 		if !PlayerInSquad(ply) then return end
 		if !ply:IsInHideout() then return end
 
@@ -332,7 +319,7 @@ if CLIENT then
 		local blue = math.Clamp(tonumber(args[6] or 255), 0, 255)
 		local faction = (ply:CompareFaction(true) and playerStatus.PMC) or (ply:CompareFaction(false) and playerStatus.SCAV)
 
-		net.Start("PlayerCreateSquad")
+		net.Start("PlayerSquadCreate")
 			net.WriteString(name)
 			net.WriteString(password)
 			net.WriteUInt(limit, 3)
@@ -347,21 +334,21 @@ if CLIENT then
 		local name = tostring(args[1])
 		local password = tostring(args[2] or "")
 
-		net.Start("PlayerJoinSquad")
+		net.Start("PlayerSquadJoin")
 			net.WriteString(name)
 			net.WriteString(password)
 		net.SendToServer()
 	end)
 
 	concommand.Add("efgm_squad_leave", function(ply, cmd, args)
-		net.Start("PlayerLeaveSquad")
+		net.Start("PlayerSquadLeave")
 		net.SendToServer()
 	end)
 
 	concommand.Add("efgm_squad_transfer", function(ply, cmd, args)
 		local newOwner = tostring(args[1])
 
-		net.Start("PlayerTransferSquad")
+		net.Start("PlayerSquadTransfer")
 			net.WriteString(newOwner)
 		net.SendToServer()
 	end)
@@ -369,13 +356,13 @@ if CLIENT then
 	concommand.Add("efgm_squad_kick", function(ply, cmd, args)
 		local kickedPly = tostring(args[1])
 
-		net.Start("PlayerKickSquad")
+		net.Start("PlayerSquadKick")
 			net.WriteString(kickedPly)
 		net.SendToServer()
 	end)
 
 	concommand.Add("efgm_squad_disband", function(ply, cmd, args)
-		net.Start("PlayerDisbandSquad")
+		net.Start("PlayerSquadDisband")
 		net.SendToServer()
 	end)
 end

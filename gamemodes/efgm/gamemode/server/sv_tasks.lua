@@ -1,13 +1,3 @@
-util.AddNetworkString("TaskPay")
-util.AddNetworkString("TaskGiveItem")
-util.AddNetworkString("TaskAccept")
-util.AddNetworkString("TaskTryComplete")
-
-util.AddNetworkString("TaskRequestAll")
-util.AddNetworkString("TaskSendAll")
-
-util.AddNetworkString("SendNotification")
-
 function UpdateTaskString(ply)
 	local taskStr = util.TableToJSON(ply.tasks)
 	taskStr = util.Compress(taskStr)

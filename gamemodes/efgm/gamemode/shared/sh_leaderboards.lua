@@ -28,9 +28,6 @@ LEADERBOARDS = {
 }
 
 if SERVER then
-	util.AddNetworkString("GrabLeaderboardData")
-	util.AddNetworkString("SendLeaderboardData")
-
 	local LEADERBOARDSTRINGS = {}
 
 	hook.Add("InitPostEntity", "LeaderboardInit", function()

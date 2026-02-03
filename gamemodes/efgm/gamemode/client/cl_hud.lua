@@ -1157,7 +1157,7 @@ net.Receive("CreateDeathInformation", function()
 			playerModel:SetModel(killedBy:GetModel())
 			playerModel:AlphaTo(255, 0.1, 0, nil)
 
-			local groups = GetEntityGroups(killedBy, override)
+			local groups = GetEntityGroups(killedBy)
 
 			if groups then
 				if groups.Bodygroups then

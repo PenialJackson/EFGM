@@ -280,12 +280,6 @@ function UninitializeTaskString(ply, query, valueOverride)
 	tempNewCMD = tempNewCMD .. "(" .. SQLStr(id64) .. ", " .. SQLStr("Tasks") .. ", " .. SQLStr(value) .. "), "
 end
 
-util.AddNetworkString("PlayerNetworkStash")
-util.AddNetworkString("PlayerNetworkInventory")
-util.AddNetworkString("PlayerNetworkEquipped")
-util.AddNetworkString("SendLargeTableChunk")
-util.AddNetworkString("SendLargeTableComplete")
-
 function SplitNetByChunk(text, chunkSize)
 	local chunks = {}
 	for i = 1, #text, chunkSize do  chunks[#chunks + 1] = text:sub(i, i + chunkSize - 1) end

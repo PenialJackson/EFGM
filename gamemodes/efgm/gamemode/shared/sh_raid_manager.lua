@@ -13,20 +13,6 @@ local function DecrementTimer()
 end
 
 if SERVER then
-	util.AddNetworkString("VoteableMaps")
-	util.AddNetworkString("SendVote")
-	util.AddNetworkString("RequestExtracts")
-
-	util.AddNetworkString("SendExtractionStatus")
-	util.AddNetworkString("PlayerTransition")
-	util.AddNetworkString("PlayerRaidTransition")
-	util.AddNetworkString("PlayerSwitchFactions")
-
-	util.AddNetworkString("SendIntroCamera")
-
-	util.AddNetworkString("GrabExtractList")
-	util.AddNetworkString("SendExtractList")
-
 	RAID.VoteTime = 60
 
 	RAID.MapCount = 2 -- number of maps to have in the vote
@@ -159,7 +145,7 @@ if SERVER then
 
 			local introAnimString, introSpaceIndex = IntroGetFreeSpace()
 
-			v:Lock()
+			v:AddFlags(FL_GODMODE, FL_FROZEN)
 			v:SetRaidStatus(status, "")
 			v:SetNWBool("PlayerIsPMC", true)
 
@@ -214,7 +200,7 @@ if SERVER then
 							v:SetRaidStatus(status, spawnGroup)
 							v:SetNWBool("PlayerInIntro", false)
 							v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-							v:UnLock()
+							v:RemoveFlags(FL_GODMODE, FL_FROZEN)
 
 							masterSpawn.Pending = true
 							timer.Simple(10, function() masterSpawn.Pending = false end)
@@ -238,7 +224,7 @@ if SERVER then
 					v:SetRaidStatus(status, spawnGroup)
 					v:SetNWBool("PlayerInIntro", false)
 					v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-					v:UnLock()
+					v:RemoveFlags(FL_GODMODE, FL_FROZEN)
 
 					masterSpawn.Pending = true
 					timer.Simple(10, function() masterSpawn.Pending = false end)
@@ -478,7 +464,7 @@ if SERVER then
 		if fac == self:GetNWBool("PlayerIsPMC", true) then return end
 		fac = fac or !self:GetNWBool("PlayerIsPMC", true) -- switches if faction isn't specified
 
-		self:Lock()
+		self:AddFlags(FL_FROZEN)
 
 		net.Start("PlayerTransition")
 		net.Send(self)
@@ -489,7 +475,7 @@ if SERVER then
 		end
 
 		timer.Simple(0.5, function()
-			self:UnLock()
+			self:RemoveFlags(FL_FROZEN)
 
 			if fac == true then -- PMC
 				local mdls = PLAYERMODELS[self:GetInfoNum("efgm_faction_preference", 0) + 1]
@@ -526,13 +512,12 @@ if SERVER then
 		return status, spawnGroup
 	end
 
-	util.AddNetworkString("CreateExtractionInformation")
 	hook.Add("PlayerExtraction", "RaidExtract", function(ply, extractTime, isExtractGuranteed)
 		net.Start("PlayerRaidTransition")
 			net.WriteUInt(2, 2)
 		net.Send(ply)
 
-		ply:Lock()
+		ply:AddFlags(FL_GODMODE, FL_FROZEN)
 
 		local prevStatus = ply:GetNWInt("PlayerRaidStatus", 0)
 		ply:SetRaidStatus(0, "")
@@ -545,7 +530,7 @@ if SERVER then
 
 			ply:SetNWBool("RaidReady", false)
 
-			ply:UnLock()
+			ply:RemoveFlags(FL_GODMODE, FL_FROZEN)
 
 			ply:SetNWInt("ExperienceBonus", ply:GetNWInt("ExperienceBonus") + 200)
 

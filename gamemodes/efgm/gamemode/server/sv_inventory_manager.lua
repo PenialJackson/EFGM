@@ -1,28 +1,3 @@
-util.AddNetworkString("PlayerReinstantiateInventory")
-util.AddNetworkString("PlayerInventoryReload")
-util.AddNetworkString("PlayerSlotsReload")
-util.AddNetworkString("PlayerInventoryAddItem")
-util.AddNetworkString("PlayerInventoryUpdateItem")
-util.AddNetworkString("PlayerInventoryDeleteItem")
-util.AddNetworkString("PlayerInventoryDropItem")
-util.AddNetworkString("PlayerInventoryEquipItem")
-util.AddNetworkString("PlayerInventoryUnEquipItem")
-util.AddNetworkString("PlayerInventoryUnEquipAll")
-util.AddNetworkString("PlayerInventoryUnEquipAllCL")
-util.AddNetworkString("PlayerInventoryUpdateEquipped")
-util.AddNetworkString("PlayerInventoryDropEquippedItem")
-util.AddNetworkString("PlayerInventoryDeleteEquippedItem")
-util.AddNetworkString("PlayerInventoryLootItemFromContainer")
-util.AddNetworkString("PlayerInventoryEquipItemFromContainer")
-util.AddNetworkString("PlayerInventorySplit")
-util.AddNetworkString("PlayerInventoryDelete")
-util.AddNetworkString("PlayerInventoryTag")
-util.AddNetworkString("PlayerInventoryConsumeGrenade")
-util.AddNetworkString("PlayerInventoryRemoveConsumable")
-util.AddNetworkString("PlayerInventoryClearFIR")
-util.AddNetworkString("PlayerInventoryFixDesyncCL")
-util.AddNetworkString("efgm_sendpreset")
-
 function ReinstantiateInventory(ply)
 	ply.inventory = {}
 	ply.invStr = ""
@@ -1044,7 +1019,7 @@ function GiveWepWithPresetFromCode(ply, classname, data)
 				ply.givingPreset = true
 				wpn:SetNoPresets(true)
 
-				net.Start("efgm_sendpreset")
+				net.Start("PlayerInventorySendWeaponPreset")
 					net.WriteEntity(wpn)
 					net.WriteString(data.att)
 				net.Send(ply)
@@ -1060,7 +1035,7 @@ function GiveWepWithPresetFromCode(ply, classname, data)
 				if IsValid(wpn) then
 					ply.givingPreset = true
 
-					net.Start("efgm_sendpreset")
+					net.Start("PlayerInventorySendWeaponPreset")
 						net.WriteEntity(wpn)
 						net.WriteString(data.att)
 					net.Send(ply)

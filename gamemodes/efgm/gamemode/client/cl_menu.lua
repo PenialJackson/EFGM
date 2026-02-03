@@ -2881,7 +2881,8 @@ function Menu.OpenTab.Inventory(container)
 	local seq = playerModel.Entity:LookupSequence(table.Random(holdtypes))
 	playerModel.Entity:SetSequence(seq)
 
-	local groups = GetEntityGroups(Menu.Player, override)
+	local groups = GetEntityGroups(Menu.Player)
+
 	if groups then
 		if groups.Bodygroups then
 			for k, v in pairs(groups.Bodygroups) do
