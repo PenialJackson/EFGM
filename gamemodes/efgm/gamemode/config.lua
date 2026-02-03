@@ -94,7 +94,7 @@ if SERVER then
 	RunConsoleCommand("arc9_atts_max", "100")
 	RunConsoleCommand("arc9_atts_lock", "0")
 	RunConsoleCommand("arc9_atts_loseondie", "1")
-	RunConsoleCommand("arc9_free_atts", "0")
+	RunConsoleCommand("arc9_free_atts", !GetConVar("efgm_derivesbox"):GetBool() and "0" or "1")
 
 	-- caching
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then

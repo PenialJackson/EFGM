@@ -571,28 +571,20 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local flaremat = Material("effects/arc9_lensflare", "mips smooth")
 		local badcolor = Color(255, 255, 255)
 		local arc9_allflash = GetConVar("arc9_allflash")
-		local flashlightQuality = GetConVar("efgm_visuals_highqualflashlight"):GetBool()
+		local flashlightQuality = GetConVar("efgm_visuals_highqualflashlight")
 		local fuckingbullshit = Vector(0, 0, 0.001)
 		local gunoffset = Vector(0, 0, -16)
 
 		local FLASHLIGHT_UPDATE_INTERVAL = 0.016 -- ~60fps
 		local lastFlashlightUpdateWM = {}
-		local lastFlashlightUpdateVM = {}
 		local lastFlashlightRaycastWM = {}
-		local lastFlashlightRaycastVM = {}
-
-		cvars.AddChangeCallback("efgm_visuals_highqualflashlight", function(convar_name, value_old, value_new)
-			flashlightQuality = tobool(value_new)
-		end)
 
 		function SWEP:CreateFlashlights()
 			self:KillFlashlights()
 			self.Flashlights = {}
 
 			lastFlashlightUpdateWM[self] = 0
-			lastFlashlightUpdateVM[self] = 0
 			lastFlashlightRaycastWM[self] = 0
-			lastFlashlightRaycastVM[self] = 0
 
 			local owner = self:GetOwner()
 			local lp = LocalPlayer()
@@ -613,7 +605,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				local br = atttbl.FlashlightBrightness or 3
 
 				l:SetFOV(fov)
-				l:SetFarZ(atttbl.FlashlightDistance / 1.5 or 1024)
+				l:SetFarZ(atttbl.FlashlightDistance or 1024)
 				l:SetNearZ(0)
 				l:SetQuadraticAttenuation(100)
 				l:SetColor(col)
@@ -621,7 +613,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				l:SetBrightness(br)
 				if isotherplayer then
 					l:SetEnableShadows(false)
-				elseif flashlightQuality then
+				elseif flashlightQuality:GetBool() then
 					l:SetEnableShadows(true)
 				else
 					l:SetEnableShadows(false)
@@ -677,7 +669,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			if isotherplayer and !arc9_allflash:GetBool() then return end
 			if !isotherplayer and !owner:ShouldDrawLocalPlayer() then return end
 			if isotherplayer and lp:IsInRaid() != owner:IsInRaid() then self:KillFlashlights() return end
-			if isotherplayer and lp:EyePos():DistToSqr(owner:EyePos()) > 2048^2 then self:KillFlashlights() return end
+			-- if isotherplayer and lp:EyePos():DistToSqr(owner:EyePos()) > 2048^2 then self:KillFlashlights() return end
 
 			if !self.Flashlights then self:CreateFlashlights() end
 			if !self.Flashlights then return end
@@ -764,10 +756,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			if !self.Flashlights then return end
 
 			local eyepos = owner:EyePos()
-			-- local curTime = CurTime()
-
-			-- local shouldUpdateLight = (lastFlashlightUpdateVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
-			-- local shouldRaycast = (lastFlashlightRaycastVM[self] or 0) + FLASHLIGHT_UPDATE_INTERVAL <= curTime
 
 			local shouldUpdateLight = true
 			local shouldRaycast = true
@@ -816,7 +804,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 						pos = pos + -ang:Forward() * 32 * math.min(1 - tr.Fraction, tr2.Fraction)
 					end
-					lastFlashlightRaycastVM[self] = curTime
 				end
 
 				if shouldUpdateLight then
@@ -826,7 +813,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 					k.light:Update()
 					k.lastPos = Vector(pos)
 					k.lastAng = Angle(ang)
-					lastFlashlightUpdateVM[self] = curTime
 				end
 
 				break
@@ -835,7 +821,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		function SWEP:DrawLightFlare(pos, ang, col, size, vm, nodotter, dir)
 			col = col or badcolor
-			size = size * 4
+			size = size
 
 			local lp, owner = LocalPlayer(), self:GetOwner()
 			if !vm and lp == owner and !lp:ShouldDrawLocalPlayer() then return end
@@ -843,9 +829,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 			dir = dir or ang:Forward()
 			local diff = EyePos() - pos
-			local diffLength = diff:LengthSqr()
+			local diffLength = diff:Length()
 
-			if diffLength > 360000 then return end
+			if diffLength > 2048 then return end
 
 			local diffNorm = diff:GetNormalized()
 
@@ -858,8 +844,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 			dot = dot ^ 4
 			local tr = util.QuickTrace(pos, diff, {owner, lp, lp:GetViewEntity()})
-			local distanceScale = math.Clamp(1 - math.sqrt(diffLength) / 600, 0, 1)
-			local s = distanceScale * dot * 500 * math.Rand(0.95, 1.05) * size
+			local distanceScale = math.Clamp(1 - diffLength / 2048, 0, 1)
+			local s = dot * 2048 * distanceScale * math.Rand(0.98, 1.02) * size
 
 			if vm or tr.Fraction == 1 then
 				s = ScreenScale(s)

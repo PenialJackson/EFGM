@@ -33,15 +33,15 @@ if SERVER then
 
 	RAID.MapPool = {}
 	for id, _ in pairs(MAPS) do
-		if id == "efgm_concrete_night" or id == "efgm_factory_night" then continue end
+		if id == game.GetMap() or id == "efgm_concrete_night" or id == "efgm_factory_night" then continue end
 
 		local mapName = id
 
-		if id == "efgm_concrete" and math.random() < 0.5 then
+		if id == "efgm_concrete" and game.GetMap() != "efgm_concrete_night" and math.random() < 0.5 then
 			mapName = "efgm_concrete_night"
 		end
 
-		if id == "efgm_factory" and math.random() < 0.5 then
+		if id == "efgm_factory" and game.GetMap() != "efgm_factory_night" and math.random() < 0.5 then
 			mapName = "efgm_factory_night"
 		end
 

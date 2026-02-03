@@ -497,7 +497,7 @@ function RenderDuelLoadout()
 	end
 
 	DuelLoadout:AlphaTo(255, 0.35, 0, nil)
-	DuelLoadout:AlphaTo(0, 0.1, 2.35, function() DuelLoadout:Remove() end)
+	DuelLoadout:AlphaTo(0, 0.1, 3.35, function() DuelLoadout:Remove() end)
 end
 
 local function DrawHUD()
