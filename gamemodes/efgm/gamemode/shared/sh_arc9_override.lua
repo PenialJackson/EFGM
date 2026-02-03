@@ -669,7 +669,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			if isotherplayer and !arc9_allflash:GetBool() then return end
 			if !isotherplayer and !owner:ShouldDrawLocalPlayer() then return end
 			if isotherplayer and lp:IsInRaid() != owner:IsInRaid() then self:KillFlashlights() return end
-			-- if isotherplayer and lp:EyePos():DistToSqr(owner:EyePos()) > 2048^2 then self:KillFlashlights() return end
 
 			if !self.Flashlights then self:CreateFlashlights() end
 			if !self.Flashlights then return end
@@ -757,9 +756,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 			local eyepos = owner:EyePos()
 
-			local shouldUpdateLight = true
-			local shouldRaycast = true
-
 			for i, k in ipairs(self.Flashlights) do
 				if !k.light or !k.light:IsValid() then continue end
 
@@ -786,34 +782,30 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 				if k.qca then ang:RotateAroundAxis(ang:Up(), 90) end
 
-				if shouldRaycast then
-					local tr = util.TraceLine({
+				local tr = util.TraceLine({
+					start = eyepos,
+					endpos = eyepos - -ang:Forward() * 128,
+					mask = MASK_OPAQUE,
+					filter = lp,
+				})
+
+				if tr.Fraction < 1 then
+					local tr2 = util.TraceLine({
 						start = eyepos,
-						endpos = eyepos - -ang:Forward() * 128,
+						endpos = eyepos + -ang:Forward() * 128,
 						mask = MASK_OPAQUE,
 						filter = lp,
 					})
 
-					if tr.Fraction < 1 then
-						local tr2 = util.TraceLine({
-							start = eyepos,
-							endpos = eyepos + -ang:Forward() * 128,
-							mask = MASK_OPAQUE,
-							filter = lp,
-						})
-
-						pos = pos + -ang:Forward() * 32 * math.min(1 - tr.Fraction, tr2.Fraction)
-					end
+					pos = pos + -ang:Forward() * 32 * math.min(1 - tr.Fraction, tr2.Fraction)
 				end
 
-				if shouldUpdateLight then
-					k.light:SetNearZ(4)
-					k.light:SetPos(pos)
-					k.light:SetAngles(ang)
-					k.light:Update()
-					k.lastPos = Vector(pos)
-					k.lastAng = Angle(ang)
-				end
+				k.light:SetNearZ(4)
+				k.light:SetPos(pos)
+				k.light:SetAngles(ang)
+				k.light:Update()
+				k.lastPos = Vector(pos)
+				k.lastAng = Angle(ang)
 
 				break
 			end

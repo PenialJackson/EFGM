@@ -16,14 +16,15 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 	include("items/" .. f)
 end
 
-local lcply
+local ogLocalPlayer = LocalPlayer
+local lcply = ogLocalPlayer()
 
 function LocalPlayer()
-	return lcply or LocalPlayer()
+	return lcply or NULL
 end
 
 hook.Add("InitPostEntity", "LPCache", function()
-	lcply = LocalPlayer()
+	lcply = ogLocalPlayer()
 end)
 
 local cScrW = ScrW()
