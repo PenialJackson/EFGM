@@ -2378,7 +2378,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	end
 
 	if class != "arc9_eft_rshg2" then
-
 		function SWEP:ThinkGrenade()
 			if !self:GetProcessedValue("Throwable", true) then return end
 			local owner = self:GetOwner()
@@ -2462,9 +2461,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				self:SetGrenadeRecovering(true)
 			end
 		end
-	end
 
-	if class != "arc9_eft_rshg2" then
 		function SWEP:ThrowGrenade(nttype, delaytime)
 			delaytime = delaytime or 0
 			self:SetGrenadePrimed(false)
@@ -2604,6 +2601,54 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				owner:SetNWInt("RaidGrenadesThrown", owner:GetNWInt("RaidGrenadesThrown") + 1)
 				if owner:GetNWBool("InRange", false) == false then owner:StripWeapon(self.ClassName) end
 			end)
+		end
+	end
+
+	function SWEP:DoEffects()
+		if !IsFirstTimePredicted() then return end
+		if self:GetProcessedValue("NoMuzzleEffect", true) then return end
+
+		local muzz_qca = self:GetQCAMuzzle()
+
+		local data = EffectData()
+		data:SetEntity(self)
+		data:SetAttachment(muzz_qca)
+		data:SetSurfaceProp(self:GetNthShot() % 2) -- hopefully nobody uses this on a muzzle effect
+
+		local muzzle = "efgm_muzzleeffect"
+
+		local muzefect = self:GetProcessedValue("MuzzleEffect", true)
+
+		if !self:GetProcessedValue("MuzzleParticle", true) and muzefect then
+			muzzle = muzefect
+			data:SetScale(1)
+			data:SetFlags(0)
+			data:SetEntity(self:GetVM())
+		end
+
+		util.Effect(muzzle, data, true)
+
+		if IsValid(self.ActiveAfterShotPCF) then
+			self.ActiveAfterShotPCF:StopEmission()
+		end
+	end
+
+	function SWEP:DropMagazine()
+		local mdl = self:GetProcessedValue("DropMagazineModel", true)
+
+		if mdl then
+			util.PrecacheModel(mdl) -- garry newman moment
+
+			for i = 1, self:GetProcessedValue("DropMagazineAmount", true) do
+				local drop_qca = self:GetQCAMagdrop()
+
+				local data = EffectData()
+				data:SetEntity(self)
+				data:SetAttachment(drop_qca)
+
+				util.Effect("efgm_magdropeffect", data, true)
+				return -- limit it to 1 because it was spawning 8+ of them at a time????
+			end
 		end
 	end
 end)

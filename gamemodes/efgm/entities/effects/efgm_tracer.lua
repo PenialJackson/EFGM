@@ -1,11 +1,8 @@
-function EFFECT:Init(data)
-	return
+function EFFECT:Init()
 end
 
 function EFFECT:Think()
-	return
 end
 
 function EFFECT:Render()
-	return
 end

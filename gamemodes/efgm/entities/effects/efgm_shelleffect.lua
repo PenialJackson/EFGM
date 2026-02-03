@@ -50,12 +50,6 @@ function EFFECT:Init(data)
 		self.VMContext = false
 	end
 
-	-- ang:RotateAroundAxis(ang:Up(), -90)
-
-	-- ang:RotateAroundAxis(ang:Right(), (ent.ShellRotateAngle or Angle(0, 0, 0))[1])
-	-- ang:RotateAroundAxis(ang:Up(), (ent.ShellRotateAngle or Angle(0, 0, 0))[2])
-	-- ang:RotateAroundAxis(ang:Forward(), (ent.ShellRotateAngle or Angle(0, 0, 0))[3])
-
 	local processedValue = ent.GetProcessedValue
 	local model = processedValue(ent, "ShellModel", true)
 	local material = processedValue(ent, "ShellMaterial", true)
@@ -111,12 +105,6 @@ function EFFECT:Init(data)
 
 	self.ShellPitch = pitch
 
-	-- if !LocalPlayer():ShouldDrawLocalPlayer() and ent:GetOwner() == LocalPlayer() then
-	--     self:SetNoDraw(true)
-	-- end
-
-	-- table.insert(ent.EjectedShells, self)
-
 	self.Sounds = sounds or ARC9.ShellSoundsTable
 
 	self.SoundsVolume = soundsvolume or 1
@@ -139,7 +127,6 @@ function EFFECT:Init(data)
 	phys:SetDamping(0, 0)
 	phys:SetMass(1)
 	phys:SetMaterial("gmod_silent")
-	-- phys:SetMaterial("default_silent")
 
 	phys:SetVelocity((dir * mag * velocity) + plyvel)
 
@@ -238,7 +225,6 @@ function EFFECT:PhysicsCollide(colData)
 	if self.AlreadyPlayedSound then return end
 
 	local phys = self:GetPhysicsObject()
-	-- phys:SetVelocityInstantaneous(colData.HitNormal * -150)
 	phys:AddVelocity(colData.HitNormal * -150)
 
 	self.VMContext = false
@@ -271,8 +257,6 @@ function EFFECT:Think()
 		end
 	end
 
-	-- fake collisions
-	-- (for some reason effects collide only with brushes)
 	if !self.AlreadyPlayedSound and (self.NextPhysCheck or 0) < ct then
 		self.NextPhysCheck = ct + FrameTime() * 2
 		local poss = self:GetPos()
@@ -282,8 +266,6 @@ function EFFECT:Think()
 			mask = MASK_PLAYERSOLID,
 			filter = LocalPlayer()
 		})
-
-		-- debugoverlay.Line(poss, tr.HitPos)
 
 		if tr.Hit and tr.HitTexture == "**studio**" then
 			tr.HitNormal = tr.Normal * -2
