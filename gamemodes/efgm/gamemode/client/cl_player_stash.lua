@@ -1,5 +1,9 @@
 local chunkedStash = {}
 
+local table = table
+local net = net
+local util = util
+
 hook.Add("OnStashChunked", "NetworkStash", function(str, uID)
 	local stashStr = str
 

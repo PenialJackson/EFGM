@@ -367,7 +367,7 @@ if SERVER then
 end
 
 -- gun sounds
-shotSounds = {
+local shotSounds = {
 	"cracks/distant/dist01.ogg",
 	"cracks/distant/dist02.ogg",
 	"cracks/distant/dist03.ogg",
@@ -378,7 +378,7 @@ shotSounds = {
 	"cracks/distant/dist08.ogg"
 }
 
-boomSounds = {
+local boomSounds = {
 	"weapons/darsu_eft/m203/gren_expl2_indoor_distant.ogg"
 }
 

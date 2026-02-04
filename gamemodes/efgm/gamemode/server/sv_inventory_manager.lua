@@ -1,3 +1,9 @@
+local math = math
+local table = table
+local net = net
+local timer = timer
+local util = util
+
 function ReinstantiateInventory(ply)
 	ply.inventory = {}
 	ply.invStr = ""
@@ -204,7 +210,7 @@ net.Receive("PlayerInventoryDropItem", function(len, ply)
 
 	if item == nil then return false end
 
-	entity = ents.Create("efgm_dropped_item")
+	local entity = ents.Create("efgm_dropped_item")
 	entity:SetItem(item.name, item.type, item.data)
 
 	local pos, ang = ply:GetShootPos(), ply:EyeAngles()
@@ -527,7 +533,7 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 
 	ply:StripWeapon(item.name)
 
-	entity = ents.Create("efgm_dropped_item")
+	local entity = ents.Create("efgm_dropped_item")
 	entity:SetItem(item.name, item.type, item.data)
 
 	local pos, ang = ply:GetShootPos(), ply:EyeAngles()
@@ -944,8 +950,8 @@ local function DecompressTableRecursive(tbl)
 		if v.s then
 			local afiousdhaf = DecompressTableRecursive(v.s)
 
-			for _, v in ipairs(afiousdhaf) do
-				table.insert(result, v)
+			for _, r in ipairs(afiousdhaf) do
+				table.insert(result, r)
 			end
 		end
 	end
@@ -968,10 +974,10 @@ end
 local function GiveAttsFromList(ply, tbl)
 	-- local take = false
 
-	for i, k in pairs(tbl) do
+	-- for i, k in pairs(tbl) do
 		-- ARC9:PlayerGiveAtt(ply, k, 1)
-		take = true
-	end
+		-- take = true
+	-- end
 
 	-- if take then ARC9:PlayerSendAttInv(ply) end
 end

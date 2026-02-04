@@ -1,6 +1,4 @@
-hook.Add("InitPostEntity", "LocalPlayer", function() ply = LocalPlayer() end)
-
-HUD = {}
+HUD = HUD or {}
 HUD.Enabled = GetConVar("efgm_hud_enable")
 HUD.InTransition = false
 HUD.InIntro = false
@@ -9,6 +7,13 @@ HUD.VotedMap = nil
 
 local paddingCVar = GetConVar("efgm_hud_padding")
 HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
+
+local math = math
+local table = table
+local net = net
+local player = player
+local timer = timer
+local util = util
 
 local raidStatusTbl = {
 	[0] = Colors.statusPending, -- raid pending
@@ -27,7 +32,7 @@ end
 
 -- players current weapon and ammo
 local function RenderPlayerWeapon()
-	local wep = ply:GetActiveWeapon()
+	local wep = LocalPlayer():GetActiveWeapon()
 	if wep == NULL then return end
 
 	local name = wep:GetPrintName()
@@ -65,7 +70,7 @@ local maxBlur = 4
 local blurSpeed = 2
 local vignetteMaxAlpha = 255
 local function RenderOverlays()
-	if ply:Health() <= 0 then
+	if LocalPlayer():Health() <= 0 then
 		blurAmount = math.min(blurAmount + blurSpeed * FrameTime(), maxBlur)
 	else
 		blurAmount = math.max(blurAmount - (blurSpeed * 6) * FrameTime(), 0)
@@ -101,8 +106,8 @@ local stand5 = Material("stances/stand5.png", "smooth")
 local crouch = Material("stances/crouch.png", "smooth")
 
 local function RenderPlayerStance()
-	local health = ply:Health()
-	local maxHealth = ply:GetMaxHealth()
+	local health = LocalPlayer():Health()
+	local maxHealth = LocalPlayer():GetMaxHealth()
 
 	local healthAlpha = 255
 	local lowHealthAlpha = 0
@@ -131,7 +136,7 @@ local function RenderPlayerStance()
 	surface.SetMaterial(healthLowSliderMat)
 	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(25), EFGM.ScreenScale(hpBarPercent), EFGM.ScreenScale(3))
 
-	if ply:Crouching() then
+	if LocalPlayer():Crouching() then
 		playerStance = math.Approach(playerStance, 6, 6 * FrameTime() / 0.15)
 	else
 		playerStance = math.Approach(playerStance, 0, 6 * FrameTime() / 0.15)
@@ -202,7 +207,7 @@ function RenderExtracts()
 	}
 
 	function extracts:Paint(w, h)
-		if !ply:Alive() then return end
+		if !LocalPlayer():Alive() then return end
 		if extractList == nil then return end
 
 		surface.SetDrawColor(Colors.hudBackground)
@@ -213,8 +218,8 @@ function RenderExtracts()
 			surface.DrawRect(ScrW() - EFGM.ScreenScale(515) - HUD.Padding, EFGM.ScreenScale(61) + ((k - 1) * EFGM.ScreenScale(41)), EFGM.ScreenScale(390), EFGM.ScreenScale(36))
 			surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(61) + ((k - 1) * EFGM.ScreenScale(41)), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
 
-			draw.DrawText("EXFIL0" .. k, "BenderExfilList", ScrW() - EFGM.ScreenScale(505) - HUD.Padding, EFGM.ScreenScale(60) + ((k - 1) * EFGM.ScreenScale(41)), exitStatusTbl[v.IsDisabled], TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.DrawText(string.sub(v.ExtractName, 1, 18), "BenderExfilName", ScrW() - EFGM.ScreenScale(380) - HUD.Padding, EFGM.ScreenScale(65) + ((k - 1) * EFGM.ScreenScale(41)), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.DrawText("EXFIL0" .. k, "BenderExfilList", ScrW() - EFGM.ScreenScale(505) - HUD.Padding, EFGM.ScreenScale(60) + ((k - 1) * EFGM.ScreenScale(41)), exitStatusTbl[v.IsDisabled], TEXT_ALIGN_LEFT)
+			draw.DrawText(string.sub(v.ExtractName, 1, 18), "BenderExfilName", ScrW() - EFGM.ScreenScale(380) - HUD.Padding, EFGM.ScreenScale(65) + ((k - 1) * EFGM.ScreenScale(41)), Color(255, 255, 255), TEXT_ALIGN_LEFT)
 		end
 	end
 
@@ -235,11 +240,11 @@ function RenderRaidIntro()
 	intro:MoveToFront()
 
 	function intro:Paint(w, h)
-		if !ply:Alive() then return end
+		if !LocalPlayer():Alive() then return end
 
-		draw.DrawText("Raid #" .. ply:GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+		draw.DrawText("Raid #" .. LocalPlayer():GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 		draw.DrawText(os.date("%H:%M:%S"), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(50), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-		draw.DrawText("Level " .. ply:GetNWInt("Level", 0) .. ", Operator " .. ply:GetName(), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+		draw.DrawText("Level " .. LocalPlayer():GetNWInt("Level", 0) .. ", Operator " .. LocalPlayer():GetName(), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 		draw.DrawText("Garkov, " .. (MAPNAMES[game.GetMap()] or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 	end
 
@@ -305,9 +310,9 @@ local haloCVar = GetConVar("efgm_visuals_interactableglow")
 
 -- interactable halos
 hook.Add("PreDrawHalos", "InteractableHalos", function()
-	if !ply:IsValid() or !ply:Alive() or !haloCVar:GetBool() then return end
+	if !LocalPlayer():IsValid() or !LocalPlayer():Alive() or !haloCVar:GetBool() then return end
 
-	local tr = util.QuickTrace(ply:EyePos(), ply:GetAimVector() * 96, ply)
+	local tr = util.QuickTrace(LocalPlayer():EyePos(), LocalPlayer():GetAimVector() * 96, LocalPlayer())
 	if !tr.Hit then return end
 
 	local ent = tr.Entity
@@ -357,8 +362,8 @@ function RenderInvite()
 	local bindsTextSize = surface.GetTextSize(bindsText) + EFGM.ScreenScale(10)
 
 	function invite:Paint(w, h)
-		if !ply:Alive() then return end
-		if !ply:IsInHideout() then return end
+		if !LocalPlayer():Alive() then return end
+		if !LocalPlayer():IsInHideout() then return end
 		if Invites.invitedBy == nil or Invites.invitedType == nil or !Invites.allow then self:AlphaTo(0, 0.1, 9.9, function() self:Remove() end) return end
 
 		surface.SetDrawColor(Colors.hudBackground)
@@ -424,7 +429,7 @@ function RenderDuelLoadout()
 		primaryNameSize = surface.GetTextSize(primaryName) + EFGM.ScreenScale(140)
 		primaryCal = primaryDef.caliber or ""
 
-		primaryEnt = ply:GetWeapon(primary.name)
+		primaryEnt = LocalPlayer():GetWeapon(primary.name)
 		primaryMax = tostring(primaryEnt:GetMaxClip1() or 0)
 		primaryMode = string.upper(string.sub(primaryEnt:GetFiremodeName() or "", 1, 1))
 		primaryModeSize = surface.GetTextSize(primaryMode) + EFGM.ScreenScale(5)
@@ -438,7 +443,7 @@ function RenderDuelLoadout()
 
 		holsterCal = holsterDef.caliber or ""
 
-		holsterEnt = ply:GetWeapon(holster.name)
+		holsterEnt = LocalPlayer():GetWeapon(holster.name)
 		holsterMax = tostring(holsterEnt:GetMaxClip1() or 0)
 		holsterMode = string.upper(string.sub(holsterEnt:GetFiremodeName() or "", 1, 1))
 		holsterModeSize = surface.GetTextSize(holsterMode) + EFGM.ScreenScale(5)
@@ -450,8 +455,8 @@ function RenderDuelLoadout()
 	if hasPrimary then loadoutSizeY = EFGM.ScreenScale(90) holsterY = EFGM.ScreenScale(25) end
 
 	function DuelLoadout:Paint(w, h)
-		if !ply:Alive() then return end
-		if !ply:IsInDuel() then return end
+		if !LocalPlayer():Alive() then return end
+		if !LocalPlayer():IsInDuel() then return end
 
 		surface.SetDrawColor(Colors.hudBackground)
 		surface.DrawRect(ScrW() / 2 - (loadoutSize / 2), ScrH() - loadoutSizeY - EFGM.ScreenScale(20), loadoutSize, loadoutSizeY)
@@ -501,8 +506,7 @@ function RenderDuelLoadout()
 end
 
 local function DrawHUD()
-	ply = ply or LocalPlayer()
-	if !ply:Alive() or Menu.IsOpen or HUD.InIntro then RenderOverlays() return end
+	if !LocalPlayer():Alive() or Menu.IsOpen or HUD.InIntro then RenderOverlays() return end
 	if !HUD.Enabled:GetBool() then return end
 
 	RenderRaidTime()
@@ -716,8 +720,6 @@ net.Receive("SendExtractionStatus", function()
 		ExtractPopup:MoveToFront()
 
 		function ExtractPopup:Paint(w, h)
-			BlurPanel(self, 2, 2)
-
 			surface.SetDrawColor(120, 180, 40, 125)
 			surface.DrawRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(300), EFGM.ScreenScale(250), EFGM.ScreenScale(80))
 
@@ -750,20 +752,20 @@ net.Receive("CreateDeathInformation", function()
 	local timeInRaid = net.ReadUInt(12)
 
 	local statsTbl = {
-		["DAMAGE DEALT:"] = math.Round(ply:GetNWInt("RaidDamageDealt", 0)),
-		["DAMAGE RECEIVED FROM OPERATORS:"] = math.Round(ply:GetNWInt("RaidDamageRecievedPlayers", 0)),
-		["DAMAGE RECEIVED FROM FALLING:"] = math.Round(ply:GetNWInt("RaidDamageRecievedFalling", 0)),
-		["DAMAGE RECEIVED FROM YOURSELF:"] = math.Round(ply:GetNWInt("RaidDamageRecievedSelf", 0)),
-		["DAMAGE RECEIVED:"] = math.Round(ply:GetNWInt("RaidDamageRecievedPlayers", 0) + ply:GetNWInt("RaidDamageRecievedFalling", 0) + ply:GetNWInt("RaidDamageRecievedSelf", 0)),
-		["HEALTH HEALED:"] = math.Round(ply:GetNWInt("RaidHealthHealed", 0)),
-		["ITEMS LOOTED:"] = ply:GetNWInt("RaidItemsLooted", 0),
-		["CONTAINERS OPENED:"] = ply:GetNWInt("RaidContainersLooted", 0),
-		["KEYS USED:"] = ply:GetNWInt("RaidKeysUsed", 0),
-		["OPERATORS KILLED:"] = ply:GetNWInt("RaidKills", 0),
-		["FARTHEST KILL:"] = ply:GetNWInt("RaidFarthestKill", 0),
-		["SHOTS FIRED:"] = ply:GetNWInt("RaidShotsFired", 0),
-		["SHOTS HIT:"] = ply:GetNWInt("RaidShotsHit", 0),
-		["GRENADES THROWN:"] = ply:GetNWInt("RaidGrenadesThrown", 0)
+		["DAMAGE DEALT:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageDealt", 0)),
+		["DAMAGE RECEIVED FROM OPERATORS:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedPlayers", 0)),
+		["DAMAGE RECEIVED FROM FALLING:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedFalling", 0)),
+		["DAMAGE RECEIVED FROM YOURSELF:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedSelf", 0)),
+		["DAMAGE RECEIVED:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedPlayers", 0) + LocalPlayer():GetNWInt("RaidDamageRecievedFalling", 0) + LocalPlayer():GetNWInt("RaidDamageRecievedSelf", 0)),
+		["HEALTH HEALED:"] = math.Round(LocalPlayer():GetNWInt("RaidHealthHealed", 0)),
+		["ITEMS LOOTED:"] = LocalPlayer():GetNWInt("RaidItemsLooted", 0),
+		["CONTAINERS OPENED:"] = LocalPlayer():GetNWInt("RaidContainersLooted", 0),
+		["KEYS USED:"] = LocalPlayer():GetNWInt("RaidKeysUsed", 0),
+		["OPERATORS KILLED:"] = LocalPlayer():GetNWInt("RaidKills", 0),
+		["FARTHEST KILL:"] = LocalPlayer():GetNWInt("RaidFarthestKill", 0),
+		["SHOTS FIRED:"] = LocalPlayer():GetNWInt("RaidShotsFired", 0),
+		["SHOTS HIT:"] = LocalPlayer():GetNWInt("RaidShotsHit", 0),
+		["GRENADES THROWN:"] = LocalPlayer():GetNWInt("RaidGrenadesThrown", 0)
 	}
 	table.SortByKey(statsTbl)
 
@@ -1016,20 +1018,20 @@ net.Receive("CreateDeathInformation", function()
 				draw.SimpleTextOutlined("FINAL XP: ", "PuristaBold24", EFGM.MenuScale(3), EFGM.MenuScale(174), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				draw.SimpleTextOutlined("+" .. totalXPReal .. "XP", "PuristaBold24", w - EFGM.MenuScale(3), EFGM.MenuScale(174), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
-				draw.SimpleTextOutlined(ply:GetNWInt("Level", 1), "PuristaBold24", EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(ply:GetNWInt("Level", 1) + 1, "PuristaBold24", w - EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(LocalPlayer():GetNWInt("Level", 1), "PuristaBold24", EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(LocalPlayer():GetNWInt("Level", 1) + 1, "PuristaBold24", w - EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
-				draw.SimpleTextOutlined(ply:GetNWInt("Experience", 0) .. "/" .. ply:GetNWInt("ExperienceToNextLevel", 500), "PuristaBold16", EFGM.MenuScale(30), h - EFGM.MenuScale(33), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(LocalPlayer():GetNWInt("Experience", 0) .. "/" .. LocalPlayer():GetNWInt("ExperienceToNextLevel", 500), "PuristaBold16", EFGM.MenuScale(30), h - EFGM.MenuScale(33), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
 				surface.SetDrawColor(30, 30, 30, 125)
 				surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), EFGM.MenuScale(470), EFGM.MenuScale(10))
 
 				surface.SetDrawColor(255, 255, 255, 175)
-				surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), (ply:GetNWInt("Experience", 0) / ply:GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(470), EFGM.MenuScale(10))
+				surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), (LocalPlayer():GetNWInt("Experience", 0) / LocalPlayer():GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(470), EFGM.MenuScale(10))
 			end
 		end
 
-		if ply != killedBy and IsValid(killedBy) and killedBy:IsPlayer() then
+		if LocalPlayer() != killedBy and IsValid(killedBy) and killedBy:IsPlayer() then
 			AttackerPanel = vgui.Create("DPanel", DeathPopup)
 			AttackerPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
 			AttackerPanel:SetPos(DeathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
@@ -1123,7 +1125,7 @@ net.Receive("CreateDeathInformation", function()
 				dropdown:AddOption("Copy Name", function() SetClipboardText(killedBy:GetName()) end):SetIcon("icon16/pencil_add.png")
 				dropdown:AddOption("Copy SteamID64", function() SetClipboardText(killedBy:SteamID64()) end):SetIcon("icon16/pencil_add.png")
 
-				if killedBy != ply then
+				if killedBy != LocalPlayer() then
 					local mute = dropdown:AddOption("Mute Player", function()
 						if killedBy:IsMuted() then
 							killedBy:SetMuted(false)
@@ -1336,17 +1338,17 @@ net.Receive("CreateExtractionInformation", function()
 	local timeInRaid = net.ReadUInt(12)
 
 	local statsTbl = {
-		["DAMAGE DEALT:"] = math.Round(ply:GetNWInt("RaidDamageDealt", 0)),
-		["DAMAGE RECEIVED FROM OPERATORS:"] = math.Round(ply:GetNWInt("RaidDamageRecievedPlayers", 0)),
-		["DAMAGE RECEIVED FROM FALLING:"] = math.Round(ply:GetNWInt("RaidDamageRecievedFalling", 0)),
-		["DAMAGE RECEIVED FROM YOURSELF:"] = math.Round(ply:GetNWInt("RaidDamageRecievedSelf", 0)),
-		["DAMAGE RECEIVED:"] = math.Round(ply:GetNWInt("RaidDamageRecievedPlayers", 0) + ply:GetNWInt("RaidDamageRecievedFalling", 0) + ply:GetNWInt("RaidDamageRecievedSelf", 0)),
-		["HEALTH HEALED:"] = math.Round(ply:GetNWInt("RaidHealthHealed", 0)),
-		["ITEMS LOOTED:"] = ply:GetNWInt("RaidItemsLooted", 0),
-		["CONTAINERS OPENED:"] = ply:GetNWInt("RaidContainersLooted", 0),
-		["OPERATORS KILLED:"] = ply:GetNWInt("RaidKills", 0),
-		["SHOTS FIRED:"] = ply:GetNWInt("RaidShotsFired", 0),
-		["SHOTS HIT:"] = ply:GetNWInt("RaidShotsHit", 0),
+		["DAMAGE DEALT:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageDealt", 0)),
+		["DAMAGE RECEIVED FROM OPERATORS:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedPlayers", 0)),
+		["DAMAGE RECEIVED FROM FALLING:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedFalling", 0)),
+		["DAMAGE RECEIVED FROM YOURSELF:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedSelf", 0)),
+		["DAMAGE RECEIVED:"] = math.Round(LocalPlayer():GetNWInt("RaidDamageRecievedPlayers", 0) + LocalPlayer():GetNWInt("RaidDamageRecievedFalling", 0) + LocalPlayer():GetNWInt("RaidDamageRecievedSelf", 0)),
+		["HEALTH HEALED:"] = math.Round(LocalPlayer():GetNWInt("RaidHealthHealed", 0)),
+		["ITEMS LOOTED:"] = LocalPlayer():GetNWInt("RaidItemsLooted", 0),
+		["CONTAINERS OPENED:"] = LocalPlayer():GetNWInt("RaidContainersLooted", 0),
+		["OPERATORS KILLED:"] = LocalPlayer():GetNWInt("RaidKills", 0),
+		["SHOTS FIRED:"] = LocalPlayer():GetNWInt("RaidShotsFired", 0),
+		["SHOTS HIT:"] = LocalPlayer():GetNWInt("RaidShotsHit", 0),
 	}
 	table.SortByKey(statsTbl)
 
@@ -1568,16 +1570,16 @@ net.Receive("CreateExtractionInformation", function()
 		draw.SimpleTextOutlined("FINAL XP: ", "PuristaBold24", EFGM.MenuScale(3), EFGM.MenuScale(174), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		draw.SimpleTextOutlined("+" .. totalXPReal .. "XP", "PuristaBold24", w - EFGM.MenuScale(3), EFGM.MenuScale(174), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
-		draw.SimpleTextOutlined(ply:GetNWInt("Level", 1), "PuristaBold24", EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(ply:GetNWInt("Level", 1) + 1, "PuristaBold24", w - EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(LocalPlayer():GetNWInt("Level", 1), "PuristaBold24", EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(LocalPlayer():GetNWInt("Level", 1) + 1, "PuristaBold24", w - EFGM.MenuScale(5), h - EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
-		draw.SimpleTextOutlined(ply:GetNWInt("Experience", 0) .. "/" .. ply:GetNWInt("ExperienceToNextLevel", 500), "PuristaBold16", EFGM.MenuScale(30), h - EFGM.MenuScale(33), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(LocalPlayer():GetNWInt("Experience", 0) .. "/" .. LocalPlayer():GetNWInt("ExperienceToNextLevel", 500), "PuristaBold16", EFGM.MenuScale(30), h - EFGM.MenuScale(33), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
 		surface.SetDrawColor(30, 30, 30, 125)
 		surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), EFGM.MenuScale(470), EFGM.MenuScale(10))
 
 		surface.SetDrawColor(255, 255, 255, 175)
-		surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), (ply:GetNWInt("Experience", 0) / ply:GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(470), EFGM.MenuScale(10))
+		surface.DrawRect(EFGM.MenuScale(5), h - EFGM.MenuScale(15), (LocalPlayer():GetNWInt("Experience", 0) / LocalPlayer():GetNWInt("ExperienceToNextLevel", 500)) * EFGM.MenuScale(470), EFGM.MenuScale(10))
 	end
 
 	if Tracking.inRaidLength then
@@ -2260,10 +2262,9 @@ local sharpenIntensity = 10
 local sharpenDistance = 1
 
 hook.Add("RenderScreenspaceEffects", "Vignette", function()
-	ply = ply or LocalPlayer()
-	if !ply:Alive() then return end
+	if !LocalPlayer():Alive() then return end
 
-	local weapon = ply:GetActiveWeapon()
+	local weapon = LocalPlayer():GetActiveWeapon()
 
 	if type(weapon.GetSightAmount) == "function" then
 		adsProg = weapon:GetSightAmount()
@@ -2278,8 +2279,8 @@ hook.Add("RenderScreenspaceEffects", "Vignette", function()
 	surface.SetDrawColor(255, 255, 255, 255)
 	surface.DrawTexturedRect(0 - (ScrW() * mult), 0 - (ScrH() * mult), ScrW() * (1 + 2 * mult), ScrH() * (1 + 2 * mult))
 
-	local hp = ply:Health()
-	local maxHP = ply:GetMaxHealth()
+	local hp = LocalPlayer():Health()
+	local maxHP = LocalPlayer():GetMaxHealth()
 	if hp <= 0 or maxHP <= 0 then return end
 
 	-- sharpening begins at 25hp
@@ -2294,10 +2295,10 @@ hook.Add("RenderScreenspaceEffects", "Vignette", function()
 end)
 
 function DrawTarget()
-	if !ply:Alive() then return false end
-	if !ply: IsInHideout() then return false end
+	if !LocalPlayer():Alive() then return false end
+	if !LocalPlayer(): IsInHideout() then return false end
 
-	local ent = ply:GetEyeTrace().Entity
+	local ent = LocalPlayer():GetEyeTrace().Entity
 	if !IsValid(ent) then return false end
 	if !ent:IsPlayer() then return false end
 
@@ -2335,7 +2336,7 @@ hook.Add("ScoreboardShow", "DisableHL2Scoreboard", function() return true end)
 
 -- hide voice chat panels
 hook.Add("PlayerStartVoice", "ImageOnVoice", function(voipPly)
-	if ply != voipPly then return true end
+	if LocalPlayer() != voipPly then return true end
 	hook.Add("HUDPaint", "VoiceIndicator", RenderVOIPIndicator)
 	return true
 end)

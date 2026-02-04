@@ -1,9 +1,16 @@
+local math = math
+local table = table
+local net = net
+local player = player
+local timer = timer
+local util = util
+
+local sp = game.SinglePlayer()
+
 hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
-	local b = swep.Base
-	if !string.find(b, "arc9") then return "" end
+	if (!string.find(class, "efgm") and !string.find(class, "arc9")) and class != "weapon_base" then return false end
 
-	local sp = game.SinglePlayer()
-
+	if string.find(class, "arc9") then
 	-- arc9 determines a player as sprinting if they are holding IN_SPEED, not when they are actually sprinting, breaking animations with EFGM's sprinting system
 	function SWEP:GetIsSprintingCheck()
 		local owner = self:GetOwner()
@@ -17,6 +24,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		if !owner:IsSprinting() then return false end
 		if !owner:OnGround() or owner:GetMoveType() == MOVETYPE_NOCLIP then return false end
 		if !owner:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then return false end
+		if owner:KeyDown(IN_WALK) then return false end
 
 		if (self:GetAnimLockTime() > CurTime()) and self:GetProcessedValue("NoSprintWhenLocked", true) then return false end
 		if self:GetProcessedValue("ShootWhileSprint", true) and owner:KeyDown(IN_ATTACK) then return false end
@@ -2638,6 +2646,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			end
 		end
 	end
+	end
 end)
 
 function PruneUnnecessaryAttachmentDataRecursive(tbl)
@@ -3022,9 +3031,7 @@ if CLIENT then
 			textcolor = colorclicked
 		end
 
-		if self.HasModes then
-			matmarker = self.MatMarkerModes
-		elseif self.HasSlots then
+		if self.HasSlots then
 			matmarker = self.MatMarkerSlots
 		end
 
@@ -3165,7 +3172,8 @@ if CLIENT then
 				surface.DrawText(qtext)
 			end
 
-			if not self.Installed or qty <= 0 then
+			if self.Installed or qty > 0 then
+			else
 				surface.SetMaterial( ARC9AttButton.MatMarkerLock )
 				surface.SetDrawColor( 255, 255, 255, 32 )
 

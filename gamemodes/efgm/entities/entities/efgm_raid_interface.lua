@@ -55,7 +55,7 @@ end)
 
 function ENT:AcceptInput(name, ply, caller, data)
 	if name == "StartRaid" then
-		RAID:StartRaid(self.RaidTime, ply)
+		RAID:StartRaid(self.RaidTime)
 	end
 
 	if name == "EndRaid" then

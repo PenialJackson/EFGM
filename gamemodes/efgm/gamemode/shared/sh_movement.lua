@@ -142,7 +142,9 @@ hook.Add("SetupMove", "Leaning", function(ply, mv, cmd)
 
 	local speed = leanSpeed * math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - underweightLimit) * 0.0109, 3)))
 
-	if !ply:IsSprinting() then
+	local allow = !ply:IsSprinting() or !ply:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT)
+
+	if allow then
 		if leaning_left then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, -1) end
 		if leaning_right then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 1) end
 		if !leaning_left and !leaning_right then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, 0) end
@@ -581,8 +583,8 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 		punchstop = false
 	end
 
-	local walkmul = (ply:KeyDown(IN_WALK) and 2) or 1
-	local walkmulintensity = (ply:KeyDown(IN_WALK) and 0.5) or 1
+	local walkmul = ((ply:KeyDown(IN_WALK) and !ply:Crouching()) and 2) or 1
+	local walkmulintensity = ((ply:KeyDown(IN_WALK) and !ply:Crouching()) and 0.5) or 1
 	local inertiamul = math.sin(((speedinertia / runspeed) * math.pi) * walkmul) * 0.04 * walkmulintensity
 
 	if !requestedmove and punchstop then
@@ -590,7 +592,7 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 		ply:VBSpring(SpringStop)
 	end
 
-	local isSprinting = ply:KeyDown(IN_SPEED) and !ply:Crouching() and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
+	local isSprinting = ply:KeyDown(IN_SPEED) and !ply:Crouching() and !ply:KeyDown(IN_WALK) and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
 
 	LerpedInertia = Lerp(FT * 5, LerpedInertia, inertiamul)
 	-- VBAngCalc.x = VBAngCalc.x + 10 * LerpedInertia

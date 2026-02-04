@@ -1,6 +1,10 @@
 local chunkedInv = {}
 local chunkedEqu = {}
 
+local table = table
+local net = net
+local util = util
+
 hook.Add("OnInventoryChunked", "NetworkInventory", function(str, uID)
 	local inventoryStr = str
 	inventoryStr = util.Base64Decode(inventoryStr)

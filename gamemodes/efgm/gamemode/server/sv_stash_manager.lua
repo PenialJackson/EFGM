@@ -1,3 +1,8 @@
+local math = math
+local table = table
+local net = net
+local util = util
+
 function ReloadStash(ply)
 	net.Start("PlayerStashReload", false)
 	net.Send(ply)

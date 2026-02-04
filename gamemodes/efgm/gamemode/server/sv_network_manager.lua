@@ -1,3 +1,7 @@
+local table = table
+local net = net
+local player = player
+
 -- Eat shit penial i stole your titanmod code save manager code
 -- As of 4/25/2025 at 4:08AM CST, porty can eat shit, as I have rewritten this code to match the new titanmod networking manager
 -- As of 11/1/2025 at 2:23PM CDT, ):

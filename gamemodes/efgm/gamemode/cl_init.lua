@@ -38,6 +38,8 @@ function ScrH()
 	return cScrH
 end
 
+local math = math
+
 -- screen scale function, makes my life (penial) easier because i will most definently be doing most if not all of the user interface
 -- all interfaces and fonts are (for the most part) created on a 2560x1440 monitor
 local hudscaleCVar = GetConVar("efgm_hud_scale")
@@ -186,8 +188,8 @@ hook.Add("PreGamemodeLoaded", "SmoothScrolling", function()
 		local doing_scroll = true
 		newerT = ctime
 
-		anim.Think = function(anim, pnl, fraction)
-			local nowpos = Lerp(fraction, anim.StartPos, anim.TargetPos)
+		anim.Think = function(a, pnl, fraction)
+			local nowpos = Lerp(fraction, a.StartPos, a.TargetPos)
 			if ctime == newerT then
 				self:SetScroll(getBiggerPos(self.Old_Sign, sign(dlta), self.Old_Pos, nowpos))
 				tScroll = tScroll - (tScroll * fraction)

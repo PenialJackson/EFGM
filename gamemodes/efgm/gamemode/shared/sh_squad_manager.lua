@@ -198,7 +198,6 @@ if SERVER then
 		for k, v in ipairs(SQUADS[squad].MEMBERS) do
 			if string.lower(v:GetName()) == string.lower(newOwner) then
 				ReplaceSquadOwner(v, squad)
-				newOwnerEnt = v
 
 				net.Start("SendNotification", false)
 					net.WriteString("You are now the squad owner!")

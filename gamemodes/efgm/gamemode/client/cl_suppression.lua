@@ -4,6 +4,10 @@ local bloom_intensity = 0.5
 
 local effect_amount = 0
 
+local math = math
+local net = net
+local util = util
+
 local function readVectorUncompressed()
 	local tempVec = Vector(0,0,0)
 	tempVec.x = net.ReadFloat()

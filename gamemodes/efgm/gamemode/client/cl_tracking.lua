@@ -67,7 +67,6 @@ hook.Add("entity_killed", "efgm_tracker_kill", function(data)
 
 	local attacker = data.entindex_attacker
 	if attacker != LocalPlayer():EntIndex() then return end
-	if !attacker:IsInRaid() then return end
 
 	local pos = WorldToMapSpace(LocalPlayer():GetPos())
 

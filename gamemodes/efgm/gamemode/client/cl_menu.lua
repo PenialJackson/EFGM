@@ -18,6 +18,13 @@ Menu.StashSortOrder = false
 Menu.MarketStashSort = 1
 Menu.MarketStashSortOrder = false
 
+local math = math
+local table = table
+local net = net
+local player = player
+local timer = timer
+local util = util
+
 local holdtypes = {
 	"idle_revolver",
 	"idle_dual",

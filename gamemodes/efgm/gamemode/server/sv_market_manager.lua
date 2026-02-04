@@ -1,3 +1,8 @@
+local math = math
+local table = table
+local net = net
+local util = util
+
 PLYMARKETLIMITS = PLYMARKETLIMITS or {}
 
 function NetworkMarketLimits(ply)

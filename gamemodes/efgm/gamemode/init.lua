@@ -1,5 +1,3 @@
-EFGM = EFGM or {}
-
 AddCSLuaFile("shared.lua")
 AddCSLuaFile("util.lua")
 AddCSLuaFile("enums.lua")
@@ -159,7 +157,6 @@ hook.Add("Initialize", "EFGMInitialized", function()
 	print("Escape From Garry's Mod (EFGM) initialized, playing on " .. game.GetMap() .. " at Unix time " .. os.time())
 
 	RunConsoleCommand("sv_airaccelerate", "3") -- what is a titanmod?
-	RunConsoleCommand("mp_friendlyfire", "1") -- something something lag compensation
 	RunConsoleCommand("mp_falldamage", "1") -- what is a titanmod? part two, electric boogaloo
 	RunConsoleCommand("mp_show_voice_icons", "0")
 	RunConsoleCommand("decalfrequency", "1")
