@@ -125,9 +125,11 @@ if SERVER then
 		hook.Run("CancelledDuel")
 
 		for k, v in ipairs(DUEL.Players) do
-			v:Kill()
-			v:SetNWBool("InRange", false)
+			if v:Alive() then
+				v:Kill()
+			end
 
+			v:SetNWBool("InRange", false)
 			ReinstantiateInventoryAfterDuel(v)
 		end
 
