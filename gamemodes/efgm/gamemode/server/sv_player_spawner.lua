@@ -39,7 +39,6 @@ function GetValidRaidSpawn(status)
 	end
 
 	-- fallback if no spawn is suitable
-	local plys = player.GetHumans()
 	local safestSpawn = nil
 	local maxMinDistance = -1
 
@@ -52,7 +51,7 @@ function GetValidRaidSpawn(status)
 
 		local minDistance = math.huge
 
-		for _, ply in ipairs(plys) do
+		for _, ply in ipairs(player.Iterator()) do
 			if ply:Alive() and e:IsInRaid() and !ply:GetNWBool("PlayerInIntro", false) then
 				local distance = spawn:GetPos():DistToSqr(ply:GetPos())
 				minDistance = math.min(minDistance, distance)

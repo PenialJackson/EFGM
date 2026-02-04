@@ -4,7 +4,7 @@ hook.Add("PlayerInitialSpawn", "SquadFirstSpawn", function(ply)
 end)
 
 hook.Add("OnReloaded", "ReloadSquads", function()
-	for k, v in ipairs(player.GetAll()) do
+	for k, v in player.Iterator() do
 		v:SetNW2String("PlayerInSquad", "nil")
 		v:SetNW2String("TeamChatChannel", "nil")
 	end

@@ -1,7 +1,7 @@
 local allowInvites = true
 
 net.Receive("PlayerInviteSend", function(len, ply)
-	local invitedPly = net.ReadEntity()
+	local invitedPly = net.ReadPlayer()
 	local inviteType = net.ReadString()
 	local data = net.ReadString()
 
@@ -10,14 +10,14 @@ net.Receive("PlayerInviteSend", function(len, ply)
 	if string.len(inviteType) == 0 then return end
 
 	net.Start("PlayerInviteReceive")
-		net.WriteEntity(ply)
+		net.WritePlayer(ply)
 		net.WriteString(inviteType)
 		net.WriteString(data)
 	net.Send(invitedPly)
 end)
 
 net.Receive("PlayerInviteAccept", function(len, ply)
-	local invitedPly = net.ReadEntity()
+	local invitedPly = net.ReadPlayer()
 	local inviteType = net.ReadString()
 	local inviteData = net.ReadString()
 

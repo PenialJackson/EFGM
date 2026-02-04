@@ -437,7 +437,7 @@ if SERVER then
 			if !attacker:IsPlayer() then return end
 			if !attacker:IsInRaid() then return end
 
-			for k, v in ipairs(player.GetHumans()) do
+			for k, v in player.Iterator() do
 				if !v:IsInRaid() then return end
 
 				local class = ent:GetClass()
@@ -481,7 +481,7 @@ if SERVER then
 			if cal == nil then return end
 			if !attacker:IsInRaid() then return end
 
-			for k, v in ipairs(player.GetHumans()) do
+			for k, v in player.Iterator() do
 				if !v:IsInRaid() then return end
 				if shotCaliber[cal] == nil then return end
 

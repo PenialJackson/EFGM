@@ -773,7 +773,7 @@ net.Receive("CreateDeathInformation", function()
 	local xpLooting = net.ReadUInt(16)
 	local xpBonus = net.ReadUInt(16)
 
-	local killedBy = net.ReadEntity()
+	local killedBy = net.ReadPlayer()
 	local killedByHealth = net.ReadUInt(8)
 	local killedByWeapon = net.ReadTable()
 	local killedFrom = net.ReadUInt(16)

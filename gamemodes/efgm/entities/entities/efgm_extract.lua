@@ -75,8 +75,8 @@ function ENT:AcceptInput(name, ply, caller, data)
 		self.IsDisabled = true
 		self:TriggerOutput("OnExtractDisabled", ply, data)
 
-		for k, v in ipairs(player.GetHumans()) do
-			self:Fire("StopExtractingPlayer", nil, 0, ply, caller)
+		for k, v in player.Iterator() do
+			self:Fire("StopExtractingPlayer", nil, 0, v, caller)
 		end
 	end
 

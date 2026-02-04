@@ -47,7 +47,7 @@ if SERVER then
 
 	function RAID:StartRaid(raidTime)
 		if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
-		if #player.GetHumans() < 3 and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+		if #player.GetAll() < 3 and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
 
 		SetGlobalInt("RaidStatus", raidStatus.ACTIVE)
 		SetGlobalInt("RaidTimeLeft", raidTime)
@@ -74,7 +74,7 @@ if SERVER then
 		hook.Run("EndedRaid", RAID.VoteTime)
 
 		-- thanks penal code
-		if #player.GetHumans() == 0 then
+		if #player.GetAll() == 0 then
 			local tbl = {}
 
 			for k, v in ipairs(self.MapPool) do table.insert(tbl, v.name) end
@@ -95,7 +95,7 @@ if SERVER then
 			net.WriteString("round_warning.wav")
 		net.Broadcast()
 
-		for k, v in ipairs(player.GetHumans()) do
+		for k, v in player.Iterator() do
 			if v:IsInRaid() then
 				v:Kill()
 			end

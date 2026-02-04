@@ -4,7 +4,7 @@ local raidPositions = {}
 local killPositions = {}
 local enterRaidTime = nil
 
-local Tracking = Tracking or {}
+Tracking = Tracking or {}
 
 Tracking.inRaidLength = nil
 Tracking.raidPositions = {}
@@ -67,6 +67,7 @@ hook.Add("entity_killed", "efgm_tracker_kill", function(data)
 
 	local attacker = data.entindex_attacker
 	if attacker != LocalPlayer():EntIndex() then return end
+	if !attacker:IsInRaid() then return end
 
 	local pos = WorldToMapSpace(LocalPlayer():GetPos())
 

@@ -565,7 +565,7 @@ hook.Add("PlayerDisconnected", "PlayerUninitializeStats", function(ply)
 end)
 
 hook.Add("ShutDown", "ServerUninitializeStats", function()
-	for _, ply in ipairs(player.GetHumans()) do
+	for _, ply in player.Iterator() do
 		if ply:IsInDuel() then
 			ReinstantiateInventoryAfterDuel(ply)
 		end

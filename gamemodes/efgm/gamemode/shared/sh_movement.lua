@@ -239,7 +239,7 @@ end
 
 if SERVER then
 	hook.Add("Think", "LeaningBend", function()
-		for k, ply in ipairs(player.GetHumans()) do
+		for k, ply in player.Iterator() do
 			local absolute = math.abs(ply:GetNW2Float("leaning_fraction_smooth"))
 
 			if absolute > 0 then ply.stop_leaning_bones = false end
@@ -254,7 +254,7 @@ end
 
 if CLIENT then
 	hook.Add("PreRender", "LeaningBend", function()
-		for k, ply in ipairs(player.GetHumans()) do
+		for k, ply in player.Iterator() do
 			ply.leaning_fraction_true_smooth = Lerp(FrameTime() / (engine.TickInterval() * interp), ply.leaning_fraction_true_smooth or 0, ply:GetNW2Float("leaning_fraction_smooth") * distance)
 			local absolute = math.abs(ply.leaning_fraction_true_smooth)
 

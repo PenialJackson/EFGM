@@ -1,4 +1,4 @@
-PLYMARKETLIMITS = {}
+PLYMARKETLIMITS = PLYMARKETLIMITS or {}
 
 function NetworkMarketLimits(ply)
 	local id = ply:SteamID64()
@@ -17,9 +17,6 @@ function NetworkMarketLimits(ply)
 end
 
 hook.Add("PlayerInitialSpawn", "MarketInitFirstSpawn", function(ply) NetworkMarketLimits(ply) end)
-hook.Add("OnReloaded", "MarketOnReload", function()
-	for k, v in ipairs(player.GetHumans()) do NetworkMarketLimits(v) end
-end)
 
 net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	local item = net.ReadString()

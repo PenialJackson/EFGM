@@ -30,7 +30,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 		-- CreateNotification("Invite Sent!", Mats.inviteSentIcon, nil)
 
 		-- net.Start("PlayerInviteSend")
-		-- 		net.WriteEntity(invitedPly)
+		-- 		net.WritePlayer(invitedPly)
 		-- 		net.WriteString("squad")
 		-- 		net.WriteString(plySquad)
 		-- net.SendToServer()
@@ -51,7 +51,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 	CreateNotification("Invite Sent!", Mats.inviteSentIcon, "ui/squad_disband.wav")
 
 	net.Start("PlayerInviteSend")
-		net.WriteEntity(invitedPly)
+		net.WritePlayer(invitedPly)
 		net.WriteString("squad")
 		net.WriteString(ply:GetName() .. "'s Squad")
 	net.SendToServer()
@@ -74,7 +74,7 @@ function InvitePlayerToDuel(ply, invitedPly)
 	CreateNotification("Invite Sent!", Mats.inviteSentIcon, "ui/squad_disband.wav")
 
 	net.Start("PlayerInviteSend")
-		net.WriteEntity(invitedPly)
+		net.WritePlayer(invitedPly)
 		net.WriteString("duel")
 		net.WriteString("")
 	net.SendToServer()
@@ -87,7 +87,7 @@ Invites.inviteData = nil
 net.Receive("PlayerInviteReceive", function(len, ply)
 	if IsValid(invite) then return end -- player already has a pending invite
 
-	local invitedBy = net.ReadEntity()
+	local invitedBy = net.ReadPlayer()
 	local invitedType = net.ReadString()
 	local invitedData = net.ReadString()
 
@@ -127,7 +127,7 @@ function AcceptInvite(ply)
 	if Invites.invitedBy == nil or Invites.invitedType == nil then return end
 
 	net.Start("PlayerInviteAccept")
-		net.WriteEntity(Invites.invitedBy)
+		net.WritePlayer(Invites.invitedBy)
 		net.WriteString(Invites.invitedType)
 		net.WriteString(Invites.inviteData)
 	net.SendToServer()

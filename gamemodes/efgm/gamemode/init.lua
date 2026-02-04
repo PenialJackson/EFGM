@@ -38,6 +38,13 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 	include("items/" .. f)
 end
 
+local math = math
+local table = table
+local net = net
+local player = player
+local timer = timer
+local util = util
+
 local msgs = {
 	-- raid, gameplay, match and maps
 	"DistantGunAudio",
@@ -152,6 +159,7 @@ hook.Add("Initialize", "EFGMInitialized", function()
 	print("Escape From Garry's Mod (EFGM) initialized, playing on " .. game.GetMap() .. " at Unix time " .. os.time())
 
 	RunConsoleCommand("sv_airaccelerate", "3") -- what is a titanmod?
+	RunConsoleCommand("mp_friendlyfire", "1") -- something something lag compensation
 	RunConsoleCommand("mp_falldamage", "1") -- what is a titanmod? part two, electric boogaloo
 	RunConsoleCommand("mp_show_voice_icons", "0")
 	RunConsoleCommand("decalfrequency", "1")
@@ -180,7 +188,7 @@ function GM:PlayerSpawn(ply)
 	ply:SetBodygroup(1, math.random(0, 18)) -- body
 	ply:SetBodygroup(2, math.random(0, 15)) -- legs
 	ply:SetBodygroup(3, math.random(0, 14)) -- face
-	ply:SetupHands()
+	hook.Call("PlayerSetModel", GAMEMODE, ply)
 
 	ply:AddEFlags(EFL_NO_DAMAGE_FORCES) -- disables knockback being applied when damage is taken
 	ply:SendLua("RunConsoleCommand('r_cleardecals')") -- clear decals for that extra 2 fps
@@ -192,6 +200,7 @@ function GM:PlayerSpawn(ply)
 	ply:SetNW2Bool("DoStep", false)
 
 	CalculateInventoryWeight(ply)
+	ply:SetupHands()
 end
 
 function GM:PlayerDeath(victim, inflictor, attacker)
@@ -252,7 +261,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 			net.WriteUInt(victim:GetNWInt("ExperienceExploration", 0), 16)
 			net.WriteUInt(victim:GetNWInt("ExperienceLooting", 0), 16)
 			net.WriteUInt(victim:GetNWInt("ExperienceBonus", 0), 16)
-			net.WriteEntity(victim)
+			net.WritePlayer(victim)
 			net.WriteUInt(0, 8)
 			net.WriteTable({})
 			net.WriteUInt(0, 16)
@@ -279,7 +288,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		net.WriteUInt(victim:GetNWInt("ExperienceExploration", 0), 16)
 		net.WriteUInt(victim:GetNWInt("ExperienceLooting", 0), 16)
 		net.WriteUInt(victim:GetNWInt("ExperienceBonus", 0), 16)
-		net.WriteEntity(attacker)
+		net.WritePlayer(attacker)
 		net.WriteUInt(math.Clamp(attacker:Health(), 0, attacker:GetMaxHealth()), 8)
 		net.WriteTable(MatchClassWithEquipped(attacker, attacker:GetActiveWeapon():GetClass() or nil) or {})
 		net.WriteUInt(distance, 16)
@@ -299,7 +308,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 end
 
 hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
-	for k, v in ipairs(player.GetHumans()) do
+	for k, v in player.Iterator() do
 		if v:IsInRaid() then
 			v:SetNWFloat("ExperienceTime", v:GetNWFloat("ExperienceTime") + 0.5)
 			v:SetNWInt("RaidTime", v:GetNWInt("RaidTime", 0) + 1)
@@ -346,7 +355,7 @@ end)
 
 -- players in the lobby cant take damage
 hook.Add("PlayerShouldTakeDamage", "AntiLobbyKill", function(victim, attacker)
-	return (!attacker:IsInHideout() and !victim:IsInHideout())
+	return !victim:IsInHideout()
 end)
 
 -- prevent respawning if under a respawn timer
@@ -371,7 +380,7 @@ end)
 local healthRegenSpeed = 1.5
 local healthRegenDamageDelay = 20
 local function Regeneration()
-	for _, ply in ipairs(player.GetAll()) do
+	for _, ply in player.Iterator() do
 		if ply:Alive() then
 			if (ply:Health() < (ply.LastHealth or 0)) then ply.HealthRegenNext = CurTime() + healthRegenDamageDelay end
 

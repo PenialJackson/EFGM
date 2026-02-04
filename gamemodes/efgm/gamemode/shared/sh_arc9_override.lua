@@ -591,53 +591,62 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 			local isotherplayer = owner != lp
 
+			local count = 0
+
 			for _, k in ipairs(self:GetSubSlotList()) do
 				if !k.Installed then continue end
 
 				local atttbl = self:GetFinalAttTable(k)
 				if !atttbl.Flashlight then continue end
 
-				local l = ProjectedTexture()
-				if !IsValid(l) then continue end
+				if count == 0 then
+					local l = ProjectedTexture()
+					if !IsValid(l) then continue end
 
-				local fov = atttbl.FlashlightFOV or 50
-				local col = atttbl.FlashlightColor or color_white
-				local br = atttbl.FlashlightBrightness or 3
+					local fov = atttbl.FlashlightFOV or 50
+					local col = atttbl.FlashlightColor or color_white
+					local br = atttbl.FlashlightBrightness or 3
 
-				l:SetFOV(fov)
-				l:SetFarZ(atttbl.FlashlightDistance or 1024)
-				l:SetNearZ(0)
-				l:SetQuadraticAttenuation(100)
-				l:SetColor(col)
-				l:SetTexture(atttbl.FlashlightMaterial or "effects/flashlight001")
-				l:SetBrightness(br)
-				if isotherplayer then
-					l:SetEnableShadows(false)
-				elseif flashlightQuality:GetBool() then
-					l:SetEnableShadows(true)
+					l:SetFOV(fov)
+					l:SetFarZ(atttbl.FlashlightDistance or 1024)
+					l:SetNearZ(0)
+					l:SetQuadraticAttenuation(100)
+					l:SetColor(col)
+					l:SetTexture(atttbl.FlashlightMaterial or "effects/flashlight001")
+					l:SetBrightness(br)
+					if isotherplayer then
+						l:SetEnableShadows(false)
+					elseif flashlightQuality:GetBool() then
+						l:SetEnableShadows(true)
+					else
+						l:SetEnableShadows(false)
+					end
+					l:Update()
+
+					local newlight = {
+						slottbl = k,
+						light = l,
+						col = col,
+						br = br,
+						qca = atttbl.FlashlightAttachment,
+						nodotter = atttbl.Flashlight360,
+						lastPos = Vector(0, 0, 0),
+						lastAng = Angle(0, 0, 0)
+					}
+					self.Flashlights = {newlight}
+
+					table.insert(ARC9.FlashlightPile, {
+						Weapon = self,
+						ProjectedTexture = l
+					})
 				else
-					l:SetEnableShadows(false)
+					local br = atttbl.FlashlightBrightness or 3
+					self.Flashlights[1].br = self.Flashlights[1].br + br
+					self.Flashlights[1].light:SetBrightness(self.Flashlights[1].br)
+					self.Flashlights[1].light:Update()
 				end
-				l:Update()
 
-				local newlight = {
-					slottbl = k,
-					light = l,
-					col = col,
-					br = br,
-					qca = atttbl.FlashlightAttachment,
-					nodotter = atttbl.Flashlight360,
-					lastPos = Vector(0, 0, 0),
-					lastAng = Angle(0, 0, 0)
-				}
-				self.Flashlights = {newlight}
-
-				table.insert(ARC9.FlashlightPile, {
-					Weapon = self,
-					ProjectedTexture = l
-				})
-
-				break
+				count = count + 1
 			end
 		end
 
@@ -2286,7 +2295,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			if !attacker:IsPlayer() then return end
 			if !attacker:IsInRaid() then return end
 
-			for k, v in ipairs(player.GetHumans()) do
+			for k, v in player.Iterator() do
 				if v == attacker then return end
 				if !v:IsInRaid() then return end
 				if shotCaliber[ammo] == nil then return end

@@ -285,7 +285,7 @@ function Menu:Initialize(openTo, container)
 	local time = string.FormattedTime(GetGlobalInt("RaidTimeLeft", 0), "%02i:%02i")
 	local timeTextSize = surface.GetTextSize(time)
 
-	local plyCount = #player.GetHumans()
+	local plyCount = #player.GetAll()
 	local plyCountTextSize = surface.GetTextSize(plyCount)
 
 	local raidStatus = GetGlobalInt("RaidStatus", 0)
@@ -307,7 +307,7 @@ function Menu:Initialize(openTo, container)
 		time = string.FormattedTime(GetGlobalInt("RaidTimeLeft", 0), "%02i:%02i")
 		timeTextSize = surface.GetTextSize(time)
 
-		plyCount = #player.GetHumans()
+		plyCount = #player.GetAll()
 		plyCountTextSize = surface.GetTextSize(plyCount)
 
 		raidStatus = GetGlobalInt("RaidStatus", 0)
@@ -7333,7 +7333,7 @@ function Menu.OpenTab.Match()
 		pmcList:Dock(TOP)
 		pmcList:SetSize(EFGM.MenuScale(320), 0)
 
-		for k, v in ipairs(player.GetAll()) do
+		for k, v in player.Iterator() do
 			local name = v:GetName()
 			local ping = v:Ping()
 			local kills = v:Frags()
