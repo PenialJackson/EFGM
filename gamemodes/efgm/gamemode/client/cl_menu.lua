@@ -8230,7 +8230,7 @@ function Menu.OpenTab.Stats()
 	statsTbl["Current Duel Win Streak"] = string.FormatComma(Menu.Player:GetNWInt("CurrentDuelWinStreak"))
 	statsTbl["Best Duel Win Streak"] = string.FormatComma(Menu.Player:GetNWInt("BestDuelWinStreak"))
 
-	statsTbl["K/D Ratio"] = math.Round(Menu.Player:GetNWInt("Kills") / math.min(Menu.Player:GetNWInt("Deaths"), 1), 3)
+	statsTbl["K/D Ratio"] = math.Round(Menu.Player:GetNWInt("Kills") / math.max(Menu.Player:GetNWInt("Deaths"), 1), 3)
 	statsTbl["Survival Rate"] = math.Round(Menu.Player:GetNWInt("Extractions") / Menu.Player:GetNWInt("RaidsPlayed") * 100) .. "%"
 	statsTbl["Accuracy"] = math.Round(Menu.Player:GetNWInt("ShotsHit") / Menu.Player:GetNWInt("ShotsFired") * 100) .. "%"
 	statsTbl["Duels Win Rate"] = math.Round(Menu.Player:GetNWInt("DuelsWon") / Menu.Player:GetNWInt("DuelsPlayed") * 100) .. "%"

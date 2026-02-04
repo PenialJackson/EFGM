@@ -7,6 +7,15 @@ local util = util
 
 local sp = game.SinglePlayer()
 
+hook.Add("InitPostEntity", "ARC9_phystweak", function()
+	if GetConVar("arc9_phystweak"):GetBool() then
+		if !physenv or !physenv.GetPerformanceSettings then return end
+
+		local v = physenv.GetPerformanceSettings().MaxVelocity or 10000
+		if v < 10000 then physenv.SetPerformanceSettings({MaxVelocity = 10000}) end
+	end
+end)
+
 hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	if (!string.find(class, "efgm") and !string.find(class, "arc9")) and class != "weapon_base" then return false end
 
