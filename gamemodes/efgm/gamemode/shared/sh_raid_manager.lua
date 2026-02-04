@@ -45,12 +45,14 @@ if SERVER then
 		timer.Remove("RaidTimerDecrement")
 	end
 
-	function RAID:StartRaid(raidTime)
+	function RAID:StartRaid(forced)
 		if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
-		if #player.GetAll() < 3 and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+		if !forced or #player.GetAll() < EFGM.CONFIG.RaidMinimumPlayers and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+
+		local time = MAPS[game.GetMap()].time or 1800
 
 		SetGlobalInt("RaidStatus", raidStatus.ACTIVE)
-		SetGlobalInt("RaidTimeLeft", raidTime)
+		SetGlobalInt("RaidTimeLeft", time)
 
 		timer.Create("RaidTimerDecrement", 1, 0, DecrementTimer)
 
@@ -110,8 +112,13 @@ if SERVER then
 	end
 
 	function RAID:SpawnPlayers(plys, status, squad)
+		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then
+			RAID:StartRaid(false)
+		end
+
 		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
-		if #plys > 4 then print("too many fucking people in your team dumbass") return end
+
+		if #plys > EFGM.CONFIG.SquadMaxSize then print("too many fucking people in your team dumbass") return end
 
 		local masterSpawn = nil
 		local spawns = {}
@@ -145,7 +152,7 @@ if SERVER then
 
 			local introAnimString, introSpaceIndex = IntroGetFreeSpace()
 
-			v:AddFlags(FL_GODMODE, FL_FROZEN)
+			v:AddFlags(bit.bor(FL_GODMODE, FL_FROZEN))
 			v:SetRaidStatus(status, "")
 			v:SetNWBool("PlayerIsPMC", true)
 
@@ -153,6 +160,7 @@ if SERVER then
 			v:SetNW2String("PlayerInSquad", "nil")
 			v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
 			v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
+			v:SetNWBool("RaidReady", false)
 			RemoveFIRFromInventory(v)
 			ResetRaidStats(v)
 
@@ -199,8 +207,12 @@ if SERVER then
 
 							v:SetRaidStatus(status, spawnGroup)
 							v:SetNWBool("PlayerInIntro", false)
+
+							v:RemoveFlags(FL_FROZEN)
 							v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-							v:RemoveFlags(FL_GODMODE, FL_FROZEN)
+							v:RemoveFlags(FL_GODMODE)
+
+							v:SendLua("RunConsoleCommand('r_cleardecals')")
 
 							masterSpawn.Pending = true
 							timer.Simple(10, function() masterSpawn.Pending = false end)
@@ -223,8 +235,12 @@ if SERVER then
 
 					v:SetRaidStatus(status, spawnGroup)
 					v:SetNWBool("PlayerInIntro", false)
+
+					v:RemoveFlags(FL_FROZEN)
 					v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-					v:RemoveFlags(FL_GODMODE, FL_FROZEN)
+					v:RemoveFlags(FL_GODMODE)
+
+					v:SendLua("RunConsoleCommand('r_cleardecals')")
 
 					masterSpawn.Pending = true
 					timer.Simple(10, function() masterSpawn.Pending = false end)
@@ -444,7 +460,6 @@ if SERVER then
 		self:SetNWInt("PlayerRaidStatus", status)
 		self:SetNWString("PlayerSpawnGroup", spawnGroup)
 
-		if game.SinglePlayer() then return end -- no audio filters in SP
 		UpdateAudioFilter(self, status)
 	end
 
@@ -499,10 +514,12 @@ if SERVER then
 		ply:SetFaction()
 	end)
 
+	local defVec = Vector(0, 0, 0)
+
 	function plyMeta:Teleport(position, angles, velocity)
 		self:SetPos(position)
-		self:SetEyeAngles(angles)
-		self:SetLocalVelocity(velocity)
+		if angles then self:SetEyeAngles(angles) end
+		if velocity != defVec then self:SetAbsVelocity(velocity) end
 	end
 
 	function plyMeta:GetRaidStatus()
@@ -517,20 +534,20 @@ if SERVER then
 			net.WriteUInt(2, 2)
 		net.Send(ply)
 
-		ply:AddFlags(FL_GODMODE, FL_FROZEN)
+		ply:AddFlags(bit.bor(FL_GODMODE, FL_FROZEN))
 
 		local prevStatus = ply:GetNWInt("PlayerRaidStatus", 0)
 		ply:SetRaidStatus(0, "")
 
 		timer.Create("Extract" .. ply:SteamID64(), 1, 1, function()
 			local spawn = GetValidHideoutSpawn(1)
+
+			ply:RemoveFlags(FL_FROZEN)
 			ply:Teleport(spawn:GetPos(), spawn:GetAngles(), Vector(0, 0, 0))
-			ply:SetHealth(ply:GetMaxHealth()) -- heals the player to full so dumb shit like quitting and rejoining to get max hp doesn't happen
-			ply:SendLua("RunConsoleCommand('r_cleardecals')") -- clear decals for that extra 2 fps
+			ply:RemoveFlags(FL_GODMODE)
 
-			ply:SetNWBool("RaidReady", false)
-
-			ply:RemoveFlags(FL_GODMODE, FL_FROZEN)
+			ply:SetHealth(ply:GetMaxHealth())
+			ply:SendLua("RunConsoleCommand('r_cleardecals')")
 
 			ply:SetNWInt("ExperienceBonus", ply:GetNWInt("ExperienceBonus") + 200)
 
@@ -554,7 +571,7 @@ if SERVER then
 	hook.Add("CheckRaidAddPlayers", "MaybeAddPeople", function(ply)
 		local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
 
-		if ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
+		if GetGlobalInt("RaidStatus") == raidStatus.ACTIVE and ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
 			net.Start("SendNotification", false)
 				net.WriteString("Can not enter a raid that is about to end, you can change this in your settings!")
 				net.WriteString("icons/time_icon.png")
@@ -570,9 +587,9 @@ if SERVER then
 		local plys = {}
 		local spawnBool = true
 
-		for k, v in ipairs(SQUADS[plySquad].MEMBERS) do
-			table.insert(plys, v)
-			if v:GetNWBool("RaidReady", false) == false then spawnBool = false end
+		for _, member in ipairs(SQUADS[plySquad].MEMBERS) do
+			table.insert(plys, member)
+			if member:GetNWBool("RaidReady", false) == false then spawnBool = false end
 		end
 
 		if tobool(spawnBool) == true then

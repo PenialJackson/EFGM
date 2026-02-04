@@ -38,9 +38,8 @@
 
 @PointClass base(Targetname) = efgm_raid_interface : "Raid System Interface"
 [
-	raid_time(integer) : "Raid Time" : 1500 : "The time the raid lasts, in seconds."
-
 	input StartRaid(void) : "Tells the raid system to begin the fucking raid already. Can be triggered by whatever, get creative."
+	input StartRaidForced(void) : "Like StartRaid, but bypasses all checks to make sure a raid is eligible to start."
 	input EndRaid(void) : "Tells the raid system to end the raid. Instantly. Maybe use this for like a map with a nuke or something."
 	input SetRaidTime(integer) : "Does exactly what you think it does. Useful for adding pressure to extract."
 	input SetPlayerReadiness(bool) : "Tells the raid system to mark a player as ready to join the raid."

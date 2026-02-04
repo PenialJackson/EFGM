@@ -1,5 +1,3 @@
-EFGM = {}
-
 include("shared.lua")
 include("util.lua")
 include("enums.lua")

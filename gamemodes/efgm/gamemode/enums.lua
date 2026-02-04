@@ -1,18 +1,11 @@
 -- maps
 MAPS = {
-	["efgm_belmont"] = {name = "Belmont", spawnProt = 3200},
-	["efgm_concrete"] = {name = "Concrete", spawnProt = 2304},
-	["efgm_concrete_night"] = {name = "Concrete", spawnProt = 2304},
-	["efgm_factory"] = {name = "Factory", spawnProt = 1536},
-	["efgm_factory_night"] = {name = "Factory", spawnProt = 1536}
+	["efgm_belmont"] = {name = "Belmont", time = 2400, spawnProt = 3200},
+	["efgm_concrete"] = {name = "Concrete", time = 1800, spawnProt = 2304},
+	["efgm_concrete_night"] = {name = "Concrete", time = 1800, spawnProt = 2304},
+	["efgm_factory"] = {name = "Factory", time = 1200, spawnProt = 1536},
+	["efgm_factory_night"] = {name = "Factory", time = 1200, spawnProt = 1536}
 }
-
-function GetSpawnProt()
-	local mapInfo = MAPS[game.GetMap()]
-
-	if mapInfo == nil then return 1000 end
-	return mapInfo.spawnProt
-end
 
 -- player status
 -- the DUEL enum here is just not fucking working, i can print it here and it shows, i can print it anywhere else and its fucking nil, its 6am, i dont want to find out why, fuck my retarded Garry's Mod life - penial

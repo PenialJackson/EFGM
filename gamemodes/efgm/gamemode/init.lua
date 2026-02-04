@@ -166,18 +166,16 @@ function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
 	ply:SetNWBool("InRange", false) -- just in case
 
-	ply:SetGravity(.72)
-	ply:SetMaxHealth(100)
-	ply:SetRunSpeed(220)
-	ply:SetWalkSpeed(135)
-	ply:SetJumpPower(140)
-
-	ply:SetLadderClimbSpeed(120)
-	ply:SetSlowWalkSpeed(95)
-
-	ply:SetCrouchedWalkSpeed(0.46)
-	ply:SetDuckSpeed(0.4)
-	ply:SetUnDuckSpeed(0.4)
+	ply:SetMaxHealth(EFGM.CONFIG.PlayerHealthMax)
+	ply:SetGravity(EFGM.CONFIG.PlayerGravity)
+	ply:SetWalkSpeed(EFGM.CONFIG.PlayerWalkSpeed)
+	ply:SetRunSpeed(EFGM.CONFIG.PlayerRunSpeed)
+	ply:SetSlowWalkSpeed(EFGM.CONFIG.PlayerSlowWalkSpeed)
+	ply:SetJumpPower(EFGM.CONFIG.PlayerJumpPower)
+	ply:SetLadderClimbSpeed(EFGM.CONFIG.PlayerClimbSpeed)
+	ply:SetCrouchedWalkSpeed(EFGM.CONFIG.PlayerCrouchedWalkSpeedMult)
+	ply:SetDuckSpeed(EFGM.CONFIG.PlayerCrouchEnterTime)
+	ply:SetUnDuckSpeed(EFGM.CONFIG.PlayerCrouchExitTime)
 
 	local mdls = ply:IsPMC() and PLAYERMODELS[ply:GetInfoNum("efgm_faction_preference", 0) + 1] or PLAYERMODELS[4]
 	ply:SetModel(table.SeqRandom(mdls))
@@ -188,7 +186,7 @@ function GM:PlayerSpawn(ply)
 	hook.Call("PlayerSetModel", GAMEMODE, ply)
 
 	ply:AddEFlags(EFL_NO_DAMAGE_FORCES) -- disables knockback being applied when damage is taken
-	ply:SendLua("RunConsoleCommand('r_cleardecals')") -- clear decals for that extra 2 fps
+	ply:SendLua("RunConsoleCommand('r_cleardecals')")
 	ply:SetCrouched(false)
 	ply:SetEnteringCrouch(false)
 	ply:SetExitingCrouch(false)
@@ -251,7 +249,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 		net.Start("CreateDeathInformation")
 			net.WriteFloat(xpMult)
-			if !victim:IsInRaid() then net.WriteUInt(noRaidRespawnTime, 8) else net.WriteUInt(respawnTime, 8) end
+			if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.HideoutRespawnTime, 8) else net.WriteUInt(EFGM.CONFIG.RespawnTime, 8) end
 			net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 			net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 			net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -278,7 +276,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 	net.Start("CreateDeathInformation")
 		net.WriteFloat(xpMult)
-		if !victim:IsInRaid() then net.WriteUInt(noRaidRespawnTime, 8) else net.WriteUInt(respawnTime, 8) end
+		if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.HideoutRespawnTime, 8) else net.WriteUInt(EFGM.CONFIG.RespawnTime, 8) end
 		net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 		net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 		net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -315,10 +313,9 @@ hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
 end)
 
 hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
-	local time = respawnTime
-	if !ply:IsInRaid() then time = noRaidRespawnTime end
+	local time = ply:IsInRaid() and EFGM.CONFIG.RespawnTime or EFGM.CONFIG.HideoutRespawnTime
+
 	timer.Create(ply:SteamID() .. "respawnTime", time, 1, function() end)
-	ply:SetNWBool("RaidReady", false)
 end)
 
 net.Receive("PlayerRequestRespawn", function(len, ply)
@@ -373,34 +370,42 @@ hook.Add("PlayerSpray", "PlayerSpraying", function(ply)
 	return false
 end)
 
--- temp. health regen
-local healthRegenSpeed = 1.5
-local healthRegenDamageDelay = 20
-local function Regeneration()
+local plyMeta = FindMetaTable("Player")
+if !plyMeta then Error("Could not find player table") return end
+
+function plyMeta:SetLastTimeDamaged(time)
+	self:SetNWFloat("PlayerLastDamaged", time or CurTime())
+end
+
+function plyMeta:GetLastTimeDamaged()
+	return self:GetNWFloat("PlayerLastDamaged", 0)
+end
+
+hook.Add("PostEntityTakeDamage", "PlayerRegenSetup", function(ent, dmginfo, wasDamageTaken)
+	if ent:IsPlayer() and !ent:IsInHideout() and dmginfo:GetDamage() > 0 then
+		ent:SetLastTimeDamaged(CurTime())
+	end
+end)
+
+timer.Create("HealthRegenTick", EFGM.CONFIG.HealthRegenTick, 0, function()
+	local ct = CurTime()
+
 	for _, ply in player.Iterator() do
-		if ply:Alive() then
-			if (ply:Health() < (ply.LastHealth or 0)) then ply.HealthRegenNext = CurTime() + healthRegenDamageDelay end
+		if !ply:Alive() then continue end
+		if ply:IsInHideout() then continue end
 
-			if (CurTime() > (ply.HealthRegenNext or 0)) then
-				ply.HealthRegen = (ply.HealthRegen or 0) + FrameTime()
+		if ct + EFGM.CONFIG.HealthRegenCD >= ply:GetLastTimeDamaged() then continue end
 
-				if (ply.HealthRegen >= healthRegenSpeed) then
-					local add = math.floor(ply.HealthRegen / healthRegenSpeed)
-					ply.HealthRegen = ply.HealthRegen - (add * healthRegenSpeed)
+		local health = ply:Health()
+		if health < EFGM.CONFIG.PlayerHealthMax then
+			local amt = EFGM.CONFIG.HealthRegenAmount
 
-					if (ply:Health() < 100 or healthRegenSpeed < 0) then
-						ply:SetNWInt("HealthHealed", ply:GetNWInt("HealthHealed") + add)
-						ply:SetNWInt("RaidHealthHealed", ply:GetNWInt("RaidHealthHealed") + add)
-						ply:SetHealth(math.min(ply:Health() + add, 100))
-					end
-				end
-			end
-
-			ply.LastHealth = ply:Health()
+			ply:SetHealth(math.min(health + amt, EFGM.CONFIG.PlayerHealthMax))
+			ply:SetNWInt("HealthHealed", ply:GetNWInt("HealthHealed") + amt)
+			ply:SetNWInt("RaidHealthHealed", ply:GetNWInt("RaidHealthHealed") + amt)
 		end
 	end
-end
-hook.Add("Think", "HealthRegen", Regeneration)
+end)
 
 function ApplyPlayerExperience(ply, mult)
 	local exp = 0

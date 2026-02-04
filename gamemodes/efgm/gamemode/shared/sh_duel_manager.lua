@@ -29,10 +29,9 @@ if SERVER then
 		local primaryItem, secondaryItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
-			v:AddFlags(FL_GODMODE, FL_FROZEN)
+			v:AddFlags(bit.bor(FL_GODMODE, FL_FROZEN))
 			v:SetRaidStatus(3, "")
 			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
-			v:SetNWBool("RaidReady", false)
 			v:SetNWBool("PlayerIsPMC", true)
 			v:SetNWBool("InRange", true)
 
@@ -60,8 +59,10 @@ if SERVER then
 			timer.Simple(1, function()
 				v:SetHealth(v:GetMaxHealth())
 				v:SendLua("RunConsoleCommand('r_cleardecals')")
+
+				v:RemoveFlags(FL_FROZEN)
 				v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
-				v:RemoveFlags(FL_GODMODE, FL_FROZEN)
+				v:RemoveFlags(FL_GODMODE)
 
 				timer.Simple(0.8, function() DUEL:ReloadLoadoutItems(v) end) -- ughhhhhhh
 			end)
@@ -93,11 +94,11 @@ if SERVER then
 			net.WriteUInt(0, 1)
 		net.Send(winningPly)
 
-		winningPly:GodEnable()
+		winningPly:AddFlags(FL_GODMODE)
 		if winningPly:GetActiveWeapon() != NULL then winningPly:GetActiveWeapon():SetClip1(-1) end
 
 		timer.Simple(0.5, function()
-			winningPly:AddFlags(FL_GODMODE, FL_FROZEN)
+			winningPly:AddFlags(FL_FROZEN)
 		end)
 
 		timer.Simple(1, function()
@@ -109,8 +110,10 @@ if SERVER then
 
 			winningPly:SetHealth(winningPly:GetMaxHealth())
 			winningPly:SendLua("RunConsoleCommand('r_cleardecals')")
+
+			winningPly:RemoveFlags(FL_FROZEN)
 			winningPly:Teleport(spawn:GetPos(), spawn:GetAngles(), Vector(0, 0, 0))
-			winningPly:RemoveFlags(FL_GODMODE, FL_FROZEN)
+			winningPly:RemoveFlags(FL_GODMODE)
 		end)
 	end
 

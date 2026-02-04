@@ -789,7 +789,7 @@ net.Receive("CreateDeathInformation", function()
 
 	local quote = QUOTES[math.random(1, #QUOTES)]
 
-	if respawnTime > noRaidRespawnTime then surface.PlaySound("death_heartbeat.wav") end
+	surface.PlaySound("death_heartbeat.wav")
 
 	timer.Simple(respawnTime, function()
 		if IsValid(DeathPopup) then return end
@@ -866,7 +866,7 @@ net.Receive("CreateDeathInformation", function()
 			if respawnButton then respawnButton:SetX(ScrW() / 2 - respawnButton:GetWide() / 2) end
 		end
 
-		if respawnTime > noRaidRespawnTime then surface.PlaySound("extract_failed.wav") end
+		if respawnTime > EFGM.CONFIG.HideoutRespawnTime then surface.PlaySound("extract_failed.wav") end
 
 		respawnButton = vgui.Create("DButton", DeathPopup)
 		respawnButton:SetSize(EFGM.MenuScale(1020), EFGM.MenuScale(50))
@@ -892,7 +892,7 @@ net.Receive("CreateDeathInformation", function()
 			DeathDocker:AlphaTo(0, 0.9, 0.1, function() DeathDocker:Remove() end)
 		end
 
-		if respawnTime > noRaidRespawnTime then
+		if respawnTime > EFGM.CONFIG.HideoutRespawnTime then
 			RewardsPanel = vgui.Create("DPanel", DeathPopup)
 			RewardsPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
 			RewardsPanel:SetPos(DeathPopup:GetWide() / 2 - EFGM.MenuScale(510), EFGM.MenuScale(140))

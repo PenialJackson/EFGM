@@ -2,6 +2,13 @@
 -- i mean genuinely who needs 600 lines for a fucking script jesus christ
 -- yooo the fuckings on 1 and 2 lined up lets fucking goooooo
 
+function GetSpawnProt()
+	local mapInfo = MAPS[game.GetMap()]
+
+	if mapInfo == nil then return 1000 end
+	return mapInfo.spawnProt
+end
+
 -- raid
 function GetValidRaidSpawn(status)
 	if status == 0 or status == 3 then status = 1 end -- shouldn't be possible but i am going to play it safe

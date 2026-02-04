@@ -1,10 +1,13 @@
-if SERVER and !game.SinglePlayer() then
+local sp = game.SinglePlayer()
+
+if SERVER then
 	CRF = {}
 	CRF[1] = RecipientFilter() -- hideout
 	CRF[2] = RecipientFilter() -- in raid
 
 	function UpdateAudioFilter(ply, id)
-		if !IsValid(ply) then return end
+		if !IsValid(ply) or sp then return end
+
 		RemovePlayerFromAllFilters(ply)
 
 		local f = 1
@@ -14,18 +17,22 @@ if SERVER and !game.SinglePlayer() then
 	end
 
 	function RemovePlayerFromAllFilters(ply)
+		if !IsValid(ply) or sp then return end
+
 		for index, filter in ipairs(CRF) do
 			filter:RemovePlayer(ply)
 		end
 	end
 
-	hook.Add("PlayerInitialSpawn", "AddToDefaultFilterOnConnect", function(ply)
-		CRF[1]:AddPlayer(ply)
-	end)
+	if !sp then
+		hook.Add("PlayerInitialSpawn", "AddToDefaultFilterOnConnect", function(ply)
+			CRF[1]:AddPlayer(ply)
+		end)
 
-	hook.Add("PlayerDisconnected", "RemoveFromFiltersOnDC", function(ply)
-		RemovePlayerFromAllFilters(ply)
-	end)
+		hook.Add("PlayerDisconnected", "RemoveFromFiltersOnDC", function(ply)
+			RemovePlayerFromAllFilters(ply)
+		end)
+	end
 end
 
 local footsteps_int =

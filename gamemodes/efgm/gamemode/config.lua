@@ -1,7 +1,36 @@
-respawnTime = 7
-noRaidRespawnTime = 3
-underweightLimit = 30
-sellMultiplier = 0.5
+-- player
+EFGM.CONFIG.PlayerHealthMax = 100
+EFGM.CONFIG.PlayerGravity = .72
+EFGM.CONFIG.PlayerWalkSpeed = 135
+EFGM.CONFIG.PlayerRunSpeed = 220
+EFGM.CONFIG.PlayerSlowWalkSpeed = 95
+EFGM.CONFIG.PlayerCrouchedWalkSpeedMult = 0.46
+EFGM.CONFIG.PlayerJumpPower = 140
+EFGM.CONFIG.PlayerClimbSpeed = 100
+EFGM.CONFIG.PlayerCrouchEnterTime = 0.4
+EFGM.CONFIG.PlayerCrouchExitTime = 0.34
+
+-- raid
+EFGM.CONFIG.RaidMinimumPlayers = 3
+
+-- squads
+EFGM.CONFIG.SquadMaxSize = 4
+
+-- respawn times
+-- (0 - 255 range)
+EFGM.CONFIG.RespawnTime = 7
+EFGM.CONFIG.HideoutRespawnTime = 3
+
+-- health regeneration
+EFGM.CONFIG.HealthRegenTick = 1
+EFGM.CONFIG.HealthRegenAmount = 1
+EFGM.CONFIG.HealthRegenCD = 20
+
+-- weight
+EFGM.CONFIG.UnderweightLimit = 30
+
+-- market
+EFGM.CONFIG.SellMultiplier = 0.5
 
 levelArray = {}
 levelArray[1] = 350
@@ -10,6 +39,7 @@ for i = 2, 47 do
 end
 levelArray[48] = "max"
 
+-- override ARC9 config
 ARC9.NoHUD = true
 ARC9.NoTPIK = true
 

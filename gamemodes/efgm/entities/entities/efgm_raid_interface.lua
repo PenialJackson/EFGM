@@ -1,15 +1,9 @@
 ENT.Type = "point"
 ENT.Base = "base_point"
 
-ENT.RaidTime = 0
-
 local ent
 
 function ENT:KeyValue(key, value)
-	if key == "raid_time" then
-		self.RaidTime = tonumber(value)
-	end
-
 	if key == "OnRaidStart" then
 		self:StoreOutput(key, value)
 	end
@@ -55,7 +49,11 @@ end)
 
 function ENT:AcceptInput(name, ply, caller, data)
 	if name == "StartRaid" then
-		RAID:StartRaid(self.RaidTime)
+		RAID:StartRaid(false)
+	end
+
+	if name == "StartRaidForced" then
+		RAID:StartRaid(true)
 	end
 
 	if name == "EndRaid" then
