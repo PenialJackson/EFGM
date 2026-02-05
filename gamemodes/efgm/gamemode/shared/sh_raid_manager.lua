@@ -47,7 +47,8 @@ if SERVER then
 
 	function RAID:StartRaid(forced)
 		if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
-		if !forced or #player.GetAll() < EFGM.CONFIG.RaidMinimumPlayers and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+
+		if !forced and #player.GetAll() < EFGM.CONFIG.RaidMinimumPlayers and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
 
 		local time = MAPS[game.GetMap()].time or 1800
 

@@ -115,10 +115,16 @@ hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, inWater, onFloater, sp
 	end
 end)
 
--- consistent bhopping on higher tick rate
-hook.Add("SetupMove", "FixHighTickBhop", function(ply, mv, cmd)
-	if mv:KeyPressed(IN_JUMP) and ply:OnGround() then
-		mv:SetButtons(bit.bor(mv:GetButtons(), IN_JUMP))
+-- ladders
+hook.Add("SetupMove", "LadderMovement", function(ply, mv, cmd)
+	if !IsValid(ply) or !ply:Alive() then return end
+
+	if ply:GetMoveType() == MOVETYPE_LADDER then
+		mv:SetButtons(bit.band(mv:GetButtons(), bit.bnot(IN_DUCK)))
+
+		if ply:Crouching() then
+			ply:ConCommand("-duck")
+		end
 	end
 end)
 
@@ -142,7 +148,7 @@ hook.Add("SetupMove", "Leaning", function(ply, mv, cmd)
 
 	local speed = leanSpeed * math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.UnderweightLimit) * 0.0109, 3)))
 
-	local allow = !ply:IsSprinting() or !ply:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT)
+	local allow = (!ply:IsSprinting() or !ply:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT)) and ply:GetMoveType() != MOVETYPE_LADDER
 
 	if allow then
 		if leaning_left then fraction = Lerp(FrameTime() * 5 * speed + FrameTime(), fraction, -1) end
@@ -355,10 +361,15 @@ hook.Add("Move", "MovementWeight", function(ply, mv)
 
 	local deduction = math.max(0, math.min(maxLossMove, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.UnderweightLimit) * 0.818, 3)))
 
-	ply:SetRunSpeed(220 - deduction)
-	ply:SetWalkSpeed(135 - deduction)
-	ply:SetLadderClimbSpeed(120 - deduction)
-	ply:SetSlowWalkSpeed(95 - deduction)
+	ply:SetWalkSpeed(EFGM.CONFIG.PlayerWalkSpeed - deduction)
+	ply:SetRunSpeed(EFGM.CONFIG.PlayerRunSpeed - deduction)
+	ply:SetSlowWalkSpeed(EFGM.CONFIG.PlayerSlowWalkSpeed - deduction)
+
+	if !ply:IsWalking() then
+		ply:SetLadderClimbSpeed(EFGM.CONFIG.PlayerClimbSpeed - (deduction / 2))
+	else
+		ply:SetLadderClimbSpeed((EFGM.CONFIG.PlayerClimbSpeed / 1.5) - (deduction / 2))
+	end
 
 	if !ply:IsOnGround() or CLIENT then return end
 

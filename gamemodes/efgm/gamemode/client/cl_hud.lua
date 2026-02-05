@@ -25,6 +25,7 @@ local function RenderRaidTime()
 	local raidTime = string.FormattedTime(GetGlobalInt("RaidTimeLeft", 0), "%02i:%02i")
 	local raidStatus = GetGlobalInt("RaidStatus", 0)
 
+	BlurRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36), 4, 2)
 	surface.SetDrawColor(raidStatusTbl[raidStatus])
 	surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
 	draw.DrawText(raidTime, "BenderExfilList", ScrW() - EFGM.ScreenScale(70) - HUD.Padding, EFGM.ScreenScale(19), Colors.whiteColor, TEXT_ALIGN_CENTER)
@@ -59,6 +60,8 @@ local function RenderPlayerWeapon()
 	local wepColor = Colors.whiteColor
 	if wep.Hook_RedPrintName then status = wep:RunHook("Hook_RedPrintName") end
 	if status then wepColor = Colors.deadColor end
+
+	BlurRect(ScrW() - EFGM.ScreenScale(37) - ammoTextSize - HUD.Padding, ScrH() - EFGM.ScreenScale(75), ammoTextSize + EFGM.ScreenScale(17), EFGM.ScreenScale(35), 4, 2)
 	surface.SetDrawColor(Colors.hudBackground)
 	surface.DrawRect(ScrW() - EFGM.ScreenScale(37) - ammoTextSize - HUD.Padding, ScrH() - EFGM.ScreenScale(75), ammoTextSize + EFGM.ScreenScale(17), EFGM.ScreenScale(35))
 	draw.DrawText(tostring(magstatus), "BenderAmmoCount", ScrW() - EFGM.ScreenScale(34) - HUD.Padding, ScrH() - EFGM.ScreenScale(74), wepColor, TEXT_ALIGN_RIGHT)
@@ -214,6 +217,7 @@ function RenderExtracts()
 		if !LocalPlayer():Alive() then return end
 		if extractList == nil then return end
 
+		BlurRect(ScrW() - EFGM.ScreenScale(515) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(390), EFGM.ScreenScale(36), 4, 2)
 		surface.SetDrawColor(Colors.hudBackground)
 		surface.DrawRect(ScrW() - EFGM.ScreenScale(515) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(390), EFGM.ScreenScale(36))
 		draw.SimpleTextOutlined("FIND AN EXTRACTION POINT", "BenderAmmoCount", ScrW() - EFGM.ScreenScale(320) - HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.ScreenScaleRounded(1), Color(0, 100, 0, 128))
@@ -284,6 +288,7 @@ function RenderPlayerInfo(ent)
 	local infoSizeY = EFGM.ScreenScale(90)
 	if !inHideout then infoSize = nameTextSize infoSizeY = EFGM.ScreenScale(65) end
 
+	BlurRect(ScrW() / 2 - (infoSize / 2), ScrH() - infoSizeY - EFGM.ScreenScale(20), infoSize, infoSizeY, 4, 2)
 	surface.SetDrawColor(Colors.hudBackground)
 	surface.DrawRect(ScrW() / 2 - (infoSize / 2), ScrH() - infoSizeY - EFGM.ScreenScale(20), infoSize, infoSizeY)
 
@@ -379,6 +384,7 @@ function RenderInvite()
 		if !LocalPlayer():IsInHideout() then return end
 		if Invites.invitedBy == nil or Invites.invitedType == nil or !Invites.allow then self:AlphaTo(0, 0.1, 9.9, function() self:Remove() end) return end
 
+		BlurRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(90), 4, 2)
 		surface.SetDrawColor(Colors.hudBackground)
 		surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(90))
 
@@ -471,6 +477,7 @@ function RenderDuelLoadout()
 		if !LocalPlayer():Alive() then return end
 		if !LocalPlayer():IsInDuel() then return end
 
+		BlurRect(ScrW() / 2 - (loadoutSize / 2), ScrH() - loadoutSizeY - EFGM.ScreenScale(20), loadoutSize, loadoutSizeY, 4, 2)
 		surface.SetDrawColor(Colors.hudBackground)
 		surface.DrawRect(ScrW() / 2 - (loadoutSize / 2), ScrH() - loadoutSizeY - EFGM.ScreenScale(20), loadoutSize, loadoutSizeY)
 
@@ -761,10 +768,11 @@ net.Receive("SendExtractionStatus", function()
 			draw.DrawText("EXTRACTION IN", "BenderExfilList", w / 2, h - EFGM.ScreenScale(300), Colors.blackColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
 			draw.DrawText(string.format("%.1f", tostring(exitTimeLeft)), "BenderExfilTimer", w / 2, h - EFGM.ScreenScale(275), Colors.blackColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
 
+			BlurRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(215), EFGM.ScreenScale(250), EFGM.ScreenScale(5), 4, 2)
 			surface.SetDrawColor(Colors.hudBackground)
 			surface.DrawRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(215), EFGM.ScreenScale(250), EFGM.ScreenScale(5))
 
-			surface.SetDrawColor(120, 180, 40, 125)
+			surface.SetDrawColor(120, 180, 40, 85)
 			surface.DrawRect((w / 2) - EFGM.ScreenScale(250) * (exitTimeLeft / exitTime) / 2, h - EFGM.ScreenScale(215), EFGM.ScreenScale(250) * (exitTimeLeft / exitTime), EFGM.ScreenScale(5))
 		end
 
@@ -886,7 +894,7 @@ net.Receive("CreateDeathInformation", function()
 
 	local quote = QUOTES[math.random(1, #QUOTES)]
 
-	surface.PlaySound("death_heartbeat.wav")
+	if respawnTime > EFGM.CONFIG.HideoutRespawnTime then surface.PlaySound("death_heartbeat.wav") end
 
 	timer.Simple(respawnTime, function()
 		if IsValid(HUD.ELEMENTS.DeathPostScreen) then return end
@@ -2448,6 +2456,7 @@ net.Receive("VoteableMaps", function(len)
 				map2Votes = math.Round(GetGlobalInt("MapVotes_2", 0) / (GetGlobalInt("MapVotes_2", 0) + GetGlobalInt("MapVotes_1", 0)) * 100)
 			end
 
+			BlurRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(250), 4, 2)
 			surface.SetDrawColor(Colors.hudBackground)
 			surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(250))
 

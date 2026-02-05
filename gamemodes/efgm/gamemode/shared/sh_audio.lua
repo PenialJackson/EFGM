@@ -161,7 +161,7 @@ for i = 1, 5 do
 				name = "mfw.ladder_" .. w .. "_" .. f .. "_0" .. i,
 				channel = CHAN_AUTO,
 				volume = 1,
-				level = 84,
+				level = 81,
 				pitch = 100,
 				sound = "foley/foot/ladder/step_climb_" .. w .. "_ladder_" .. f .. "_0" .. i .. ".wav"
 			})
@@ -259,7 +259,7 @@ hook.Add("PlayerFootstep", "CustomFootstepVolume", function(ply, pos, footSteppe
 		ply:EmitSound("mfw.ladder_hands_" .. step .. "_0" .. math.random(1, 5))
 		ply:EmitSound("mfwmvmt.gear_accent" .. math.random(1, 20))
 
-		timer.Simple(0.25, function()
+		timer.Simple(0.2, function()
 			if !IsValid(ply) then return true end
 			ply:EmitSound("mfw.ladder_foot_" .. step .. "_0" .. math.random(1, 5))
 		end)

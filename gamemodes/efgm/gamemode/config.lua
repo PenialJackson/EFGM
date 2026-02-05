@@ -1,3 +1,5 @@
+EFGM.CONFIG = {}
+
 -- player
 EFGM.CONFIG.PlayerHealthMax = 100
 EFGM.CONFIG.PlayerGravity = .72
@@ -6,9 +8,9 @@ EFGM.CONFIG.PlayerRunSpeed = 220
 EFGM.CONFIG.PlayerSlowWalkSpeed = 95
 EFGM.CONFIG.PlayerCrouchedWalkSpeedMult = 0.46
 EFGM.CONFIG.PlayerJumpPower = 140
-EFGM.CONFIG.PlayerClimbSpeed = 100
+EFGM.CONFIG.PlayerClimbSpeed = 90
 EFGM.CONFIG.PlayerCrouchEnterTime = 0.4
-EFGM.CONFIG.PlayerCrouchExitTime = 0.34
+EFGM.CONFIG.PlayerCrouchExitTime = 0.46
 
 -- raid
 EFGM.CONFIG.RaidMinimumPlayers = 3
