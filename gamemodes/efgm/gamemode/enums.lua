@@ -29,6 +29,11 @@ duelStatus = {
 	ACTIVE = 1
 }
 
+inviteTypes = {
+	DUEL = 1,
+	SQUAD = 2
+}
+
 -- tried to make shit adjustable, that way you could say fuck it and let everyone carry 100 grenades or knives or both or neither and it'd let them
 -- that could even be added with like convars and shit
 -- max of 4 bits yada yada yada you surely get it by now

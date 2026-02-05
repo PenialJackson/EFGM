@@ -1,6 +1,5 @@
 HUD = HUD or {}
 HUD.Enabled = GetConVar("efgm_hud_enable")
-HUD.InTransition = false
 HUD.InIntro = false
 HUD.IntroEnt = NULL
 HUD.VotedMap = nil
@@ -8,10 +7,11 @@ HUD.VotedMap = nil
 local paddingCVar = GetConVar("efgm_hud_padding")
 HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 
+HUD.ELEMENTS = HUD.ELEMENTS or {}
+
 local math = math
 local table = table
 local net = net
-local player = player
 local timer = timer
 local util = util
 
@@ -183,7 +183,7 @@ end
 
 -- extract list
 function RenderExtracts()
-	if IsValid(extracts) then return end
+	if IsValid(HUD.ELEMENTS.ExtractList) then return end
 
 	local extractList
 	net.Receive("SendExtractList", function(len)
@@ -193,13 +193,17 @@ function RenderExtracts()
 	net.Start("GrabExtractList")
 	net.SendToServer()
 
-	local panel = GetHUDPanel()
+	local extracts = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.ExtractList = extracts
 
-	extracts = vgui.Create("DPanel", panel)
 	extracts:SetSize(ScrW(), ScrH())
 	extracts:SetPos(0, 0)
 	extracts:SetAlpha(0)
 	extracts:MoveToFront()
+
+	function extracts:OnRemove()
+		HUD.ELEMENTS.ExtractList = nil
+	end
 
 	local exitStatusTbl = {
 		[false] = Color(255, 255, 255, 255), -- extract open
@@ -229,15 +233,19 @@ end
 
 -- intro
 function RenderRaidIntro()
-	if IsValid(intro) then return end
+	if IsValid(HUD.ELEMENTS.Intro) then return end
 
-	local panel = GetHUDPanel()
+	local intro = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.Intro = intro
 
-	intro = vgui.Create("DPanel", panel)
 	intro:SetSize(ScrW(), ScrH())
 	intro:SetPos(0, 0)
 	intro:SetAlpha(0)
 	intro:MoveToFront()
+
+	function intro:OnRemove()
+		HUD.ELEMENTS.Intro = nil
+	end
 
 	function intro:Paint(w, h)
 		if !LocalPlayer():Alive() then return end
@@ -328,15 +336,19 @@ local declineCVar = GetConVar("efgm_bind_invites_decline")
 
 -- invites
 function RenderInvite()
-	if IsValid(invite) then return end
+	if IsValid(HUD.ELEMENTS.Invite) then return end
 
-	local panel = GetHUDPanel()
+	local invite = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.Invite = invite
 
-	invite = vgui.Create("DPanel", panel)
 	invite:SetSize(ScrW(), ScrH())
 	invite:SetPos(0, 0)
 	invite:SetAlpha(0)
 	invite:MoveToFront()
+
+	function invite:OnRemove()
+		HUD.ELEMENTS.Invite = nil
+	end
 
 	surface.PlaySound("ui/invite_receive.wav")
 
@@ -345,10 +357,11 @@ function RenderInvite()
 	local inviteType = Invites.invitedType
 
 	local text = ""
-	if inviteType == "squad" then
+
+	if inviteType == inviteTypes.SQUAD then
+		text = string.upper(sentBy:GetName() .. " invited you to duel!")
+	elseif inviteType == inviteTypes.DUEL then
 		text = string.upper(sentBy:GetName() .. " invited you to join their squad!")
-	elseif inviteType == "duel" then
-		text = string.upper(sentBy:GetName() .. " wants to duel!")
 	end
 
 	surface.SetFont("BenderExfilTimer")
@@ -385,15 +398,15 @@ end
 
 -- duel loadout
 function RenderDuelLoadout()
-	if IsValid(DuelLoadout) then DuelLoadout:Remove() end
+	if IsValid(HUD.ELEMENTS.DuelLoadout) then return end
 
-	local panel = GetHUDPanel()
+	local duelLoadout = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.DuelLoadout = duelLoadout
 
-	DuelLoadout = vgui.Create("DPanel", panel)
-	DuelLoadout:SetSize(ScrW(), ScrH())
-	DuelLoadout:SetPos(0, 0)
-	DuelLoadout:SetAlpha(0)
-	DuelLoadout:MoveToFront()
+	duelLoadout:SetSize(ScrW(), ScrH())
+	duelLoadout:SetPos(0, 0)
+	duelLoadout:SetAlpha(0)
+	duelLoadout:MoveToFront()
 
 	local primary = playerWeaponSlots[1][1] or nil
 	local holster = playerWeaponSlots[2][1] or nil
@@ -425,7 +438,7 @@ function RenderDuelLoadout()
 	if hasPrimary then
 		primaryDef = EFGMITEMS[primary.name]
 
-		primaryName = primaryDef.displayName
+		primaryName = primaryDef.displayName or ""
 		primaryNameSize = surface.GetTextSize(primaryName) + EFGM.ScreenScale(140)
 		primaryCal = primaryDef.caliber or ""
 
@@ -438,7 +451,7 @@ function RenderDuelLoadout()
 	if hasHolster then
 		holsterDef = EFGMITEMS[holster.name]
 
-		holsterName = holsterDef.displayName
+		holsterName = holsterDef.displayName or ""
 		holsterNameSize = surface.GetTextSize(holsterName) + EFGM.ScreenScale(140)
 
 		holsterCal = holsterDef.caliber or ""
@@ -454,7 +467,7 @@ function RenderDuelLoadout()
 	local holsterY = EFGM.ScreenScale(-18)
 	if hasPrimary then loadoutSizeY = EFGM.ScreenScale(90) holsterY = EFGM.ScreenScale(25) end
 
-	function DuelLoadout:Paint(w, h)
+	function duelLoadout:Paint(w, h)
 		if !LocalPlayer():Alive() then return end
 		if !LocalPlayer():IsInDuel() then return end
 
@@ -501,8 +514,8 @@ function RenderDuelLoadout()
 		end
 	end
 
-	DuelLoadout:AlphaTo(255, 0.35, 0, nil)
-	DuelLoadout:AlphaTo(0, 0.1, 3.35, function() DuelLoadout:Remove() end)
+	duelLoadout:AlphaTo(255, 0.35, 0, nil)
+	duelLoadout:AlphaTo(0, 0.1, 3.35, function() duelLoadout:Remove() end)
 end
 
 local function DrawHUD()
@@ -553,19 +566,23 @@ net.Receive("SendIntroCamera", function()
 	HUD.IntroEnt = ent or NULL
 end)
 
-local transition
-
 net.Receive("PlayerTransition", function()
-	HUD.InTransition = true
+	if IsValid(HUD.ELEMENTS.Transition) then return end
+	if IsValid(HUD.ELEMENTS.Notification) then
+		HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() HUD.ELEMENTS.Notification:Remove() end)
+	end
 
-	if IsValid(transition) then transition:Remove() end
-	if IsValid(notif) then notif:Remove() end
+	local transition = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.Transition = transition
 
-	transition = vgui.Create("DPanel", GetHUDPanel())
 	transition:SetSize(ScrW(), ScrH())
 	transition:SetPos(0, 0)
 	transition:SetAlpha(0)
 	transition:MoveToFront()
+
+	function transition:OnRemove()
+		HUD.ELEMENTS.Transition = nil
+	end
 
 	function transition:Paint(w, h)
 		BlurPanel(self, 6, 4)
@@ -576,7 +593,6 @@ net.Receive("PlayerTransition", function()
 
 	transition:AlphaTo(255, 0.5, 0, nil)
 	transition:AlphaTo(0, 0.35, 1, function()
-		HUD.InTransition = false
 		transition:Remove()
 	end)
 
@@ -612,17 +628,24 @@ net.Receive("PlayerRaidTransition", function()
 		end)
 	end
 
-	HUD.InTransition = true
 	Menu.PerferredTab = nil
 
-	if IsValid(transition) then transition:Remove() end
-	if IsValid(notif) then notif:Remove() end
+	if IsValid(HUD.ELEMENTS.Transition) then return end
+	if IsValid(HUD.ELEMENTS.Notification) then
+		HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() HUD.ELEMENTS.Notification:Remove() end)
+	end
 
-	transition = vgui.Create("DPanel", GetHUDPanel())
+	local transition = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.Transition = transition
+
 	transition:SetSize(ScrW(), ScrH())
 	transition:SetPos(0, 0)
 	transition:SetAlpha(0)
 	transition:MoveToFront()
+
+	function transition:OnRemove()
+		HUD.ELEMENTS.Transition = nil
+	end
 
 	function transition:Paint(w, h)
 		BlurPanel(self, 6, 4)
@@ -636,7 +659,6 @@ net.Receive("PlayerRaidTransition", function()
 
 	transition:AlphaTo(255, 0.5, 0, nil)
 	transition:AlphaTo(0, fadeOutTime, 1, function()
-		HUD.InTransition = false
 		transition:Remove()
 	end)
 
@@ -658,17 +680,24 @@ net.Receive("PlayerDuelTransition", function()
 		timer.Simple(1, function() RenderDuelLoadout() end)
 	end
 
-	HUD.InTransition = true
 	Menu.PerferredTab = nil
 
-	if IsValid(transition) then transition:Remove() end
-	if IsValid(notif) then notif:Remove() end
+	if IsValid(HUD.ELEMENTS.Transition) then return end
+	if IsValid(HUD.ELEMENTS.Notification) then
+		HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() HUD.ELEMENTS.Notification:Remove() end)
+	end
 
-	transition = vgui.Create("DPanel", GetHUDPanel())
+	local transition = vgui.Create("DPanel", GetHUDPanel())
+	HUD.ELEMENTS.Transition = transition
+
 	transition:SetSize(ScrW(), ScrH())
 	transition:SetPos(0, 0)
 	transition:SetAlpha(0)
 	transition:MoveToFront()
+
+	function transition:OnRemove()
+		HUD.ELEMENTS.Transition = nil
+	end
 
 	function transition:Paint(self, w, h)
 		BlurPanel(self, 6, 4)
@@ -679,7 +708,6 @@ net.Receive("PlayerDuelTransition", function()
 
 	transition:AlphaTo(255, 0.5, 0, nil)
 	transition:AlphaTo(0, 0.35, 1, function()
-		HUD.InTransition = false
 		transition:Remove()
 	end)
 
@@ -698,12 +726,13 @@ net.Receive("SendExtractionStatus", function()
 	local status = net.ReadBool()
 
 	if status then
-		if IsValid(ExtractPopup) then return end
+		if IsValid(HUD.ELEMENTS.ExtractProgress) then return end
 
 		local exitTime = net.ReadUInt(8)
 		local exitTimeLeft = exitTime
+
 		timer.Create("TimeToExit", exitTime, 1, function()
-			ExtractPopup:Remove()
+			HUD.ELEMENTS.ExtractProgress:Remove()
 			hook.Remove("Think", "TimeToExit")
 		end)
 
@@ -711,15 +740,21 @@ net.Receive("SendExtractionStatus", function()
 			if timer.Exists("TimeToExit") then exitTimeLeft = math.Round(timer.TimeLeft("TimeToExit"), 1) end
 		end)
 
-		local panel = GetHUDPanel()
+		local extractPopup = vgui.Create("DPanel", GetHUDPanel())
+		HUD.ELEMENTS.ExtractProgress = transition
 
-		ExtractPopup = vgui.Create("DPanel", panel)
-		ExtractPopup:SetSize(ScrW(), ScrH())
-		ExtractPopup:SetPos(0, 0)
-		ExtractPopup:SetAlpha(0)
-		ExtractPopup:MoveToFront()
+		extractPopup:SetSize(ScrW(), ScrH())
+		extractPopup:SetPos(0, 0)
+		extractPopup:SetAlpha(0)
+		extractPopup:MoveToFront()
 
-		function ExtractPopup:Paint(w, h)
+		function extractPopup:OnRemove()
+			HUD.ELEMENTS.ExtractProgress = nil
+			timer.Remove("TimeToExit")
+			hook.Remove("Think", "TimeToExit")
+		end
+
+		function extractPopup:Paint(w, h)
 			surface.SetDrawColor(120, 180, 40, 125)
 			surface.DrawRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(300), EFGM.ScreenScale(250), EFGM.ScreenScale(80))
 
@@ -733,11 +768,73 @@ net.Receive("SendExtractionStatus", function()
 			surface.DrawRect((w / 2) - EFGM.ScreenScale(250) * (exitTimeLeft / exitTime) / 2, h - EFGM.ScreenScale(215), EFGM.ScreenScale(250) * (exitTimeLeft / exitTime), EFGM.ScreenScale(5))
 		end
 
-		ExtractPopup:AlphaTo(255, 0.1, 0, nil)
+		extractPopup:AlphaTo(255, 0.1, 0, nil)
 	else
-		if !IsValid(ExtractPopup) then return end
-		ExtractPopup:AlphaTo(0, 0.1, 0, function() ExtractPopup:Remove() timer.Remove("TimeToExit") hook.Remove("Think", "TimeToExit") end)
+		if !IsValid(HUD.ELEMENTS.ExtractProgress) then return end
+		extractPopup:AlphaTo(0, 0.1, 0, function() extractPopup:Remove() end)
 	end
+end)
+
+-- notifications
+function CreateNotification(text, icon, snd)
+	if IsValid(HUD.ELEMENTS.Notification) then HUD.ELEMENTS.Notification:Remove() return end
+
+	local panel = GetHUDPanel()
+	if Menu.MenuFrame != nil and Menu.MenuFrame:IsActive() == true then panel = Menu.MenuFrame end
+	if HUD.ELEMENTS.DeathPostScreen != nil and HUD.ELEMENTS.DeathPostScreen:IsValid() then panel = HUD.ELEMENTS.DeathPostScreen end
+	if HUD.ELEMENTS.ExtractPostScreen != nil and HUD.ELEMENTS.ExtractPostScreen:IsValid() then panel = HUD.ELEMENTS.ExtractPostScreen end
+
+	surface.SetFont("BenderNotification")
+	local tw = surface.GetTextSize(text) + EFGM.ScreenScale(45)
+
+	local notif = vgui.Create("DPanel", panel)
+	HUD.ELEMENTS.Notification = notif
+
+	notif:SetPos(ScrW() / 2 - (tw / 2), ScrH())
+	notif:SetSize(tw, EFGM.ScreenScale(30))
+	notif:SetAlpha(0)
+	notif:MoveToFront()
+
+	function notif:OnRemove()
+		HUD.ELEMENTS.Notification = nil
+	end
+
+	notif:MoveTo(ScrW() / 2 - (tw / 2), ScrH() - EFGM.ScreenScale(40), 0.25, 0.1, 1, nil)
+	notif:AlphaTo(255, 0.3, 0.1, nil)
+
+	notif:AlphaTo(0, 0.2, 4, function() notif:Remove() end)
+	notif:MoveTo(ScrW() / 2 - (tw / 2), ScrH(), 0.25, 4, 1, nil)
+
+	if snd then surface.PlaySound(snd) end
+
+	function notif:Paint(w, h)
+		BlurPanel(self, 3)
+
+		surface.SetDrawColor(0, 0, 0, 200)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.ScreenScale(1))
+
+		surface.SetDrawColor(255, 255, 255, 255)
+		surface.SetMaterial(icon)
+		surface.DrawTexturedRect(EFGM.ScreenScale(2), 0, h, h)
+
+		surface.SetFont("BenderNotification")
+		surface.SetTextPos(w - tw + EFGM.ScreenScale(36), EFGM.ScreenScale(0.5))
+		surface.SetTextColor(255, 255, 255, 255)
+		surface.DrawText(text)
+	end
+end
+
+net.Receive("SendNotification", function()
+	local text = net.ReadString()
+	local mat = net.ReadString()
+	local snd = net.ReadString()
+
+	local material = Material(mat, "smooth")
+
+	CreateNotification(text, material, snd)
 end)
 
 local parallaxCVar = GetConVar("efgm_menu_parallax")
@@ -792,36 +889,42 @@ net.Receive("CreateDeathInformation", function()
 	surface.PlaySound("death_heartbeat.wav")
 
 	timer.Simple(respawnTime, function()
-		if IsValid(DeathPopup) then return end
+		if IsValid(HUD.ELEMENTS.DeathPostScreen) then return end
 
-		local RewardsPanel = nil
-		local AttackerPanel = nil
-		local MapPanel = nil
+		local rewardsPanel = nil
+		local attackerPanel = nil
+		local mapPanel = nil
 		local respawnButton = nil
 
-		local DeathDocker = vgui.Create("DPanel", GetHUDPanel())
-		DeathDocker:SetSize(ScrW(), ScrH())
-		DeathDocker:SetPos(0, 0)
-		DeathDocker:SetAlpha(0)
-		DeathDocker:AlphaTo(255, 0.2, 0, nil)
+		local deathDocker = vgui.Create("DPanel", GetHUDPanel())
+		deathDocker:SetSize(ScrW(), ScrH())
+		deathDocker:SetPos(0, 0)
+		deathDocker:SetAlpha(0)
+		deathDocker:AlphaTo(255, 0.2, 0, nil)
 
-		function DeathDocker:Paint(w, h)
+		function deathDocker:Paint(w, h)
 			BlurPanel(self, 6, 4)
 
 			surface.SetDrawColor(Color(0, 0, 0, 255))
 			surface.DrawRect(0, 0, w, h)
 		end
 
-		DeathPopup = vgui.Create("DPanel", DeathDocker)
-		DeathPopup:SetSize(ScrW(), ScrH())
-		DeathPopup:SetPos(0, 0)
-		DeathPopup:SetAlpha(0)
-		DeathPopup:AlphaTo(255, 0.2, 0, nil)
-		DeathPopup:MakePopup()
-		DeathPopup:SetMouseInputEnabled(true)
-		DeathPopup:SetKeyboardInputEnabled(true)
+		local deathPopup = vgui.Create("DPanel", deathDocker)
+		HUD.ELEMENTS.DeathPostScreen = deathPopup
 
-		function DeathPopup:Paint(w, h)
+		deathPopup:SetSize(ScrW(), ScrH())
+		deathPopup:SetPos(0, 0)
+		deathPopup:SetAlpha(0)
+		deathPopup:AlphaTo(255, 0.2, 0, nil)
+		deathPopup:MakePopup()
+		deathPopup:SetMouseInputEnabled(true)
+		deathPopup:SetKeyboardInputEnabled(true)
+
+		function deathPopup:OnRemove()
+			HUD.ELEMENTS.DeathPostScreen = nil
+		end
+
+		function deathPopup:Paint(w, h)
 			draw.SimpleTextOutlined("KILLED IN ACTION", "PuristaBold64", w / 2, EFGM.MenuScale(35), Color(255, 0, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.whiteColor)
 			draw.SimpleTextOutlined(string.format("%02d:%02d", minutes, seconds) .. " TIME IN RAID", "PuristaBold22", w / 2, EFGM.MenuScale(90), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			draw.SimpleTextOutlined(quote, "Purista18Italic", w / 2, EFGM.MenuScale(108), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
@@ -840,26 +943,26 @@ net.Receive("CreateDeathInformation", function()
 				self:SetPos(0, 0)
 			end
 
-			if AttackerPanel and MapPanel then
-				if RewardsPanel then RewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(920)) end
-				if MapPanel then MapPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(400)) end
-				if AttackerPanel then AttackerPanel:SetX(self:GetWide() / 2 + EFGM.MenuScale(420)) end
+			if attackerPanel and mapPanel then
+				if rewardsPanel then rewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(920)) end
+				if mapPanel then mapPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(400)) end
+				if attackerPanel then attackerPanel:SetX(self:GetWide() / 2 + EFGM.MenuScale(420)) end
 				if respawnButton then respawnButton:SetWide(EFGM.MenuScale(1840)) end
-			elseif AttackerPanel then
-				if RewardsPanel then
-					RewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(510))
-					if AttackerPanel then AttackerPanel:SetX(self:GetWide() / 2 + EFGM.MenuScale(10)) end
+			elseif attackerPanel then
+				if rewardsPanel then
+					rewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(510))
+					if attackerPanel then attackerPanel:SetX(self:GetWide() / 2 + EFGM.MenuScale(10)) end
 					if respawnButton then respawnButton:SetWide(EFGM.MenuScale(1020)) end
 				else
-					if AttackerPanel then AttackerPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(250)) end
+					if attackerPanel then attackerPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(250)) end
 					if respawnButton then respawnButton:SetWide(EFGM.MenuScale(500)) end
 				end
-			elseif MapPanel then
-				if RewardsPanel then RewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(660)) end
-				if MapPanel then MapPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(140)) end
+			elseif mapPanel then
+				if rewardsPanel then rewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(660)) end
+				if mapPanel then mapPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(140)) end
 				if respawnButton then respawnButton:SetWide(EFGM.MenuScale(1320)) end
 			else
-				if RewardsPanel then RewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(250)) end
+				if rewardsPanel then rewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(250)) end
 				if respawnButton then respawnButton:SetWide(EFGM.MenuScale(500)) end
 			end
 
@@ -868,9 +971,9 @@ net.Receive("CreateDeathInformation", function()
 
 		if respawnTime > EFGM.CONFIG.HideoutRespawnTime then surface.PlaySound("extract_failed.wav") end
 
-		respawnButton = vgui.Create("DButton", DeathPopup)
+		respawnButton = vgui.Create("DButton", deathPopup)
 		respawnButton:SetSize(EFGM.MenuScale(1020), EFGM.MenuScale(50))
-		respawnButton:SetPos(ScrW() / 2 - EFGM.MenuScale(510), DeathPopup:GetTall() - EFGM.MenuScale(100))
+		respawnButton:SetPos(ScrW() / 2 - EFGM.MenuScale(510), deathPopup:GetTall() - EFGM.MenuScale(100))
 		respawnButton:SetText("")
 
 		function respawnButton:Paint(w, h)
@@ -888,16 +991,16 @@ net.Receive("CreateDeathInformation", function()
 			net.SendToServer()
 
 			surface.PlaySound("ui/element_select.wav")
-			DeathPopup:AlphaTo(0, 0.1, 0, function() DeathPopup:Remove() end)
-			DeathDocker:AlphaTo(0, 0.9, 0.1, function() DeathDocker:Remove() end)
+			deathPopup:AlphaTo(0, 0.1, 0, function() deathPopup:Remove() end)
+			deathDocker:AlphaTo(0, 0.9, 0.1, function() deathDocker:Remove() end)
 		end
 
 		if respawnTime > EFGM.CONFIG.HideoutRespawnTime then
-			RewardsPanel = vgui.Create("DPanel", DeathPopup)
-			RewardsPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
-			RewardsPanel:SetPos(DeathPopup:GetWide() / 2 - EFGM.MenuScale(510), EFGM.MenuScale(140))
+			rewardsPanel = vgui.Create("DPanel", deathPopup)
+			rewardsPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
+			rewardsPanel:SetPos(deathPopup:GetWide() / 2 - EFGM.MenuScale(510), EFGM.MenuScale(140))
 
-			function RewardsPanel:Paint(w, h)
+			function rewardsPanel:Paint(w, h)
 				BlurPanel(self, 3)
 
 				surface.SetDrawColor(Color(80, 80, 80, 10))
@@ -910,12 +1013,12 @@ net.Receive("CreateDeathInformation", function()
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			StatsPanel = vgui.Create("DPanel", RewardsPanel)
-			StatsPanel:SetSize(0, EFGM.MenuScale(500))
-			StatsPanel:Dock(TOP)
-			StatsPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+			local statsPanel = vgui.Create("DPanel", rewardsPanel)
+			statsPanel:SetSize(0, EFGM.MenuScale(500))
+			statsPanel:Dock(TOP)
+			statsPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-			function StatsPanel:Paint(w, h)
+			function statsPanel:Paint(w, h)
 				surface.SetDrawColor(Color(80, 80, 80, 10))
 				surface.DrawRect(0, 0, w, h)
 
@@ -929,23 +1032,23 @@ net.Receive("CreateDeathInformation", function()
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			local StatsText = vgui.Create("DPanel", StatsPanel)
-			StatsText:Dock(TOP)
-			StatsText:SetSize(0, EFGM.MenuScale(36))
+			local statsText = vgui.Create("DPanel", statsPanel)
+			statsText:Dock(TOP)
+			statsText:SetSize(0, EFGM.MenuScale(36))
 
-			function StatsText:Paint(w, h)
+			function statsText:Paint(w, h)
 				surface.SetDrawColor(Color(155, 155, 155, 10))
 				surface.DrawRect(0, 0, w, h)
 
 				draw.SimpleTextOutlined("STATS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			local StatsHolder = vgui.Create("DPanel", StatsPanel)
-			StatsHolder:Dock(FILL)
-			StatsHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-			StatsHolder:SetSize(0, 0)
+			local statsHolder = vgui.Create("DPanel", statsPanel)
+			statsHolder:Dock(FILL)
+			statsHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+			statsHolder:SetSize(0, 0)
 
-			function StatsHolder:Paint(w, h)
+			function statsHolder:Paint(w, h)
 				local num = 0
 
 				for k, v in pairs(statsTbl) do
@@ -958,12 +1061,12 @@ net.Receive("CreateDeathInformation", function()
 				end
 			end
 
-			LevelingPanel = vgui.Create("DPanel", RewardsPanel)
-			LevelingPanel:SetSize(0, EFGM.MenuScale(285))
-			LevelingPanel:Dock(TOP)
-			LevelingPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
+			local levelingPanel = vgui.Create("DPanel", rewardsPanel)
+			levelingPanel:SetSize(0, EFGM.MenuScale(285))
+			levelingPanel:Dock(TOP)
+			levelingPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-			function LevelingPanel:Paint(w, h)
+			function levelingPanel:Paint(w, h)
 				surface.SetDrawColor(Color(80, 80, 80, 10))
 				surface.DrawRect(0, 0, w, h)
 
@@ -977,23 +1080,23 @@ net.Receive("CreateDeathInformation", function()
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			local LevelingText = vgui.Create("DPanel", LevelingPanel)
-			LevelingText:Dock(TOP)
-			LevelingText:SetSize(0, EFGM.MenuScale(36))
+			local levelingText = vgui.Create("DPanel", levelingPanel)
+			levelingText:Dock(TOP)
+			levelingText:SetSize(0, EFGM.MenuScale(36))
 
-			function LevelingText:Paint(w, h)
+			function levelingText:Paint(w, h)
 				surface.SetDrawColor(Color(155, 155, 155, 10))
 				surface.DrawRect(0, 0, w, h)
 
 				draw.SimpleTextOutlined("LEVELING", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			local LevelingHolder = vgui.Create("DPanel", LevelingPanel)
-			LevelingHolder:Dock(FILL)
-			LevelingHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-			LevelingHolder:SetSize(0, 0)
+			local levelingHolder = vgui.Create("DPanel", levelingPanel)
+			levelingHolder:Dock(FILL)
+			levelingHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+			levelingHolder:SetSize(0, 0)
 
-			function LevelingHolder:Paint(w, h)
+			function levelingHolder:Paint(w, h)
 				draw.SimpleTextOutlined("TIME: ", "PuristaBold24", EFGM.MenuScale(3), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 				draw.SimpleTextOutlined(xpTime .. "XP", "PuristaBold24", w - EFGM.MenuScale(3), 0, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
@@ -1032,12 +1135,12 @@ net.Receive("CreateDeathInformation", function()
 		end
 
 		if LocalPlayer() != killedBy and IsValid(killedBy) and killedBy:IsPlayer() then
-			AttackerPanel = vgui.Create("DPanel", DeathPopup)
-			AttackerPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
-			AttackerPanel:SetPos(DeathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
-			AttackerPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+			attackerPanel = vgui.Create("DPanel", deathPopup)
+			attackerPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
+			attackerPanel:SetPos(deathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
+			attackerPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-			function AttackerPanel:Paint(w, h)
+			function attackerPanel:Paint(w, h)
 				BlurPanel(self, 3)
 
 				surface.SetDrawColor(Color(80, 80, 80, 10))
@@ -1050,12 +1153,12 @@ net.Receive("CreateDeathInformation", function()
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			KillerPanel = vgui.Create("DPanel", AttackerPanel)
-			KillerPanel:SetSize(0, 0)
-			KillerPanel:Dock(FILL)
-			KillerPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+			local killerPanel = vgui.Create("DPanel", attackerPanel)
+			killerPanel:SetSize(0, 0)
+			killerPanel:Dock(FILL)
+			killerPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-			function KillerPanel:Paint(w, h)
+			function killerPanel:Paint(w, h)
 				surface.SetDrawColor(Color(80, 80, 80, 10))
 				surface.DrawRect(0, 0, w, h)
 
@@ -1069,23 +1172,23 @@ net.Receive("CreateDeathInformation", function()
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			local KillerText = vgui.Create("DPanel", KillerPanel)
-			KillerText:Dock(TOP)
-			KillerText:SetSize(0, EFGM.MenuScale(36))
+			local killerText = vgui.Create("DPanel", killerPanel)
+			killerText:Dock(TOP)
+			killerText:SetSize(0, EFGM.MenuScale(36))
 
-			function KillerText:Paint(w, h)
+			function killerText:Paint(w, h)
 				surface.SetDrawColor(Color(155, 155, 155, 10))
 				surface.DrawRect(0, 0, w, h)
 
 				draw.SimpleTextOutlined("KILLED BY", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			local KillerHolder = vgui.Create("DPanel", KillerPanel)
-			KillerHolder:Dock(FILL)
-			KillerHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-			KillerHolder:SetSize(0, 0)
+			local killerHolder = vgui.Create("DPanel", killerPanel)
+			killerHolder:Dock(FILL)
+			killerHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+			killerHolder:SetSize(0, 0)
 
-			function KillerHolder:Paint(w, h)
+			function killerHolder:Paint(w, h)
 				draw.SimpleTextOutlined(killedBy:GetName(), "PuristaBold24", EFGM.MenuScale(90), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
 				if killedFrom != 0 then
@@ -1107,7 +1210,7 @@ net.Receive("CreateDeathInformation", function()
 				draw.SimpleTextOutlined(killedByHealth .. "HP", "PuristaBold24", EFGM.MenuScale(32), EFGM.MenuScale(93), Colors.healthGreenColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 			end
 
-			local killerPFP = vgui.Create("AvatarImage", KillerHolder)
+			local killerPFP = vgui.Create("AvatarImage", killerHolder)
 			killerPFP:SetPos(EFGM.MenuScale(5), EFGM.MenuScale(5))
 			killerPFP:SetSize(EFGM.MenuScale(80), EFGM.MenuScale(80))
 			killerPFP:SetPlayer(killedBy, 184)
@@ -1146,7 +1249,7 @@ net.Receive("CreateDeathInformation", function()
 				dropdown:Open()
 			end
 
-			local playerModel = vgui.Create("DModelPanel", KillerHolder)
+			local playerModel = vgui.Create("DModelPanel", killerHolder)
 			playerModel:SetAlpha(0)
 			playerModel:Dock(FILL)
 			playerModel:SetMouseInputEnabled(false)
@@ -1185,7 +1288,7 @@ net.Receive("CreateDeathInformation", function()
 				local def = EFGMITEMS[killedByWeapon.name]
 				if def == nil then return end
 
-				local weaponHolder = vgui.Create("DButton", KillerHolder)
+				local weaponHolder = vgui.Create("DButton", killerHolder)
 				weaponHolder:SetText("")
 				weaponHolder:SetSize(EFGM.MenuScale(57 * def.sizeX), EFGM.MenuScale(57 * def.sizeY))
 				weaponHolder:SetPos(EFGM.MenuScale(5), EFGM.MenuScale(746) - weaponHolder:GetTall() - EFGM.MenuScale(5))
@@ -1242,7 +1345,7 @@ net.Receive("CreateDeathInformation", function()
 					end
 				end
 
-				local weaponText = vgui.Create("DPanel", KillerHolder)
+				local weaponText = vgui.Create("DPanel", killerHolder)
 				weaponText:SetSize(EFGM.MenuScale(120), EFGM.MenuScale(30))
 				weaponText:SetPos(EFGM.MenuScale(5), weaponHolder:GetY() - EFGM.MenuScale(30))
 
@@ -1261,17 +1364,17 @@ net.Receive("CreateDeathInformation", function()
 				end
 
 				function weaponHolder:DoClick()
-					HUDInspectItem(killedByWeapon.name, killedByWeapon.data, DeathPopup)
+					HUDInspectItem(killedByWeapon.name, killedByWeapon.data, deathPopup)
 					surface.PlaySound("ui/element_select.wav")
 				end
 			end
 		end
 
 		if Tracking.inRaidLength then
-			MapPanel = vgui.Create("DPanel", DeathPopup)
-			MapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
-			MapPanel:SetPos(DeathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
-			MapPanel:SetPaintBackground(false)
+			mapPanel = vgui.Create("DPanel", deathPopup)
+			mapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
+			mapPanel:SetPos(deathPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
+			mapPanel:SetPaintBackground(false)
 
 			local mapRawName = game.GetMap()
 			local mapOverhead = Material("maps/" .. mapRawName .. ".png", "smooth")
@@ -1284,15 +1387,15 @@ net.Receive("CreateDeathInformation", function()
 				mapSizeY = EFGM.MenuScale(mapOverhead:Height())
 			end
 
-			MapHolder = vgui.Create("DPanel", MapPanel)
-			MapHolder:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
-			MapHolder:Dock(FILL)
+			local mapHolder = vgui.Create("DPanel", mapPanel)
+			mapHolder:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
+			mapHolder:Dock(FILL)
 
-			function MapHolder:Paint(w, h)
+			function mapHolder:Paint(w, h)
 				BlurPanel(self, 5)
 			end
 
-			function MapHolder:PaintOver(w, h)
+			function mapHolder:PaintOver(w, h)
 				surface.SetDrawColor(Color(255, 255, 255, 25))
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
@@ -1307,14 +1410,14 @@ net.Receive("CreateDeathInformation", function()
 
 			if yDiff > xDiff and mapSizeX > mapSizeY then minZoom = math.min(xDiff, yDiff) end
 
-			local map = vgui.Create("EMap", MapHolder)
+			local map = vgui.Create("EMap", mapHolder)
 			map:SetSize(mapSizeX, mapSizeY)
 			map:SetMouseInputEnabled(true)
 			map:SetCursor("crosshair")
 			map.Zoom = minZoom
 			map.MinZoom = minZoom
 			map.MaxZoom = 2.5
-			map.MapHolderX, map.MapHolderY = MapHolder:GetSize()
+			map.mapHolderX, map.mapHolderY = mapHolder:GetSize()
 
 			map.DrawRaidInfo = true
 			map.DrawFullInfo = false
@@ -1364,36 +1467,41 @@ net.Receive("CreateExtractionInformation", function()
 	local totalXPRaw = xpTime + xpCombat + xpExploration + xpLooting + xpBonus
 	local totalXPReal = math.Round(totalXPRaw * xpMult, 0)
 
-	if IsValid(ExtractionPopup) then return end
+	if IsValid(HUD.ELEMENTS.ExtractPostScreen) then return end
 
-	local RewardsPanel = nil
-	local MapPanel = nil
+	local rewardsPanel = nil
+	local mapPanel = nil
 	local respawnButton = nil
 
-	local ExtractDocker = vgui.Create("DPanel", GetHUDPanel())
-	ExtractDocker:SetSize(ScrW(), ScrH())
-	ExtractDocker:SetPos(0, 0)
-	ExtractDocker:SetAlpha(0)
-	ExtractDocker:AlphaTo(255, 0.2, 0, nil)
+	local extractDocker = vgui.Create("DPanel", GetHUDPanel())
+	extractDocker:SetSize(ScrW(), ScrH())
+	extractDocker:SetPos(0, 0)
+	extractDocker:SetAlpha(0)
+	extractDocker:AlphaTo(255, 0.2, 0, nil)
 
-	function ExtractDocker:Paint(w, h)
+	function extractDocker:Paint(w, h)
 		BlurPanel(self, 6, 4)
 
 		surface.SetDrawColor(Color(10, 10, 10, 205))
 		surface.DrawRect(0, 0, w, h)
 	end
 
-	ExtractionPopup = vgui.Create("DPanel", ExtractDocker)
-	ExtractionPopup:SetSize(ScrW(), ScrH())
-	ExtractionPopup:SetPos(0, 0)
-	ExtractionPopup:SetAlpha(0)
-	ExtractionPopup:AlphaTo(255, 0.2, 0, nil)
-	ExtractionPopup:MakePopup()
-	ExtractionPopup:SetMouseInputEnabled(true)
-	ExtractionPopup:SetKeyboardInputEnabled(true)
-	ExtractionPopup:AlphaTo(255, 0.2, 0, nil)
+	local extractionPopup = vgui.Create("DPanel", extractDocker)
+	HUD.ELEMENTS.ExtractPostScreen = extractionPopup
 
-	function ExtractionPopup:Paint(w, h)
+	extractionPopup:SetSize(ScrW(), ScrH())
+	extractionPopup:SetPos(0, 0)
+	extractionPopup:SetAlpha(0)
+	extractionPopup:AlphaTo(255, 0.2, 0, nil)
+	extractionPopup:MakePopup()
+	extractionPopup:SetMouseInputEnabled(true)
+	extractionPopup:SetKeyboardInputEnabled(true)
+
+	function extractionPopup:OnRemove()
+		HUD.ELEMENTS.ExtractPostScreen = nil
+	end
+
+	function extractionPopup:Paint(w, h)
 		draw.SimpleTextOutlined("EXTRACTED", "PuristaBold64", w / 2, EFGM.MenuScale(35), Color(0, 255, 0, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.whiteColor)
 		draw.SimpleTextOutlined(string.format("%02d:%02d", minutes, seconds) .. " TIME IN RAID", "PuristaBold22", w / 2, EFGM.MenuScale(90), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
@@ -1411,12 +1519,12 @@ net.Receive("CreateExtractionInformation", function()
 			self:SetPos(0, 0)
 		end
 
-		if MapPanel then
-			if RewardsPanel then RewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(660)) end
-			if MapPanel then MapPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(140)) end
+		if mapPanel then
+			if rewardsPanel then rewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(660)) end
+			if mapPanel then mapPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(140)) end
 			if respawnButton then respawnButton:SetWide(EFGM.MenuScale(1320)) end
 		else
-			if RewardsPanel then RewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(250)) end
+			if rewardsPanel then rewardsPanel:SetX(self:GetWide() / 2 - EFGM.MenuScale(250)) end
 			if respawnButton then respawnButton:SetWide(EFGM.MenuScale(500)) end
 		end
 
@@ -1425,9 +1533,9 @@ net.Receive("CreateExtractionInformation", function()
 
 	surface.PlaySound("storytask_end.wav")
 
-	respawnButton = vgui.Create("DButton", ExtractionPopup)
+	respawnButton = vgui.Create("DButton", extractionPopup)
 	respawnButton:SetSize(EFGM.MenuScale(1020), EFGM.MenuScale(50))
-	respawnButton:SetPos(ScrW() / 2 - EFGM.MenuScale(510), ExtractionPopup:GetTall() - EFGM.MenuScale(100))
+	respawnButton:SetPos(ScrW() / 2 - EFGM.MenuScale(510), extractionPopup:GetTall() - EFGM.MenuScale(100))
 	respawnButton:SetText("")
 
 	function respawnButton:Paint(w, h)
@@ -1442,14 +1550,14 @@ net.Receive("CreateExtractionInformation", function()
 
 	function respawnButton:DoClick()
 		surface.PlaySound("ui/element_select.wav")
-		ExtractDocker:AlphaTo(0, 0.1, 0, function() ExtractDocker:Remove() end)
+		extractDocker:AlphaTo(0, 0.1, 0, function() extractDocker:Remove() end)
 	end
 
-	RewardsPanel = vgui.Create("DPanel", ExtractionPopup)
-	RewardsPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
-	RewardsPanel:SetPos(ExtractionPopup:GetWide() / 2 - EFGM.MenuScale(255), EFGM.MenuScale(140))
+	rewardsPanel = vgui.Create("DPanel", extractionPopup)
+	rewardsPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
+	rewardsPanel:SetPos(extractionPopup:GetWide() / 2 - EFGM.MenuScale(255), EFGM.MenuScale(140))
 
-	function RewardsPanel:Paint(w, h)
+	function rewardsPanel:Paint(w, h)
 		BlurPanel(self, 3)
 
 		surface.SetDrawColor(Color(80, 80, 80, 10))
@@ -1462,12 +1570,12 @@ net.Receive("CreateExtractionInformation", function()
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 	end
 
-	StatsPanel = vgui.Create("DPanel", RewardsPanel)
-	StatsPanel:SetSize(0, EFGM.MenuScale(500))
-	StatsPanel:Dock(TOP)
-	StatsPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+	local statsPanel = vgui.Create("DPanel", rewardsPanel)
+	statsPanel:SetSize(0, EFGM.MenuScale(500))
+	statsPanel:Dock(TOP)
+	statsPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-	function StatsPanel:Paint(w, h)
+	function statsPanel:Paint(w, h)
 		surface.SetDrawColor(Color(80, 80, 80, 10))
 		surface.DrawRect(0, 0, w, h)
 
@@ -1481,23 +1589,23 @@ net.Receive("CreateExtractionInformation", function()
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 	end
 
-	local StatsText = vgui.Create("DPanel", StatsPanel)
-	StatsText:Dock(TOP)
-	StatsText:SetSize(0, EFGM.MenuScale(36))
+	local statsText = vgui.Create("DPanel", statsPanel)
+	statsText:Dock(TOP)
+	statsText:SetSize(0, EFGM.MenuScale(36))
 
-	function StatsText:Paint(w, h)
+	function statsText:Paint(w, h)
 		surface.SetDrawColor(Color(155, 155, 155, 10))
 		surface.DrawRect(0, 0, w, h)
 
 		draw.SimpleTextOutlined("STATS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
-	local StatsHolder = vgui.Create("DPanel", StatsPanel)
-	StatsHolder:Dock(FILL)
-	StatsHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-	StatsHolder:SetSize(0, 0)
+	local statsHolder = vgui.Create("DPanel", statsPanel)
+	statsHolder:Dock(FILL)
+	statsHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+	statsHolder:SetSize(0, 0)
 
-	function StatsHolder:Paint(w, h)
+	function statsHolder:Paint(w, h)
 		local num = 0
 
 		for k, v in pairs(statsTbl) do
@@ -1510,12 +1618,12 @@ net.Receive("CreateExtractionInformation", function()
 		end
 	end
 
-	LevelingPanel = vgui.Create("DPanel", RewardsPanel)
-	LevelingPanel:SetSize(0, EFGM.MenuScale(285))
-	LevelingPanel:Dock(TOP)
-	LevelingPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
+	local levelingPanel = vgui.Create("DPanel", rewardsPanel)
+	levelingPanel:SetSize(0, EFGM.MenuScale(285))
+	levelingPanel:Dock(TOP)
+	levelingPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-	function LevelingPanel:Paint(w, h)
+	function levelingPanel:Paint(w, h)
 		surface.SetDrawColor(Color(80, 80, 80, 10))
 		surface.DrawRect(0, 0, w, h)
 
@@ -1529,23 +1637,23 @@ net.Receive("CreateExtractionInformation", function()
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 	end
 
-	local LevelingText = vgui.Create("DPanel", LevelingPanel)
-	LevelingText:Dock(TOP)
-	LevelingText:SetSize(0, EFGM.MenuScale(36))
+	local levelingText = vgui.Create("DPanel", levelingPanel)
+	levelingText:Dock(TOP)
+	levelingText:SetSize(0, EFGM.MenuScale(36))
 
-	function LevelingText:Paint(w, h)
+	function levelingText:Paint(w, h)
 		surface.SetDrawColor(Color(155, 155, 155, 10))
 		surface.DrawRect(0, 0, w, h)
 
 		draw.SimpleTextOutlined("LEVELING", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
-	local LevelingHolder = vgui.Create("DPanel", LevelingPanel)
-	LevelingHolder:Dock(FILL)
-	LevelingHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-	LevelingHolder:SetSize(0, 0)
+	local levelingHolder = vgui.Create("DPanel", levelingPanel)
+	levelingHolder:Dock(FILL)
+	levelingHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+	levelingHolder:SetSize(0, 0)
 
-	function LevelingHolder:Paint(w, h)
+	function levelingHolder:Paint(w, h)
 		draw.SimpleTextOutlined("TIME: ", "PuristaBold24", EFGM.MenuScale(3), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		draw.SimpleTextOutlined(xpTime .. "XP", "PuristaBold24", w - EFGM.MenuScale(3), 0, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
@@ -1583,10 +1691,10 @@ net.Receive("CreateExtractionInformation", function()
 	end
 
 	if Tracking.inRaidLength then
-		MapPanel = vgui.Create("DPanel", ExtractionPopup)
-		MapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
-		MapPanel:SetPos(ExtractionPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
-		MapPanel:SetPaintBackground(false)
+		mapPanel = vgui.Create("DPanel", extractionPopup)
+		mapPanel:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
+		mapPanel:SetPos(extractionPopup:GetWide() / 2 + EFGM.MenuScale(10), EFGM.MenuScale(140))
+		mapPanel:SetPaintBackground(false)
 
 		local mapRawName = game.GetMap()
 		local mapOverhead = Mats.curMapOverhad
@@ -1599,15 +1707,15 @@ net.Receive("CreateExtractionInformation", function()
 			mapSizeY = EFGM.MenuScale(mapOverhead:Height())
 		end
 
-		MapHolder = vgui.Create("DPanel", MapPanel)
-		MapHolder:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
-		MapHolder:Dock(FILL)
+		local mapHolder = vgui.Create("DPanel", mapPanel)
+		mapHolder:SetSize(EFGM.MenuScale(800), EFGM.MenuScale(800))
+		mapHolder:Dock(FILL)
 
-		function MapHolder:Paint(w, h)
+		function mapHolder:Paint(w, h)
 			BlurPanel(self, 5)
 		end
 
-		function MapHolder:PaintOver(w, h)
+		function mapHolder:PaintOver(w, h)
 			surface.SetDrawColor(Color(255, 255, 255, 25))
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
@@ -1622,14 +1730,14 @@ net.Receive("CreateExtractionInformation", function()
 
 		if yDiff > xDiff and mapSizeX > mapSizeY then minZoom = math.min(xDiff, yDiff) end
 
-		local map = vgui.Create("EMap", MapHolder)
+		local map = vgui.Create("EMap", mapHolder)
 		map:SetSize(mapSizeX, mapSizeY)
 		map:SetMouseInputEnabled(true)
 		map:SetCursor("crosshair")
 		map.Zoom = minZoom
 		map.MinZoom = minZoom
 		map.MaxZoom = 2.5
-		map.MapHolderX, map.MapHolderY = MapHolder:GetSize()
+		map.mapHolderX, map.mapHolderY = mapHolder:GetSize()
 
 		map.DrawRaidInfo = true
 		map.DrawFullInfo = false
@@ -1644,68 +1752,11 @@ net.Receive("CreateExtractionInformation", function()
 	end
 end)
 
--- notifications
-function CreateNotification(text, icon, snd)
-	if IsValid(notif) then notif:Remove() end
-
-	local panel = GetHUDPanel()
-	if Menu.MenuFrame != nil and Menu.MenuFrame:IsActive() == true then panel = Menu.MenuFrame end
-	if ExtractPopup != nil and ExtractPopup:IsValid() then panel = ExtractPopup end
-	if DeathPopup != nil and DeathPopup:IsValid() then panel = DeathPopup end
-
-	surface.SetFont("BenderNotification")
-	local tw = surface.GetTextSize(text) + EFGM.ScreenScale(45)
-
-	notif = vgui.Create("DPanel", panel)
-	notif:SetPos(ScrW() / 2 - (tw / 2), ScrH())
-	notif:SetSize(tw, EFGM.ScreenScale(30))
-	notif:SetAlpha(0)
-
-	notif:MoveTo(ScrW() / 2 - (tw / 2), ScrH() - EFGM.ScreenScale(40), 0.25, 0.1, 1, nil)
-	notif:AlphaTo(255, 0.3, 0.1, nil)
-
-	notif:AlphaTo(0, 0.2, 4, function() notif:Remove() end)
-	notif:MoveTo(ScrW() / 2 - (tw / 2), ScrH(), 0.25, 4, 1, nil)
-
-	notif:MoveToFront()
-
-	if snd then surface.PlaySound(snd) end
-
-	function notif:Paint(w, h)
-		BlurPanel(self, 3)
-
-		surface.SetDrawColor(0, 0, 0, 200)
-		surface.DrawRect(0, 0, w, h)
-
-		surface.SetDrawColor(Colors.transparentWhiteColor)
-		surface.DrawRect(0, 0, w, EFGM.ScreenScale(1))
-
-		surface.SetDrawColor(255, 255, 255, 255)
-		surface.SetMaterial(icon)
-		surface.DrawTexturedRect(EFGM.ScreenScale(2), 0, h, h)
-
-		surface.SetFont("BenderNotification")
-		surface.SetTextPos(w - tw + EFGM.ScreenScale(36), EFGM.ScreenScale(0.5))
-		surface.SetTextColor(255, 255, 255, 255)
-		surface.DrawText(text)
-	end
-end
-
-net.Receive("SendNotification", function()
-	local text = net.ReadString()
-	local mat = net.ReadString()
-	local snd = net.ReadString()
-
-	local material = Material(mat, "smooth")
-
-	CreateNotification(text, material, snd)
-end)
-
 function HUDInspectItem(item, data, panel)
-	if IsValid(inspectPanel) then inspectPanel:Remove() end
+	if IsValid(HUD.ELEMENTS.ItemInspect) then HUD.ELEMENTS.ItemInspect:Remove() end
 
 	local i = EFGMITEMS[item]
-	if i == nil then inspectPanel:Remove() return end
+	if i == nil then return end
 
 	surface.SetFont("PuristaBold24")
 	local itemNameText = string.upper(i.fullName)
@@ -1767,7 +1818,9 @@ function HUDInspectItem(item, data, panel)
 	local newPanelWidth = math.Round(originalWidth * scaleFactor)
 	local newPanelHeight = math.Round(originalHeight * scaleFactor)
 
-	inspectPanel = vgui.Create("DFrame", panel)
+	local inspectPanel = vgui.Create("DFrame", panel)
+	HUD.ELEMENTS.ItemInspect = inspectPanel
+
 	inspectPanel:SetSize(panelWidth + EFGM.MenuScale(40), newPanelHeight + EFGM.MenuScale(100))
 	inspectPanel:Center()
 	inspectPanel:SetAlpha(0)
@@ -1775,6 +1828,10 @@ function HUDInspectItem(item, data, panel)
 	inspectPanel:ShowCloseButton(false)
 	inspectPanel:SetScreenLock(true)
 	inspectPanel:AlphaTo(255, 0.1, 0, nil)
+
+	function inspectPanel:OnRemove()
+		HUD.ELEMENTS.ItemInspect = nil
+	end
 
 	function inspectPanel:Paint(w, h)
 		BlurPanel(self, 3)
@@ -2359,15 +2416,20 @@ net.Receive("VoteableMaps", function(len)
 	local map2Votes = 0
 
 	timer.Simple(40, function()
-		if IsValid(mapVote) then mapVote:Remove() end
+		if IsValid(HUD.ELEMENTS.Invite) then HUD.ELEMENTS.Invite:Remove() end
+		if IsValid(HUD.ELEMENTS.MapVoting) then HUD.ELEMENTS.MapVoting:Remove() end
 
-		local panel = GetHUDPanel()
+		local mapVote = vgui.Create("DPanel", GetHUDPanel())
+		HUD.ELEMENTS.MapVoting = mapVote
 
-		mapVote = vgui.Create("DPanel", panel)
 		mapVote:SetSize(ScrW(), ScrH())
 		mapVote:SetPos(0, 0)
 		mapVote:SetAlpha(0)
 		mapVote:MoveToFront()
+
+		function mapVote:OnRemove()
+			HUD.ELEMENTS.MapVoting = nil
+		end
 
 		surface.PlaySound("ui/invite_receive.wav")
 

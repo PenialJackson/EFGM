@@ -2,35 +2,33 @@ local allowInvites = true
 
 net.Receive("PlayerInviteSend", function(len, ply)
 	local invitedPly = net.ReadPlayer()
-	local inviteType = net.ReadString()
-	local data = net.ReadString()
+	local inviteType = net.ReadUInt(2)
 
 	if !allowInvites then return end
 	if !IsValid(invitedPly) then return end
-	if string.len(inviteType) == 0 then return end
 
 	net.Start("PlayerInviteReceive")
 		net.WritePlayer(ply)
 		net.WriteString(inviteType)
-		net.WriteString(data)
 	net.Send(invitedPly)
 end)
 
 net.Receive("PlayerInviteAccept", function(len, ply)
 	local invitedPly = net.ReadPlayer()
-	local inviteType = net.ReadString()
-	local inviteData = net.ReadString()
+	local inviteType = net.ReadUInt(2)
 
 	if !allowInvites then return end
 	if !IsValid(invitedPly) then return end
-	if string.len(inviteType) == 0 then return end
 
-	if inviteType == "squad" and inviteData != nil then
-		ply:ConCommand('efgm_squad_join "' .. inviteData .. '"')
+	if inviteType == inviteTypes.DUEL then
+		DUEL:StartDuel(ply, invitedPly)
+
+		return
 	end
 
-	if inviteType == "duel" then
-		DUEL:StartDuel(ply, invitedPly)
+	if inviteType == inviteTyped.SQUAD then
+		-- TODO: squad invites do not work
+		return
 	end
 end)
 

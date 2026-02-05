@@ -6,8 +6,13 @@ Invites.lastSquadInviteSentTime = 0
 Invites.allow = true
 Invites.mapVoting = false
 
+local nuhuh = true
+
+-- TODO: squad invites do not work
 function InvitePlayerToSquad(ply, invitedPly)
 	if Invites.invitedBy != nil or Invites.invitedType != nil then return end
+
+	if nuhuh then CreateNotification("Temp. disabled support for squad invites.", Mats.dontEvenAsk, "ui/boo.wav") return end
 
 	if CurTime() - Invites.inviteCD < 0.5 then return end
 	Invites.inviteCD = CurTime()
@@ -31,8 +36,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 
 		-- net.Start("PlayerInviteSend")
 		-- 		net.WritePlayer(invitedPly)
-		-- 		net.WriteString("squad")
-		-- 		net.WriteString(plySquad)
+		-- 		net.WriteUInt(inviteTypes.SQUAD, 2)
 		-- net.SendToServer()
 
 		return
@@ -52,8 +56,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 
 	net.Start("PlayerInviteSend")
 		net.WritePlayer(invitedPly)
-		net.WriteString("squad")
-		net.WriteString(ply:GetName() .. "'s Squad")
+		net.WriteUInt(inviteTypes.SQUAD, 2)
 	net.SendToServer()
 end
 
@@ -64,7 +67,7 @@ function InvitePlayerToDuel(ply, invitedPly)
 	if !IsValid(invitedPly) then return end
 	if !Invites.allow then CreateNotification("Invites are now disabled!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if GetGlobalInt("DuelStatus") != duelStatus.PENDING then CreateNotification("Another duel is already taking place, please wait for it to end!", Mats.inviteErrorIcon, "ui/error.wav") return end
-	if Invites.invitedType == "duel" and Invites.invitedBy == invitedPly then AcceptInvite(ply) return end
+	if Invites.invitedType == inviteTypes.DUEL and Invites.invitedBy == invitedPly then AcceptInvite(ply) return end
 	if CurTime() - Invites.lastInviteSentTime < 10 then CreateNotification("You can send invites again in " .. 10 - math.Round(CurTime() - Invites.lastInviteSentTime, 1) .. " seconds!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if Invites.invitedBy != nil or Invites.invitedType != nil then CreateNotification("Cannot send an invite while pending confirmation!", Mats.inviteErrorIcon, "ui/error.wav") return end
@@ -75,45 +78,40 @@ function InvitePlayerToDuel(ply, invitedPly)
 
 	net.Start("PlayerInviteSend")
 		net.WritePlayer(invitedPly)
-		net.WriteString("duel")
-		net.WriteString("")
+		net.WriteUInt(inviteTypes.DUEL, 2)
 	net.SendToServer()
 end
 
 Invites.invitedBy = nil
 Invites.invitedType = nil
-Invites.inviteData = nil
 
 net.Receive("PlayerInviteReceive", function(len, ply)
-	if IsValid(invite) then return end -- player already has a pending invite
+	if IsValid(HUD.ELEMENTS.Invite) then return end -- player already has a pending invite
 
 	local invitedBy = net.ReadPlayer()
-	local invitedType = net.ReadString()
-	local invitedData = net.ReadString()
+	local invitedType = net.ReadUInt(2)
 
 	local friendship = invitedBy:GetFriendStatus() -- aww so cute
 
 	-- disabled
-	if invitedType == "squad" and GetConVar("efgm_privacy_invites_squad"):GetInt() == 0 then return end
-	if invitedType == "duel" and GetConVar("efgm_privacy_invites_duel"):GetInt() == 0 then return end
+	if invitedType == inviteTypes.DUEL and GetConVar("efgm_privacy_invites_duel"):GetInt() == 0 then return end
+	if invitedType == inviteTypes.SQUAD and GetConVar("efgm_privacy_invites_squad"):GetInt() == 0 then return end
 
 	-- blocked
 	if GetConVar("efgm_privacy_invites_blocked"):GetInt() == 0 and friendship == "blocked" then return end
 
 	-- friends only
-	if invitedType == "squad" and GetConVar("efgm_privacy_invites_squad"):GetInt() == 1 and friendship != "friend" then return end
-	if invitedType == "duel" and GetConVar("efgm_privacy_invites_duel"):GetInt() == 1 and friendship != "friend" then return end
+	if invitedType == inviteTypes.DUEL and GetConVar("efgm_privacy_invites_duel"):GetInt() == 1 and friendship != "friend" then return end
+	if invitedType == inviteTypes.SQUAD and GetConVar("efgm_privacy_invites_squad"):GetInt() == 1 and friendship != "friend" then return end
 
 	Invites.invitedBy = invitedBy
 	Invites.invitedType = invitedType
-	Invites.inviteData = invitedData
 
 	RenderInvite(LocalPlayer())
 
 	timer.Simple(10, function()
 		Invites.invitedBy = nil
 		Invites.invitedType = nil
-		Invites.inviteData = nil
 	end)
 end)
 
@@ -128,13 +126,11 @@ function AcceptInvite(ply)
 
 	net.Start("PlayerInviteAccept")
 		net.WritePlayer(Invites.invitedBy)
-		net.WriteString(Invites.invitedType)
-		net.WriteString(Invites.inviteData)
+		net.WriteUInt(Invites.invitedType, 2)
 	net.SendToServer()
 
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
-	Invites.inviteData = nil
 end
 
 function DeclineInvite(ply)
@@ -147,13 +143,11 @@ function DeclineInvite(ply)
 
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
-	Invites.inviteData = nil
 end
 
 hook.Add("efgm_raid_enter", "RemovePendingInviteIfRaidEnter", function()
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
-	Invites.inviteData = nil
 	Invites.lastInviteSentTime = 0
 	Invites.lastSquadInviteSentTime = 0
 end)
@@ -161,7 +155,6 @@ end)
 hook.Add("efgm_duel_enter", "RemovePendingInviteIfDuelEnter", function()
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
-	Invites.inviteData = nil
 	Invites.lastInviteSentTime = 0
 	Invites.lastSquadInviteSentTime = 0
 end)
@@ -172,5 +165,6 @@ net.Receive("PlayerInviteLock", function(len)
 
 	Invites.invitedBy = nil
 	Invites.invitedType = nil
-	Invites.inviteData = nil
+	Invites.lastInviteSentTime = 0
+	Invites.lastSquadInviteSentTime = 0
 end)
