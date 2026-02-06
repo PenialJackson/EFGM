@@ -1418,7 +1418,7 @@ net.Receive("CreateDeathInformation", function()
 			map.Zoom = minZoom
 			map.MinZoom = minZoom
 			map.MaxZoom = 2.5
-			map.mapHolderX, map.mapHolderY = mapHolder:GetSize()
+			map.MapHolderX, map.MapHolderY = mapHolder:GetSize()
 
 			map.DrawRaidInfo = true
 			map.DrawFullInfo = false
@@ -1738,7 +1738,7 @@ net.Receive("CreateExtractionInformation", function()
 		map.Zoom = minZoom
 		map.MinZoom = minZoom
 		map.MaxZoom = 2.5
-		map.mapHolderX, map.mapHolderY = mapHolder:GetSize()
+		map.MapHolderX, map.MapHolderY = mapHolder:GetSize()
 
 		map.DrawRaidInfo = true
 		map.DrawFullInfo = false

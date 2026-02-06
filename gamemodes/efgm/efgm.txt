@@ -5,6 +5,7 @@
 	"maps"			"^efgm_"
 	"category"		"pvp"
 	"menusystem"	"1"
+	"workshopid"	"2998712586"
 
 	"settings"
 	{
