@@ -113,6 +113,9 @@ function GenerateDuelLoadouts()
 	DUEL_SECONDARY = {}
 	DUEL_SECONDARY[1] = {}
 
+	DUEL_GRENADE = {}
+	DUEL_GRENADE[1] = {}
+
 	for k, v in pairs(EFGMITEMS) do
 		if v.displayType == "Assault Rifle" then
 			DUEL_PRIMARY[1][k] = v
@@ -144,6 +147,10 @@ function GenerateDuelLoadouts()
 
 		if v.equipSlot == WEAPONSLOTS.HOLSTER.ID and v.displayName != "Blicky" and v.displayName != "R1500" and v.displayName != "SP-81" then -- sorry guys no fucking blickies and rangefinders
 			DUEL_SECONDARY[1][k] = v
+		end
+
+		if v.equipSlot == WEAPONSLOTS.GRENADE.ID and v.displayType != "Smoke Grenade" and v.displayType != "Flare" then
+			DUEL_GRENADE[1][k] = v
 		end
 	end
 end

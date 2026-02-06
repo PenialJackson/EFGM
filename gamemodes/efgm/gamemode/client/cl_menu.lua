@@ -6755,19 +6755,19 @@ function Menu.OpenTab.Market()
 
 	MarketCat.AAFAVORITE = {
 		name = "★ Favorite Items",
-		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Grenade", "Special", "Ammunition", "Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
+		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special", "Ammunition", "Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
 		children = {}
 	}
 
 	MarketCat._ALLITEMS = {
 		name = "All Items",
-		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Grenade", "Special", "Ammunition", "Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
+		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special", "Ammunition", "Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
 		children = {}
 	}
 
 	MarketCat.WEAPONS = {
 		name = "Weapons",
-		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Grenade", "Special"},
+		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special"},
 		children = {
 			["Assault Carbines"] = "Assault Carbine",
 			["Assault Rifles"] = "Assault Rifle",
@@ -6779,7 +6779,7 @@ function Menu.OpenTab.Market()
 			["Submachine Guns"] = "Submachine Gun",
 			["Launchers"] = "Launcher",
 			["Melee"] = "Melee",
-			["Grenades"] = "Grenade",
+			["Grenades"] = {"Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare"},
 			["Specials"] = "Special"
 		}
 	}

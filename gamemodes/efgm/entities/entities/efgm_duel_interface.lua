@@ -12,20 +12,15 @@ function ENT:KeyValue(key, value)
 end
 
 function ENT:Initialize()
-	ent = self
+	hook.Add("StartedDuel", "InterfaceDuelStart", function()
+		self:TriggerOutput("OnDuelStart")
+	end)
+
+	hook.Add("EndedDuel", "InterfaceDuelEnd", function()
+		self:TriggerOutput("OnDuelEnd")
+	end)
+
+	hook.Add("CancelledDuel", "InterfaceDuelCancel", function()
+		self:TriggerOutput("OnDuelEnd")
+	end)
 end
-
-hook.Add("StartedDuel", "InterfaceDuelStart", function()
-	if !IsValid(ent) then return end
-	ent:TriggerOutput("OnDuelStart")
-end)
-
-hook.Add("EndedDuel", "InterfaceDuelEnd", function()
-	if !IsValid(ent) then return end
-	ent:TriggerOutput("OnDuelEnd")
-end)
-
-hook.Add("CancelledDuel", "InterfaceDuelCancel", function()
-	if !IsValid(ent) then return end
-	ent:TriggerOutput("OnDuelEnd")
-end)

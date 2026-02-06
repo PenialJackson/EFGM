@@ -1,6 +1,7 @@
 ENT.Type = "point"
 ENT.Base = "base_point"
 
+ENT.SpawnOnStart = false
 ENT.SpawnChance = 100
 ENT.ItemChancePerRoll = 10
 ENT.LootType = 1
@@ -10,8 +11,6 @@ ENT.LinkedContainer = NULL
 ENT.WaitingCooldown = false
 ENT.CooldownMin = 480
 ENT.CooldownMax = 780
-
-ENT.SpawnOnStart = false -- currently does nothing idrk why
 
 function ENT:KeyValue(key, value)
 	if key == "spawn_chance" then
@@ -142,6 +141,8 @@ end
 function ENT:AcceptInput(name, activator, caller, data)
 	-- map start
 	if name == "SpawnStartLoot" then
+		if !self.SpawnOnStart then return end
+
 		local items = self:SelectItems()
 		if items == nil then self:BeginLootCooldown() return end
 		self:SpawnContainer(items)

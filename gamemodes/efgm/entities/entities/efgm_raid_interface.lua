@@ -1,8 +1,6 @@
 ENT.Type = "point"
 ENT.Base = "base_point"
 
-local ent
-
 function ENT:KeyValue(key, value)
 	if key == "OnRaidStart" then
 		self:StoreOutput(key, value)
@@ -26,26 +24,24 @@ function ENT:KeyValue(key, value)
 end
 
 function ENT:Initialize()
-	ent = self
+	hook.Add("StartedRaid", "InterfaceRaidStart", function()
+		self:TriggerOutput("OnRaidStart")
+	end)
+
+	hook.Add("RaidTimerTick", "InterfaceRaidTimerTick", function(curRaidTime)
+		if curRaidTime == 600 then
+			self:TriggerOutput("OnTenMinutesLeft")
+		elseif curRaidTime == 300 then
+			self:TriggerOutput("OnFiveMinutesLeft")
+		elseif curRaidTime == 60 then
+			self:TriggerOutput("OnOneMinuteLeft")
+		end
+	end)
+
+	hook.Add("EndedRaid", "InterfaceRaidEnd", function()
+		self:TriggerOutput("OnRaidEnd")
+	end)
 end
-
-hook.Add("StartedRaid", "InterfaceRaidStart", function()
-	ent:TriggerOutput("OnRaidStart")
-end)
-
-hook.Add("RaidTimerTick", "InterfaceRaidTimerTick", function(curRaidTime)
-	if curRaidTime == 600 then
-		ent:TriggerOutput("OnTenMinutesLeft")
-	elseif curRaidTime == 300 then
-		ent:TriggerOutput("OnFiveMinutesLeft")
-	elseif curRaidTime == 60 then
-		ent:TriggerOutput("OnOneMinuteLeft")
-	end
-end)
-
-hook.Add("EndedRaid", "InterfaceRaidEnd", function()
-	ent:TriggerOutput("OnRaidEnd")
-end)
 
 function ENT:AcceptInput(name, ply, caller, data)
 	if name == "StartRaid" then
