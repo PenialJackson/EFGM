@@ -733,22 +733,14 @@ net.Receive("SendExtractionStatus", function()
 	local status = net.ReadBool()
 
 	if status then
-		if IsValid(HUD.ELEMENTS.ExtractProgress) then return end
+		if IsValid(HUD.ELEMENTS.ExtractProgress) then HUD.ELEMENTS.ExtractProgress:Remove() return end
 
 		local exitTime = net.ReadUInt(8)
+		local exitAtTime = CurTime() + exitTime
 		local exitTimeLeft = exitTime
 
-		timer.Create("TimeToExit", exitTime, 1, function()
-			HUD.ELEMENTS.ExtractProgress:Remove()
-			hook.Remove("Think", "TimeToExit")
-		end)
-
-		hook.Add("Think", "TimeToExitCalc", function()
-			if timer.Exists("TimeToExit") then exitTimeLeft = math.Round(timer.TimeLeft("TimeToExit"), 1) end
-		end)
-
 		local extractPopup = vgui.Create("DPanel", GetHUDPanel())
-		HUD.ELEMENTS.ExtractProgress = transition
+		HUD.ELEMENTS.ExtractProgress = extractPopup
 
 		extractPopup:SetSize(ScrW(), ScrH())
 		extractPopup:SetPos(0, 0)
@@ -757,11 +749,11 @@ net.Receive("SendExtractionStatus", function()
 
 		function extractPopup:OnRemove()
 			HUD.ELEMENTS.ExtractProgress = nil
-			timer.Remove("TimeToExit")
-			hook.Remove("Think", "TimeToExit")
 		end
 
 		function extractPopup:Paint(w, h)
+			exitTimeLeft = math.max(0, exitAtTime - CurTime())
+
 			surface.SetDrawColor(120, 180, 40, 125)
 			surface.DrawRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(300), EFGM.ScreenScale(250), EFGM.ScreenScale(80))
 
@@ -777,15 +769,20 @@ net.Receive("SendExtractionStatus", function()
 		end
 
 		extractPopup:AlphaTo(255, 0.1, 0, nil)
+
+		extractPopup:AlphaTo(0, 0.1, exitTime, function()
+			if !IsValid(extractPopup) then return end
+			extractPopup:Remove()
+		end)
 	else
 		if !IsValid(HUD.ELEMENTS.ExtractProgress) then return end
-		extractPopup:AlphaTo(0, 0.1, 0, function() extractPopup:Remove() end)
+		HUD.ELEMENTS.ExtractProgress:AlphaTo(0, 0.1, 0, function() HUD.ELEMENTS.ExtractProgress:Remove() end)
 	end
 end)
 
 -- notifications
 function CreateNotification(text, icon, snd)
-	if IsValid(HUD.ELEMENTS.Notification) then HUD.ELEMENTS.Notification:Remove() return end
+	if IsValid(HUD.ELEMENTS.Notification) then HUD.ELEMENTS.Notification:Remove() end
 
 	local panel = GetHUDPanel()
 	if Menu.MenuFrame != nil and Menu.MenuFrame:IsActive() == true then panel = Menu.MenuFrame end
@@ -802,10 +799,6 @@ function CreateNotification(text, icon, snd)
 	notif:SetSize(tw, EFGM.ScreenScale(30))
 	notif:SetAlpha(0)
 	notif:MoveToFront()
-
-	function notif:OnRemove()
-		HUD.ELEMENTS.Notification = nil
-	end
 
 	notif:MoveTo(ScrW() / 2 - (tw / 2), ScrH() - EFGM.ScreenScale(40), 0.25, 0.1, 1, nil)
 	notif:AlphaTo(255, 0.3, 0.1, nil)

@@ -99,7 +99,7 @@ if SERVER then
 		net.Broadcast()
 
 		for k, v in player.Iterator() do
-			if v:IsInRaid() and v:IsAlive() then
+			if v:IsInRaid() and v:Alive() then
 				v:Kill()
 			end
 		end

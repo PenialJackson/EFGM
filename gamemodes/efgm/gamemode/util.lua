@@ -107,6 +107,44 @@ function util.BitsRequired(num, signed)
 	return bits
 end
 
+local blurMat = Material("pp/blurscreen")
+local blurCol = Color(255, 255, 255)
+
+function BlurPanel(panel, strength, passes)
+	if panel == nil or !ispanel(panel) then return end
+
+	local x, y = panel:LocalToScreen(0, 0)
+	local w, h = panel:GetSize()
+
+	render.SetScissorRect(x, y, x + w, y + h, true)
+
+	surface.SetMaterial(blurMat)
+	surface.SetDrawColor(blurCol)
+
+	for i = 1, (passes or 3) do
+		blurMat:SetFloat("$blur", (i / (passes or 3)) * (strength or 3))
+		blurMat:Recompute()
+		render.UpdateScreenEffectTexture()
+		surface.DrawTexturedRect(-x, -y, ScrW(), ScrH())
+	end
+
+	render.SetScissorRect(0, 0, 0, 0, false)
+end
+
+function BlurRect(x, y, w, h, strength, passes)
+	surface.SetMaterial(blurMat)
+	surface.SetDrawColor(blurCol)
+
+	render.SetScissorRect(x, y, x + w, y + h, true)
+		for i = 1, (passes or 3) do
+			blurMat:SetFloat("$blur", (i / (passes or 3)) * (strength or 3))
+			blurMat:Recompute()
+			render.UpdateScreenEffectTexture()
+			surface.DrawTexturedRect(0, 0, ScrW(), ScrH())
+		end
+	render.SetScissorRect(0, 0, 0, 0, false)
+end
+
 -- convert in game position into 2D map position
 function WorldToMapSpace(position, map)
 	local mapInfo = MAPINFO[map or game.GetMap()]

@@ -48,8 +48,6 @@ ARC9.NoTPIK = true
 -- server convars
 if SERVER then
 	-- modifiers
-	local modif = "\\nRecoilKickMult\\t0.75\\nVisualRecoilPunchMult\\t1.5\\nVisualRecoilRollMult\\t1.5\\nVisualRecoilSideMult\\t1\\nVisualRecoilUpMult\\t1\\nVisualRecoilMult\\t3\\nRecoilRandomSideMult\\t1.5\\nRecoilAutoControlMultShooting\\t0.05\\nRecoilUpMult\\t0.5\\nRecoilAutoControlMult\\t0.66\\nFreeAimRadiusMult\\t1.33\\nSpreadMultSights\\t0.5\\nVisualRecoilPunchMultSights\\t3\\nPhysBulletGravityMult\\t0.25 "
-	RunConsoleCommand("arc9_modifiers", modif)
 	RunConsoleCommand("arc9_mod_adstime", "0.75")
 	RunConsoleCommand("arc9_mod_bodydamagecancel", "1")
 	RunConsoleCommand("arc9_mod_damage", "1")
@@ -86,7 +84,7 @@ if SERVER then
 	RunConsoleCommand("arc9_eft_mult_melee", "1.5")
 	RunConsoleCommand("arc9_eft_mult_pistol", "0.35")
 	RunConsoleCommand("arc9_eft_mult_rifle", "0.4")
-	RunConsoleCommand("arc9_eft_mult_shotgun", "0.4")
+	RunConsoleCommand("arc9_eft_mult_shotgun", "0.5")
 	RunConsoleCommand("arc9_eft_mult_explosive", "1")
 
 	-- mechanics
@@ -130,9 +128,9 @@ if SERVER then
 
 	-- caching
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then
-		RunConsoleCommand("arc9_precache_allsounds_onstartup", "1")
-		RunConsoleCommand("arc9_precache_attsmodels_onstartup", "1")
-		RunConsoleCommand("arc9_precache_wepmodels_onstartup", "1")
+		RunConsoleCommand("arc9_precache_allsounds_onstartup", "0")
+		RunConsoleCommand("arc9_precache_attsmodels_onstartup", "0")
+		RunConsoleCommand("arc9_precache_wepmodels_onstartup", "0")
 	else
 		-- faster map reload times <3
 		RunConsoleCommand("arc9_precache_allsounds_onstartup", "0")
@@ -196,7 +194,7 @@ if CLIENT then
 
 	-- performance
 	RunConsoleCommand("arc9_cheapscopes", "0")
-	RunConsoleCommand("arc9_allflash", "1]")
+	RunConsoleCommand("arc9_allflash", "1")
 
 	-- fx
 	RunConsoleCommand("arc9_cust_blur", "1")
