@@ -556,14 +556,12 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				ang.r = ang.r + (math.sin(CurTime() * self:GetProcessedValue("RecoilKickDamping", true)) * rec)
 			end
 
-			if self.RecoilKickAffectPitch then
-				if !self:IsUsingRTScope() then
-					local recam = math.min(self:GetRecoilAmount(), 15)
-					SmoothRecoilAmount = Lerp(FrameTime() * 3, SmoothRecoilAmount, recam)
-					local thing = SmoothRecoilAmount * reckick * self:GetProcessedValue("Recoil")
-					ang.p = ang.p - 0.6 * thing
-					self.VMZOffsetForCamera = -0.25 * thing
-				end
+			if self.RecoilKickAffectPitch and !self:IsUsingRTScope() then
+				local recam = math.min(self:GetRecoilAmount(), 15)
+				SmoothRecoilAmount = Lerp(FrameTime() * 3, SmoothRecoilAmount, recam)
+				local thing = SmoothRecoilAmount * (reckick * self:GetProcessedValue("RecoilKickPitchMult")) * self:GetProcessedValue("Recoil")
+				ang.p = ang.p - 0.6 * thing
+				self.VMZOffsetForCamera = -0.25 * thing
 			end
 
 			local sightamount = self:GetSightAmount()

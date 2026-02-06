@@ -7813,7 +7813,7 @@ function Menu.OpenTab.Match()
 					local memberPFP = vgui.Create("AvatarImage", squadPopOut)
 					memberPFP:SetPos(EFGM.MenuScale(5), (key * EFGM.MenuScale(20)) + EFGM.MenuScale(12))
 					memberPFP:SetSize(EFGM.MenuScale(18), EFGM.MenuScale(18))
-					memberPFP:SetPlayer(plys, 184)
+					memberPFP:SetPlayer(plys, 64)
 				end
 
 				-- create password entry if squad is password protected and not full
