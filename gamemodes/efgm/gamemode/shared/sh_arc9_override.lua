@@ -2738,6 +2738,7 @@ function LoadPresetFromTable(wep, tbl)
 	wep:PruneAttachments()
 	wep:BuildSubAttachments(tbl)
 	wep:PostModify()
+	wep:SendWeapon()
 end
 
 function LoadPresetFromCode(wep, str)

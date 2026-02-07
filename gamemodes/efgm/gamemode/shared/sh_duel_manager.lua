@@ -29,7 +29,8 @@ if SERVER then
 		local primaryItem, secondaryItem, nadeItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
-			v:AddFlags(bit.bor(FL_GODMODE, FL_FROZEN))
+			v.IsFreezed = true
+			v:AddFlags(FL_GODMODE)
 			v:SetRaidStatus(3, "")
 			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
 			v:SetNWBool("PlayerIsPMC", true)
@@ -43,12 +44,12 @@ if SERVER then
 			net.Start("PlayerReinstantiateInventory", false)
 			net.Send(v)
 
-			local holsterEquDelay = 0.35
-			if primaryItem == nil then holsterEquDelay = 0.7 end
+			local holsterEquDelay = 0.4
+			if primaryItem == nil then holsterEquDelay = 0.8 end
 
 			if nadeItem != nil then timer.Simple(0, function() DUEL:EquipGrenade(v, nadeItem) end) end
 			if secondaryItem != nil then timer.Simple(holsterEquDelay, function() DUEL:EquipHolster(v, secondaryItem, primaryItem == nil) end) end
-			if primaryItem != nil then timer.Simple(0.7, function() DUEL:EquipPrimary(v, primaryItem) end) end
+			if primaryItem != nil then timer.Simple(0.8, function() DUEL:EquipPrimary(v, primaryItem) end) end
 
 			net.Start("PlayerInventoryReloadForDuel")
 				net.WriteTable(primaryItem or {})
@@ -62,11 +63,13 @@ if SERVER then
 				v:SetHealth(v:GetMaxHealth())
 				v:SendLua("RunConsoleCommand('r_cleardecals')")
 
-				v:RemoveFlags(FL_FROZEN)
 				v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
 				v:RemoveFlags(FL_GODMODE)
 
-				DUEL:ReloadLoadoutItems(v)
+				timer.Simple(1.35, function()
+					v.IsFreezed = false
+					DUEL:ReloadLoadoutItems(v)
+				end)
 			end)
 		end
 	end
@@ -92,18 +95,20 @@ if SERVER then
 		winningPly:SetNWInt("CurrentDuelWinStreak", winningPly:GetNWInt("CurrentDuelWinStreak") + 1)
 		if winningPly:GetNWInt("CurrentDuelWinStreak") >= winningPly:GetNWInt("BestDuelWinStreak") then winningPly:SetNWInt("BestDuelWinStreak", winningPly:GetNWInt("CurrentDuelWinStreak")) end
 
-		net.Start("PlayerDuelTransition")
-			net.WriteUInt(0, 1)
-		net.Send(winningPly)
+		timer.Simple(0.5, function()
+			net.Start("PlayerDuelTransition")
+				net.WriteUInt(0, 1)
+			net.Send(winningPly)
+		end)
 
 		winningPly:AddFlags(FL_GODMODE)
 		if winningPly:GetActiveWeapon() != NULL then winningPly:GetActiveWeapon():SetClip1(-1) end
 
-		timer.Simple(0.5, function()
+		timer.Simple(1, function()
 			winningPly:AddFlags(FL_FROZEN)
 		end)
 
-		timer.Simple(1, function()
+		timer.Simple(1.5, function()
 			ReinstantiateInventoryAfterDuel(winningPly)
 
 			winningPly:GodDisable()

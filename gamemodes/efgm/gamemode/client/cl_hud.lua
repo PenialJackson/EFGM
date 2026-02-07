@@ -483,12 +483,16 @@ function RenderDuelLoadout()
 	end
 
 	local loadoutSize = math.max(primaryNameSize, holsterNameSize, nadeNameSize)
-	local loadoutSizeY = EFGM.ScreenScale(90)
+	local loadoutSizeY = EFGM.ScreenScale(43)
 	local holsterY = EFGM.ScreenScale(-18)
 
 	if hasPrimary then
-		loadoutSizeY = EFGM.ScreenScale(133)
+		loadoutSizeY = loadoutSizeY + EFGM.ScreenScale(47)
 		holsterY = EFGM.ScreenScale(25)
+	end
+
+	if hasNade then
+		loadoutSizeY = loadoutSizeY + EFGM.ScreenScale(43)
 	end
 
 	function duelLoadout:Paint(w, h)

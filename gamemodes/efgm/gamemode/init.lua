@@ -194,6 +194,8 @@ function GM:PlayerSpawn(ply)
 	ply:SetNW2Var("leaning_right", false)
 	ply:SetNW2Bool("DoStep", false)
 
+	if ply.LastDeathSound then ply:StopSound(ply.LastDeathSound) end
+
 	CalculateInventoryWeight(ply)
 	ply:SetupHands()
 end
@@ -240,7 +242,17 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 	local victimHitgroup = victim:LastHitGroup()
 
 	-- death sound
-	if victimHitgroup != HITGROUP_HEAD then victim:EmitSound(Sound("deathsounds/death" .. math.random(1, 116) .. ".wav"), math.random(80, 90), math.random(90, 110)) end -- holy shit thats a few
+	local deathSound
+
+	if victimHitgroup != HITGROUP_HEAD then
+		deathSound = Sound("deathsounds/death" .. math.random(1, 116) .. ".wav") -- holy shit thats a few
+	else
+		deathSound = Sound("deathsounds/head" .. math.random(1, 3) .. ".wav")
+	end
+
+	victim:EmitSound(deathSound, math.random(80, 90), math.random(90, 110))
+	victim.LastDeathSound = deathSound
+
 	victim:SetNWInt("RaidTime", 0)
 
 	-- when a player suicides

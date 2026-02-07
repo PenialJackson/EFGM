@@ -112,8 +112,14 @@ hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, inWater, onFloater, sp
 end)
 
 -- ladders
-hook.Add("SetupMove", "LadderMovement", function(ply, mv, cmd)
+hook.Add("SetupMove", "EFGMSetupMove", function(ply, mv, cmd)
 	if !IsValid(ply) or !ply:Alive() then return end
+
+	if ply.IsFreezed then
+		mv:SetButtons(0)
+		mv:SetForwardSpeed(0)
+		mv:SetSideSpeed(0)
+	end
 
 	if ply:GetMoveType() == MOVETYPE_LADDER then
 		mv:SetButtons(bit.band(mv:GetButtons(), bit.bnot(IN_DUCK)))
