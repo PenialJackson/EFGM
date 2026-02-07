@@ -26,7 +26,7 @@ if SERVER then
 		net.Send(DUEL.Players)
 
 		local randLoadoutNum = math.random(1, #DUEL_PRIMARY)
-		local primaryItem, secondaryItem = DUEL:GenerateLoadout(randLoadoutNum)
+		local primaryItem, secondaryItem, nadeItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
 			v:AddFlags(bit.bor(FL_GODMODE, FL_FROZEN))
@@ -43,15 +43,17 @@ if SERVER then
 			net.Start("PlayerReinstantiateInventory", false)
 			net.Send(v)
 
-			local holsterEquDelay = 0.4
-			if primaryItem == nil then holsterEquDelay = 0.8 end
+			local holsterEquDelay = 0.35
+			if primaryItem == nil then holsterEquDelay = 0.7 end
 
+			if nadeItem != nil then timer.Simple(0, function() DUEL:EquipGrenade(v, nadeItem) end) end
 			if secondaryItem != nil then timer.Simple(holsterEquDelay, function() DUEL:EquipHolster(v, secondaryItem, primaryItem == nil) end) end
-			if primaryItem != nil then timer.Simple(0.8, function() DUEL:EquipPrimary(v, primaryItem) end) end
+			if primaryItem != nil then timer.Simple(0.7, function() DUEL:EquipPrimary(v, primaryItem) end) end
 
 			net.Start("PlayerInventoryReloadForDuel")
 				net.WriteTable(primaryItem or {})
 				net.WriteTable(secondaryItem or {})
+				net.WriteTable(nadeItem or {})
 			net.Send(v)
 
 			ResetRaidStats(v) -- because im lazy and won't make a special death overview
@@ -64,7 +66,7 @@ if SERVER then
 				v:Teleport(spawns[k]:GetPos(), spawns[k]:GetAngles(), Vector(0, 0, 0))
 				v:RemoveFlags(FL_GODMODE)
 
-				timer.Simple(0.8, function() DUEL:ReloadLoadoutItems(v) end) -- ughhhhhhh
+				DUEL:ReloadLoadoutItems(v)
 			end)
 		end
 	end
@@ -149,8 +151,24 @@ if SERVER then
 		if doEquip then ply:SelectWeapon(item.name) end
 	end
 
+	function DUEL:EquipGrenade(ply, item)
+		ply.weaponSlots[4][1] = item
+		GiveWepWithPresetFromCode(ply, item.name, item.data)
+	end
+
 	function DUEL:GenerateLoadout(num)
 		if !DUEL_PRIMARY[num] then print("invalid loadout number, no loadout being given") return end
+
+		local nadeItem = nil
+
+		if math.random(1, 3) == 3 then
+			local _, nadeItemKey = table.Random(DUEL_GRENADE[1])
+			local nadeDef = EFGMITEMS[nadeItemKey]
+
+			local nadeData = {}
+			nadeData.count = 1
+			nadeItem = ITEM.Instantiate(nadeItemKey, nadeDef.equipType, nadeData)
+		end
 
 		if num < 8 then
 			local _, primaryItemKey = table.Random(DUEL_PRIMARY[num])
@@ -171,7 +189,7 @@ if SERVER then
 			if secondaryDef.duelAtts then secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)] end
 			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryDef.equipType, secondaryData)
 
-			return primaryItem, secondaryItem
+			return primaryItem, secondaryItem, nadeItem
 		elseif num == 8 then
 			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
 			local secondaryDef = EFGMITEMS[secondaryItemKey]
@@ -182,12 +200,19 @@ if SERVER then
 			if secondaryDef.duelAtts then secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)] end
 			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryDef.equipType, secondaryData)
 
-			return nil, secondaryItem
+			return nil, secondaryItem, nadeItem
 		end
 	end
 
 	function DUEL:ReloadLoadoutItems(ply)
+		if !IsValid(ply) then return end
+		if !ply:Alive() then return end
+
 		for k, v in ipairs(ply:GetWeapons()) do
+			local def = EFGMITEMS[v:GetClass()]
+			if !def then continue end
+			if def.equipType != EQUIPTYPE.Weapon then continue end
+
 			v:SetClip1(v:GetMaxClip1())
 			v:SetClip2(v:GetMaxClip2())
 		end
@@ -288,12 +313,14 @@ end
 
 if CLIENT then
 	net.Receive("PlayerInventoryReloadForDuel", function(len)
-		local primaryItem, secondaryItem
+		local primaryItem, secondaryItem, nadeItem
 
 		primaryItem = net.ReadTable()
 		secondaryItem = net.ReadTable()
+		nadeItem = net.ReadTable()
 
-		if primaryItem != nil and !table.IsEmpty(primaryItem) then playerWeaponSlots[1][1] = primaryItem end
-		if secondaryItem != nil and !table.IsEmpty(secondaryItem) then playerWeaponSlots[2][1] = secondaryItem end
+		if primaryItem.name then playerWeaponSlots[1][1] = primaryItem end
+		if secondaryItem.name then playerWeaponSlots[2][1] = secondaryItem end
+		if nadeItem.name then playerWeaponSlots[4][1] = nadeItem end
 	end)
 end

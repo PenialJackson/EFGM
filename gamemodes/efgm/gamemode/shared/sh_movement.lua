@@ -40,10 +40,6 @@ hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
 		cmd:RemoveKey(IN_SPEED)
 	end
 
-	if base and base == "arc9_eft_melee_base" and cmd:KeyDown(IN_ATTACK2) then
-		cmd:RemoveKey(IN_SPEED)
-	end
-
 	if timer.Exists(ply:SteamID64() .. "jumpCD") then
 		cmd:RemoveKey(IN_JUMP)
 	end

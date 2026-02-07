@@ -55,11 +55,11 @@ function GenerateLootTables()
 			LOOT[1][k] = v
 		end
 
-		if v.displayType == "Assault Carbine" or v.displayType == "Assault Rifle" or v.displayType == "Light Machine Gun" or v.displayType == "Pistol" or v.displayType == "Shotgun" or v.displayType == "Sniper Rifle" or v.displayType == "Marksman Rifle" or v.displayType == "Submachine Gun" or v.displayType == "Launcher" or v.displayType == "Melee" or v.displayType == "Grenade" or v.displayType == "Special" or v.displayType == "Ammunition" or v.displayType == "Foregrip" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Tactical" then
+		if v.displayType == "Assault Carbine" or v.displayType == "Assault Rifle" or v.displayType == "Light Machine Gun" or v.displayType == "Pistol" or v.displayType == "Shotgun" or v.displayType == "Sniper Rifle" or v.displayType == "Marksman Rifle" or v.displayType == "Submachine Gun" or v.displayType == "Launcher" or v.displayType == "Melee" or v.displayType == "Frag Grenade" or v.displayType == "Smoke Grenade" or v.displayType == "Flashbang" or v.displayType == "Impact Grenade" or v.displayType == "Incendiary Grenade" or v.displayType == "Flare" or v.displayType == "Special" or v.displayType == "Ammunition" or v.displayType == "Foregrip" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Tactical" then
 			LOOT[2][k] = v
 		end
 
-		if v.displayType == "Ammunition" or v.displayType == "Grenade" then
+		if v.displayType == "Ammunition" or v.displayType == "Frag Grenade" or v.displayType == "Smoke Grenade" or v.displayType == "Flashbang" or v.displayType == "Impact Grenade" or v.displayType == "Incendiary Grenade" or v.displayType == "Flare" then
 			LOOT[3][k] = v
 		end
 

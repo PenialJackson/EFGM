@@ -6769,18 +6769,18 @@ function Menu.OpenTab.Market()
 		name = "Weapons",
 		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special"},
 		children = {
-			["Assault Carbines"] = "Assault Carbine",
-			["Assault Rifles"] = "Assault Rifle",
-			["Light Machine Guns"] = "Light Machine Gun",
-			["Pistols"] = "Pistol",
-			["Shotguns"] = "Shotgun",
-			["Sniper Rifles"] = "Sniper Rifle",
-			["Marksman Rifles"] = "Marksman Rifle",
-			["Submachine Guns"] = "Submachine Gun",
-			["Launchers"] = "Launcher",
-			["Melee"] = "Melee",
+			["Assault Carbines"] = {"Assault Carbine"},
+			["Assault Rifles"] = {"Assault Rifle"},
+			["Light Machine Guns"] = {"Light Machine Gun"},
+			["Pistols"] = {"Pistol"},
+			["Shotguns"] = {"Shotgun"},
+			["Sniper Rifles"] = {"Sniper Rifle"},
+			["Marksman Rifles"] = {"Marksman Rifle"},
+			["Submachine Guns"] = {"Submachine Gun"},
+			["Launchers"] = {"Launcher"},
+			["Melee"] = {"Melee"},
 			["Grenades"] = {"Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare"},
-			["Specials"] = "Special"
+			["Specials"] = {"Special"}
 		}
 	}
 
@@ -6794,21 +6794,21 @@ function Menu.OpenTab.Market()
 		name = "Attachments",
 		items = {"Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical"},
 		children = {
-			["Accessories"] = "Accessory",
-			["Barrels"] = "Barrel",
-			["Dust Covers"] = "Cover",
-			["Foregrips"] = "Foregrip",
-			["Gas Blocks"] = "Gas Block",
-			["Handguards"] = "Handguard",
-			["Magazines"] = "Magazine",
-			["Mounts"] = "Mount",
-			["Muzzles"] = "Muzzle",
-			["Optics"] = "Optic",
-			["Pistol Grips"] = "Pistol Grip",
-			["Receivers"] = "Receiver",
-			["Sights"] = "Sight",
-			["Stocks"] = "Stock",
-			["Tacticals"] = "Tactical"
+			["Accessories"] = {"Accessory"},
+			["Barrels"] = {"Barrel"},
+			["Dust Covers"] = {"Cover"},
+			["Foregrips"] = {"Foregrip"},
+			["Gas Blocks"] = {"Gas Block"},
+			["Handguards"] = {"Handguard"},
+			["Magazines"] = {"Magazine"},
+			["Mounts"] = {"Mount"},
+			["Muzzles"] = {"Muzzle"},
+			["Optics"] = {"Optic"},
+			["Pistol Grips"] = {"Pistol Grip"},
+			["Receivers"] = {"Receiver"},
+			["Sights"] = {"Sight"},
+			["Stocks"] = {"Stock"},
+			["Tacticals"] = {"Tactical"}
 		}
 	}
 
@@ -6822,9 +6822,9 @@ function Menu.OpenTab.Market()
 		name = "Keys",
 		items = {"Belmont Key", "Concrete Key", "Factory Key"},
 		children = {
-			["Belmont"] = "Belmont Key",
-			["Concrete"] = "Concrete Key",
-			["Factory"] = "Factory Key",
+			["Belmont"] = {"Belmont Key"},
+			["Concrete"] = {"Concrete Key"},
+			["Factory"] = {"Factory Key"}
 		}
 	}
 
@@ -6832,16 +6832,16 @@ function Menu.OpenTab.Market()
 		name = "Barter",
 		items = {"Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
 		children = {
-			["Building"] = "Building",
-			["Electronics"] = "Electronic",
-			["Energy"] = "Energy",
-			["Flammables"] = "Flammable",
-			["Household"] = "Household",
-			["Information"] = "Information",
-			["Medicine"] = "Medicine",
-			["Others"] = "Other",
-			["Tools"] = "Tool",
-			["Valuables"] = "Valuable"
+			["Building"] = {"Building"},
+			["Electronics"] = {"Electronic"},
+			["Energy"] = {"Energy"},
+			["Flammables"] = {"Flammable"},
+			["Household"] = {"Household"},
+			["Information"] = {"Information"},
+			["Medicine"] = {"Medicine"},
+			["Others"] = {"Other"},
+			["Tools"] = {"Tool"},
+			["Valuables"] = {"Valuable"}
 		}
 	}
 
@@ -7281,7 +7281,7 @@ function Menu.OpenTab.Market()
 			UpdateMarketList(v1.items)
 		end
 
-		for k2, v2 in SortedPairsByValue(v1.children) do
+		for k2, v2 in SortedPairs(v1.children) do
 			local entry = category:Add(string.upper(k2))
 
 			function entry:DoClick()
@@ -7289,11 +7289,9 @@ function Menu.OpenTab.Market()
 
 				surface.PlaySound("ui/element_select.wav")
 				marketTab = k2
-				local items = {}
-				table.insert(items, v2)
 				marketSearchText = ""
 				marketSearchBox:SetValue("")
-				UpdateMarketList(items)
+				UpdateMarketList(v2)
 			end
 		end
 	end

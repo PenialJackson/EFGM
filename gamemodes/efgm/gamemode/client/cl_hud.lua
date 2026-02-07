@@ -416,11 +416,13 @@ function RenderDuelLoadout()
 
 	local primary = playerWeaponSlots[1][1] or nil
 	local holster = playerWeaponSlots[2][1] or nil
+	local nade = playerWeaponSlots[4][1] or nil
 
 	local hasPrimary = playerWeaponSlots[1][1].name != nil
 	local hasHolster = playerWeaponSlots[2][1].name != nil
+	local hasNade = playerWeaponSlots[4][1].name != nil
 
-	if !hasPrimary and !hasHolster then return end
+	if !hasPrimary and !hasHolster and !hasNade then return end
 
 	local primaryDef
 	local primaryName
@@ -438,6 +440,10 @@ function RenderDuelLoadout()
 	local holsterMax = 0
 	local holsterMode
 	local holsterModeSize = 0
+	local nadeDef
+	local nadeName
+	local nadeNameSize = 0
+	local nadeType
 
 	surface.SetFont("Bender24")
 
@@ -468,14 +474,26 @@ function RenderDuelLoadout()
 		holsterModeSize = surface.GetTextSize(holsterMode) + EFGM.ScreenScale(5)
 	end
 
-	local loadoutSize = math.max(primaryNameSize, holsterNameSize)
-	local loadoutSizeY = EFGM.ScreenScale(43)
+	if hasNade then
+		nadeDef = EFGMITEMS[nade.name]
+
+		nadeName = nadeDef.displayName or ""
+		nadeNameSize = surface.GetTextSize(nadeName) + EFGM.ScreenScale(140)
+		nadeType = nadeDef.displayType or ""
+	end
+
+	local loadoutSize = math.max(primaryNameSize, holsterNameSize, nadeNameSize)
+	local loadoutSizeY = EFGM.ScreenScale(90)
 	local holsterY = EFGM.ScreenScale(-18)
-	if hasPrimary then loadoutSizeY = EFGM.ScreenScale(90) holsterY = EFGM.ScreenScale(25) end
+
+	if hasPrimary then
+		loadoutSizeY = EFGM.ScreenScale(133)
+		holsterY = EFGM.ScreenScale(25)
+	end
 
 	function duelLoadout:Paint(w, h)
-		if !LocalPlayer():Alive() then return end
-		if !LocalPlayer():IsInDuel() then return end
+		if !LocalPlayer():Alive() then self:Remove() return end
+		if !LocalPlayer():IsInDuel() then self:Remove() return end
 
 		BlurRect(ScrW() / 2 - (loadoutSize / 2), ScrH() - loadoutSizeY - EFGM.ScreenScale(20), loadoutSize, loadoutSizeY, 4, 2)
 		surface.SetDrawColor(Colors.hudBackground)
@@ -485,7 +503,7 @@ function RenderDuelLoadout()
 		surface.DrawRect(ScrW() / 2 - (loadoutSize / 2), ScrH() - loadoutSizeY - EFGM.ScreenScale(20), loadoutSize, EFGM.ScreenScale(1))
 
 		if hasPrimary then
-			primaryMax = tostring(primaryEnt:GetMaxClip1() or 0)
+			primaryMax = IsValid(primaryEnt) and tostring(primaryEnt:GetMaxClip1()) or "0"
 			draw.DrawText(primaryName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 			draw.DrawText(primaryCal, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + EFGM.ScreenScale(5), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 
@@ -503,7 +521,7 @@ function RenderDuelLoadout()
 		end
 
 		if hasHolster then
-			holsterMax = tostring(holsterEnt:GetMaxClip1() or 0)
+			holsterMax = IsValid(holsterEnt) and tostring(holsterEnt:GetMaxClip1()) or "0"
 			draw.DrawText(holsterName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 			draw.DrawText(holsterCal, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(20), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 
@@ -519,10 +537,15 @@ function RenderDuelLoadout()
 
 			draw.DrawText(holsterMax, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(70) - holsterModeSize, ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP)
 		end
+
+		if hasNade then
+			draw.DrawText(nadeName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(43), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.DrawText(nadeType, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(63), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+		end
 	end
 
 	duelLoadout:AlphaTo(255, 0.35, 0, nil)
-	duelLoadout:AlphaTo(0, 0.1, 3.35, function() duelLoadout:Remove() end)
+	duelLoadout:AlphaTo(0, 0.1, 3.65, function() duelLoadout:Remove() end)
 end
 
 local function DrawHUD()
@@ -684,7 +707,7 @@ net.Receive("PlayerDuelTransition", function()
 
 	if status == 1 then
 		hook.Run("efgm_duel_enter")
-		timer.Simple(1, function() RenderDuelLoadout() end)
+		timer.Simple(1.5, function() RenderDuelLoadout() end)
 	end
 
 	Menu.PerferredTab = nil
@@ -714,7 +737,7 @@ net.Receive("PlayerDuelTransition", function()
 	end
 
 	transition:AlphaTo(255, 0.5, 0, nil)
-	transition:AlphaTo(0, 0.35, 1, function()
+	transition:AlphaTo(0, 0.35, 1.15, function()
 		transition:Remove()
 	end)
 

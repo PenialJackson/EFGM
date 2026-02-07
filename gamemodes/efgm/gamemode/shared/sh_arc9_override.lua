@@ -29,6 +29,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		if self:GetInSights() then return false end
 		if self:GetCustomize() then return false end
 		if owner:KeyDown(IN_ATTACK) then return false end
+		if owner:KeyDown(IN_ATTACK2) then return false end
 		if !owner:KeyDown(IN_SPEED) then return false end
 		if !owner:IsSprinting() then return false end
 		if !owner:OnGround() or owner:GetMoveType() == MOVETYPE_NOCLIP then return false end
@@ -37,7 +38,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		if (self:GetAnimLockTime() > CurTime()) and self:GetProcessedValue("NoSprintWhenLocked", true) then return false end
 		if self:GetProcessedValue("ShootWhileSprint", true) and owner:KeyDown(IN_ATTACK) then return false end
-		if self:GetGrenadePrimed() then return false end
 		if owner:Crouching() then return false end
 
 		return true
@@ -51,6 +51,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		if owner:KeyDown(IN_SPEED) then return false end
 		if owner:IsSprinting() then return false end
 		if !owner:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then return false end
+		if owner:Crouching() then return false end
 
 		local curspeed = owner:GetVelocity():LengthSqr()
 		if curspeed <= 0 then return false end
@@ -67,7 +68,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	function SWEP:GetViewModelSway(pos, ang)
 		local ft = FrameTime()
 		local sightmult = 0.5 + math.Clamp(1 / ft / 100, 0, 5)
-		sightmult = sightmult * Lerp(self:GetSightAmount(), 1, 0.25)
+		sightmult = sightmult * Lerp(self:GetSightAmount(), 1, 0.1)
 
 		smootheyeang = LerpAngle(math.Clamp(ft * 24, 0.075, 1), smootheyeang, EyeAngles() - lasteyeang)
 		lasteyeang = EyeAngles()
@@ -94,10 +95,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local inertiaanchor = Vector(self.CustomizeRotateAnchor)
 		inertiaanchor.x = inertiaanchor.x * 0.75
 
-		pos:Add(ang:Up() * smootheyeang.p * 0.075 * (sightmult / 3))
-		pos:Add(ang:Right() * smootheyeang.y * -0.1 * (sightmult / 3))
+		pos:Add(ang:Up() * smootheyeang.p * 0.01 * sightmult)
+		pos:Add(ang:Right() * smootheyeang.y * -0.1 * sightmult)
 
-		local rap_pos, rap_ang = self:RotateAroundPoint2(pos, ang, inertiaanchor, vector_origin, smootheyeang * 3 * (sightmult / 6) * -1)
+		local rap_pos, rap_ang = self:RotateAroundPoint2(pos, ang, inertiaanchor, vector_origin, smootheyeang * sightmult * -1)
 		pos:Set(rap_pos)
 		ang:Set(rap_ang)
 
