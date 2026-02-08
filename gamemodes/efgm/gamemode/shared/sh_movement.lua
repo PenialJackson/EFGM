@@ -29,6 +29,11 @@ hook.Add("StartCommand", "AdjustPlayerMovement", function(ply, cmd)
 	local mvtype = ply:GetMoveType()
 	if mvtype == MOVETYPE_NOCLIP then return end
 
+	if ply.IsFreezed then
+		cmd:ClearMovement()
+		cmd:ClearButtons()
+	end
+
 	if cmd:KeyDown(IN_BACK) or (cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) and !cmd:KeyDown(IN_FORWARD) then
 		cmd:RemoveKey(IN_SPEED)
 	end
@@ -320,7 +325,6 @@ local punchstop = false
 local VBPos, VBAng = Vector(), Angle()
 local VBPosCalc, VBAngCalc = Vector(), Angle()
 local VBPosPre, VBAngPre = Vector(), Angle()
-local VBPos2 = Vector()
 local LerpedInertia = 0
 local calcpos = Vector()
 
@@ -601,13 +605,9 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 
 	local isSprinting = ply:KeyDown(IN_SPEED) and !ply:Crouching() and !ply:KeyDown(IN_WALK) and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
 
-	LerpedInertia = Lerp(FT * 5, LerpedInertia, inertiamul)
+	LerpedInertia = Lerp(FT * 1.5, LerpedInertia, inertiamul)
 	-- VBAngCalc.x = VBAngCalc.x + 10 * LerpedInertia
 	VBAngCalc.z = VBAngCalc.z + 10 * LerpedInertia
-
-	if !GetSighted(wep) then
-		VBPosCalc.z = VBPosCalc.z + 10 * LerpedInertia
-	end
 
 	-- local sway_y = math.Clamp(math.AngleDifference(LastAng.y, ang.y) * 0.5, -2.5, 2.5) * 0.5
 	-- local sway_x = math.Clamp(math.AngleDifference(LastAng.x, ang.x), -2.5, 2.5) * 0.5
@@ -635,7 +635,7 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 		LerpedSway_Y = 0
 	end
 
-	local sway_tilt = math.Clamp(r:Dot(LocalPlayer():GetVelocity() * 0.02), -10, 10)
+	local sway_tilt = math.Clamp(r:Dot(LocalPlayer():GetVelocity() * 0.0225), -10, 10)
 	local swayt_tilt = (sway_tilt == 0 and 12) or 8
 
 	if IFTP and UCT != UnPredictedCurTime() then
@@ -645,10 +645,10 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 	end
 
 	VBPosCalc:Add(up * math.sin(VMTime * 10) * 0.1)
-	VBPosCalc:Add(r * math.sin(VMTime * 5) * (!isSprinting and 0.05 or 0.1))
+	VBPosCalc:Add(r * math.sin(VMTime * 5) * (!isSprinting and 0.075 or 0.125))
 	VBPosCalc:Sub(f * math.sin(VMTime * 5) * 0.25)
 
-	VBAngCalc.z = VBAngCalc.z + math.sin(VMTime * 10) * 0.375
+	VBAngCalc.z = VBAngCalc.z + math.sin(VMTime * 6) * 0.475
 	-- VBAngCalc.x = VBAngCalc.x + math.abs(math.sin(VMTime * 5) * 0.035)
 
 	VBAngCalc.y = (!flipped and VBAngCalc.y - LerpedSway_Y + math.abs(LerpedSway_X * 0.25)) or VBAngCalc.y + LerpedSway_Y - math.abs(LerpedSway_X * 0.25)
@@ -659,12 +659,6 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 	VBPosCalc:Sub(up * LerpedSway_X * 0.5)
 
 	if (!requestedmove and punchstop) or requestedmove and !GetSighted(wep) then
-		local a = VBAngCalc + ang
-		SpringMove1[1] = (a.x - oldang.x + LerpedSway_X) * -0.01
-		SpringMove1[2] = (a.y - oldang.y + LerpedSway_Y) * 0.1
-		ply:VBSpring(SpringMove1)
-
-		-- SpringMove2[2] = math.sin(VMTime * 5) * -0.005
 		SpringMove2[3] = math.sin(VMTime * 5) * 0.0075 * (FT * 150)
 		ply:VBSpring(SpringMove2)
 	end
@@ -678,35 +672,14 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 	VBPos:Set(pos)
 	VBAng:Set(ang)
 
-	VBPos2:Set(pos)
-	VBPos2:Sub(up * math.min(LerpedAngX, 0) * 0.025)
-	VBPos2:Sub(f * math.min(LerpedAngX, 45) * 0.025)
-
 	ang:Add(ply.VBSpringAngle)
 
 	LastAng:Set(oldang)
-
-	ang.x = ang.x + (VBAng.x-VBAngPre.x) * 0.25
 
 	pos:Sub(calcpos)
 
 	UCT = UnPredictedCurTime()
 end)
-
-if CLIENT then
-	local bobbing = GetConVar("efgm_visuals_headbob"):GetBool()
-
-	hook.Add("CalcView","VBCalcView", function(ply,pos,ang)
-		if bobbing then
-			calcpos:Set(ang:Up() * ((VBAng.x-VBAngPre.x) * 3 + LerpedSway_X - math.abs(LerpedSway_Y * 0.15)))
-			ang.x = ang.x + (VBAng.x-VBAngPre.x) * 0.25
-		end
-
-		pos:Sub(calcpos)
-	end)
-
-	cvars.AddChangeCallback("efgm_visuals_headbob", function(convar_name, value_old, value_new) if value_new == "1" then bobbing = true else bobbing = false end end)
-end
 
 local VBAngN = Angle()
 local function BoneVB(ply, vm, m)

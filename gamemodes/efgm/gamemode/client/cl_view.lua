@@ -40,9 +40,9 @@ end
 local function holdingbind(ply) return freelooking end
 
 hook.Add("CalcView", "AltlookView", function(ply, origin, angles, fov)
-	CoolAng = LerpAngle(0.3, CoolAng, Angle(LookY, -LookX, 0))
+	CoolAng = LerpAngle(math.min(FrameTime() * 40, 1), CoolAng, Angle(LookY, -LookX, 0))
 
-	if !holdingbind(ply) and CoolAng.p < 0.05 and CoolAng.p > -0.05 or isinsights(ply) and CoolAng.p < 0.05 and CoolAng.p > -0.05 or !system.HasFocus() or ply:ShouldDrawLocalPlayer() then
+	if !holdingbind(ply) and CoolAng.p < 0.01 and CoolAng.p > -0.01 or isinsights(ply) and CoolAng.p < 0.01 and CoolAng.p > -0.01 or !system.HasFocus() or ply:ShouldDrawLocalPlayer() then
 		InitialAng = angles + CoolAng
 		LookX, LookY = 0, 0
 

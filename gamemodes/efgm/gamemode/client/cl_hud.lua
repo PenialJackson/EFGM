@@ -711,7 +711,13 @@ net.Receive("PlayerDuelTransition", function()
 
 	if status == 1 then
 		hook.Run("efgm_duel_enter")
+		LocalPlayer().IsFreezed = true
+
 		timer.Simple(1.5, function() RenderDuelLoadout() end)
+
+		timer.Simple(2.35, function()
+			LocalPlayer().IsFreezed = false
+		end)
 	end
 
 	Menu.PerferredTab = nil

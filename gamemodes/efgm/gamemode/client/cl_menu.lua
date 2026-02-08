@@ -9433,19 +9433,6 @@ function Menu.OpenTab.Settings()
 	vmFOV:SetMax(30)
 	vmFOV:SetDecimals(0)
 
-	local headBobPanel = vgui.Create("DPanel", visuals)
-	headBobPanel:Dock(TOP)
-	headBobPanel:SetSize(0, EFGM.MenuScale(50))
-
-	function headBobPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Head Bobbing", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-	end
-
-	local headBob = vgui.Create("DCheckBox", headBobPanel)
-	headBob:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	headBob:SetConVar("efgm_visuals_headbob")
-	headBob:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
-
 	local lensFlarePanel = vgui.Create("DPanel", visuals)
 	lensFlarePanel:Dock(TOP)
 	lensFlarePanel:SetSize(0, EFGM.MenuScale(50))

@@ -59,40 +59,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		return true
 	end
 
-	local lasteyeang = Angle()
-	local smootheyeang = Angle()
-	local smoothswayroll = 0
 	local Lerp = Lerp
 
-	function SWEP:RotateAroundPoint3(pos, ang, point, offset, offset_ang)
-		local mat = Matrix()
-		mat:SetTranslation(pos)
-		mat:SetAngles(ang)
-		mat:Translate(point)
-
-		local rot_mat = Matrix()
-		rot_mat:SetAngles(offset_ang)
-		-- rot_mat:Invert()
-
-		mat:Mul(rot_mat)
-
-		mat:Translate(-point)
-
-		mat:Translate(offset)
-
-		return mat:GetTranslation(), mat:GetAngles()
-	end
-
 	function SWEP:GetViewModelSway(pos, ang)
-		local ft = FrameTime()
-		local sightmult = 0.5 + math.Clamp(1 / ft / 100, 0, 5)
-		sightmult = sightmult * Lerp(self:GetSightAmount(), 1, 0.05)
-
-		smootheyeang = LerpAngle(math.Clamp(ft * 24, 0.075, 1), smootheyeang, EyeAngles() - lasteyeang)
-		lasteyeang = EyeAngles()
-
-		smoothswayroll = Lerp(math.Clamp(ft * 24, 0.075, 1), smoothswayroll, smootheyeang.y)
-
 		if self.SprintVerticalOffset then
 			local sprintoffset = math.Clamp(EyeAngles().p * 0.1, -9, 4.5)
 			local sprintoffset2 = sprintoffset + 1.2
@@ -106,42 +75,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			ang.y = ang.y + math.min(0, sprintoffset * -2)
 		end
 
-		smootheyeang.p = math.Clamp(smootheyeang.p * 0.95, -2, 2)
-		smootheyeang.y = math.Clamp(smootheyeang.y * 0.9, -1, 1)
-		smootheyeang.r = math.Clamp(smoothswayroll * (0.5 + math.Clamp(ft * 64, 0, 4)), -1, 1)
-
-		local inertiaanchor = Vector(self.CustomizeRotateAnchor)
-		inertiaanchor.x = inertiaanchor.x * 0.75
-
-		pos:Add(ang:Up() * smootheyeang.p * 0.06 * sightmult)
-		pos:Add(ang:Right() * smootheyeang.y * 0.06 * sightmult)
-
-		local rap_pos, rap_ang = self:RotateAroundPoint3(pos, ang, inertiaanchor, vector_origin, smootheyeang * sightmult)
-		pos:Set(rap_pos)
-		ang:Set(rap_ang)
-
 		return pos, ang
 	end
 
-	SWEP.ViewModelLastEyeAng = Angle()
-	SWEP.ViewModelSwayInertia = Angle()
-
 	function SWEP:GetViewModelInertia(pos, ang)
-		local eyeangg = self:GetOwner():EyeAngles()
-		local ft = FrameTime()
-
-		local d = 1 - self:GetSightAmount()
-		local diff = eyeangg - self.ViewModelLastEyeAng
-		diff = diff / 4
-		diff.p = math.Clamp(diff.p, -1, 1)
-		diff.y = math.Clamp(diff.y, -1, 1)
-		local vsi = self.ViewModelSwayInertia
-		vsi.p = math.ApproachAngle(vsi.p, diff.p, vsi.p / 10 * ft / 0.5)
-		vsi.y = math.ApproachAngle(vsi.y, diff.y, vsi.y / 10 * ft / 0.5)
-		self.ViewModelLastEyeAng = eyeangg
-		ang:RotateAroundAxis(ang:Up(), vsi.y * 12 * d)
-		ang:RotateAroundAxis(ang:Right(), -vsi.p * 12 * d)
-
 		return pos, ang
 	end
 
