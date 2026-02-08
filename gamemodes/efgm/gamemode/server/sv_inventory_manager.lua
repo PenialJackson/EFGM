@@ -271,6 +271,30 @@ net.Receive("PlayerInventoryEquipItem", function(len, ply)
 	ReloadInventory(ply)
 end)
 
+net.Receive("PlayerInventoryEquipItemFromEquipped", function(len, ply)
+	local equipSlot, equipSubSlot, toEquipSlot, toEquipSubSlot, toSwitch
+
+	equipSlot = net.ReadUInt(4)
+	equipSubSlot = net.ReadUInt(4)
+	toEquipSlot = net.ReadUInt(4)
+	toEquipSubSlot = net.ReadUInt(4)
+	toSwitch = net.ReadBool()
+
+	local item = ply.weaponSlots[equipSlot][equipSubSlot]
+	if table.IsEmpty(item) then return end
+
+	if !toSwitch then
+		ply.weaponSlots[toEquipSlot][toEquipSubSlot] = item
+		ply.weaponSlots[equipSlot][equipSubSlot] = {}
+	else
+		local itemToSwitch = table.Copy(ply.weaponSlots[toEquipSlot][toEquipSubSlot])
+		ply.weaponSlots[toEquipSlot][toEquipSubSlot] = item
+		ply.weaponSlots[equipSlot][equipSubSlot] = itemToSwitch
+	end
+
+	ReloadSlots(ply)
+end)
+
 net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
@@ -337,7 +361,7 @@ function UnequipAll(ply)
 		for k, v in ipairs(ply.weaponSlots[i]) do
 			if !table.IsEmpty(v) then
 				local item = table.Copy(v)
-				if item == nil then return end
+				if table.IsEmpty(item) then return end
 
 				ply.weaponSlots[i][k] = {}
 
@@ -405,7 +429,7 @@ function UnequipAllFirearms(ply)
 		for k, v in ipairs(ply.weaponSlots[i]) do
 			if !table.IsEmpty(v) then
 				local item = table.Copy(v)
-				if item == nil then return end
+				if table.IsEmpty(item) then return end
 
 				ply.weaponSlots[i][k] = {}
 
@@ -531,6 +555,13 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 
 	ply.weaponSlots[equipID][equipSlot] = {}
 
+	local wep = ply:GetWeapon(item.name)
+	local def = EFGMITEMS[item.name]
+
+	if wep != NULL and def.displayType != "Grenade" then
+		wep:Unload()
+	end
+
 	ply:StripWeapon(item.name)
 
 	local entity = ents.Create("efgm_dropped_item")
@@ -573,7 +604,7 @@ net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
 	if container == nil then return end
 
 	local newItem = table.Copy(container.Inventory[index])
-	if newItem == nil then return end
+	if table.IsEmpty(newItem) then return end
 
 	local def = EFGMITEMS[newItem.name]
 
@@ -606,7 +637,7 @@ net.Receive("PlayerInventoryEquipItemFromContainer", function(len, ply)
 	if container == nil then return end
 
 	local newItem = table.Copy(container.Inventory[index])
-	if newItem == nil then return end
+	if table.IsEmpty(newItem) then return end
 
 	if AmountInInventory(ply.weaponSlots[equipSlot], newItem.name) > 0 then return end -- can't have multiple of the same item
 
@@ -722,6 +753,13 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 		if table.IsEmpty(item) then return end
 
 		ply.weaponSlots[equipID][equipSlot] = {}
+
+		local wep = ply:GetWeapon(item.name)
+		local def = EFGMITEMS[item.name]
+
+		if wep != NULL and def.displayType != "Grenade" then
+			wep:Unload()
+		end
 
 		ply:StripWeapon(item.name)
 
@@ -1058,7 +1096,7 @@ hook.Add("PlayerSpawn", "GiveEquippedItemsOnSpawn", function(ply)
 		for k, v in ipairs(ply.weaponSlots[i]) do
 			if !table.IsEmpty(v) then
 				local item = table.Copy(v)
-				if item == nil then return end
+				if table.IsEmpty(item) then return end
 
 				GiveWepWithPresetFromCode(ply, item.name, item.data)
 			end

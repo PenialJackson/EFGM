@@ -3307,25 +3307,27 @@ function Menu.OpenTab.Inventory(container)
 
 	secondaryWeaponHolder:Receiver("slot_primary", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
-		if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
+			if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
 		end
 
 		if panels[1].Origin == "stash" then
+			if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
 		end
 
 		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 then
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 1)
+			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 2)
 		end
 
 		if panels[1].Origin == "container" then
+			if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]
@@ -3350,25 +3352,27 @@ function Menu.OpenTab.Inventory(container)
 
 	primaryWeaponHolder:Receiver("slot_primary", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
-		if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
+			if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
 		end
 
 		if panels[1].Origin == "stash" then
+			if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
 		end
 
 		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 then
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 2)
+			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 1)
 		end
 
 		if panels[1].Origin == "container" then
+			if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]

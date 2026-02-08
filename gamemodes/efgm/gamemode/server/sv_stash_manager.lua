@@ -179,26 +179,9 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 	end
 
 	local def = EFGMITEMS[item.name]
+
 	if wep != NULL and def.displayType != "Grenade" then
-		local clip1 = wep:Clip1()
-		local ammoDef = EFGMITEMS[wep.Ammo]
-
-		if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
-			local data = {}
-			data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-			FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
-		end
-
-		local clip2 = wep:Clip2()
-		local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
-
-		if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
-			local data = {}
-			data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-			FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
-		end
-
-		ReloadInventory(ply)
+		wep:Unload()
 	end
 
 	ReloadSlots(ply)

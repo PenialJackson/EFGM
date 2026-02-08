@@ -244,6 +244,13 @@ if SERVER then
 					local item = table.Copy(v)
 					if table.IsEmpty(item) then return end
 
+					local wep = ply:GetWeapon(item.name)
+					local def = EFGMITEMS[item.name]
+
+					if wep != NULL and def.displayType != "Grenade" then
+						wep:Unload()
+					end
+
 					ply:StripWeapon(item.name)
 				end
 			end

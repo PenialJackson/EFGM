@@ -558,9 +558,9 @@ local function Sighted_Process(wep, FT)
 	end
 end
 
-local SpringStop = Angle(0.0025,0,0)
+local SpringStop = Angle(0.0025, 0, 0)
 local SpringTilt = Angle()
-local SpringMove1, SpringMove2 = Angle(), Angle()
+local SpringMove2 = Angle()
 
 hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, oldang, pos, ang)
 	local ply = LocalPlayer()
@@ -606,22 +606,7 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 	local isSprinting = ply:KeyDown(IN_SPEED) and !ply:Crouching() and !ply:KeyDown(IN_WALK) and ply:KeyDown(IN_FORWARD) and requestedmove and !GetSighted(wep) and ply:IsOnGround()
 
 	LerpedInertia = Lerp(FT * 1.5, LerpedInertia, inertiamul)
-	-- VBAngCalc.x = VBAngCalc.x + 10 * LerpedInertia
 	VBAngCalc.z = VBAngCalc.z + 10 * LerpedInertia
-
-	-- local sway_y = math.Clamp(math.AngleDifference(LastAng.y, ang.y) * 0.5, -2.5, 2.5) * 0.5
-	-- local sway_x = math.Clamp(math.AngleDifference(LastAng.x, ang.x), -2.5, 2.5) * 0.5
-
-	-- local swayt_x = (sway_x == 0 and 6) or 4
-	-- local swayt_y = (sway_y == 0 and 6) or 4
-
-	-- if IFTP and UCT != UnPredictedCurTime() then
-		-- LerpedSway_X = Lerp(FT * swayt_x, LerpedSway_X, sway_x)
-		-- LerpedSway_Y = Lerp(FT * swayt_y, LerpedSway_Y, sway_y)
-		-- SpringSway[1] = LerpedSway_X * -0.005
-		-- SpringSway[2] = LerpedSway_Y * -0.01
-		-- ply:VBSpring(SpringSway)
-	-- end
 
 	local r = ang:Right()
 	local up = ang:Up()
@@ -649,7 +634,6 @@ hook.Add("CalcViewModelView", "VBCalcViewModelView", function(wep, vm, oldpos, o
 	VBPosCalc:Sub(f * math.sin(VMTime * 5) * 0.25)
 
 	VBAngCalc.z = VBAngCalc.z + math.sin(VMTime * 6) * 0.475
-	-- VBAngCalc.x = VBAngCalc.x + math.abs(math.sin(VMTime * 5) * 0.035)
 
 	VBAngCalc.y = (!flipped and VBAngCalc.y - LerpedSway_Y + math.abs(LerpedSway_X * 0.25)) or VBAngCalc.y + LerpedSway_Y - math.abs(LerpedSway_X * 0.25)
 

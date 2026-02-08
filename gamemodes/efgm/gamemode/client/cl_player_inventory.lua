@@ -264,6 +264,32 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 end
 
 function EquipItemFromEquipped(equipID, equipSlot, toEquipID, toEquipSlot)
+	if (LocalPlayer():CompareFaction(false) and LocalPlayer():IsInHideout()) then return end
+
+	local item = playerWeaponSlots[equipID][equipSlot]
+	if table.IsEmpty(item) then return end
+
+	local isSwitch = false
+
+	if table.IsEmpty(playerWeaponSlots[toEquipID][toEquipSlot]) then
+		playerWeaponSlots[toEquipID][toEquipSlot] = item
+		playerWeaponSlots[equipID][equipSlot] = {}
+	else
+		isSwitch = true
+
+		local itemToSwitch = table.Copy(playerWeaponSlots[toEquipID][toEquipSlot])
+		playerWeaponSlots[toEquipID][toEquipSlot] = item
+		playerWeaponSlots[equipID][equipSlot] = itemToSwitch
+	end
+
+	net.Start("PlayerInventoryEquipItemFromEquipped", false)
+		net.WriteUInt(equipID, 4)
+		net.WriteUInt(equipSlot, 4)
+		net.WriteUInt(toEquipID, 4)
+		net.WriteUInt(toEquipSlot, 4)
+		net.WriteBool(isSwitch)
+	net.SendToServer()
+
 	return false
 end
 

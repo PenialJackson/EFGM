@@ -73,6 +73,7 @@ local msgs = {
 	"PlayerInventoryDeleteEquippedItem",
 	"PlayerInventoryLootItemFromContainer",
 	"PlayerInventoryEquipItemFromContainer",
+	"PlayerInventoryEquipItemFromEquipped",
 	"PlayerInventorySplit",
 	"PlayerInventoryDelete",
 	"PlayerInventoryTag",
@@ -242,13 +243,11 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 	local victimHitgroup = victim:LastHitGroup()
 
 	-- death sound
-	local deathSound
-
-	if victimHitgroup != HITGROUP_HEAD then
-		deathSound = Sound("deathsounds/death" .. math.random(1, 116) .. ".wav") -- holy shit thats a few
-	else
-		deathSound = Sound("deathsounds/head" .. math.random(1, 3) .. ".wav")
+	if victimHitgroup == HITGROUP_HEAD then
+		victim:EmitSound(Sound("deathsounds/head" .. math.random(1, 3) .. ".wav"), math.random(66, 76), math.random(90, 110))
 	end
+
+	local deathSound = Sound("deathsounds/head" .. math.random(1, 3) .. ".wav")
 
 	victim:EmitSound(deathSound, math.random(80, 90), math.random(90, 110))
 	victim.LastDeathSound = deathSound
