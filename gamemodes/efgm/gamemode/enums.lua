@@ -67,5 +67,10 @@ PLAYERMODELS = {
 }
 
 QUOTES = {
-	"nobody is sending any quotes so have this one! -penial",
+	"i'm coining -Computery",
+	"i play EFGM in bed so the heat of the laptop replaces the heat of a person -Bean",
+	"masterbaiting and playing retrocycles at the same time -Penial",
+	"if you don't move the enemy can't see you, just like the dinosaurs -Void",
+	"counting or not counting gang violence -emilka",
+	"gg wp -skelle",
 }

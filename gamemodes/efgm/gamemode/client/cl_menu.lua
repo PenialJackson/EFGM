@@ -3308,21 +3308,24 @@ function Menu.OpenTab.Inventory(container)
 	secondaryWeaponHolder:Receiver("slot_primary", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
 		if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
+		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
 		end
 
 		if panels[1].Origin == "stash" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
 		end
 
+		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 then
+			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 1)
+		end
+
 		if panels[1].Origin == "container" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]
@@ -3348,21 +3351,24 @@ function Menu.OpenTab.Inventory(container)
 	primaryWeaponHolder:Receiver("slot_primary", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
 		if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
+		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
 		end
 
 		if panels[1].Origin == "stash" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
 		end
 
+		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 then
+			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 2)
+		end
+
 		if panels[1].Origin == "container" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]
@@ -3388,21 +3394,19 @@ function Menu.OpenTab.Inventory(container)
 	holsterWeaponHolder:Receiver("slot_holster", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
 		if !table.IsEmpty(playerWeaponSlots[2][1]) then return end
+		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "stash" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "container" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]
@@ -3433,21 +3437,19 @@ function Menu.OpenTab.Inventory(container)
 	meleeWeaponHolder:Receiver("slot_melee", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
 		if !table.IsEmpty(playerWeaponSlots[3][1]) then return end
+		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "stash" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "container" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]
@@ -3478,21 +3480,19 @@ function Menu.OpenTab.Inventory(container)
 	nadeWeaponHolder:Receiver("slot_grenade", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
 		if !table.IsEmpty(playerWeaponSlots[4][1]) then return end
+		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "stash" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "container" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]
@@ -3523,21 +3523,19 @@ function Menu.OpenTab.Inventory(container)
 	consumableItemHolder:Receiver("slot_consumable", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
 		if !table.IsEmpty(playerWeaponSlots[5][1]) then return end
+		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "stash" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromStash(panels[1].ID, panels[1].Slot)
 		end
 
 		if panels[1].Origin == "container" then
-			if !Menu.Player:Alive() then return end
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 			local conItem = container.items[panels[1].ID]

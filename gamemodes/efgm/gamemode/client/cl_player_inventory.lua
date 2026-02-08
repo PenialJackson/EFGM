@@ -263,6 +263,10 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 	return false
 end
 
+function EquipItemFromEquipped(equipID, equipSlot, toEquipID, toEquipSlot)
+	return false
+end
+
 function UnEquipItemFromInventory(equipID, equipSlot)
 	if (LocalPlayer():CompareFaction(false) and LocalPlayer():IsInHideout()) then return end
 
