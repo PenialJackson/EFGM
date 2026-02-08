@@ -29,8 +29,7 @@ if SERVER then
 		local primaryItem, secondaryItem, nadeItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
-			v.IsFreezed = true
-			v:AddFlags(FL_GODMODE)
+			v:AddFlags(bit.bor(FL_GODMODE, FL_FROZEN))
 			v:SetRaidStatus(3, "")
 			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
 			v:SetNWBool("PlayerIsPMC", true)
@@ -67,7 +66,7 @@ if SERVER then
 				v:RemoveFlags(FL_GODMODE)
 
 				timer.Simple(1.35, function()
-					v.IsFreezed = false
+					v:RemoveFlags(FL_FROZEN)
 					DUEL:ReloadLoadoutItems(v)
 				end)
 			end)
