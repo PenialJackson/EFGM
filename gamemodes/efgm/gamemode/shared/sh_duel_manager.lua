@@ -1,8 +1,5 @@
 DUEL = {}
 
-local plyMeta = FindMetaTable("Player")
-if !plyMeta then Error("Could not find player table") return end
-
 if SERVER then
 	SetGlobalInt("DuelStatus", duelStatus.PENDING)
 

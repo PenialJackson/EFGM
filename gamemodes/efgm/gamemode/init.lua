@@ -185,12 +185,15 @@ function GM:PlayerSpawn(ply)
 	ply:SetBodygroup(2, math.random(0, 15)) -- legs
 	ply:SetBodygroup(3, math.random(0, 14)) -- face
 	hook.Call("PlayerSetModel", GAMEMODE, ply)
+	ply:SetupHands()
 
 	ply:AddEFlags(EFL_NO_DAMAGE_FORCES) -- disables knockback being applied when damage is taken
 	ply:SendLua("RunConsoleCommand('r_cleardecals')")
+
 	ply:SetCrouched(false)
 	ply:SetEnteringCrouch(false)
 	ply:SetExitingCrouch(false)
+	ply:ConCommand("-duck")
 	ply:SetNW2Var("leaning_left", false)
 	ply:SetNW2Var("leaning_right", false)
 	ply:SetNW2Bool("DoStep", false)
@@ -198,7 +201,6 @@ function GM:PlayerSpawn(ply)
 	if ply.LastDeathSound then ply:StopSound(ply.LastDeathSound) end
 
 	CalculateInventoryWeight(ply)
-	ply:SetupHands()
 end
 
 function GM:PlayerDeath(victim, inflictor, attacker)
@@ -382,7 +384,6 @@ hook.Add("PlayerSpray", "PlayerSpraying", function(ply)
 end)
 
 local plyMeta = FindMetaTable("Player")
-if !plyMeta then Error("Could not find player table") return end
 
 function plyMeta:SetLastTimeDamaged(time)
 	self:SetNWFloat("PlayerLastDamaged", time or CurTime())

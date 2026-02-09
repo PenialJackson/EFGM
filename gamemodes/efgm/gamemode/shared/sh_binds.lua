@@ -24,79 +24,77 @@ if CLIENT then
 	CreateClientConVar("efgm_bind_equip_melee", KEY_4, true, true, "Determines the keybind that equips your melee")
 	CreateClientConVar("efgm_bind_equip_utility", KEY_5, true, true, "Determines the keybind that equips your grenade")
 	CreateClientConVar("efgm_bind_equip_consumable", KEY_H, true, true, "Determines the keybind that equips your consumable item")
-end
 
--- toggle crouch
-local function CreateToggleDuckHook()
-	hook.Add("PlayerBindPress", "ToggleDuck", function(ply, bind, pressed)
-		if (GetConVar("efgm_controls_toggleduck"):GetBool() == false) then hook.Remove("PlayerBindPress", "ToggleDuck") return end
+	-- toggle crouch
+	local toggleDuckCvar = GetConVar("efgm_controls_toggleduck")
 
-		if string.find(bind, "+duck") and ply:Crouching() == false then
-			ply:ConCommand("+duck")
-		elseif string.find(bind, "+duck") and ply:Crouching() == true then
-			ply:ConCommand("-duck")
+	local function CreateToggleDuckHook()
+		hook.Add("PlayerBindPress", "ToggleDuck", function(ply, bind, pressed)
+			if !toggleDuckCvar:GetBool() then hook.Remove("PlayerBindPress", "ToggleDuck") return end
+
+			if string.find(bind, "+duck") and ply:Crouching() == false then
+				RunConsoleCommand("+duck")
+			elseif string.find(bind, "+duck") and ply:Crouching() == true then
+				RunConsoleCommand("-duck")
+			end
+		end)
+	end
+
+	CreateToggleDuckHook()
+
+	cvars.AddChangeCallback("efgm_controls_toggleduck", function(convar_name, value_old, value_new)
+		if value_new == "1" then
+			CreateToggleDuckHook()
+		else
+			hook.Remove("PlayerBindPress", "ToggleDuck")
 		end
 	end)
 end
 
-CreateToggleDuckHook()
-
--- remove toggle crouch hook when not enabled
-cvars.AddChangeCallback("efgm_controls_toggleduck", function(convar_name, value_old, value_new)
-	if value_new == "1" then CreateToggleDuckHook() else hook.Remove("PlayerBindPress", "ToggleDuck") end
-end)
-
-hook.Add("PlayerSpawn", "UnduckOnSpawn", function(ply)
-	ply:ConCommand("-duck")
-end)
+local sp = game.SinglePlayer()
 
 hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
-	if CLIENT and IsFirstTimePredicted() then
+	if !IsFirstTimePredicted() and !sp then return end
+
+	if CLIENT or sp then
 		-- toggle menu
 		if button == ply:GetInfoNum("efgm_bind_menu", KEY_TAB) then
-			ply:ConCommand("efgm_gamemenu inventory")
-			return
+			RunConsoleCommand("efgm_gamemenu")
 		end
 
-		-- show map
+		-- open menu to map
 		if button == ply:GetInfoNum("efgm_bind_map", KEY_M) then
-			ply:ConCommand("efgm_gamemenu match")
-			return
+			RunConsoleCommand("efgm_gamemenu", "match")
 		end
 
 		-- show raid information
 		if button == ply:GetInfoNum("efgm_bind_raidinfo", KEY_O) then
-			RenderExtracts(ply)
-			return
+			RenderExtracts()
 		end
 
 		-- switching sights
 		if button == ply:GetInfoNum("efgm_bind_changesight", MOUSE_MIDDLE) then
-			ply:ConCommand("+arc9_switchsights")
+			RunConsoleCommand("+arc9_switchsights")
 		end
 
 		-- toggle fire modes
 		if button == ply:GetInfoNum("efgm_bind_changefiremode", KEY_B) then
-			ply:ConCommand("+zoom")
-			return
+			RunConsoleCommand("+zoom")
 		end
 
 		-- free looking
 		if button == ply:GetInfoNum("efgm_bind_freelook", MOUSE_MIDDLE) then
-			ply:ConCommand("+freelook")
-			return
+			RunConsoleCommand("+freelook")
 		end
 
 		-- weapon inspecting
 		if button == ply:GetInfoNum("efgm_bind_inspectweapon", KEY_I) then
-			ply:ConCommand("+arc9_inspect")
-			return
+			RunConsoleCommand("+arc9_inspect")
 		end
 
 		-- toggle ubgl
 		if button == ply:GetInfoNum("efgm_bind_toggleubgl", KEY_N) then
-			ply:ConCommand("+arc9_ubgl")
-			return
+			RunConsoleCommand("+arc9_ubgl")
 		end
 
 		-- team inviting
@@ -108,8 +106,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 			if !ent:IsPlayer() then return end
 			if ent:IsInRaid() then return end
 
-			InvitePlayerToSquad(ply, ent)
-			return
+			InvitePlayerToSquad(ent)
 		end
 
 		-- duel inviting
@@ -121,8 +118,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 			if !ent:IsPlayer() then return end
 			if ent:IsInRaid() then return end
 
-			InvitePlayerToDuel(ply, ent)
-			return
+			InvitePlayerToDuel(ent)
 		end
 
 		-- view profile
@@ -135,64 +131,53 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 			if ent:IsInRaid() then return end
 
 			CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav")
-			return
 		end
 
 		-- accept invite
 		if button == ply:GetInfoNum("efgm_bind_invites_accept", KEY_F3) then
 			if !ply:Alive() or !ply:IsInHideout() then return end
 
-			AcceptInvite(ply)
-			return
+			AcceptInvite()
 		end
 
 		-- decline invite
 		if button == ply:GetInfoNum("efgm_bind_invites_decline", KEY_F4) then
 			if !ply:Alive() or !ply:IsInHideout() then return end
 
-			DeclineInvite(ply)
-			return
+			DeclineInvite()
 		end
 
 		-- equip primary
 		if button == ply:GetInfoNum("efgm_bind_equip_primary1", KEY_1) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.PRIMARY.ID .. " 1")
-			return
+			RunConsoleCommand("efgm_inventory_equip", tostring(WEAPONSLOTS.PRIMARY.ID), "1")
 		end
 
 		-- equip secondary
 		if button == ply:GetInfoNum("efgm_bind_equip_primary2", KEY_2) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.PRIMARY.ID .. " 2")
-			return
+			RunConsoleCommand("efgm_inventory_equip", tostring(WEAPONSLOTS.PRIMARY.ID), "2")
 		end
 
 		-- equip holster
 		if button == ply:GetInfoNum("efgm_bind_equip_secondary", KEY_3) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.HOLSTER.ID)
-			return
+			RunConsoleCommand("efgm_inventory_equip", tostring(WEAPONSLOTS.HOLSTER.ID))
 		end
 
 		-- equip melee
 		if button == ply:GetInfoNum("efgm_bind_equip_melee", KEY_4) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.MELEE.ID)
-			return
+			RunConsoleCommand("efgm_inventory_equip", tostring(WEAPONSLOTS.MELEE.ID))
 		end
 
 		-- equip grenade
 		if button == ply:GetInfoNum("efgm_bind_equip_utility", KEY_5) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.GRENADE.ID)
-			return
+			RunConsoleCommand("efgm_inventory_equip", tostring(WEAPONSLOTS.GRENADE.ID))
 		end
 
 		-- equip consumable
 		if button == ply:GetInfoNum("efgm_bind_equip_consumable", KEY_H) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.CONSUMABLE.ID)
-			return
+			RunConsoleCommand("efgm_inventory_equip", tostring(WEAPONSLOTS.CONSUMABLE.ID))
 		end
-
 	end
 
-	-- SHARED (for networking/prediction)
 	-- lean left
 	if button == ply:GetInfoNum("efgm_bind_leanleft", KEY_Q) then
 		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 0 then
@@ -202,8 +187,6 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 			ply:SetNW2Var("leaning_left", state)
 			ply:SetNW2Var("leaning_right", false)
 		end
-
-		return
 	end
 
 	-- lean right
@@ -215,224 +198,48 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 			ply:SetNW2Var("leaning_right", state)
 			ply:SetNW2Var("leaning_left", false)
 		end
-
-		return
 	end
 end)
 
 hook.Add("PlayerButtonUp", "EFGMBindsUp", function(ply, button)
-	if CLIENT and IsFirstTimePredicted() then
+	if !IsFirstTimePredicted() and !sp then return end
+
+	if CLIENT or sp then
 		-- switching sights
 		if button == ply:GetInfoNum("efgm_bind_changesight", MOUSE_MIDDLE) then
-			ply:ConCommand("-arc9_switchsights")
+			RunConsoleCommand("-arc9_switchsights")
 		end
 
 		-- toggle fire modes
 		if button == ply:GetInfoNum("efgm_bind_changefiremode", KEY_B) then
-			ply:ConCommand("-zoom")
-			return
+			RunConsoleCommand("-zoom")
 		end
 
 		-- free looking
 		if button == ply:GetInfoNum("efgm_bind_freelook", MOUSE_MIDDLE) then
-			ply:ConCommand("-freelook")
-			return
+			RunConsoleCommand("-freelook")
 		end
 
 		-- weapon inspecting
 		if button == ply:GetInfoNum("efgm_bind_inspectweapon", KEY_I) then
-			ply:ConCommand("-arc9_inspect")
-			return
+			RunConsoleCommand("-arc9_inspect")
 		end
 
 		-- toggle ubgl
 		if button == ply:GetInfoNum("efgm_bind_toggleubgl", KEY_N) then
-			ply:ConCommand("-arc9_ubgl")
-			return
+			RunConsoleCommand("-arc9_ubgl")
 		end
 	end
 
-	-- SHARED (for networking/prediction)
 	-- unlean left
 	if button == ply:GetInfoNum("efgm_bind_leanleft", KEY_Q) then
 		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 1 then return end
 		ply:SetNW2Var("leaning_left", false)
-		return
 	end
 
 	-- unlean right
 	if button == ply:GetInfoNum("efgm_bind_leanright", KEY_E) then
 		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 1 then return end
 		ply:SetNW2Var("leaning_right", false)
-		return
 	end
 end)
-
--- client sided keybinds do not work in singleplayer, rewriting multiplayer based keybindings to work when playing in a singleplayer instance
-if game.SinglePlayer() then
-	hook.Remove("PlayerButtonDown", "EFGMBinds")
-	hook.Remove("PlayerButtonUp", "EFGMBindsUp")
-
-	hook.Add("PlayerButtonDown", "EFGMBindsSP", function(ply, button)
-		if SERVER then
-			-- toggle menu
-			if button == ply:GetInfoNum("efgm_bind_menu", KEY_TAB) then
-				ply:ConCommand("efgm_gamemenu inventory")
-				return
-			end
-
-			-- show map
-			if button == ply:GetInfoNum("efgm_bind_map", KEY_M) then
-				ply:ConCommand("efgm_gamemenu match")
-				return
-			end
-
-			-- show raid information
-			if button == ply:GetInfoNum("efgm_bind_raidinfo", KEY_O) then
-				ply:SendLua("RenderExtracts(ply)")
-				return
-			end
-
-			-- switching sights
-			if button == ply:GetInfoNum("efgm_bind_changesight", MOUSE_MIDDLE) then
-				ply:ConCommand("+arc9_switchsights")
-			end
-
-			-- toggle fire modes
-			if button == ply:GetInfoNum("efgm_bind_changefiremode", KEY_B) then
-				ply:ConCommand("+zoom")
-				return
-			end
-
-			-- free looking
-			if button == ply:GetInfoNum("efgm_bind_freelook", MOUSE_MIDDLE) then
-				ply:ConCommand("+freelook")
-				return
-			end
-
-			-- weapon inspecting
-			if button == ply:GetInfoNum("efgm_bind_inspectweapon", KEY_I) then
-				ply:ConCommand("+arc9_inspect")
-				return
-			end
-
-			-- toggle ubgl
-			if button == ply:GetInfoNum("efgm_bind_toggleubgl", KEY_N) then
-				ply:ConCommand("+arc9_ubgl")
-				return
-			end
-
-		end
-
-		-- SHARED (for networking/prediction)
-		-- equip primary
-		if button == ply:GetInfoNum("efgm_bind_equip_primary1", KEY_1) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.PRIMARY.ID .. " 1")
-			return
-		end
-
-		-- equip secondary
-		if button == ply:GetInfoNum("efgm_bind_equip_primary2", KEY_2) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.PRIMARY.ID .. " 2")
-			return
-		end
-
-		-- equip holster
-		if button == ply:GetInfoNum("efgm_bind_equip_secondary", KEY_3) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.HOLSTER.ID)
-			return
-		end
-
-		-- equip melee
-		if button == ply:GetInfoNum("efgm_bind_equip_melee", KEY_4) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.MELEE.ID)
-			return
-		end
-
-		-- equip grenade
-		if button == ply:GetInfoNum("efgm_bind_equip_utility", KEY_5) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.GRENADE.ID)
-			return
-		end
-
-		-- equip consumable
-		if button == ply:GetInfoNum("efgm_bind_equip_consumable", KEY_H) then
-			ply:ConCommand("efgm_inventory_equip " .. WEAPONSLOTS.CONSUMABLE.ID)
-			return
-		end
-
-		-- lean left
-		if button == ply:GetInfoNum("efgm_bind_leanleft", KEY_Q) then
-			if ply:GetInfoNum("efgm_controls_togglelean", 1) == 0 then
-				ply:SetNW2Var("leaning_left", true)
-			else
-				local state = !ply:GetNW2Var("leaning_left", false)
-				ply:SetNW2Var("leaning_left", state)
-				ply:SetNW2Var("leaning_right", false)
-			end
-
-			return
-		end
-
-		-- lean right
-		if button == ply:GetInfoNum("efgm_bind_leanright", KEY_E) then
-			if ply:GetInfoNum("efgm_controls_togglelean", 1) == 0 then
-				ply:SetNW2Var("leaning_right", true)
-			else
-				local state = !ply:GetNW2Var("leaning_right", false)
-				ply:SetNW2Var("leaning_right", state)
-				ply:SetNW2Var("leaning_left", false)
-			end
-
-			return
-		end
-	end)
-
-	hook.Add("PlayerButtonUp", "EFGMBindsUp", function(ply, button)
-		if SERVER then
-			-- switching sights
-			if button == ply:GetInfoNum("efgm_bind_changesight", MOUSE_MIDDLE) then
-				ply:ConCommand("-arc9_switchsights")
-			end
-
-			-- toggle fire modes
-			if button == ply:GetInfoNum("efgm_bind_changefiremode", KEY_B) then
-				ply:ConCommand("-zoom")
-				return
-			end
-
-			-- free looking
-			if button == ply:GetInfoNum("efgm_bind_freelook", MOUSE_MIDDLE) then
-				ply:ConCommand("-freelook")
-				return
-			end
-
-			-- weapon inspecting
-			if button == ply:GetInfoNum("efgm_bind_inspectweapon", KEY_I) then
-				ply:ConCommand("-arc9_inspect")
-				return
-			end
-
-			-- toggle ubgl
-			if button == ply:GetInfoNum("efgm_bind_toggleubgl", KEY_N) then
-				ply:ConCommand("-arc9_ubgl")
-				return
-			end
-		end
-
-		-- SHARED (for networking/prediction)
-		-- unlean left
-		if button == ply:GetInfoNum("efgm_bind_leanleft", KEY_Q) then
-			if ply:GetInfoNum("efgm_controls_togglelean", 1) == 1 then return end
-			ply:SetNW2Var("leaning_left", false)
-			return
-		end
-
-		-- unlean right
-		if button == ply:GetInfoNum("efgm_bind_leanright", KEY_E) then
-			if ply:GetInfoNum("efgm_controls_togglelean", 1) == 1 then return end
-			ply:SetNW2Var("leaning_right", false)
-			return
-		end
-	end)
-end

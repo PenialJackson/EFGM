@@ -1140,8 +1140,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 					if !self:GetOwner():IsInHideout() then return end
 
-					self:GetOwner():ConCommand("efgm_gamemenu market")
-					timer.Simple(0.1, function() Menu.ConfirmPreset(neededAtts, presetName, preset, true) end)
+					self:GetOwner():ConCommand("efgm_gamemenu inventory")
+					timer.Simple(0.05, function() Menu.ConfirmPreset(neededAtts, presetName, preset, true) end)
 
 					-- self:LoadPreset(preset)
 					-- surface.PlaySound(applysound)
@@ -2859,6 +2859,15 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 
 
 	if wpn:GetCustomize() then
+		if bind == "+showscores" then
+			if ply:KeyDown(IN_USE) then
+				wpn:CycleSelectedAtt(-1)
+			else
+				wpn:CycleSelectedAtt(1)
+			end
+			return true
+		end
+
 		if bind == "impulse 100" then
 			if wpn.CustomizeLastHovered and wpn.CustomizeLastHovered:IsHovered() then
 				local att = wpn.CustomizeLastHovered.att
@@ -2883,8 +2892,8 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 
 				if efgmItem == nil then return end
 
-				ply:ConCommand("efgm_gamemenu market")
-				timer.Simple(0.1, function() Menu.ConfirmPurchase(efgmAtt, "inv", true) end)
+				ply:ConCommand("efgm_gamemenu inventory")
+				timer.Simple(0.05, function() Menu.ConfirmPurchase(efgmAtt, "inv", true) end)
 			end
 
 			return true
@@ -2917,22 +2926,30 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 			return true
 		end
 	else
+		if bind == "impulse 100" then
+			if wpn:CanToggleAllStatsOnF() > 1 and !ARC9.DeferToggleAtts then
+				return true
+			else
+				ARC9.DeferToggleAtts = false
+			end
+		end
+
 		if plususe then
 			return ARC9.AttemptGiveNPCWeapon()
 		end
+	end
 
-		if wpn:GetInSights() then
-			if bind == "invnext" then
-				wpn:Scroll(1)
-				wpn.Peeking = false
+	if wpn:GetInSights() then
+		if bind == "invnext" then
+			wpn:Scroll(1)
+			wpn.Peeking = false
 
-				return true
-			elseif bind == "invprev" then
-				wpn:Scroll(-1)
-				wpn.Peeking = false
+			return true
+		elseif bind == "invprev" then
+			wpn:Scroll(-1)
+			wpn.Peeking = false
 
-				return true
-			end
+			return true
 		end
 	end
 end)

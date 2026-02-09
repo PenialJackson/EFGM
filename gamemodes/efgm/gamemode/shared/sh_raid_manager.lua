@@ -1,7 +1,6 @@
 RAID = {}
 
 local plyMeta = FindMetaTable("Player")
-if !plyMeta then Error("Could not find player table") return end
 
 local function DecrementTimer()
 	SetGlobalInt("RaidTimeLeft", GetGlobalInt("RaidTimeLeft") - 1)
@@ -44,6 +43,8 @@ if SERVER then
 		SetGlobalInt("RaidStatus", raidStatus.PENDING)
 		timer.Remove("RaidTimerDecrement")
 	end
+
+	plyMeta.RaidReady = false
 
 	function RAID:StartRaid(forced)
 		if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
@@ -161,7 +162,7 @@ if SERVER then
 			v:SetNW2String("PlayerInSquad", "nil")
 			v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
 			v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
-			v:SetNWBool("RaidReady", false)
+			v.RaidReady = false
 			RemoveFIRFromInventory(v)
 			ResetRaidStats(v)
 
@@ -590,7 +591,7 @@ if SERVER then
 
 		for _, member in ipairs(SQUADS[plySquad].MEMBERS) do
 			table.insert(plys, member)
-			if member:GetNWBool("RaidReady", false) == false then spawnBool = false end
+			if member.RaidReady == false then spawnBool = false end
 		end
 
 		if tobool(spawnBool) == true then
@@ -722,7 +723,7 @@ end
 -- i love debugging commands omg
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	function ForceSpawnPlayer(ply)
-		ply:SetNWBool("RaidReady", true)
+		ply.raidReady = true
 		hook.Run("CheckRaidAddPlayers", ply)
 	end
 	concommand.Add("efgm_debug_spawn", function(ply, cmd, args) ForceSpawnPlayer(ply) end)

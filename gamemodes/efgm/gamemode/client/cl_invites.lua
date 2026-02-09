@@ -9,7 +9,7 @@ Invites.mapVoting = false
 local nuhuh = true
 
 -- TODO: squad invites do not work
-function InvitePlayerToSquad(ply, invitedPly)
+function InvitePlayerToSquad(invitedPly)
 	if Invites.invitedBy != nil or Invites.invitedType != nil then return end
 
 	if nuhuh then CreateNotification("Temp. disabled support for squad invites.", Mats.dontEvenAsk, "ui/boo.wav") return end
@@ -23,11 +23,11 @@ function InvitePlayerToSquad(ply, invitedPly)
 	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if CurTime() - Invites.lastInviteSentTime < 10 then CreateNotification("You can send invites again in " .. 10 - math.Round(CurTime() - Invites.lastInviteSentTime, 1) .. " seconds!", Mats.inviteErrorIcon, "ui/error.wav") return end
 
-	-- local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
+	-- local plySquad = LocalPlayer():GetNW2String("PlayerInSquad", "nil")
 
 	-- already in a squad
-	if ply:GetNW2String("PlayerInSquad", "nil") != "nil" then
-		CreateNotification("there IS NOT support for inviting to a already established squad yet dont ask me why", Mats.dontEvenAsk, "ui/boo.wav")
+	if LocalPlayer():GetNW2String("PlayerInSquad", "nil") != "nil" then
+		CreateNotification("There IS NOT support for inviting to a already established squad yet dont ask me why", Mats.dontEvenAsk, "ui/boo.wav")
 
 		-- Invites.lastInviteSentTime = CurTime()
 		-- Invites.lastSquadInviteSentTime = 0
@@ -46,7 +46,7 @@ function InvitePlayerToSquad(ply, invitedPly)
 	if Invites.lastSquadInviteSentTime == 0 then CreateNotification("Send another invite to automatically create a squad!", Mats.inviteErrorIcon, "ui/error.wav") Invites.lastSquadInviteSentTime = CurTime() return end
 
 	if CurTime() - Invites.lastSquadInviteSentTime < 10 then
-		RunConsoleCommand("efgm_squad_create", ply:GetName() .. "'s Squad", "", "4", "255", "255", "255")
+		RunConsoleCommand("efgm_squad_create", LocalPlayer():GetName() .. "'s Squad", "", "4", "255", "255", "255")
 	end
 
 	Invites.lastInviteSentTime = CurTime()
@@ -60,14 +60,14 @@ function InvitePlayerToSquad(ply, invitedPly)
 	net.SendToServer()
 end
 
-function InvitePlayerToDuel(ply, invitedPly)
+function InvitePlayerToDuel(invitedPly)
 	if CurTime() - Invites.inviteCD < 0.5 then return end
 	Invites.inviteCD = CurTime()
 
 	if !IsValid(invitedPly) then return end
 	if !Invites.allow then CreateNotification("Invites are now disabled!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if GetGlobalInt("DuelStatus") != duelStatus.PENDING then CreateNotification("Another duel is already taking place, please wait for it to end!", Mats.inviteErrorIcon, "ui/error.wav") return end
-	if Invites.invitedType == inviteTypes.DUEL and Invites.invitedBy == invitedPly then AcceptInvite(ply) return end
+	if Invites.invitedType == inviteTypes.DUEL and Invites.invitedBy == invitedPly then AcceptInvite() return end
 	if CurTime() - Invites.lastInviteSentTime < 10 then CreateNotification("You can send invites again in " .. 10 - math.Round(CurTime() - Invites.lastInviteSentTime, 1) .. " seconds!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if Invites.invitedBy != nil or Invites.invitedType != nil then CreateNotification("Cannot send an invite while pending confirmation!", Mats.inviteErrorIcon, "ui/error.wav") return end
@@ -107,7 +107,7 @@ net.Receive("PlayerInviteReceive", function(len, ply)
 	Invites.invitedBy = invitedBy
 	Invites.invitedType = invitedType
 
-	RenderInvite(LocalPlayer())
+	RenderInvite()
 
 	timer.Simple(10, function()
 		Invites.invitedBy = nil
@@ -115,13 +115,13 @@ net.Receive("PlayerInviteReceive", function(len, ply)
 	end)
 end)
 
-function AcceptInvite(ply)
+function AcceptInvite()
 	if Invites.mapVoting then -- map vote is happening
-		ply:ConCommand("efgm_vote 1")
+		RunConsoleCommand("efgm_vote", "1")
 		return
 	end
 
-	if !ply:IsInHideout() then return end
+	if !LocalPlayer():IsInHideout() then return end
 	if Invites.invitedBy == nil or Invites.invitedType == nil then return end
 
 	net.Start("PlayerInviteAccept")
@@ -133,9 +133,9 @@ function AcceptInvite(ply)
 	Invites.invitedType = nil
 end
 
-function DeclineInvite(ply)
+function DeclineInvite()
 	if Invites.mapVoting then -- map vote is happening
-		ply:ConCommand("efgm_vote 2")
+		RunConsoleCommand("efgm_vote", "2")
 		return
 	end
 

@@ -1,5 +1,4 @@
 local plyMeta = FindMetaTable("Player")
-if not plyMeta then Error("Could not find player table") return end
 
 function plyMeta:SetCrouched(value)
 	self.Crouched = value
@@ -458,8 +457,7 @@ end)
 
 local math = math
 
-local meta = FindMetaTable("Player")
-local metavec = FindMetaTable("Vector")
+local vecMeta = FindMetaTable("Vector")
 
 local DAMPING = 5
 local SPRING_CONSTANT = 80
@@ -468,7 +466,7 @@ local function lensqr(ang)
 	return (ang[1] ^ 2) + (ang[2] ^ 2) + (ang[3] ^ 2)
 end
 
-function metavec:Approach(x, y, z, speed)
+function vecMeta:Approach(x, y, z, speed)
 	if !isnumber(x) then
 		local vec = x
 		speed = y
@@ -520,7 +518,7 @@ if CLIENT then
 	hook.Add("Think", "VBSpring", VBSpringThink)
 end
 
-function meta:VBSpring(angle)
+function plyMeta:VBSpring(angle)
 	if !self.VBSpringVelocity then return end
 	local intensity = 20
 	self.VBSpringVelocity:Add(angle * intensity)
@@ -534,7 +532,7 @@ function meta:VBSpring(angle)
 	self.VBSpringDone = false
 end
 
-function meta:GetVBSpringAngles()
+function plyMeta:GetVBSpringAngles()
 	return self.VBSpringAngle
 end
 

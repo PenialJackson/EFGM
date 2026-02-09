@@ -65,7 +65,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 		if !IsValid(ply) then return end
 
 		local isReady = tobool(data)
-		ply:SetNWBool("RaidReady", isReady)
+		ply.RaidReady = isReady
 
 		if isReady then
 			hook.Run("CheckRaidAddPlayers", ply)

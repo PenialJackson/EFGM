@@ -30,7 +30,7 @@ if CLIENT then
 	CreateClientConVar("efgm_visuals_lensflare", 1, true, false, "Adjust the lens flare when looking near or directly at the sun", 0, 1)
 	CreateClientConVar("efgm_visuals_selfshadow", 1, true, false, "Adjust if your own players shadow renders", 0, 1)
 	CreateClientConVar("efgm_visuals_interactableglow", 1, true, false, "Adjust if interactable objects should render a glow outline", 0, 1)
-	CreateClientConVar("efgm_controls_toggleduck", 0, true, true, "Adjust if player crouches are hold or toggle", 0, 1)
+	CreateClientConVar("efgm_controls_toggleduck", 0, true, false, "Adjust if player crouches are hold or toggle", 0, 1)
 	CreateClientConVar("efgm_controls_togglelean", 1, true, true, "Adjust if player leans are hold or toggle", 0, 1)
 	CreateClientConVar("efgm_faction_preference", 0, true, true, "Determines the faction that your playermodel is based on (0 = None, 1 = USEC, 2 = BEAR)", 0, 2)
 	CreateClientConVar("efgm_privacy_invites_squad", 2, true, true, "Determines who you receive squad invites from (2 = Everyone, 1 = Steam Friends, 0 = Nobody)", 0, 2)
