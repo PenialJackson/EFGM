@@ -309,13 +309,6 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
-
-	if wep != NULL and item.data.att then
-		local atts = table.Copy(wep.Attachments)
-		local str = GenerateAttachString(atts)
-		item.data.att = str
-	end
-
 	local def = EFGMITEMS[item.name]
 
 	if wep != NULL and def.displayType != "Grenade" then
@@ -368,13 +361,6 @@ function UnequipAll(ply)
 				ply.weaponSlots[i][k] = {}
 
 				local wep = ply:GetWeapon(item.name)
-
-				if wep != NULL and item.data.att then
-					local atts = table.Copy(wep.Attachments)
-					local str = GenerateAttachString(atts)
-					item.data.att = str
-				end
-
 				local def = EFGMITEMS[item.name]
 
 				if wep != NULL and def.displayType != "Grenade" then
@@ -436,13 +422,6 @@ function UnequipAllFirearms(ply)
 				ply.weaponSlots[i][k] = {}
 
 				local wep = ply:GetWeapon(item.name)
-
-				if wep != NULL and item.data.att then
-					local atts = table.Copy(wep.Attachments)
-					local str = GenerateAttachString(atts)
-					item.data.att = str
-				end
-
 				local def = EFGMITEMS[item.name]
 
 				if wep != NULL and def.displayType != "Grenade" then
@@ -487,7 +466,7 @@ end
 function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
 		for k, v in ipairs(ply.weaponSlots[i]) do
-			if table.IsEmpty(v) then continue end
+			if !v.name then continue end
 
 			if v.name == itemName then
 				local oldAtts = v.data.att
@@ -520,8 +499,8 @@ function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
 
 				net.Start("PlayerInventoryUpdateEquipped", false)
 					net.WriteTable(v.data)
-					net.WriteUInt(i, 16)
-					net.WriteUInt(k, 16)
+					net.WriteUInt(i, 4)
+					net.WriteUInt(k, 4)
 				net.Send(ply)
 
 				return

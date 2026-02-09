@@ -171,13 +171,6 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
-
-	if wep != NULL and item.data.att then
-		local atts = table.Copy(wep.Attachments)
-		local str = GenerateAttachString(atts)
-		item.data.att = str
-	end
-
 	local def = EFGMITEMS[item.name]
 
 	if wep != NULL and def.displayType != "Grenade" then

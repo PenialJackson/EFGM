@@ -185,8 +185,8 @@ net.Receive("PlayerInventoryUpdateEquipped", function(len)
 	local newData, index, key
 
 	newData = net.ReadTable()
-	index = net.ReadUInt(16)
-	key = net.ReadUInt(16)
+	index = net.ReadUInt(4)
+	key = net.ReadUInt(4)
 
 	playerWeaponSlots[index][key].data = newData
 	Menu:ReloadSlots()
@@ -299,7 +299,7 @@ function UnEquipItemFromInventory(equipID, equipSlot, reloadInv, reloadSlots)
 	if reloadInv == nil then reloadInv = true end
 	if reloadSlots == nil then reloadSlots = true end
 
-	local item = playerWeaponSlots[equipID][equipSlot]
+	local item = table.Copy(playerWeaponSlots[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
 
 	playerWeaponSlots[equipID][equipSlot] = {}

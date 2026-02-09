@@ -165,7 +165,6 @@ end)
 
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
-	ply:SetNWBool("InRange", false) -- just in case
 
 	ply:SetMaxHealth(EFGM.CONFIG.PlayerHealthMax)
 	ply:SetGravity(EFGM.CONFIG.PlayerGravity)

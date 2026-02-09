@@ -54,9 +54,9 @@ end
 local sp = game.SinglePlayer()
 
 hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
-	if !IsFirstTimePredicted() and !sp then return end
+	if (CLIENT or sp) and IsFirstTimePredicted() then
+		if !IsFirstTimePredicted() then return end
 
-	if CLIENT or sp then
 		-- toggle menu
 		if button == ply:GetInfoNum("efgm_bind_menu", KEY_TAB) then
 			RunConsoleCommand("efgm_gamemenu")
@@ -202,9 +202,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 end)
 
 hook.Add("PlayerButtonUp", "EFGMBindsUp", function(ply, button)
-	if !IsFirstTimePredicted() and !sp then return end
-
-	if CLIENT or sp then
+	if (CLIENT or sp) and IsFirstTimePredicted() then
 		-- switching sights
 		if button == ply:GetInfoNum("efgm_bind_changesight", MOUSE_MIDDLE) then
 			RunConsoleCommand("-arc9_switchsights")
