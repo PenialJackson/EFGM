@@ -258,7 +258,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				end
 
 				MatchWithEquippedAndUpdate(client, self.ClassName, self.Attachments)
-				ReloadInventory(client)
+				-- ReloadInventory(client)
 			end
 		end
 
@@ -2820,7 +2820,7 @@ hook.Add("ARC9_PlayerGiveAtt", "ARC9GiveAtt", function(ply, att, amt)
 
 	if SERVER then
 		FlowItemToInventory(ply, "arc9_att_" .. att, EQUIPTYPE.Attachment, data)
-		ReloadInventory(ply)
+		-- ReloadInventory(ply)
 
 		return
 	end
@@ -2828,7 +2828,7 @@ end)
 
 hook.Add("ARC9_PlayerTakeAtt", "ARC9TakeAtt", function(ply, att, amt)
 	local i = DeflowItemsFromInventory(ply, "arc9_att_" .. att, amt)
-	ReloadInventory(ply)
+	-- ReloadInventory(ply)
 
 	return i
 end)

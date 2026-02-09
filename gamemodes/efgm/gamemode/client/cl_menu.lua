@@ -18,6 +18,9 @@ Menu.StashSortOrder = false
 Menu.MarketStashSort = 1
 Menu.MarketStashSortOrder = false
 
+Menu.DraggingType = nil
+Menu.BindTypes = {}
+
 local math = math
 local table = table
 local net = net
@@ -3310,43 +3313,75 @@ function Menu.OpenTab.Inventory(container)
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
+			if table.IsEmpty(playerWeaponSlots[1][2]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(1, 2, false, false)
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
+			end
 		end
 
 		if panels[1].Origin == "stash" then
-			if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
+			if table.IsEmpty(playerWeaponSlots[1][2]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(1, 2, true, false)
+				EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
+			end
 		end
 
-		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 then
+		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 and panels[1]:GetParent() != self then
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 2)
 		end
 
 		if panels[1].Origin == "container" then
-			if !table.IsEmpty(playerWeaponSlots[1][2]) then return end
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			if table.IsEmpty(playerWeaponSlots[1][2]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
-			local conItem = container.items[panels[1].ID]
-			if conItem == nil then return end
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
 
-			if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
 
-			playerWeaponSlots[panels[1].Slot][2] = conItem
+				playerWeaponSlots[panels[1].Slot][2] = conItem
 
-			table.remove(container.items, panels[1].ID)
+				table.remove(container.items, panels[1].ID)
 
-			net.Start("PlayerInventoryEquipItemFromContainer", false)
-				net.WriteEntity(container.entity)
-				net.WriteUInt(panels[1].ID, 16)
-				net.WriteUInt(panels[1].Slot, 4)
-				net.WriteUInt(2, 4)
-			net.SendToServer()
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(2, 4)
+				net.SendToServer()
 
-			Menu:ReloadContainer()
+				Menu:ReloadContainer()
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(1, 2, false, false)
+
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
+
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+
+				playerWeaponSlots[panels[1].Slot][2] = conItem
+
+				table.remove(container.items, panels[1].ID)
+
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(2, 4)
+				net.SendToServer()
+
+				Menu:ReloadContainer()
+			end
 		end
 	end)
 
@@ -3355,214 +3390,362 @@ function Menu.OpenTab.Inventory(container)
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
+			if table.IsEmpty(playerWeaponSlots[1][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(1, 1, false, false)
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
+			end
 		end
 
 		if panels[1].Origin == "stash" then
-			if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
+			if table.IsEmpty(playerWeaponSlots[1][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(1, 1, true, false)
+				EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
+			end
 		end
 
-		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 then
+		if panels[1].Origin == "equipped" and panels[1].SlotID == 1 and panels[1]:GetParent() != self then
 			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 			EquipItemFromEquipped(panels[1].SlotID, panels[1].Slot, 1, 1)
 		end
 
 		if panels[1].Origin == "container" then
-			if !table.IsEmpty(playerWeaponSlots[1][1]) then return end
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			if table.IsEmpty(playerWeaponSlots[1][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
-			local conItem = container.items[panels[1].ID]
-			if conItem == nil then return end
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
 
-			if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
 
-			playerWeaponSlots[panels[1].Slot][1] = conItem
+				playerWeaponSlots[panels[1].Slot][1] = conItem
 
-			table.remove(container.items, panels[1].ID)
+				table.remove(container.items, panels[1].ID)
 
-			net.Start("PlayerInventoryEquipItemFromContainer", false)
-				net.WriteEntity(container.entity)
-				net.WriteUInt(panels[1].ID, 16)
-				net.WriteUInt(panels[1].Slot, 4)
-				net.WriteUInt(1, 4)
-			net.SendToServer()
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
 
-			Menu:ReloadContainer()
+				Menu:ReloadContainer()
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(1, 1, false, false)
+
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
+
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+
+				playerWeaponSlots[panels[1].Slot][1] = conItem
+
+				table.remove(container.items, panels[1].ID)
+
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
+
+				Menu:ReloadContainer()
+			end
 		end
 	end)
 
 	holsterWeaponHolder:Receiver("slot_holster", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
-		if !table.IsEmpty(playerWeaponSlots[2][1]) then return end
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[2][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(2, 1, false, false)
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "stash" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[2][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(2, 1, true, false)
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "container" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			if table.IsEmpty(playerWeaponSlots[2][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
-			local conItem = container.items[panels[1].ID]
-			if conItem == nil then return end
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
 
-			if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
 
-			for slotKey, slotItem in ipairs(playerWeaponSlots[panels[1].Slot]) do
-				if table.IsEmpty(slotItem) then
-					playerWeaponSlots[panels[1].Slot][slotKey] = conItem
+				playerWeaponSlots[panels[1].Slot][1] = conItem
 
-					table.remove(container.items, panels[1].ID)
+				table.remove(container.items, panels[1].ID)
 
-					net.Start("PlayerInventoryEquipItemFromContainer", false)
-						net.WriteEntity(container.entity)
-						net.WriteUInt(panels[1].ID, 16)
-						net.WriteUInt(panels[1].Slot, 4)
-						net.WriteUInt(slotKey, 4)
-					net.SendToServer()
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
 
-					Menu:ReloadContainer()
-					return
-				end
+				Menu:ReloadContainer()
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(2, 1, false, false)
+
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
+
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+
+				playerWeaponSlots[panels[1].Slot][1] = conItem
+
+				table.remove(container.items, panels[1].ID)
+
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
+
+				Menu:ReloadContainer()
 			end
 		end
 	end)
 
 	meleeWeaponHolder:Receiver("slot_melee", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
-		if !table.IsEmpty(playerWeaponSlots[3][1]) then return end
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[3][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(3, 1, false, false)
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "stash" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[3][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(3, 1, true, false)
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "container" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			if table.IsEmpty(playerWeaponSlots[3][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
-			local conItem = container.items[panels[1].ID]
-			if conItem == nil then return end
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
 
-			if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
 
-			for slotKey, slotItem in ipairs(playerWeaponSlots[panels[1].Slot]) do
-				if table.IsEmpty(slotItem) then
-					playerWeaponSlots[panels[1].Slot][slotKey] = conItem
+				playerWeaponSlots[panels[1].Slot][1] = conItem
 
-					table.remove(container.items, panels[1].ID)
+				table.remove(container.items, panels[1].ID)
 
-					net.Start("PlayerInventoryEquipItemFromContainer", false)
-						net.WriteEntity(container.entity)
-						net.WriteUInt(panels[1].ID, 16)
-						net.WriteUInt(panels[1].Slot, 4)
-						net.WriteUInt(slotKey, 4)
-					net.SendToServer()
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
 
-					Menu:ReloadContainer()
-					return
-				end
+				Menu:ReloadContainer()
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(3, 1, false, false)
+
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
+
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+
+				playerWeaponSlots[panels[1].Slot][1] = conItem
+
+				table.remove(container.items, panels[1].ID)
+
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
+
+				Menu:ReloadContainer()
 			end
 		end
 	end)
 
 	nadeWeaponHolder:Receiver("slot_grenade", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
-		if !table.IsEmpty(playerWeaponSlots[4][1]) then return end
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[4][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(4, 1, false, false)
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "stash" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[4][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(4, 1, true, false)
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "container" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			if table.IsEmpty(playerWeaponSlots[4][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
-			local conItem = container.items[panels[1].ID]
-			if conItem == nil then return end
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
 
-			if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
 
-			for slotKey, slotItem in ipairs(playerWeaponSlots[panels[1].Slot]) do
-				if table.IsEmpty(slotItem) then
-					playerWeaponSlots[panels[1].Slot][slotKey] = conItem
+				playerWeaponSlots[panels[1].Slot][1] = conItem
 
-					table.remove(container.items, panels[1].ID)
+				table.remove(container.items, panels[1].ID)
 
-					net.Start("PlayerInventoryEquipItemFromContainer", false)
-						net.WriteEntity(container.entity)
-						net.WriteUInt(panels[1].ID, 16)
-						net.WriteUInt(panels[1].Slot, 4)
-						net.WriteUInt(slotKey, 4)
-					net.SendToServer()
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
 
-					Menu:ReloadContainer()
-					return
-				end
+				Menu:ReloadContainer()
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(4, 1, false, false)
+
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
+
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+
+				playerWeaponSlots[panels[1].Slot][1] = conItem
+
+				table.remove(container.items, panels[1].ID)
+
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
+
+				Menu:ReloadContainer()
 			end
 		end
 	end)
 
 	consumableItemHolder:Receiver("slot_consumable", function(self, panels, dropped, _, x, y)
 		if !dropped then return end
-		if !table.IsEmpty(playerWeaponSlots[5][1]) then return end
 		if !Menu.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[5][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(5, 1, false, false)
+				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "stash" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-			EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			if table.IsEmpty(playerWeaponSlots[5][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(5, 1, true, false)
+				EquipItemFromStash(panels[1].ID, panels[1].Slot)
+			end
 		end
 
 		if panels[1].Origin == "container" then
-			surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+			if table.IsEmpty(playerWeaponSlots[5][1]) then
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
-			local conItem = container.items[panels[1].ID]
-			if conItem == nil then return end
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
 
-			if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
 
-			for slotKey, slotItem in ipairs(playerWeaponSlots[panels[1].Slot]) do
-				if table.IsEmpty(slotItem) then
-					playerWeaponSlots[panels[1].Slot][slotKey] = conItem
+				playerWeaponSlots[panels[1].Slot][1] = conItem
 
-					table.remove(container.items, panels[1].ID)
+				table.remove(container.items, panels[1].ID)
 
-					net.Start("PlayerInventoryEquipItemFromContainer", false)
-						net.WriteEntity(container.entity)
-						net.WriteUInt(panels[1].ID, 16)
-						net.WriteUInt(panels[1].Slot, 4)
-						net.WriteUInt(slotKey, 4)
-					net.SendToServer()
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
 
-					Menu:ReloadContainer()
-					return
-				end
+				Menu:ReloadContainer()
+			else
+				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
+				UnEquipItemFromInventory(5, 1, false, false)
+
+				local conItem = container.items[panels[1].ID]
+				if conItem == nil then return end
+
+				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+
+				playerWeaponSlots[panels[1].Slot][1] = conItem
+
+				table.remove(container.items, panels[1].ID)
+
+				net.Start("PlayerInventoryEquipItemFromContainer", false)
+					net.WriteEntity(container.entity)
+					net.WriteUInt(panels[1].ID, 16)
+					net.WriteUInt(panels[1].Slot, 4)
+					net.WriteUInt(1, 4)
+				net.SendToServer()
+
+				Menu:ReloadContainer()
 			end
 		end
 	end)
@@ -4132,6 +4315,8 @@ function Menu.OpenTab.Inventory(container)
 					surface.SetMaterial(i.icon)
 					surface.DrawTexturedRect(0, 0, w, h)
 
+					if self.PaintingDragging then return end
+
 					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
 					if isConsumable or isAmmo then
@@ -4618,6 +4803,8 @@ function Menu.OpenTab.Inventory(container)
 						surface.SetDrawColor(Colors.pureWhiteColor)
 						surface.SetMaterial(i.icon)
 						surface.DrawTexturedRect(0, 0, w, h)
+
+						if self.PaintingDragging then return end
 
 						draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
@@ -5524,6 +5711,8 @@ function Menu.OpenTab.Inventory(container)
 					surface.SetDrawColor(Colors.pureWhiteColor)
 					surface.SetMaterial(i.icon)
 					surface.DrawTexturedRect(0, 0, w, h)
+
+					if self.PaintingDragging then return end
 
 					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 

@@ -100,6 +100,8 @@ function PANEL:Paint(w, h)
 	surface.SetMaterial(i.icon)
 	surface.DrawTexturedRect(0, 0, w, h)
 
+	if self.PaintingDragging then return end
+
 	draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
 	if i.caliber then

@@ -298,6 +298,8 @@ end)
 net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
+	local reloadInv = net.ReadBool()
+	local reloadSlots = net.ReadBool()
 
 	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
@@ -348,8 +350,8 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 		net.WriteUInt(index, 16)
 	net.Send(ply)
 
-	ReloadInventory(ply)
-	ReloadSlots(ply)
+	if reloadInv then ReloadInventory(ply) end
+	if reloadSlots then ReloadSlots(ply) end
 end)
 
 function UnequipAll(ply)

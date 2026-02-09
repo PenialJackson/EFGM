@@ -689,7 +689,7 @@ net.Receive("PlayerRaidTransition", function()
 	end
 
 	local fadeOutTime = 0.35
-	if status == 1 then fadeOutTime = 1.5 end
+	if status == 1 then fadeOutTime = 1 end
 
 	transition:AlphaTo(255, 0.5, 0, nil)
 	transition:AlphaTo(0, fadeOutTime, 1, function()

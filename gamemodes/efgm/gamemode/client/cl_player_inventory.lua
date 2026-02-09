@@ -293,8 +293,11 @@ function EquipItemFromEquipped(equipID, equipSlot, toEquipID, toEquipSlot)
 	return false
 end
 
-function UnEquipItemFromInventory(equipID, equipSlot)
+function UnEquipItemFromInventory(equipID, equipSlot, reloadInv, reloadSlots)
 	if (LocalPlayer():CompareFaction(false) and LocalPlayer():IsInHideout()) then return end
+
+	if reloadInv == nil then reloadInv = true end
+	if reloadSlots == nil then reloadSlots = true end
 
 	local item = playerWeaponSlots[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
@@ -304,6 +307,8 @@ function UnEquipItemFromInventory(equipID, equipSlot)
 	net.Start("PlayerInventoryUnEquipItem", false)
 		net.WriteUInt(equipID, 4)
 		net.WriteUInt(equipSlot, 4)
+		net.WriteBool(reloadInv)
+		net.WriteBool(reloadSlots)
 	net.SendToServer()
 end
 
