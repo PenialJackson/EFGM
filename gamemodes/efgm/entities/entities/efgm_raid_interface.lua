@@ -25,21 +25,21 @@ end
 
 function ENT:Initialize()
 	hook.Add("StartedRaid", "InterfaceRaidStart", function()
-		self:TriggerOutput("OnRaidStart")
+		self:TriggerOutput("OnRaidStart", nil, nil)
 	end)
 
 	hook.Add("RaidTimerTick", "InterfaceRaidTimerTick", function(curRaidTime)
 		if curRaidTime == 600 then
-			self:TriggerOutput("OnTenMinutesLeft")
+			self:TriggerOutput("OnTenMinutesLeft", nil, nil)
 		elseif curRaidTime == 300 then
-			self:TriggerOutput("OnFiveMinutesLeft")
+			self:TriggerOutput("OnFiveMinutesLeft", nil, nil)
 		elseif curRaidTime == 60 then
-			self:TriggerOutput("OnOneMinuteLeft")
+			self:TriggerOutput("OnOneMinuteLeft", nil, nil)
 		end
 	end)
 
 	hook.Add("EndedRaid", "InterfaceRaidEnd", function()
-		self:TriggerOutput("OnRaidEnd")
+		self:TriggerOutput("OnRaidEnd", nil, nil)
 	end)
 end
 

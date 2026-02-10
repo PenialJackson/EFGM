@@ -40,7 +40,7 @@ local wsLandmark2Ya = 0
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	concommand.Add("efgm_debug_setlandmark1", function(ply, cmd, args)
-		pos = ply:GetPos()
+		local pos = ply:GetPos()
 		wsLandmark1Xa = pos.x
 		wsLandmark1Ya = pos.y
 
@@ -48,7 +48,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	end)
 
 	concommand.Add("efgm_debug_setlandmark2", function(ply, cmd, args)
-		pos = ply:GetPos()
+		local pos = ply:GetPos()
 		wsLandmark2Xa = pos.x
 		wsLandmark2Ya = pos.y
 
@@ -132,7 +132,6 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 			surface.SetMaterial(Material("maps/" .. mapName .. ".png", "smooth"))
 			surface.DrawTexturedRect(0, 0, w, h)
 
-			surface.SetDrawColor(52, 124, 218, 240)
 			for k, v in pairs(mapInfo.spawns) do
 				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
 				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
@@ -140,13 +139,12 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
 				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5, Color(52, 124, 218, 240))
 				if v.type == 1 then draw.DrawText("PMC Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER)
 				elseif v.type == 2 then draw.DrawText("SCAV Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER)
 				else draw.DrawText("Global Spawn", "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(52, 124, 218, 240), TEXT_ALIGN_CENTER) end
 			end
 
-			surface.SetDrawColor(19, 196, 34, 240)
 			for k, v in pairs(mapInfo.extracts) do
 				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
 				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
@@ -154,12 +152,10 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
 				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5)
-				surface.SetTextPos((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5, surface.SetDrawColor(19, 196, 34, 240))
 				draw.DrawText(v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(19, 196, 34, 240), TEXT_ALIGN_CENTER)
 			end
 
-			surface.SetDrawColor(202, 20, 20, 240)
 			for k, v in pairs(mapInfo.locations) do
 				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
 				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
@@ -167,12 +163,10 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
 				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5)
-				surface.SetTextPos((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 5, Color(202, 20, 20, 240))
 				draw.DrawText(v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(202, 20, 20, 240), TEXT_ALIGN_CENTER)
 			end
 
-			surface.SetDrawColor(252, 152, 2, 240)
 			for k, v in pairs(mapInfo.keys) do
 				local factorX = (landmark2X:GetValue() - landmark1X:GetValue()) / (wsLandmark2X - wsLandmark1X)
 				local offsetX = landmark1X:GetValue() - (factorX * wsLandmark1X)
@@ -180,19 +174,15 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 				local factorY = (landmark2Y:GetValue() - landmark1Y:GetValue()) / (wsLandmark2Y - wsLandmark1Y)
 				local offsetY = landmark1Y:GetValue() - (factorY * wsLandmark1Y)
 
-				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 3)
-				surface.SetTextPos((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY)
+				surface.DrawCircle((v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY, 3, Color(252, 152, 2, 240))
 				draw.DrawText(v.name, "DermaDefault", (v.pos.x * factorX) + offsetX, (v.pos.y * factorY) + offsetY - 20, Color(252, 152, 2, 240), TEXT_ALIGN_CENTER)
 			end
 
-			surface.SetDrawColor(Color(251, 255, 0))
-			surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 15)
-			surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 2)
+			surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 15, Color(251, 255, 0))
+			surface.DrawCircle(landmark1X:GetValue(), landmark1Y:GetValue(), 2, Color(251, 255, 0))
 
-			surface.SetDrawColor(Color(153, 0, 255))
-			surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 15)
-			surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 2)
-
+			surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 15, Color(153, 0, 255))
+			surface.DrawCircle(landmark2X:GetValue(), landmark2Y:GetValue(), 2, Color(153, 0, 255))
 		end
 	end)
 end

@@ -46,7 +46,7 @@ function InvitePlayerToSquad(invitedPly)
 	if Invites.lastSquadInviteSentTime == 0 then CreateNotification("Send another invite to automatically create a squad!", Mats.inviteErrorIcon, "ui/error.wav") Invites.lastSquadInviteSentTime = CurTime() return end
 
 	if CurTime() - Invites.lastSquadInviteSentTime < 10 then
-		RunConsoleCommand("efgm_squad_create", LocalPlayer():GetName() .. "'s Squad", "", "4", "255", "255", "255")
+		RunConsoleCommand("efgm_squad_create", LocalPlayer():Nick() .. "'s Squad", "", "4", "255", "255", "255")
 	end
 
 	Invites.lastInviteSentTime = CurTime()

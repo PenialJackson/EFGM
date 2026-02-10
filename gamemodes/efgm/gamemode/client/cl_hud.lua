@@ -254,10 +254,10 @@ function RenderRaidIntro()
 	function intro:Paint(w, h)
 		if !LocalPlayer():Alive() then return end
 
-		draw.DrawText("Raid #" .. LocalPlayer():GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-		draw.DrawText(os.date("%H:%M:%S"), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(50), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-		draw.DrawText("Level " .. LocalPlayer():GetNWInt("Level", 0) .. ", Operator " .. LocalPlayer():GetName(), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-		draw.DrawText("Garkov, " .. (MAPNAMES[game.GetMap()] or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+		draw.DrawText("Raid #" .. LocalPlayer():GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText(os.date("%H:%M:%S"), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(50), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText("Level " .. LocalPlayer():GetNWInt("Level", 0) .. ", Operator " .. LocalPlayer():Nick(), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText("Garkov, " .. (MAPNAMES[game.GetMap()] or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
 	end
 
 	intro:AlphaTo(255, 0.35, 0, nil)
@@ -295,10 +295,10 @@ function RenderPlayerInfo(ent)
 	surface.SetDrawColor(Colors.transparentWhiteColor)
 	surface.DrawRect(ScrW() / 2 - (infoSize / 2), ScrH() - infoSizeY - EFGM.ScreenScale(20), infoSize, EFGM.ScreenScale(1))
 
-	draw.DrawText(name, "BenderExfilTimer", ScrW() / 2, ScrH() - infoSizeY - EFGM.ScreenScale(20), Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+	draw.DrawText(name, "BenderExfilTimer", ScrW() / 2, ScrH() - infoSizeY - EFGM.ScreenScale(20), Color(255, 255, 255), TEXT_ALIGN_CENTER)
 
 	if !inHideout or !Invites.allow then return end
-	draw.DrawText(inviteText, "Bender24", ScrW() / 2, ScrH() - infoSizeY + EFGM.ScreenScale(40), Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+	draw.DrawText(inviteText, "Bender24", ScrW() / 2, ScrH() - infoSizeY + EFGM.ScreenScale(40), Color(255, 255, 255), TEXT_ALIGN_CENTER)
 end
 
 -- voip indicator
@@ -364,9 +364,9 @@ function RenderInvite()
 	local text = ""
 
 	if inviteType == inviteTypes.SQUAD then
-		text = string.upper(sentBy:GetName() .. " invited you to duel!")
+		text = string.upper(sentBy:Nick() .. " invited you to duel!")
 	elseif inviteType == inviteTypes.DUEL then
-		text = string.upper(sentBy:GetName() .. " invited you to join their squad!")
+		text = string.upper(sentBy:Nick() .. " invited you to join their squad!")
 	end
 
 	surface.SetFont("BenderExfilTimer")
@@ -508,43 +508,43 @@ function RenderDuelLoadout()
 
 		if hasPrimary then
 			primaryMax = IsValid(primaryEnt) and tostring(primaryEnt:GetMaxClip1()) or "0"
-			draw.DrawText(primaryName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.DrawText(primaryCal, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + EFGM.ScreenScale(5), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.DrawText(primaryName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_LEFT)
+			draw.DrawText(primaryCal, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + EFGM.ScreenScale(5), Color(255, 255, 255), TEXT_ALIGN_LEFT)
 
 			surface.SetMaterial(Mats.switchIcon)
 			surface.SetDrawColor(Colors.pureWhiteColor)
 			surface.DrawTexturedRect(ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(31), ScrH() - loadoutSizeY - EFGM.ScreenScale(15), EFGM.ScreenScale(24), EFGM.ScreenScale(24))
 
-			draw.DrawText(primaryMode, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(36), ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP)
+			draw.DrawText(primaryMode, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(36), ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_RIGHT)
 
 			surface.SetMaterial(Mats.bulletsIcon)
 			surface.SetDrawColor(Colors.pureWhiteColor)
 			surface.DrawTexturedRect(ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(65) - primaryModeSize, ScrH() - loadoutSizeY - EFGM.ScreenScale(15), EFGM.ScreenScale(24), EFGM.ScreenScale(24))
 
-			draw.DrawText(primaryMax, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(70) - primaryModeSize, ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP)
+			draw.DrawText(primaryMax, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(70) - primaryModeSize, ScrH() - loadoutSizeY - EFGM.ScreenScale(15), Color(255, 255, 255), TEXT_ALIGN_RIGHT)
 		end
 
 		if hasHolster then
 			holsterMax = IsValid(holsterEnt) and tostring(holsterEnt:GetMaxClip1()) or "0"
-			draw.DrawText(holsterName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.DrawText(holsterCal, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(20), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.DrawText(holsterName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_LEFT)
+			draw.DrawText(holsterCal, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(20), Color(255, 255, 255), TEXT_ALIGN_LEFT)
 
 			surface.SetMaterial(Mats.switchIcon)
 			surface.SetDrawColor(Colors.pureWhiteColor)
 			surface.DrawTexturedRect(ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(31), ScrH() - loadoutSizeY + holsterY, EFGM.ScreenScale(24), EFGM.ScreenScale(24))
 
-			draw.DrawText(holsterMode, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(36), ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP)
+			draw.DrawText(holsterMode, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(36), ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_RIGHT)
 
 			surface.SetMaterial(Mats.bulletsIcon)
 			surface.SetDrawColor(Colors.pureWhiteColor)
 			surface.DrawTexturedRect(ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(65) - holsterModeSize, ScrH() - loadoutSizeY + holsterY, EFGM.ScreenScale(24), EFGM.ScreenScale(24))
 
-			draw.DrawText(holsterMax, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(70) - holsterModeSize, ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP)
+			draw.DrawText(holsterMax, "Bender24", ScrW() / 2 + (loadoutSize / 2) - EFGM.ScreenScale(70) - holsterModeSize, ScrH() - loadoutSizeY + holsterY, Color(255, 255, 255), TEXT_ALIGN_RIGHT)
 		end
 
 		if hasNade then
-			draw.DrawText(nadeName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(43), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.DrawText(nadeType, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(63), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.DrawText(nadeName, "Bender24", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(43), Color(255, 255, 255), TEXT_ALIGN_LEFT)
+			draw.DrawText(nadeType, "Bender18", ScrW() / 2 - (loadoutSize / 2) + EFGM.ScreenScale(5), ScrH() - loadoutSizeY + holsterY + EFGM.ScreenScale(63), Color(255, 255, 255), TEXT_ALIGN_LEFT)
 		end
 	end
 
@@ -790,8 +790,8 @@ net.Receive("SendExtractionStatus", function()
 			surface.SetDrawColor(120, 180, 40, 125)
 			surface.DrawRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(300), EFGM.ScreenScale(250), EFGM.ScreenScale(80))
 
-			draw.DrawText("EXTRACTION IN", "BenderExfilList", w / 2, h - EFGM.ScreenScale(300), Colors.blackColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
-			draw.DrawText(string.format("%.1f", tostring(exitTimeLeft)), "BenderExfilTimer", w / 2, h - EFGM.ScreenScale(275), Colors.blackColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+			draw.DrawText("EXTRACTION IN", "BenderExfilList", w / 2, h - EFGM.ScreenScale(300), Colors.blackColor, TEXT_ALIGN_CENTER)
+			draw.DrawText(string.format("%.1f", tostring(exitTimeLeft)), "BenderExfilTimer", w / 2, h - EFGM.ScreenScale(275), Colors.blackColor, TEXT_ALIGN_CENTER)
 
 			BlurRect(w / 2 - EFGM.ScreenScale(125), h - EFGM.ScreenScale(215), EFGM.ScreenScale(250), EFGM.ScreenScale(5), 4, 2)
 			surface.SetDrawColor(Colors.hudBackground)
@@ -1223,7 +1223,7 @@ net.Receive("CreateDeathInformation", function()
 			killerHolder:SetSize(0, 0)
 
 			function killerHolder:Paint(w, h)
-				draw.SimpleTextOutlined(killedBy:GetName(), "PuristaBold24", EFGM.MenuScale(90), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(killedBy:Nick(), "PuristaBold24", EFGM.MenuScale(90), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
 				if killedFrom != 0 then
 					draw.SimpleTextOutlined("from " .. killedFrom .. "m away", "PuristaBold16", EFGM.MenuScale(90), EFGM.MenuScale(18), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
@@ -1259,7 +1259,7 @@ net.Receive("CreateDeathInformation", function()
 
 				dropdown:AddSpacer()
 
-				dropdown:AddOption("Copy Name", function() SetClipboardText(killedBy:GetName()) end):SetIcon("icon16/pencil_add.png")
+				dropdown:AddOption("Copy Name", function() SetClipboardText(killedBy:Nick()) end):SetIcon("icon16/pencil_add.png")
 				dropdown:AddOption("Copy SteamID64", function() SetClipboardText(killedBy:SteamID64()) end):SetIcon("icon16/pencil_add.png")
 
 				if killedBy != LocalPlayer() then

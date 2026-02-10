@@ -1,0 +1,8 @@
+{
+	"format_on_save": "off",
+	"remove_trailing_whitespace_on_save": true,
+	"ensure_final_newline_on_save": false,
+	"hard_tabs": true,
+	"tab_size": 4,
+	"project_name": "Escape From Garry's Mod",
+}

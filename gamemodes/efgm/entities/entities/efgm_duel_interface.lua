@@ -13,14 +13,14 @@ end
 
 function ENT:Initialize()
 	hook.Add("StartedDuel", "InterfaceDuelStart", function()
-		self:TriggerOutput("OnDuelStart")
+		self:TriggerOutput("OnDuelStart", nil, nil)
 	end)
 
 	hook.Add("EndedDuel", "InterfaceDuelEnd", function()
-		self:TriggerOutput("OnDuelEnd")
+		self:TriggerOutput("OnDuelEnd", nil, nil)
 	end)
 
 	hook.Add("CancelledDuel", "InterfaceDuelCancel", function()
-		self:TriggerOutput("OnDuelEnd")
+		self:TriggerOutput("OnDuelEnd", nil, nil)
 	end)
 end

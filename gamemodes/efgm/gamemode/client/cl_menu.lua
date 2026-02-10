@@ -145,7 +145,7 @@ function Menu:Initialize(openTo, container)
 	self.PlayerHealth = Menu.Player:Health()
 
 	function menuFrame:Paint(w, h)
-		if self.Unblur then return end
+		if Menu.Unblur then return end
 
 		surface.SetDrawColor(Colors.frameColor)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
@@ -327,7 +327,7 @@ function Menu:Initialize(openTo, container)
 		draw.SimpleTextOutlined(time, "PuristaBold32", w - roublesTextSize - levelTextSize - EFGM.MenuScale(125), EFGM.MenuScale(2), raidStatusTbl[raidStatus], TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		draw.SimpleTextOutlined(plyCount, "PuristaBold32", w - roublesTextSize - levelTextSize - timeTextSize - EFGM.MenuScale(185), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 
-		draw.DrawText("EFGM", "PuristaBold32", w / 2, EFGM.MenuScale(2), Colors.itemBackgroundColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+		draw.DrawText("EFGM", "PuristaBold32", w / 2, EFGM.MenuScale(2), Colors.itemBackgroundColor, TEXT_ALIGN_CENTER)
 	end
 
 	self.MenuFrame.TabParentPanel = tabParentPanel
@@ -541,7 +541,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	local statsBGColor = Colors.transparent
-	local statsText = string.upper(Menu.Player:GetName())
+	local statsText = string.upper(Menu.Player:Nick())
 	local statsTextSize = surface.GetTextSize(statsText)
 
 	function statsTab:Paint(w, h)
@@ -720,7 +720,9 @@ function Menu:Initialize(openTo, container)
 	marketTab:Dock(LEFT)
 	marketTab:SetSize(EFGM.MenuScale(38), 0)
 
-	if !Menu.Player:IsInHideout() then marketTab:Hide(true) end
+	if !Menu.Player:IsInHideout() then
+		marketTab:Hide()
+	end
 
 	local marketIcon = vgui.Create("DButton", marketTab)
 	marketIcon:SetPos(EFGM.MenuScale(2), EFGM.MenuScale(2))
@@ -790,7 +792,9 @@ function Menu:Initialize(openTo, container)
 	tasksTab:Dock(LEFT)
 	tasksTab:SetSize(EFGM.MenuScale(38), 0)
 
-	if sboxCVar:GetBool() then tasksTab:Hide(true) end
+	if !sboxCVar:GetBool() then
+		tasksTab:Hide()
+	end
 
 	local tasksIcon = vgui.Create("DButton", tasksTab)
 	tasksIcon:SetPos(EFGM.MenuScale(2), EFGM.MenuScale(2))
@@ -829,7 +833,7 @@ function Menu:Initialize(openTo, container)
 	end
 
 	function tasksIcon:DoClick()
-		if sboxCVar:GetBool() then
+		if !sboxCVar:GetBool() then
 			surface.PlaySound("common/wpn_denyselect.wav")
 			return
 		end
@@ -861,7 +865,7 @@ function Menu:Initialize(openTo, container)
 	local skillsTab = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
 	skillsTab:Dock(LEFT)
 	skillsTab:SetSize(EFGM.MenuScale(38), 0)
-	skillsTab:Hide(true)
+	skillsTab:Hide()
 
 	local skillsIcon = vgui.Create("DButton", skillsTab)
 	skillsIcon:SetPos(EFGM.MenuScale(2), EFGM.MenuScale(2))
@@ -925,7 +929,7 @@ function Menu:Initialize(openTo, container)
 	local achievementsTab = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
 	achievementsTab:Dock(LEFT)
 	achievementsTab:SetSize(EFGM.MenuScale(38), 0)
-	achievementsTab:Hide(true)
+	achievementsTab:Hide()
 
 	local achievementsIcon = vgui.Create("DButton", achievementsTab)
 	achievementsIcon:SetPos(EFGM.MenuScale(2), EFGM.MenuScale(2))
@@ -1085,6 +1089,8 @@ function Menu:Open(openTo, container)
 
 	self:Initialize(openTo, container)
 end
+
+local inspectPanel
 
 function Menu.InspectItem(item, data)
 	if IsValid(inspectPanel) then inspectPanel:Remove() end
@@ -1685,6 +1691,8 @@ function Menu.InspectItem(item, data)
 		inspectPanel:AlphaTo(0, 0.1, 0, function() inspectPanel:Remove() end)
 	end
 end
+
+local confirmPanel
 
 function Menu.ConfirmPurchase(item, sendTo, closeMenu)
 	if IsValid(confirmPanel) then confirmPanel:Remove() end
@@ -2873,7 +2881,7 @@ function Menu.OpenTab.Inventory(container)
 		surface.SetDrawColor(Colors.containerHeaderColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(string.upper(Menu.Player:GetName()), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(string.upper(Menu.Player:Nick()), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
 	local playerModel = vgui.Create("DModelPanel", playerPanel)
@@ -4237,6 +4245,8 @@ function Menu.OpenTab.Inventory(container)
 			local a_fir = (a.data.fir == true and 1) or 0
 			local b_fir = (b.data.fir == true and 1) or 0
 			if a_fir and b_fir then return a_fir > b_fir end
+
+			return false
 		end)
 
 		local canStash = Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container)
@@ -4730,6 +4740,8 @@ function Menu.OpenTab.Inventory(container)
 				local a_fir = (a.data.fir == true and 1) or 0
 				local b_fir = (b.data.fir == true and 1) or 0
 				if a_fir and b_fir then return a_fir > b_fir end
+
+				return false
 			end)
 
 			local co = coroutine.create(function()
@@ -5608,6 +5620,8 @@ function Menu.OpenTab.Inventory(container)
 			local a_fir = (a.data.fir == true and 1) or 0
 			local b_fir = (b.data.fir == true and 1) or 0
 			if a_fir and b_fir then return a_fir > b_fir end
+
+			return false
 		end)
 
 		-- stash item entry
@@ -6509,6 +6523,8 @@ function Menu.OpenTab.Market()
 			local a_fir = (a.data.fir == true and 1) or 0
 			local b_fir = (b.data.fir == true and 1) or 0
 			if a_fir and b_fir then return a_fir > b_fir end
+
+			return false
 		end)
 
 		-- stash item entry
@@ -7313,6 +7329,8 @@ function Menu.OpenTab.Market()
 					elseif a.name != b.name then
 						return a.name < b.name
 					end
+
+					return false
 				end)
 			else
 				table.sort(marketTbl, function(a, b)
@@ -7321,6 +7339,8 @@ function Menu.OpenTab.Market()
 					elseif a.name != b.name then
 						return a.name > b.name
 					end
+
+					return false
 				end)
 			end
 		elseif sortBy == "value" then
@@ -7331,6 +7351,8 @@ function Menu.OpenTab.Market()
 					elseif a.value != b.value then
 						return a.value < b.value
 					end
+
+					return false
 				end)
 			else
 				table.sort(marketTbl, function(a, b)
@@ -7339,6 +7361,8 @@ function Menu.OpenTab.Market()
 					elseif a.value != b.value then
 						return a.value > b.value
 					end
+
+					return false
 				end)
 			end
 		elseif sortBy == "level" then
@@ -7349,6 +7373,8 @@ function Menu.OpenTab.Market()
 					elseif a.level != b.level then
 						return a.level < b.level
 					end
+
+					return false
 				end)
 			else
 				table.sort(marketTbl, function(a, b)
@@ -7357,6 +7383,8 @@ function Menu.OpenTab.Market()
 					elseif a.level != b.level then
 						return a.level > b.level
 					end
+
+					return false
 				end)
 			end
 		end
@@ -7568,9 +7596,9 @@ function Menu.OpenTab.Match()
 				if v != Menu.Player and v:IsInHideout() then
 					dropdown:AddSpacer()
 
-					local inviteToSquad = dropdown:AddOption("Invite To Squad", function() InvitePlayerToSquad(Menu.Player, v) end)
+					local inviteToSquad = dropdown:AddOption("Invite To Squad", function() InvitePlayerToSquad(v) end)
 					inviteToSquad:SetIcon("icon16/user_add.png")
-					local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(Menu.Player, v) end)
+					local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(v) end)
 					inviteToDuel:SetIcon("icon16/bomb.png")
 				end
 
@@ -7580,7 +7608,7 @@ function Menu.OpenTab.Match()
 				dropdown:AddOption("Copy SteamID64", function() SetClipboardText(v:SteamID64()) end):SetIcon("icon16/pencil_add.png")
 
 				if v != Menu.Player then
-					local mute = dropdown:AddOption("Mute Player", function(self)
+					local mute = dropdown:AddOption("Mute Player", function()
 						if v:IsMuted() then
 							v:SetMuted(false)
 						else
@@ -7875,15 +7903,14 @@ function Menu.OpenTab.Match()
 	availableSquadsList:SetSize(EFGM.MenuScale(300), EFGM.MenuScale(330))
 
 	function GenerateJoinableSquads(array)
-		for k, v in SortedPairs(array) do
-			local name = k
-			local color = v.COLOR
-			local owner = v.OWNER
+		for name, data in SortedPairs(array) do
+			local color = data.COLOR
+			local owner = data.OWNER
 			local status
-			local password = v.PASSWORD
-			local limit = v.LIMIT
-			local members = v.MEMBERS
-			local faction = v.FACTION
+			local password = data.PASSWORD
+			local limit = data.LIMIT
+			local members = data.MEMBERS
+			local faction = data.FACTION
 			local memberCount = #members
 			local open = limit != memberCount
 			local protected = string.len(password) != 0
@@ -8148,7 +8175,7 @@ function Menu.OpenTab.Match()
 				if v != Menu.Player and v:IsInHideout() then
 					dropdown:AddSpacer()
 
-					local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(Menu.Player, v) end)
+					local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(v) end)
 					inviteToDuel:SetIcon("icon16/bomb.png")
 				end
 
@@ -10100,7 +10127,7 @@ function Menu.OpenTab.Tasks()
 			surface.SetDrawColor(Colors.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-			draw.SimpleTextOutlined(taskInfo.messageOverride or "INCOMING TRANSMISSION FROM " .. string.upper(taskInfo.traderName), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(taskInfo.messageOverride or ("INCOMING TRANSMISSION FROM " .. string.upper(taskInfo.traderName)), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 		end
 
 		local messageIcon = vgui.Create("DPanel", messagePanel)

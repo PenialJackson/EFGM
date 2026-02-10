@@ -58,3 +58,4 @@ Temporary Items
 *.prt
 addon.json
 *.gma
+.luarc.json
