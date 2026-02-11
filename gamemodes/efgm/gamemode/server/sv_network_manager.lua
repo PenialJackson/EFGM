@@ -6,7 +6,7 @@ local player = player
 -- As of 4/25/2025 at 4:08AM CST, porty can eat shit, as I have rewritten this code to match the new titanmod networking manager
 -- As of 11/1/2025 at 2:23PM CDT, ):
 hook.Add("Initialize", "InitPlayerNetworking", function()
-	sql.Query("CREATE TABLE IF NOT EXISTS EFGMPlayerData64 (SteamID INTEGER, Key TEXT, Value TEXT);")
+	sql.QueryTyped("CREATE TABLE IF NOT EXISTS EFGMPlayerData64 (SteamID INTEGER, Key TEXT, Value TEXT);")
 end)
 
 local tempCMD = nil
@@ -324,8 +324,8 @@ end
 -- Yo the way this shit works is very cool, nice job pene
 function SetupPlayerData(ply)
 	local id64 = ply:SteamID64()
-	local query = sql.Query("SELECT Key, Value FROM EFGMPlayerData64 WHERE SteamID = " .. id64 .. ";")
-	if query == nil then query = "new" end
+	local query = sql.QueryTyped("SELECT Key, Value FROM EFGMPlayerData64 WHERE SteamID = ?;", {id64})
+	if query == {} or query == false then query = "new" end
 
 	-- stats
 	InitializeNetworkInt(ply, query, "Level", 1)
@@ -457,8 +457,8 @@ end
 function SavePlayerData(ply)
 	if tempNewCMD != nil or tempCMD != nil then return end -- shouldn't be possible but just to be safe
 	local id64 = ply:SteamID64()
-	local query = sql.Query("SELECT Key, Value FROM EFGMPlayerData64 WHERE SteamID = " .. id64 .. ";")
-	if query == nil then query = "new" end
+	local query = sql.QueryTyped("SELECT Key, Value FROM EFGMPlayerData64 WHERE SteamID = ?;", {id64})
+	if query == {} or query == false then query = "new" end
 
 	tempNewCMD = "INSERT INTO EFGMPlayerData64 (SteamID, Key, Value) VALUES"
 	tempCMD = "UPDATE EFGMPlayerData64 SET Value = CASE Key "
@@ -515,10 +515,10 @@ function SavePlayerData(ply)
 	UninitializeTaskString(ply, query)
 
 	tempNewCMD = string.sub(tempNewCMD, 1, -3) .. ";"
-	tempCMD = tempCMD .. "ELSE Value END WHERE SteamID = " .. id64 .. ";"
+	tempCMD = tempCMD .. "ELSE Value END WHERE SteamID = ?;"
 
-	if tempNewCMD != "INSERT INTO EFGMPlayerData64 (SteamID, Key, Value) VALU;" then sql.Query(tempNewCMD) end
-	if tempCMD != "UPDATE EFGMPlayerData64 SET Value = CASE Key ELSE Value END WHERE SteamID = " .. id64 .. ";" then sql.Query(tempCMD) end
+	if tempNewCMD != "INSERT INTO EFGMPlayerData64 (SteamID, Key, Value) VALU;" then sql.QueryTyped(tempNewCMD) end
+	if tempCMD != "UPDATE EFGMPlayerData64 SET Value = CASE Key ELSE Value END WHERE SteamID = ?;" then sql.QueryTyped(tempCMD, {id64}) end
 
 	sql.Commit()
 
@@ -540,7 +540,7 @@ hook.Add("PlayerDisconnected", "PlayerUninitializeStats", function(ply)
 			backpack:SetPos(ply:GetPos() + Vector(0, 0, 64))
 			backpack:Spawn()
 			backpack:Activate()
-			backpack:SetBagData(ply.inventory, ply:GetName() .. "'s Corpse")
+			backpack:SetBagData(ply.inventory, ply:Nick() .. "'s Corpse")
 		end
 
 		ply:SetNWInt("Quits", ply:GetNWInt("Quits", 0) + 1)

@@ -429,7 +429,7 @@ function RenderDuelLoadout()
 	local primaryNameSize = 0
 	local primaryCal
 	local primaryEnt
-	local primaryMax = 0
+	local primaryMax = "0"
 	local primaryMode
 	local primaryModeSize = 0
 	local holsterDef
@@ -437,7 +437,7 @@ function RenderDuelLoadout()
 	local holsterNameSize = 0
 	local holsterCal
 	local holsterEnt
-	local holsterMax = 0
+	local holsterMax = "0"
 	local holsterMode
 	local holsterModeSize = 0
 	local nadeDef
@@ -455,7 +455,7 @@ function RenderDuelLoadout()
 		primaryCal = primaryDef.caliber or ""
 
 		primaryEnt = LocalPlayer():GetWeapon(primary.name)
-		primaryMax = tostring(primaryEnt:GetMaxClip1() or 0)
+		primaryMax = tostring(primaryEnt:GetMaxClip1()) or "0"
 		primaryMode = string.upper(string.sub(primaryEnt:GetFiremodeName() or "", 1, 1))
 		primaryModeSize = surface.GetTextSize(primaryMode) + EFGM.ScreenScale(5)
 	end
@@ -469,7 +469,7 @@ function RenderDuelLoadout()
 		holsterCal = holsterDef.caliber or ""
 
 		holsterEnt = LocalPlayer():GetWeapon(holster.name)
-		holsterMax = tostring(holsterEnt:GetMaxClip1() or 0)
+		holsterMax = tostring(holsterEnt:GetMaxClip1()) or "0"
 		holsterMode = string.upper(string.sub(holsterEnt:GetFiremodeName() or "", 1, 1))
 		holsterModeSize = surface.GetTextSize(holsterMode) + EFGM.ScreenScale(5)
 	end
@@ -1293,7 +1293,7 @@ net.Receive("CreateDeathInformation", function()
 			playerModel:SetDirectionalLight(BOX_RIGHT, Color(255, 160, 80, 255))
 			playerModel:SetDirectionalLight(BOX_LEFT, Color(80, 160, 255, 255))
 			playerModel:SetAnimated(true)
-			playerModel:SetModel(killedBy:GetModel())
+			playerModel:SetModel(killedBy:GetModel() or "models/eft/pmcs/usec_extended_pm.mdl")
 			playerModel:AlphaTo(255, 0.1, 0, nil)
 
 			local groups = GetEntityGroups(killedBy)

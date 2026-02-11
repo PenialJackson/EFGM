@@ -1021,7 +1021,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 				for _, preset in ipairs(self:GetPresets()) do
 					local psname = self:GetPresetName(preset)
-					if string.StartWith(psname, txt) then
+					if string.StartsWith(psname, txt) then
 						local qsnum = tonumber(string.sub(psname, string.len(txt) + 1))
 
 						-- print(string.sub(preset, string.len(txt) + 1))
@@ -2475,7 +2475,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 			if owner:IsNPC() then
 				-- ang = self:GetOwner():GetAimVector():Angle()
-				spread = self:GetNPCBulletSpread()
+				spread = self:GetNPCBulletSpread(WEAPON_PROFICIENCY_PERFECT)
 			else
 				spread = self:GetProcessedValue("Spread")
 			end
@@ -2775,6 +2775,8 @@ function GetAttachmentListFromCode(str)
 		if a_value and b_value then
 			return a_value > b_value
 		end
+
+		return true
 	end)
 
 	for i = 1, #cleanAttTbl do

@@ -76,7 +76,7 @@ local jumpFatigueReset = 1.1
 local jumpFatigueMult = 0.825
 
 -- jump viewpunch and fatigue
-hook.Add("OnPlayerJump", "PlayerJump", function(ply, inWater, onFloater, speed)
+hook.Add("OnPlayerJump", "PlayerJump", function(ply, speed)
 	local ct = CurTime()
 	local jumpCount = ply:GetNW2Int("jump_count", 1)
 
@@ -104,7 +104,7 @@ hook.Add("OnPlayerJump", "PlayerJump", function(ply, inWater, onFloater, speed)
 end)
 
 -- jump cooldown
-hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, inWater, onFloater, speed)
+hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, speed)
 	if speed > 50 then
 		local ang = Angle(math.floor(math.exp(speed / 256)))
 		if ang:Unpack() > 45 then
@@ -383,7 +383,7 @@ end)
 
 local maxLossInertiaMult = 0.75
 hook.Add("SetupMove", "VBSetupMove", function(ply, mv, cmd)
-	local vel = mv:GetVelocity():GetNormalized():Dot(ply:GetNW2Vector("VBLastDir"), vector_origin)
+	local vel = mv:GetVelocity():GetNormalized():Dot(ply:GetNW2Vector("VBLastDir", vector_origin))
 
 	if ply:OnGround() and vel < ((mv:KeyDown(IN_SPEED) and 0.99) or 0.998) and vel > 0 then
 		SetInertia(ply, 0.06)

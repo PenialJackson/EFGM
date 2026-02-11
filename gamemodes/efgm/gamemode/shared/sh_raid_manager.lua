@@ -654,6 +654,8 @@ if SERVER then
 			if a_name != b_name then
 				return a_name < b_name
 			end
+
+			return false
 		end)
 
 		net.Start("SendExtractList")

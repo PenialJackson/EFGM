@@ -22,6 +22,6 @@ end)
 
 concommand.Add("efgm_wipe_full", function(ply, cmd, args) -- full reset of everything, should only be used in testing environments or MAYBE on a major enough update
 	if !wipeEnabled then return end
-	sql.Query("DROP TABLE EFGMPlayerData64; CREATE TABLE IF NOT EXISTS EFGMPlayerData64 ( SteamID INTEGER, Key TEXT, Value TEXT);")
+	sql.QueryTyped("DROP TABLE EFGMPlayerData64; CREATE TABLE IF NOT EXISTS EFGMPlayerData64 (SteamID INTEGER, Key TEXT, Value TEXT);")
 	print("Fully wiped save data for all players!")
 end)

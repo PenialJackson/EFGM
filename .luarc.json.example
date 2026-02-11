@@ -5,8 +5,30 @@
 	"workspace.maxPreload": 5000,
 	"workspace.preloadFileSize": 2000,
 	"workspace.checkThirdParty": false,
-	"diagnostics.disable": ["undefined-global"],
-	"runtime.special": { "include": "require", "IncludeCS": "require" },
-	"runtime.nonstandardSymbol": ["continue", "&&", "||", "!=", "!", "//"],
+	"diagnostics.disable": [
+		"undefined-global",
+		"undefined-field",
+		"inject-field",
+		"duplicate-set-field",
+		"param-type-mismatch",
+		"need-check-nil",
+		"cast-local-type"
+	],
+	"diagnostics.globals": [
+		"GM",
+		"BaseClass"
+	],
+	"runtime.special": {
+	"include": "require",
+	"IncludeCS": "require"
+	},
+	"runtime.nonstandardSymbol": [
+		"continue",
+		"&&",
+		"||",
+		"!=",
+		"!",
+		"//"
+	],
 	"workspace.library": ["https://github.com/luttje/glua-api-snippets/releases, download and extract .json zip and set this to the absolute path."]
 }

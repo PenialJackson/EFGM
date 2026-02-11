@@ -2852,7 +2852,7 @@ function Menu.OpenTab.Inventory(container)
 
 	Menu.MenuFrame.LowerPanel.Contents = contents
 
-	local pm = Menu.Player:GetModel()
+	local pm = Menu.Player:GetModel() or "models/eft/pmcs/usec_extended_pm.mdl"
 	local factionMat = (pm == "models/eft/pmcs/usec_extended_pm.mdl" and Mats.factionUSECIcon) or (pm == "models/eft/pmcs/bear_extended_pm.mdl" and Mats.factionBEARIcon) or Mats.factionScavIcon
 
 	local playerPanel = vgui.Create("DPanel", contents)

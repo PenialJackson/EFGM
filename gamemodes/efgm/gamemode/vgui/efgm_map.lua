@@ -57,7 +57,7 @@ end
 function PANEL:OnMousePressed(mouseCode)
 	if mouseCode == MOUSE_LEFT then
 		self.IsDragging = true
-		self.DragPos.x, self.DragPos.y = gui.MousePos()
+		self.DragPos.x, self.DragPos.y = input.GetCursorPos()
 		self:MouseCapture(true)
 	end
 end
@@ -71,7 +71,7 @@ end
 
 function PANEL:Think()
 	if self.IsDragging then
-		local mx, my = gui.MousePos()
+		local mx, my = input.GetCursorPos()
 		local dx = mx - self.DragPos.x
 		local dy = my - self.DragPos.y
 

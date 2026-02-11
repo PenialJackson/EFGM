@@ -208,7 +208,7 @@ net.Receive("PlayerInventoryDropItem", function(len, ply)
 
 	if ply:IsInDuel() then return end
 
-	if item == nil then return false end
+	if item == nil then return end
 
 	local entity = ents.Create("efgm_dropped_item")
 	entity:SetItem(item.name, item.type, item.data)
@@ -645,7 +645,7 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 	local count = net.ReadUInt(8)
 	local key = net.ReadUInt(16)
 
-	if !ply:IsInHideout() and invType == "stash" then return false end
+	if !ply:IsInHideout() and invType == "stash" then return end
 
 	local def = EFGMITEMS[item]
 	if def == nil then return end
@@ -653,7 +653,7 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 	if invType == "inv" then
 		local data = ply.inventory[key].data
 
-		if AmountInInventory(ply.inventory, item) < count then return false end
+		if AmountInInventory(ply.inventory, item) < count then return end
 
 		local newData = table.Copy(data)
 		newData.count = data.count - count
@@ -664,11 +664,12 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 		AddItemToInventory(ply, item, def.equipType, newNewData)
 
 		ReloadInventory(ply)
-		return true
+
+		return
 	elseif invType == "stash" then
 		local data = ply.stash[key].data
 
-		if AmountInInventory(ply.stash, item) < count then return false end
+		if AmountInInventory(ply.stash, item) < count then return end
 
 		local newData = table.Copy(data)
 		newData.count = data.count - count
@@ -679,7 +680,8 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 		AddItemToStash(ply, item, def.equipType, newNewData)
 
 		ReloadStash(ply)
-		return true
+
+		return
 	end
 end)
 
@@ -689,7 +691,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if !ply:IsInHideout() and invType == "stash" then return false end
+	if !ply:IsInHideout() and invType == "stash" then return end
 
 	if invType == "inv" then
 		local item = ply.inventory[key]
@@ -716,7 +718,8 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 		net.Send(ply)
 
 		ReloadInventory(ply)
-		return true
+
+		return
 	elseif invType == "stash" then
 		table.remove(ply.stash, key)
 
@@ -726,7 +729,8 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 
 		ReloadStash(ply)
 		ply:SetNWInt("StashCount", #ply.stash)
-		return true
+
+		return
 	elseif invType == "equipped" then
 		if ply:IsInDuel() then return end
 
@@ -763,7 +767,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 			end
 		end
 
-		return true
+		return
 	end
 end)
 
@@ -774,7 +778,7 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 	local equipID = net.ReadUInt(4)
 	local equipSlot = net.ReadUInt(4)
 
-	if !ply:IsInHideout() then return false end
+	if !ply:IsInHideout() then return end
 
 	if invType == "inv" then
 		if ply.inventory[key].data.tag != nil then return end
@@ -787,7 +791,8 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 		net.Send(ply)
 
 		ReloadInventory(ply)
-		return true
+
+		return
 	elseif invType == "stash" then
 		if ply.stash[key].data.tag != nil then return end
 		ply.stash[key].data.tag = tag
@@ -800,7 +805,8 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 
 		ReloadStash(ply)
 		ply:SetNWInt("StashCount", #ply.stash)
-		return true
+
+		return
 	elseif invType == "equipped" then
 		if ply.weaponSlots[equipID][equipSlot].data.tag != nil then return end
 		ply.weaponSlots[equipID][equipSlot].data.tag = tag
@@ -812,7 +818,7 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 			net.WriteUInt(equipSlot, 16)
 		net.Send(ply)
 
-		return true
+		return
 	end
 end)
 

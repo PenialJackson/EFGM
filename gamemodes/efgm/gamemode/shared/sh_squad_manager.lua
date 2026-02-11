@@ -140,7 +140,7 @@ if SERVER then
 			end
 
 			net.Start("SendNotification", false)
-				net.WriteString(ply:GetName() .. " has joined your squad!")
+				net.WriteString(ply:Nick() .. " has joined your squad!")
 				net.WriteString("icons/squad_joined_icon.png")
 				net.WriteString("ui/squad_joined.wav")
 			net.Send(v)
@@ -179,7 +179,7 @@ if SERVER then
 
 		for k, v in ipairs(SQUADS[squad].MEMBERS) do
 			net.Start("SendNotification", false)
-				net.WriteString(ply:GetName() .. " has left your squad!")
+				net.WriteString(ply:Nick() .. " has left your squad!")
 				net.WriteString("icons/squad_leave_icon.png")
 				net.WriteString("ui/squad_leave.wav")
 			net.Send(v)
@@ -308,7 +308,7 @@ if CLIENT then
 		if (args[1] == nil or tostring(args[1]) != ("" or "nil")) then
 			name = tostring(args[1])
 		else
-			name = tostring(ply:GetName() .. "'s Squad")
+			name = tostring(ply:Nick() .. "'s Squad")
 		end
 
 		local password = tostring(args[2] or "") -- the 'or' just sets the value if nil, bc a password of nil will just be "nil" instead of ""

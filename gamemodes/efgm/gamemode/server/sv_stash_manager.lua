@@ -127,7 +127,7 @@ function DeflowItemsFromStash(ply, name, count)
 		if v and v.data.count > 0 then
 			if amount >= v.data.count then
 				amount = amount - v.data.count
-				DeleteItemFromStash(ply, idx, false)
+				DeleteItemFromStash(ply, idx)
 			else
 				UpdateItemFromStash(ply, idx, {count = v.data.count - amount})
 				amount = 0

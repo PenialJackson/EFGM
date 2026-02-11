@@ -255,7 +255,7 @@ hook.Add("PlayerFootstep", "CustomFootstepVolume", function(ply, pos, footSteppe
 	local step = "l"
 	if (footStepped == 1) then step = "r" end
 
-	if string.StartWith(snd, "player/footsteps/ladder") then
+	if string.StartsWith(snd, "player/footsteps/ladder") then
 		ply:EmitSound("mfw.ladder_hands_" .. step .. "_0" .. math.random(1, 5))
 		ply:EmitSound("mfwmvmt.gear_accent" .. math.random(1, 20))
 

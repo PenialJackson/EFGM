@@ -1,6 +1,9 @@
 local PANEL = {}
 
-PANEL.SlotID, PANEL.Slot, PANEL.Origin, PANEL.CTXParent = nil
+PANEL.SlotID = nil
+PANEL.Slot = nil
+PANEL.Origin = nil
+PANEL.CTXParent = nil
 
 function PANEL:Init()
 	self:Dock(FILL)

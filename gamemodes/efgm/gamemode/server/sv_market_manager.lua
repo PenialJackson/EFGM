@@ -27,13 +27,13 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	local item = net.ReadString()
 	local count = net.ReadUInt(16)
 
-	if !ply:IsInHideout() then return false end
+	if !ply:IsInHideout() then return end
 
 	local def = EFGMITEMS[item]
 
-	if def.canPurchase == false then return false end
-	if ply:GetNWInt("StashCount", 0) + math.floor(count / def.stackSize) >= ply:GetNWInt("StashMax", 150) then return false end
-	if PLYMARKETLIMITS[ply:SteamID64()][item] and count > PLYMARKETLIMITS[ply:SteamID64()][item] then return false end
+	if def.canPurchase == false then return end
+	if ply:GetNWInt("StashCount", 0) + math.floor(count / def.stackSize) >= ply:GetNWInt("StashMax", 150) then return end
+	if PLYMARKETLIMITS[ply:SteamID64()][item] and count > PLYMARKETLIMITS[ply:SteamID64()][item] then return end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 	local plyLevel = ply:GetNWInt("Level", 1)
@@ -52,8 +52,8 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 		end
 	end
 
-	if plyMoney < cost then return false end
-	if plyLevel < lvl then return false end
+	if plyMoney < cost then return end
+	if plyLevel < lvl then return end
 
 	local data = {}
 	data.count = count
@@ -79,20 +79,19 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	if PLYMARKETLIMITS[ply:SteamID64()][item] then PLYMARKETLIMITS[ply:SteamID64()][item] = PLYMARKETLIMITS[ply:SteamID64()][item] - count end
 
 	NetworkMarketLimits(ply)
-	return true
 end)
 
 net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	local item = net.ReadString()
 	local count = net.ReadUInt(16)
 
-	if !ply:IsInHideout() then return false end
-	if ply:CompareFaction(false) then return false end
+	if !ply:IsInHideout() then return end
+	if ply:CompareFaction(false) then return end
 
 	local def = EFGMITEMS[item]
 
-	if def.canPurchase == false then return false end
-	if PLYMARKETLIMITS[ply:SteamID64()][item] and count > PLYMARKETLIMITS[ply:SteamID64()][item] then return false end
+	if def.canPurchase == false then return end
+	if PLYMARKETLIMITS[ply:SteamID64()][item] and count > PLYMARKETLIMITS[ply:SteamID64()][item] then return end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 	local plyLevel = ply:GetNWInt("Level", 1)
@@ -111,8 +110,8 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 		end
 	end
 
-	if plyMoney < cost then return false end
-	if plyLevel < lvl then return false end
+	if plyMoney < cost then return end
+	if plyLevel < lvl then return end
 
 	local data = {}
 	data.count = count
@@ -138,14 +137,13 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	if PLYMARKETLIMITS[ply:SteamID64()][item] then PLYMARKETLIMITS[ply:SteamID64()][item] = PLYMARKETLIMITS[ply:SteamID64()][item] - count end
 
 	NetworkMarketLimits(ply)
-	return true
 end)
 
 net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 	local presetAtts = net.ReadTable()
 
-	if !ply:IsInHideout() then return false end
-	if ply:CompareFaction(false) then return false end
+	if !ply:IsInHideout() then return end
+	if ply:CompareFaction(false) then return end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 	local plyLevel = ply:GetNWInt("Level", 1)
@@ -155,15 +153,15 @@ net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 
 	for att, attcount in pairs(presetAtts) do
 		local i = EFGMITEMS[att]
-		if i == nil then return false end
+		if i == nil then return end
 
 		cost = cost + (i.value * attcount)
 		if (i.levelReq or 1) > highestLvl then highestLvl = (i.levelReq or 1) end
-		if !i.canPurchase then return false end
+		if !i.canPurchase then return end
 	end
 
-	if plyMoney < cost then return false end
-	if plyLevel < highestLvl then return false end
+	if plyMoney < cost then return end
+	if plyLevel < highestLvl then return end
 
 	for att, attcount in pairs(presetAtts) do
 		local data = {}
@@ -177,7 +175,6 @@ net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
 
 	NetworkMarketLimits(ply)
-	return true
 end)
 
 net.Receive("PlayerMarketSellItem", function(len, ply)
@@ -185,10 +182,10 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 	local count = net.ReadUInt(8)
 	local key = net.ReadUInt(16)
 
-	if !ply:IsInHideout() then return false end
+	if !ply:IsInHideout() then return end
 
-	if AmountInInventory(ply.stash, item) < count then return false end
-	if ply.stash[key] == nil then return false end
+	if AmountInInventory(ply.stash, item) < count then return end
+	if ply.stash[key] == nil then return end
 
 	local def = EFGMITEMS[item]
 
@@ -215,7 +212,8 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 
 		ply:SetNWInt("Money", plyMoney + cost)
 		ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + cost)
-		return true
+
+		return
 	elseif def.consumableType == "heal" or def.consumableType == "key" then
 		local data = ply.stash[key].data
 		local cost = math.floor((def.value * EFGM.CONFIG.SellMultiplier) * (data.durability / def.consumableValue))
@@ -225,7 +223,8 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 
 		ply:SetNWInt("Money", plyMoney + cost)
 		ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + cost)
-		return true
+
+		return
 	else
 		local data = ply.stash[key].data
 		local cost = math.floor(def.value * EFGM.CONFIG.SellMultiplier) * count
@@ -242,7 +241,8 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 
 		ply:SetNWInt("Money", plyMoney + cost)
 		ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + cost)
-		return true
+
+		return
 	end
 end)
 
