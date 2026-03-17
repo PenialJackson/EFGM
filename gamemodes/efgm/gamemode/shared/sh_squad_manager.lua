@@ -312,11 +312,11 @@ if CLIENT then
 		end
 
 		local password = tostring(args[2] or "") -- the 'or' just sets the value if nil, bc a password of nil will just be "nil" instead of ""
-		local limit = math.Clamp(tonumber(args[3] or EFGM.CONFIG.SquadMaxSize), 2, EFGM.CONFIG.SquadMaxSize)
+		local limit = math.Clamp(tonumber(args[3] or EFGM.CONFIG.SQUAD.MAXPLAYERS), 2, EFGM.CONFIG.SQUAD.MAXPLAYERS)
 		local red = math.Clamp(tonumber(args[4] or 255), 0, 255)
 		local green = math.Clamp(tonumber(args[5] or 255), 0, 255)
 		local blue = math.Clamp(tonumber(args[6] or 255), 0, 255)
-		local faction = (ply:CompareFaction(true) and playerStatus.PMC) or (ply:CompareFaction(false) and playerStatus.SCAV)
+		local faction = (ply:CompareFaction(true) and STATUS.PLAYER.PMC) or (ply:CompareFaction(false) and STATUS.PLAYER.SCAV)
 
 		net.Start("PlayerSquadCreate")
 			net.WriteString(name)

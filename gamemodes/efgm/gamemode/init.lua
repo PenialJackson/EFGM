@@ -166,16 +166,16 @@ end)
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
 
-	ply:SetMaxHealth(EFGM.CONFIG.PlayerHealthMax)
-	ply:SetGravity(EFGM.CONFIG.PlayerGravity)
-	ply:SetWalkSpeed(EFGM.CONFIG.PlayerWalkSpeed)
-	ply:SetRunSpeed(EFGM.CONFIG.PlayerRunSpeed)
-	ply:SetSlowWalkSpeed(EFGM.CONFIG.PlayerSlowWalkSpeed)
-	ply:SetJumpPower(EFGM.CONFIG.PlayerJumpPower)
-	ply:SetLadderClimbSpeed(EFGM.CONFIG.PlayerClimbSpeed)
-	ply:SetCrouchedWalkSpeed(EFGM.CONFIG.PlayerCrouchedWalkSpeedMult)
-	ply:SetDuckSpeed(EFGM.CONFIG.PlayerCrouchEnterTime)
-	ply:SetUnDuckSpeed(EFGM.CONFIG.PlayerCrouchExitTime)
+	ply:SetMaxHealth(EFGM.CONFIG.PLAYER.MAXHEALTH)
+	ply:SetGravity(EFGM.CONFIG.PLAYER.GRAVITY)
+	ply:SetWalkSpeed(EFGM.CONFIG.PLAYER.WALKSPEED)
+	ply:SetRunSpeed(EFGM.CONFIG.PLAYER.RUNSPEED)
+	ply:SetSlowWalkSpeed(EFGM.CONFIG.PLAYER.SLOWWALKSPEED)
+	ply:SetJumpPower(EFGM.CONFIG.PLAYER.JUMPHEIGHT)
+	ply:SetLadderClimbSpeed(EFGM.CONFIG.PLAYER.CLIMBSPEED)
+	ply:SetCrouchedWalkSpeed(EFGM.CONFIG.PLAYER.CROUCHWALKSPEEDMULTIPLIER)
+	ply:SetDuckSpeed(EFGM.CONFIG.PLAYER.CROUCHENTERTIME)
+	ply:SetUnDuckSpeed(EFGM.CONFIG.PLAYER.CROUCHEXITTIME)
 
 	local mdls = ply:IsPMC() and PLAYERMODELS[ply:GetInfoNum("efgm_faction_preference", 0) + 1] or PLAYERMODELS[4]
 	ply:SetModel(table.SeqRandom(mdls))
@@ -261,7 +261,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 		net.Start("CreateDeathInformation")
 			net.WriteFloat(xpMult)
-			if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.HideoutRespawnTime, 8) else net.WriteUInt(EFGM.CONFIG.RespawnTime, 8) end
+			if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN, 8) else net.WriteUInt(EFGM.CONFIG.TIMERS.RESPAWN, 8) end
 			net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 			net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 			net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -288,7 +288,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 	net.Start("CreateDeathInformation")
 		net.WriteFloat(xpMult)
-		if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.HideoutRespawnTime, 8) else net.WriteUInt(EFGM.CONFIG.RespawnTime, 8) end
+		if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.TIMER.HIDEOUTRESPAWN, 8) else net.WriteUInt(EFGM.CONFIG.TIMER.RESPAWN, 8) end
 		net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 		net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 		net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -325,7 +325,7 @@ hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
 end)
 
 hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
-	local time = ply:IsInRaid() and EFGM.CONFIG.RespawnTime or EFGM.CONFIG.HideoutRespawnTime
+	local time = ply:IsInRaid() and EFGM.CONFIG.TIMER.RESPAWN or EFGM.CONFIG.TIMER.HIDEOUTRESPAWN
 
 	timer.Create(ply:SteamID() .. "respawnTime", time, 1, function() end)
 end)
@@ -408,10 +408,10 @@ timer.Create("HealthRegenTick", EFGM.CONFIG.HealthRegenTick, 0, function()
 		if ct + EFGM.CONFIG.HealthRegenCD >= ply:GetLastTimeDamaged() then continue end
 
 		local health = ply:Health()
-		if health < EFGM.CONFIG.PlayerHealthMax then
+		if health < EFGM.CONFIG.PLAYER.MAXHEALTH then
 			local amt = EFGM.CONFIG.HealthRegenAmount
 
-			ply:SetHealth(math.min(health + amt, EFGM.CONFIG.PlayerHealthMax))
+			ply:SetHealth(math.min(health + amt, EFGM.CONFIG.PLAYER.MAXHEALTH))
 			ply:SetNWInt("HealthHealed", ply:GetNWInt("HealthHealed") + amt)
 			ply:SetNWInt("RaidHealthHealed", ply:GetNWInt("RaidHealthHealed") + amt)
 		end
@@ -437,7 +437,7 @@ function ApplyPlayerExperience(ply, mult)
 		ply:SetNWInt("Level", curLvl + 1)
 		ply:SetNWInt("Experience", curExp)
 
-		for k, v in ipairs(levelArray) do
+		for k, v in ipairs(EFGM.CONFIG.LEVELARRAY) do
 			if (curLvl + 1) == k then ply:SetNWInt("ExperienceToNextLevel", v) end
 		end
 

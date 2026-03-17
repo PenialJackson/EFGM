@@ -174,7 +174,7 @@ function TaskDoComplete(ply, taskName)
 				ply:SetNWInt("Level", curLvl + 1)
 				ply:SetNWInt("Experience", curExp)
 
-				for k, v in ipairs(levelArray) do
+				for k, v in ipairs(EFGM.CONFIG.LEVELARRAY) do
 					if (curLvl + 1) == k then ply:SetNWInt("ExperienceToNextLevel", v) end
 				end
 			end

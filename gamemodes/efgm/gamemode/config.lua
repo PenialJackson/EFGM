@@ -1,27 +1,28 @@
 EFGM.CONFIG = {}
 
 -- player
-EFGM.CONFIG.PlayerHealthMax = 100
-EFGM.CONFIG.PlayerGravity = .72
-EFGM.CONFIG.PlayerWalkSpeed = 135
-EFGM.CONFIG.PlayerRunSpeed = 220
-EFGM.CONFIG.PlayerSlowWalkSpeed = 95
-EFGM.CONFIG.PlayerCrouchedWalkSpeedMult = 0.46
-EFGM.CONFIG.PlayerJumpPower = 140
-EFGM.CONFIG.PlayerClimbSpeed = 90
-EFGM.CONFIG.PlayerCrouchEnterTime = 0.4
-EFGM.CONFIG.PlayerCrouchExitTime = 0.46
+EFGM.CONFIG.PLAYER = {}
+EFGM.CONFIG.PLAYER.MAXHEALTH = 100
+EFGM.CONFIG.PLAYER.GRAVITY = .72
+EFGM.CONFIG.PLAYER.WALKSPEED = 135
+EFGM.CONFIG.PLAYER.RUNSPEED = 220
+EFGM.CONFIG.PLAYER.SLOWWALKSPEED = 95
+EFGM.CONFIG.PLAYER.CROUCHWALKSPEEDMULTIPLIER = 0.46
+EFGM.CONFIG.PLAYER.JUMPHEIGHT = 140
+EFGM.CONFIG.PLAYER.CLIMBSPEED = 90
+EFGM.CONFIG.PLAYER.CROUCHENTERTIME = 0.4
+EFGM.CONFIG.PLAYER.CROUCHEXITTIME = 0.46
 
 -- raid
-EFGM.CONFIG.RaidMinimumPlayers = 3
+EFGM.CONFIG.RAID.MINIMUMPLAYERS = 3
 
 -- squads
-EFGM.CONFIG.SquadMaxSize = 4
+EFGM.CONFIG.SQUAD.MAXPLAYERS = 4
 
 -- respawn times
 -- (0 - 255 range)
-EFGM.CONFIG.RespawnTime = 7
-EFGM.CONFIG.HideoutRespawnTime = 3
+EFGM.CONFIG.TIMERS.RESPAWN = 7
+EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN = 3
 
 -- health regeneration
 EFGM.CONFIG.HealthRegenTick = 1
@@ -32,14 +33,14 @@ EFGM.CONFIG.HealthRegenCD = 20
 EFGM.CONFIG.UnderweightLimit = 30
 
 -- market
-EFGM.CONFIG.SellMultiplier = 0.5
+EFGM.CONFIG.MARKET.SELLMULTIPLIER = 0.5
 
-levelArray = {}
-levelArray[1] = 350
+EFGM.CONFIG.LEVELARRAY = {}
+EFGM.CONFIG.LEVELARRAY[1] = 350
+EFGM.CONFIG.LEVELARRAY[48] = "max"
 for i = 2, 47 do
-	levelArray[i] = math.Round((i * 350) * (1 + (i * 0.061)), 0)
+	EFGM.CONFIG.LEVELARRAY[i] = math.Round((i * 350) * (1 + (i * 0.061)), 0)
 end
-levelArray[48] = "max"
 
 -- override ARC9 config
 ARC9.NoHUD = true
@@ -127,16 +128,9 @@ if SERVER then
 	RunConsoleCommand("arc9_free_atts", !GetConVar("efgm_derivesbox"):GetBool() and "0" or "1")
 
 	-- caching
-	if GetConVar("efgm_derivesbox"):GetInt() == 0 then
-		RunConsoleCommand("arc9_precache_allsounds_onstartup", "0")
-		RunConsoleCommand("arc9_precache_attsmodels_onstartup", "0")
-		RunConsoleCommand("arc9_precache_wepmodels_onstartup", "0")
-	else
-		-- faster map reload times <3
-		RunConsoleCommand("arc9_precache_allsounds_onstartup", "0")
-		RunConsoleCommand("arc9_precache_attsmodels_onstartup", "0")
-		RunConsoleCommand("arc9_precache_wepmodels_onstartup", "0")
-	end
+	RunConsoleCommand("arc9_precache_allsounds_onstartup", "0")
+	RunConsoleCommand("arc9_precache_attsmodels_onstartup", "0")
+	RunConsoleCommand("arc9_precache_wepmodels_onstartup", "0")
 end
 
 -- variables for ARC9 multipliers and range, used for modifications that I will make directly in SWEPS

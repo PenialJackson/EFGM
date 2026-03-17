@@ -66,7 +66,7 @@ function InvitePlayerToDuel(invitedPly)
 
 	if !IsValid(invitedPly) then return end
 	if !Invites.allow then CreateNotification("Invites are now disabled!", Mats.inviteErrorIcon, "ui/error.wav") return end
-	if GetGlobalInt("DuelStatus") != duelStatus.PENDING then CreateNotification("Another duel is already taking place, please wait for it to end!", Mats.inviteErrorIcon, "ui/error.wav") return end
+	if GetGlobalInt("DuelStatus") != STATUS.DUEL.PENDING then CreateNotification("Another duel is already taking place, please wait for it to end!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if Invites.invitedType == inviteTypes.DUEL and Invites.invitedBy == invitedPly then AcceptInvite() return end
 	if CurTime() - Invites.lastInviteSentTime < 10 then CreateNotification("You can send invites again in " .. 10 - math.Round(CurTime() - Invites.lastInviteSentTime, 1) .. " seconds!", Mats.inviteErrorIcon, "ui/error.wav") return end
 	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", Mats.inviteErrorIcon, "ui/error.wav") return end

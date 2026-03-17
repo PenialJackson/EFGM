@@ -1,6 +1,6 @@
-Skills = {}
+SKILLS = {}
 
-Skills.Endurance = {
+SKILLS.Endurance = {
 	Name = "Endurance",
 
 	Description = "Endurance influences the amount of stamina and the rate of exhaustion while running or jumping, as well as holding and recovering breath.",
@@ -10,7 +10,7 @@ Skills.Endurance = {
 	Category = "Physical"
 }
 
-Skills.Strength = {
+SKILLS.Strength = {
 	Name = "Strength",
 
 	Description = "Increasing strength allows you to jump higher, sprint faster, hit harder, throw farther, and carry more weight.",
@@ -20,7 +20,7 @@ Skills.Strength = {
 	Category = "Physical"
 }
 
-Skills.Health = {
+SKILLS.Health = {
 	Name = "Health",
 
 	Description = "Good health speeds up the recovery from the damage sustained in the raids, decreases the probability of fractures and lowers the energy and dehydration rate.",
@@ -30,7 +30,7 @@ Skills.Health = {
 	Category = "Physical"
 }
 
-Skills.Charisma = {
+SKILLS.Charisma = {
 	Name = "Charisma",
 
 	Description = "Mastering the art of charisma allows to receive discounts on various services.",
@@ -40,7 +40,7 @@ Skills.Charisma = {
 	Category = "Mental"
 }
 
-Skills.Vitality = {
+SKILLS.Vitality = {
 	Name = "Vitality",
 
 	Description = "Vitality improves your chances of surviving a wound by decreasing the possibility of bleeding and instant death through critical damage to a body part.",
@@ -50,7 +50,7 @@ Skills.Vitality = {
 	Category = "Physical"
 }
 
-Skills.CovertMovement = {
+SKILLS.CovertMovement = {
 	Name = "Covert Movement",
 
 	Description = "Covert movement makes your steps quieter and reduces the sound radius.",
@@ -60,7 +60,7 @@ Skills.CovertMovement = {
 	Category = "Practical"
 }
 
-Skills.Troubleshooting = {
+SKILLS.Troubleshooting = {
 	Name = "Troubleshooting",
 
 	Description = "Troubleshooting skill facilitates rectification of weapon malfunctions.",
@@ -70,7 +70,7 @@ Skills.Troubleshooting = {
 	Category = "Combat"
 }
 
-Skills.AimDrills = {
+SKILLS.AimDrills = {
 	Name = "Aim Drills",
 
 	Description = "Aim drills will increase your aiming speed and will allow to perform aiming quieter.",
@@ -80,7 +80,7 @@ Skills.AimDrills = {
 	Category = "Combat"
 }
 
-Skills.Attention = {
+SKILLS.Attention = {
 	Name = "Attention",
 
 	Description = "Attention increases the looting speed of various containers.",
@@ -90,7 +90,7 @@ Skills.Attention = {
 	Category = "Mental"
 }
 
-Skills.Barter = {
+SKILLS.Barter = {
 	Name = "Barter",
 
 	Description = "Mastering the art of bartering allows to receive discounts and bonuses on operative to operative trading services.",

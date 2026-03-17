@@ -5,8 +5,8 @@ local plyMeta = FindMetaTable("Player")
 local function DecrementTimer()
 	SetGlobalInt("RaidTimeLeft", GetGlobalInt("RaidTimeLeft") - 1)
 
-	if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == raidStatus.ACTIVE then RAID:EndRaid() return end
-	if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == raidStatus.ENDED then RAID:EndVote() return end
+	if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == STATUS.RAID.ACTIVE then RAID:EndRaid() return end
+	if GetGlobalInt("RaidTimeLeft") <= 0 and GetGlobalInt("RaidStatus") == STATUS.RAID.ENDED then RAID:EndVote() return end
 
 	hook.Run("RaidTimerTick", GetGlobalInt("RaidTimeLeft"))
 end
@@ -38,22 +38,22 @@ if SERVER then
 	for i = #RAID.MapPool, RAID.MapCount + 1, -1 do table.remove(RAID.MapPool, i) end
 	for i = 1, RAID.MapCount do SetGlobalInt("MapVotes_" .. tostring(i), 0) end
 
-	if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then -- fuck you fuck you fuck you fuck you
+	if GetGlobalInt("RaidStatus") != STATUS.RAID.ACTIVE then -- fuck you fuck you fuck you fuck you
 		SetGlobalInt("RaidTimeLeft", -1)
-		SetGlobalInt("RaidStatus", raidStatus.PENDING)
+		SetGlobalInt("RaidStatus", STATUS.RAID.PENDING)
 		timer.Remove("RaidTimerDecrement")
 	end
 
 	plyMeta.RaidReady = false
 
 	function RAID:StartRaid(forced)
-		if GetGlobalInt("RaidStatus") != raidStatus.PENDING then return end
+		if GetGlobalInt("RaidStatus") != STATUS.RAID.PENDING then return end
 
-		if !forced and #player.GetAll() < EFGM.CONFIG.RaidMinimumPlayers and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+		if !forced and #player.GetAll() < EFGM.CONFIG.RAID.MINIMUMPLAYERS and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
 
 		local time = MAPS[game.GetMap()].time or 1800
 
-		SetGlobalInt("RaidStatus", raidStatus.ACTIVE)
+		SetGlobalInt("RaidStatus", STATUS.RAID.ACTIVE)
 		SetGlobalInt("RaidTimeLeft", time)
 
 		timer.Create("RaidTimerDecrement", 1, 0, DecrementTimer)
@@ -69,9 +69,9 @@ if SERVER then
 	end
 
 	function RAID:EndRaid()
-		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
+		if GetGlobalInt("RaidStatus") != STATUS.RAID.ACTIVE then return end
 
-		SetGlobalInt("RaidStatus", raidStatus.ENDED)
+		SetGlobalInt("RaidStatus", STATUS.RAID.ENDED)
 		SetGlobalInt("RaidTimeLeft", self.VoteTime)
 
 		-- kill players in raid, idk what else
@@ -114,13 +114,13 @@ if SERVER then
 	end
 
 	function RAID:SpawnPlayers(plys, status, squad)
-		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then
+		if GetGlobalInt("RaidStatus") != STATUS.RAID.ACTIVE then
 			RAID:StartRaid(false)
 		end
 
-		if GetGlobalInt("RaidStatus") != raidStatus.ACTIVE then return end
+		if GetGlobalInt("RaidStatus") != STATUS.RAID.ACTIVE then return end
 
-		if #plys > EFGM.CONFIG.SquadMaxSize then print("too many fucking people in your team dumbass") return end
+		if #plys > EFGM.CONFIG.SQUAD.MAXPLAYERS then print("too many fucking people in your team dumbass") return end
 
 		local masterSpawn = nil
 		local spawns = {}
@@ -128,7 +128,7 @@ if SERVER then
 
 		local faction
 		if #plys <= 1 then
-			status = (plys[1]:CompareFaction(true) and playerStatus.PMC) or (plys[1]:CompareFaction(false) and playerStatus.SCAV)
+			status = (plys[1]:CompareFaction(true) and STATUS.PLAYER.PMC) or (plys[1]:CompareFaction(false) and STATUS.PLAYER.SCAV)
 		else
 			status = SQUADS[squad].FACTION
 		end
@@ -166,7 +166,7 @@ if SERVER then
 			RemoveFIRFromInventory(v)
 			ResetRaidStats(v)
 
-			if status == playerStatus.SCAV then
+			if status == STATUS.PLAYER.SCAV then
 				timer.Create("ScavLoadout" .. v:SteamID64(), 0.5, 1, function() RAID:GenerateScavLoadout(v) end)
 			end
 
@@ -273,7 +273,7 @@ if SERVER then
 	function RAID:SubmitVote(ply, vote)
 		local revote = false
 		if ply:GetNWInt("HasVoted", 0) > 0 then revote = true end
-		if GetGlobalInt("RaidStatus") != raidStatus.ENDED then ply:PrintMessage(HUD_PRINTTALK, "The raid is still ongoing, your vote has not been counted.") return end
+		if GetGlobalInt("RaidStatus") != STATUS.RAID.ENDED then ply:PrintMessage(HUD_PRINTTALK, "The raid is still ongoing, your vote has not been counted.") return end
 
 		local index = tonumber(vote)
 		local map = self.MapPool[tonumber(vote)]
@@ -573,7 +573,7 @@ if SERVER then
 	hook.Add("CheckRaidAddPlayers", "MaybeAddPeople", function(ply)
 		local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
 
-		if GetGlobalInt("RaidStatus") == raidStatus.ACTIVE and ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
+		if GetGlobalInt("RaidStatus") == STATUS.RAID.ACTIVE and ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
 			net.Start("SendNotification", false)
 				net.WriteString("Can not enter a raid that is about to end, you can change this in your settings!")
 				net.WriteString("icons/time_icon.png")
@@ -691,7 +691,7 @@ function plyMeta:CompareStatus(status) -- if player is in raid then status of 0 
 end
 
 function plyMeta:IsInHideout()
-	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.LOBBY
+	return self:GetNWInt("PlayerRaidStatus", 0) == STATUS.PLAYER.LOBBY
 end
 
 function plyMeta:IsInRaid()
@@ -699,15 +699,15 @@ function plyMeta:IsInRaid()
 end
 
 function plyMeta:IsInRaidPMC()
-	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.PMC
+	return self:GetNWInt("PlayerRaidStatus", 0) == STATUS.PLAYER.PMC
 end
 
 function plyMeta:IsInRaidScav()
-	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.SCAV
+	return self:GetNWInt("PlayerRaidStatus", 0) == STATUS.PLAYER.SCAV
 end
 
 function plyMeta:IsInDuel()
-	return self:GetNWInt("PlayerRaidStatus", 0) == playerStatus.DUEL
+	return self:GetNWInt("PlayerRaidStatus", 0) == STATUS.PLAYER.DUEL
 end
 
 function plyMeta:CompareFaction(status) -- if player is a PMC then status of true will return true

@@ -7,9 +7,11 @@ MAPS = {
 	["efgm_factory_night"] = {name = "Factory", time = 1200, spawnProt = 1536}
 }
 
+STATUS = {}
+
 -- player status
 -- the DUEL enum here is just not fucking working, i can print it here and it shows, i can print it anywhere else and its fucking nil, its 6am, i dont want to find out why, fuck my retarded Garry's Mod life - penial
-playerStatus = {
+STATUS.PLAYER = {
 	LOBBY = 0,
 	PMC = 1,
 	SCAV = 2,
@@ -17,18 +19,19 @@ playerStatus = {
 }
 
 -- raid status
-raidStatus = {
+STATUS.RAID = {
 	PENDING = 0,
 	ACTIVE = 1,
 	ENDED = 2
 }
 
 -- duel status
-duelStatus = {
+STATUS.DUEL = {
 	PENDING = 0,
 	ACTIVE = 1
 }
 
+-- invite types
 inviteTypes = {
 	DUEL = 1,
 	SQUAD = 2
@@ -38,11 +41,11 @@ inviteTypes = {
 -- that could even be added with like convars and shit
 -- max of 4 bits yada yada yada you surely get it by now
 WEAPONSLOTS = {
-	PRIMARY =       {ID = 1, COUNT = 2},
-	HOLSTER =       {ID = 2, COUNT = 1},
-	MELEE =         {ID = 3, COUNT = 1},
-	GRENADE =       {ID = 4, COUNT = 1},
-	CONSUMABLE =    {ID = 5, COUNT = 1}
+	PRIMARY = {ID = 1, COUNT = 2},
+	HOLSTER = {ID = 2, COUNT = 1},
+	MELEE = {ID = 3, COUNT = 1},
+	GRENADE = {ID = 4, COUNT = 1},
+	CONSUMABLE = {ID = 5, COUNT = 1}
 }
 
 CONSUMABLETYPES = {

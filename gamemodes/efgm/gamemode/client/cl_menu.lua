@@ -1991,7 +1991,7 @@ function Menu.ConfirmSell(item, data, key)
 	local i = EFGMITEMS[item]
 	if i == nil then confirmPanel:Remove() return end
 
-	local transactionCost = math.floor(i.value * EFGM.CONFIG.SellMultiplier)
+	local transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
 
 	if data.att then
 		local atts = GetPrefixedAttachmentListFromCode(data.att)
@@ -2001,7 +2001,7 @@ function Menu.ConfirmSell(item, data, key)
 			local att = EFGMITEMS[a]
 			if att == nil then continue end
 
-			transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.SellMultiplier)
+			transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
 		end
 	end
 
@@ -2122,7 +2122,7 @@ function Menu.ConfirmSell(item, data, key)
 			local num = math.Clamp(self:GetInt() or 1, 1, maxTransactionCount)
 
 			transactionCount = num
-			transactionCost = math.floor(i.value * EFGM.CONFIG.SellMultiplier) * num
+			transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * num
 
 			if data.att then
 				local atts = GetPrefixedAttachmentListFromCode(data.att)
@@ -2132,7 +2132,7 @@ function Menu.ConfirmSell(item, data, key)
 					local att = EFGMITEMS[a]
 					if att == nil then continue end
 
-					transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.SellMultiplier)
+					transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
 				end
 			end
 
@@ -6342,10 +6342,10 @@ function Menu.OpenTab.Market()
 
 			local value, rawValue
 			if !isConsumable then
-				value = math.floor(baseValue * EFGM.CONFIG.SellMultiplier * count)
+				value = math.floor(baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER * count)
 				rawValue = baseValue * count
 			else
-				value = math.floor((baseValue * EFGM.CONFIG.SellMultiplier) * ((v.data.durability or def.consumableValue) / def.consumableValue))
+				value = math.floor((baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * ((v.data.durability or def.consumableValue) / def.consumableValue))
 				rawValue = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
 			end
 
@@ -6369,7 +6369,7 @@ function Menu.OpenTab.Market()
 					local att = EFGMITEMS[a]
 					if att == nil then continue end
 
-					marketPlyStashItems[k].value = marketPlyStashItems[k].value + math.floor(att.value * EFGM.CONFIG.SellMultiplier)
+					marketPlyStashItems[k].value = marketPlyStashItems[k].value + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
 					marketPlyStashItems[k].weight = marketPlyStashItems[k].weight + (att.weight or 0.1)
 					marketPlyStashItems[k].atts = marketPlyStashItems[k].atts + 1
 					stashValue = stashValue + att.value
@@ -7800,15 +7800,15 @@ function Menu.OpenTab.Match()
 	squadMemberLimitPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function squadMemberLimitPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Member Limit (2 to " .. EFGM.CONFIG.SquadMaxSize .. ")", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Squad Member Limit (2 to " .. EFGM.CONFIG.SQUAD.MAXPLAYERS .. ")", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
 	local squadMemberLimit = vgui.Create("DNumberWang", squadMemberLimitPanel)
 	squadMemberLimit:SetPos(EFGM.MenuScale(135), EFGM.MenuScale(30))
 	squadMemberLimit:SetSize(EFGM.MenuScale(50), EFGM.MenuScale(20))
 	squadMemberLimit:SetMin(2)
-	squadMemberLimit:SetMax(EFGM.CONFIG.SquadMaxSize)
-	squadMemberLimit:SetValue(EFGM.CONFIG.SquadMaxSize)
+	squadMemberLimit:SetMax(EFGM.CONFIG.SQUAD.MAXPLAYERS)
+	squadMemberLimit:SetValue(EFGM.CONFIG.SQUAD.MAXPLAYERS)
 
 	function squadMemberLimit:OnValueChanged(val)
 		CreateSquadPlayerLimit = math.Clamp(val, self:GetMin(), self:GetMax())

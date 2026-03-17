@@ -360,14 +360,14 @@ hook.Add("Move", "MovementWeight", function(ply, mv)
 
 	local deduction = math.max(0, math.min(maxLossMove, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.UnderweightLimit) * 0.818, 3)))
 
-	ply:SetWalkSpeed(EFGM.CONFIG.PlayerWalkSpeed - deduction)
-	ply:SetRunSpeed(EFGM.CONFIG.PlayerRunSpeed - deduction)
-	ply:SetSlowWalkSpeed(EFGM.CONFIG.PlayerSlowWalkSpeed - deduction)
+	ply:SetWalkSpeed(EFGM.CONFIG.PLAYER.WALKSPEED - deduction)
+	ply:SetRunSpeed(EFGM.CONFIG.PLAYER.RUNSPEED - deduction)
+	ply:SetSlowWalkSpeed(EFGM.CONFIG.PLAYER.SLOWWALKSPEED - deduction)
 
 	if !ply:IsWalking() then
-		ply:SetLadderClimbSpeed(EFGM.CONFIG.PlayerClimbSpeed - (deduction / 2))
+		ply:SetLadderClimbSpeed(EFGM.CONFIG.PLAYER.CLIMBSPEED - (deduction / 2))
 	else
-		ply:SetLadderClimbSpeed((EFGM.CONFIG.PlayerClimbSpeed / 1.5) - (deduction / 2))
+		ply:SetLadderClimbSpeed((EFGM.CONFIG.PLAYER.CLIMBSPEED / 1.5) - (deduction / 2))
 	end
 
 	if !ply:IsOnGround() or CLIENT then return end

@@ -1,13 +1,13 @@
 DUEL = {}
 
 if SERVER then
-	SetGlobalInt("DuelStatus", duelStatus.PENDING)
+	SetGlobalInt("DuelStatus", STATUS.DUEL.PENDING)
 
 	DUEL.Players = {}
 	DUEL.Allowed = true
 
 	function DUEL:StartDuel(ply1, ply2)
-		if GetGlobalInt("DuelStatus") != duelStatus.PENDING or !DUEL.Allowed then return end
+		if GetGlobalInt("DuelStatus") != STATUS.DUEL.PENDING or !DUEL.Allowed then return end
 
 		DUEL.Players = {ply1, ply2}
 
@@ -15,7 +15,7 @@ if SERVER then
 		if !spawns then DUEL.Players = {} print("no duel spawns found, canceling raid") return end -- no duel spawns available on the map
 		if #spawns < #DUEL.Players then DUEL.Players = {} print("not enough duel spawns for the duel player count found, canceling raid") return end
 
-		SetGlobalInt("DuelStatus", duelStatus.ACTIVE)
+		SetGlobalInt("DuelStatus", STATUS.DUEL.ACTIVE)
 		hook.Run("StartedDuel")
 
 		net.Start("PlayerDuelTransition")
@@ -72,9 +72,9 @@ if SERVER then
 	end
 
 	function DUEL:EndDuel(deadPly)
-		if GetGlobalInt("DuelStatus") != duelStatus.ACTIVE then return end
+		if GetGlobalInt("DuelStatus") != STATUS.DUEL.ACTIVE then return end
 
-		SetGlobalInt("DuelStatus", duelStatus.PENDING)
+		SetGlobalInt("DuelStatus", STATUS.DUEL.PENDING)
 		hook.Run("EndedDuel")
 
 		for k, v in ipairs(DUEL.Players) do v:SetNWBool("InRange", false) end
@@ -123,9 +123,9 @@ if SERVER then
 
 	-- in the case that a duel is running right before a map switch
 	function DUEL:CancelDuel()
-		if GetGlobalInt("DuelStatus") != duelStatus.ACTIVE then return end
+		if GetGlobalInt("DuelStatus") != STATUS.DUEL.ACTIVE then return end
 
-		SetGlobalInt("DuelStatus", duelStatus.PENDING)
+		SetGlobalInt("DuelStatus", STATUS.DUEL.PENDING)
 		hook.Run("CancelledDuel")
 
 		for k, v in ipairs(DUEL.Players) do

@@ -371,7 +371,7 @@ function SetupPlayerData(ply)
 	-- stash/inventory
 	InitializeNetworkInt(ply, query, "StashMax", 2400)
 
-	for k, v in ipairs(levelArray) do
+	for k, v in ipairs(EFGM.CONFIG.LEVELARRAY) do
 		if ply:GetNWInt("Level") == k and v != "max" then ply:SetNWInt("ExperienceToNextLevel", v) end
 	end
 
