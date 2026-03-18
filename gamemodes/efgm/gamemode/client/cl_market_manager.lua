@@ -1,7 +1,5 @@
 local chunkedMarket = {}
 
-hook.Add("OnReloaded", "MarketOnReload", function() marketLimits = {} end)
-
 hook.Add("OnMarketChunked", "NetworkMarket", function(str, uID)
 	local marketStr = str
 	marketStr = util.Base64Decode(marketStr)
@@ -11,7 +9,7 @@ hook.Add("OnMarketChunked", "NetworkMarket", function(str, uID)
 
 	local marketTbl = util.JSONToTable(marketStr)
 
-	marketLimits = marketTbl
+	EFGM.CLIENT.MARKETLIMITS = marketTbl
 end)
 
 net.Receive("PlayerNetworkMarket", function(len, ply)

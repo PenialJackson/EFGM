@@ -10,8 +10,9 @@ end
 
 function AddItemToStash(ply, name, type, data)
 	local def = EFGMITEMS[name]
+	local stackSize = def.stashStackSize or def.stackSize
 
-	data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
+	data.count = math.Clamp(tonumber(data.count) or 1, 1, stackSize)
 
 	if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
 		data.owner = ply:SteamID64()
@@ -64,7 +65,7 @@ end
 
 function FlowItemToStash(ply, name, type, data)
 	local def = EFGMITEMS[name]
-	local stackSize = def.stackSize
+	local stackSize = def.stashStackSize or def.stackSize
 	local amount = tonumber(data.count) or 1
 
 	if stackSize == 1 then -- items that can't stack do not need to flow
@@ -231,12 +232,22 @@ net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
 	if !ply:IsInHideout() then return end
 	if ply:CompareFaction(false) then return end
 
-	local item = DeleteItemFromStash(ply, itemIndex)
+	local item = ply.stash[itemIndex]
 	if item == nil then return end
 
-	item.data.pin = nil
+	local itemDef = EFGMITEMS[item.name]
 
-	FlowItemToInventory(ply, item.name, item.type, item.data)
+	if item.data.count <= itemDef.stackSize then
+		item = DeleteItemFromStash(ply, itemIndex)
+		item.data.pin = nil
+		FlowItemToInventory(ply, item.name, item.type, item.data)
+	else
+		item.data.count = item.data.count - itemDef.stackSize
+		local newData = table.Copy(item.data)
+		newData.count = itemDef.stackSize
+		FlowItemToInventory(ply, item.name, item.type, newData)
+		UpdateItemFromStash(ply, itemIndex, item.data)
+	end
 
 	ReloadStash(ply)
 	ReloadInventory(ply)
@@ -306,7 +317,7 @@ function CalculateStashValue(ply)
 
 	for k, v in ipairs(ply.stash) do
 		local def = EFGMITEMS[v.name]
-		local count = math.Clamp(v.data.count, 1, def.stackSize) or 1
+		local count = math.Clamp(v.data.count, 1, def.stashStackSize or def.stackSize) or 1
 
 		if def.consumableType != "heal" and def.consumableType != "key" then
 			value = value + (def.value * count)

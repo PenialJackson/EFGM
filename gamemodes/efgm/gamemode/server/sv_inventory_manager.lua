@@ -642,7 +642,7 @@ end)
 net.Receive("PlayerInventorySplit", function(len, ply)
 	local invType = net.ReadString()
 	local item = net.ReadString()
-	local count = net.ReadUInt(8)
+	local count = net.ReadUInt(16)
 	local key = net.ReadUInt(16)
 
 	if !ply:IsInHideout() and invType == "stash" then return end

@@ -1141,7 +1141,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 					if !self:GetOwner():IsInHideout() then return end
 
 					self:GetOwner():ConCommand("efgm_gamemenu inventory")
-					timer.Simple(0.05, function() Menu.ConfirmPreset(neededAtts, presetName, preset, true) end)
+					timer.Simple(0.05, function() EFGM.MENU.ConfirmPreset(neededAtts, presetName, preset, true) end)
 
 					-- self:LoadPreset(preset)
 					-- surface.PlaySound(applysound)
@@ -2895,7 +2895,7 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 				if efgmItem == nil then return end
 
 				ply:ConCommand("efgm_gamemenu inventory")
-				timer.Simple(0.05, function() Menu.ConfirmPurchase(efgmAtt, "inv", true) end)
+				timer.Simple(0.05, function() EFGM.MENU.ConfirmPurchase(efgmAtt, "inv", true) end)
 			end
 
 			return true

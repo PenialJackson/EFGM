@@ -97,7 +97,7 @@ function PANEL:OnCursorEntered()
 	local tipDescSize = surface.GetTextSize(tipDesc)
 
 	local paint = function()
-		local w, h = Menu.Tooltip:GetSize()
+		local w, h = EFGM.MENU.Tooltip:GetSize()
 
 		surface.SetDrawColor(Colors.tooltipBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
@@ -118,24 +118,24 @@ function PANEL:OnCursorEntered()
 		draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
 	end
 
-	Menu.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
+	EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 end
 
 function PANEL:OnCursorExited()
 	borderColor = Colors.itemBackgroundColor
-	Menu.Tooltip:RemoveTip()
+	EFGM.MENU.Tooltip:RemoveTip()
 end
 
 function PANEL:DoClick()
 	if input.IsKeyDown(KEY_LSHIFT) then
-		if !Menu.Player:Alive() then return end
+		if !EFGM.MENU.Player:Alive() then return end
 		surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 		UnEquipItemFromInventory(self.SlotID, self.Slot)
 	end
 end
 
 function PANEL:DoDoubleClick()
-	Menu.InspectItem(name, data)
+	EFGM.MENU.InspectItem(name, data)
 	surface.PlaySound("ui/element_select.wav")
 end
 
@@ -159,10 +159,10 @@ function PANEL:DoRightClick()
 	local inspectButton = vgui.Create("EContextButton", contextMenu)
 	inspectButton:SetText("INSPECT")
 	inspectButton.OnClickEvent = function()
-		Menu.InspectItem(name, data)
+		EFGM.MENU.InspectItem(name, data)
 	end
 
-	if Menu.Player:IsInHideout() and table.IsEmpty(Menu.Container) then
+	if EFGM.MENU.Player:IsInHideout() and table.IsEmpty(EFGM.MENU.Container) then
 		local stashButton = vgui.Create("EContextButton", contextMenu)
 		stashButton:SetText("STASH")
 		stashButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
@@ -175,7 +175,7 @@ function PANEL:DoRightClick()
 	unequipButton:SetText("UNEQUIP")
 	unequipButton.OnClickSound = "ui/equip_" .. math.random(1, 6) .. ".wav"
 	unequipButton.OnClickEvent = function()
-		if !Menu.Player:Alive() then return end
+		if !EFGM.MENU.Player:Alive() then return end
 		UnEquipItemFromInventory(self.SlotID, self.Slot)
 	end
 
@@ -185,12 +185,12 @@ function PANEL:DoRightClick()
 		DropEquippedItem(self.SlotID, self.Slot)
 	end
 
-	if Menu.Player:IsInHideout() then
+	if EFGM.MENU.Player:IsInHideout() then
 		local deleteButton = vgui.Create("EContextButton", contextMenu)
 		deleteButton:SetText("DELETE")
 		deleteButton.OnClickSound = "nil"
 		deleteButton.OnClickEvent = function()
-			Menu.ConfirmDelete(name, 0, "equipped", self.SlotID, self.Slot)
+			EFGM.MENU.ConfirmDelete(name, 0, "equipped", self.SlotID, self.Slot)
 		end
 	end
 

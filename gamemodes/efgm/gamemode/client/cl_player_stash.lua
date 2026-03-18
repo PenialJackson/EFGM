@@ -48,7 +48,7 @@ net.Receive("PlayerNetworkStash", function(len)
 end)
 
 net.Receive("PlayerStashReload", function(len)
-	if Menu.ActiveTab == "inventory" then Menu:ReloadStash() else Menu:ReloadMarketStash() end
+	if EFGM.MENU.ActiveTab == "inventory" then EFGM.MENU:ReloadStash() else EFGM.MENU:ReloadMarketStash() end
 end)
 
 net.Receive("PlayerStashAddItem", function(len)

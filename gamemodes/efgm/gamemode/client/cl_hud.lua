@@ -1,13 +1,14 @@
-HUD = HUD or {}
-HUD.Enabled = GetConVar("efgm_hud_enable")
-HUD.InIntro = false
-HUD.IntroEnt = NULL
-HUD.VotedMap = nil
+EFGM.HUD = EFGM.HUD or {}
+
+EFGM.HUD.Enabled = GetConVar("efgm_hud_enable")
+EFGM.HUD.InIntro = false
+EFGM.HUD.IntroEnt = NULL
+EFGM.HUD.VotedMap = nil
 
 local paddingCVar = GetConVar("efgm_hud_padding")
-HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
+EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 
-HUD.ELEMENTS = HUD.ELEMENTS or {}
+EFGM.HUD.ELEMENTS = EFGM.HUD.ELEMENTS or {}
 
 local math = math
 local table = table
@@ -25,10 +26,10 @@ local function RenderRaidTime()
 	local raidTime = string.FormattedTime(GetGlobalInt("RaidTimeLeft", 0), "%02i:%02i")
 	local raidStatus = GetGlobalInt("RaidStatus", 0)
 
-	BlurRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36), 4, 2)
+	BlurRect(ScrW() - EFGM.ScreenScale(120) - EFGM.HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36), 4, 2)
 	surface.SetDrawColor(raidStatusTbl[raidStatus])
-	surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
-	draw.DrawText(raidTime, "BenderExfilList", ScrW() - EFGM.ScreenScale(70) - HUD.Padding, EFGM.ScreenScale(19), Colors.whiteColor, TEXT_ALIGN_CENTER)
+	surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - EFGM.HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
+	draw.DrawText(raidTime, "BenderExfilList", ScrW() - EFGM.ScreenScale(70) - EFGM.HUD.Padding, EFGM.ScreenScale(19), Colors.whiteColor, TEXT_ALIGN_CENTER)
 end
 
 -- players current weapon and ammo
@@ -39,7 +40,7 @@ local function RenderPlayerWeapon()
 	local name = wep:GetPrintName()
 	if name == nil then return end
 
-	draw.DrawText(name, "BenderWeaponName", ScrW() - EFGM.ScreenScale(20) - HUD.Padding, ScrH() - EFGM.ScreenScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT)
+	draw.DrawText(name, "BenderWeaponName", ScrW() - EFGM.ScreenScale(20) - EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(40), Colors.whiteColor, TEXT_ALIGN_RIGHT)
 
 	local ammo = wep:Clip1()
 	local ammoMax = wep:GetMaxClip1()
@@ -61,10 +62,10 @@ local function RenderPlayerWeapon()
 	if wep.Hook_RedPrintName then status = wep:RunHook("Hook_RedPrintName") end
 	if status then wepColor = Colors.deadColor end
 
-	BlurRect(ScrW() - EFGM.ScreenScale(37) - ammoTextSize - HUD.Padding, ScrH() - EFGM.ScreenScale(75), ammoTextSize + EFGM.ScreenScale(17), EFGM.ScreenScale(35), 4, 2)
+	BlurRect(ScrW() - EFGM.ScreenScale(37) - ammoTextSize - EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(75), ammoTextSize + EFGM.ScreenScale(17), EFGM.ScreenScale(35), 4, 2)
 	surface.SetDrawColor(Colors.hudBackground)
-	surface.DrawRect(ScrW() - EFGM.ScreenScale(37) - ammoTextSize - HUD.Padding, ScrH() - EFGM.ScreenScale(75), ammoTextSize + EFGM.ScreenScale(17), EFGM.ScreenScale(35))
-	draw.DrawText(tostring(magstatus), "BenderAmmoCount", ScrW() - EFGM.ScreenScale(34) - HUD.Padding, ScrH() - EFGM.ScreenScale(74), wepColor, TEXT_ALIGN_RIGHT)
+	surface.DrawRect(ScrW() - EFGM.ScreenScale(37) - ammoTextSize - EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(75), ammoTextSize + EFGM.ScreenScale(17), EFGM.ScreenScale(35))
+	draw.DrawText(tostring(magstatus), "BenderAmmoCount", ScrW() - EFGM.ScreenScale(34) - EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(74), wepColor, TEXT_ALIGN_RIGHT)
 end
 
 -- assorted overlays
@@ -131,13 +132,13 @@ local function RenderPlayerStance()
 
 	surface.SetDrawColor(Colors.pureWhiteColor)
 	surface.SetMaterial(healthMat)
-	surface.DrawTexturedRect(EFGM.ScreenScale(20) + HUD.Padding, ScrH() - EFGM.ScreenScale(29), EFGM.ScreenScale(156), EFGM.ScreenScale(13))
+	surface.DrawTexturedRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(29), EFGM.ScreenScale(156), EFGM.ScreenScale(13))
 	surface.SetDrawColor(255, 255, 255, healthAlpha)
 	surface.SetMaterial(healthSliderMat)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(25), EFGM.ScreenScale(hpBarPercent), EFGM.ScreenScale(3))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(25), EFGM.ScreenScale(hpBarPercent), EFGM.ScreenScale(3))
 	surface.SetDrawColor(255, 255, 255, lowHealthAlpha)
 	surface.SetMaterial(healthLowSliderMat)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(25), EFGM.ScreenScale(hpBarPercent), EFGM.ScreenScale(3))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(25), EFGM.ScreenScale(hpBarPercent), EFGM.ScreenScale(3))
 
 	if LocalPlayer():Crouching() then
 		playerStance = math.Approach(playerStance, 6, 6 * FrameTime() / 0.15)
@@ -163,30 +164,30 @@ local function RenderPlayerStance()
 
 	surface.SetDrawColor(255, 255, 255, Standing0Alpha)
 	surface.SetMaterial(stand)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(200), EFGM.ScreenScale(126), EFGM.ScreenScale(166))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(200), EFGM.ScreenScale(126), EFGM.ScreenScale(166))
 	surface.SetDrawColor(255, 255, 255, Standing1Alpha)
 	surface.SetMaterial(stand1)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(195), EFGM.ScreenScale(126), EFGM.ScreenScale(160))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(195), EFGM.ScreenScale(126), EFGM.ScreenScale(160))
 	surface.SetDrawColor(255, 255, 255, Standing2Alpha)
 	surface.SetMaterial(stand2)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(191), EFGM.ScreenScale(127), EFGM.ScreenScale(154))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(191), EFGM.ScreenScale(127), EFGM.ScreenScale(154))
 	surface.SetDrawColor(255, 255, 255, Standing3Alpha)
 	surface.SetMaterial(stand3)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(184), EFGM.ScreenScale(127), EFGM.ScreenScale(148))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(184), EFGM.ScreenScale(127), EFGM.ScreenScale(148))
 	surface.SetDrawColor(255, 255, 255, Standing4Alpha)
 	surface.SetMaterial(stand4)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(179), EFGM.ScreenScale(127), EFGM.ScreenScale(143))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(179), EFGM.ScreenScale(127), EFGM.ScreenScale(143))
 	surface.SetDrawColor(255, 255, 255, Standing5Alpha)
 	surface.SetMaterial(stand5)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(174), EFGM.ScreenScale(127), EFGM.ScreenScale(138))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(174), EFGM.ScreenScale(127), EFGM.ScreenScale(138))
 	surface.SetDrawColor(255, 255, 255, CrouchingAlpha)
 	surface.SetMaterial(crouch)
-	surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, ScrH() - EFGM.ScreenScale(151), EFGM.ScreenScale(127), EFGM.ScreenScale(114))
+	surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(151), EFGM.ScreenScale(127), EFGM.ScreenScale(114))
 end
 
 -- extract list
 function RenderExtracts()
-	if IsValid(HUD.ELEMENTS.ExtractList) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.ExtractList) then return end
 
 	local extractList
 	net.Receive("SendExtractList", function(len)
@@ -197,7 +198,7 @@ function RenderExtracts()
 	net.SendToServer()
 
 	local extracts = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.ExtractList = extracts
+	EFGM.HUD.ELEMENTS.ExtractList = extracts
 
 	extracts:SetSize(ScrW(), ScrH())
 	extracts:SetPos(0, 0)
@@ -205,7 +206,7 @@ function RenderExtracts()
 	extracts:MoveToFront()
 
 	function extracts:OnRemove()
-		HUD.ELEMENTS.ExtractList = nil
+		EFGM.HUD.ELEMENTS.ExtractList = nil
 	end
 
 	local exitStatusTbl = {
@@ -217,17 +218,17 @@ function RenderExtracts()
 		if !LocalPlayer():Alive() then return end
 		if extractList == nil then return end
 
-		BlurRect(ScrW() - EFGM.ScreenScale(515) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(390), EFGM.ScreenScale(36), 4, 2)
+		BlurRect(ScrW() - EFGM.ScreenScale(515) - EFGM.HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(390), EFGM.ScreenScale(36), 4, 2)
 		surface.SetDrawColor(Colors.hudBackground)
-		surface.DrawRect(ScrW() - EFGM.ScreenScale(515) - HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(390), EFGM.ScreenScale(36))
-		draw.SimpleTextOutlined("FIND AN EXTRACTION POINT", "BenderAmmoCount", ScrW() - EFGM.ScreenScale(320) - HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.ScreenScaleRounded(1), Color(0, 100, 0, 128))
+		surface.DrawRect(ScrW() - EFGM.ScreenScale(515) - EFGM.HUD.Padding, EFGM.ScreenScale(20), EFGM.ScreenScale(390), EFGM.ScreenScale(36))
+		draw.SimpleTextOutlined("FIND AN EXTRACTION POINT", "BenderAmmoCount", ScrW() - EFGM.ScreenScale(320) - EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.ScreenScaleRounded(1), Color(0, 100, 0, 128))
 
 		for k, v in ipairs(extractList) do
-			surface.DrawRect(ScrW() - EFGM.ScreenScale(515) - HUD.Padding, EFGM.ScreenScale(61) + ((k - 1) * EFGM.ScreenScale(41)), EFGM.ScreenScale(390), EFGM.ScreenScale(36))
-			surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - HUD.Padding, EFGM.ScreenScale(61) + ((k - 1) * EFGM.ScreenScale(41)), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
+			surface.DrawRect(ScrW() - EFGM.ScreenScale(515) - EFGM.HUD.Padding, EFGM.ScreenScale(61) + ((k - 1) * EFGM.ScreenScale(41)), EFGM.ScreenScale(390), EFGM.ScreenScale(36))
+			surface.DrawRect(ScrW() - EFGM.ScreenScale(120) - EFGM.HUD.Padding, EFGM.ScreenScale(61) + ((k - 1) * EFGM.ScreenScale(41)), EFGM.ScreenScale(100), EFGM.ScreenScale(36))
 
-			draw.DrawText("EXFIL0" .. k, "BenderExfilList", ScrW() - EFGM.ScreenScale(505) - HUD.Padding, EFGM.ScreenScale(60) + ((k - 1) * EFGM.ScreenScale(41)), exitStatusTbl[v.IsDisabled], TEXT_ALIGN_LEFT)
-			draw.DrawText(string.sub(v.ExtractName, 1, 18), "BenderExfilName", ScrW() - EFGM.ScreenScale(380) - HUD.Padding, EFGM.ScreenScale(65) + ((k - 1) * EFGM.ScreenScale(41)), Color(255, 255, 255), TEXT_ALIGN_LEFT)
+			draw.DrawText("EXFIL0" .. k, "BenderExfilList", ScrW() - EFGM.ScreenScale(505) - EFGM.HUD.Padding, EFGM.ScreenScale(60) + ((k - 1) * EFGM.ScreenScale(41)), exitStatusTbl[v.IsDisabled], TEXT_ALIGN_LEFT)
+			draw.DrawText(string.sub(v.ExtractName, 1, 18), "BenderExfilName", ScrW() - EFGM.ScreenScale(380) - EFGM.HUD.Padding, EFGM.ScreenScale(65) + ((k - 1) * EFGM.ScreenScale(41)), Color(255, 255, 255), TEXT_ALIGN_LEFT)
 		end
 	end
 
@@ -237,10 +238,10 @@ end
 
 -- intro
 function RenderRaidIntro()
-	if IsValid(HUD.ELEMENTS.Intro) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.Intro) then return end
 
 	local intro = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.Intro = intro
+	EFGM.HUD.ELEMENTS.Intro = intro
 
 	intro:SetSize(ScrW(), ScrH())
 	intro:SetPos(0, 0)
@@ -248,16 +249,16 @@ function RenderRaidIntro()
 	intro:MoveToFront()
 
 	function intro:OnRemove()
-		HUD.ELEMENTS.Intro = nil
+		EFGM.HUD.ELEMENTS.Intro = nil
 	end
 
 	function intro:Paint(w, h)
 		if !LocalPlayer():Alive() then return end
 
-		draw.DrawText("Raid #" .. LocalPlayer():GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
-		draw.DrawText(os.date("%H:%M:%S"), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(50), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
-		draw.DrawText("Level " .. LocalPlayer():GetNWInt("Level", 0) .. ", Operator " .. LocalPlayer():Nick(), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
-		draw.DrawText("Garkov, " .. (MAPNAMES[game.GetMap()] or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText("Raid #" .. LocalPlayer():GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText(os.date("%H:%M:%S"), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(50), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText("Level " .. LocalPlayer():GetNWInt("Level", 0) .. ", Operator " .. LocalPlayer():Nick(), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText("Garkov, " .. (MAPNAMES[game.GetMap()] or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
 	end
 
 	intro:AlphaTo(255, 0.35, 0, nil)
@@ -305,7 +306,7 @@ end
 local function RenderVOIPIndicator()
 	surface.SetDrawColor(175, 255, 0)
 	surface.SetMaterial(Mats.voipIcon)
-	surface.DrawTexturedRect(EFGM.ScreenScale(121) + HUD.Padding, ScrH() - EFGM.ScreenScale(90), EFGM.ScreenScale(60), EFGM.ScreenScale(60))
+	surface.DrawTexturedRect(EFGM.ScreenScale(121) + EFGM.HUD.Padding, ScrH() - EFGM.ScreenScale(90), EFGM.ScreenScale(60), EFGM.ScreenScale(60))
 end
 
 local interactables = {
@@ -341,10 +342,10 @@ local declineCVar = GetConVar("efgm_bind_invites_decline")
 
 -- invites
 function RenderInvite()
-	if IsValid(HUD.ELEMENTS.Invite) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.Invite) then return end
 
 	local invite = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.Invite = invite
+	EFGM.HUD.ELEMENTS.Invite = invite
 
 	invite:SetSize(ScrW(), ScrH())
 	invite:SetPos(0, 0)
@@ -352,7 +353,7 @@ function RenderInvite()
 	invite:MoveToFront()
 
 	function invite:OnRemove()
-		HUD.ELEMENTS.Invite = nil
+		EFGM.HUD.ELEMENTS.Invite = nil
 	end
 
 	surface.PlaySound("ui/invite_receive.wav")
@@ -384,18 +385,18 @@ function RenderInvite()
 		if !LocalPlayer():IsInHideout() then return end
 		if Invites.invitedBy == nil or Invites.invitedType == nil or !Invites.allow then self:AlphaTo(0, 0.1, 9.9, function() self:Remove() end) return end
 
-		BlurRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(90), 4, 2)
+		BlurRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(90), 4, 2)
 		surface.SetDrawColor(Colors.hudBackground)
-		surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(90))
+		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(90))
 
 		surface.SetDrawColor(Colors.hudBackground)
-		surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
+		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
 
 		surface.SetDrawColor(Colors.transparentWhiteColor)
-		surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / 10) * math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
+		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / 10) * math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
 
-		draw.SimpleText(text, "BenderExfilTimer", EFGM.ScreenScale(25) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-		draw.SimpleText(bindsText, "Bender24", EFGM.ScreenScale(25) + HUD.Padding, EFGM.ScreenScale(81), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+		draw.SimpleText(text, "BenderExfilTimer", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+		draw.SimpleText(bindsText, "Bender24", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(81), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 	end
 
 	invite:AlphaTo(255, 0.1, 0, nil)
@@ -404,10 +405,10 @@ end
 
 -- duel loadout
 function RenderDuelLoadout()
-	if IsValid(HUD.ELEMENTS.DuelLoadout) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.DuelLoadout) then return end
 
 	local duelLoadout = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.DuelLoadout = duelLoadout
+	EFGM.HUD.ELEMENTS.DuelLoadout = duelLoadout
 
 	duelLoadout:SetSize(ScrW(), ScrH())
 	duelLoadout:SetPos(0, 0)
@@ -553,8 +554,8 @@ function RenderDuelLoadout()
 end
 
 local function DrawHUD()
-	if !LocalPlayer():Alive() or Menu.IsOpen or HUD.InIntro then RenderOverlays() return end
-	if !HUD.Enabled:GetBool() then return end
+	if !LocalPlayer():Alive() or EFGM.MENU.IsOpen or EFGM.HUD.InIntro then RenderOverlays() return end
+	if !EFGM.HUD.Enabled:GetBool() then return end
 
 	RenderRaidTime()
 	RenderPlayerWeapon()
@@ -564,8 +565,8 @@ end
 hook.Add("HUDPaint", "DrawHUD", DrawHUD)
 
 hook.Add("CalcView", "SetIntroView", function(ply, pos, angles, fov)
-	if HUD.IntroEnt != NULL and HUD.InIntro then
-		local camera = HUD.IntroEnt:GetAttachment(1)
+	if EFGM.HUD.IntroEnt != NULL and EFGM.HUD.InIntro then
+		local camera = EFGM.HUD.IntroEnt:GetAttachment(1)
 
 		local view = {
 			origin = camera.Pos,
@@ -579,11 +580,11 @@ hook.Add("CalcView", "SetIntroView", function(ply, pos, angles, fov)
 end)
 
 hook.Add("PreDrawViewModel", "SetIntroViewVM", function(viewModel, weapon)
-	if HUD.IntroEnt != NULL and HUD.InIntro then return true end
+	if EFGM.HUD.IntroEnt != NULL and EFGM.HUD.InIntro then return true end
 end)
 
 hook.Add("RenderScreenspaceEffects", "IntroScreenspace", function()
-	if HUD.IntroEnt == NULL or !HUD.InIntro then return end
+	if EFGM.HUD.IntroEnt == NULL or !EFGM.HUD.InIntro then return end
 
 	DrawBloom(0.75, 2.25, 9, 9, 1, 1, 1, 1, 1)
 
@@ -597,17 +598,17 @@ end)
 
 net.Receive("SendIntroCamera", function()
 	local ent = net.ReadEntity()
-	HUD.IntroEnt = ent or NULL
+	EFGM.HUD.IntroEnt = ent or NULL
 end)
 
 net.Receive("PlayerTransition", function()
-	if IsValid(HUD.ELEMENTS.Transition) then return end
-	if IsValid(HUD.ELEMENTS.Notification) then
-		HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() HUD.ELEMENTS.Notification:Remove() end)
+	if IsValid(EFGM.HUD.ELEMENTS.Transition) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.Notification) then
+		EFGM.HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() EFGM.HUD.ELEMENTS.Notification:Remove() end)
 	end
 
 	local transition = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.Transition = transition
+	EFGM.HUD.ELEMENTS.Transition = transition
 
 	transition:SetSize(ScrW(), ScrH())
 	transition:SetPos(0, 0)
@@ -615,7 +616,7 @@ net.Receive("PlayerTransition", function()
 	transition:MoveToFront()
 
 	function transition:OnRemove()
-		HUD.ELEMENTS.Transition = nil
+		EFGM.HUD.ELEMENTS.Transition = nil
 	end
 
 	function transition:Paint(w, h)
@@ -630,13 +631,13 @@ net.Receive("PlayerTransition", function()
 		transition:Remove()
 	end)
 
-	if Menu.MenuFrame == nil then return end
-	if Menu.MenuFrame:IsActive() != true then return end
+	if EFGM.MENU.MenuFrame == nil then return end
+	if EFGM.MENU.MenuFrame:IsActive() != true then return end
 
-	Menu:RunOnClose()
+	EFGM.MENU:RunOnClose()
 
-	Menu.MenuFrame:AlphaTo(0, 0.05, 0, function()
-		Menu.MenuFrame:Close()
+	EFGM.MENU.MenuFrame:AlphaTo(0, 0.05, 0, function()
+		EFGM.MENU.MenuFrame:Close()
 	end)
 end)
 
@@ -645,7 +646,7 @@ net.Receive("PlayerRaidTransition", function()
 
 	if status == 1 then
 		timer.Simple(1, function()
-			HUD.InIntro = false
+			EFGM.HUD.InIntro = false
 		end)
 
 		timer.Simple(1.5, function()
@@ -658,19 +659,19 @@ net.Receive("PlayerRaidTransition", function()
 		end)
 	elseif status == 0 then
 		timer.Simple(1, function()
-			HUD.InIntro = true
+			EFGM.HUD.InIntro = true
 		end)
 	end
 
-	Menu.PerferredTab = nil
+	EFGM.MENU.PerferredTab = nil
 
-	if IsValid(HUD.ELEMENTS.Transition) then return end
-	if IsValid(HUD.ELEMENTS.Notification) then
-		HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() HUD.ELEMENTS.Notification:Remove() end)
+	if IsValid(EFGM.HUD.ELEMENTS.Transition) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.Notification) then
+		EFGM.HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() EFGM.HUD.ELEMENTS.Notification:Remove() end)
 	end
 
 	local transition = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.Transition = transition
+	EFGM.HUD.ELEMENTS.Transition = transition
 
 	transition:SetSize(ScrW(), ScrH())
 	transition:SetPos(0, 0)
@@ -678,7 +679,7 @@ net.Receive("PlayerRaidTransition", function()
 	transition:MoveToFront()
 
 	function transition:OnRemove()
-		HUD.ELEMENTS.Transition = nil
+		EFGM.HUD.ELEMENTS.Transition = nil
 	end
 
 	function transition:Paint(w, h)
@@ -696,13 +697,13 @@ net.Receive("PlayerRaidTransition", function()
 		transition:Remove()
 	end)
 
-	if Menu.MenuFrame == nil then return end
-	if Menu.MenuFrame:IsActive() != true then return end
+	if EFGM.MENU.MenuFrame == nil then return end
+	if EFGM.MENU.MenuFrame:IsActive() != true then return end
 
-	Menu:RunOnClose()
+	EFGM.MENU:RunOnClose()
 
-	Menu.MenuFrame:AlphaTo(0, 0.05, 0, function()
-		Menu.MenuFrame:Close()
+	EFGM.MENU.MenuFrame:AlphaTo(0, 0.05, 0, function()
+		EFGM.MENU.MenuFrame:Close()
 	end)
 end)
 
@@ -720,15 +721,15 @@ net.Receive("PlayerDuelTransition", function()
 		end)
 	end
 
-	Menu.PerferredTab = nil
+	EFGM.MENU.PerferredTab = nil
 
-	if IsValid(HUD.ELEMENTS.Transition) then return end
-	if IsValid(HUD.ELEMENTS.Notification) then
-		HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() HUD.ELEMENTS.Notification:Remove() end)
+	if IsValid(EFGM.HUD.ELEMENTS.Transition) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.Notification) then
+		EFGM.HUD.ELEMENTS.Notification:AlphaTo(0, 0.2, 0, function() EFGM.HUD.ELEMENTS.Notification:Remove() end)
 	end
 
 	local transition = vgui.Create("DPanel", GetHUDPanel())
-	HUD.ELEMENTS.Transition = transition
+	EFGM.HUD.ELEMENTS.Transition = transition
 
 	transition:SetSize(ScrW(), ScrH())
 	transition:SetPos(0, 0)
@@ -736,7 +737,7 @@ net.Receive("PlayerDuelTransition", function()
 	transition:MoveToFront()
 
 	function transition:OnRemove()
-		HUD.ELEMENTS.Transition = nil
+		EFGM.HUD.ELEMENTS.Transition = nil
 	end
 
 	function transition:Paint(self, w, h)
@@ -751,13 +752,13 @@ net.Receive("PlayerDuelTransition", function()
 		transition:Remove()
 	end)
 
-	if Menu.MenuFrame == nil then return end
-	if Menu.MenuFrame:IsActive() != true then return end
+	if EFGM.MENU.MenuFrame == nil then return end
+	if EFGM.MENU.MenuFrame:IsActive() != true then return end
 
-	Menu:RunOnClose()
+	EFGM.MENU:RunOnClose()
 
-	Menu.MenuFrame:AlphaTo(0, 0.05, 0, function()
-		Menu.MenuFrame:Close()
+	EFGM.MENU.MenuFrame:AlphaTo(0, 0.05, 0, function()
+		EFGM.MENU.MenuFrame:Close()
 	end)
 end)
 
@@ -766,14 +767,14 @@ net.Receive("SendExtractionStatus", function()
 	local status = net.ReadBool()
 
 	if status then
-		if IsValid(HUD.ELEMENTS.ExtractProgress) then HUD.ELEMENTS.ExtractProgress:Remove() return end
+		if IsValid(EFGM.HUD.ELEMENTS.ExtractProgress) then EFGM.HUD.ELEMENTS.ExtractProgress:Remove() return end
 
 		local exitTime = net.ReadUInt(8)
 		local exitAtTime = CurTime() + exitTime
 		local exitTimeLeft = exitTime
 
 		local extractPopup = vgui.Create("DPanel", GetHUDPanel())
-		HUD.ELEMENTS.ExtractProgress = extractPopup
+		EFGM.HUD.ELEMENTS.ExtractProgress = extractPopup
 
 		extractPopup:SetSize(ScrW(), ScrH())
 		extractPopup:SetPos(0, 0)
@@ -781,7 +782,7 @@ net.Receive("SendExtractionStatus", function()
 		extractPopup:MoveToFront()
 
 		function extractPopup:OnRemove()
-			HUD.ELEMENTS.ExtractProgress = nil
+			EFGM.HUD.ELEMENTS.ExtractProgress = nil
 		end
 
 		function extractPopup:Paint(w, h)
@@ -808,25 +809,25 @@ net.Receive("SendExtractionStatus", function()
 			extractPopup:Remove()
 		end)
 	else
-		if !IsValid(HUD.ELEMENTS.ExtractProgress) then return end
-		HUD.ELEMENTS.ExtractProgress:AlphaTo(0, 0.1, 0, function() HUD.ELEMENTS.ExtractProgress:Remove() end)
+		if !IsValid(EFGM.HUD.ELEMENTS.ExtractProgress) then return end
+		EFGM.HUD.ELEMENTS.ExtractProgress:AlphaTo(0, 0.1, 0, function() EFGM.HUD.ELEMENTS.ExtractProgress:Remove() end)
 	end
 end)
 
 -- notifications
 function CreateNotification(text, icon, snd)
-	if IsValid(HUD.ELEMENTS.Notification) then HUD.ELEMENTS.Notification:Remove() end
+	if IsValid(EFGM.HUD.ELEMENTS.Notification) then EFGM.HUD.ELEMENTS.Notification:Remove() end
 
 	local panel = GetHUDPanel()
-	if Menu.MenuFrame != nil and Menu.MenuFrame:IsActive() == true then panel = Menu.MenuFrame end
-	if HUD.ELEMENTS.DeathPostScreen != nil and HUD.ELEMENTS.DeathPostScreen:IsValid() then panel = HUD.ELEMENTS.DeathPostScreen end
-	if HUD.ELEMENTS.ExtractPostScreen != nil and HUD.ELEMENTS.ExtractPostScreen:IsValid() then panel = HUD.ELEMENTS.ExtractPostScreen end
+	if EFGM.MENU.MenuFrame != nil and EFGM.MENU.MenuFrame:IsActive() == true then panel = EFGM.MENU.MenuFrame end
+	if EFGM.HUD.ELEMENTS.DeathPostScreen != nil and EFGM.HUD.ELEMENTS.DeathPostScreen:IsValid() then panel = EFGM.HUD.ELEMENTS.DeathPostScreen end
+	if EFGM.HUD.ELEMENTS.ExtractPostScreen != nil and EFGM.HUD.ELEMENTS.ExtractPostScreen:IsValid() then panel = EFGM.HUD.ELEMENTS.ExtractPostScreen end
 
 	surface.SetFont("BenderNotification")
 	local tw = surface.GetTextSize(text) + EFGM.ScreenScale(45)
 
 	local notif = vgui.Create("DPanel", panel)
-	HUD.ELEMENTS.Notification = notif
+	EFGM.HUD.ELEMENTS.Notification = notif
 
 	notif:SetPos(ScrW() / 2 - (tw / 2), ScrH())
 	notif:SetSize(tw, EFGM.ScreenScale(30))
@@ -923,7 +924,7 @@ net.Receive("CreateDeathInformation", function()
 	if respawnTime > EFGM.CONFIG.TIMER.HIDEOUTRESPAWN then surface.PlaySound("death_heartbeat.wav") end
 
 	timer.Simple(respawnTime, function()
-		if IsValid(HUD.ELEMENTS.DeathPostScreen) then return end
+		if IsValid(EFGM.HUD.ELEMENTS.DeathPostScreen) then return end
 
 		local rewardsPanel = nil
 		local attackerPanel = nil
@@ -944,7 +945,7 @@ net.Receive("CreateDeathInformation", function()
 		end
 
 		local deathPopup = vgui.Create("DPanel", deathDocker)
-		HUD.ELEMENTS.DeathPostScreen = deathPopup
+		EFGM.HUD.ELEMENTS.DeathPostScreen = deathPopup
 
 		deathPopup:SetSize(ScrW(), ScrH())
 		deathPopup:SetPos(0, 0)
@@ -955,7 +956,7 @@ net.Receive("CreateDeathInformation", function()
 		deathPopup:SetKeyboardInputEnabled(true)
 
 		function deathPopup:OnRemove()
-			HUD.ELEMENTS.DeathPostScreen = nil
+			EFGM.HUD.ELEMENTS.DeathPostScreen = nil
 		end
 
 		function deathPopup:Paint(w, h)
@@ -1501,7 +1502,7 @@ net.Receive("CreateExtractionInformation", function()
 	local totalXPRaw = xpTime + xpCombat + xpExploration + xpLooting + xpBonus
 	local totalXPReal = math.Round(totalXPRaw * xpMult, 0)
 
-	if IsValid(HUD.ELEMENTS.ExtractPostScreen) then return end
+	if IsValid(EFGM.HUD.ELEMENTS.ExtractPostScreen) then return end
 
 	local rewardsPanel = nil
 	local mapPanel = nil
@@ -1521,7 +1522,7 @@ net.Receive("CreateExtractionInformation", function()
 	end
 
 	local extractionPopup = vgui.Create("DPanel", extractDocker)
-	HUD.ELEMENTS.ExtractPostScreen = extractionPopup
+	EFGM.HUD.ELEMENTS.ExtractPostScreen = extractionPopup
 
 	extractionPopup:SetSize(ScrW(), ScrH())
 	extractionPopup:SetPos(0, 0)
@@ -1532,7 +1533,7 @@ net.Receive("CreateExtractionInformation", function()
 	extractionPopup:SetKeyboardInputEnabled(true)
 
 	function extractionPopup:OnRemove()
-		HUD.ELEMENTS.ExtractPostScreen = nil
+		EFGM.HUD.ELEMENTS.ExtractPostScreen = nil
 	end
 
 	function extractionPopup:Paint(w, h)
@@ -1787,7 +1788,7 @@ net.Receive("CreateExtractionInformation", function()
 end)
 
 function HUDInspectItem(item, data, panel)
-	if IsValid(HUD.ELEMENTS.ItemInspect) then HUD.ELEMENTS.ItemInspect:Remove() end
+	if IsValid(EFGM.HUD.ELEMENTS.ItemInspect) then EFGM.HUD.ELEMENTS.ItemInspect:Remove() end
 
 	local i = EFGMITEMS[item]
 	if i == nil then return end
@@ -1853,7 +1854,7 @@ function HUDInspectItem(item, data, panel)
 	local newPanelHeight = math.Round(originalHeight * scaleFactor)
 
 	local inspectPanel = vgui.Create("DFrame", panel)
-	HUD.ELEMENTS.ItemInspect = inspectPanel
+	EFGM.HUD.ELEMENTS.ItemInspect = inspectPanel
 
 	inspectPanel:SetSize(panelWidth + EFGM.MenuScale(40), newPanelHeight + EFGM.MenuScale(100))
 	inspectPanel:Center()
@@ -1864,7 +1865,7 @@ function HUDInspectItem(item, data, panel)
 	inspectPanel:AlphaTo(255, 0.1, 0, nil)
 
 	function inspectPanel:OnRemove()
-		HUD.ELEMENTS.ItemInspect = nil
+		EFGM.HUD.ELEMENTS.ItemInspect = nil
 	end
 
 	function inspectPanel:Paint(w, h)
@@ -2450,11 +2451,11 @@ net.Receive("VoteableMaps", function(len)
 	local map2Votes = 0
 
 	timer.Simple(40, function()
-		if IsValid(HUD.ELEMENTS.Invite) then HUD.ELEMENTS.Invite:Remove() end
-		if IsValid(HUD.ELEMENTS.MapVoting) then HUD.ELEMENTS.MapVoting:Remove() end
+		if IsValid(EFGM.HUD.ELEMENTS.Invite) then EFGM.HUD.ELEMENTS.Invite:Remove() end
+		if IsValid(EFGM.HUD.ELEMENTS.MapVoting) then EFGM.HUD.ELEMENTS.MapVoting:Remove() end
 
 		local mapVote = vgui.Create("DPanel", GetHUDPanel())
-		HUD.ELEMENTS.MapVoting = mapVote
+		EFGM.HUD.ELEMENTS.MapVoting = mapVote
 
 		mapVote:SetSize(ScrW(), ScrH())
 		mapVote:SetPos(0, 0)
@@ -2462,7 +2463,7 @@ net.Receive("VoteableMaps", function(len)
 		mapVote:MoveToFront()
 
 		function mapVote:OnRemove()
-			HUD.ELEMENTS.MapVoting = nil
+			EFGM.HUD.ELEMENTS.MapVoting = nil
 		end
 
 		surface.PlaySound("ui/invite_receive.wav")
@@ -2482,30 +2483,30 @@ net.Receive("VoteableMaps", function(len)
 				map2Votes = math.Round(GetGlobalInt("MapVotes_2", 0) / (GetGlobalInt("MapVotes_2", 0) + GetGlobalInt("MapVotes_1", 0)) * 100)
 			end
 
-			BlurRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(250), 4, 2)
+			BlurRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(250), 4, 2)
 			surface.SetDrawColor(Colors.hudBackground)
-			surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(250))
+			surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(250))
 
 			surface.SetDrawColor(Colors.hudBackground)
-			surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(1))
+			surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), textSize, EFGM.ScreenScale(1))
 
 			surface.SetDrawColor(Colors.transparentWhiteColor)
-			surface.DrawRect(EFGM.ScreenScale(20) + HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / 20) * textSize, EFGM.ScreenScale(1))
+			surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / 20) * textSize, EFGM.ScreenScale(1))
 
-			draw.SimpleText(text, "BenderExfilTimer", EFGM.ScreenScale(25) + HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.SimpleText(string.upper("[" .. acceptBind .. "] " .. map1Name), "Bender24", EFGM.ScreenScale(25) + HUD.Padding, EFGM.ScreenScale(241), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.SimpleText(string.upper("[" .. declineBind .. "] " .. map2Name), "Bender24", EFGM.ScreenScale(185) + HUD.Padding, EFGM.ScreenScale(241), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.SimpleText(text, "BenderExfilTimer", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.SimpleText(string.upper("[" .. acceptBind .. "] " .. map1Name), "Bender24", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(241), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.SimpleText(string.upper("[" .. declineBind .. "] " .. map2Name), "Bender24", EFGM.ScreenScale(185) + EFGM.HUD.Padding, EFGM.ScreenScale(241), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 
-			draw.SimpleText(map1Votes .. "%", "Bender18", EFGM.ScreenScale(25) + HUD.Padding, EFGM.ScreenScale(225), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
-			draw.SimpleText(map2Votes .. "%", "Bender18", EFGM.ScreenScale(185) + HUD.Padding, EFGM.ScreenScale(225), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.SimpleText(map1Votes .. "%", "Bender18", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(225), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+			draw.SimpleText(map2Votes .. "%", "Bender18", EFGM.ScreenScale(185) + EFGM.HUD.Padding, EFGM.ScreenScale(225), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 
 			surface.SetMaterial(map1Icon)
 			surface.SetDrawColor(Colors.pureWhiteColor)
-			surface.DrawTexturedRect(EFGM.ScreenScale(25) + HUD.Padding, EFGM.ScreenScale(75), EFGM.ScreenScale(150), EFGM.ScreenScale(150))
+			surface.DrawTexturedRect(EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(75), EFGM.ScreenScale(150), EFGM.ScreenScale(150))
 
 			surface.SetMaterial(map2Icon)
 			surface.SetDrawColor(Colors.pureWhiteColor)
-			surface.DrawTexturedRect(EFGM.ScreenScale(185) + HUD.Padding, EFGM.ScreenScale(75), EFGM.ScreenScale(150), EFGM.ScreenScale(150))
+			surface.DrawTexturedRect(EFGM.ScreenScale(185) + EFGM.HUD.Padding, EFGM.ScreenScale(75), EFGM.ScreenScale(150), EFGM.ScreenScale(150))
 		end
 
 		mapVote:AlphaTo(255, 0.1, 0, nil)

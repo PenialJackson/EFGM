@@ -10,6 +10,8 @@ include("enums.lua")
 include("config.lua")
 include("items/items_init.lua")
 
+EFGM.SERVER = EFGM.SERVER or {}
+
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	AddCSLuaFile("shared/" .. f)
 	include("shared/" .. f)

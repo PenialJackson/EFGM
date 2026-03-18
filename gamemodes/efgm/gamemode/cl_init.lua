@@ -4,6 +4,8 @@ include("enums.lua")
 include("config.lua")
 include("items/items_init.lua")
 
+EFGM.CLIENT = EFGM.CLIENT or {}
+
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	include("shared/" .. f)
 end
@@ -71,7 +73,7 @@ end
 hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
 	cScrW = newW
 	cScrH = newH
-	HUD.Padding = paddingCVar:GetInt() * (4 * (newW / 1920.0))
+	EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (newW / 1920.0))
 end)
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/client/*.lua", "GAME", "nameasc")) do

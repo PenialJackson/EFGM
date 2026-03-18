@@ -3,19 +3,19 @@ local table = table
 local net = net
 local util = util
 
-PLYMARKETLIMITS = PLYMARKETLIMITS or {}
+EFGM.SERVER.PLAYERMARKETLIMITS = EFGM.SERVER.PLAYERMARKETLIMITS or {}
 
 function NetworkMarketLimits(ply)
 	local id = ply:SteamID64()
 
-	if !PLYMARKETLIMITS[id] then
-		PLYMARKETLIMITS[id] = {}
+	if !EFGM.SERVER.PLAYERMARKETLIMITS[id] then
+		EFGM.SERVER.PLAYERMARKETLIMITS[id] = {}
 		for item, limit in pairs(MARKETLIMITS) do
-			PLYMARKETLIMITS[id][item] = limit
+			EFGM.SERVER.PLAYERMARKETLIMITS[id][item] = limit
 		end
 	end
 
-	local str = util.TableToJSON(PLYMARKETLIMITS[ply:SteamID64()])
+	local str = util.TableToJSON(EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()])
 	str = util.Compress(str)
 	str = util.Base64Encode(str, true)
 	SendChunkedNet(ply, str, "PlayerNetworkMarket") -- chunking this in case some idiot creates a massive list of entries
@@ -33,7 +33,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 
 	if def.canPurchase == false then return end
 	if ply:GetNWInt("StashCount", 0) + math.floor(count / def.stackSize) >= ply:GetNWInt("StashMax", 150) then return end
-	if PLYMARKETLIMITS[ply:SteamID64()][item] and count > PLYMARKETLIMITS[ply:SteamID64()][item] then return end
+	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] and count > EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then return end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 	local plyLevel = ply:GetNWInt("Level", 1)
@@ -76,7 +76,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 
 	ply:SetNWInt("Money", plyMoney - cost)
 	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
-	if PLYMARKETLIMITS[ply:SteamID64()][item] then PLYMARKETLIMITS[ply:SteamID64()][item] = PLYMARKETLIMITS[ply:SteamID64()][item] - count end
+	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] = EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] - count end
 
 	NetworkMarketLimits(ply)
 end)
@@ -91,7 +91,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	local def = EFGMITEMS[item]
 
 	if def.canPurchase == false then return end
-	if PLYMARKETLIMITS[ply:SteamID64()][item] and count > PLYMARKETLIMITS[ply:SteamID64()][item] then return end
+	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] and count > EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then return end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 	local plyLevel = ply:GetNWInt("Level", 1)
@@ -134,7 +134,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 
 	ply:SetNWInt("Money", plyMoney - cost)
 	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
-	if PLYMARKETLIMITS[ply:SteamID64()][item] then PLYMARKETLIMITS[ply:SteamID64()][item] = PLYMARKETLIMITS[ply:SteamID64()][item] - count end
+	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] = EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] - count end
 
 	NetworkMarketLimits(ply)
 end)
@@ -179,7 +179,7 @@ end)
 
 net.Receive("PlayerMarketSellItem", function(len, ply)
 	local item = net.ReadString()
-	local count = net.ReadUInt(8)
+	local count = net.ReadUInt(16)
 	local key = net.ReadUInt(16)
 
 	if !ply:IsInHideout() then return end
@@ -250,7 +250,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	concommand.Add("efgm_debug_setmoney", function(ply, cmd, args) ply:SetNWInt("Money", tonumber(args[1]) or 0) end)
 
 	concommand.Add("efgm_debug_resetmarketlimits", function(ply, cmd, args)
-		PLYMARKETLIMITS[ply:SteamID64()] = {}
+		EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()] = {}
 		NetworkMarketLimits(ply)
 	end)
 end

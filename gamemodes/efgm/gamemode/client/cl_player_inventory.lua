@@ -121,13 +121,13 @@ net.Receive("PlayerReinstantiateInventory", function(len)
 end)
 
 net.Receive("PlayerInventoryReload", function(len)
-	if Menu.ActiveTab != "inventory" then return end
-	Menu:ReloadInventory()
+	if EFGM.MENU.ActiveTab != "inventory" then return end
+	EFGM.MENU:ReloadInventory()
 end)
 
 net.Receive("PlayerSlotsReload", function(len)
-	if Menu.ActiveTab != "inventory" then return end
-	Menu:ReloadSlots()
+	if EFGM.MENU.ActiveTab != "inventory" then return end
+	EFGM.MENU:ReloadSlots()
 end)
 
 net.Receive("PlayerInventoryAddItem", function(len)
@@ -173,7 +173,7 @@ net.Receive("PlayerInventoryUnEquipAll", function(len)
 
 	if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
 
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadSlots()
 end)
 
 function UnequipAll()
@@ -189,7 +189,7 @@ net.Receive("PlayerInventoryUpdateEquipped", function(len)
 	key = net.ReadUInt(4)
 
 	playerWeaponSlots[index][key].data = newData
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadSlots()
 end )
 
 net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
@@ -200,7 +200,7 @@ net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
 
 	playerWeaponSlots[equipID][equipSlot] = {}
 
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadSlots()
 end )
 
 function DropItemFromInventory(itemIndex)
@@ -211,7 +211,7 @@ function DropItemFromInventory(itemIndex)
 	net.SendToServer()
 
 	table.remove(playerInventory, itemIndex)
-	Menu:ReloadInventory()
+	EFGM.MENU:ReloadInventory()
 end
 
 -- returns bool whether or not it could equip an item clientside (desync may be an issue since server could disagree and neither side would know)
@@ -325,12 +325,12 @@ function DropEquippedItem(equipID, equipSlot)
 		net.WriteUInt(equipSlot, 4)
 	net.SendToServer()
 
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadSlots()
 end
 
 net.Receive("PlayerInventoryConsumeGrenade", function(len)
 	playerWeaponSlots[4][1] = {}
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadSlots()
 
 	local weapon = NULL
 	local primary = playerWeaponSlots[1][1].name
@@ -351,7 +351,7 @@ end)
 
 net.Receive("PlayerInventoryRemoveConsumable", function(len)
 	playerWeaponSlots[5][1] = {}
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadSlots()
 
 	if !table.IsEmpty(playerWeaponSlots[1][1]) then
 		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
@@ -377,8 +377,8 @@ net.Receive("PlayerInventoryClearFIR", function(len)
 		end
 	end
 
-	Menu:ReloadInventory()
-	Menu:ReloadSlots()
+	EFGM.MENU:ReloadInventory()
+	EFGM.MENU:ReloadSlots()
 end)
 
 net.Receive("PlayerInventorySendWeaponPreset", function(len)
@@ -429,7 +429,7 @@ function SplitFromInventory(inv, item, count, key)
 	net.Start("PlayerInventorySplit", false)
 		net.WriteString(inv)
 		net.WriteString(item)
-		net.WriteUInt(count, 8)
+		net.WriteUInt(count, 16)
 		net.WriteUInt(key, 16)
 	net.SendToServer()
 end
@@ -476,7 +476,7 @@ end
 function SellItem(item, count, key)
 	net.Start("PlayerMarketSellItem", false)
 		net.WriteString(item)
-		net.WriteUInt(count, 8)
+		net.WriteUInt(count, 16)
 		net.WriteUInt(key, 16)
 	net.SendToServer()
 end

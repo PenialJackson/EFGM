@@ -86,7 +86,7 @@ Invites.invitedBy = nil
 Invites.invitedType = nil
 
 net.Receive("PlayerInviteReceive", function(len, ply)
-	if IsValid(HUD.ELEMENTS.Invite) then return end -- player already has a pending invite
+	if IsValid(EFGM.HUD.ELEMENTS.Invite) then return end -- player already has a pending invite
 
 	local invitedBy = net.ReadPlayer()
 	local invitedType = net.ReadUInt(2)

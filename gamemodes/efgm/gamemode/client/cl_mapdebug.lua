@@ -13,7 +13,6 @@
 
 -- To generate the icons and align them to the map image:
 
-
 -- Run "efgm_debug_mapreport [map name] true"
 
 -- Now that all map icons and their info are gathered, align their world positions to the map

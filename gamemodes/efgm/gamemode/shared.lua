@@ -1,4 +1,4 @@
-EFGM = {}
+EFGM = EFGM or {}
 
 GM.Name = "EFGM"
 GM.Author = "Penial, Portanator"
