@@ -8,9 +8,7 @@ if SERVER then
 			return ""
 		end
 	end)
-end
 
-if SERVER then
 	-- only send team chat messages to other players in the senders team channel
 	hook.Add("PlayerCanSeePlayersChat", "SuppressTeamChat", function(text, teamOnly, listener, speaker)
 		if not speaker:IsPlayer() or not teamOnly then return end

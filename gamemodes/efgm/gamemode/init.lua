@@ -398,18 +398,18 @@ hook.Add("PostEntityTakeDamage", "PlayerRegenSetup", function(ent, dmginfo, wasD
 	end
 end)
 
-timer.Create("HealthRegenTick", EFGM.CONFIG.HealthRegenTick, 0, function()
+timer.Create("HealthRegenTick", EFGM.CONFIG.PLAYER.HEALTHREGENTICK, 0, function()
 	local ct = CurTime()
 
 	for _, ply in player.Iterator() do
 		if !ply:Alive() then continue end
 		if ply:IsInHideout() then continue end
 
-		if ct + EFGM.CONFIG.HealthRegenCD >= ply:GetLastTimeDamaged() then continue end
+		if ct + EFGM.CONFIG.PLAYER.HEALTHREGENCOOLDOWN >= ply:GetLastTimeDamaged() then continue end
 
 		local health = ply:Health()
 		if health < EFGM.CONFIG.PLAYER.MAXHEALTH then
-			local amt = EFGM.CONFIG.HealthRegenAmount
+			local amt = EFGM.CONFIG.PLAYER.HEALTHREGENAMOUNT
 
 			ply:SetHealth(math.min(health + amt, EFGM.CONFIG.PLAYER.MAXHEALTH))
 			ply:SetNWInt("HealthHealed", ply:GetNWInt("HealthHealed") + amt)
