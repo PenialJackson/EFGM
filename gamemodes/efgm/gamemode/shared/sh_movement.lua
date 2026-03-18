@@ -104,7 +104,7 @@ hook.Add("OnPlayerJump", "PlayerJump", function(ply, speed)
 end)
 
 -- jump cooldown
-hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, speed)
+hook.Add("OnPlayerHitGround", "PlayerLand", function(ply, _, _, speed)
 	if speed > 50 then
 		local ang = Angle(math.floor(math.exp(speed / 256)))
 		if ang:Unpack() > 45 then

@@ -6962,13 +6962,13 @@ function Menu.OpenTab.Market()
 
 	MarketCat.AAFAVORITE = {
 		name = "★ Favorite Items",
-		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special", "Ammunition", "Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
+		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special", "Ammunition", "Auxiliary", "Barrel", "Charging Handle", "Chassis", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
 		children = {}
 	}
 
 	MarketCat._ALLITEMS = {
 		name = "All Items",
-		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special", "Ammunition", "Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
+		items = {"Assault Carbine", "Assault Rifle", "Light Machine Gun", "Pistol", "Shotgun", "Sniper Rifle", "Marksman Rifle", "Submachine Gun", "Launcher", "Melee", "Frag Grenade", "Smoke Grenade", "Flashbang", "Impact Grenade", "Incendiary Grenade", "Flare", "Special", "Ammunition", "Auxiliary", "Barrel", "Charging Handle", "Chassis", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical", "Medical", "Belmont Key", "Concrete Key", "Factory Key", "Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
 		children = {}
 	}
 
@@ -6999,11 +6999,12 @@ function Menu.OpenTab.Market()
 
 	MarketCat.ATTACHMENTS = {
 		name = "Attachments",
-		items = {"Accessory", "Barrel", "Cover", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical"},
+		items = {"Auxiliary", "Barrel", "Charging Handle", "Chassis", "Foregrip", "Gas Block", "Handguard", "Magazine", "Mount", "Muzzle", "Optic", "Pistol Grip", "Receiver", "Sight", "Stock", "Tactical"},
 		children = {
-			["Accessories"] = {"Accessory"},
+			["Auxiliary"] = {"Auxiliary"},
 			["Barrels"] = {"Barrel"},
-			["Dust Covers"] = {"Cover"},
+			["Charging Handles"] = {"Charging Handle"},
+			["Chassis"] = {"Chassis"},
 			["Foregrips"] = {"Foregrip"},
 			["Gas Blocks"] = {"Gas Block"},
 			["Handguards"] = {"Handguard"},

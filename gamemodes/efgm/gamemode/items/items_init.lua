@@ -51,7 +51,7 @@ function GenerateLootTables()
 		if v.canSpawn == false then continue end
 
 		-- excluded keys bc you can find them fucking everywhere
-		if v.displayType != "Belmont Key" and v.displayType != "Concrete Key" and v.displayType != "Factory Key" and v.displayType != "Attachment" and v.displayType != "Accessory" and v.displayType != "Barrel" and v.displayType != "Cover" and v.displayType != "Gas Block" and v.displayType != "Handguard" and v.displayType != "Magazine" and v.displayType != "Mount" and v.displayType != "Pistol Grip" and v.displayType != "Receiver" and v.displayType != "Sight" and v.displayType != "Stock" then
+		if v.displayType != "Belmont Key" and v.displayType != "Concrete Key" and v.displayType != "Factory Key" and v.displayType != "Attachment" and v.displayType != "Auxiliary" and v.displayType != "Barrel" and v.displayType != "Charging Handle" and v.displayType != "Chassis" and v.displayType != "Gas Block" and v.displayType != "Handguard" and v.displayType != "Magazine" and v.displayType != "Mount" and v.displayType != "Pistol Grip" and v.displayType != "Receiver" and v.displayType != "Sight" and v.displayType != "Stock" then
 			LOOT[1][k] = v
 		end
 
@@ -71,7 +71,7 @@ function GenerateLootTables()
 			LOOT[5][k] = v
 		end
 
-		if v.displayType == "Accessory" or v.displayType == "Barrel" or v.displayType == "Cover" or v.displayType == "Foregrip" or v.displayType == "Gas Block" or v.displayType == "Handguard" or v.displayType == "Magazine" or v.displayType == "Mount" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Pistol Grip" or v.displayType == "Receiver" or v.displayType == "Sight" or v.displayType == "Stock" or v.displayType == "Tactical" then
+		if v.displayType == "Auxiliary" or v.displayType == "Barrel" or v.displayType == "Charging Handle" or v.displayType == "Chassis" or v.displayType == "Foregrip" or v.displayType == "Gas Block" or v.displayType == "Handguard" or v.displayType == "Magazine" or v.displayType == "Mount" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Pistol Grip" or v.displayType == "Receiver" or v.displayType == "Sight" or v.displayType == "Stock" or v.displayType == "Tactical" then
 			LOOT[6][k] = v
 		end
 
