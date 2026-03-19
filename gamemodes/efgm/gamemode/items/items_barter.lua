@@ -1,5 +1,5 @@
 -- assorted barter items
-EFGMITEMS["efgm_barter_fireklean"] = {
+EFGM.ITEMS["efgm_barter_fireklean"] = {
 	["fullName"] = "#FireKlean gun lube",
 	["displayName"] = "#FireKlean",
 	["displayType"] = "Flammable",
@@ -17,7 +17,7 @@ EFGMITEMS["efgm_barter_fireklean"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_aabattery"] = {
+EFGM.ITEMS["efgm_barter_aabattery"] = {
 	["fullName"] = "AA Battery",
 	["displayName"] = "AA batt.",
 	["displayType"] = "Energy",
@@ -35,7 +35,7 @@ EFGMITEMS["efgm_barter_aabattery"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mcc"] = {
+EFGM.ITEMS["efgm_barter_mcc"] = {
 	["fullName"] = "Advanced Current Converter",
 	["displayName"] = "MCC",
 	["displayType"] = "Electronic",
@@ -53,7 +53,7 @@ EFGMITEMS["efgm_barter_mcc"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_alkaline"] = {
+EFGM.ITEMS["efgm_barter_alkaline"] = {
 	["fullName"] = "Alkaline Cleaner",
 	["displayName"] = "Alkali",
 	["displayType"] = "Household",
@@ -70,7 +70,7 @@ EFGMITEMS["efgm_barter_alkaline"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_thermometer"] = {
+EFGM.ITEMS["efgm_barter_thermometer"] = {
 	["fullName"] = "Analog Thermometer",
 	["displayName"] = "Therm.",
 	["displayType"] = "Building",
@@ -88,7 +88,7 @@ EFGMITEMS["efgm_barter_thermometer"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_teapot"] = {
+EFGM.ITEMS["efgm_barter_teapot"] = {
 	["fullName"] = "Antique Teapot",
 	["displayName"] = "Teapot",
 	["displayType"] = "Valuable",
@@ -106,7 +106,7 @@ EFGMITEMS["efgm_barter_teapot"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_vase"] = {
+EFGM.ITEMS["efgm_barter_vase"] = {
 	["fullName"] = "Antique Vase",
 	["displayName"] = "Vase",
 	["displayType"] = "Valuable",
@@ -124,7 +124,7 @@ EFGMITEMS["efgm_barter_vase"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_apollo"] = {
+EFGM.ITEMS["efgm_barter_apollo"] = {
 	["fullName"] = "Apollo Soyuz Cigarettes",
 	["displayName"] = "Apollo",
 	["displayType"] = "Other",
@@ -142,7 +142,7 @@ EFGMITEMS["efgm_barter_apollo"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_aquapeps"] = {
+EFGM.ITEMS["efgm_barter_aquapeps"] = {
 	["fullName"] = "Aquapeps Water Purification Tablets",
 	["displayName"] = "Aquapeps",
 	["displayType"] = "Medicine",
@@ -160,7 +160,7 @@ EFGMITEMS["efgm_barter_aquapeps"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_aramid"] = {
+EFGM.ITEMS["efgm_barter_aramid"] = {
 	["fullName"] = "Aramid Fiber Fabric",
 	["displayName"] = "Aramid",
 	["displayType"] = "Other",
@@ -178,7 +178,7 @@ EFGMITEMS["efgm_barter_aramid"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_awl"] = {
+EFGM.ITEMS["efgm_barter_awl"] = {
 	["fullName"] = "Awl",
 	["displayName"] = "Awl",
 	["displayType"] = "Tool",
@@ -196,7 +196,7 @@ EFGMITEMS["efgm_barter_awl"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_axel"] = {
+EFGM.ITEMS["efgm_barter_axel"] = {
 	["fullName"] = "Axel Parrot Figurine",
 	["displayName"] = "Axel",
 	["displayType"] = "Valuable",
@@ -214,7 +214,7 @@ EFGMITEMS["efgm_barter_axel"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bearbuddy"] = {
+EFGM.ITEMS["efgm_barter_bearbuddy"] = {
 	["fullName"] = "BEAR Buddy Plush Toy",
 	["displayName"] = "BEAR Buddy",
 	["displayType"] = "Other",
@@ -232,7 +232,7 @@ EFGMITEMS["efgm_barter_bearbuddy"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bearfigurine"] = {
+EFGM.ITEMS["efgm_barter_bearfigurine"] = {
 	["fullName"] = "BEAR Operative Figurine",
 	["displayName"] = "BEAR",
 	["displayType"] = "Valuable",
@@ -250,7 +250,7 @@ EFGMITEMS["efgm_barter_bearfigurine"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bakeezy"] = {
+EFGM.ITEMS["efgm_barter_bakeezy"] = {
 	["fullName"] = "BakeEzy Cook Book",
 	["displayName"] = "BakeEzy",
 	["displayType"] = "Information",
@@ -268,7 +268,7 @@ EFGMITEMS["efgm_barter_bakeezy"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_book"] = {
+EFGM.ITEMS["efgm_barter_book"] = {
 	["fullName"] = "Battered Antique Book",
 	["displayName"] = "Book",
 	["displayType"] = "Valuable",
@@ -286,7 +286,7 @@ EFGMITEMS["efgm_barter_book"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bolts"] = {
+EFGM.ITEMS["efgm_barter_bolts"] = {
 	["fullName"] = "Bolts",
 	["displayName"] = "Bolts",
 	["displayType"] = "Building",
@@ -304,7 +304,7 @@ EFGMITEMS["efgm_barter_bolts"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_vitamins"] = {
+EFGM.ITEMS["efgm_barter_vitamins"] = {
 	["fullName"] = "Bottle Of OLOLO Multivitamins",
 	["displayName"] = "Vitamins",
 	["displayType"] = "Medicine",
@@ -322,7 +322,7 @@ EFGMITEMS["efgm_barter_vitamins"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_h2o2"] = {
+EFGM.ITEMS["efgm_barter_h2o2"] = {
 	["fullName"] = "Bottle Of Hydrogen Peroxide",
 	["displayName"] = "H2O2",
 	["displayType"] = "Medicine",
@@ -340,7 +340,7 @@ EFGMITEMS["efgm_barter_h2o2"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_nacl"] = {
+EFGM.ITEMS["efgm_barter_nacl"] = {
 	["fullName"] = "Bottle Of Saline Solution",
 	["displayName"] = "NaCl",
 	["displayType"] = "Medicine",
@@ -358,7 +358,7 @@ EFGMITEMS["efgm_barter_nacl"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_brokengpx"] = {
+EFGM.ITEMS["efgm_barter_brokengpx"] = {
 	["fullName"] = "Broken GPhone X Smartphone",
 	["displayName"] = "GPX",
 	["displayType"] = "Electronic",
@@ -376,7 +376,7 @@ EFGMITEMS["efgm_barter_brokengpx"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_brokengphone"] = {
+EFGM.ITEMS["efgm_barter_brokengphone"] = {
 	["fullName"] = "Broken GPhone Smartphone",
 	["displayName"] = "GPhone",
 	["displayType"] = "Electronic",
@@ -394,7 +394,7 @@ EFGMITEMS["efgm_barter_brokengphone"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_brokenlcd"] = {
+EFGM.ITEMS["efgm_barter_brokenlcd"] = {
 	["fullName"] = "Broken LCD",
 	["displayName"] = "BrokenLCD",
 	["displayType"] = "Electronic",
@@ -412,7 +412,7 @@ EFGMITEMS["efgm_barter_brokenlcd"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_lion"] = {
+EFGM.ITEMS["efgm_barter_lion"] = {
 	["fullName"] = "Bronze Lion Figurine",
 	["displayName"] = "Lion",
 	["displayType"] = "Valuable",
@@ -430,7 +430,7 @@ EFGMITEMS["efgm_barter_lion"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bulbex"] = {
+EFGM.ITEMS["efgm_barter_bulbex"] = {
 	["fullName"] = "Bulbex Cable Cutter",
 	["displayName"] = "Bulbex",
 	["displayType"] = "Tool",
@@ -448,7 +448,7 @@ EFGMITEMS["efgm_barter_bulbex"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_wires"] = {
+EFGM.ITEMS["efgm_barter_wires"] = {
 	["fullName"] = "Bundle Of Wires",
 	["displayName"] = "Wires",
 	["displayType"] = "Electronic",
@@ -466,7 +466,7 @@ EFGMITEMS["efgm_barter_wires"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cpufan"] = {
+EFGM.ITEMS["efgm_barter_cpufan"] = {
 	["fullName"] = "CPU Fan",
 	["displayName"] = "CPU Fan",
 	["displayType"] = "Electronic",
@@ -484,7 +484,7 @@ EFGMITEMS["efgm_barter_cpufan"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_drlupos"] = {
+EFGM.ITEMS["efgm_barter_drlupos"] = {
 	["fullName"] = "Can Of Dr. Lupo's Coffee Beans",
 	["displayName"] = "DrLupo's",
 	["displayType"] = "Other",
@@ -502,7 +502,7 @@ EFGMITEMS["efgm_barter_drlupos"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_majaica"] = {
+EFGM.ITEMS["efgm_barter_majaica"] = {
 	["fullName"] = "Can Of Majaica Coffee Beans",
 	["displayName"] = "Majaica",
 	["displayType"] = "Other",
@@ -520,7 +520,7 @@ EFGMITEMS["efgm_barter_majaica"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ratcola"] = {
+EFGM.ITEMS["efgm_barter_ratcola"] = {
 	["fullName"] = "Can Of RatCola Soda",
 	["displayName"] = "RatCola",
 	["displayType"] = "Medicine",
@@ -538,7 +538,7 @@ EFGMITEMS["efgm_barter_ratcola"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_thermite"] = {
+EFGM.ITEMS["efgm_barter_thermite"] = {
 	["fullName"] = "Can Of Thermite",
 	["displayName"] = "Thermite",
 	["displayType"] = "Flammable",
@@ -556,7 +556,7 @@ EFGMITEMS["efgm_barter_thermite"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_salt"] = {
+EFGM.ITEMS["efgm_barter_salt"] = {
 	["fullName"] = "Can Of White Salt",
 	["displayName"] = "Salt",
 	["displayType"] = "Household",
@@ -573,7 +573,7 @@ EFGMITEMS["efgm_barter_salt"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_superwater"] = {
+EFGM.ITEMS["efgm_barter_superwater"] = {
 	["fullName"] = "Canister With Purified Water",
 	["displayName"] = "Superwater",
 	["displayType"] = "Medicine",
@@ -591,7 +591,7 @@ EFGMITEMS["efgm_barter_superwater"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_caps"] = {
+EFGM.ITEMS["efgm_barter_caps"] = {
 	["fullName"] = "Capacitors",
 	["displayName"] = "Caps",
 	["displayType"] = "Electronic",
@@ -609,7 +609,7 @@ EFGMITEMS["efgm_barter_caps"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_carbattery"] = {
+EFGM.ITEMS["efgm_barter_carbattery"] = {
 	["fullName"] = "Car Battery",
 	["displayName"] = "Car Battery",
 	["displayType"] = "Energy",
@@ -627,7 +627,7 @@ EFGMITEMS["efgm_barter_carbattery"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cat"] = {
+EFGM.ITEMS["efgm_barter_cat"] = {
 	["fullName"] = "Cat Figurine",
 	["displayName"] = "Cat",
 	["displayType"] = "Valuable",
@@ -645,7 +645,7 @@ EFGMITEMS["efgm_barter_cat"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_prokill"] = {
+EFGM.ITEMS["efgm_barter_prokill"] = {
 	["fullName"] = "Chain With Prokill Medallion",
 	["displayName"] = "Prokill",
 	["displayType"] = "Valuable",
@@ -663,7 +663,7 @@ EFGMITEMS["efgm_barter_prokill"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_chainlet"] = {
+EFGM.ITEMS["efgm_barter_chainlet"] = {
 	["fullName"] = "Chainlet",
 	["displayName"] = "Chainlet",
 	["displayType"] = "Valuable",
@@ -681,7 +681,7 @@ EFGMITEMS["efgm_barter_chainlet"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ornament"] = {
+EFGM.ITEMS["efgm_barter_ornament"] = {
 	["fullName"] = "Christmas Tree Ornament",
 	["displayName"] = "Ornament",
 	["displayType"] = "Valuable",
@@ -699,7 +699,7 @@ EFGMITEMS["efgm_barter_ornament"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_matches"] = {
+EFGM.ITEMS["efgm_barter_matches"] = {
 	["fullName"] = "Classic Matches",
 	["displayName"] = "Matches",
 	["displayType"] = "Flammable",
@@ -717,7 +717,7 @@ EFGMITEMS["efgm_barter_matches"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_clin"] = {
+EFGM.ITEMS["efgm_barter_clin"] = {
 	["fullName"] = "Clin Window Cleaner",
 	["displayName"] = "Clin",
 	["displayType"] = "Household",
@@ -734,7 +734,7 @@ EFGMITEMS["efgm_barter_clin"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mtape"] = {
+EFGM.ITEMS["efgm_barter_mtape"] = {
 	["fullName"] = "Construction Measuring Tape",
 	["displayName"] = "MTape",
 	["displayType"] = "Tool",
@@ -752,7 +752,7 @@ EFGMITEMS["efgm_barter_mtape"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cordura"] = {
+EFGM.ITEMS["efgm_barter_cordura"] = {
 	["fullName"] = "Cordura Polyamide Fabric",
 	["displayName"] = "Cordura",
 	["displayType"] = "Other",
@@ -770,7 +770,7 @@ EFGMITEMS["efgm_barter_cordura"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_hose"] = {
+EFGM.ITEMS["efgm_barter_hose"] = {
 	["fullName"] = "Corrugated Hose",
 	["displayName"] = "Hose",
 	["displayType"] = "Building",
@@ -788,7 +788,7 @@ EFGMITEMS["efgm_barter_hose"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_crickent"] = {
+EFGM.ITEMS["efgm_barter_crickent"] = {
 	["fullName"] = "Crickent Lighter",
 	["displayName"] = "Crickent",
 	["displayType"] = "Flammable",
@@ -806,7 +806,7 @@ EFGMITEMS["efgm_barter_crickent"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cultistfigurine"] = {
+EFGM.ITEMS["efgm_barter_cultistfigurine"] = {
 	["fullName"] = "Cultist Figurine",
 	["displayName"] = "Cultist",
 	["displayType"] = "Valuable",
@@ -824,7 +824,7 @@ EFGMITEMS["efgm_barter_cultistfigurine"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cyclon"] = {
+EFGM.ITEMS["efgm_barter_cyclon"] = {
 	["fullName"] = "Cyclon Rechargeable Battery",
 	["displayName"] = "Cyclon",
 	["displayType"] = "Energy",
@@ -842,7 +842,7 @@ EFGMITEMS["efgm_barter_cyclon"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_dbattery"] = {
+EFGM.ITEMS["efgm_barter_dbattery"] = {
 	["fullName"] = "D Size Battery",
 	["displayName"] = "D batt.",
 	["displayType"] = "Energy",
@@ -860,7 +860,7 @@ EFGMITEMS["efgm_barter_dbattery"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_dvd"] = {
+EFGM.ITEMS["efgm_barter_dvd"] = {
 	["fullName"] = "DVD Drive",
 	["displayName"] = "DVD",
 	["displayType"] = "Electronic",
@@ -878,7 +878,7 @@ EFGMITEMS["efgm_barter_dvd"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_hdd"] = {
+EFGM.ITEMS["efgm_barter_hdd"] = {
 	["fullName"] = "Damaged Hard Drive",
 	["displayName"] = "HDD",
 	["displayType"] = "Electronic",
@@ -896,7 +896,7 @@ EFGMITEMS["efgm_barter_hdd"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_beardoil"] = {
+EFGM.ITEMS["efgm_barter_beardoil"] = {
 	["fullName"] = "Deadlyslob's Beard Oil",
 	["displayName"] = "BeardOil",
 	["displayType"] = "Household",
@@ -914,7 +914,7 @@ EFGMITEMS["efgm_barter_beardoil"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_dedmorozfigurine"] = {
+EFGM.ITEMS["efgm_barter_dedmorozfigurine"] = {
 	["fullName"] = "Ded Moroz Figurine",
 	["displayName"] = "Ded Moroz",
 	["displayType"] = "Valuable",
@@ -932,7 +932,7 @@ EFGMITEMS["efgm_barter_dedmorozfigurine"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_diary"] = {
+EFGM.ITEMS["efgm_barter_diary"] = {
 	["fullName"] = "Diary",
 	["displayName"] = "Diary",
 	["displayType"] = "Information",
@@ -950,7 +950,7 @@ EFGMITEMS["efgm_barter_diary"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_syringe"] = {
+EFGM.ITEMS["efgm_barter_syringe"] = {
 	["fullName"] = "Disposable Syringe",
 	["displayName"] = "Syringe",
 	["displayType"] = "Medicine",
@@ -968,7 +968,7 @@ EFGMITEMS["efgm_barter_syringe"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_dfuel"] = {
+EFGM.ITEMS["efgm_barter_dfuel"] = {
 	["fullName"] = "Dry Fuel",
 	["displayName"] = "DFuel",
 	["displayType"] = "Flammable",
@@ -986,7 +986,7 @@ EFGMITEMS["efgm_barter_dfuel"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ducttape"] = {
+EFGM.ITEMS["efgm_barter_ducttape"] = {
 	["fullName"] = "Duct Tape",
 	["displayName"] = "Duct Tape",
 	["displayType"] = "Building",
@@ -1004,7 +1004,7 @@ EFGMITEMS["efgm_barter_ducttape"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_drill"] = {
+EFGM.ITEMS["efgm_barter_drill"] = {
 	["fullName"] = "Electric Drill",
 	["displayName"] = "Drill",
 	["displayType"] = "Electronic",
@@ -1022,7 +1022,7 @@ EFGMITEMS["efgm_barter_drill"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_motor"] = {
+EFGM.ITEMS["efgm_barter_motor"] = {
 	["fullName"] = "Electric Motor",
 	["displayName"] = "Motor",
 	["displayType"] = "Electronic",
@@ -1040,7 +1040,7 @@ EFGMITEMS["efgm_barter_motor"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ec"] = {
+EFGM.ITEMS["efgm_barter_ec"] = {
 	["fullName"] = "Electronic Components",
 	["displayName"] = "EC",
 	["displayType"] = "Electronic",
@@ -1058,7 +1058,7 @@ EFGMITEMS["efgm_barter_ec"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_eslamp"] = {
+EFGM.ITEMS["efgm_barter_eslamp"] = {
 	["fullName"] = "Energy-saving Lamp",
 	["displayName"] = "ES Lamp",
 	["displayType"] = "Electronic",
@@ -1076,7 +1076,7 @@ EFGMITEMS["efgm_barter_eslamp"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_fuel"] = {
+EFGM.ITEMS["efgm_barter_fuel"] = {
 	["fullName"] = "Expeditionary Fuel Tank",
 	["displayName"] = "Fuel",
 	["displayType"] = "Flammable",
@@ -1094,7 +1094,7 @@ EFGMITEMS["efgm_barter_fuel"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_fp100"] = {
+EFGM.ITEMS["efgm_barter_fp100"] = {
 	["fullName"] = "FP-100 Filter Absorber",
 	["displayName"] = "FP-100",
 	["displayType"] = "Other",
@@ -1112,7 +1112,7 @@ EFGMITEMS["efgm_barter_fp100"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_gpsa"] = {
+EFGM.ITEMS["efgm_barter_gpsa"] = {
 	["fullName"] = "Far-forward GPS Signal Amplifier Unit",
 	["displayName"] = "GPSA",
 	["displayType"] = "Electronic",
@@ -1130,7 +1130,7 @@ EFGMITEMS["efgm_barter_gpsa"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_fscdr"] = {
+EFGM.ITEMS["efgm_barter_fscdr"] = {
 	["fullName"] = "Flat Screwdriver",
 	["displayName"] = "F scdr.",
 	["displayType"] = "Tool",
@@ -1148,7 +1148,7 @@ EFGMITEMS["efgm_barter_fscdr"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_landfscdr"] = {
+EFGM.ITEMS["efgm_barter_landfscdr"] = {
 	["fullName"] = "Flat Screwdriver (Long)",
 	["displayName"] = "L&F scdr.",
 	["displayType"] = "Tool",
@@ -1166,7 +1166,7 @@ EFGMITEMS["efgm_barter_landfscdr"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_fleece"] = {
+EFGM.ITEMS["efgm_barter_fleece"] = {
 	["fullName"] = "Fleece Fabric",
 	["displayName"] = "Fleece",
 	["displayType"] = "Other",
@@ -1184,7 +1184,7 @@ EFGMITEMS["efgm_barter_fleece"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_fcond"] = {
+EFGM.ITEMS["efgm_barter_fcond"] = {
 	["fullName"] = "Fuel Conditioner",
 	["displayName"] = "FCond",
 	["displayType"] = "Flammable",
@@ -1202,7 +1202,7 @@ EFGMITEMS["efgm_barter_fcond"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ewunit"] = {
+EFGM.ITEMS["efgm_barter_ewunit"] = {
 	["fullName"] = "GARY ZONT Portable Electronic Warfare Device",
 	["displayName"] = "EW Unit",
 	["displayType"] = "Electronic",
@@ -1220,7 +1220,7 @@ EFGMITEMS["efgm_barter_ewunit"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_gasan"] = {
+EFGM.ITEMS["efgm_barter_gasan"] = {
 	["fullName"] = "Gas Analyzer",
 	["displayName"] = "GasAn",
 	["displayType"] = "Electronic",
@@ -1238,7 +1238,7 @@ EFGMITEMS["efgm_barter_gasan"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_filter"] = {
+EFGM.ITEMS["efgm_barter_filter"] = {
 	["fullName"] = "Gas Mask Air Filter",
 	["displayName"] = "Filter",
 	["displayType"] = "Other",
@@ -1256,7 +1256,7 @@ EFGMITEMS["efgm_barter_filter"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_gmcount"] = {
+EFGM.ITEMS["efgm_barter_gmcount"] = {
 	["fullName"] = "Geiger-Muller Counter",
 	["displayName"] = "GMcount",
 	["displayType"] = "Electronic",
@@ -1274,7 +1274,7 @@ EFGMITEMS["efgm_barter_gmcount"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_skull"] = {
+EFGM.ITEMS["efgm_barter_skull"] = {
 	["fullName"] = "Gold Skull Ring",
 	["displayName"] = "Skull",
 	["displayType"] = "Valuable",
@@ -1292,7 +1292,7 @@ EFGMITEMS["efgm_barter_skull"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_1gphone"] = {
+EFGM.ITEMS["efgm_barter_1gphone"] = {
 	["fullName"] = "Golden 1GPhone Smartphone",
 	["displayName"] = "1GPhone",
 	["displayType"] = "Electronic",
@@ -1310,7 +1310,7 @@ EFGMITEMS["efgm_barter_1gphone"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_egg"] = {
+EFGM.ITEMS["efgm_barter_egg"] = {
 	["fullName"] = "Golden Egg",
 	["displayName"] = "Egg",
 	["displayType"] = "Valuable",
@@ -1328,7 +1328,7 @@ EFGMITEMS["efgm_barter_egg"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_goldchain"] = {
+EFGM.ITEMS["efgm_barter_goldchain"] = {
 	["fullName"] = "Golden Neck Chain",
 	["displayName"] = "GoldChain",
 	["displayType"] = "Valuable",
@@ -1346,7 +1346,7 @@ EFGMITEMS["efgm_barter_goldchain"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_rooster"] = {
+EFGM.ITEMS["efgm_barter_rooster"] = {
 	["fullName"] = "Golden Rooster Figurine",
 	["displayName"] = "Rooster",
 	["displayType"] = "Valuable",
@@ -1364,7 +1364,7 @@ EFGMITEMS["efgm_barter_rooster"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_gpu"] = {
+EFGM.ITEMS["efgm_barter_gpu"] = {
 	["fullName"] = "Graphics Card",
 	["displayName"] = "GPU",
 	["displayType"] = "Electronic",
@@ -1382,7 +1382,7 @@ EFGMITEMS["efgm_barter_gpu"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_greenbat"] = {
+EFGM.ITEMS["efgm_barter_greenbat"] = {
 	["fullName"] = "GreenBat Lithium Battery",
 	["displayName"] = "GreenBat",
 	["displayType"] = "Energy",
@@ -1400,7 +1400,7 @@ EFGMITEMS["efgm_barter_greenbat"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_eagle"] = {
+EFGM.ITEMS["efgm_barter_eagle"] = {
 	["fullName"] = 'Gunpowder "Eagle"',
 	["displayName"] = "Eagle",
 	["displayType"] = "Flammable",
@@ -1418,7 +1418,7 @@ EFGMITEMS["efgm_barter_eagle"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_hawk"] = {
+EFGM.ITEMS["efgm_barter_hawk"] = {
 	["fullName"] = 'Gunpowder "Hawk"',
 	["displayName"] = "Hawk",
 	["displayType"] = "Flammable",
@@ -1436,7 +1436,7 @@ EFGMITEMS["efgm_barter_hawk"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_kite"] = {
+EFGM.ITEMS["efgm_barter_kite"] = {
 	["fullName"] = 'Gunpowder "Kite"',
 	["displayName"] = "Kite",
 	["displayType"] = "Flammable",
@@ -1454,7 +1454,7 @@ EFGMITEMS["efgm_barter_kite"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_handdrill"] = {
+EFGM.ITEMS["efgm_barter_handdrill"] = {
 	["fullName"] = "Hand Drill",
 	["displayName"] = "Hand Drill",
 	["displayType"] = "Tool",
@@ -1472,7 +1472,7 @@ EFGMITEMS["efgm_barter_handdrill"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_horse"] = {
+EFGM.ITEMS["efgm_barter_horse"] = {
 	["fullName"] = "Horse Figurine",
 	["displayName"] = "Horse",
 	["displayType"] = "Valuable",
@@ -1490,7 +1490,7 @@ EFGMITEMS["efgm_barter_horse"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_hmatches"] = {
+EFGM.ITEMS["efgm_barter_hmatches"] = {
 	["fullName"] = "Hunting Matches",
 	["displayName"] = "HMatches",
 	["displayType"] = "Flammable",
@@ -1508,7 +1508,7 @@ EFGMITEMS["efgm_barter_hmatches"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_inseq"] = {
+EFGM.ITEMS["efgm_barter_inseq"] = {
 	["fullName"] = "Inseq Gas Pipe Wrench",
 	["displayName"] = "Inseq",
 	["displayType"] = "Tool",
@@ -1526,7 +1526,7 @@ EFGMITEMS["efgm_barter_inseq"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tape"] = {
+EFGM.ITEMS["efgm_barter_tape"] = {
 	["fullName"] = "Insulating Tape",
 	["displayName"] = "Tape",
 	["displayType"] = "Building",
@@ -1544,7 +1544,7 @@ EFGMITEMS["efgm_barter_tape"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_intelligence"] = {
+EFGM.ITEMS["efgm_barter_intelligence"] = {
 	["fullName"] = "Intelligence Folder",
 	["displayName"] = "Intelligence",
 	["displayType"] = "Information",
@@ -1562,7 +1562,7 @@ EFGMITEMS["efgm_barter_intelligence"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_iridium"] = {
+EFGM.ITEMS["efgm_barter_iridium"] = {
 	["fullName"] = "Iridium Military Thermal Vision Module",
 	["displayName"] = "Iridium",
 	["displayType"] = "Electronic",
@@ -1580,7 +1580,7 @@ EFGMITEMS["efgm_barter_iridium"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pickles"] = {
+EFGM.ITEMS["efgm_barter_pickles"] = {
 	["fullName"] = "Jar Of Pickles",
 	["displayName"] = "Pickles",
 	["displayType"] = "Other",
@@ -1598,7 +1598,7 @@ EFGMITEMS["efgm_barter_pickles"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_kek"] = {
+EFGM.ITEMS["efgm_barter_kek"] = {
 	["fullName"] = "KEKTAPE Duct Tape",
 	["displayName"] = "KEK",
 	["displayType"] = "Building",
@@ -1616,7 +1616,7 @@ EFGMITEMS["efgm_barter_kek"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_kosa"] = {
+EFGM.ITEMS["efgm_barter_kosa"] = {
 	["fullName"] = "KOSA UAV Electronic Jamming Device",
 	["displayName"] = "KOSA",
 	["displayType"] = "Electronic",
@@ -1634,7 +1634,7 @@ EFGMITEMS["efgm_barter_kosa"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ledx"] = {
+EFGM.ITEMS["efgm_barter_ledx"] = {
 	["fullName"] = "LEDX Skin Transilluminator",
 	["displayName"] = "LEDX",
 	["displayType"] = "Medicine",
@@ -1652,7 +1652,7 @@ EFGMITEMS["efgm_barter_ledx"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_multitool"] = {
+EFGM.ITEMS["efgm_barter_multitool"] = {
 	["fullName"] = "Leatherman Multitool",
 	["displayName"] = "MultiTool",
 	["displayType"] = "Tool",
@@ -1670,7 +1670,7 @@ EFGMITEMS["efgm_barter_multitool"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bulb"] = {
+EFGM.ITEMS["efgm_barter_bulb"] = {
 	["fullName"] = "Light Bulb",
 	["displayName"] = "Bulb",
 	["displayType"] = "Electronic",
@@ -1688,7 +1688,7 @@ EFGMITEMS["efgm_barter_bulb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bulb"] = {
+EFGM.ITEMS["efgm_barter_bulb"] = {
 	["fullName"] = "Light Bulb",
 	["displayName"] = "Bulb",
 	["displayType"] = "Electronic",
@@ -1706,7 +1706,7 @@ EFGMITEMS["efgm_barter_bulb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_lootlord"] = {
+EFGM.ITEMS["efgm_barter_lootlord"] = {
 	["fullName"] = "Loot Lord Plushie",
 	["displayName"] = "Loot Lord",
 	["displayType"] = "Valuable",
@@ -1724,7 +1724,7 @@ EFGMITEMS["efgm_barter_lootlord"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_magnet"] = {
+EFGM.ITEMS["efgm_barter_magnet"] = {
 	["fullName"] = "Magnet",
 	["displayName"] = "Magnet",
 	["displayType"] = "Electronic",
@@ -1742,7 +1742,7 @@ EFGMITEMS["efgm_barter_magnet"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_malboro"] = {
+EFGM.ITEMS["efgm_barter_malboro"] = {
 	["fullName"] = "Malboro Cigarettes",
 	["displayName"] = "Malboro",
 	["displayType"] = "Other",
@@ -1760,7 +1760,7 @@ EFGMITEMS["efgm_barter_malboro"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bloodset"] = {
+EFGM.ITEMS["efgm_barter_bloodset"] = {
 	["fullName"] = "Medical Bloodset",
 	["displayName"] = "Bloodset",
 	["displayType"] = "Medicine",
@@ -1778,7 +1778,7 @@ EFGMITEMS["efgm_barter_bloodset"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_medtools"] = {
+EFGM.ITEMS["efgm_barter_medtools"] = {
 	["fullName"] = "Medical Tools",
 	["displayName"] = "MedTools",
 	["displayType"] = "Medicine",
@@ -1796,7 +1796,7 @@ EFGMITEMS["efgm_barter_medtools"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mscissors"] = {
+EFGM.ITEMS["efgm_barter_mscissors"] = {
 	["fullName"] = "Metal Cutting Scissors",
 	["displayName"] = "MScissors",
 	["displayType"] = "Tool",
@@ -1814,7 +1814,7 @@ EFGMITEMS["efgm_barter_mscissors"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_metalfuel"] = {
+EFGM.ITEMS["efgm_barter_metalfuel"] = {
 	["fullName"] = "Metal Fuel Tank",
 	["displayName"] = "Fuel",
 	["displayType"] = "Flammable",
@@ -1832,7 +1832,7 @@ EFGMITEMS["efgm_barter_metalfuel"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mparts"] = {
+EFGM.ITEMS["efgm_barter_mparts"] = {
 	["fullName"] = "Metal Spare Parts",
 	["displayName"] = "M.parts",
 	["displayType"] = "Building",
@@ -1850,7 +1850,7 @@ EFGMITEMS["efgm_barter_mparts"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mb"] = {
+EFGM.ITEMS["efgm_barter_mb"] = {
 	["fullName"] = "Microcontroller Board",
 	["displayName"] = "MB",
 	["displayType"] = "Electronic",
@@ -1868,7 +1868,7 @@ EFGMITEMS["efgm_barter_mb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_sgc10"] = {
+EFGM.ITEMS["efgm_barter_sgc10"] = {
 	["fullName"] = "Military COFDM Wireless Signal Transmitter",
 	["displayName"] = "SG-C10",
 	["displayType"] = "Electronic",
@@ -1886,7 +1886,7 @@ EFGMITEMS["efgm_barter_sgc10"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mcable"] = {
+EFGM.ITEMS["efgm_barter_mcable"] = {
 	["fullName"] = "Military Cable",
 	["displayName"] = "MCable",
 	["displayType"] = "Electronic",
@@ -1904,7 +1904,7 @@ EFGMITEMS["efgm_barter_mcable"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mcb"] = {
+EFGM.ITEMS["efgm_barter_mcb"] = {
 	["fullName"] = "Military Circuit Board",
 	["displayName"] = "MCB",
 	["displayType"] = "Electronic",
@@ -1922,7 +1922,7 @@ EFGMITEMS["efgm_barter_mcb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mtube"] = {
+EFGM.ITEMS["efgm_barter_mtube"] = {
 	["fullName"] = "Military Corrugated Tube",
 	["displayName"] = "MTube",
 	["displayType"] = "Building",
@@ -1940,7 +1940,7 @@ EFGMITEMS["efgm_barter_mtube"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mfd"] = {
+EFGM.ITEMS["efgm_barter_mfd"] = {
 	["fullName"] = "Military Flash Drive",
 	["displayName"] = "MFD",
 	["displayType"] = "Information",
@@ -1958,7 +1958,7 @@ EFGMITEMS["efgm_barter_mfd"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_mgt"] = {
+EFGM.ITEMS["efgm_barter_mgt"] = {
 	["fullName"] = "Military Gyrotachometer",
 	["displayName"] = "MGT",
 	["displayType"] = "Electronic",
@@ -1976,7 +1976,7 @@ EFGMITEMS["efgm_barter_mgt"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pfilter"] = {
+EFGM.ITEMS["efgm_barter_pfilter"] = {
 	["fullName"] = "Military Power Filter",
 	["displayName"] = "PFilter",
 	["displayType"] = "Electronic",
@@ -1994,7 +1994,7 @@ EFGMITEMS["efgm_barter_pfilter"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_nixxor"] = {
+EFGM.ITEMS["efgm_barter_nixxor"] = {
 	["fullName"] = "NIXXOR Lens",
 	["displayName"] = "NIXXOR",
 	["displayType"] = "Electronic",
@@ -2012,7 +2012,7 @@ EFGMITEMS["efgm_barter_nixxor"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_nippers"] = {
+EFGM.ITEMS["efgm_barter_nippers"] = {
 	["fullName"] = "Nippers",
 	["displayName"] = "Nippers",
 	["displayType"] = "Tool",
@@ -2030,7 +2030,7 @@ EFGMITEMS["efgm_barter_nippers"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ofz"] = {
+EFGM.ITEMS["efgm_barter_ofz"] = {
 	["fullName"] = "OFZ 30x165mm shell",
 	["displayName"] = "OFZ",
 	["displayType"] = "Other",
@@ -2048,7 +2048,7 @@ EFGMITEMS["efgm_barter_ofz"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_firesteel"] = {
+EFGM.ITEMS["efgm_barter_firesteel"] = {
 	["fullName"] = "Old Firesteel",
 	["displayName"] = "Firesteel",
 	["displayType"] = "Valuable",
@@ -2066,7 +2066,7 @@ EFGMITEMS["efgm_barter_firesteel"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_oscope"] = {
+EFGM.ITEMS["efgm_barter_oscope"] = {
 	["fullName"] = "Ophthalmoscope",
 	["displayName"] = "OScope",
 	["displayType"] = "Medicine",
@@ -2084,7 +2084,7 @@ EFGMITEMS["efgm_barter_oscope"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_toothpaste"] = {
+EFGM.ITEMS["efgm_barter_toothpaste"] = {
 	["fullName"] = "Ortodontox Toothpaste",
 	["displayName"] = "Ortodontox",
 	["displayType"] = "Household",
@@ -2101,7 +2101,7 @@ EFGMITEMS["efgm_barter_toothpaste"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_bleach"] = {
+EFGM.ITEMS["efgm_barter_bleach"] = {
 	["fullName"] = "Ox Bleach",
 	["displayName"] = "Bleach",
 	["displayType"] = "Household",
@@ -2118,7 +2118,7 @@ EFGMITEMS["efgm_barter_bleach"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_paid"] = {
+EFGM.ITEMS["efgm_barter_paid"] = {
 	["fullName"] = "PAID AntiRoach Spray",
 	["displayName"] = "PAID",
 	["displayType"] = "Household",
@@ -2135,7 +2135,7 @@ EFGMITEMS["efgm_barter_paid"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cpu"] = {
+EFGM.ITEMS["efgm_barter_cpu"] = {
 	["fullName"] = "PC CPU",
 	["displayName"] = "CPU",
 	["displayType"] = "Electronic",
@@ -2153,7 +2153,7 @@ EFGMITEMS["efgm_barter_cpu"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_buckwheat"] = {
+EFGM.ITEMS["efgm_barter_buckwheat"] = {
 	["fullName"] = "Pack Of Arseniy Buckwheat",
 	["displayName"] = "Buckwheat",
 	["displayType"] = "Other",
@@ -2170,7 +2170,7 @@ EFGMITEMS["efgm_barter_buckwheat"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_chlorine"] = {
+EFGM.ITEMS["efgm_barter_chlorine"] = {
 	["fullName"] = "Pack Of Chlorine",
 	["displayName"] = "Chlorine",
 	["displayType"] = "Household",
@@ -2187,7 +2187,7 @@ EFGMITEMS["efgm_barter_chlorine"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_nails"] = {
+EFGM.ITEMS["efgm_barter_nails"] = {
 	["fullName"] = "Pack Of Nails",
 	["displayName"] = "Nails",
 	["displayType"] = "Building",
@@ -2205,7 +2205,7 @@ EFGMITEMS["efgm_barter_nails"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_screws"] = {
+EFGM.ITEMS["efgm_barter_screws"] = {
 	["fullName"] = "Pack Of Screws",
 	["displayName"] = "Nails",
 	["displayType"] = "Building",
@@ -2223,7 +2223,7 @@ EFGMITEMS["efgm_barter_screws"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_sodium"] = {
+EFGM.ITEMS["efgm_barter_sodium"] = {
 	["fullName"] = "Pack Of Sodium Bicarbonate",
 	["displayName"] = "Sodium",
 	["displayType"] = "Household",
@@ -2241,7 +2241,7 @@ EFGMITEMS["efgm_barter_sodium"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_paracord"] = {
+EFGM.ITEMS["efgm_barter_paracord"] = {
 	["fullName"] = "Paracord",
 	["displayName"] = "Paracord",
 	["displayType"] = "Tool",
@@ -2259,7 +2259,7 @@ EFGMITEMS["efgm_barter_paracord"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_relay"] = {
+EFGM.ITEMS["efgm_barter_relay"] = {
 	["fullName"] = "Phase Control Relay",
 	["displayName"] = "Relay",
 	["displayType"] = "Electronic",
@@ -2277,7 +2277,7 @@ EFGMITEMS["efgm_barter_relay"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_aesa"] = {
+EFGM.ITEMS["efgm_barter_aesa"] = {
 	["fullName"] = "Phased Array Element",
 	["displayName"] = "AESA",
 	["displayType"] = "Electronic",
@@ -2295,7 +2295,7 @@ EFGMITEMS["efgm_barter_aesa"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_btc"] = {
+EFGM.ITEMS["efgm_barter_btc"] = {
 	["fullName"] = "Physical Bitcoin",
 	["displayName"] = "0.2BTC",
 	["displayType"] = "Valuable",
@@ -2313,7 +2313,7 @@ EFGMITEMS["efgm_barter_btc"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_plexiglass"] = {
+EFGM.ITEMS["efgm_barter_plexiglass"] = {
 	["fullName"] = "Piece Of Plexiglass",
 	["displayName"] = "Plexiglass",
 	["displayType"] = "Building",
@@ -2331,7 +2331,7 @@ EFGMITEMS["efgm_barter_plexiglass"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_meds"] = {
+EFGM.ITEMS["efgm_barter_meds"] = {
 	["fullName"] = "Pile Of Meds",
 	["displayName"] = "Meds",
 	["displayType"] = "Medicine",
@@ -2349,7 +2349,7 @@ EFGMITEMS["efgm_barter_meds"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pgw"] = {
+EFGM.ITEMS["efgm_barter_pgw"] = {
 	["fullName"] = "Pipe Grip Wrench",
 	["displayName"] = "PGW",
 	["displayType"] = "Tool",
@@ -2367,7 +2367,7 @@ EFGMITEMS["efgm_barter_pgw"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pliers"] = {
+EFGM.ITEMS["efgm_barter_pliers"] = {
 	["fullName"] = "Pliers",
 	["displayName"] = "Pliers",
 	["displayType"] = "Tool",
@@ -2385,7 +2385,7 @@ EFGMITEMS["efgm_barter_pliers"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_elite"] = {
+EFGM.ITEMS["efgm_barter_elite"] = {
 	["fullName"] = "Pliers Elite",
 	["displayName"] = "Elite",
 	["displayType"] = "Tool",
@@ -2403,7 +2403,7 @@ EFGMITEMS["efgm_barter_elite"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_powerbank"] = {
+EFGM.ITEMS["efgm_barter_powerbank"] = {
 	["fullName"] = "Portable Powerbank",
 	["displayName"] = "Powerbank",
 	["displayType"] = "Energy",
@@ -2421,7 +2421,7 @@ EFGMITEMS["efgm_barter_powerbank"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_defib"] = {
+EFGM.ITEMS["efgm_barter_defib"] = {
 	["fullName"] = "Portable Defibrillator",
 	["displayName"] = "Defib",
 	["displayType"] = "Medicine",
@@ -2439,7 +2439,7 @@ EFGMITEMS["efgm_barter_defib"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_cord"] = {
+EFGM.ITEMS["efgm_barter_cord"] = {
 	["fullName"] = "Power Cord",
 	["displayName"] = "Cord",
 	["displayType"] = "Electronic",
@@ -2457,7 +2457,7 @@ EFGMITEMS["efgm_barter_cord"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_psu"] = {
+EFGM.ITEMS["efgm_barter_psu"] = {
 	["fullName"] = "Power Supply Unit",
 	["displayName"] = "PSU",
 	["displayType"] = "Electronic",
@@ -2475,7 +2475,7 @@ EFGMITEMS["efgm_barter_psu"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pass"] = {
+EFGM.ITEMS["efgm_barter_pass"] = {
 	["fullName"] = "Press Pass",
 	["displayName"] = "Pass",
 	["displayType"] = "Other",
@@ -2493,7 +2493,7 @@ EFGMITEMS["efgm_barter_pass"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pgauge"] = {
+EFGM.ITEMS["efgm_barter_pgauge"] = {
 	["fullName"] = "Pressure Gauge",
 	["displayName"] = "PGauge",
 	["displayType"] = "Building",
@@ -2511,7 +2511,7 @@ EFGMITEMS["efgm_barter_pgauge"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_pcb"] = {
+EFGM.ITEMS["efgm_barter_pcb"] = {
 	["fullName"] = "Printed Circuit Board",
 	["displayName"] = "PCB",
 	["displayType"] = "Electronic",
@@ -2529,7 +2529,7 @@ EFGMITEMS["efgm_barter_pcb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_paper"] = {
+EFGM.ITEMS["efgm_barter_paper"] = {
 	["fullName"] = "Printer Paper",
 	["displayName"] = "Paper",
 	["displayType"] = "Household",
@@ -2546,7 +2546,7 @@ EFGMITEMS["efgm_barter_paper"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_propane"] = {
+EFGM.ITEMS["efgm_barter_propane"] = {
 	["fullName"] = "Propane Tank (5L)",
 	["displayName"] = "Propane",
 	["displayType"] = "Flammable",
@@ -2564,7 +2564,7 @@ EFGMITEMS["efgm_barter_propane"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ram"] = {
+EFGM.ITEMS["efgm_barter_ram"] = {
 	["fullName"] = "RAM Stick",
 	["displayName"] = "RAM",
 	["displayType"] = "Electronic",
@@ -2582,7 +2582,7 @@ EFGMITEMS["efgm_barter_ram"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_helix"] = {
+EFGM.ITEMS["efgm_barter_helix"] = {
 	["fullName"] = "Radiator Helix",
 	["displayName"] = "Helix",
 	["displayType"] = "Electronic",
@@ -2600,7 +2600,7 @@ EFGMITEMS["efgm_barter_helix"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ratchet"] = {
+EFGM.ITEMS["efgm_barter_ratchet"] = {
 	["fullName"] = "Ratchet Wrench",
 	["displayName"] = "Ratchet",
 	["displayType"] = "Tool",
@@ -2618,7 +2618,7 @@ EFGMITEMS["efgm_barter_ratchet"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_raven"] = {
+EFGM.ITEMS["efgm_barter_raven"] = {
 	["fullName"] = "Raven Figurine",
 	["displayName"] = "Raven",
 	["displayType"] = "Valuable",
@@ -2636,7 +2636,7 @@ EFGMITEMS["efgm_barter_raven"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_rbatt"] = {
+EFGM.ITEMS["efgm_barter_rbatt"] = {
 	["fullName"] = "Rechargeable Battery",
 	["displayName"] = "RBattery",
 	["displayType"] = "Energy",
@@ -2654,7 +2654,7 @@ EFGMITEMS["efgm_barter_rbatt"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_repellent"] = {
+EFGM.ITEMS["efgm_barter_repellent"] = {
 	["fullName"] = "Repellent",
 	["displayName"] = "Repellent",
 	["displayType"] = "Household",
@@ -2671,7 +2671,7 @@ EFGMITEMS["efgm_barter_repellent"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ripstop"] = {
+EFGM.ITEMS["efgm_barter_ripstop"] = {
 	["fullName"] = "Ripstop Fabric",
 	["displayName"] = "Ripstop",
 	["displayType"] = "Other",
@@ -2689,7 +2689,7 @@ EFGMITEMS["efgm_barter_ripstop"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_roler"] = {
+EFGM.ITEMS["efgm_barter_roler"] = {
 	["fullName"] = "Roler Submariner Gold Wrist Watch",
 	["displayName"] = "Roler",
 	["displayType"] = "Valuable",
@@ -2707,7 +2707,7 @@ EFGMITEMS["efgm_barter_roler"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_rpliers"] = {
+EFGM.ITEMS["efgm_barter_rpliers"] = {
 	["fullName"] = "Round Pliers",
 	["displayName"] = "RPliers",
 	["displayType"] = "Tool",
@@ -2725,7 +2725,7 @@ EFGMITEMS["efgm_barter_rpliers"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_sas"] = {
+EFGM.ITEMS["efgm_barter_sas"] = {
 	["fullName"] = "SAS Drive",
 	["displayName"] = "SAS",
 	["displayType"] = "Information",
@@ -2743,7 +2743,7 @@ EFGMITEMS["efgm_barter_sas"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_ssd"] = {
+EFGM.ITEMS["efgm_barter_ssd"] = {
 	["fullName"] = "SSD Drive",
 	["displayName"] = "SSD",
 	["displayType"] = "Information",
@@ -2761,7 +2761,7 @@ EFGMITEMS["efgm_barter_ssd"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_shampoo"] = {
+EFGM.ITEMS["efgm_barter_shampoo"] = {
 	["fullName"] = "Schaman Shampoo",
 	["displayName"] = "Shampoo",
 	["displayType"] = "Household",
@@ -2778,7 +2778,7 @@ EFGMITEMS["efgm_barter_shampoo"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_nuts"] = {
+EFGM.ITEMS["efgm_barter_nuts"] = {
 	["fullName"] = "Screw Nuts",
 	["displayName"] = "Nuts",
 	["displayType"] = "Building",
@@ -2796,7 +2796,7 @@ EFGMITEMS["efgm_barter_nuts"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_screwdriver"] = {
+EFGM.ITEMS["efgm_barter_screwdriver"] = {
 	["fullName"] = "Screwdriver",
 	["displayName"] = "Scdr.",
 	["displayType"] = "Tool",
@@ -2814,7 +2814,7 @@ EFGMITEMS["efgm_barter_screwdriver"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_flashdrive"] = {
+EFGM.ITEMS["efgm_barter_flashdrive"] = {
 	["fullName"] = "Secure Flash Drive",
 	["displayName"] = "Flash",
 	["displayType"] = "Information",
@@ -2832,7 +2832,7 @@ EFGMITEMS["efgm_barter_flashdrive"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_smt"] = {
+EFGM.ITEMS["efgm_barter_smt"] = {
 	["fullName"] = "Secure Magnetic Tape Cassettee",
 	["displayName"] = "SMT",
 	["displayType"] = "Information",
@@ -2850,7 +2850,7 @@ EFGMITEMS["efgm_barter_smt"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_master"] = {
+EFGM.ITEMS["efgm_barter_master"] = {
 	["fullName"] = 'Set Of Files "Master"',
 	["displayName"] = "Master",
 	["displayType"] = "Tool",
@@ -2868,7 +2868,7 @@ EFGMITEMS["efgm_barter_master"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_sewingkit"] = {
+EFGM.ITEMS["efgm_barter_sewingkit"] = {
 	["fullName"] = "Sewing Kit",
 	["displayName"] = "Sewing",
 	["displayType"] = "Tool",
@@ -2886,7 +2886,7 @@ EFGMITEMS["efgm_barter_sewingkit"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_shus"] = {
+EFGM.ITEMS["efgm_barter_shus"] = {
 	["fullName"] = "Shustrilo Sealing Foam",
 	["displayName"] = "Shus",
 	["displayType"] = "Building",
@@ -2904,7 +2904,7 @@ EFGMITEMS["efgm_barter_shus"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tube"] = {
+EFGM.ITEMS["efgm_barter_tube"] = {
 	["fullName"] = "Silicone Tube",
 	["displayName"] = "Tube",
 	["displayType"] = "Building",
@@ -2922,7 +2922,7 @@ EFGMITEMS["efgm_barter_tube"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_badge"] = {
+EFGM.ITEMS["efgm_barter_badge"] = {
 	["fullName"] = "Silver Badge",
 	["displayName"] = "Badge",
 	["displayType"] = "Valuable",
@@ -2940,7 +2940,7 @@ EFGMITEMS["efgm_barter_badge"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_slimdiary"] = {
+EFGM.ITEMS["efgm_barter_slimdiary"] = {
 	["fullName"] = "Slim Diary",
 	["displayName"] = "SDiary",
 	["displayType"] = "Information",
@@ -2958,7 +2958,7 @@ EFGMITEMS["efgm_barter_slimdiary"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_dcleaner"] = {
+EFGM.ITEMS["efgm_barter_dcleaner"] = {
 	["fullName"] = "Smoked Chimney Drain Cleaner",
 	["displayName"] = "DCleaner",
 	["displayType"] = "Household",
@@ -2975,7 +2975,7 @@ EFGMITEMS["efgm_barter_dcleaner"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_soap"] = {
+EFGM.ITEMS["efgm_barter_soap"] = {
 	["fullName"] = "Soap",
 	["displayName"] = "Soap",
 	["displayType"] = "Household",
@@ -2992,7 +2992,7 @@ EFGMITEMS["efgm_barter_soap"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_splug"] = {
+EFGM.ITEMS["efgm_barter_splug"] = {
 	["fullName"] = "Spark Plug",
 	["displayName"] = "SPlug",
 	["displayType"] = "Electronic",
@@ -3010,7 +3010,7 @@ EFGMITEMS["efgm_barter_splug"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_strike"] = {
+EFGM.ITEMS["efgm_barter_strike"] = {
 	["fullName"] = "Strike Cigarettes",
 	["displayName"] = "Strike",
 	["displayType"] = "Other",
@@ -3028,7 +3028,7 @@ EFGMITEMS["efgm_barter_strike"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_survl"] = {
+EFGM.ITEMS["efgm_barter_survl"] = {
 	["fullName"] = "SurvL Survivor Lighter",
 	["displayName"] = "SurvL",
 	["displayType"] = "Flammable",
@@ -3046,7 +3046,7 @@ EFGMITEMS["efgm_barter_survl"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tplug"] = {
+EFGM.ITEMS["efgm_barter_tplug"] = {
 	["fullName"] = "T-Shaped Plug",
 	["displayName"] = "T-Plug",
 	["displayType"] = "Electronic",
@@ -3064,7 +3064,7 @@ EFGMITEMS["efgm_barter_tplug"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tp200"] = {
+EFGM.ITEMS["efgm_barter_tp200"] = {
 	["fullName"] = "TP-200 TNT Brick",
 	["displayName"] = "TP-200",
 	["displayType"] = "Flammable",
@@ -3082,7 +3082,7 @@ EFGMITEMS["efgm_barter_tp200"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tp200"] = {
+EFGM.ITEMS["efgm_barter_tp200"] = {
 	["fullName"] = "TP-200 TNT Brick",
 	["displayName"] = "TP-200",
 	["displayType"] = "Flammable",
@@ -3100,7 +3100,7 @@ EFGMITEMS["efgm_barter_tp200"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tamatthi"] = {
+EFGM.ITEMS["efgm_barter_tamatthi"] = {
 	["fullName"] = "Tamatthi Kunai Knife Replica",
 	["displayName"] = "Tamatthi",
 	["displayType"] = "Valuable",
@@ -3118,7 +3118,7 @@ EFGMITEMS["efgm_barter_tamatthi"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_manual"] = {
+EFGM.ITEMS["efgm_barter_manual"] = {
 	["fullName"] = "Tech Manual",
 	["displayName"] = "Manual",
 	["displayType"] = "Information",
@@ -3136,7 +3136,7 @@ EFGMITEMS["efgm_barter_manual"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_folders"] = {
+EFGM.ITEMS["efgm_barter_folders"] = {
 	["fullName"] = 'TerraGroup "Blue Folders" Materials',
 	["displayName"] = "Folders",
 	["displayType"] = "Information",
@@ -3154,7 +3154,7 @@ EFGMITEMS["efgm_barter_folders"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tetriz"] = {
+EFGM.ITEMS["efgm_barter_tetriz"] = {
 	["fullName"] = "Tetriz Portable Game Console",
 	["displayName"] = "Tetriz",
 	["displayType"] = "Electronic",
@@ -3172,7 +3172,7 @@ EFGMITEMS["efgm_barter_tetriz"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tp"] = {
+EFGM.ITEMS["efgm_barter_tp"] = {
 	["fullName"] = "Toilet Paper",
 	["displayName"] = "TP",
 	["displayType"] = "Household",
@@ -3189,7 +3189,7 @@ EFGMITEMS["efgm_barter_tp"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_toolset"] = {
+EFGM.ITEMS["efgm_barter_toolset"] = {
 	["fullName"] = "Toolset",
 	["displayName"] = "Toolset",
 	["displayType"] = "Tool",
@@ -3207,7 +3207,7 @@ EFGMITEMS["efgm_barter_toolset"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_maps"] = {
+EFGM.ITEMS["efgm_barter_maps"] = {
 	["fullName"] = "Topographic Survey Maps",
 	["displayName"] = "Maps",
 	["displayType"] = "Information",
@@ -3225,7 +3225,7 @@ EFGMITEMS["efgm_barter_maps"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_poxeram"] = {
+EFGM.ITEMS["efgm_barter_poxeram"] = {
 	["fullName"] = "Tube Of Poxeram Cold Welding",
 	["displayName"] = "Poxeram",
 	["displayType"] = "Building",
@@ -3243,7 +3243,7 @@ EFGMITEMS["efgm_barter_poxeram"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_rfidr"] = {
+EFGM.ITEMS["efgm_barter_rfidr"] = {
 	["fullName"] = "UHF RFID Reader",
 	["displayName"] = "RFIDR",
 	["displayType"] = "Electronic",
@@ -3261,7 +3261,7 @@ EFGMITEMS["efgm_barter_rfidr"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_usb"] = {
+EFGM.ITEMS["efgm_barter_usb"] = {
 	["fullName"] = "USB Adapter",
 	["displayName"] = "USB-A",
 	["displayType"] = "Electronic",
@@ -3279,7 +3279,7 @@ EFGMITEMS["efgm_barter_usb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_usb"] = {
+EFGM.ITEMS["efgm_barter_usb"] = {
 	["fullName"] = "USB Adapter",
 	["displayName"] = "USB-A",
 	["displayType"] = "Electronic",
@@ -3297,7 +3297,7 @@ EFGMITEMS["efgm_barter_usb"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_usecfigurine"] = {
+EFGM.ITEMS["efgm_barter_usecfigurine"] = {
 	["fullName"] = "USEC Operative Figurine",
 	["displayName"] = "USEC",
 	["displayType"] = "Valuable",
@@ -3315,7 +3315,7 @@ EFGMITEMS["efgm_barter_usecfigurine"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_fuze"] = {
+EFGM.ITEMS["efgm_barter_fuze"] = {
 	["fullName"] = "UZRGM Grenade Fuze",
 	["displayName"] = "Fuze",
 	["displayType"] = "Other",
@@ -3333,7 +3333,7 @@ EFGMITEMS["efgm_barter_fuze"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_uvlamp"] = {
+EFGM.ITEMS["efgm_barter_uvlamp"] = {
 	["fullName"] = "Ultraviolet Lamp",
 	["displayName"] = "UV",
 	["displayType"] = "Electronic",
@@ -3351,7 +3351,7 @@ EFGMITEMS["efgm_barter_uvlamp"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_vpx"] = {
+EFGM.ITEMS["efgm_barter_vpx"] = {
 	["fullName"] = "VPX Flash Storage Module",
 	["displayName"] = "VPX",
 	["displayType"] = "Information",
@@ -3369,7 +3369,7 @@ EFGMITEMS["efgm_barter_vpx"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_veritas"] = {
+EFGM.ITEMS["efgm_barter_veritas"] = {
 	["fullName"] = "Veritas Guitar Pick",
 	["displayName"] = "Veritas",
 	["displayType"] = "Valuable",
@@ -3387,7 +3387,7 @@ EFGMITEMS["efgm_barter_veritas"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_viibiin"] = {
+EFGM.ITEMS["efgm_barter_viibiin"] = {
 	["fullName"] = "Viibiin Sneaker",
 	["displayName"] = "Viibiin",
 	["displayType"] = "Valuable",
@@ -3405,7 +3405,7 @@ EFGMITEMS["efgm_barter_viibiin"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_virtex"] = {
+EFGM.ITEMS["efgm_barter_virtex"] = {
 	["fullName"] = "Virtex Programmable Processor",
 	["displayName"] = "Virtex",
 	["displayType"] = "Electronic",
@@ -3423,7 +3423,7 @@ EFGMITEMS["efgm_barter_virtex"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_wd40100"] = {
+EFGM.ITEMS["efgm_barter_wd40100"] = {
 	["fullName"] = "WD-40 (100ml)",
 	["displayName"] = "WD-40",
 	["displayType"] = "Flammable",
@@ -3441,7 +3441,7 @@ EFGMITEMS["efgm_barter_wd40100"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_wd40400"] = {
+EFGM.ITEMS["efgm_barter_wd40400"] = {
 	["fullName"] = "WD-40 (400ml)",
 	["displayName"] = "WD-40",
 	["displayType"] = "Flammable",
@@ -3459,7 +3459,7 @@ EFGMITEMS["efgm_barter_wd40400"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_waterfilter"] = {
+EFGM.ITEMS["efgm_barter_waterfilter"] = {
 	["fullName"] = "Water Filter",
 	["displayName"] = "WFilter",
 	["displayType"] = "Other",
@@ -3477,7 +3477,7 @@ EFGMITEMS["efgm_barter_waterfilter"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_weaponparts"] = {
+EFGM.ITEMS["efgm_barter_weaponparts"] = {
 	["fullName"] = "Weapon Parts",
 	["displayName"] = "WParts",
 	["displayType"] = "Other",
@@ -3495,7 +3495,7 @@ EFGMITEMS["efgm_barter_weaponparts"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_wilston"] = {
+EFGM.ITEMS["efgm_barter_wilston"] = {
 	["fullName"] = "Wilston Cigarettes",
 	["displayName"] = "Wilston",
 	["displayType"] = "Other",
@@ -3513,7 +3513,7 @@ EFGMITEMS["efgm_barter_wilston"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_clock"] = {
+EFGM.ITEMS["efgm_barter_clock"] = {
 	["fullName"] = "Wooden Clock",
 	["displayName"] = "Clock",
 	["displayType"] = "Valuable",
@@ -3531,7 +3531,7 @@ EFGMITEMS["efgm_barter_clock"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_lcd"] = {
+EFGM.ITEMS["efgm_barter_lcd"] = {
 	["fullName"] = "Working LCD",
 	["displayName"] = "LCD",
 	["displayType"] = "Electronic",
@@ -3549,7 +3549,7 @@ EFGMITEMS["efgm_barter_lcd"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_wrench"] = {
+EFGM.ITEMS["efgm_barter_wrench"] = {
 	["fullName"] = "Wrench",
 	["displayName"] = "Wrench",
 	["displayType"] = "Tool",
@@ -3567,7 +3567,7 @@ EFGMITEMS["efgm_barter_wrench"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_xeno"] = {
+EFGM.ITEMS["efgm_barter_xeno"] = {
 	["fullName"] = "Xenomorph Sealing Foam",
 	["displayName"] = "Xeno",
 	["displayType"] = "Building",
@@ -3585,7 +3585,7 @@ EFGMITEMS["efgm_barter_xeno"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_zibbo"] = {
+EFGM.ITEMS["efgm_barter_zibbo"] = {
 	["fullName"] = "Zibbo Lighter",
 	["displayName"] = "Zibbo",
 	["displayType"] = "Flammable",
@@ -3603,7 +3603,7 @@ EFGMITEMS["efgm_barter_zibbo"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tankbattery"] = {
+EFGM.ITEMS["efgm_barter_tankbattery"] = {
 	["fullName"] = "6-STEN-140-M Military Battery",
 	["displayName"] = "Tank Battery",
 	["displayType"] = "Energy",
@@ -3621,7 +3621,7 @@ EFGMITEMS["efgm_barter_tankbattery"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_barter_tea"] = {
+EFGM.ITEMS["efgm_barter_tea"] = {
 	["fullName"] = "42 Signature Blend English Tea",
 	["displayName"] = "42",
 	["displayType"] = "Other",
@@ -3640,7 +3640,7 @@ EFGMITEMS["efgm_barter_tea"] = {
 }
 
 -- dog tags
-EFGMITEMS["efgm_tag_default"] = {
+EFGM.ITEMS["efgm_tag_default"] = {
 	["fullName"] = "Dogtag",
 	["displayName"] = "Dogtag",
 	["displayType"] = "Tag",

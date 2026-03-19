@@ -107,7 +107,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 			net.Send(ply)
 		elseif self.RequiredItem != "" and !HasInInventory(ply.inventory, self.RequiredItem) then -- doesn't have req. item
 			net.Start("SendNotification", false)
-				net.WriteString("You are missing the required item! (" .. EFGMITEMS[self.RequiredItem].fullName .. ")")
+				net.WriteString("You are missing the required item! (" .. EFGM.ITEMS[self.RequiredItem].fullName .. ")")
 				net.WriteString("icons/extract_disabled_icon.png")
 				net.WriteString("ui/squad_leave.wav")
 			net.Send(ply)

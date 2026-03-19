@@ -22,7 +22,7 @@ EQUIPTYPE.Barter = 8
 EQUIPTYPE.None = 9
 
 -- item array
-EFGMITEMS = {}
+EFGM.ITEMS = {}
 
 -- types:
 -- 1 == any item (barring keys and attachments)
@@ -36,55 +36,55 @@ EFGMITEMS = {}
 
 -- format: array[type][items]
 function GenerateLootTables()
-	LOOT = {}
-	LOOT[1] = {}
-	LOOT[2] = {}
-	LOOT[3] = {}
-	LOOT[4] = {}
-	LOOT[5] = {}
-	LOOT[6] = {}
-	LOOT[7] = {}
-	LOOT[8] = {}
+	EFGM.LOOT = {}
+	EFGM.LOOT[1] = {}
+	EFGM.LOOT[2] = {}
+	EFGM.LOOT[3] = {}
+	EFGM.LOOT[4] = {}
+	EFGM.LOOT[5] = {}
+	EFGM.LOOT[6] = {}
+	EFGM.LOOT[7] = {}
+	EFGM.LOOT[8] = {}
 
-	for k, v in pairs(EFGMITEMS) do
+	for k, v in pairs(EFGM.ITEMS) do
 		-- generic loot pools
 		if v.canSpawn == false then continue end
 
 		-- excluded keys bc you can find them fucking everywhere
 		if v.displayType != "Belmont Key" and v.displayType != "Concrete Key" and v.displayType != "Factory Key" and v.displayType != "Attachment" and v.displayType != "Auxiliary" and v.displayType != "Barrel" and v.displayType != "Charging Handle" and v.displayType != "Chassis" and v.displayType != "Gas Block" and v.displayType != "Handguard" and v.displayType != "Magazine" and v.displayType != "Mount" and v.displayType != "Pistol Grip" and v.displayType != "Receiver" and v.displayType != "Sight" and v.displayType != "Stock" then
-			LOOT[1][k] = v
+			EFGM.LOOT[1][k] = v
 		end
 
 		if v.displayType == "Assault Carbine" or v.displayType == "Assault Rifle" or v.displayType == "Light Machine Gun" or v.displayType == "Pistol" or v.displayType == "Shotgun" or v.displayType == "Sniper Rifle" or v.displayType == "Marksman Rifle" or v.displayType == "Submachine Gun" or v.displayType == "Launcher" or v.displayType == "Melee" or v.displayType == "Frag Grenade" or v.displayType == "Smoke Grenade" or v.displayType == "Flashbang" or v.displayType == "Impact Grenade" or v.displayType == "Incendiary Grenade" or v.displayType == "Flare" or v.displayType == "Special" or v.displayType == "Ammunition" or v.displayType == "Foregrip" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Tactical" then
-			LOOT[2][k] = v
+			EFGM.LOOT[2][k] = v
 		end
 
 		if v.displayType == "Ammunition" or v.displayType == "Frag Grenade" or v.displayType == "Smoke Grenade" or v.displayType == "Flashbang" or v.displayType == "Impact Grenade" or v.displayType == "Incendiary Grenade" or v.displayType == "Flare" then
-			LOOT[3][k] = v
+			EFGM.LOOT[3][k] = v
 		end
 
 		if v.displayType == "Medical" then
-			LOOT[4][k] = v
+			EFGM.LOOT[4][k] = v
 		end
 
 		if v.displayType == "Building" or v.displayType == "Electronic" or v.displayType == "Energy" or v.displayType == "Flammable" or v.displayType == "Household" or v.displayType == "Information" or v.displayType == "Medicine" or v.displayType == "Other" or v.displayType == "Tool" or v.displayType == "Valuable" or v.displayType == "Belmont Key" or v.displayType == "Concrete Key" or v.displayType == "Factory Key" then
-			LOOT[5][k] = v
+			EFGM.LOOT[5][k] = v
 		end
 
 		if v.displayType == "Auxiliary" or v.displayType == "Barrel" or v.displayType == "Charging Handle" or v.displayType == "Chassis" or v.displayType == "Foregrip" or v.displayType == "Gas Block" or v.displayType == "Handguard" or v.displayType == "Magazine" or v.displayType == "Mount" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Pistol Grip" or v.displayType == "Receiver" or v.displayType == "Sight" or v.displayType == "Stock" or v.displayType == "Tactical" then
-			LOOT[6][k] = v
+			EFGM.LOOT[6][k] = v
 		end
 
 		-- specific loot pools
 
 		-- safe loot pool
 		if (v.displayType == "Building" or v.displayType == "Electronic" or v.displayType == "Energy" or v.displayType == "Flammable" or v.displayType == "Household" or v.displayType == "Information" or v.displayType == "Medicine" or v.displayType == "Other" or v.displayType == "Tool" or v.displayType == "Valuable") and v.value >= 12000 then
-			LOOT[7][k] = v
+			EFGM.LOOT[7][k] = v
 		end
 
 		-- filing cabinet loot pool
 		if ((v.displayType == "Electronic" or v.displayType == "Energy" or v.displayType == "Information" or v.displayType == "Other" or v.displayType == "Valuable" or v.displayType == "Belmont Key" or v.displayType == "Concrete Key" or v.displayType == "Factory Key") and v.sizeX == 1 and v.sizeY == 1) then
-			LOOT[8][k] = v
+			EFGM.LOOT[8][k] = v
 		end
 	end
 end
@@ -116,7 +116,7 @@ function GenerateDuelLoadouts()
 	DUEL_GRENADE = {}
 	DUEL_GRENADE[1] = {}
 
-	for k, v in pairs(EFGMITEMS) do
+	for k, v in pairs(EFGM.ITEMS) do
 		if v.displayType == "Assault Rifle" then
 			DUEL_PRIMARY[1][k] = v
 		end
@@ -158,7 +158,7 @@ end
 function GenerateMarketLimits()
 	MARKETLIMITS = {}
 
-	for k, v in pairs(EFGMITEMS) do
+	for k, v in pairs(EFGM.ITEMS) do
 		-- generic loot pools
 		if v.canPurchase == false then continue end
 
@@ -465,7 +465,7 @@ if CLIENT and GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		local arc9atts = ARC9.Attachments
 
 		for k, v in SortedPairs(arc9atts) do
-			if EFGMITEMS["arc9_att_" .. v.ShortName] then continue end
+			if EFGM.ITEMS["arc9_att_" .. v.ShortName] then continue end
 			if v.Free then continue end
 
 			local dname = v.CompactName or v.PrintName
@@ -483,7 +483,7 @@ if CLIENT and GetConVar("efgm_derivesbox"):GetInt() == 1 then
 			if canPurchase == "nil" then canPurchase = "true" end
 
 			local attStr =
-			'EFGMITEMS["arc9_att_' .. v.ShortName .. '"] = {\n' .. '\t' ..
+			'EFGM.ITEMS["arc9_att_' .. v.ShortName .. '"] = {\n' .. '\t' ..
 			'["fullName"] = "' .. v.PrintName .. '",\n' .. '\t' ..
 			'["displayName"] = "' .. dname .. '",\n' .. '\t' ..
 			'["displayType"] = "' .. dtype .. '",\n' .. '\t' ..
@@ -534,7 +534,7 @@ if CLIENT and GetConVar("efgm_derivesbox"):GetInt() == 1 then
 			if canPurchase == "nil" then canPurchase = "true" end
 
 			local attStr =
-			'EFGMITEMS["arc9_att_' .. v.ShortName .. '"] = {\n' .. '\t' ..
+			'EFGM.ITEMS["arc9_att_' .. v.ShortName .. '"] = {\n' .. '\t' ..
 			'["fullName"] = "' .. v.PrintName .. '",\n' .. '\t' ..
 			'["displayName"] = "' .. dname .. '",\n' .. '\t' ..
 			'["displayType"] = "' .. dtype .. '",\n' .. '\t' ..

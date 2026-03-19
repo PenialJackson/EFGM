@@ -86,81 +86,81 @@ end
 function PANEL:Paint(w, h)
 	if self.OverheadImage == nil then return end
 
-	surface.SetDrawColor(Colors.pureWhiteColor)
+	surface.SetDrawColor(COLORS.pureWhiteColor)
 	surface.SetMaterial(self.OverheadImage)
 	surface.DrawTexturedRect(0 + self.PanOffset.x, 0 + self.PanOffset.y, w * self.Zoom, h * self.Zoom)
 
 	if self.MapInfo == nil then return end
 
 	if self.DrawFullInfo then
-		surface.SetDrawColor(Colors.mapSpawn)
+		surface.SetDrawColor(COLORS.mapSpawn)
 		for k, v in ipairs(self.MapInfo.spawns) do
 			local posX = (v.pos.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 			local posY = (v.pos.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-			surface.SetDrawColor(Colors.mapWhite)
-			surface.SetMaterial(Mats.mapSpawn)
+			surface.SetDrawColor(COLORS.mapWhite)
+			surface.SetMaterial(MATS.mapSpawn)
 			surface.DrawTexturedRect(posX - EFGM.MenuScale(12), posY - EFGM.MenuScale(12), EFGM.MenuScale(24), EFGM.MenuScale(24))
 
 			local text = "ANY"
 			if v.type == 1 then text = "PMC" elseif v.type == 2 then text = "SCAV" end
 
-			draw.SimpleTextOutlined(text, "PuristaBold12", posX, posY + EFGM.MenuScale(8), Colors.pureWhiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(text, "PuristaBold12", posX, posY + EFGM.MenuScale(8), COLORS.pureWhiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		surface.SetDrawColor(Colors.mapExtract)
+		surface.SetDrawColor(COLORS.mapExtract)
 		for k, v in ipairs(self.MapInfo.extracts) do
 			local posX = (v.pos.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 			local posY = (v.pos.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-			surface.SetDrawColor(Colors.mapWhite)
-			surface.SetMaterial(Mats.mapExtract)
+			surface.SetDrawColor(COLORS.mapWhite)
+			surface.SetMaterial(MATS.mapExtract)
 			surface.DrawTexturedRect(posX - EFGM.MenuScale(16), posY - EFGM.MenuScale(16), EFGM.MenuScale(32), EFGM.MenuScale(32))
 
 			local text = v.name
-			draw.SimpleTextOutlined(text, "PuristaBold16", posX, posY - EFGM.MenuScale(36), Colors.mapExtract, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(text, "PuristaBold16", posX, posY - EFGM.MenuScale(36), COLORS.mapExtract, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			local factionText = "ANY"
 			if v.accessibility == 1 then factionText = "PMC" elseif v.accessibility == 2 then factionText = "SCAV" end
 
-			draw.SimpleTextOutlined(factionText, "PuristaBold12", posX, posY + EFGM.MenuScale(16), Colors.pureWhiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(factionText, "PuristaBold12", posX, posY + EFGM.MenuScale(16), COLORS.pureWhiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		surface.SetDrawColor(Colors.mapLocation)
+		surface.SetDrawColor(COLORS.mapLocation)
 		for k, v in ipairs(self.MapInfo.locations) do
 			local posX = (v.pos.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 			local posY = (v.pos.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-			surface.SetDrawColor(Colors.mapWhite)
-			surface.SetMaterial(Mats.mapLocation)
+			surface.SetDrawColor(COLORS.mapWhite)
+			surface.SetMaterial(MATS.mapLocation)
 			surface.DrawTexturedRect(posX - EFGM.MenuScale(24), posY - EFGM.MenuScale(24), EFGM.MenuScale(48), EFGM.MenuScale(48))
 
-			draw.SimpleTextOutlined(v.name, "PuristaBold16", posX, posY - EFGM.MenuScale(42), Colors.mapLocation, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("LOOT: " .. v.loot .. "/5", "PuristaBold12", posX, posY + EFGM.MenuScale(24), Colors.pureWhiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(v.name, "PuristaBold16", posX, posY - EFGM.MenuScale(42), COLORS.mapLocation, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("LOOT: " .. v.loot .. "/5", "PuristaBold12", posX, posY + EFGM.MenuScale(24), COLORS.pureWhiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		surface.SetDrawColor(Colors.mapKey)
+		surface.SetDrawColor(COLORS.mapKey)
 		for k, v in ipairs(self.MapInfo.keys) do
 			local posX = (v.pos.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 			local posY = (v.pos.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-			surface.SetDrawColor(Colors.mapWhite)
-			surface.SetMaterial(Mats.mapKey)
+			surface.SetDrawColor(COLORS.mapWhite)
+			surface.SetMaterial(MATS.mapKey)
 			surface.DrawTexturedRect(posX - EFGM.MenuScale(12), posY - EFGM.MenuScale(12), EFGM.MenuScale(24), EFGM.MenuScale(24))
 
-			draw.SimpleTextOutlined(v.name, "PuristaBold16", posX, posY - EFGM.MenuScale(32), Colors.mapKey, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(v.name, "PuristaBold16", posX, posY - EFGM.MenuScale(32), COLORS.mapKey, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 	end
 
-	if !self.DrawRaidInfo or Tracking.inRaidLength == nil then return end
+	if !self.DrawRaidInfo or EFGM.TRACKING.inRaidLength == nil then return end
 
-	local timeToDraw = math.min(Tracking.inRaidLength / 4, 60)
+	local timeToDraw = math.min(EFGM.TRACKING.inRaidLength / 4, 60)
 	local progress = (SysTime() % timeToDraw) / timeToDraw
 
 	local previousPos = {}
 	local startPos = {}
 
-	for k, v in ipairs(Tracking.raidPositions) do
+	for k, v in ipairs(EFGM.TRACKING.raidPositions) do
 		local posX = (v.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 		local posY = (v.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
@@ -178,10 +178,10 @@ function PANEL:Paint(w, h)
 				{x = previousPos.x - normal.x + perpNormal.x, y = previousPos.y - normal.y + perpNormal.y}
 			}
 
-			if k / #Tracking.raidPositions <= progress then
-				surface.SetDrawColor(Colors.mapOverviewLine)
+			if k / #EFGM.TRACKING.raidPositions <= progress then
+				surface.SetDrawColor(COLORS.mapOverviewLine)
 			else
-				surface.SetDrawColor(Colors.mapOverviewLoadedLine)
+				surface.SetDrawColor(COLORS.mapOverviewLoadedLine)
 			end
 
 			draw.NoTexture()
@@ -193,39 +193,39 @@ function PANEL:Paint(w, h)
 		previousPos = {x = posX, y = posY}
 	end
 
-	if Tracking.deathPosition then
-		local posX = (Tracking.deathPosition.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
-		local posY = (Tracking.deathPosition.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
+	if EFGM.TRACKING.deathPosition then
+		local posX = (EFGM.TRACKING.deathPosition.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
+		local posY = (EFGM.TRACKING.deathPosition.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-		surface.SetDrawColor(Colors.mapWhite)
-		surface.SetMaterial(Mats.mapOverviewDeath)
+		surface.SetDrawColor(COLORS.mapWhite)
+		surface.SetMaterial(MATS.mapOverviewDeath)
 		surface.DrawTexturedRect(posX - EFGM.MenuScale(16), posY - EFGM.MenuScale(16), EFGM.MenuScale(32), EFGM.MenuScale(32))
-	elseif !table.IsEmpty(Tracking.raidPositions) then
-		local posX = (Tracking.raidPositions[#Tracking.raidPositions].x * self.MapSizeX * self.Zoom) + self.PanOffset.x
-		local posY = (Tracking.raidPositions[#Tracking.raidPositions].y * self.MapSizeY * self.Zoom) + self.PanOffset.y
+	elseif !table.IsEmpty(EFGM.TRACKING.raidPositions) then
+		local posX = (EFGM.TRACKING.raidPositions[#EFGM.TRACKING.raidPositions].x * self.MapSizeX * self.Zoom) + self.PanOffset.x
+		local posY = (EFGM.TRACKING.raidPositions[#EFGM.TRACKING.raidPositions].y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-		surface.SetDrawColor(Colors.mapWhite)
-		surface.SetMaterial(Mats.mapOverviewExtract)
+		surface.SetDrawColor(COLORS.mapWhite)
+		surface.SetMaterial(MATS.mapOverviewExtract)
 		surface.DrawTexturedRect(posX - EFGM.MenuScale(16), posY - EFGM.MenuScale(16), EFGM.MenuScale(32), EFGM.MenuScale(32))
 	end
 
-	surface.SetDrawColor(Colors.mapOverviewLine)
-	for k, v in ipairs(Tracking.killPositions) do
+	surface.SetDrawColor(COLORS.mapOverviewLine)
+	for k, v in ipairs(EFGM.TRACKING.killPositions) do
 		local posX = (v.x * self.MapSizeX * self.Zoom) + self.PanOffset.x
 		local posY = (v.y * self.MapSizeY * self.Zoom) + self.PanOffset.y
 
-		if v.time / #Tracking.raidPositions <= progress then
-			surface.SetDrawColor(Colors.mapWhite)
+		if v.time / #EFGM.TRACKING.raidPositions <= progress then
+			surface.SetDrawColor(COLORS.mapWhite)
 		else
-			surface.SetDrawColor(Colors.mapOverviewUnloadedKill)
+			surface.SetDrawColor(COLORS.mapOverviewUnloadedKill)
 		end
 
-		surface.SetMaterial(Mats.mapOverviewKill)
+		surface.SetMaterial(MATS.mapOverviewKill)
 		surface.DrawTexturedRect(posX - EFGM.MenuScale(16), posY - EFGM.MenuScale(16), EFGM.MenuScale(32), EFGM.MenuScale(32))
 	end
 
-	surface.SetDrawColor(Colors.mapWhite)
-	surface.SetMaterial(Mats.mapOverviewSpawn)
+	surface.SetDrawColor(COLORS.mapWhite)
+	surface.SetMaterial(MATS.mapOverviewSpawn)
 	surface.DrawTexturedRect(startPos.x - EFGM.MenuScale(16), startPos.y - EFGM.MenuScale(26), EFGM.MenuScale(32), EFGM.MenuScale(32))
 end
 

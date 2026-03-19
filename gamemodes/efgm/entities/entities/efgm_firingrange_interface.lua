@@ -10,7 +10,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 
 		if enteredRange then
 			for _, wep in ipairs(ply:GetWeapons()) do
-				local def = EFGMITEMS[wep:GetClass()]
+				local def = EFGM.ITEMS[wep:GetClass()]
 
 				if !def then continue end
 				if def.equipType != EQUIPTYPE.Weapon then continue end
@@ -48,7 +48,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 			if ply:IsInDuel() then return end
 
 			for _, wep in ipairs(ply:GetWeapons()) do
-				local def = EFGMITEMS[wep:GetClass()]
+				local def = EFGM.ITEMS[wep:GetClass()]
 
 				if !def then continue end
 				if def.equipType != EQUIPTYPE.Weapon then continue end

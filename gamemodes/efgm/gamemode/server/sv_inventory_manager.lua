@@ -36,7 +36,7 @@ function AddItemToInventory(ply, name, type, data)
 	if !ply:Alive() then return end
 	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
-	local def = EFGMITEMS[name]
+	local def = EFGM.ITEMS[name]
 	if def == nil then return end
 
 	data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
@@ -63,7 +63,7 @@ function AddItemToInventory(ply, name, type, data)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			AddWeightToPlayer(ply, a, 1)
@@ -102,7 +102,7 @@ function DeleteItemFromInventory(ply, index, isEquipped)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				RemoveWeightFromPlayer(ply, a, 1)
@@ -123,7 +123,7 @@ function FlowItemToInventory(ply, name, type, data)
 	if !ply:Alive() then return end
 	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
-	local def = EFGMITEMS[name]
+	local def = EFGM.ITEMS[name]
 	if def == nil then return end
 
 	local stackSize = def.stackSize
@@ -235,7 +235,7 @@ net.Receive("PlayerInventoryDropItem", function(len, ply)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			RemoveWeightFromPlayer(ply, a, 1)
@@ -309,11 +309,11 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
-	local def = EFGMITEMS[item.name]
+	local def = EFGM.ITEMS[item.name]
 
 	if wep != NULL and def.displayType != "Grenade" then
 		local clip1 = wep:Clip1()
-		local ammoDef = EFGMITEMS[wep.Ammo]
+		local ammoDef = EFGM.ITEMS[wep.Ammo]
 
 		if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
 			local data = {}
@@ -322,7 +322,7 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 		end
 
 		local clip2 = wep:Clip2()
-		local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
+		local ammoDef2 = EFGM.ITEMS[wep.UBGLAmmo]
 
 		if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
 			local data = {}
@@ -361,11 +361,11 @@ function UnequipAll(ply)
 				ply.weaponSlots[i][k] = {}
 
 				local wep = ply:GetWeapon(item.name)
-				local def = EFGMITEMS[item.name]
+				local def = EFGM.ITEMS[item.name]
 
 				if wep != NULL and def.displayType != "Grenade" then
 					local clip1 = wep:Clip1()
-					local ammoDef = EFGMITEMS[wep.Ammo]
+					local ammoDef = EFGM.ITEMS[wep.Ammo]
 
 					if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
 						local data = {}
@@ -374,7 +374,7 @@ function UnequipAll(ply)
 					end
 
 					local clip2 = wep:Clip2()
-					local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
+					local ammoDef2 = EFGM.ITEMS[wep.UBGLAmmo]
 
 					if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
 						local data = {}
@@ -422,11 +422,11 @@ function UnequipAllFirearms(ply)
 				ply.weaponSlots[i][k] = {}
 
 				local wep = ply:GetWeapon(item.name)
-				local def = EFGMITEMS[item.name]
+				local def = EFGM.ITEMS[item.name]
 
 				if wep != NULL and def.displayType != "Grenade" then
 					local clip1 = wep:Clip1()
-					local ammoDef = EFGMITEMS[wep.Ammo]
+					local ammoDef = EFGM.ITEMS[wep.Ammo]
 
 					if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
 						local data = {}
@@ -435,7 +435,7 @@ function UnequipAllFirearms(ply)
 					end
 
 					local clip2 = wep:Clip2()
-					local ammoDef2 = EFGMITEMS[wep.UBGLAmmo]
+					local ammoDef2 = EFGM.ITEMS[wep.UBGLAmmo]
 
 					if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
 						local data = {}
@@ -480,7 +480,7 @@ function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
 					if !oldAttsTbl then return end
 
 					for _, a in ipairs(oldAttsTbl) do
-						local att = EFGMITEMS[a]
+						local att = EFGM.ITEMS[a]
 						if att == nil then continue end
 
 						RemoveWeightFromPlayer(ply, a, 1)
@@ -490,7 +490,7 @@ function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
 					if !newAttsTbl then return end
 
 					for _, a in ipairs(newAttsTbl) do
-						local att = EFGMITEMS[a]
+						local att = EFGM.ITEMS[a]
 						if att == nil then continue end
 
 						AddWeightToPlayer(ply, a, 1)
@@ -537,7 +537,7 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
-	local def = EFGMITEMS[item.name]
+	local def = EFGM.ITEMS[item.name]
 
 	if wep != NULL and def.displayType != "Grenade" then
 		wep:Unload()
@@ -569,7 +569,7 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			RemoveWeightFromPlayer(ply, a, 1)
@@ -587,7 +587,7 @@ net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
 	local newItem = table.Copy(container.Inventory[index])
 	if table.IsEmpty(newItem) then return end
 
-	local def = EFGMITEMS[newItem.name]
+	local def = EFGM.ITEMS[newItem.name]
 
 	if def.equipType == EQUIPTYPE.Weapon and (!newItem.data.owner or !newItem.data.timestamp) then
 		newItem.data.owner = ply:SteamID64()
@@ -647,7 +647,7 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 
 	if !ply:IsInHideout() and invType == "stash" then return end
 
-	local def = EFGMITEMS[item]
+	local def = EFGM.ITEMS[item]
 	if def == nil then return end
 
 	if invType == "inv" then
@@ -704,7 +704,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				RemoveWeightFromPlayer(ply, a, 1)
@@ -740,7 +740,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 		ply.weaponSlots[equipID][equipSlot] = {}
 
 		local wep = ply:GetWeapon(item.name)
-		local def = EFGMITEMS[item.name]
+		local def = EFGM.ITEMS[item.name]
 
 		if wep != NULL and def.displayType != "Grenade" then
 			wep:Unload()
@@ -760,7 +760,7 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				RemoveWeightFromPlayer(ply, a, 1)
@@ -823,10 +823,10 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 end)
 
 function ConsumeGrenade(ply)
-	local item = ply.weaponSlots[4][1].name
+	local item = ply.weaponSlots[WEAPONSLOTS.GRENADE.ID][1].name
 	if item == nil then return end
 
-	ply.weaponSlots[4][1] = {}
+	ply.weaponSlots[WEAPONSLOTS.GRENADE.ID][1] = {}
 
 	RemoveWeightFromPlayer(ply, item, 1)
 	ply:StripWeapon(item)
@@ -836,10 +836,10 @@ function ConsumeGrenade(ply)
 end
 
 function RemoveConsumable(ply)
-	local item = ply.weaponSlots[5][1].name
+	local item = ply.weaponSlots[WEAPONSLOTS.CONSUMABLE.ID][1].name
 	if item == nil then return end
 
-	ply.weaponSlots[5][1] = {}
+	ply.weaponSlots[WEAPONSLOTS.CONSUMABLE.ID][1] = {}
 
 	RemoveWeightFromPlayer(ply, item, 1)
 	ply:StripWeapon(item)
@@ -867,7 +867,7 @@ function UpdateEquippedString(ply)
 end
 
 function AddWeightToPlayer(ply, item, count)
-	local def = EFGMITEMS[item]
+	local def = EFGM.ITEMS[item]
 
 	if count == 0 then count = 1 end
 	if def.weight == nil then return false end
@@ -882,7 +882,7 @@ function AddWeightToPlayer(ply, item, count)
 end
 
 function RemoveWeightFromPlayer(ply, item, count)
-	local def = EFGMITEMS[item]
+	local def = EFGM.ITEMS[item]
 
 	if count == 0 then count = 1 end
 	if def.weight == nil then return false end
@@ -900,7 +900,7 @@ function CalculateInventoryWeight(ply)
 	local newWeight = 0
 
 	for k, v in ipairs(ply.inventory) do
-		local def = EFGMITEMS[v.name]
+		local def = EFGM.ITEMS[v.name]
 
 		local count = v.data.count or 1
 		if def.weight == nil then continue end
@@ -913,7 +913,7 @@ function CalculateInventoryWeight(ply)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				newWeight = newWeight + math.Round(att.weight, 3)
@@ -925,7 +925,7 @@ function CalculateInventoryWeight(ply)
 		for k, v in ipairs(ply.weaponSlots[i]) do
 			if table.IsEmpty(v) then continue end
 
-			local def = EFGMITEMS[v.name]
+			local def = EFGM.ITEMS[v.name]
 
 			local count = v.data.count or 1
 			if def.weight == nil then continue end
@@ -938,7 +938,7 @@ function CalculateInventoryWeight(ply)
 				if !atts then return end
 
 				for _, a in ipairs(atts) do
-					local att = EFGMITEMS[a]
+					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
 					newWeight = newWeight + math.Round(att.weight, 3)
@@ -1021,7 +1021,7 @@ function GiveWepWithPresetFromCode(ply, classname, data)
 		return
 	elseif dataType == "consumable" then
 		local item = ply:Give(classname)
-		local def = EFGMITEMS[classname]
+		local def = EFGM.ITEMS[classname]
 
 		if !def then return end
 
@@ -1104,7 +1104,7 @@ end)
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	function GiveItem(ply, name, count)
 		local data = {}
-		local def = EFGMITEMS[name]
+		local def = EFGM.ITEMS[name]
 
 		if def.consumableType == "key" then
 			data.durability = def.consumableValue

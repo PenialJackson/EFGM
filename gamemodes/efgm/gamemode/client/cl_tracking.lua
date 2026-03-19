@@ -4,12 +4,12 @@ local raidPositions = {}
 local killPositions = {}
 local enterRaidTime = nil
 
-Tracking = Tracking or {}
+EFGM.TRACKING = EFGM.TRACKING or {}
 
-Tracking.inRaidLength = nil
-Tracking.raidPositions = {}
-Tracking.deathPosition = nil
-Tracking.killPositions = {}
+EFGM.TRACKING.inRaidLength = nil
+EFGM.TRACKING.raidPositions = {}
+EFGM.TRACKING.deathPosition = nil
+EFGM.TRACKING.killPositions = {}
 
 local function UpdateTrackedPosition(trackRegardless)
 	if ((LocalPlayer():GetNWInt("PlayerRaidStatus", 0) == 0) and !trackRegardless) or MAPINFO[game.GetMap()] == nil then return end
@@ -21,10 +21,10 @@ hook.Add("efgm_raid_enter", "efgm_tracker_start", function()
 
 	UpdateTrackedPosition(false)
 
-	Tracking.inRaidLength = nil
-	Tracking.raidPositions = {}
-	Tracking.deathPosition = nil
-	Tracking.killPositions = {}
+	EFGM.TRACKING.inRaidLength = nil
+	EFGM.TRACKING.raidPositions = {}
+	EFGM.TRACKING.deathPosition = nil
+	EFGM.TRACKING.killPositions = {}
 
 	enterRaidTime = SysTime()
 
@@ -37,10 +37,10 @@ hook.Add("efgm_raid_exit", "efgm_tracker_stop", function(wasExtract)
 	if MAPINFO[game.GetMap()] == nil then return end
 
 	if enterRaidTime == nil then
-		Tracking.inRaidLength = nil
-		Tracking.raidPositions = {}
-		Tracking.deathPosition = nil
-		Tracking.killPositions = {}
+		EFGM.TRACKING.inRaidLength = nil
+		EFGM.TRACKING.raidPositions = {}
+		EFGM.TRACKING.deathPosition = nil
+		EFGM.TRACKING.killPositions = {}
 		enterRaidTime = nil
 
 		return
@@ -48,14 +48,14 @@ hook.Add("efgm_raid_exit", "efgm_tracker_stop", function(wasExtract)
 
 	if !wasExtract then
 		UpdateTrackedPosition(true)
-		Tracking.deathPosition = WorldToMapSpace(LocalPlayer():GetPos())
+		EFGM.TRACKING.deathPosition = WorldToMapSpace(LocalPlayer():GetPos())
 	end
 
 	timer.Remove("efgm_tracker")
 
-	Tracking.raidPositions = raidPositions
-	Tracking.killPositions = killPositions
-	Tracking.inRaidLength = SysTime() - enterRaidTime
+	EFGM.TRACKING.raidPositions = raidPositions
+	EFGM.TRACKING.killPositions = killPositions
+	EFGM.TRACKING.inRaidLength = SysTime() - enterRaidTime
 
 	killPositions = {}
 	raidPositions = {}

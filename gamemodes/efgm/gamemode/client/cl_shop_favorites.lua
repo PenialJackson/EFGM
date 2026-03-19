@@ -1,16 +1,16 @@
-EFGM.Favorites = EFGM.Favorites or {}
+EFGM.CLIENT.MARKETFAVORITES = EFGM.CLIENT.MARKETFAVORITES or {}
 
 function EFGM:LoadFavorites()
 	local f = file.Open("efgm/efgm_market_favorites.txt", "r", "DATA")
 	if !f then return end
 
-	EFGM.Favorites = {}
+	EFGM.CLIENT.MARKETFAVORITES = {}
 
 	while !f:EndOfFile() do
 		local line = f:ReadLine()
 		line = string.Trim(line, "\n")
 
-		EFGM.Favorites[line] = true
+		EFGM.CLIENT.MARKETFAVORITES[line] = true
 	end
 
 	f:Close()
@@ -20,7 +20,7 @@ function EFGM:SaveFavorites()
 	file.CreateDir("efgm")
 	local f = file.Open("efgm/efgm_market_favorites.txt", "w", "DATA")
 
-	for i, k in pairs(EFGM.Favorites) do
+	for i, k in pairs(EFGM.CLIENT.MARKETFAVORITES) do
 		f:Write(i)
 		f:Write("\n")
 	end
@@ -29,21 +29,21 @@ function EFGM:SaveFavorites()
 end
 
 function EFGM:AddAttToFavorites(item)
-	EFGM.Favorites[item] = true
+	EFGM.CLIENT.MARKETFAVORITES[item] = true
 	EFGM:SaveFavorites()
 end
 
 function EFGM:RemoveAttFromFavorites(item)
-	EFGM.Favorites[item] = nil
+	EFGM.CLIENT.MARKETFAVORITES[item] = nil
 	EFGM:SaveFavorites()
 end
 
 function EFGM:ToggleFavorite(item)
-	if EFGM.Favorites[item] then
-		EFGM.Favorites[item] = nil
+	if EFGM.CLIENT.MARKETFAVORITES[item] then
+		EFGM.CLIENT.MARKETFAVORITES[item] = nil
 		surface.PlaySound("arc9/newui/ui_part_favourite2.ogg")
 	else
-		EFGM.Favorites[item] = true
+		EFGM.CLIENT.MARKETFAVORITES[item] = true
 		surface.PlaySound("arc9/newui/ui_part_favourite1.ogg")
 	end
 

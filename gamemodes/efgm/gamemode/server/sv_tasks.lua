@@ -97,7 +97,7 @@ function TaskProgressObjectivesSpecific(ply, taskName, objIndex, count)
 	local canProgress = false
 
 	if objInfo.type == OBJECTIVE.Pay then
-		canProgress = TaskCheckCanProgressPay(ply, taskName, objIndex, count)
+		canProgress = TaskCheckCanProgressPay(ply, taskName, objIndex)
 	elseif objInfo.type == OBJECTIVE.GiveItem then
 		canProgress = TaskCheckCanProgressGiveItem(ply, taskName, objIndex, count)
 	else
@@ -261,7 +261,7 @@ function TaskGetAllUnfinishedKillObjectives(ply, mapName, areaName, weapon, rang
 				obj.mapName == mapName and
 					(obj.weapon == nil or
 					obj.useCategory == nil and obj.weapon == weapon or
-					obj.useCategory != nil and EFGMITEMS[weapon].displayType == weapon) and
+					obj.useCategory != nil and EFGM.ITEMS[weapon].displayType == weapon) and
 				(obj.minRange == nil or obj.minRange <= range) and
 				(obj.maxRange == nil or obj.maxRange >= range) and
 				(obj.reqHeadshot == nil or wasHeadshot) and

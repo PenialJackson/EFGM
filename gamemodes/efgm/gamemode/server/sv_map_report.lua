@@ -29,7 +29,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		for k, v in ipairs(ents.FindByClass("efgm_key_checker")) do
 			if v.ShowOnMap == false then hiddenKeys = hiddenKeys + 1 continue end
 			mapReport.keys[k - hiddenKeys] = {}
-			mapReport.keys[k - hiddenKeys].name = EFGMITEMS[v.KeyName].fullName
+			mapReport.keys[k - hiddenKeys].name = EFGM.ITEMS[v.KeyName].fullName
 			local pos = v:GetPos()
 			mapReport.keys[k - hiddenKeys].pos = {x = pos.x, y = pos.y}
 		end
@@ -85,7 +85,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		for k, v in ipairs(ents.FindByClass("efgm_key_checker")) do
 			if v.ShowOnMap == false then hiddenKeys = hiddenKeys + 1 continue end
 			mapReport.keys[k - hiddenKeys] = {}
-			mapReport.keys[k - hiddenKeys].name = EFGMITEMS[v.KeyName].fullName
+			mapReport.keys[k - hiddenKeys].name = EFGM.ITEMS[v.KeyName].fullName
 			local pos = v:GetPos()
 			mapReport.keys[k - hiddenKeys].pos = {x = (pos.x * factorX) + offsetX, y = (pos.y * factorY) + offsetY}
 		end

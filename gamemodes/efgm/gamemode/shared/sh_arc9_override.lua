@@ -289,7 +289,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		local inventory = {}
 		if SERVER then inventory = self:GetOwner().inventory end
-		if CLIENT then inventory = playerInventory end
+		if CLIENT then inventory = EFGM.CLIENT.INVENTORY end
 
 		return AmountInInventory(inventory, self:GetValue("Ammo"))
 	end
@@ -303,7 +303,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		local inventory = {}
 		if SERVER then inventory = self:GetOwner().inventory end
-		if CLIENT then inventory = playerInventory end
+		if CLIENT then inventory = EFGM.CLIENT.INVENTORY end
 
 		return AmountInInventory(inventory, self:GetValue("UBGLAmmo"))
 	end
@@ -773,7 +773,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				ang = model:GetAngles()
 
 				if k.qca then
-					a = model:GetAttachment(k.qca)
+					local a = model:GetAttachment(k.qca)
 
 					if a then
 						pos, ang = a.Pos, a.Ang
@@ -1084,9 +1084,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 						if !atttbl then continue end -- doesnt exist, bc some default EFT presets have things that we remove in efgm
 						if atttbl.Free then continue end
-						if !EFGMITEMS["arc9_att_" .. att] then return end -- the item doesnt exist in EFGM, no preset for you!
-						if AmountInInventory(playerInventory, "arc9_att_" .. att) > 0 then continue end -- we already have this in our inventory
-						if !EFGMITEMS["arc9_att_" .. att].canPurchase then return end
+						if !EFGM.ITEMS["arc9_att_" .. att] then return end -- the item doesnt exist in EFGM, no preset for you!
+						if AmountInInventory(EFGM.CLIENT.INVENTORY, "arc9_att_" .. att) > 0 then continue end -- we already have this in our inventory
+						if !EFGM.ITEMS["arc9_att_" .. att].canPurchase then return end
 
 						local has = oldcount[att] or 0
 						local need = attc
@@ -1094,7 +1094,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 						if has < need then
 							local diff = need - has
 							neededAtts["arc9_att_" .. att] = diff
-							efgmPresetCost = efgmPresetCost + (EFGMITEMS["arc9_att_" .. att].value * diff)
+							efgmPresetCost = efgmPresetCost + (EFGM.ITEMS["arc9_att_" .. att].value * diff)
 						end
 					end
 				end
@@ -1122,9 +1122,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 						if !atttbl then continue end -- doesnt exist, bc some default EFT presets have things that we remove in efgm
 						if atttbl.Free then continue end
-						if !EFGMITEMS["arc9_att_" .. att] then return end -- the item doesnt exist in EFGM, no preset for you!
-						if AmountInInventory(playerInventory, "arc9_att_" .. att) > 0 then continue end -- we already have this in our inventory
-						if !EFGMITEMS["arc9_att_" .. att].canPurchase then return end
+						if !EFGM.ITEMS["arc9_att_" .. att] then return end -- the item doesnt exist in EFGM, no preset for you!
+						if AmountInInventory(EFGM.CLIENT.INVENTORY, "arc9_att_" .. att) > 0 then continue end -- we already have this in our inventory
+						if !EFGM.ITEMS["arc9_att_" .. att].canPurchase then return end
 
 						local has = oldcount[att] or 0
 						local need = attc
@@ -1132,7 +1132,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 						if has < need then
 							local diff = need - has
 							neededAtts["arc9_att_" .. att] = diff
-							efgmPresetCost = efgmPresetCost + (EFGMITEMS["arc9_att_" .. att].value * diff)
+							efgmPresetCost = efgmPresetCost + (EFGM.ITEMS["arc9_att_" .. att].value * diff)
 						end
 					end
 
@@ -2293,7 +2293,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			for k, v in player.Iterator() do
 				if v == attacker then return end
 				if !v:IsInRaid() then return end
-				if shotCaliber[ammo] == nil then return end
+				if CALIBERAUDIO[ammo] == nil then return end
 
 				local shootPos = attacker:GetPos()
 				local plyDistance = attacker:GetPos():DistToSqr(v:GetPos())
@@ -2301,9 +2301,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				if plyDistance < (2500 * 2500) then return end
 				plyDistance = math.sqrt(plyDistance)
 
-				local bulletPitch = shotCaliber[ammo][1] or 100
-				local threshold = shotCaliber[ammo][2] or 6000
-				local style = shotCaliber[ammo][3] == "bullet" -- returns true if bullet, false if explosive
+				local bulletPitch = CALIBERAUDIO[ammo][1] or 100
+				local threshold = CALIBERAUDIO[ammo][2] or 6000
+				local style = CALIBERAUDIO[ammo][3] == "bullet" -- returns true if bullet, false if explosive
 				local volume = 1
 
 				if silenced then
@@ -2472,6 +2472,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			local ent = self:GetProcessedValue("ShootEnt")
 
 			local owner = self:GetOwner()
+			local spread
 
 			if owner:IsNPC() then
 				-- ang = self:GetOwner():GetAimVector():Angle()
@@ -2755,7 +2756,7 @@ function GetAttachmentList(tbl)
 	local atts = {}
 
 	for _, i in ipairs(GetSubSlotList(tbl)) do
-		if i.Installed and EFGMITEMS["arc9_att_" .. i.Installed] then table.insert(atts, i.Installed) end
+		if i.Installed and EFGM.ITEMS["arc9_att_" .. i.Installed] then table.insert(atts, i.Installed) end
 	end
 
 	return atts
@@ -2769,8 +2770,8 @@ function GetAttachmentListFromCode(str)
 	local cleanAttStr = ""
 
 	table.sort(cleanAttTbl, function(a, b)
-		local a_value = EFGMITEMS["arc9_att_" .. a].value or 0
-		local b_value = EFGMITEMS["arc9_att_" .. b].value or 0
+		local a_value = EFGM.ITEMS["arc9_att_" .. a].value or 0
+		local b_value = EFGM.ITEMS["arc9_att_" .. b].value or 0
 
 		if a_value and b_value then
 			return a_value > b_value
@@ -2781,7 +2782,7 @@ function GetAttachmentListFromCode(str)
 
 	for i = 1, #cleanAttTbl do
 		if !cleanAttTbl[i] then continue end
-		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. string.FormatComma(EFGMITEMS["arc9_att_" .. cleanAttTbl[i]].value)
+		cleanAttStr = cleanAttStr .. i .. ": " .. "\t" .. EFGM.ITEMS["arc9_att_" .. cleanAttTbl[i]].fullName .. ", " .. EFGM.ITEMS["arc9_att_" .. cleanAttTbl[i]].weight .. "kg, ₽" .. string.FormatComma(EFGM.ITEMS["arc9_att_" .. cleanAttTbl[i]].value)
 		if i != #cleanAttTbl then cleanAttStr = cleanAttStr .. "\n" end
 	end
 
@@ -2810,7 +2811,7 @@ hook.Add("ARC9_PlayerGetAtts", "ARC9GetAtts", function(ply, att, wep)
 		inventory = ply.inventory
 		if ply.givingPreset == true then return 999 end
 	else
-		inventory = playerInventory
+		inventory = EFGM.CLIENT.INVENTORY
 	end
 
 	return AmountInInventory(inventory, "arc9_att_" .. att)
@@ -2890,7 +2891,7 @@ hook.Add("PlayerBindPress", "ARC9_Binds", function(ply, bind, pressed, code)
 				local att = wpn.CustomizeLastHovered.att
 
 				local efgmAtt = "arc9_att_" .. att
-				local efgmItem = EFGMITEMS[efgmAtt]
+				local efgmItem = EFGM.ITEMS[efgmAtt]
 
 				if efgmItem == nil then return end
 
@@ -3021,12 +3022,12 @@ if CLIENT then
 		if att != nil then
 
 			local efgmAttStr = "arc9_att_" .. att
-			if EFGMITEMS[efgmAttStr] then
+			if EFGM.ITEMS[efgmAttStr] then
 				efgmAtt = efgmAttStr
-				efgmCanBuy = EFGMITEMS[efgmAtt].canPurchase or false
-				efgmValue = EFGMITEMS[efgmAtt].value
-				efgmLvl = EFGMITEMS[efgmAtt].levelReq or 1
-				efgmWeight = EFGMITEMS[efgmAtt].weight
+				efgmCanBuy = EFGM.ITEMS[efgmAtt].canPurchase or false
+				efgmValue = EFGM.ITEMS[efgmAtt].value
+				efgmLvl = EFGM.ITEMS[efgmAtt].levelReq or 1
+				efgmWeight = EFGM.ITEMS[efgmAtt].weight
 			end
 
 		end

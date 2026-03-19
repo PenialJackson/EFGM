@@ -385,7 +385,7 @@ function SetupPlayerData(ply)
 	while !stashSafe do
 		stashSafe = true
 		for k, v in ipairs(ply.stash) do
-			if EFGMITEMS[v.name] == nil then
+			if EFGM.ITEMS[v.name] == nil then
 				table.remove(ply.stash, k)
 				stashSafe = false
 			end
@@ -404,7 +404,7 @@ function SetupPlayerData(ply)
 	while !invSafe do
 		invSafe = true
 		for k, v in ipairs(ply.inventory) do
-			if EFGMITEMS[v.name] == nil then
+			if EFGM.ITEMS[v.name] == nil then
 				table.remove(ply.inventory, k)
 				invSafe = false
 			end
@@ -429,7 +429,7 @@ function SetupPlayerData(ply)
 		equSafe = true
 		for i = 1, #table.GetKeys(WEAPONSLOTS) do
 			for k, v in ipairs(ply.weaponSlots[i]) do
-				if !table.IsEmpty(v) and EFGMITEMS[v.name] == nil then
+				if !table.IsEmpty(v) and EFGM.ITEMS[v.name] == nil then
 					ply.weaponSlots[i][k] = {}
 					equSafe = false
 				end

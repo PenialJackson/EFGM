@@ -20,7 +20,7 @@ net.Receive("PlayerInviteAccept", function(len, ply)
 	if !EFGM.SERVER.ALLOWINVITES then return end
 	if !IsValid(invitedPly) then return end
 
-	if inviteType == inviteTypes.DUEL then
+	if inviteType == INVITETYPES.DUEL then
 		DUEL:StartDuel(ply, invitedPly)
 
 		return

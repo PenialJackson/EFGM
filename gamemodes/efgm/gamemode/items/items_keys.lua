@@ -1,5 +1,5 @@
 -- concrete
-EFGMITEMS["efgm_key_workshop_office"] = {
+EFGM.ITEMS["efgm_key_workshop_office"] = {
 	["fullName"] = "Workshop Office Key",
 	["displayName"] = "W. Office",
 	["displayType"] = "Concrete Key",
@@ -21,7 +21,7 @@ EFGMITEMS["efgm_key_workshop_office"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_workshop_armory"] = {
+EFGM.ITEMS["efgm_key_workshop_armory"] = {
 	["fullName"] = "Workshop Armory Key",
 	["displayName"] = "W. Armory",
 	["displayType"] = "Concrete Key",
@@ -43,7 +43,7 @@ EFGMITEMS["efgm_key_workshop_armory"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_hotel_marked"] = {
+EFGM.ITEMS["efgm_key_hotel_marked"] = {
 	["fullName"] = "Hotel Marked Room Key",
 	["displayName"] = "Hotel mrk.",
 	["displayType"] = "Concrete Key",
@@ -65,7 +65,7 @@ EFGMITEMS["efgm_key_hotel_marked"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_bigred_meeting"] = {
+EFGM.ITEMS["efgm_key_bigred_meeting"] = {
 	["fullName"] = "Big Red Meeting Room Key",
 	["displayName"] = "B. Meeting",
 	["displayType"] = "Concrete Key",
@@ -87,7 +87,7 @@ EFGMITEMS["efgm_key_bigred_meeting"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_ow_admin"] = {
+EFGM.ITEMS["efgm_key_ow_admin"] = {
 	["fullName"] = "Old Warehouse Admin Key",
 	["displayName"] = "O. Admin",
 	["displayType"] = "Concrete Key",
@@ -109,7 +109,7 @@ EFGMITEMS["efgm_key_ow_admin"] = {
 	["canPurchase"] = false
 }
 
--- EFGMITEMS["efgm_keycard_bunker_entrance"] = {
+-- EFGM.ITEMS["efgm_keycard_bunker_entrance"] = {
 --     ["fullName"] = "Bunker Entrance Keycard",
 --     ["displayName"] = "B. Door",
 --     ["displayType"] = "Concrete Key",
@@ -131,7 +131,7 @@ EFGMITEMS["efgm_key_ow_admin"] = {
 --     ["canPurchase"] = false
 -- }
 
--- EFGMITEMS["efgm_keycard_bunker_armory"] = {
+-- EFGM.ITEMS["efgm_keycard_bunker_armory"] = {
 --     ["fullName"] = "Bunker Armory Access Keycard",
 --     ["displayName"] = "B. Armory",
 --     ["displayType"] = "Concrete Key",
@@ -153,7 +153,7 @@ EFGMITEMS["efgm_key_ow_admin"] = {
 --     ["canPurchase"] = false
 -- }
 
-EFGMITEMS["efgm_keycard_storage_entrance"] = {
+EFGM.ITEMS["efgm_keycard_storage_entrance"] = {
 	["fullName"] = "Storage Building Access Keycard",
 	["displayName"] = "Storage",
 	["displayType"] = "Concrete Key",
@@ -175,7 +175,7 @@ EFGMITEMS["efgm_keycard_storage_entrance"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_keycard_tunnels"] = {
+EFGM.ITEMS["efgm_keycard_tunnels"] = {
 	["fullName"] = "Suspicious Keycard With Brown Marking",
 	["displayName"] = "Sus. B",
 	["displayType"] = "Concrete Key",
@@ -197,7 +197,7 @@ EFGMITEMS["efgm_keycard_tunnels"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_hotel_maintenance"] = {
+EFGM.ITEMS["efgm_key_hotel_maintenance"] = {
 	["fullName"] = "Hotel Maintenance Key",
 	["displayName"] = "Hotel mai.",
 	["displayType"] = "Concrete Key",
@@ -219,7 +219,7 @@ EFGMITEMS["efgm_key_hotel_maintenance"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgn_key_railway_checkpoint"] = {
+EFGM.ITEMS["efgn_key_railway_checkpoint"] = {
 	["fullName"] = "Railway Checkpoint Key",
 	["displayName"] = "Rail Chk.",
 	["displayType"] = "Concrete Key",
@@ -241,7 +241,7 @@ EFGMITEMS["efgn_key_railway_checkpoint"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_keycard_bunker_exec"] = {
+EFGM.ITEMS["efgm_keycard_bunker_exec"] = {
 	["fullName"] = "Executive Access Keycard",
 	["displayName"] = "Exec",
 	["displayType"] = "Concrete Key",
@@ -265,7 +265,7 @@ EFGMITEMS["efgm_keycard_bunker_exec"] = {
 }
 
 -- belmont
-EFGMITEMS["efgm_key_breakroom"] = {
+EFGM.ITEMS["efgm_key_breakroom"] = {
 	["fullName"] = "Parking Garage Break Room Key",
 	["displayName"] = "Break R.",
 	["displayType"] = "Belmont Key",
@@ -287,7 +287,7 @@ EFGMITEMS["efgm_key_breakroom"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_kitchen"] = {
+EFGM.ITEMS["efgm_key_kitchen"] = {
 	["fullName"] = "Kitchen Key",
 	["displayName"] = "Kitchen",
 	["displayType"] = "Belmont Key",
@@ -309,7 +309,7 @@ EFGMITEMS["efgm_key_kitchen"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_fencedoff"] = {
+EFGM.ITEMS["efgm_key_fencedoff"] = {
 	["fullName"] = "Fenced Off Area Key",
 	["displayName"] = "Fenced A.",
 	["displayType"] = "Belmont Key",
@@ -331,7 +331,7 @@ EFGMITEMS["efgm_key_fencedoff"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_classroom"] = {
+EFGM.ITEMS["efgm_key_classroom"] = {
 	["fullName"] = "Classroom Key",
 	["displayName"] = "Class",
 	["displayType"] = "Belmont Key",
@@ -353,7 +353,7 @@ EFGMITEMS["efgm_key_classroom"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_parking_marked"] = {
+EFGM.ITEMS["efgm_key_parking_marked"] = {
 	["fullName"] = "Parking Marked Room Key",
 	["displayName"] = "Parking mrk.",
 	["displayType"] = "Belmont Key",
@@ -376,7 +376,7 @@ EFGMITEMS["efgm_key_parking_marked"] = {
 }
 
 -- factory
-EFGMITEMS["efgm_key_office_marked"] = {
+EFGM.ITEMS["efgm_key_office_marked"] = {
 	["fullName"] = "Office Marked Room Key",
 	["displayName"] = "Office mrk.",
 	["displayType"] = "Factory Key",
@@ -398,7 +398,7 @@ EFGMITEMS["efgm_key_office_marked"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_servers"] = {
+EFGM.ITEMS["efgm_key_servers"] = {
 	["fullName"] = "Servers Key",
 	["displayName"] = "Servers",
 	["displayType"] = "Factory Key",
@@ -420,7 +420,7 @@ EFGMITEMS["efgm_key_servers"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["efgm_key_cellars"] = {
+EFGM.ITEMS["efgm_key_cellars"] = {
 	["fullName"] = "Cellars Key",
 	["displayName"] = "Cellars",
 	["displayType"] = "Factory Key",

@@ -389,52 +389,52 @@ local boomSounds = {
 	"weapons/darsu_eft/m203/gren_expl2_indoor_distant.ogg"
 }
 
-shotCaliber = {} -- pitch, threshold, style
+CALIBERAUDIO = {} -- pitch, threshold, style
 
 -- ammunition
-shotCaliber["efgm_ammo_300"] =      {75, 6000, "bullet"}
-shotCaliber["efgm_ammo_338"] =      {35, 20000, "bullet"}
-shotCaliber["efgm_ammo_357"] =      {180, 3000, "bullet"}
-shotCaliber["efgm_ammo_366"] =      {75, 6000, "bullet"}
-shotCaliber["efgm_ammo_45"] =       {180, 3000, "bullet"}
-shotCaliber["efgm_ammo_50ae"] =     {75, 6000, "bullet"}
-shotCaliber["efgm_ammo_50bmg"] =    {35, 20000, "bullet"}
-shotCaliber["efgm_ammo_127x55"] =   {55, 8000, "bullet"}
-shotCaliber["efgm_ammo_12gauge"] =  {140, 3000, "bullet"}
-shotCaliber["efgm_ammo_20gauge"] =  {140, 3000, "bullet"}
-shotCaliber["efgm_ammo_4gauge"] =   {120, 3000, "bullet"}
-shotCaliber["efgm_ammo_26x75"] =    {220, 3000, "bullet"}
-shotCaliber["efgm_ammo_46x30"] =    {110, 4500, "bullet"}
-shotCaliber["efgm_ammo_545x39"] =   {85, 6000, "bullet"}
-shotCaliber["efgm_ammo_556x45"] =   {85, 6000, "bullet"}
-shotCaliber["efgm_ammo_57x28"] =    {110, 4500, "bullet"}
-shotCaliber["efgm_ammo_68x51"] =    {65, 6000, "bullet"}
-shotCaliber["efgm_ammo_762x25"] =   {190, 3000, "bullet"}
-shotCaliber["efgm_ammo_762x39"] =   {75, 6000, "bullet"}
-shotCaliber["efgm_ammo_762x51"] =   {70, 7000, "bullet"}
-shotCaliber["efgm_ammo_308"] =      {70, 7000, "bullet"}
-shotCaliber["efgm_ammo_762x54"] =   {60, 7000, "bullet"}
-shotCaliber["efgm_ammo_9x18"] =     {180, 3000, "bullet"}
-shotCaliber["efgm_ammo_9x19"] =     {180, 3000, "bullet"}
-shotCaliber["efgm_ammo_9x21"] =     {150, 4500, "bullet"}
-shotCaliber["efgm_ammo_9x39"] =     {150, 2500, "bullet"}
-shotCaliber["efgm_ammo_93x64"] =    {30, 25000, "bullet"}
+CALIBERAUDIO["efgm_ammo_300"] =      {75, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_338"] =      {35, 20000, "bullet"}
+CALIBERAUDIO["efgm_ammo_357"] =      {180, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_366"] =      {75, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_45"] =       {180, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_50ae"] =     {75, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_50bmg"] =    {35, 20000, "bullet"}
+CALIBERAUDIO["efgm_ammo_127x55"] =   {55, 8000, "bullet"}
+CALIBERAUDIO["efgm_ammo_12gauge"] =  {140, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_20gauge"] =  {140, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_4gauge"] =   {120, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_26x75"] =    {220, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_46x30"] =    {110, 4500, "bullet"}
+CALIBERAUDIO["efgm_ammo_545x39"] =   {85, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_556x45"] =   {85, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_57x28"] =    {110, 4500, "bullet"}
+CALIBERAUDIO["efgm_ammo_68x51"] =    {65, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_762x25"] =   {190, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_762x39"] =   {75, 6000, "bullet"}
+CALIBERAUDIO["efgm_ammo_762x51"] =   {70, 7000, "bullet"}
+CALIBERAUDIO["efgm_ammo_308"] =      {70, 7000, "bullet"}
+CALIBERAUDIO["efgm_ammo_762x54"] =   {60, 7000, "bullet"}
+CALIBERAUDIO["efgm_ammo_9x18"] =     {180, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_9x19"] =     {180, 3000, "bullet"}
+CALIBERAUDIO["efgm_ammo_9x21"] =     {150, 4500, "bullet"}
+CALIBERAUDIO["efgm_ammo_9x39"] =     {150, 2500, "bullet"}
+CALIBERAUDIO["efgm_ammo_93x64"] =    {30, 25000, "bullet"}
 
 -- entities
-shotCaliber["arc9_eft_grenade_f1"] =        {60, 10000, "boom"}
-shotCaliber["arc9_eft_grenade_m67"] =       {60, 10000, "boom"}
-shotCaliber["arc9_eft_grenade_rgd5"] =      {60, 10000, "boom"}
-shotCaliber["arc9_eft_grenade_rgn"] =       {80, 8000, "boom"}
-shotCaliber["arc9_eft_grenade_rgo"] =       {80, 8000, "boom"}
-shotCaliber["arc9_eft_grenade_v40"] =       {80, 8000, "boom"}
-shotCaliber["arc9_eft_grenade_vog17"] =     {70, 9000, "boom"}
-shotCaliber["arc9_eft_grenade_vog25"] =     {70, 9000, "boom"}
-shotCaliber["arc9_eft_40mm_m381_bang"] =    {60, 10000, "boom"}
-shotCaliber["arc9_eft_40mm_m433_bang"] =    {70, 9000, "boom"}
-shotCaliber["arc9_eft_grenade_725"] =       {50, 12000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_f1"] =        {60, 10000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_m67"] =       {60, 10000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_rgd5"] =      {60, 10000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_rgn"] =       {80, 8000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_rgo"] =       {80, 8000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_v40"] =       {80, 8000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_vog17"] =     {70, 9000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_vog25"] =     {70, 9000, "boom"}
+CALIBERAUDIO["arc9_eft_40mm_m381_bang"] =    {60, 10000, "boom"}
+CALIBERAUDIO["arc9_eft_40mm_m433_bang"] =    {70, 9000, "boom"}
+CALIBERAUDIO["arc9_eft_grenade_725"] =       {50, 12000, "boom"}
 
 -- manually set
-shotCaliber["shrapnel"] =           {190, 3000, "bullet"}
+CALIBERAUDIO["shrapnel"] =           {190, 3000, "bullet"}
 
 -- code for firearms can be found in sh_arc9_override, the serverside stuff below is for things like explosions or shrapnel
 if SERVER then
@@ -448,7 +448,7 @@ if SERVER then
 				if !v:IsInRaid() then return end
 
 				local class = ent:GetClass()
-				if shotCaliber[class] == nil then return end
+				if CALIBERAUDIO[class] == nil then return end
 
 				local shootPos = Vector(attacker:GetPos())
 
@@ -463,9 +463,9 @@ if SERVER then
 				if plyDistance < (dist * dist) then return end
 				plyDistance = math.sqrt(plyDistance)
 
-				local bulletPitch = shotCaliber[class][1] or 100
-				local threshold = shotCaliber[class][2] or 6000
-				local style = shotCaliber[class][3] == "bullet" -- returns true if bullet, false if explosive
+				local bulletPitch = CALIBERAUDIO[class][1] or 100
+				local threshold = CALIBERAUDIO[class][2] or 6000
+				local style = CALIBERAUDIO[class][3] == "bullet" -- returns true if bullet, false if explosive
 				local volume = 1
 
 				if indoor then volume = volume * 0.4 end
@@ -490,7 +490,7 @@ if SERVER then
 
 			for k, v in player.Iterator() do
 				if !v:IsInRaid() then return end
-				if shotCaliber[cal] == nil then return end
+				if CALIBERAUDIO[cal] == nil then return end
 
 				local shootPos = Vector(attacker:GetPos())
 
@@ -505,9 +505,9 @@ if SERVER then
 				if plyDistance < (dist * dist) then return end
 				plyDistance = math.sqrt(plyDistance)
 
-				local bulletPitch = shotCaliber[cal][1] or 100
-				local threshold = shotCaliber[cal][2] or 6000
-				local style = shotCaliber[cal][3] == "bullet" -- returns true if bullet, false if explosive
+				local bulletPitch = CALIBERAUDIO[cal][1] or 100
+				local threshold = CALIBERAUDIO[cal][2] or 6000
+				local style = CALIBERAUDIO[cal][3] == "bullet" -- returns true if bullet, false if explosive
 				local volume = 1
 
 				if indoor then volume = volume * 0.4 end

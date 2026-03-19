@@ -17,9 +17,12 @@ EFGM.MENU.StashSort = 1
 EFGM.MENU.StashSortOrder = false
 EFGM.MENU.MarketStashSort = 1
 EFGM.MENU.MarketStashSortOrder = false
+EFGM.MENU.StashValue = 0
 
 EFGM.MENU.DraggingType = nil
 EFGM.MENU.BindTypes = {}
+
+EFGM.MENU.ELEMENTS = {}
 
 local math = math
 local table = table
@@ -147,7 +150,7 @@ function EFGM.MENU:Initialize(openTo, container)
 	function menuFrame:Paint(w, h)
 		if EFGM.MENU.Unblur then return end
 
-		surface.SetDrawColor(Colors.frameColor)
+		surface.SetDrawColor(COLORS.frameColor)
 		surface.DrawRect(0, 0, ScrW(), ScrH())
 		BlurPanel(self, 2, 2)
 	end
@@ -300,9 +303,9 @@ function EFGM.MENU:Initialize(openTo, container)
 
 	local raidStatus = GetGlobalInt("RaidStatus", 0)
 	local raidStatusTbl = {
-		[0] = Colors.menuStatusPending,
-		[1] = Colors.whiteColor,
-		[2] = Colors.menuStatusEnded
+		[0] = COLORS.menuStatusPending,
+		[1] = COLORS.whiteColor,
+		[2] = COLORS.menuStatusEnded
 	}
 
 	function tabParentPanel:Paint(w, h)
@@ -322,12 +325,12 @@ function EFGM.MENU:Initialize(openTo, container)
 
 		raidStatus = GetGlobalInt("RaidStatus", 0)
 
-		draw.SimpleTextOutlined(roubles, "PuristaBold32", w - EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(level, "PuristaBold32", w - roublesTextSize - EFGM.MenuScale(65), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(time, "PuristaBold32", w - roublesTextSize - levelTextSize - EFGM.MenuScale(125), EFGM.MenuScale(2), raidStatusTbl[raidStatus], TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(plyCount, "PuristaBold32", w - roublesTextSize - levelTextSize - timeTextSize - EFGM.MenuScale(185), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(roubles, "PuristaBold32", w - EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(level, "PuristaBold32", w - roublesTextSize - EFGM.MenuScale(65), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(time, "PuristaBold32", w - roublesTextSize - levelTextSize - EFGM.MenuScale(125), EFGM.MenuScale(2), raidStatusTbl[raidStatus], TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(plyCount, "PuristaBold32", w - roublesTextSize - levelTextSize - timeTextSize - EFGM.MenuScale(185), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-		draw.DrawText("EFGM", "PuristaBold32", w / 2, EFGM.MenuScale(2), Colors.itemBackgroundColor, TEXT_ALIGN_CENTER)
+		draw.DrawText("EFGM", "PuristaBold32", w / 2, EFGM.MenuScale(2), COLORS.itemBackgroundColor, TEXT_ALIGN_CENTER)
 	end
 
 	self.MenuFrame.TabParentPanel = tabParentPanel
@@ -340,8 +343,8 @@ function EFGM.MENU:Initialize(openTo, container)
 	function roubleIcon:Paint(w, h)
 		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(45) - roublesTextSize)
 
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.roubleIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.roubleIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
@@ -351,7 +354,7 @@ function EFGM.MENU:Initialize(openTo, container)
 		local paint = function()
 			local w, h = EFGM.MENU.Tooltip:GetSize()
 
-			surface.SetDrawColor(Colors.tooltipBackgroundColor)
+			surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
 			surface.SetDrawColor(Color(50, 100, 50, 45))
@@ -360,14 +363,14 @@ function EFGM.MENU:Initialize(openTo, container)
 			surface.SetDrawColor(Color(50, 100, 50, 255))
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-			draw.SimpleTextOutlined("ROUBLES", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("Your primary currency when purchasing goods, using services and trading with other operatives.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("ROUBLES", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("Your primary currency when purchasing goods, using services and trading with other operatives.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		EFGM.MENU.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(625), EFGM.MenuScale(50))
@@ -385,8 +388,8 @@ function EFGM.MENU:Initialize(openTo, container)
 	function levelIcon:Paint(w, h)
 		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(105) - roublesTextSize - levelTextSize)
 
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.levelIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.levelIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
@@ -396,7 +399,7 @@ function EFGM.MENU:Initialize(openTo, container)
 		local paint = function()
 			local w, h = EFGM.MENU.Tooltip:GetSize()
 
-			surface.SetDrawColor(Colors.tooltipBackgroundColor)
+			surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
 			surface.SetDrawColor(Color(100, 100, 50, 45))
@@ -405,21 +408,21 @@ function EFGM.MENU:Initialize(openTo, container)
 			surface.SetDrawColor(Color(100, 100, 50))
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-			draw.SimpleTextOutlined("LEVEL", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("Your characters level, what seperates you from better services and reputation.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("LEVEL", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("Your characters level, what seperates you from better services and reputation.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-			draw.SimpleTextOutlined(level, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(50), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined(level + 1, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(50), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(level, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(50), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(level + 1, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(50), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-			draw.SimpleTextOutlined(EFGM.MENU.Player:GetNWInt("Experience", 0) .. "/" .. EFGM.MENU.Player:GetNWInt("ExperienceToNextLevel", 500), "PuristaBold16", EFGM.MenuScale(30), EFGM.MenuScale(55.5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(EFGM.MENU.Player:GetNWInt("Experience", 0) .. "/" .. EFGM.MENU.Player:GetNWInt("ExperienceToNextLevel", 500), "PuristaBold16", EFGM.MenuScale(30), EFGM.MenuScale(55.5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(75), EFGM.MenuScale(505), EFGM.MenuScale(1))
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(84), EFGM.MenuScale(505), EFGM.MenuScale(1))
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(75), EFGM.MenuScale(1), EFGM.MenuScale(10))
@@ -446,8 +449,8 @@ function EFGM.MENU:Initialize(openTo, container)
 	function timeIcon:Paint(w, h)
 		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(165) - roublesTextSize - levelTextSize - timeTextSize)
 
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.timeIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.timeIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
@@ -458,8 +461,8 @@ function EFGM.MENU:Initialize(openTo, container)
 	function plyCountIcon:Paint(w, h)
 		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(225) - roublesTextSize - levelTextSize - timeTextSize - plyCountTextSize)
 
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.populationIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.populationIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
@@ -502,7 +505,7 @@ function EFGM.MENU:Initialize(openTo, container)
 
 	function lowerPanel:OnMouseWheeled(delta)
 		if !IsValid(contextMenu) then return end
-		contextEFGM.MENU:AlphaTo(0, 0.05, 0, function() contextEFGM.MENU:Remove() end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
 	end
 
 	self.MenuFrame.LowerPanel = lowerPanel
@@ -535,12 +538,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	statsIcon:SetText("")
 
 	function statsIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.profileIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.profileIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local statsBGColor = Colors.transparent
+	local statsBGColor = COLORS.transparent
 	local statsText = string.upper(EFGM.MENU.Player:Nick())
 	local statsTextSize = surface.GetTextSize(statsText)
 
@@ -548,10 +551,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(statsBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(statsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(statsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "stats" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -600,12 +603,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	matchIcon:SetText("")
 
 	function matchIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.matchIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.matchIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local matchBGColor = Colors.transparent
+	local matchBGColor = COLORS.transparent
 	local matchText = "MATCH"
 	local matchTextSize = surface.GetTextSize(matchText)
 
@@ -613,10 +616,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(matchBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(matchText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(matchText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "match" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -663,12 +666,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	inventoryIcon:SetText("")
 
 	function inventoryIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.inventoryIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.inventoryIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local inventoryBGColor = Colors.transparent
+	local inventoryBGColor = COLORS.transparent
 	local inventoryText = "INVENTORY"
 	local inventoryTextSize = surface.GetTextSize(inventoryText)
 
@@ -676,10 +679,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(inventoryBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(inventoryText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(inventoryText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "inventory" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -730,12 +733,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	marketIcon:SetText("")
 
 	function marketIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.marketIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.marketIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local marketBGColor = Colors.transparent
+	local marketBGColor = COLORS.transparent
 	local marketText = "MARKET"
 	local marketTextSize = surface.GetTextSize(marketText)
 
@@ -743,10 +746,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(marketBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(marketText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(marketText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "market" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -802,12 +805,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	tasksIcon:SetText("")
 
 	function tasksIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.tasksIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.tasksIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local tasksBGColor = Colors.transparent
+	local tasksBGColor = COLORS.transparent
 	local tasksText = "TASKS"
 	local tasksTextSize = surface.GetTextSize(tasksText)
 
@@ -815,10 +818,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(tasksBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(tasksText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(tasksText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "tasks" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -873,12 +876,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	skillsIcon:SetText("")
 
 	function skillsIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.skillsIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.skillsIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local skillsBGColor = Colors.transparent
+	local skillsBGColor = COLORS.transparent
 	local skillsText = "SKILLS"
 	local skillsTextSize = surface.GetTextSize(skillsText)
 
@@ -886,10 +889,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(skillsBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(skillsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(skillsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "skills" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -937,12 +940,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	achievementsIcon:SetText("")
 
 	function achievementsIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.achievementIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.achievementIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local achievementsBGColor = Colors.transparent
+	local achievementsBGColor = COLORS.transparent
 	local achievementsText = "ACHIEVMENTS"
 	local achievementsTextSize = surface.GetTextSize(achievementsText)
 
@@ -950,10 +953,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(achievementsBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(achievementsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(achievementsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "achievements" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -985,12 +988,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	settingsIcon:SetText("")
 
 	function settingsIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.settingsIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.settingsIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(36), EFGM.MenuScale(36))
 	end
 
-	local settingsBGColor = Colors.transparent
+	local settingsBGColor = COLORS.transparent
 	local settingsText = "SETTINGS"
 	local settingsTextSize = surface.GetTextSize(settingsText)
 
@@ -998,10 +1001,10 @@ function EFGM.MENU:Initialize(openTo, container)
 		surface.SetDrawColor(settingsBGColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(settingsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(settingsText, "PuristaBold32", EFGM.MenuScale(43), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if EFGM.MENU.ActiveTab == "settings" then
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(EFGM.MenuScale(2), EFGM.MenuScale(39), w - EFGM.MenuScale(2), EFGM.MenuScale(2))
 		end
 	end
@@ -1095,7 +1098,7 @@ local inspectPanel
 function EFGM.MENU.InspectItem(item, data)
 	if IsValid(inspectPanel) then inspectPanel:Remove() end
 
-	local i = EFGMITEMS[item]
+	local i = EFGM.ITEMS[item]
 	if i == nil then inspectPanel:Remove() return end
 
 	surface.SetFont("PuristaBold24")
@@ -1110,7 +1113,7 @@ function EFGM.MENU.InspectItem(item, data)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			value = value + att.value
@@ -1120,18 +1123,12 @@ function EFGM.MENU.InspectItem(item, data)
 
 	local ownerName = nil
 	if data.owner then
-		ownerName = EFGM.SteamNameCache[data.owner]
-		if !ownerName then
-			steamworks.RequestPlayerInfo(data.owner, function(steamName) ownerName = steamName or "" EFGM.SteamNameCache[data.owner] = steamName or "" end)
-		end
+		ownerName = SteamNameFromID64(data.owner)
 	end
 
 	local taggedByName = nil
 	if data.taggedBy then
-		taggedByName = EFGM.SteamNameCache[data.taggedBy]
-		if !taggedByName then
-			steamworks.RequestPlayerInfo(data.taggedBy, function(steamName) taggedByName = steamName or "" EFGM.SteamNameCache[data.taggedBy] = steamName or "" end)
-		end
+		taggedByName = SteamNameFromID64(data.taggedBy)
 	end
 
 	surface.SetFont("PuristaBold18")
@@ -1173,23 +1170,23 @@ function EFGM.MENU.InspectItem(item, data)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(itemNameText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(itemDescText, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(itemNameText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(itemDescText, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		if data.tag then
-			draw.SimpleTextOutlined(data.tag, "PuristaBold14", EFGM.MenuScale(5), EFGM.MenuScale(40), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(data.tag, "PuristaBold14", EFGM.MenuScale(5), EFGM.MenuScale(40), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		surface.SetDrawColor(Colors.pureWhiteColor)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
 		surface.SetMaterial(i.icon)
 
 		-- panel width = 198, panel height = 216
@@ -1206,8 +1203,8 @@ function EFGM.MENU.InspectItem(item, data)
 		firIcon:SetText("")
 
 		function firIcon:Paint(w, h)
-			surface.SetDrawColor(Colors.pureWhiteColor)
-			surface.SetMaterial(Mats.firIcon)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
+			surface.SetMaterial(MATS.firIcon)
 			surface.DrawTexturedRect(0, 0, EFGM.MenuScale(12), EFGM.MenuScale(12))
 		end
 
@@ -1217,23 +1214,23 @@ function EFGM.MENU.InspectItem(item, data)
 			local paint = function()
 				local w, h = EFGM.MENU.Tooltip:GetSize()
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.SetDrawColor(COLORS.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-				draw.SimpleTextOutlined("FOUND IN RAID", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined("This item will lose its 'found in raid' status if brought into another raid.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("FOUND IN RAID", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined("This item will lose its 'found in raid' status if brought into another raid.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			EFGM.MENU.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(455), EFGM.MenuScale(50))
@@ -1255,7 +1252,7 @@ function EFGM.MENU.InspectItem(item, data)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -1274,13 +1271,13 @@ function EFGM.MENU.InspectItem(item, data)
 	function itemInfoButton:Paint(w, h)
 		self:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		if !self:IsHovered() then surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2)) else surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(3)) end
 
-		draw.SimpleTextOutlined(infoText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(infoText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -1295,13 +1292,13 @@ function EFGM.MENU.InspectItem(item, data)
 	function itemWikiButton:Paint(w, h)
 		self:SetY(itemPullOutPanel:GetY() - EFGM.MenuScale(28) + 1)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, wikiTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		if !self:IsHovered() then surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2)) else surface.DrawRect(0, 0, infoTextSize + EFGM.MenuScale(10), EFGM.MenuScale(3)) end
 
-		draw.SimpleTextOutlined(wikiText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(wikiText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if !data or table.IsEmpty(data) then
@@ -1370,7 +1367,7 @@ function EFGM.MENU.InspectItem(item, data)
 		end
 
 		if data.tagCauseOfDeath then
-			local def = EFGMITEMS[data.tagCauseOfDeath]
+			local def = EFGM.ITEMS[data.tagCauseOfDeath]
 			local cause = "Unknown"
 			if data.tagCauseOfDeath == "Suicide" then cause = "Suicide" elseif def then cause = def.fullName .. " (" .. def.displayName .. ")" end
 			infoContentText:AppendText("CAUSE OF DEATH: " .. cause .. "\n")
@@ -1678,8 +1675,8 @@ function EFGM.MENU.InspectItem(item, data)
 	closeButton:SetText("")
 
 	function closeButton:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.closeButtonIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.closeButtonIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(32), EFGM.MenuScale(32))
 	end
 
@@ -1692,15 +1689,11 @@ function EFGM.MENU.InspectItem(item, data)
 	end
 end
 
-local confirmPanel
-
 function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
-	if IsValid(confirmPanel) then confirmPanel:Remove() end
+	if IsValid(EFGM.MENU.ELEMENTS.ConfirmPanel) then EFGM.MENU.ELEMENTS.ConfirmPanel:Remove() end
 
-	local i = EFGMITEMS[item]
+	local i = EFGM.ITEMS[item]
 	if i == nil then
-		confirmPanel:Remove()
-
 		if closeMenu == true then
 			EFGM.MENU:RunOnClose()
 			EFGM.MENU.MenuFrame:Close()
@@ -1717,7 +1710,6 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 	local plyMoney = EFGM.MENU.Player:GetNWInt("Money", 0)
 	local plyLevel = EFGM.MENU.Player:GetNWInt("Level", 1)
 
-	-- can't afford one of the item
 	if plyMoney < i.value then
 		surface.PlaySound("ui/element_deselect.wav")
 
@@ -1774,7 +1766,7 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 
 	surface.PlaySound("ui/market_select.wav")
 
-	confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
+	local confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
 	confirmPanel:SetSize(confirmTextSize + EFGM.MenuScale(10), confirmPanelHeight)
 	confirmPanel:SetPos(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2, EFGM.MENU.MenuFrame:GetTall() / 2 - confirmPanel:GetTall() / 2)
 	confirmPanel:SetAlpha(0)
@@ -1784,27 +1776,29 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 	confirmPanel:AlphaTo(255, 0.1, 0, nil)
 	confirmPanel:RequestFocus()
 
+	EFGM.MENU.ELEMENTS.ConfirmPanel = confirmPanel
+
 	function confirmPanel:Paint(w, h)
 		BlurPanel(self, 3)
 
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		if marketLimit != nil and maxTransactionCount > 1 then draw.SimpleTextOutlined(marketLimit .. "x REMAINING THIS RESET", "Purista14", w / 2, EFGM.MenuScale(50), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor) end
+		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		if marketLimit != nil and maxTransactionCount > 1 then draw.SimpleTextOutlined(marketLimit .. "x REMAINING THIS RESET", "Purista14", w / 2, EFGM.MenuScale(50), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor) end
 
-		draw.SimpleTextOutlined("SEND TO", "PuristaBold16", w / 2, confirmPanelHeight - EFGM.MenuScale(80), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(invText, "PuristaBold16", w / 2 - EFGM.MenuScale(65), confirmPanelHeight - EFGM.MenuScale(61), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(stashText, "PuristaBold16", w / 2 + EFGM.MenuScale(45), confirmPanelHeight - EFGM.MenuScale(61), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("SEND TO", "PuristaBold16", w / 2, confirmPanelHeight - EFGM.MenuScale(80), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(invText, "PuristaBold16", w / 2 - EFGM.MenuScale(65), confirmPanelHeight - EFGM.MenuScale(61), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(stashText, "PuristaBold16", w / 2 + EFGM.MenuScale(45), confirmPanelHeight - EFGM.MenuScale(61), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function confirmPanel:Think()
@@ -1882,13 +1876,13 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 	yesButton:SetText("")
 
 	function yesButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -1902,13 +1896,13 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 	noButton:SetText("")
 
 	function noButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if maxTransactionCount > 1 then
@@ -1986,10 +1980,10 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 end
 
 function EFGM.MENU.ConfirmSell(item, data, key)
-	if IsValid(confirmPanel) then confirmPanel:Remove() end
+	if IsValid(EFGM.MENU.ELEMENTS.ConfirmPanel) then EFGM.MENU.ELEMENTS.ConfirmPanel:Remove() end
 
-	local i = EFGMITEMS[item]
-	if i == nil then confirmPanel:Remove() return end
+	local i = EFGM.ITEMS[item]
+	if i == nil then return end
 
 	local transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
 
@@ -1998,7 +1992,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
@@ -2030,7 +2024,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 
 	surface.PlaySound("ui/element_select.wav")
 
-	confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
+	local confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
 	confirmPanel:SetSize(confirmTextSize + EFGM.MenuScale(10), confirmPanelHeight)
 	confirmPanel:SetPos(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2, EFGM.MENU.MenuFrame:GetTall() / 2 - confirmPanel:GetTall() / 2)
 	confirmPanel:SetAlpha(0)
@@ -2039,6 +2033,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 	confirmPanel:SetScreenLock(true)
 	confirmPanel:AlphaTo(255, 0.1, 0, nil)
 	confirmPanel:RequestFocus()
+	EFGM.MENU.ELEMENTS.ConfirmPanel = confirmPanel
 
 	function confirmPanel:Paint(w, h)
 		BlurPanel(self, 3)
@@ -2046,16 +2041,16 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function confirmPanel:Think()
@@ -2075,13 +2070,13 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 	yesButton:SetText("")
 
 	function yesButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -2095,13 +2090,13 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 	noButton:SetText("")
 
 	function noButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if maxTransactionCount > 1 then
@@ -2129,7 +2124,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 				if !atts then return end
 
 				for _, a in ipairs(atts) do
-					local att = EFGMITEMS[a]
+					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
 					transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
@@ -2177,22 +2172,23 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 end
 
 function EFGM.MENU.ConfirmSplit(item, data, key, inv)
-	if IsValid(confirmPanel) then confirmPanel:Remove() end
+	if IsValid(EFGM.MENU.ELEMENTS.ConfirmPanel) then EFGM.MENU.ELEMENTS.ConfirmPanel:Remove() end
 
-	local i = EFGMITEMS[item]
-	if i == nil then confirmPanel:Remove() return end
+	local i = EFGM.ITEMS[item]
+	if i == nil then return end
 
 	surface.SetFont("PuristaBold24")
 	local confirmText = "Split " .. i.fullName .. " (" .. i.displayName .. ")?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
+	local splitCount = math.Round(data.count / 2)
 	local maxSplitCount = data.count - 1
 
 	local confirmPanelHeight = EFGM.MenuScale(100)
 
 	surface.PlaySound("ui/element_select.wav")
 
-	confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
+	local confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
 	confirmPanel:SetSize(confirmTextSize + EFGM.MenuScale(10), confirmPanelHeight)
 	confirmPanel:SetPos(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2, EFGM.MENU.MenuFrame:GetTall() / 2 - confirmPanel:GetTall() / 2)
 	confirmPanel:SetAlpha(0)
@@ -2201,6 +2197,7 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 	confirmPanel:SetScreenLock(true)
 	confirmPanel:AlphaTo(255, 0.1, 0, nil)
 	confirmPanel:RequestFocus()
+	EFGM.MENU.ELEMENTS.ConfirmPanel = confirmPanel
 
 	function confirmPanel:Paint(w, h)
 		BlurPanel(self, 3)
@@ -2208,16 +2205,16 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function confirmPanel:Think()
@@ -2237,13 +2234,13 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 	yesButton:SetText("")
 
 	function yesButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -2257,13 +2254,13 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 	noButton:SetText("")
 
 	function noButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local amountSlider = vgui.Create("DNumSlider", confirmPanel)
@@ -2308,10 +2305,10 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 end
 
 function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
-	if IsValid(confirmPanel) then confirmPanel:Remove() end
+	if IsValid(EFGM.MENU.ELEMENTS.ConfirmPanel) then EFGM.MENU.ELEMENTS.ConfirmPanel:Remove() end
 
-	local i = EFGMITEMS[item]
-	if i == nil then confirmPanel:Remove() return end
+	local i = EFGM.ITEMS[item]
+	if i == nil then return end
 
 	if GetConVar("efgm_menu_deleteprompt"):GetInt() == 0 then
 		surface.PlaySound("ui/element_select.wav")
@@ -2328,7 +2325,7 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 
 	surface.PlaySound("ui/element_select.wav")
 
-	confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
+	local confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
 	confirmPanel:SetSize(confirmTextSize + EFGM.MenuScale(10), confirmPanelHeight)
 	confirmPanel:SetPos(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2, EFGM.MENU.MenuFrame:GetTall() / 2 - confirmPanel:GetTall() / 2)
 	confirmPanel:SetAlpha(0)
@@ -2337,6 +2334,7 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 	confirmPanel:SetScreenLock(true)
 	confirmPanel:AlphaTo(255, 0.1, 0, nil)
 	confirmPanel:RequestFocus()
+	EFGM.MENU.ELEMENTS.ConfirmPanel = confirmPanel
 
 	function confirmPanel:Paint(w, h)
 		BlurPanel(self, 3)
@@ -2344,16 +2342,16 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function confirmPanel:Think()
@@ -2373,13 +2371,13 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 	yesButton:SetText("")
 
 	function yesButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -2393,13 +2391,13 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 	noButton:SetText("")
 
 	function noButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function yesButton:OnCursorEntered()
@@ -2431,10 +2429,10 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 end
 
 function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
-	if IsValid(confirmPanel) then confirmPanel:Remove() end
+	if IsValid(EFGM.MENU.ELEMENTS.ConfirmPanel) then EFGM.MENU.ELEMENTS.ConfirmPanel:Remove() end
 
-	local i = EFGMITEMS[item]
-	if i == nil then confirmPanel:Remove() return end
+	local i = EFGM.ITEMS[item]
+	if i == nil then return end
 
 	local tagString = ""
 
@@ -2444,7 +2442,7 @@ function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
 
 	local confirmPanelHeight = EFGM.MenuScale(110)
 
-	confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
+	local confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
 	confirmPanel:SetSize(confirmTextSize + EFGM.MenuScale(10), confirmPanelHeight)
 	confirmPanel:SetPos(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2, EFGM.MENU.MenuFrame:GetTall() / 2 - confirmPanel:GetTall() / 2)
 	confirmPanel:SetAlpha(0)
@@ -2453,6 +2451,7 @@ function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
 	confirmPanel:SetScreenLock(true)
 	confirmPanel:AlphaTo(255, 0.1, 0, nil)
 	confirmPanel:RequestFocus()
+	EFGM.MENU.ELEMENTS.ConfirmPanel = confirmPanel
 
 	function confirmPanel:Paint(w, h)
 		BlurPanel(self, 3)
@@ -2460,18 +2459,18 @@ function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-		draw.SimpleTextOutlined("CANNOT BE UNDONE", "PuristaBold16", w / 2, confirmPanelHeight - EFGM.MenuScale(55), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("CANNOT BE UNDONE", "PuristaBold16", w / 2, confirmPanelHeight - EFGM.MenuScale(55), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function confirmPanel:Think()
@@ -2491,13 +2490,13 @@ function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
 	yesButton:SetText("")
 
 	function yesButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -2511,13 +2510,13 @@ function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
 	noButton:SetText("")
 
 	function noButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local tagInput = vgui.Create("DTextEntry", confirmPanel)
@@ -2559,7 +2558,7 @@ function EFGM.MENU.ConfirmTag(item, key, inv, eID, eSlot)
 end
 
 function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
-	if IsValid(confirmPanel) then confirmPanel:Remove() end
+	if IsValid(EFGM.MENU.ELEMENTS.ConfirmPanel) then EFGM.MENU.ELEMENTS.ConfirmPanel:Remove() end
 
 	local confirmPanelHeight = EFGM.MenuScale(75)
 	local highestAttSize = 0
@@ -2571,10 +2570,8 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	local plyLevel = EFGM.MENU.Player:GetNWInt("Level", 1)
 
 	for att, count in pairs(atts) do
-		local i = EFGMITEMS[att]
+		local i = EFGM.ITEMS[att]
 		if i == nil then
-			confirmPanel:Remove()
-
 			if closeMenu == true then
 				EFGM.MENU:RunOnClose()
 				EFGM.MENU.MenuFrame:AlphaTo(0, 0.05, 0, function()
@@ -2601,8 +2598,6 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	if plyMoney < transactionCost or plyLevel < highestLvlAtt then
 		surface.PlaySound("ui/element_deselect.wav")
 
-		confirmPanel:Remove()
-
 		if closeMenu == true then
 			EFGM.MENU:RunOnClose()
 			EFGM.MENU.MenuFrame:AlphaTo(0, 0.05, 0, function()
@@ -2622,7 +2617,7 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 
 	surface.PlaySound("ui/element_select.wav")
 
-	confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
+	local confirmPanel = vgui.Create("DFrame", EFGM.MENU.MenuFrame)
 	confirmPanel:SetSize(confirmPanelSize, confirmPanelHeight)
 	confirmPanel:SetPos(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2, EFGM.MENU.MenuFrame:GetTall() / 2 - confirmPanel:GetTall() / 2)
 	confirmPanel:SetAlpha(0)
@@ -2631,6 +2626,7 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	confirmPanel:SetScreenLock(true)
 	confirmPanel:AlphaTo(255, 0.1, 0, nil)
 	confirmPanel:RequestFocus()
+	EFGM.MENU.ELEMENTS.ConfirmPanel = confirmPanel
 
 	function confirmPanel:Paint(w, h)
 		BlurPanel(self, 3)
@@ -2638,24 +2634,24 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 		surface.SetDrawColor(Color(20, 20, 20, 205))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(confirmText, "PuristaBold24", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		local num = 0
 		for k, v in pairs(atts) do
-			local i = EFGMITEMS[k]
+			local i = EFGM.ITEMS[k]
 			if i == nil then continue end
 
-			draw.SimpleTextOutlined(v .. "x " .. i.fullName .. " (" .. i.displayName .. "):", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(30) + (EFGM.MenuScale(15) * num), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("₽" .. (i.value * v), "PuristaBold16", w - EFGM.MenuScale(5), EFGM.MenuScale(30) + (EFGM.MenuScale(15) * num), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(v .. "x " .. i.fullName .. " (" .. i.displayName .. "):", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(30) + (EFGM.MenuScale(15) * num), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("₽" .. (i.value * v), "PuristaBold16", w - EFGM.MenuScale(5), EFGM.MenuScale(30) + (EFGM.MenuScale(15) * num), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			num = num + 1
 		end
@@ -2684,13 +2680,13 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	yesButton:SetText("")
 
 	function yesButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, yesTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(yesText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	surface.SetFont("PuristaBold24")
@@ -2704,13 +2700,13 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	noButton:SetText("")
 
 	function noButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, noButtonSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(noText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function yesButton:OnCursorEntered()
@@ -2762,49 +2758,49 @@ end
 local filters = {
 	[1] = {
 		name = "All Items",
-		icon = Mats.filterAllIcon,
+		icon = MATS.filterAllIcon,
 		def = nil,
 		value = nil,
 		count = 0
 	},
 	[2] = {
 		name = "Weapons",
-		icon = Mats.filterWeaponsIcon,
+		icon = MATS.filterWeaponsIcon,
 		def = "equipType",
 		value = 1,
 		count = 0
 	},
 	[3] = {
 		name = "Ammunition",
-		icon = Mats.filterAmmunitionIcon,
+		icon = MATS.filterAmmunitionIcon,
 		def = "equipType",
 		value = 2,
 		count = 0
 	},
 	[4] = {
 		name = "Consumables",
-		icon = Mats.filterConsumablesIcon,
+		icon = MATS.filterConsumablesIcon,
 		def = "equipType",
 		value = 5,
 		count = 0
 	},
 	[5] = {
 		name = "Attachments",
-		icon = Mats.filterAttachmentsIcon,
+		icon = MATS.filterAttachmentsIcon,
 		def = "equipType",
 		value = 6,
 		count = 0
 	},
 	[6] = {
 		name = "Keys",
-		icon = Mats.filterKeysIcon,
+		icon = MATS.filterKeysIcon,
 		def = "equipType",
 		value = 7,
 		count = 0
 	},
 	[7] = {
 		name = "Barter",
-		icon = Mats.filterBarterIcon,
+		icon = MATS.filterBarterIcon,
 		def = "equipType",
 		value = 8,
 		count = 0
@@ -2815,31 +2811,31 @@ local filters = {
 local sorts = {
 	[1] = {
 		name = "Default Sorting",
-		icon = Mats.sortDefaultIcon
+		icon = MATS.sortDefaultIcon
 	},
 	[2] = {
 		name = "Sort Alphabetically",
-		icon = Mats.sortAlphaIcon
+		icon = MATS.sortAlphaIcon
 	},
 	[3] = {
 		name = "Sort By Value",
-		icon = Mats.sortValueIcon
+		icon = MATS.sortValueIcon
 	},
 	[4] = {
 		name = "Sort By Level",
-		icon = Mats.sortLevelIcon
+		icon = MATS.sortLevelIcon
 	},
 	[5] = {
 		name = "Sort By Date Acquired",
-		icon = Mats.sortTimeIcon
+		icon = MATS.sortTimeIcon
 	},
 	[6] = {
 		name = "Sort By Attachment Count",
-		icon = Mats.sortAttachIcon
+		icon = MATS.sortAttachIcon
 	},
 	[7] = {
 		name = "Sort By Name Tag",
-		icon = Mats.sortTagIcon
+		icon = MATS.sortTagIcon
 	}
 }
 
@@ -2853,7 +2849,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	EFGM.MENU.MenuFrame.LowerPanel.Contents = contents
 
 	local pm = EFGM.MENU.Player:GetModel() or "models/eft/pmcs/usec_extended_pm.mdl"
-	local factionMat = (pm == "models/eft/pmcs/usec_extended_pm.mdl" and Mats.factionUSECIcon) or (pm == "models/eft/pmcs/bear_extended_pm.mdl" and Mats.factionBEARIcon) or Mats.factionScavIcon
+	local factionMat = (pm == "models/eft/pmcs/usec_extended_pm.mdl" and MATS.factionUSECIcon) or (pm == "models/eft/pmcs/bear_extended_pm.mdl" and MATS.factionBEARIcon) or MATS.factionScavIcon
 
 	local playerPanel = vgui.Create("DPanel", contents)
 	playerPanel:Dock(LEFT)
@@ -2862,13 +2858,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function playerPanel:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-		surface.SetDrawColor(Colors.itemBackgroundColor)
+		surface.SetDrawColor(COLORS.itemBackgroundColor)
 		surface.SetMaterial(factionMat)
 		surface.DrawTexturedRect(EFGM.MenuScale(20), EFGM.MenuScale(50), EFGM.MenuScale(115), EFGM.MenuScale(119))
 	end
@@ -2878,10 +2874,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	playerText:SetSize(0, EFGM.MenuScale(36))
 
 	function playerText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerHeaderColor)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined(string.upper(EFGM.MENU.Player:Nick()), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(string.upper(EFGM.MENU.Player:Nick()), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local playerModel = vgui.Create("DModelPanel", playerPanel)
@@ -2890,8 +2886,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	playerModel:SetFOV(26)
 	playerModel:SetCamPos(Vector(10, 0, 0))
 	playerModel:SetLookAt(Vector(-100, 0, -24))
-	playerModel:SetDirectionalLight(BOX_RIGHT, Colors.modelLeftColor)
-	playerModel:SetDirectionalLight(BOX_LEFT, Colors.modelRightColor)
+	playerModel:SetDirectionalLight(BOX_RIGHT, COLORS.modelLeftColor)
+	playerModel:SetDirectionalLight(BOX_LEFT, COLORS.modelRightColor)
 	playerModel:SetAnimated(true)
 	playerModel:SetModel(pm)
 
@@ -2935,19 +2931,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function secondaryWeaponHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		if playerWeaponSlots[1][2].name then return end
+		if EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2].name then return end
 
-		surface.SetDrawColor(Colors.weaponSilhouetteColor)
-		surface.SetMaterial(Mats.invPrimaryIcon)
+		surface.SetDrawColor(COLORS.weaponSilhouetteColor)
+		surface.SetMaterial(MATS.invPrimaryIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(25), EFGM.MenuScale(15), EFGM.MenuScale(250), EFGM.MenuScale(80))
 	end
 
@@ -2955,13 +2951,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	secondaryWeaponText:SetSize(EFGM.MenuScale(120), EFGM.MenuScale(30))
 
 	function secondaryWeaponText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("SECONDARY", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("SECONDARY", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	-- primary slot
@@ -2970,19 +2966,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function primaryWeaponHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		if playerWeaponSlots[1][1].name then return end
+		if EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1].name then return end
 
-		surface.SetDrawColor(Colors.weaponSilhouetteColor)
-		surface.SetMaterial(Mats.invPrimaryIcon)
+		surface.SetDrawColor(COLORS.weaponSilhouetteColor)
+		surface.SetMaterial(MATS.invPrimaryIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(25), EFGM.MenuScale(15), EFGM.MenuScale(250), EFGM.MenuScale(80))
 	end
 
@@ -2990,13 +2986,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	primaryWeaponText:SetSize(EFGM.MenuScale(90), EFGM.MenuScale(30))
 
 	function primaryWeaponText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("PRIMARY", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("PRIMARY", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	-- holster slot
@@ -3005,19 +3001,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function holsterWeaponHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		if playerWeaponSlots[2][1].name then return end
+		if EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1].name then return end
 
-		surface.SetDrawColor(Colors.weaponSilhouetteColor)
-		surface.SetMaterial(Mats.invHolsterIcon)
+		surface.SetDrawColor(COLORS.weaponSilhouetteColor)
+		surface.SetMaterial(MATS.invHolsterIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(27), EFGM.MenuScale(8), EFGM.MenuScale(60), EFGM.MenuScale(40))
 	end
 
@@ -3025,13 +3021,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	holsterWeaponText:SetSize(EFGM.MenuScale(90), EFGM.MenuScale(30))
 
 	function holsterWeaponText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("HOLSTER", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("HOLSTER", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	-- melee slot
@@ -3040,19 +3036,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function meleeWeaponHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		if playerWeaponSlots[3][1].name then return end
+		if EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1].name then return end
 
-		surface.SetDrawColor(Colors.weaponSilhouetteColor)
-		surface.SetMaterial(Mats.invMeleeIcon)
+		surface.SetDrawColor(COLORS.weaponSilhouetteColor)
+		surface.SetMaterial(MATS.invMeleeIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(25), EFGM.MenuScale(8), EFGM.MenuScale(60), EFGM.MenuScale(40))
 	end
 
@@ -3060,13 +3056,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	meleeWeaponText:SetSize(EFGM.MenuScale(65), EFGM.MenuScale(30))
 
 	function meleeWeaponText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("MELEE", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("MELEE", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	-- nade slot
@@ -3075,19 +3071,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function nadeWeaponHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		if playerWeaponSlots[4][1].name then return end
+		if EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1].name then return end
 
-		surface.SetDrawColor(Colors.weaponSilhouetteColor)
-		surface.SetMaterial(Mats.invNadeIcon)
+		surface.SetDrawColor(COLORS.weaponSilhouetteColor)
+		surface.SetMaterial(MATS.invNadeIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(2), 0, EFGM.MenuScale(57), EFGM.MenuScale(57))
 	end
 
@@ -3095,13 +3091,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	nadeWeaponText:SetSize(EFGM.MenuScale(57), EFGM.MenuScale(30))
 
 	function nadeWeaponText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("NADE", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("NADE", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	-- consumable slot
@@ -3110,19 +3106,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function consumableItemHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		if playerWeaponSlots[5][1].name then return end
+		if EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1].name then return end
 
-		surface.SetDrawColor(Colors.weaponSilhouetteColor)
-		surface.SetMaterial(Mats.invMedicalIcon)
+		surface.SetDrawColor(COLORS.weaponSilhouetteColor)
+		surface.SetMaterial(MATS.invMedicalIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(57), EFGM.MenuScale(57))
 	end
 
@@ -3130,13 +3126,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	consumableItemText:SetSize(EFGM.MenuScale(85), EFGM.MenuScale(30))
 
 	function consumableItemText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("MEDICAL", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("MEDICAL", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local secondaryItem
@@ -3160,19 +3156,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		consumableItemHolder:SetSize(EFGM.MenuScale(57), EFGM.MenuScale(57))
 		if ispanel(consumableItem) then consumableItem:Remove() end
 
-		local secondaryTbl = playerWeaponSlots[1][2]
-		local primaryTbl = playerWeaponSlots[1][1]
-		local holsterTbl = playerWeaponSlots[2][1]
-		local meleeTbl = playerWeaponSlots[3][1]
-		local nadeTbl = playerWeaponSlots[4][1]
-		local consumableTbl = playerWeaponSlots[5][1]
+		local secondaryTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]
+		local primaryTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]
+		local holsterTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1]
+		local meleeTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1]
+		local nadeTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1]
+		local consumableTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1]
 
 		-- secondary
 		if secondaryTbl.name then
 			local name = secondaryTbl.name
 			local data = secondaryTbl.data
 
-			local i = EFGMITEMS[name]
+			local i = EFGM.ITEMS[name]
 			if i == nil then return end
 
 			secondaryWeaponHolder:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
@@ -3192,7 +3188,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local name = primaryTbl.name
 			local data = primaryTbl.data
 
-			local i = EFGMITEMS[name]
+			local i = EFGM.ITEMS[name]
 			if i == nil then return end
 
 			primaryWeaponHolder:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
@@ -3212,7 +3208,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local name = holsterTbl.name
 			local data = holsterTbl.data
 
-			local i = EFGMITEMS[name]
+			local i = EFGM.ITEMS[name]
 			if i == nil then return end
 
 			holsterWeaponHolder:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
@@ -3232,7 +3228,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local name = meleeTbl.name
 			local data = meleeTbl.data
 
-			local i = EFGMITEMS[name]
+			local i = EFGM.ITEMS[name]
 			if i == nil then return end
 
 			meleeWeaponHolder:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
@@ -3252,7 +3248,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local name = nadeTbl.name
 			local data = nadeTbl.data
 
-			local i = EFGMITEMS[name]
+			local i = EFGM.ITEMS[name]
 			if i == nil then return end
 
 			nadeWeaponHolder:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
@@ -3272,7 +3268,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local name = consumableTbl.name
 			local data = consumableTbl.data
 
-			local i = EFGMITEMS[name]
+			local i = EFGM.ITEMS[name]
 			if i == nil then return end
 
 			consumableItemHolder:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
@@ -3321,7 +3317,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if !EFGM.MENU.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if table.IsEmpty(playerWeaponSlots[1][2]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
 			else
@@ -3332,7 +3328,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "stash" then
-			if table.IsEmpty(playerWeaponSlots[1][2]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
 			else
@@ -3348,15 +3344,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "container" then
-			if table.IsEmpty(playerWeaponSlots[1][2]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][2] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][2] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3375,9 +3371,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][2] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][2] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3398,7 +3394,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if !EFGM.MENU.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if table.IsEmpty(playerWeaponSlots[1][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
 			else
@@ -3409,7 +3405,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "stash" then
-			if table.IsEmpty(playerWeaponSlots[1][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
 			else
@@ -3425,15 +3421,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "container" then
-			if table.IsEmpty(playerWeaponSlots[1][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3452,9 +3448,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3475,7 +3471,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if !EFGM.MENU.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if table.IsEmpty(playerWeaponSlots[2][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 			else
@@ -3486,7 +3482,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "stash" then
-			if table.IsEmpty(playerWeaponSlots[2][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot)
 			else
@@ -3497,15 +3493,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "container" then
-			if table.IsEmpty(playerWeaponSlots[2][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3524,9 +3520,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3547,7 +3543,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if !EFGM.MENU.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if table.IsEmpty(playerWeaponSlots[3][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 			else
@@ -3558,7 +3554,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "stash" then
-			if table.IsEmpty(playerWeaponSlots[3][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot)
 			else
@@ -3569,15 +3565,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "container" then
-			if table.IsEmpty(playerWeaponSlots[3][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3596,9 +3592,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3619,7 +3615,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if !EFGM.MENU.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if table.IsEmpty(playerWeaponSlots[4][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 			else
@@ -3630,7 +3626,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "stash" then
-			if table.IsEmpty(playerWeaponSlots[4][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot)
 			else
@@ -3641,15 +3637,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "container" then
-			if table.IsEmpty(playerWeaponSlots[4][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3668,9 +3664,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3691,7 +3687,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if !EFGM.MENU.Player:Alive() then return end
 
 		if panels[1].Origin == "inventory" then
-			if table.IsEmpty(playerWeaponSlots[5][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot)
 			else
@@ -3702,7 +3698,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "stash" then
-			if table.IsEmpty(playerWeaponSlots[5][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot)
 			else
@@ -3713,15 +3709,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 
 		if panels[1].Origin == "container" then
-			if table.IsEmpty(playerWeaponSlots[5][1]) then
+			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3740,9 +3736,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(playerWeaponSlots[panels[1].Slot], conItem.name) != 0 then return end
+				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
 
-				playerWeaponSlots[panels[1].Slot][1] = conItem
+				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
 				table.remove(container.items, panels[1].ID)
 
@@ -3765,19 +3761,19 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	healthHolder:SetSize(EFGM.MenuScale(125), EFGM.MenuScale(55))
 
 	function healthHolder:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(EFGM.MENU.Player:Health() or "0", "PuristaBold50", w - EFGM.MenuScale(8), 0, Colors.healthGreenColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(EFGM.MENU.Player:Health() or "0", "PuristaBold50", w - EFGM.MenuScale(8), 0, COLORS.healthGreenColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-		surface.SetDrawColor(Colors.healthGreenColor)
-		surface.SetMaterial(Mats.healthIcon)
+		surface.SetDrawColor(COLORS.healthGreenColor)
+		surface.SetMaterial(MATS.healthIcon)
 		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(53), EFGM.MenuScale(53))
 	end
 
@@ -3786,13 +3782,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	healthText:SetPos(EFGM.MenuScale(10), EFGM.MenuScale(865))
 
 	function healthText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("HEALTH", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("HEALTH", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if EFGM.MENU.Player:IsInHideout() then
@@ -3807,13 +3803,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		unloadButton:SetText("")
 
 		function unloadButton:Paint(w, h)
-			surface.SetDrawColor(Colors.containerBackgroundColor)
+			surface.SetDrawColor(COLORS.containerBackgroundColor)
 			surface.DrawRect(0, 0, unloadTextSize + EFGM.MenuScale(10), h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, unloadTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-			draw.SimpleTextOutlined(unloadText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(unloadText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		function unloadButton:OnCursorEntered()
@@ -3853,13 +3849,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			self:SetWide(factionButtonSize)
 			self:SetX(playerPanel:GetWide() - unloadButtonSize - factionTextSize - EFGM.MenuScale(25))
 
-			surface.SetDrawColor(Colors.containerBackgroundColor)
+			surface.SetDrawColor(COLORS.containerBackgroundColor)
 			surface.DrawRect(0, 0, factionTextSize + EFGM.MenuScale(10), h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, factionTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-			draw.SimpleTextOutlined(factionText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(factionText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		function factionButton:OnCursorEntered()
@@ -3881,10 +3877,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function inventoryPanel:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
@@ -3893,13 +3889,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	inventoryText:SetSize(0, EFGM.MenuScale(36))
 
 	function inventoryText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerHeaderColor)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined("INVENTORY", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("INVENTORY", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	itemsHolder = vgui.Create("DPanel", inventoryPanel)
+	local itemsHolder = vgui.Create("DPanel", inventoryPanel)
 	itemsHolder:Dock(FILL)
 	itemsHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(9))
 	itemsHolder:SetSize(0, 0)
@@ -3925,31 +3921,31 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, weightTextSize + EFGM.MenuScale(220), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, weightTextSize + EFGM.MenuScale(220), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(weightText, "PuristaBold24", EFGM.MenuScale(215), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(weightText, "PuristaBold24", EFGM.MenuScale(215), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		-- total weight capacity
-		surface.SetDrawColor(Colors.transparentBlackColor)
+		surface.SetDrawColor(COLORS.transparentBlackColor)
 		surface.DrawRect(EFGM.MenuScale(30), EFGM.MenuScale(7), EFGM.MenuScale(180), EFGM.MenuScale(16))
 
 		-- used weight capacity
 		if EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) < 30 then
-			weightColor = Colors.weightUnderColor
+			weightColor = COLORS.weightUnderColor
 		elseif EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) >= 30 and EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) < 85 then
-			weightColor = Colors.weightWarningColor
+			weightColor = COLORS.weightWarningColor
 		elseif EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) >= 85 then
-			weightColor = Colors.weightMaxColor
+			weightColor = COLORS.weightMaxColor
 		end
 
 		surface.SetDrawColor(weightColor)
 		surface.DrawRect(EFGM.MenuScale(30), EFGM.MenuScale(7), math.min((usedWeight / maxWeight) * EFGM.MenuScale(180), EFGM.MenuScale(180)), EFGM.MenuScale(16))
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(EFGM.MenuScale(30), EFGM.MenuScale(7), EFGM.MenuScale(180), EFGM.MenuScale(1))
 		surface.DrawRect(EFGM.MenuScale(30), EFGM.MenuScale(23), EFGM.MenuScale(180), EFGM.MenuScale(1))
 		surface.DrawRect(EFGM.MenuScale(30), EFGM.MenuScale(7), EFGM.MenuScale(1), EFGM.MenuScale(16))
@@ -3962,8 +3958,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	weightIcon:SetText("")
 
 	function weightIcon:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.weightIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.weightIcon)
 		surface.DrawTexturedRect(0, EFGM.MenuScale(1), EFGM.MenuScale(28), EFGM.MenuScale(28))
 	end
 
@@ -3979,32 +3975,32 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		local paint = function()
 			local w, h = EFGM.MENU.Tooltip:GetSize()
 
-			surface.SetDrawColor(Colors.tooltipBackgroundColor)
+			surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+			surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.tooltipHeaderColor)
+			surface.SetDrawColor(COLORS.tooltipHeaderColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-			draw.SimpleTextOutlined("WEIGHT", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("Your carry weight can begin to negatively affect your character if it goes unchecked.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("WEIGHT", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("Your carry weight can begin to negatively affect your character if it goes unchecked.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-			draw.SimpleTextOutlined("EFFECTS", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(50), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, 1, Colors.blackColor)
-			draw.SimpleTextOutlined("MOVEMENT SPEED: -" .. math.max(0, math.min(maxLossMove, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.818, 2))) .. "u/s", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(70), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("MOVEMENT INERTIA: +" .. math.max(0, math.min(maxLossInertia, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0136, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(83), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("AIM DOWN SIGHTS TIME: +" .. math.max(1, 1 + math.min(maxLossADS, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.011) * 5, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(96), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("WEAPON SWAY: +" .. math.max(1, 1 + math.min(maxLossSway, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.011) * 2, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(109), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("LEANING SPEED: -" .. 100 - math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0109, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(122), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("EFFECTS", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(50), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, 1, COLORS.blackColor)
+			draw.SimpleTextOutlined("MOVEMENT SPEED: -" .. math.max(0, math.min(maxLossMove, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.818, 2))) .. "u/s", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(70), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("MOVEMENT INERTIA: +" .. math.max(0, math.min(maxLossInertia, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0136, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(83), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("AIM DOWN SIGHTS TIME: +" .. math.max(1, 1 + math.min(maxLossADS, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.011) * 5, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(96), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("WEAPON SWAY: +" .. math.max(1, 1 + math.min(maxLossSway, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.011) * 2, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(109), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("LEANING SPEED: -" .. 100 - math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0109, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(122), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(150), EFGM.MenuScale(550), EFGM.MenuScale(1))
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(159), EFGM.MenuScale(550), EFGM.MenuScale(1))
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(150), EFGM.MenuScale(1), EFGM.MenuScale(10))
@@ -4048,13 +4044,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		function unloadButton:Paint(w, h)
 			self:SetX(EFGM.MenuScale(225) + weightTextSize)
 
-			surface.SetDrawColor(Colors.containerBackgroundColor)
+			surface.SetDrawColor(COLORS.containerBackgroundColor)
 			surface.DrawRect(0, 0, unloadTextSize + EFGM.MenuScale(10), h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, unloadTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-			draw.SimpleTextOutlined(unloadText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(unloadText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		function unloadButton:OnCursorEntered()
@@ -4074,10 +4070,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function playerItemsHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -4087,13 +4083,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function playerItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
 		if !IsValid(contextMenu) then return end
-		contextEFGM.MENU:AlphaTo(0, 0.05, 0, function() contextEFGM.MENU:Remove() end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
 	end
 
 	function playerItemsHolder:PaintOver(w, h)
 		if EFGM.MENU.Player:IsScav() then
-			surface.SetDrawColor(Colors.whiteBorderColor)
-			surface.SetMaterial(Mats.blockedIcon)
+			surface.SetDrawColor(COLORS.whiteBorderColor)
+			surface.SetMaterial(MATS.blockedIcon)
 			surface.DrawTexturedRect(w / 2 - EFGM.MenuScale(72), h / 2 - EFGM.MenuScale(116), EFGM.MenuScale(144), EFGM.MenuScale(144))
 		end
 	end
@@ -4125,7 +4121,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 	end)
 
-	playerItems = vgui.Create("DIconLayout", playerItemsHolder)
+	local playerItems = vgui.Create("DIconLayout", playerItemsHolder)
 	playerItems:Dock(TOP)
 	playerItems:SetSpaceY(0)
 	playerItems:SetSpaceX(0)
@@ -4135,12 +4131,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	playerItemsBar:SetSize(EFGM.MenuScale(5), 0)
 
 	function playerItemsBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
 	function playerItemsBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
@@ -4148,8 +4144,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		playerItems:Clear()
 		plyItems = {}
 
-		for k, v in ipairs(playerInventory) do
-			local def = EFGMITEMS[v.name]
+		for k, v in ipairs(EFGM.CLIENT.INVENTORY) do
+			local def = EFGM.ITEMS[v.name]
 			if def == nil then continue end
 
 			local count = math.min(math.max(v.data.count, 1), def.stackSize)
@@ -4178,7 +4174,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				if !atts then return end
 
 				for _, a in ipairs(atts) do
-					local att = EFGMITEMS[a]
+					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
 					plyItems[k].value = plyItems[k].value + att.value
@@ -4195,8 +4191,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if a == nil then return false end
 			if b == nil then return true end
 
-			local a_def = a.def or EFGMITEMS[a.name]
-			local b_def = b.def or EFGMITEMS[b.name]
+			local a_def = a.def or EFGM.ITEMS[a.name]
+			local b_def = b.def or EFGM.ITEMS[b.name]
 
 			if a_def == nil and b_def == nil then return false end
 			if a_def == nil then return false end
@@ -4253,7 +4249,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 		local co = coroutine.create(function()
 			for k, v in ipairs(plyItems) do
-				local i = v.def or EFGMITEMS[v.name]
+				local i = v.def or EFGM.ITEMS[v.name]
 				if i == nil then continue end
 
 				local count = v.data.count
@@ -4281,7 +4277,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 				if canStash then item:Droppable("stash") end
 
-				local borderColor = Colors.itemBackgroundColor
+				local borderColor = COLORS.itemBackgroundColor
 
 				surface.SetFont("PuristaBold14")
 				local nameSize = surface.GetTextSize(i.displayName)
@@ -4318,32 +4314,32 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 					surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-					surface.SetDrawColor(i.iconColor or Colors.itemColor)
+					surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 					surface.DrawRect(0, 0, w, h)
 
-					surface.SetDrawColor(Colors.pureWhiteColor)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
 					surface.SetMaterial(i.icon)
 					surface.DrawTexturedRect(0, 0, w, h)
 
 					if self.PaintingDragging then return end
 
-					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 					if isConsumable or isAmmo then
-						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if i.caliber then
-						draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if v.data.tag then
-						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if v.data.fir then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.firIcon)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.firIcon)
 
 						if isConsumable or isAmmo then
 							surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(29) or EFGM.MenuScale(33)), EFGM.MenuScale(14), EFGM.MenuScale(14))
@@ -4356,7 +4352,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				function item:OnCursorEntered()
 					surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
-					borderColor = Colors.itemBackgroundColorHovered
+					borderColor = COLORS.itemBackgroundColorHovered
 
 					surface.SetFont("PuristaBold18")
 					local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
@@ -4375,30 +4371,30 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					local paint = function()
 						local w, h = EFGM.MENU.Tooltip:GetSize()
 
-						surface.SetDrawColor(Colors.tooltipBackgroundColor)
+						surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.tooltipHeaderColor)
+						surface.SetDrawColor(COLORS.tooltipHeaderColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-						surface.SetDrawColor(Colors.transparentWhiteColor)
+						surface.SetDrawColor(COLORS.transparentWhiteColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 				end
 
 				function item:OnCursorExited()
-					borderColor = Colors.itemBackgroundColor
+					borderColor = COLORS.itemBackgroundColor
 
 					EFGM.MENU.Tooltip:RemoveTip()
 				end
@@ -4430,13 +4426,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					if x <= (itemsHolder:GetWide() / 2) then sideH = true else sideH = false end
 					if y <= (itemsHolder:GetTall() / 2) then sideV = true else sideV = false end
 
-					if IsValid(contextMenu) then contextEFGM.MENU:Remove() end
-					contextMenu = vgui.Create("EContextMenu", itemsHolder)
-					contextEFGM.MENU:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
-					contextEFGM.MENU:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-					contextEFGM.MENU:SetAlpha(0)
-					contextEFGM.MENU:AlphaTo(255, 0.1, 0, nil)
-					contextEFGM.MENU:RequestFocus()
+					if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then EFGM.MENU.ELEMENTS.ContextMenu:Remove() end
+					local contextMenu = vgui.Create("EContextMenu", itemsHolder)
+					contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
+					contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+					contextMenu:SetAlpha(0)
+					contextMenu:AlphaTo(255, 0.1, 0, nil)
+					contextMenu:RequestFocus()
+					EFGM.MENU.ELEMENTS.ContextMenu = contextMenu
 
 					local inspectButton = vgui.Create("EContextButton", contextMenu)
 					inspectButton:SetText("INSPECT")
@@ -4526,18 +4523,18 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						end
 					end
 
-					contextEFGM.MENU:SetTallAfterCTX()
+					contextMenu:SetTallAfterCTX()
 
 					if sideH == true then
-						contextEFGM.MENU:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetX(math.Clamp(x - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x - contextMenu:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					end
 
 					if sideV == true then
-						contextEFGM.MENU:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetY(math.Clamp(y - contextEFGM.MENU:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y - contextMenu:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					end
 				end
 
@@ -4562,10 +4559,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		function containerPanel:Paint(w, h)
 			BlurPanel(self, 5)
 
-			surface.SetDrawColor(Colors.containerBackgroundColor)
+			surface.SetDrawColor(COLORS.containerBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 		end
 
@@ -4574,29 +4571,29 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		containerText:SetSize(0, EFGM.MenuScale(36))
 
 		function containerText:Paint(w, h)
-			surface.SetDrawColor(Colors.containerHeaderColor)
+			surface.SetDrawColor(COLORS.containerHeaderColor)
 			surface.DrawRect(0, 0, w, h)
 
-			draw.SimpleTextOutlined(string.upper(container.name), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(string.upper(container.name), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		containerHolder = vgui.Create("DPanel", containerPanel)
+		local containerHolder = vgui.Create("DPanel", containerPanel)
 		containerHolder:Dock(FILL)
 		containerHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(9))
 		containerHolder:SetSize(0, 0)
 		containerHolder:SetPaintBackground(false)
 
-		containerItemsHolder = vgui.Create("DScrollPanel", containerHolder)
+		local containerItemsHolder = vgui.Create("DScrollPanel", containerHolder)
 		containerItemsHolder:SetPos(0, EFGM.MenuScale(32))
 		containerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 
 		function containerItemsHolder:Paint(w, h)
 			BlurPanel(self, 3)
 
-			surface.SetDrawColor(Colors.containerBackgroundColor)
+			surface.SetDrawColor(COLORS.containerBackgroundColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.whiteBorderColor)
+			surface.SetDrawColor(COLORS.whiteBorderColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -4606,10 +4603,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		function containerItemsHolder:OnVScroll(offset)
 			self.pnlCanvas:SetPos(0, offset)
 			if !IsValid(contextMenu) then return end
-			contextEFGM.MENU:AlphaTo(0, 0.05, 0, function() contextEFGM.MENU:Remove() end)
+			contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
 		end
 
-		containerItems = vgui.Create("DIconLayout", containerItemsHolder)
+		local containerItems = vgui.Create("DIconLayout", containerItemsHolder)
 		containerItems:Dock(TOP)
 		containerItems:SetSpaceY(0)
 		containerItems:SetSpaceX(0)
@@ -4628,12 +4625,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		containerItemsBar:SetSize(EFGM.MenuScale(5), 0)
 
 		function containerItemsBar:Paint(w, h)
-			surface.SetDrawColor(Colors.scrollerColor)
+			surface.SetDrawColor(COLORS.scrollerColor)
 			surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 		end
 
 		function containerItemsBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 		end
 
@@ -4641,10 +4638,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if table.IsEmpty(container) then return end
 
 			containerItems:Clear()
-			conItems = {}
+			local conItems = {}
 
 			for k, v in ipairs(container.items) do
-				local def = EFGMITEMS[v.name]
+				local def = EFGM.ITEMS[v.name]
 				if def == nil then continue end
 
 				local count = math.min(math.max(v.data.count, 1), def.stackSize)
@@ -4673,7 +4670,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					if !atts then return end
 
 					for _, a in ipairs(atts) do
-						local att = EFGMITEMS[a]
+						local att = EFGM.ITEMS[a]
 						if att == nil then continue end
 
 						conItems[k].value = conItems[k].value + att.value
@@ -4690,8 +4687,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				if a == nil then return false end
 				if b == nil then return true end
 
-				local a_def = a.def or EFGMITEMS[a.name]
-				local b_def = b.def or EFGMITEMS[b.name]
+				local a_def = a.def or EFGM.ITEMS[a.name]
+				local b_def = b.def or EFGM.ITEMS[b.name]
 
 				if a_def == nil and b_def == nil then return false end
 				if a_def == nil then return false end
@@ -4746,7 +4743,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 			local co = coroutine.create(function()
 				for k, v in ipairs(conItems) do
-					local i = v.def or EFGMITEMS[v.name]
+					local i = v.def or EFGM.ITEMS[v.name]
 					if i == nil then continue end
 
 					local count = v.data.count
@@ -4772,7 +4769,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						if slotDrop[item.Slot] then item:Droppable(slotDrop[item.Slot]) end
 					end
 
-					local borderColor = Colors.itemBackgroundColor
+					local borderColor = COLORS.itemBackgroundColor
 
 					surface.SetFont("PuristaBold14")
 					local nameSize = surface.GetTextSize(i.displayName)
@@ -4809,32 +4806,32 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-						surface.SetDrawColor(i.iconColor or Colors.itemColor)
+						surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.pureWhiteColor)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(i.icon)
 						surface.DrawTexturedRect(0, 0, w, h)
 
 						if self.PaintingDragging then return end
 
-						draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 						if isConsumable or isAmmo then
-							draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+							draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						end
 
 						if i.caliber then
-							draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+							draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						end
 
 						if v.data.tag then
-							draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+							draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						end
 
 						if v.data.fir then
-							surface.SetDrawColor(Colors.pureWhiteColor)
-							surface.SetMaterial(Mats.firIcon)
+							surface.SetDrawColor(COLORS.pureWhiteColor)
+							surface.SetMaterial(MATS.firIcon)
 
 							if isConsumable or isAmmo then
 								surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(29) or EFGM.MenuScale(33)), EFGM.MenuScale(14), EFGM.MenuScale(14))
@@ -4847,7 +4844,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					function item:OnCursorEntered()
 						surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
-						borderColor = Colors.itemBackgroundColorHovered
+						borderColor = COLORS.itemBackgroundColorHovered
 
 						surface.SetFont("PuristaBold18")
 						local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
@@ -4866,30 +4863,30 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						local paint = function()
 							local w, h = EFGM.MENU.Tooltip:GetSize()
 
-							surface.SetDrawColor(Colors.tooltipBackgroundColor)
+							surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 							surface.DrawRect(0, 0, w, h)
 
-							surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+							surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 							surface.DrawRect(0, 0, w, h)
 
-							surface.SetDrawColor(Colors.tooltipHeaderColor)
+							surface.SetDrawColor(COLORS.tooltipHeaderColor)
 							surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-							surface.SetDrawColor(Colors.transparentWhiteColor)
+							surface.SetDrawColor(COLORS.transparentWhiteColor)
 							surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 							surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 							surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 							surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-							draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-							draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+							draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+							draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						end
 
 						EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 					end
 
 					function item:OnCursorExited()
-						borderColor = Colors.itemBackgroundColor
+						borderColor = COLORS.itemBackgroundColor
 
 						EFGM.MENU.Tooltip:RemoveTip()
 					end
@@ -4916,11 +4913,11 @@ function EFGM.MENU.OpenTab.Inventory(container)
 							local conItem = container.items[v.id]
 							if conItem == nil then return end
 
-							if AmountInInventory(playerWeaponSlots[item.Slot], conItem.name) != 0 then return end
+							if AmountInInventory(EFGM.CLIENT.EQUIPPED[item.Slot], conItem.name) != 0 then return end
 
-							for slotKey, slotItem in ipairs(playerWeaponSlots[item.Slot]) do
+							for slotKey, slotItem in ipairs(EFGM.CLIENT.EQUIPPED[item.Slot]) do
 								if table.IsEmpty(slotItem) then
-									playerWeaponSlots[item.Slot][slotKey] = conItem
+									EFGM.CLIENT.EQUIPPED[item.Slot][slotKey] = conItem
 
 									table.remove(container.items, v.id)
 
@@ -4952,13 +4949,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						if x <= (containerHolder:GetWide() / 2) then sideH = true else sideH = false end
 						if y <= (containerHolder:GetTall() / 2) then sideV = true else sideV = false end
 
-						if IsValid(contextMenu) then contextEFGM.MENU:Remove() end
-						contextMenu = vgui.Create("EContextMenu", containerHolder)
-						contextEFGM.MENU:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
-						contextEFGM.MENU:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-						contextEFGM.MENU:SetAlpha(0)
-						contextEFGM.MENU:AlphaTo(255, 0.1, 0, nil)
-						contextEFGM.MENU:RequestFocus()
+						if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then EFGM.MENU.ELEMENTS.ContextMenu:Remove() end
+						local contextMenu = vgui.Create("EContextMenu", containerHolder)
+						contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
+						contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+						contextMenu:SetAlpha(0)
+						contextMenu:AlphaTo(255, 0.1, 0, nil)
+						contextMenu:RequestFocus()
+						EFGM.MENU.ELEMENTS.ContextMenu = contextMenu
 
 						local inspectButton = vgui.Create("EContextButton", contextMenu)
 						inspectButton:SetText("INSPECT")
@@ -5002,11 +5000,11 @@ function EFGM.MENU.OpenTab.Inventory(container)
 								local conItem = container.items[v.id]
 								if conItem == nil then return end
 
-								if AmountInInventory(playerWeaponSlots[item.Slot], conItem.name) != 0 then return end
+								if AmountInInventory(EFGM.CLIENT.EQUIPPED[item.Slot], conItem.name) != 0 then return end
 
-								for slotKey, slotItem in ipairs(playerWeaponSlots[item.Slot]) do
+								for slotKey, slotItem in ipairs(EFGM.CLIENT.EQUIPPED[item.Slot]) do
 									if table.IsEmpty(slotItem) then
-										playerWeaponSlots[item.Slot][slotKey] = conItem
+										EFGM.CLIENT.EQUIPPED[item.Slot][slotKey] = conItem
 
 										table.remove(container.items, v.id)
 
@@ -5024,18 +5022,18 @@ function EFGM.MENU.OpenTab.Inventory(container)
 							end
 						end
 
-						contextEFGM.MENU:SetTallAfterCTX()
+						contextMenu:SetTallAfterCTX()
 
 						if sideH == true then
-							contextEFGM.MENU:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+							contextMenu:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 						else
-							contextEFGM.MENU:SetX(math.Clamp(x - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+							contextMenu:SetX(math.Clamp(x - contextMenu:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 						end
 
 						if sideV == true then
-							contextEFGM.MENU:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+							contextMenu:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 						else
-							contextEFGM.MENU:SetY(math.Clamp(y - contextEFGM.MENU:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+							contextMenu:SetY(math.Clamp(y - contextMenu:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), itemsHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 						end
 					end
 
@@ -5065,10 +5063,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function stashPanel:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
@@ -5079,14 +5077,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	stashText:SetSize(0, EFGM.MenuScale(36))
 
 	function stashText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerHeaderColor)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined("STASH", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(EFGM.MENU.Player:GetNWInt("StashCount", 0) .. "/" .. maxStash, "PuristaBold18", EFGM.MenuScale(95), EFGM.MenuScale(13), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("STASH", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(EFGM.MENU.Player:GetNWInt("StashCount", 0) .. "/" .. maxStash, "PuristaBold18", EFGM.MenuScale(95), EFGM.MenuScale(13), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	stashHolder = vgui.Create("DPanel", stashPanel)
+	local stashHolder = vgui.Create("DPanel", stashPanel)
 	stashHolder:Dock(FILL)
 	stashHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), EFGM.MenuScale(5))
 	stashHolder:SetSize(0, 0)
@@ -5110,13 +5108,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function stashInfoText:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(valueText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(valueText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function StashValueChanged(value)
@@ -5135,13 +5133,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	stashSearchButton:SetText("")
 
 	function stashSearchButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("SEARCH", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("SEARCH", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local stashSearchOpen = false
@@ -5154,8 +5152,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	stashSearchBox:SetDrawLanguageID(false)
 	stashSearchBox:SetPlaceholderText("search...")
 	stashSearchBox:SetUpdateOnType(true)
-	stashSearchBox:SetTextColor(Colors.whiteColor)
-	stashSearchBox:SetCursorColor(Colors.whiteColor)
+	stashSearchBox:SetTextColor(COLORS.whiteColor)
+	stashSearchBox:SetCursorColor(COLORS.whiteColor)
 	stashSearchBox:SetAlpha(0)
 	stashSearchBox:SetEditable(false)
 	stashSearchBox:Hide()
@@ -5212,17 +5210,17 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	stashHolderDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 	stashHolderDocker:SetPaintBackground(false)
 
-	stashItemsHolder = vgui.Create("DScrollPanel", stashHolderDocker)
+	local stashItemsHolder = vgui.Create("DScrollPanel", stashHolderDocker)
 	stashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
 	stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(18), stashHolderDocker:GetTall())
 
 	function stashItemsHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -5232,7 +5230,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	function stashItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
 		if !IsValid(contextMenu) then return end
-		contextEFGM.MENU:AlphaTo(0, 0.05, 0, function() contextEFGM.MENU:Remove() end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
 	end
 
 	stashItemsHolder:Receiver("items", function(self, panels, dropped, _, x, y)
@@ -5249,7 +5247,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 	end)
 
-	stashItems = vgui.Create("DIconLayout", stashItemsHolder)
+	local stashItems = vgui.Create("DIconLayout", stashItemsHolder)
 	stashItems:Dock(TOP)
 	stashItems:SetSpaceY(0)
 	stashItems:SetSpaceX(0)
@@ -5259,12 +5257,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	stashItemsBar:SetSize(EFGM.MenuScale(5), 0)
 
 	function stashItemsBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
 	function stashItemsBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
@@ -5273,7 +5271,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	stashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
 
 	function stashFilterHolder:Paint(w, h)
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -5285,24 +5283,24 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		stashFilterButton:Dock(TOP)
 		stashFilterButton:SetText("")
 
-		local bgColor = Colors.containerBackgroundColor
+		local bgColor = COLORS.containerBackgroundColor
 
 		function stashFilterButton:Paint(w, h)
 			surface.SetDrawColor(bgColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(filter.icon)
 			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
 
-			surface.SetDrawColor(Colors.weaponSilhouetteColor)
+			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		end
 
 		function stashFilterButton:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-			bgColor = Colors.marketItemValueColor
+			bgColor = COLORS.marketItemValueColor
 
 			surface.SetFont("PuristaBold18")
 			local tipName = string.upper(filter.name) .. " [" .. (tostring(filter.count) or 0) .. "]"
@@ -5311,29 +5309,29 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local paint = function()
 				local w, h = EFGM.MENU.Tooltip:GetSize()
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.SetDrawColor(COLORS.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			EFGM.MENU.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 		end
 
 		function stashFilterButton:OnCursorExited()
-			bgColor = Colors.containerBackgroundColor
+			bgColor = COLORS.containerBackgroundColor
 
 			-- EFGM.MENU.Tooltip:RemoveTip()
 		end
@@ -5349,30 +5347,30 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		end
 	end
 
-	for id, sort in reverseipairs(sorts) do
+	for id, sort in Reverseipairs(sorts) do
 		local stashSortButton = vgui.Create("DButton", stashFilterHolder)
 		stashSortButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
 		stashSortButton:Dock(BOTTOM)
 		stashSortButton:SetText("")
 
-		local bgColor = Colors.containerBackgroundColor
+		local bgColor = COLORS.containerBackgroundColor
 
 		function stashSortButton:Paint(w, h)
 			surface.SetDrawColor(bgColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(sort.icon)
 			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
 
-			surface.SetDrawColor(Colors.weaponSilhouetteColor)
+			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		end
 
 		function stashSortButton:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-			bgColor = Colors.marketItemValueColor
+			bgColor = COLORS.marketItemValueColor
 
 			surface.SetFont("PuristaBold18")
 			local tipName = string.upper(sort.name)
@@ -5381,29 +5379,29 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local paint = function()
 				local w, h = EFGM.MENU.Tooltip:GetSize()
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.SetDrawColor(COLORS.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			EFGM.MENU.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 		end
 
 		function stashSortButton:OnCursorExited()
-			bgColor = Colors.containerBackgroundColor
+			bgColor = COLORS.containerBackgroundColor
 
 			-- EFGM.MENU.Tooltip:RemoveTip()
 		end
@@ -5424,15 +5422,15 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	function EFGM.MENU:ReloadStash()
 		stashItems:Clear()
-		stashValue = 0
+		EFGM.MENU.StashValue = 0
 		plyStashItems = {}
 
 		for id, filter in ipairs(filters) do
 			filter.count = 0
 		end
 
-		for k, v in ipairs(playerStash) do
-			local def = EFGMITEMS[v.name]
+		for k, v in ipairs(EFGM.CLIENT.STASH) do
+			local def = EFGM.ITEMS[v.name]
 			if def == nil then continue end
 
 			local count = math.min(math.max(v.data.count or 1, 1), def.stashStackSize or def.stackSize)
@@ -5456,20 +5454,20 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				def = def
 			}
 
-			stashValue = stashValue + value
+			EFGM.MENU.StashValue = EFGM.MENU.StashValue + value
 
 			if v.data.att then
 				local atts = GetPrefixedAttachmentListFromCode(v.data.att)
 				if !atts then continue end
 
 				for _, a in ipairs(atts) do
-					local att = EFGMITEMS[a]
+					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
 					plyStashItems[k].value = plyStashItems[k].value + att.value
 					plyStashItems[k].weight = plyStashItems[k].weight + (att.weight or 0.1)
 					plyStashItems[k].atts = plyStashItems[k].atts + 1
-					stashValue = stashValue + att.value
+					EFGM.MENU.StashValue = EFGM.MENU.StashValue + att.value
 				end
 			end
 
@@ -5482,7 +5480,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 		if plyStashItems[1] == nil then return end
 
-		StashValueChanged(stashValue)
+		StashValueChanged(EFGM.MENU.StashValue)
 
 		filters[1].count = #plyStashItems
 
@@ -5492,8 +5490,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if a == nil then return false end
 			if b == nil then return true end
 
-			local a_def = a.def or EFGMITEMS[a.name]
-			local b_def = b.def or EFGMITEMS[b.name]
+			local a_def = a.def or EFGM.ITEMS[a.name]
+			local b_def = b.def or EFGM.ITEMS[b.name]
 
 			if a_def == nil and b_def == nil then return false end
 			if a_def == nil then return false end
@@ -5627,15 +5625,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		-- stash item entry
 		local co = coroutine.create(function()
 			for k, v in ipairs(plyStashItems) do
-				local i = v.def or EFGMITEMS[v.name]
+				local i = v.def or EFGM.ITEMS[v.name]
 				if i == nil then continue end
 
 				local ownerName = nil
 				if v.data.owner then
-					ownerName = EFGM.SteamNameCache[v.data.owner]
-					if !ownerName then
-						steamworks.RequestPlayerInfo(v.data.owner, function(steamName) ownerName = steamName or "" EFGM.SteamNameCache[v.data.owner] = steamName or "" end)
-					end
+					ownerName = SteamNameFromID64(v.data.owner)
 				end
 
 				local filter = filters[EFGM.MENU.StashFilter]
@@ -5646,16 +5641,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					if filterDef == "equipType" and i.equipType != filterValue then continue end
 				end
 
-				if stashItemSearchText then itemSearch = stashItemSearchText end
-
-				local searchFor = (itemSearch and itemSearch:lower()) or ""
+				local searchFor = (stashItemSearchText and stashItemSearchText:lower()) or ""
 
 				if searchFor != "" and
-					!string.find((i.fullName):lower(), itemSearch, 1, true) and
-					!string.find((i.displayName):lower(), itemSearch, 1, true) and
-					!string.find((i.displayType):lower(), itemSearch, 1, true) and
-					!string.find((tostring(v.data.tag) or ""):lower(), itemSearch, 1, true) and
-					!string.find((ownerName or ""):lower(), itemSearch, 1, true) then continue
+					!string.find((i.fullName):lower(), searchFor, 1, true) and
+					!string.find((i.displayName):lower(), searchFor, 1, true) and
+					!string.find((i.displayType):lower(), searchFor, 1, true) and
+					!string.find((tostring(v.data.tag) or ""):lower(), searchFor, 1, true) and
+					!string.find((ownerName or ""):lower(), searchFor, 1, true) then continue
 				end
 
 				local count = v.data.count
@@ -5682,7 +5675,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					if slotDrop[item.Slot] then item:Droppable(slotDrop[item.Slot]) end
 				end
 
-				local borderColor = Colors.itemBackgroundColor
+				local borderColor = COLORS.itemBackgroundColor
 
 				surface.SetFont("PuristaBold14")
 				local nameSize = surface.GetTextSize(i.displayName)
@@ -5719,32 +5712,32 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 					surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-					surface.SetDrawColor(i.iconColor or Colors.itemColor)
+					surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 					surface.DrawRect(0, 0, w, h)
 
-					surface.SetDrawColor(Colors.pureWhiteColor)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
 					surface.SetMaterial(i.icon)
 					surface.DrawTexturedRect(0, 0, w, h)
 
 					if self.PaintingDragging then return end
 
-					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 					if isConsumable or isAmmo then
-						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if i.caliber then
-						draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if v.data.tag then
-						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if isPinned then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.pinIcon)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.pinIcon)
 
 						if isConsumable or isAmmo then
 							surface.DrawTexturedRect(w - EFGM.MenuScale(15), h - EFGM.MenuScale(32), EFGM.MenuScale(16), EFGM.MenuScale(16))
@@ -5754,8 +5747,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					end
 
 					if v.data.fir == true then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.firIcon)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.firIcon)
 
 						local width, height = EFGM.MenuScale(17), EFGM.MenuScale(17)
 
@@ -5769,7 +5762,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				function item:OnCursorEntered()
 					surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
-					borderColor = Colors.itemBackgroundColorHovered
+					borderColor = COLORS.itemBackgroundColorHovered
 
 					surface.SetFont("PuristaBold18")
 					local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
@@ -5788,30 +5781,30 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					local paint = function()
 						local w, h = EFGM.MENU.Tooltip:GetSize()
 
-						surface.SetDrawColor(Colors.tooltipBackgroundColor)
+						surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.tooltipHeaderColor)
+						surface.SetDrawColor(COLORS.tooltipHeaderColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-						surface.SetDrawColor(Colors.transparentWhiteColor)
+						surface.SetDrawColor(COLORS.transparentWhiteColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 				end
 
 				function item:OnCursorExited()
-					borderColor = Colors.itemBackgroundColor
+					borderColor = COLORS.itemBackgroundColor
 
 					EFGM.MENU.Tooltip:RemoveTip()
 				end
@@ -5843,13 +5836,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					if x <= (stashHolder:GetWide() / 2) then sideH = true else sideH = false end
 					if y <= (stashHolder:GetTall() / 2) then sideV = true else sideV = false end
 
-					if IsValid(contextMenu) then contextEFGM.MENU:Remove() end
-					contextMenu = vgui.Create("EContextMenu", stashHolder)
-					contextEFGM.MENU:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
-					contextEFGM.MENU:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-					contextEFGM.MENU:SetAlpha(0)
-					contextEFGM.MENU:AlphaTo(255, 0.1, 0, nil)
-					contextEFGM.MENU:RequestFocus()
+					if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then EFGM.MENU.ELEMENTS.ContextMenu:Remove() end
+					local contextMenu = vgui.Create("EContextMenu", stashHolder)
+					contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
+					contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+					contextMenu:SetAlpha(0)
+					contextMenu:AlphaTo(255, 0.1, 0, nil)
+					contextMenu:RequestFocus()
+					EFGM.MENU.ELEMENTS.ContextMenu = contextMenu
 
 					local inspectButton = vgui.Create("EContextButton", contextMenu)
 					inspectButton:SetText("INSPECT")
@@ -5936,18 +5930,18 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						end
 					end
 
-					contextEFGM.MENU:SetTallAfterCTX()
+					contextMenu:SetTallAfterCTX()
 
 					if sideH == true then
-						contextEFGM.MENU:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetX(math.Clamp(x - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x - contextMenu:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					end
 
 					if sideV == true then
-						contextEFGM.MENU:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetY(math.Clamp(y - contextEFGM.MENU:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y - contextMenu:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), stashHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					end
 				end
 
@@ -5980,10 +5974,10 @@ function EFGM.MENU.OpenTab.Market()
 	function marketStashPanel:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
@@ -5994,14 +5988,14 @@ function EFGM.MENU.OpenTab.Market()
 	marketStashText:SetSize(0, EFGM.MenuScale(36))
 
 	function marketStashText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerHeaderColor)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined("STASH", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(EFGM.MENU.Player:GetNWInt("StashCount", 0) .. "/" .. maxStash, "PuristaBold18", EFGM.MenuScale(95), EFGM.MenuScale(13), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("STASH", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(EFGM.MENU.Player:GetNWInt("StashCount", 0) .. "/" .. maxStash, "PuristaBold18", EFGM.MenuScale(95), EFGM.MenuScale(13), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	marketStashHolder = vgui.Create("DPanel", marketStashPanel)
+	local marketStashHolder = vgui.Create("DPanel", marketStashPanel)
 	marketStashHolder:Dock(FILL)
 	marketStashHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), EFGM.MenuScale(5))
 	marketStashHolder:SetSize(0, 0)
@@ -6025,13 +6019,13 @@ function EFGM.MENU.OpenTab.Market()
 	function marketStashInfoText:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(valueText, "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(valueText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function MarketStashValueChanged(value)
@@ -6050,13 +6044,13 @@ function EFGM.MENU.OpenTab.Market()
 	marketStashSearchButton:SetText("")
 
 	function marketStashSearchButton:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined("SEARCH", "PuristaBold24", w / 2, EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("SEARCH", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local marketStashSearchOpen = false
@@ -6069,8 +6063,8 @@ function EFGM.MENU.OpenTab.Market()
 	marketStashSearchBox:SetDrawLanguageID(false)
 	marketStashSearchBox:SetPlaceholderText("search...")
 	marketStashSearchBox:SetUpdateOnType(true)
-	marketStashSearchBox:SetTextColor(Colors.whiteColor)
-	marketStashSearchBox:SetCursorColor(Colors.whiteColor)
+	marketStashSearchBox:SetTextColor(COLORS.whiteColor)
+	marketStashSearchBox:SetCursorColor(COLORS.whiteColor)
 	marketStashSearchBox:SetAlpha(0)
 	marketStashSearchBox:SetEditable(false)
 	marketStashSearchBox:Hide()
@@ -6127,17 +6121,17 @@ function EFGM.MENU.OpenTab.Market()
 	marketStashItemsDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
 	marketStashItemsDocker:SetPaintBackground(false)
 
-	marketStashItemsHolder = vgui.Create("DScrollPanel", marketStashItemsDocker)
+	local marketStashItemsHolder = vgui.Create("DScrollPanel", marketStashItemsDocker)
 	marketStashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
 	marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(18), marketStashItemsDocker:GetTall())
 
 	function marketStashItemsHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -6147,10 +6141,10 @@ function EFGM.MENU.OpenTab.Market()
 	function marketStashItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
 		if !IsValid(contextMenu) then return end
-		contextEFGM.MENU:AlphaTo(0, 0.05, 0, function() contextEFGM.MENU:Remove() end)
+		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
 	end
 
-	marketStashItems = vgui.Create("DIconLayout", marketStashItemsHolder)
+	local marketStashItems = vgui.Create("DIconLayout", marketStashItemsHolder)
 	marketStashItems:Dock(TOP)
 	marketStashItems:SetSpaceY(0)
 	marketStashItems:SetSpaceX(0)
@@ -6160,12 +6154,12 @@ function EFGM.MENU.OpenTab.Market()
 	marketStashItemsBar:SetSize(EFGM.MenuScale(5), 0)
 
 	function marketStashItemsBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
 	function marketStashItemsBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
@@ -6174,7 +6168,7 @@ function EFGM.MENU.OpenTab.Market()
 	marketStashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
 
 	function marketStashFilterHolder:Paint(w, h)
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -6186,24 +6180,24 @@ function EFGM.MENU.OpenTab.Market()
 		marketStashFilterButton:Dock(TOP)
 		marketStashFilterButton:SetText("")
 
-		local bgColor = Colors.containerBackgroundColor
+		local bgColor = COLORS.containerBackgroundColor
 
 		function marketStashFilterButton:Paint(w, h)
 			surface.SetDrawColor(bgColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(filter.icon)
 			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
 
-			surface.SetDrawColor(Colors.weaponSilhouetteColor)
+			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		end
 
 		function marketStashFilterButton:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-			bgColor = Colors.marketItemValueColor
+			bgColor = COLORS.marketItemValueColor
 
 			surface.SetFont("PuristaBold18")
 			local tipName = string.upper(filter.name) .. " [" .. (tostring(filter.count) or 0) .. "]"
@@ -6212,29 +6206,29 @@ function EFGM.MENU.OpenTab.Market()
 			local paint = function()
 				local w, h = EFGM.MENU.Tooltip:GetSize()
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.SetDrawColor(COLORS.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			EFGM.MENU.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 		end
 
 		function marketStashFilterButton:OnCursorExited()
-			bgColor = Colors.containerBackgroundColor
+			bgColor = COLORS.containerBackgroundColor
 
 			-- EFGM.MENU.Tooltip:RemoveTip()
 		end
@@ -6250,30 +6244,30 @@ function EFGM.MENU.OpenTab.Market()
 		end
 	end
 
-	for id, sort in reverseipairs(sorts) do
+	for id, sort in Reverseipairs(sorts) do
 		local marketStashSortButton = vgui.Create("DButton", marketStashFilterHolder)
 		marketStashSortButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
 		marketStashSortButton:Dock(BOTTOM)
 		marketStashSortButton:SetText("")
 
-		local bgColor = Colors.containerBackgroundColor
+		local bgColor = COLORS.containerBackgroundColor
 
 		function marketStashSortButton:Paint(w, h)
 			surface.SetDrawColor(bgColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(sort.icon)
 			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
 
-			surface.SetDrawColor(Colors.weaponSilhouetteColor)
+			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		end
 
 		function marketStashSortButton:OnCursorEntered()
 			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 
-			bgColor = Colors.marketItemValueColor
+			bgColor = COLORS.marketItemValueColor
 
 			surface.SetFont("PuristaBold18")
 			local tipName = string.upper(sort.name)
@@ -6282,29 +6276,29 @@ function EFGM.MENU.OpenTab.Market()
 			local paint = function()
 				local w, h = EFGM.MENU.Tooltip:GetSize()
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.tooltipHeaderColor)
+				surface.SetDrawColor(COLORS.tooltipHeaderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(tipName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			EFGM.MENU.Tooltip:DisplayTip(self, paint, tipNameSize + EFGM.MenuScale(10), EFGM.MenuScale(28))
 		end
 
 		function marketStashSortButton:OnCursorExited()
-			bgColor = Colors.containerBackgroundColor
+			bgColor = COLORS.containerBackgroundColor
 
 			-- EFGM.MENU.Tooltip:RemoveTip()
 		end
@@ -6325,15 +6319,15 @@ function EFGM.MENU.OpenTab.Market()
 
 	function EFGM.MENU:ReloadMarketStash()
 		marketStashItems:Clear()
-		stashValue = 0
+		EFGM.MENU.StashValue = 0
 		marketPlyStashItems = {}
 
 		for id, filter in ipairs(filters) do
 			filter.count = 0
 		end
 
-		for k, v in ipairs(playerStash) do
-			local def = EFGMITEMS[v.name]
+		for k, v in ipairs(EFGM.CLIENT.STASH) do
+			local def = EFGM.ITEMS[v.name]
 			if def == nil then continue end
 
 			local count = math.min(math.max(v.data.count, 1), def.stashStackSize or def.stackSize)
@@ -6359,20 +6353,20 @@ function EFGM.MENU.OpenTab.Market()
 				def = def
 			}
 
-			stashValue = stashValue + rawValue
+			EFGM.MENU.StashValue = EFGM.MENU.StashValue + rawValue
 
 			if v.data.att then
 				local atts = GetPrefixedAttachmentListFromCode(v.data.att)
 				if !atts then return end
 
 				for _, a in ipairs(atts) do
-					local att = EFGMITEMS[a]
+					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
 					marketPlyStashItems[k].value = marketPlyStashItems[k].value + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
 					marketPlyStashItems[k].weight = marketPlyStashItems[k].weight + (att.weight or 0.1)
 					marketPlyStashItems[k].atts = marketPlyStashItems[k].atts + 1
-					stashValue = stashValue + att.value
+					EFGM.MENU.StashValue = EFGM.MENU.StashValue + att.value
 				end
 			end
 
@@ -6385,7 +6379,7 @@ function EFGM.MENU.OpenTab.Market()
 
 		if marketPlyStashItems[1] == nil then return end
 
-		MarketStashValueChanged(stashValue)
+		MarketStashValueChanged(EFGM.MENU.StashValue)
 
 		filters[1].count = #marketPlyStashItems
 
@@ -6395,8 +6389,8 @@ function EFGM.MENU.OpenTab.Market()
 			if a == nil then return false end
 			if b == nil then return true end
 
-			local a_def = a.def or EFGMITEMS[a.name]
-			local b_def = b.def or EFGMITEMS[b.name]
+			local a_def = a.def or EFGM.ITEMS[a.name]
+			local b_def = b.def or EFGM.ITEMS[b.name]
 
 			if a_def == nil and b_def == nil then return false end
 			if a_def == nil then return false end
@@ -6530,15 +6524,12 @@ function EFGM.MENU.OpenTab.Market()
 		-- stash item entry
 		local co = coroutine.create(function()
 			for k, v in ipairs(marketPlyStashItems) do
-				local i = v.def or EFGMITEMS[v.name]
+				local i = v.def or EFGM.ITEMS[v.name]
 				if i == nil then continue end
 
 				local ownerName = nil
 				if v.data.owner then
-					ownerName = EFGM.SteamNameCache[v.data.owner]
-					if !ownerName then
-						steamworks.RequestPlayerInfo(v.data.owner, function(steamName) ownerName = steamName or "" EFGM.SteamNameCache[v.data.owner] = steamName or "" end)
-					end
+					ownerName = SteamNameFromID64(v.data.owner)
 				end
 
 				local filter = filters[EFGM.MENU.MarketStashFilter]
@@ -6549,9 +6540,7 @@ function EFGM.MENU.OpenTab.Market()
 					if filterDef == "equipType" and i.equipType != filterValue then continue end
 				end
 
-				if marketStashItemSearchText then itemSearch = marketStashItemSearchText end
-
-				local searchFor = (itemSearch and itemSearch:lower()) or ""
+				local searchFor = (marketStashItemSearchText and marketStashItemSearchText:lower()) or ""
 
 				if searchFor != "" and
 					!string.find((i.fullName):lower(), searchFor, 1, true) and
@@ -6570,7 +6559,7 @@ function EFGM.MENU.OpenTab.Market()
 				item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
 				item.ID = v.id
 
-				local borderColor = Colors.itemBackgroundColor
+				local borderColor = COLORS.itemBackgroundColor
 
 				surface.SetFont("PuristaBold14")
 				local nameSize = surface.GetTextSize(i.displayName)
@@ -6607,30 +6596,30 @@ function EFGM.MENU.OpenTab.Market()
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 					surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-					surface.SetDrawColor(i.iconColor or Colors.itemColor)
+					surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 					surface.DrawRect(0, 0, w, h)
 
-					surface.SetDrawColor(Colors.pureWhiteColor)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
 					surface.SetMaterial(i.icon)
 					surface.DrawTexturedRect(0, 0, w, h)
 
-					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 					if isConsumable or isAmmo then
-						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if i.caliber then
-						draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(i.caliber, "PuristaBold18", EFGM.MenuScale(3), h - EFGM.MenuScale(19), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if v.data.tag then
-						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if isPinned then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.pinIcon)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.pinIcon)
 
 						if isConsumable or isAmmo then
 							surface.DrawTexturedRect(w - EFGM.MenuScale(15), h - EFGM.MenuScale(32), EFGM.MenuScale(16), EFGM.MenuScale(16))
@@ -6640,8 +6629,8 @@ function EFGM.MENU.OpenTab.Market()
 					end
 
 					if v.data.fir then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.firIcon)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.firIcon)
 
 						local width, height = EFGM.MenuScale(17), EFGM.MenuScale(17)
 
@@ -6652,16 +6641,16 @@ function EFGM.MENU.OpenTab.Market()
 					end
 
 					if i.sizeX > 1 then
-						draw.SimpleTextOutlined("₽" .. string.FormatComma(v.value), "PuristaBold18", w / 2, h / 2 - EFGM.MenuScale(9), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined("₽" .. string.FormatComma(v.value), "PuristaBold18", w / 2, h / 2 - EFGM.MenuScale(9), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					else
-						draw.SimpleTextOutlined("₽" .. string.FormatComma(v.value), "PuristaBold14", w / 2, h / 2 - EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined("₽" .. string.FormatComma(v.value), "PuristaBold14", w / 2, h / 2 - EFGM.MenuScale(7), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 				end
 
 				function item:OnCursorEntered()
 					surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
-					borderColor = Colors.itemBackgroundColorHovered
+					borderColor = COLORS.itemBackgroundColorHovered
 
 					surface.SetFont("PuristaBold18")
 					local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
@@ -6680,30 +6669,30 @@ function EFGM.MENU.OpenTab.Market()
 					local paint = function()
 						local w, h = EFGM.MENU.Tooltip:GetSize()
 
-						surface.SetDrawColor(Colors.tooltipBackgroundColor)
+						surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.tooltipHeaderColor)
+						surface.SetDrawColor(COLORS.tooltipHeaderColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-						surface.SetDrawColor(Colors.transparentWhiteColor)
+						surface.SetDrawColor(COLORS.transparentWhiteColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 				end
 
 				function item:OnCursorExited()
-					borderColor = Colors.itemBackgroundColor
+					borderColor = COLORS.itemBackgroundColor
 
 					EFGM.MENU.Tooltip:RemoveTip()
 				end
@@ -6721,13 +6710,14 @@ function EFGM.MENU.OpenTab.Market()
 					if x <= (marketStashHolder:GetWide() / 2) then sideH = true else sideH = false end
 					if y <= (marketStashHolder:GetTall() / 2) then sideV = true else sideV = false end
 
-					if IsValid(contextMenu) then contextEFGM.MENU:Remove() end
-					contextMenu = vgui.Create("EContextMenu", marketStashHolder)
-					contextEFGM.MENU:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
-					contextEFGM.MENU:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-					contextEFGM.MENU:SetAlpha(0)
-					contextEFGM.MENU:AlphaTo(255, 0.1, 0, nil)
-					contextEFGM.MENU:RequestFocus()
+					if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then EFGM.MENU.ELEMENTS.ContextMenu:Remove() end
+					local contextMenu = vgui.Create("EContextMenu", marketStashHolder)
+					contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
+					contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+					contextMenu:SetAlpha(0)
+					contextMenu:AlphaTo(255, 0.1, 0, nil)
+					contextMenu:RequestFocus()
+					EFGM.MENU.ELEMENTS.ContextMenu = contextMenu
 
 					local inspectButton = vgui.Create("EContextButton", contextMenu)
 					inspectButton:SetText("INSPECT")
@@ -6741,18 +6731,18 @@ function EFGM.MENU.OpenTab.Market()
 						EFGM.MENU.ConfirmSell(v.name, v.data, v.id)
 					end
 
-					contextEFGM.MENU:SetTallAfterCTX()
+					contextMenu:SetTallAfterCTX()
 
 					if sideH == true then
-						contextEFGM.MENU:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetX(math.Clamp(x - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x - contextMenu:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					end
 
 					if sideV == true then
-						contextEFGM.MENU:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetY(math.Clamp(y - contextEFGM.MENU:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y - contextMenu:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), marketStashHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					end
 				end
 
@@ -6776,10 +6766,10 @@ function EFGM.MENU.OpenTab.Market()
 	function marketPanel:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
@@ -6788,10 +6778,10 @@ function EFGM.MENU.OpenTab.Market()
 	marketText:SetSize(0, EFGM.MenuScale(36))
 
 	function marketText:Paint(w, h)
-		surface.SetDrawColor(Colors.containerHeaderColor)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
 		surface.DrawRect(0, 0, w, h)
 
-		draw.SimpleTextOutlined("MARKET", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("MARKET", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local marketHolder = vgui.Create("DPanel", marketPanel)
@@ -6815,13 +6805,13 @@ function EFGM.MENU.OpenTab.Market()
 
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, pageTextSize + EFGM.MenuScale(54), h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, pageTextSize + EFGM.MenuScale(54), EFGM.MenuScale(2))
 
-		draw.SimpleTextOutlined(pageText, "PuristaBold24", EFGM.MenuScale(26), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(pageText, "PuristaBold24", EFGM.MenuScale(26), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local lastPageButton = vgui.Create("DButton", marketPageText)
@@ -6830,8 +6820,8 @@ function EFGM.MENU.OpenTab.Market()
 	lastPageButton:SetText("")
 
 	function lastPageButton:Paint(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.arrowBackIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.arrowBackIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(3), EFGM.MenuScale(3), EFGM.MenuScale(20), EFGM.MenuScale(20))
 	end
 
@@ -6847,8 +6837,8 @@ function EFGM.MENU.OpenTab.Market()
 	function nextPageButton:Paint(w, h)
 		self:SetX(pageTextSize + EFGM.MenuScale(29))
 
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.arrowForwardIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.arrowForwardIcon)
 		surface.DrawTexturedRect(EFGM.MenuScale(3), EFGM.MenuScale(3), EFGM.MenuScale(20), EFGM.MenuScale(20))
 	end
 
@@ -6863,10 +6853,10 @@ function EFGM.MENU.OpenTab.Market()
 	function marketEntryHolder:Paint(w, h)
 		BlurPanel(self, 3)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -6882,10 +6872,10 @@ function EFGM.MENU.OpenTab.Market()
 	marketCategoryHolder:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
 	function marketCategoryHolder:Paint(w, h)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(w - 1, 0, 1, h)
 	end
 
@@ -6895,8 +6885,8 @@ function EFGM.MENU.OpenTab.Market()
 	marketSearchBox:SetPlaceholderText("search for items...")
 	marketSearchBox:SetDrawLanguageID(false)
 	marketSearchBox:SetUpdateOnType(true)
-	marketSearchBox:SetTextColor(Colors.whiteColor)
-	marketSearchBox:SetCursorColor(Colors.whiteColor)
+	marketSearchBox:SetTextColor(COLORS.whiteColor)
+	marketSearchBox:SetCursorColor(COLORS.whiteColor)
 
 	function marketSearchBox:AllowInput(char)
 		if char == "[" or char == "]" then return true end
@@ -6940,19 +6930,19 @@ function EFGM.MENU.OpenTab.Market()
 
 	local marketCategoryEntryList = vgui.Create("DCategoryList", marketCategoryHolder)
 	marketCategoryEntryList:Dock(FILL)
-	marketCategoryEntryList:SetBackgroundColor(Colors.transparent)
+	marketCategoryEntryList:SetBackgroundColor(COLORS.transparent)
 
 	local categoryBar = marketCategoryEntryList:GetVBar()
 	categoryBar:SetHideButtons(true)
 	categoryBar:SetSize(EFGM.MenuScale(5), 0)
 
 	function categoryBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
 	function categoryBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, EFGM.MenuScale(5), h)
 	end
 
@@ -7075,7 +7065,7 @@ function EFGM.MENU.OpenTab.Market()
 				item:SetText("")
 				item:SetSize(EFGM.MenuScale(198.5), EFGM.MenuScale(215.5))
 
-				local borderColor = Colors.itemBackgroundColor
+				local borderColor = COLORS.itemBackgroundColor
 
 				surface.SetFont("PuristaBold18")
 				local levelText = "LEVEL " .. v.level
@@ -7088,7 +7078,7 @@ function EFGM.MENU.OpenTab.Market()
 				local plyLevel = EFGM.MENU.Player:GetNWInt("Level", 1)
 
 				function item:Paint(w, h)
-					surface.SetDrawColor(Colors.itemColor)
+					surface.SetDrawColor(COLORS.itemColor)
 					surface.DrawRect(0, 0, w, h)
 
 					surface.SetDrawColor(borderColor)
@@ -7098,7 +7088,7 @@ function EFGM.MENU.OpenTab.Market()
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 					surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-					surface.SetDrawColor(Colors.pureWhiteColor)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
 					surface.SetMaterial(v.icon)
 
 					local originalWidth, originalHeight = EFGM.MenuScale(57 * v.sizeX), EFGM.MenuScale(57 * v.sizeY)
@@ -7111,15 +7101,15 @@ function EFGM.MENU.OpenTab.Market()
 						scaleFactor = targetMaxDimension / originalHeight
 					end
 
-					newWidth = math.Round(originalWidth * scaleFactor)
-					newHeight = math.Round(originalHeight * scaleFactor)
+					local newWidth = math.Round(originalWidth * scaleFactor)
+					local newHeight = math.Round(originalHeight * scaleFactor)
 
 					local x = (EFGM.MenuScale(198) / 2) - (newWidth / 2)
 					local y = (EFGM.MenuScale(216) / 2) - (newHeight / 2)
 
 					surface.DrawTexturedRect(x, y - EFGM.MenuScale(20), newWidth, newHeight)
 
-					if EFGM.CLIENT.MARKETLIMITS[v.id] != 0 then surface.SetDrawColor(Colors.transparentBlackColor) else surface.SetDrawColor(Colors.marketItemOutOfStockColor) end
+					if EFGM.CLIENT.MARKETLIMITS[v.id] != 0 then surface.SetDrawColor(COLORS.transparentBlackColor) else surface.SetDrawColor(COLORS.marketItemOutOfStockColor) end
 					surface.DrawRect(EFGM.MenuScale(1), h - EFGM.MenuScale(31), w - EFGM.MenuScale(2), EFGM.MenuScale(30))
 
 					local countText
@@ -7137,45 +7127,45 @@ function EFGM.MENU.OpenTab.Market()
 					local itemValueTextSize = surface.GetTextSize(itemValueText)
 
 					if v.canPurchase then
-						surface.SetDrawColor(Colors.marketItemValueColor)
+						surface.SetDrawColor(COLORS.marketItemValueColor)
 						surface.DrawRect(w - countTextSize - EFGM.MenuScale(11), h - EFGM.MenuScale(46), countTextSize + EFGM.MenuScale(10), EFGM.MenuScale(15))
 						surface.DrawRect(EFGM.MenuScale(1), EFGM.MenuScale(17), levelTextSize + EFGM.MenuScale(8), EFGM.MenuScale(15))
 
-						draw.SimpleTextOutlined(countText, "PuristaBold18", w - EFGM.MenuScale(5), h - EFGM.MenuScale(49), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-						draw.SimpleTextOutlined(levelText, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(14), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(countText, "PuristaBold18", w - EFGM.MenuScale(5), h - EFGM.MenuScale(49), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+						draw.SimpleTextOutlined(levelText, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(14), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if v.caliber then
-						surface.SetDrawColor(Colors.marketItemValueColor)
+						surface.SetDrawColor(COLORS.marketItemValueColor)
 						surface.DrawRect(EFGM.MenuScale(1), h - EFGM.MenuScale(46), caliberTextSize + EFGM.MenuScale(10), EFGM.MenuScale(15))
-						draw.SimpleTextOutlined(caliberText, "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(49), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(caliberText, "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(49), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
-					draw.SimpleTextOutlined(v.name, "PuristaBold18", EFGM.MenuScale(5), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-					draw.SimpleTextOutlined(itemValueText, "PuristaBold22", (w / 2) + EFGM.MenuScale(12), h - EFGM.MenuScale(29), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(v.name, "PuristaBold18", EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					draw.SimpleTextOutlined(itemValueText, "PuristaBold22", (w / 2) + EFGM.MenuScale(12), h - EFGM.MenuScale(29), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-					if EFGM.Favorites[v.id] then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.favoriteIcon)
+					if EFGM.CLIENT.MARKETFAVORITES[v.id] then
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.favoriteIcon)
 						surface.DrawTexturedRect(w - EFGM.MenuScale(31), EFGM.MenuScale(1), EFGM.MenuScale(30), EFGM.MenuScale(30))
 					end
 
 					if EFGM.CLIENT.MARKETLIMITS[v.id] then
-						surface.SetDrawColor(Colors.pureWhiteColor)
-						surface.SetMaterial(Mats.restartIcon)
+						surface.SetDrawColor(COLORS.pureWhiteColor)
+						surface.SetMaterial(MATS.restartIcon)
 						surface.DrawTexturedRect(w - countTextSize - EFGM.MenuScale(11), h - EFGM.MenuScale(47), EFGM.MenuScale(16), EFGM.MenuScale(16))
 					end
 
-					surface.SetDrawColor(Colors.pureWhiteColor)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
 
 					if !v.canPurchase then
-						surface.SetMaterial(Mats.sellIcon)
+						surface.SetMaterial(MATS.sellIcon)
 					elseif plyLevel < v.level then
-						surface.SetMaterial(Mats.lockIcon)
+						surface.SetMaterial(MATS.lockIcon)
 					elseif EFGM.CLIENT.MARKETLIMITS[v.id] == 0 then
-						surface.SetMaterial(Mats.noStockIcon)
+						surface.SetMaterial(MATS.noStockIcon)
 					else
-						surface.SetMaterial(Mats.roubleIcon)
+						surface.SetMaterial(MATS.roubleIcon)
 					end
 
 					surface.DrawTexturedRect((w / 2) - EFGM.MenuScale(12) - (itemValueTextSize / 2), h - EFGM.MenuScale(27), EFGM.MenuScale(20), EFGM.MenuScale(20))
@@ -7184,11 +7174,11 @@ function EFGM.MENU.OpenTab.Market()
 				function item:OnCursorEntered()
 					surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
-					borderColor = Colors.itemBackgroundColorHovered
+					borderColor = COLORS.itemBackgroundColorHovered
 				end
 
 				function item:OnCursorExited()
-					borderColor = Colors.itemBackgroundColor
+					borderColor = COLORS.itemBackgroundColor
 				end
 
 				function item:DoClick()
@@ -7205,13 +7195,14 @@ function EFGM.MENU.OpenTab.Market()
 					if x <= (marketItemHolder:GetWide() / 2) then sideH = true else sideH = false end
 					if y <= (marketItemHolder:GetTall() / 2) then sideV = true else sideV = false end
 
-					if IsValid(contextMenu) then contextEFGM.MENU:Remove() end
-					contextMenu = vgui.Create("EContextMenu", marketItemHolder)
-					contextEFGM.MENU:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
-					contextEFGM.MENU:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
-					contextEFGM.MENU:SetAlpha(0)
-					contextEFGM.MENU:AlphaTo(255, 0.1, 0, nil)
-					contextEFGM.MENU:RequestFocus()
+					if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then EFGM.MENU.ELEMENTS.ContextMenu:Remove() end
+					local contextMenu = vgui.Create("EContextMenu", marketItemHolder)
+					contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
+					contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+					contextMenu:SetAlpha(0)
+					contextMenu:AlphaTo(255, 0.1, 0, nil)
+					contextMenu:RequestFocus()
+					EFGM.MENU.ELEMENTS.ContextMenu = contextMenu
 
 					local inspectButton = vgui.Create("EContextButton", contextMenu)
 					inspectButton:SetText("INSPECT")
@@ -7230,7 +7221,7 @@ function EFGM.MENU.OpenTab.Market()
 					end
 
 					favoriteButton.Think = function(s)
-						favoriteButton:SetText((EFGM.Favorites[v.id] and "UNFAVORITE") or "FAVORITE")
+						favoriteButton:SetText((EFGM.CLIENT.MARKETFAVORITES[v.id] and "UNFAVORITE") or "FAVORITE")
 					end
 
 					if v.canPurchase and plyLevel >= v.level and EFGM.CLIENT.MARKETLIMITS[v.id] != 0 then
@@ -7242,18 +7233,18 @@ function EFGM.MENU.OpenTab.Market()
 						end
 					end
 
-					contextEFGM.MENU:SetTallAfterCTX()
+					contextMenu:SetTallAfterCTX()
 
 					if sideH == true then
-						contextEFGM.MENU:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), marketItemHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x + EFGM.MenuScale(5), EFGM.MenuScale(5), marketItemHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetX(math.Clamp(x - contextEFGM.MENU:GetWide(), EFGM.MenuScale(5), marketItemHolder:GetWide() - contextEFGM.MENU:GetWide() - EFGM.MenuScale(5)))
+						contextMenu:SetX(math.Clamp(x - contextMenu:GetWide(), EFGM.MenuScale(5), marketItemHolder:GetWide() - contextMenu:GetWide() - EFGM.MenuScale(5)))
 					end
 
 					if sideV == true then
-						contextEFGM.MENU:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), marketItemHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y + EFGM.MenuScale(5), EFGM.MenuScale(5), marketItemHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					else
-						contextEFGM.MENU:SetY(math.Clamp(y - contextEFGM.MENU:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), marketItemHolder:GetTall() - contextEFGM.MENU:GetTall() - EFGM.MenuScale(5)))
+						contextMenu:SetY(math.Clamp(y - contextMenu:GetTall() + EFGM.MenuScale(5), EFGM.MenuScale(5), marketItemHolder:GetTall() - contextMenu:GetTall() - EFGM.MenuScale(5)))
 					end
 				end
 			end
@@ -7272,11 +7263,11 @@ function EFGM.MENU.OpenTab.Market()
 		curItems = items
 
 		for k1, v1 in ipairs(items) do
-			for k2, v2 in pairs(EFGMITEMS) do
+			for k2, v2 in pairs(EFGM.ITEMS) do
 				if marketSearchText != "" and !(string.find((v2.fullName and v2.fullName or v2.displayName):lower(), marketSearchText) or string.find((k2):lower(), marketSearchText)) then continue end
 				if showBasedOnLevel == "unlocked" and plyLevel < (v2.levelReq or 1) then continue end
 				if showBasedOnLevel == "unlocked" and !(v2.canPurchase or v2.canPurchase == nil) then continue end
-				if marketTab == "★ Favorite Items" and !EFGM.Favorites[k2] then continue end
+				if marketTab == "★ Favorite Items" and !EFGM.CLIENT.MARKETFAVORITES[k2] then continue end
 
 				if v2.displayType == v1 then
 					numOfItems = numOfItems + 1
@@ -7302,14 +7293,14 @@ function EFGM.MENU.OpenTab.Market()
 					entry.caliber = v2.caliber
 					entry.canPurchase = purchasable
 
-					if EFGM.Favorites[k2] then entry.sortWeight = 9999 else entry.sortWeight = 0 end
+					if EFGM.CLIENT.MARKETFAVORITES[k2] then entry.sortWeight = 9999 else entry.sortWeight = 0 end
 
 					if entry.equipType == EQUIPTYPE.Weapon and entry.defAtts then
 						local atts = GetPrefixedAttachmentListFromCode(entry.defAtts)
 						if !atts then return end
 
 						for _, a in ipairs(atts) do
-							local att = EFGMITEMS[a]
+							local att = EFGM.ITEMS[a]
 							if att == nil then continue end
 
 							entry.value = entry.value + att.value
@@ -7537,7 +7528,7 @@ function EFGM.MENU.OpenTab.Match()
 		pmcTitle:SetSize(0, EFGM.MenuScale(32))
 
 		function pmcTitle:Paint(w, h)
-			draw.SimpleTextOutlined("OPERATORS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("OPERATORS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		local pmcPanelBar = pmcPanel:GetVBar()
@@ -7545,12 +7536,12 @@ function EFGM.MENU.OpenTab.Match()
 		pmcPanelBar:SetSize(EFGM.MenuScale(15), 0)
 
 		function pmcPanelBar:Paint(w, h)
-			surface.SetDrawColor(Colors.scrollerColor)
+			surface.SetDrawColor(COLORS.scrollerColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
 		function pmcPanelBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
@@ -7570,14 +7561,14 @@ function EFGM.MENU.OpenTab.Match()
 
 			function pmcEntry:Paint(w, h)
 				if !IsValid(v) then return end
-				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(25), Colors.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(25), Colors.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(25), COLORS.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(25), COLORS.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				if v:IsInRaid() then
-					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				elseif v:IsInDuel() then
-					draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 			end
 
@@ -7591,7 +7582,7 @@ function EFGM.MENU.OpenTab.Match()
 
 				local profile = dropdown:AddOption("Open Steam Profile", function() gui.OpenURL("http://steamcommunity.com/profiles/" .. v:SteamID64()) end)
 				profile:SetIcon("games/16/all.png")
-				local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav") end)
+				local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", MATS.dontEvenAsk, "ui/boo.wav") end)
 				gameProfile:SetIcon("icon16/chart_bar.png")
 
 				if v != EFGM.MENU.Player and v:IsInHideout() then
@@ -7637,7 +7628,7 @@ function EFGM.MENU.OpenTab.Match()
 	mapPanel:SetPaintBackground(false)
 
 	local mapRawName = game.GetMap()
-	local mapOverhead = Mats.curMapOverhad
+	local mapOverhead = MATS.curMapOverhad
 
 	local mapName = MAPNAMES[mapRawName]
 	surface.SetFont("PuristaBold50")
@@ -7648,7 +7639,7 @@ function EFGM.MENU.OpenTab.Match()
 	mapTitle:SetSize(0, EFGM.MenuScale(40))
 
 	function mapTitle:Paint(w, h)
-		draw.SimpleTextOutlined(mapNameText, "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(mapNameText, "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local mapSizeX = EFGM.MenuScale(1200)
@@ -7665,12 +7656,12 @@ function EFGM.MENU.OpenTab.Match()
 
 	function mapHolder:Paint(w, h)
 		BlurPanel(self, 5)
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 	end
 
 	function mapHolder:PaintOver(w, h)
-		surface.SetDrawColor(Colors.pureWhiteColor)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -7713,17 +7704,17 @@ function EFGM.MENU.OpenTab.Match()
 		surface.SetDrawColor(Color(20, 20, 20, 155))
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.whiteBorderColor)
+		surface.SetDrawColor(COLORS.whiteBorderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined("LEGEND", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("SPAWNS ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(30), Colors.mapSpawn, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("EXTRACTS ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(45), Colors.mapExtract, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("POIs ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(60), Colors.mapLocation, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("KEYS ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(75), Colors.mapKey, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("LEGEND", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("SPAWNS ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(30), COLORS.mapSpawn, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("EXTRACTS ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(45), COLORS.mapExtract, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("POIs ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(60), COLORS.mapLocation, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("KEYS ■", "PuristaBold18", w - EFGM.MenuScale(5), EFGM.MenuScale(75), COLORS.mapKey, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if !EFGM.MENU.Player:IsInHideout() then return end
@@ -7743,7 +7734,7 @@ function EFGM.MENU.OpenTab.Match()
 	createSquadTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function createSquadTitle:Paint(w, h)
-		draw.SimpleTextOutlined("CREATE SQUAD", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("CREATE SQUAD", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local squadNamePanel = vgui.Create("DPanel", squadPanel)
@@ -7751,21 +7742,21 @@ function EFGM.MENU.OpenTab.Match()
 	squadNamePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function squadNamePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Name", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Squad Name", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local squadNameBG = vgui.Create("DPanel", squadNamePanel)
 	squadNameBG:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(30))
 	squadNameBG:SetSize(EFGM.MenuScale(150), EFGM.MenuScale(20))
-	squadNameBG:SetBackgroundColor(Colors.transparent)
+	squadNameBG:SetBackgroundColor(COLORS.transparent)
 
 	local squadName = vgui.Create("DTextEntry", squadNameBG)
 	squadName:Dock(FILL)
 	squadName:SetPlaceholderText("")
 	squadName:SetDrawLanguageID(false)
 	squadName:SetUpdateOnType(true)
-	squadName:SetTextColor(Colors.whiteColor)
-	squadName:SetCursorColor(Colors.whiteColor)
+	squadName:SetTextColor(COLORS.whiteColor)
+	squadName:SetCursorColor(COLORS.whiteColor)
 
 	function squadName:OnValueChange(val)
 		CreateSquadName = val
@@ -7776,21 +7767,21 @@ function EFGM.MENU.OpenTab.Match()
 	squadPasswordPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function squadPasswordPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Password (optional)", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Squad Password (optional)", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local squadPasswordBG = vgui.Create("DPanel", squadPasswordPanel)
 	squadPasswordBG:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(30))
 	squadPasswordBG:SetSize(EFGM.MenuScale(150), EFGM.MenuScale(20))
-	squadPasswordBG:SetBackgroundColor(Colors.transparent)
+	squadPasswordBG:SetBackgroundColor(COLORS.transparent)
 
 	local squadPassword = vgui.Create("DTextEntry", squadPasswordBG)
 	squadPassword:Dock(FILL)
 	squadPassword:SetDrawLanguageID(false)
 	squadPassword:SetPlaceholderText("")
 	squadPassword:SetUpdateOnType(true)
-	squadPassword:SetTextColor(Colors.whiteColor)
-	squadPassword:SetCursorColor(Colors.whiteColor)
+	squadPassword:SetTextColor(COLORS.whiteColor)
+	squadPassword:SetCursorColor(COLORS.whiteColor)
 
 	function squadPassword:OnValueChange(val)
 		CreateSquadPassword = val
@@ -7801,7 +7792,7 @@ function EFGM.MENU.OpenTab.Match()
 	squadMemberLimitPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function squadMemberLimitPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Member Limit (2 to " .. EFGM.CONFIG.SQUAD.MAXPLAYERS .. ")", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Squad Member Limit (2 to " .. EFGM.CONFIG.SQUAD.MAXPLAYERS .. ")", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local squadMemberLimit = vgui.Create("DNumberWang", squadMemberLimitPanel)
@@ -7820,7 +7811,7 @@ function EFGM.MENU.OpenTab.Match()
 	squadColorPanel:SetSize(0, EFGM.MenuScale(110 + 20))
 
 	function squadColorPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Color", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Squad Color", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		surface.SetDrawColor(Color(CreateSquadColor.RED, CreateSquadColor.GREEN, CreateSquadColor.BLUE, 255))
 		surface.DrawRect(EFGM.MenuScale(85), EFGM.MenuScale(55), EFGM.MenuScale(145), EFGM.MenuScale(5))
 	end
@@ -7877,7 +7868,7 @@ function EFGM.MENU.OpenTab.Match()
 	joinSquadTitle:SetSize(0, EFGM.MenuScale(32 + 10))
 
 	function joinSquadTitle:Paint(w, h)
-		draw.SimpleTextOutlined("JOIN SQUAD", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("JOIN SQUAD", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local availableSquadsPanel = vgui.Create("DScrollPanel", squadPanel)
@@ -7890,12 +7881,12 @@ function EFGM.MENU.OpenTab.Match()
 	availableSquadsPanelBar:SetSize(EFGM.MenuScale(15), 0)
 
 	function availableSquadsPanelBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
 	function availableSquadsPanelBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
@@ -7924,14 +7915,14 @@ function EFGM.MENU.OpenTab.Match()
 
 			function squadEntry:Paint(w, h)
 				if open then
-					surface.SetDrawColor(Colors.transparentBlackColor)
+					surface.SetDrawColor(COLORS.transparentBlackColor)
 				else
 					surface.SetDrawColor(Color(50, 0, 0, 100))
 				end
 				surface.DrawRect(0, 0, w, h)
 
-				draw.SimpleTextOutlined(name, "PuristaBold24", w / 2, EFGM.MenuScale(5), Color(color.RED, color.GREEN, color.BLUE), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(memberCount .. " / " .. limit .. " | " .. status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(30), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(name, "PuristaBold24", w / 2, EFGM.MenuScale(5), Color(color.RED, color.GREEN, color.BLUE), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(memberCount .. " / " .. limit .. " | " .. status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(30), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function squadEntry:DoClick(w, h)
@@ -7940,6 +7931,8 @@ function EFGM.MENU.OpenTab.Match()
 					RunConsoleCommand("efgm_squad_join", name, password)
 				end
 			end
+
+			local squadPopOut
 
 			function squadEntry:OnCursorEntered()
 				local x, y = EFGM.MENU.MouseX, EFGM.MENU.MouseY
@@ -7987,7 +7980,7 @@ function EFGM.MENU.OpenTab.Match()
 
 					UpdatePopOutPos()
 
-					surface.SetDrawColor(Colors.tooltipBackgroundColor)
+					surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 					surface.DrawRect(0, 0, w, h)
 
 					surface.SetDrawColor(Color(color.RED, color.GREEN, color.BLUE, 45))
@@ -7996,33 +7989,33 @@ function EFGM.MENU.OpenTab.Match()
 					surface.SetDrawColor(Color(color.RED, color.GREEN, color.BLUE, 255))
 					surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-					surface.SetDrawColor(Colors.transparentWhiteColor)
+					surface.SetDrawColor(COLORS.transparentWhiteColor)
 					surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 					surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 					surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-					draw.SimpleTextOutlined("MEMBERS", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined("MEMBERS", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 					for k, v in SortedPairs(members) do
 						if v == owner then
-							draw.SimpleTextOutlined(v:GetName() .. "*", "PuristaBold18", EFGM.MenuScale(27), (k * EFGM.MenuScale(20)) + EFGM.MenuScale(10), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+							draw.SimpleTextOutlined(v:GetName() .. "*", "PuristaBold18", EFGM.MenuScale(27), (k * EFGM.MenuScale(20)) + EFGM.MenuScale(10), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						else
-							draw.SimpleTextOutlined(v:GetName(), "PuristaBold18", EFGM.MenuScale(27), (k * EFGM.MenuScale(20)) + EFGM.MenuScale(10), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+							draw.SimpleTextOutlined(v:GetName(), "PuristaBold18", EFGM.MenuScale(27), (k * EFGM.MenuScale(20)) + EFGM.MenuScale(10), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						end
 					end
 
 					if squad != "nil" then return end
 
 					if !open then
-						draw.SimpleTextOutlined("SQUAD FULL!", "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(23), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.deadColor)
+						draw.SimpleTextOutlined("SQUAD FULL!", "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(23), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.deadColor)
 						return
 					end
 
 					if !protected then
-						draw.SimpleTextOutlined("CLICK TO JOIN!", "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(23), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined("CLICK TO JOIN!", "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(23), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					else
-						draw.SimpleTextOutlined("ENTER PASSWORD TO JOIN!", "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(23), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined("ENTER PASSWORD TO JOIN!", "PuristaBold18", EFGM.MenuScale(5), h - EFGM.MenuScale(23), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 				end
 
@@ -8035,7 +8028,7 @@ function EFGM.MENU.OpenTab.Match()
 
 				-- create password entry if squad is password protected and not full
 				if protected and open and squad == "nil" then
-					squadPasswordEntryBG = vgui.Create("DPanel", squadPopOut)
+					local squadPasswordEntryBG = vgui.Create("DPanel", squadPopOut)
 					squadPasswordEntryBG:SetPos(EFGM.MenuScale(5), squadPopOut:GetTall() - EFGM.MenuScale(43))
 					squadPasswordEntryBG:SetSize(EFGM.MenuScale(181), EFGM.MenuScale(20))
 					squadPasswordEntryBG:SetBackgroundColor(Color(25, 25, 25, 155))
@@ -8045,8 +8038,8 @@ function EFGM.MENU.OpenTab.Match()
 					squadPasswordEntry:SetPlaceholderText("")
 					squadPasswordEntry:SetDrawLanguageID(false)
 					squadPasswordEntry:SetPaintBackground(false)
-					squadPasswordEntry:SetTextColor(Colors.whiteColor)
-					squadPasswordEntry:SetCursorColor(Colors.whiteColor)
+					squadPasswordEntry:SetTextColor(COLORS.whiteColor)
+					squadPasswordEntry:SetCursorColor(COLORS.whiteColor)
 					squadPasswordEntry:RequestFocus()
 
 					function squadPasswordEntry:OnEnter(val)
@@ -8101,13 +8094,13 @@ function EFGM.MENU.OpenTab.Match()
 			surface.SetDrawColor(Color(color.RED, color.GREEN, color.BLUE, 255))
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-			draw.SimpleTextOutlined(squad, "PuristaBold32", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined(status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(37), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(squad, "PuristaBold32", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(37), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		-- allows squad owners to copy the squad password if the squad is private
@@ -8123,7 +8116,7 @@ function EFGM.MENU.OpenTab.Match()
 				surface.SetDrawColor(Color(25, 25, 25, 155))
 				surface.DrawRect(0, 0, w, h)
 
-				draw.SimpleTextOutlined("Copy Password", "PuristaBold18", w / 2, EFGM.MenuScale(-2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("Copy Password", "PuristaBold18", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function currentSquadPasswordButton:OnCursorEntered()
@@ -8144,17 +8137,17 @@ function EFGM.MENU.OpenTab.Match()
 			surface.SetDrawColor(Color(color.RED, color.GREEN, color.BLUE, 10))
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-			draw.SimpleTextOutlined("MEMBERS [" .. memberCount .. "/" .. limit .. "]", "PuristaBold24", EFGM.MenuScale(5), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("MEMBERS [" .. memberCount .. "/" .. limit .. "]", "PuristaBold24", EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			for k, v in SortedPairs(members) do
 				if v == owner then
-					draw.SimpleTextOutlined(v:GetName() .. "*", "PuristaBold24", EFGM.MenuScale(40), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(v:GetName() .. "*", "PuristaBold24", EFGM.MenuScale(40), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				else
-					draw.SimpleTextOutlined(v:GetName(), "PuristaBold24", EFGM.MenuScale(40), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(v:GetName(), "PuristaBold24", EFGM.MenuScale(40), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 			end
 		end
@@ -8170,7 +8163,7 @@ function EFGM.MENU.OpenTab.Match()
 
 				local profile = dropdown:AddOption("Open Steam Profile", function() gui.OpenURL("http://steamcommunity.com/profiles/" .. v:SteamID64()) end)
 				profile:SetIcon("games/16/all.png")
-				local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav") end)
+				local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", MATS.dontEvenAsk, "ui/boo.wav") end)
 				gameProfile:SetIcon("icon16/chart_bar.png")
 
 				if v != EFGM.MENU.Player and v:IsInHideout() then
@@ -8213,8 +8206,8 @@ function EFGM.MENU.OpenTab.Match()
 				transferToMember:SetText("")
 
 				function transferToMember:Paint(w, h)
-					surface.SetDrawColor(Colors.pureWhiteColor)
-					surface.SetMaterial(Mats.squadTransferIcon)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
+					surface.SetMaterial(MATS.squadTransferIcon)
 					surface.DrawTexturedRect(0, 0, EFGM.MenuScale(24), EFGM.MenuScale(24))
 				end
 
@@ -8231,13 +8224,13 @@ function EFGM.MENU.OpenTab.Match()
 						surface.SetDrawColor(Color(25, 25, 25, 155))
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.transparentWhiteColor)
+						surface.SetDrawColor(COLORS.transparentWhiteColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-						draw.SimpleTextOutlined(text, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(text, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					EFGM.MENU.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(10) + textSize, EFGM.MenuScale(24))
@@ -8258,8 +8251,8 @@ function EFGM.MENU.OpenTab.Match()
 				kickMember:SetText("")
 
 				function kickMember:Paint(w, h)
-					surface.SetDrawColor(Colors.pureWhiteColor)
-					surface.SetMaterial(Mats.squadKickIcon)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
+					surface.SetMaterial(MATS.squadKickIcon)
 					surface.DrawTexturedRect(0, 0, EFGM.MenuScale(24), EFGM.MenuScale(24))
 				end
 
@@ -8276,13 +8269,13 @@ function EFGM.MENU.OpenTab.Match()
 						surface.SetDrawColor(Color(25, 25, 25, 155))
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(Colors.transparentWhiteColor)
+						surface.SetDrawColor(COLORS.transparentWhiteColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-						draw.SimpleTextOutlined(text, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+						draw.SimpleTextOutlined(text, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					EFGM.MENU.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(10) + textSize, EFGM.MenuScale(24))
@@ -8307,7 +8300,7 @@ function EFGM.MENU.OpenTab.Match()
 			surface.SetDrawColor(Color(color.RED, color.GREEN, color.BLUE, 10))
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
@@ -8323,9 +8316,9 @@ function EFGM.MENU.OpenTab.Match()
 			surface.DrawRect(0, 0, w, h)
 
 			if owner != EFGM.MENU.Player then
-				draw.SimpleTextOutlined("LEAVE SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(-2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("LEAVE SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			else
-				draw.SimpleTextOutlined("DISBAND SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(-2), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("DISBAND SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 		end
 
@@ -8360,7 +8353,7 @@ function EFGM.MENU.OpenTab.Match()
 
 		if IsValid(squadPopOut) then squadPopOut:Remove() end
 
-		squadArray = table.Copy(net.ReadTable())
+		local squadArray = table.Copy(net.ReadTable())
 		GenerateJoinableSquads(squadArray)
 		RenderCurrentSquad(squadArray)
 	end)
@@ -8388,7 +8381,7 @@ function EFGM.MENU.OpenTab.Stats()
 	statsTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function statsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("STATISTICS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("STATISTICS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local statsBar = stats:GetVBar()
@@ -8396,12 +8389,12 @@ function EFGM.MENU.OpenTab.Stats()
 	statsBar:SetSize(EFGM.MenuScale(15), 0)
 
 	function statsBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
 	function statsBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
@@ -8458,8 +8451,8 @@ function EFGM.MENU.OpenTab.Stats()
 		statEntry:SetSize(0, EFGM.MenuScale(17))
 
 		function statEntry:Paint(w, h)
-			draw.SimpleTextOutlined(k .. "", "Purista18", EFGM.MenuScale(5), 0, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined(v, "Purista18", w - EFGM.MenuScale(5), 0, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(k .. "", "Purista18", EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(v, "Purista18", w - EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 	end
 
@@ -8471,7 +8464,7 @@ function EFGM.MENU.OpenTab.Stats()
 	leaderboardTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function leaderboardTitle:Paint(w, h)
-		draw.SimpleTextOutlined("LEADERBOARDS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("LEADERBOARDS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	function SelectBoard(text, data)
@@ -8514,22 +8507,22 @@ function EFGM.MENU.OpenTab.Stats()
 	function leaderboardContents:Paint(w, h)
 		if selectedBoard == nil then return end
 
-		draw.SimpleTextOutlined(string.upper(selectedBoardName), "PuristaBold22", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(string.upper(selectedBoardName), "PuristaBold22", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 		for k, v in ipairs(selectedBoard) do
-			local color = Colors.whiteColor
+			local color = COLORS.whiteColor
 			if v.SteamID == EFGM.MENU.Player:SteamID64() then color = yColor end
 			if !v.Name then return end
-			draw.SimpleTextOutlined(k, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined(string.sub(v.Name, 1, 21), "Purista18", EFGM.MenuScale(25), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(k, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(string.sub(v.Name, 1, 21), "Purista18", EFGM.MenuScale(25), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			--asdofiauhasdofiauashydafasdifa
 			if selectedBoardName == "Money Earned" or selectedBoardName == "Money Spent" or selectedBoardName == "Stash Value" then
-				draw.SimpleTextOutlined("₽" .. string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("₽" .. string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			elseif selectedBoardName == "Time Played" then
-				draw.SimpleTextOutlined(util.FormatTimePretty(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(util.FormatTimePretty(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			else
-				draw.SimpleTextOutlined(string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 		end
 	end
@@ -8548,10 +8541,7 @@ function EFGM.MENU.OpenTab.Stats()
 		if !selectedBoard then return end
 
 		for k, v in ipairs(selectedBoard) do
-			local name = EFGM.SteamNameCache[v.SteamID] or nil
-			if !name then
-				steamworks.RequestPlayerInfo(v.SteamID, function(steamName) name = steamName or "" EFGM.SteamNameCache[v.SteamID] = steamName or "" end)
-			end
+			local name = SteamNameFromID64(v.SteamID)
 
 			timer.Simple(k * 0.01, function()
 				selectedBoard[k].Name = name
@@ -8578,7 +8568,7 @@ function EFGM.MENU.OpenTab.Skills()
 	skillsTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function skillsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("SKILLS", "PuristaBold32", 265, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("SKILLS", "PuristaBold32", 265, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local skillsBar = skills:GetVBar()
@@ -8586,12 +8576,12 @@ function EFGM.MENU.OpenTab.Skills()
 	skillsBar:SetSize(EFGM.MenuScale(15), 0)
 
 	function skillsBar:Paint(w, h)
-		surface.SetDrawColor(Colors.scrollerColor)
+		surface.SetDrawColor(COLORS.scrollerColor)
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
 	function skillsBar.btnGrip:Paint(w, h)
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
@@ -8614,15 +8604,15 @@ function EFGM.MENU.OpenTab.Skills()
 		skillItem:SetSize(EFGM.MenuScale(90), EFGM.MenuScale(90))
 
 		function skillItem:Paint(w, h)
-			surface.SetDrawColor(Colors.whiteColor)
+			surface.SetDrawColor(COLORS.whiteColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(v1.Icon)
 			surface.DrawTexturedRect(EFGM.MenuScale(3), EFGM.MenuScale(3), EFGM.MenuScale(84), EFGM.MenuScale(84))
 
-			draw.SimpleTextOutlined("1", "PuristaBold32", EFGM.MenuScale(4), EFGM.MenuScale(52), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-			draw.SimpleTextOutlined("0/10", "Purista18", w - EFGM.MenuScale(4), EFGM.MenuScale(64), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("1", "PuristaBold32", EFGM.MenuScale(4), EFGM.MenuScale(52), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("0/10", "Purista18", w - EFGM.MenuScale(4), EFGM.MenuScale(64), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		function skillItem:OnCursorEntered()
@@ -8634,7 +8624,7 @@ function EFGM.MENU.OpenTab.Skills()
 			local paint = function()
 				local w, h = EFGM.MENU.Tooltip:GetSize()
 
-				surface.SetDrawColor(Colors.tooltipBackgroundColor)
+				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
 				skillTypeTbl[v1.Category].a = 45
@@ -8645,16 +8635,16 @@ function EFGM.MENU.OpenTab.Skills()
 				surface.SetDrawColor(skillTypeTbl[v1.Category])
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-				draw.SimpleTextOutlined(string.upper(v1.Name), "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(string.upper(v1.Category), "Purista18Italic", EFGM.MenuScale(5), EFGM.MenuScale(25), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined(v1.Description, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(55), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-				draw.SimpleTextOutlined("1", "PuristaBold64", w - EFGM.MenuScale(5), EFGM.MenuScale(-10), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(string.upper(v1.Name), "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(string.upper(v1.Category), "Purista18Italic", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(v1.Description, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(55), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined("1", "PuristaBold64", w - EFGM.MenuScale(5), EFGM.MenuScale(-10), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			EFGM.MENU.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(10) + skillDescTextSize, EFGM.MenuScale(80))
@@ -8685,7 +8675,7 @@ function EFGM.MENU.OpenTab.Settings()
 	gameplayTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function gameplayTitle:Paint(w, h)
-		draw.SimpleTextOutlined("GAMEPLAY", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("GAMEPLAY", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local gameplay = vgui.Create("DScrollPanel", gameplayHolder)
@@ -8707,7 +8697,7 @@ function EFGM.MENU.OpenTab.Settings()
 	controlsTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function controlsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("CONTROLS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("CONTROLS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local controls = vgui.Create("DScrollPanel", controlsHolder)
@@ -8729,7 +8719,7 @@ function EFGM.MENU.OpenTab.Settings()
 	interfaceTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function interfaceTitle:Paint(w, h)
-		draw.SimpleTextOutlined("INTERFACE", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("INTERFACE", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local interface = vgui.Create("DScrollPanel", interfaceHolder)
@@ -8751,7 +8741,7 @@ function EFGM.MENU.OpenTab.Settings()
 	visualsTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function visualsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("VISUALS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("VISUALS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local visuals = vgui.Create("DScrollPanel", visualsHolder)
@@ -8773,7 +8763,7 @@ function EFGM.MENU.OpenTab.Settings()
 	accountTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function accountTitle:Paint(w, h)
-		draw.SimpleTextOutlined("ACCOUNT", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("ACCOUNT", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local account = vgui.Create("DScrollPanel", accountHolder)
@@ -8795,7 +8785,7 @@ function EFGM.MENU.OpenTab.Settings()
 	miscTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function miscTitle:Paint(w, h)
-		draw.SimpleTextOutlined("MISC.", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("MISC.", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local misc = vgui.Create("DScrollPanel", miscHolder)
@@ -8813,7 +8803,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleCrouchPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function toggleCrouchPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Crouch", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Crouch", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local toggleCrouch = vgui.Create("DCheckBox", toggleCrouchPanel)
@@ -8826,7 +8816,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleADSPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function toggleADSPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Aim Down Sights", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Aim Down Sights", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local toggleADS = vgui.Create("DCheckBox", toggleADSPanel)
@@ -8839,7 +8829,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleLeanPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function toggleLeanPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Lean", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Lean", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local toggleLean = vgui.Create("DCheckBox", toggleLeanPanel)
@@ -8852,7 +8842,7 @@ function EFGM.MENU.OpenTab.Settings()
 	musicPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function musicPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Music", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Music", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local music = vgui.Create("DCheckBox", musicPanel)
@@ -8865,7 +8855,7 @@ function EFGM.MENU.OpenTab.Settings()
 	musicVolumePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function musicVolumePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Music Volume", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Music Volume", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local musicVolume = vgui.Create("DNumSlider", musicVolumePanel)
@@ -8881,7 +8871,7 @@ function EFGM.MENU.OpenTab.Settings()
 	infilNearEndPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function infilNearEndPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Block Raid Infil Near Raid End", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Block Raid Infil Near Raid End", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local infilNearEnd = vgui.Create("DCheckBox", infilNearEndPanel)
@@ -8894,7 +8884,7 @@ function EFGM.MENU.OpenTab.Settings()
 	infilNearEndThresholdPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function infilNearEndThresholdPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Block Raid Infil Near Raid End Threshold", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Block Raid Infil Near Raid End Threshold", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local infilNearEndThreshold = vgui.Create("DNumSlider", infilNearEndThresholdPanel)
@@ -8911,7 +8901,7 @@ function EFGM.MENU.OpenTab.Settings()
 	adsSensPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function adsSensPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Aim Down Sights Sensitivity", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Aim Down Sights Sensitivity", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local adsSens = vgui.Create("DNumSlider", adsSensPanel)
@@ -8927,7 +8917,7 @@ function EFGM.MENU.OpenTab.Settings()
 	gradualADSPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function gradualADSPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Gradual Aim Down Sights Sensitivity", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Gradual Aim Down Sights Sensitivity", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local gradualADS = vgui.Create("DCheckBox", gradualADSPanel)
@@ -8940,7 +8930,7 @@ function EFGM.MENU.OpenTab.Settings()
 	magnificationCompensationPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function magnificationCompensationPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Scale Sensitivity With Magnification", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Scale Sensitivity With Magnification", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local bindsControlsTitle = vgui.Create("DPanel", controls)
@@ -8948,7 +8938,7 @@ function EFGM.MENU.OpenTab.Settings()
 	bindsControlsTitle:SetSize(0, EFGM.MenuScale(32))
 
 	function bindsControlsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("KEYBINDS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("KEYBINDS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local magnificationCompensation = vgui.Create("DCheckBox", magnificationCompensationPanel)
@@ -8961,7 +8951,7 @@ function EFGM.MENU.OpenTab.Settings()
 	gameMenuPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function gameMenuPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Game Menu", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Game Menu", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local gameMenu = vgui.Create("DBinder", gameMenuPanel)
@@ -8978,7 +8968,7 @@ function EFGM.MENU.OpenTab.Settings()
 	showMapPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function showMapPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Map Menu", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Map Menu", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local showMap = vgui.Create("DBinder", showMapPanel)
@@ -8994,7 +8984,7 @@ function EFGM.MENU.OpenTab.Settings()
 	showRaidInfoPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function showRaidInfoPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Show Extracts", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Show Extracts", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local showRaidInfo = vgui.Create("DBinder", showRaidInfoPanel)
@@ -9011,7 +9001,7 @@ function EFGM.MENU.OpenTab.Settings()
 	leanLeftPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function leanLeftPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Lean Left", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Lean Left", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local leanLeft = vgui.Create("DBinder", leanLeftPanel)
@@ -9028,7 +9018,7 @@ function EFGM.MENU.OpenTab.Settings()
 	leanRightPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function leanRightPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Lean Right", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Lean Right", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local leanRight = vgui.Create("DBinder", leanRightPanel)
@@ -9045,7 +9035,7 @@ function EFGM.MENU.OpenTab.Settings()
 	freeLookPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function freeLookPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Free Look", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Free Look", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local freeLook = vgui.Create("DBinder", freeLookPanel)
@@ -9062,7 +9052,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleFireModePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function toggleFireModePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Fire Mode", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Fire Mode", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local toggleFireMode = vgui.Create("DBinder", toggleFireModePanel)
@@ -9079,7 +9069,7 @@ function EFGM.MENU.OpenTab.Settings()
 	changeSightPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function changeSightPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Change Sight Zoom/Reticle", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Change Sight Zoom/Reticle", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local changeSight = vgui.Create("DBinder", changeSightPanel)
@@ -9096,7 +9086,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleUBGLPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function toggleUBGLPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle UBGL (Under Barrel Launcher)", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle UBGL (Under Barrel Launcher)", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local toggleUBGL = vgui.Create("DBinder", toggleUBGLPanel)
@@ -9113,7 +9103,7 @@ function EFGM.MENU.OpenTab.Settings()
 	inspectWeaponPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function inspectWeaponPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Inspect Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Inspect Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local inspectWeapon = vgui.Create("DBinder", inspectWeaponPanel)
@@ -9130,7 +9120,7 @@ function EFGM.MENU.OpenTab.Settings()
 	teamInvitePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function teamInvitePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Invite Player To Squad", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Invite Player To Squad", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local teamInvite = vgui.Create("DBinder", teamInvitePanel)
@@ -9147,7 +9137,7 @@ function EFGM.MENU.OpenTab.Settings()
 	duelInvitePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function duelInvitePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Invite Player To Duel", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Invite Player To Duel", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local duelInvite = vgui.Create("DBinder", duelInvitePanel)
@@ -9164,7 +9154,7 @@ function EFGM.MENU.OpenTab.Settings()
 	acceptInvitePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function acceptInvitePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Accept Invite", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Accept Invite", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local acceptInvite = vgui.Create("DBinder", acceptInvitePanel)
@@ -9181,7 +9171,7 @@ function EFGM.MENU.OpenTab.Settings()
 	declineInvitePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function declineInvitePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Ignore Invite", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Ignore Invite", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local declineInvite = vgui.Create("DBinder", declineInvitePanel)
@@ -9198,7 +9188,7 @@ function EFGM.MENU.OpenTab.Settings()
 	primaryWeaponPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function primaryWeaponPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Primary Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Primary Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local primaryWeapon = vgui.Create("DBinder", primaryWeaponPanel)
@@ -9215,7 +9205,7 @@ function EFGM.MENU.OpenTab.Settings()
 	primaryWeaponTwoPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function primaryWeaponTwoPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Secondary Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Secondary Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local primaryWeaponTwo = vgui.Create("DBinder", primaryWeaponTwoPanel)
@@ -9232,7 +9222,7 @@ function EFGM.MENU.OpenTab.Settings()
 	secondaryWeaponPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function secondaryWeaponPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Holster Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Holster Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local secondaryWeapon = vgui.Create("DBinder", secondaryWeaponPanel)
@@ -9249,7 +9239,7 @@ function EFGM.MENU.OpenTab.Settings()
 	meleeWeaponPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function meleeWeaponPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Melee Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Melee Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local meleeWeapon = vgui.Create("DBinder", meleeWeaponPanel)
@@ -9266,7 +9256,7 @@ function EFGM.MENU.OpenTab.Settings()
 	utilityThrowablePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function utilityThrowablePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Throwable Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Throwable Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local utilityThrowable = vgui.Create("DBinder", utilityThrowablePanel)
@@ -9283,7 +9273,7 @@ function EFGM.MENU.OpenTab.Settings()
 	consumableItemBindPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function consumableItemBindPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Consumable Item", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Consumable Item", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local consumableItemBind = vgui.Create("DBinder", consumableItemBindPanel)
@@ -9300,8 +9290,8 @@ function EFGM.MENU.OpenTab.Settings()
 	gmodControlsTitle:SetSize(0, EFGM.MenuScale(54))
 
 	function gmodControlsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("GARRY'S MOD KEYBINDS", "PuristaBold32", w / 2, 0, Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("[MUST BE CHANGED IN YOUR GAME OPTIONS]", "PuristaBold18", w / 2, EFGM.MenuScale(30), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("GARRY'S MOD KEYBINDS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("[MUST BE CHANGED IN YOUR GAME OPTIONS]", "PuristaBold18", w / 2, EFGM.MenuScale(30), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local customizeWeaponPanel = vgui.Create("DPanel", controls)
@@ -9309,8 +9299,8 @@ function EFGM.MENU.OpenTab.Settings()
 	customizeWeaponPanel:SetSize(0, EFGM.MenuScale(65))
 
 	function customizeWeaponPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Customize Weapon", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Garry's Mod > Open context menu", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Customize Weapon", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Garry's Mod > Open context menu", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local customizeWeapon = vgui.Create("DBinder", customizeWeaponPanel)
@@ -9325,8 +9315,8 @@ function EFGM.MENU.OpenTab.Settings()
 	buyAttPanel:SetSize(0, EFGM.MenuScale(65))
 
 	function buyAttPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Purchase Hovered Attachment", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Combat > Reload weapon", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Purchase Hovered Attachment", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Combat > Reload weapon", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local buyAtt = vgui.Create("DBinder", buyAttPanel)
@@ -9341,8 +9331,8 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleTacticalPanel:SetSize(0, EFGM.MenuScale(65))
 
 	function toggleTacticalPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Toggle Tactical Devices (lasers/lights)", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Combat > Flashlight", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Toggle Tactical Devices (lasers/lights)", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Combat > Flashlight", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local toggleTactical = vgui.Create("DBinder", toggleTacticalPanel)
@@ -9357,8 +9347,8 @@ function EFGM.MENU.OpenTab.Settings()
 	graduallyZoomInScopePanel:SetSize(0, EFGM.MenuScale(65))
 
 	function graduallyZoomInScopePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Gradually Zoom In Scope Magnification", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Combat > Previous weapon", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Gradually Zoom In Scope Magnification", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Combat > Previous weapon", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local graduallyZoomInScope = vgui.Create("DBinder", graduallyZoomInScopePanel)
@@ -9373,8 +9363,8 @@ function EFGM.MENU.OpenTab.Settings()
 	graduallyZoomOutScopePanel:SetSize(0, EFGM.MenuScale(65))
 
 	function graduallyZoomOutScopePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Gradually Zoom Out Scope Magnification", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Combat > Next weapon", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Gradually Zoom Out Scope Magnification", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Combat > Next weapon", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local graduallyZoomOutScope = vgui.Create("DBinder", graduallyZoomOutScopePanel)
@@ -9389,8 +9379,8 @@ function EFGM.MENU.OpenTab.Settings()
 	transmitVoicePanel:SetSize(0, EFGM.MenuScale(65))
 
 	function transmitVoicePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Transmit Voice Over Proximity Chat", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Communication > Use voice communication", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Transmit Voice Over Proximity Chat", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Communication > Use voice communication", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local transmitVoice = vgui.Create("DBinder", transmitVoicePanel)
@@ -9405,8 +9395,8 @@ function EFGM.MENU.OpenTab.Settings()
 	sendTextAllPanel:SetSize(0, EFGM.MenuScale(65))
 
 	function sendTextAllPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Send Message To All Chat", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Communication > Chat message", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Send Message To All Chat", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Communication > Chat message", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local sendTextAll = vgui.Create("DBinder", sendTextAllPanel)
@@ -9421,8 +9411,8 @@ function EFGM.MENU.OpenTab.Settings()
 	sendTextSquadPanel:SetSize(0, EFGM.MenuScale(65))
 
 	function sendTextSquadPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Send Message To Squad Chat", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Communication > Team message", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Send Message To Squad Chat", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Communication > Team message", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local sendTextSquad = vgui.Create("DBinder", sendTextSquadPanel)
@@ -9437,8 +9427,8 @@ function EFGM.MENU.OpenTab.Settings()
 	applySprayPanel:SetSize(0, EFGM.MenuScale(65))
 
 	function applySprayPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Apply Spray Paint", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined("Keyboard > Communication > Spray logo", "Purista14", w / 2, EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Apply Spray Paint", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined("Keyboard > Communication > Spray logo", "Purista14", w / 2, EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local applySpray = vgui.Create("DBinder", applySprayPanel)
@@ -9454,7 +9444,7 @@ function EFGM.MENU.OpenTab.Settings()
 	hudEnablePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function hudEnablePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Enable HUD", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Enable HUD", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local hudEnable = vgui.Create("DCheckBox", hudEnablePanel)
@@ -9467,7 +9457,7 @@ function EFGM.MENU.OpenTab.Settings()
 	hudScalePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function hudScalePanel:Paint(w, h)
-		draw.SimpleTextOutlined("HUD Scale", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("HUD Scale", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local hudScale = vgui.Create("DNumSlider", hudScalePanel)
@@ -9483,7 +9473,7 @@ function EFGM.MENU.OpenTab.Settings()
 	hudPaddingPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function hudPaddingPanel:Paint(w, h)
-		draw.SimpleTextOutlined("HUD Padding", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("HUD Padding", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local hudPadding = vgui.Create("DNumSlider", hudPaddingPanel)
@@ -9499,7 +9489,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuAutoClosePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuAutoClosePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Close Menu When Taking Damage", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Close Menu When Taking Damage", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuAutoClose = vgui.Create("DCheckBox", menuAutoClosePanel)
@@ -9512,7 +9502,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuParallaxPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuParallaxPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Menu Parallax", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Menu Parallax", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuParallax = vgui.Create("DCheckBox", menuParallaxPanel)
@@ -9525,7 +9515,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuScalingMethodPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function menuScalingMethodPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Menu Scaling Method", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Menu Scaling Method", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuScalingMethod = vgui.Create("DComboBox", menuScalingMethodPanel)
@@ -9551,7 +9541,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuSaveTabHideoutPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuSaveTabHideoutPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Save Previous Menu Tab In Hideout", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Save Previous Menu Tab In Hideout", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuSaveTabHideout = vgui.Create("DCheckBox", menuSaveTabHideoutPanel)
@@ -9564,7 +9554,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuSaveTabRaidPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuSaveTabRaidPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Save Previous Menu Tab In Raid", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Save Previous Menu Tab In Raid", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuSaveTabRaid = vgui.Create("DCheckBox", menuSaveTabRaidPanel)
@@ -9577,7 +9567,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuDeletePromptPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuDeletePromptPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Show Confirmation On Item Deletion", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Show Confirmation On Item Deletion", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuDeletePrompt = vgui.Create("DCheckBox", menuDeletePromptPanel)
@@ -9590,7 +9580,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuSellPromptPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuSellPromptPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Show Confirmation On Single Item Sell", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Show Confirmation On Single Item Sell", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuSellPrompt = vgui.Create("DCheckBox", menuSellPromptPanel)
@@ -9603,7 +9593,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuSellStackedPromptPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuSellStackedPromptPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Show Confirmation On Stacked Item Sell", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Show Confirmation On Stacked Item Sell", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuSellStackedPrompt = vgui.Create("DCheckBox", menuSellStackedPromptPanel)
@@ -9616,7 +9606,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuSearchModePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function menuSearchModePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Auto Search On Search Box Text Change", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Auto Search On Search Box Text Change", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local menuSearchMode = vgui.Create("DCheckBox", menuSearchModePanel)
@@ -9630,7 +9620,7 @@ function EFGM.MENU.OpenTab.Settings()
 	adsFOVPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function adsFOVPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Aim Down Sights FOV Scaling", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Aim Down Sights FOV Scaling", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local adsFOV = vgui.Create("DCheckBox", adsFOVPanel)
@@ -9643,7 +9633,7 @@ function EFGM.MENU.OpenTab.Settings()
 	vmFOVPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function vmFOVPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Viewmodel FOV Scale", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Viewmodel FOV Scale", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local vmFOV = vgui.Create("DNumSlider", vmFOVPanel)
@@ -9659,7 +9649,7 @@ function EFGM.MENU.OpenTab.Settings()
 	lensFlarePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function lensFlarePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Lens Flare", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Lens Flare", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local lensFlare = vgui.Create("DCheckBox", lensFlarePanel)
@@ -9672,7 +9662,7 @@ function EFGM.MENU.OpenTab.Settings()
 	pmShadowPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function pmShadowPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Render Own Player Model Shadow", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Render Own Player Model Shadow", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local pmShadow = vgui.Create("DCheckBox", pmShadowPanel)
@@ -9685,7 +9675,7 @@ function EFGM.MENU.OpenTab.Settings()
 	vmLightingPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function vmLightingPanel:Paint(w, h)
-		draw.SimpleTextOutlined("High Quality Viewmodel Lighting", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("High Quality Viewmodel Lighting", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local vmLighting = vgui.Create("DCheckBox", vmLightingPanel)
@@ -9698,7 +9688,7 @@ function EFGM.MENU.OpenTab.Settings()
 	impactFXPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function impactFXPanel:Paint(w, h)
-		draw.SimpleTextOutlined("High Quality Bullet Impact FX", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("High Quality Bullet Impact FX", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local impactFX = vgui.Create("DCheckBox", impactFXPanel)
@@ -9711,7 +9701,7 @@ function EFGM.MENU.OpenTab.Settings()
 	flashlightFXPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function flashlightFXPanel:Paint(w, h)
-		draw.SimpleTextOutlined("High Quality Flashlights", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("High Quality Flashlights", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local flashlightFX = vgui.Create("DCheckBox", flashlightFXPanel)
@@ -9724,7 +9714,7 @@ function EFGM.MENU.OpenTab.Settings()
 	ejectedShellLifePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function ejectedShellLifePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Ejected Bullet Casing Life Time", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Ejected Bullet Casing Life Time", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local ejectedShellLife = vgui.Create("DNumSlider", ejectedShellLifePanel)
@@ -9740,7 +9730,7 @@ function EFGM.MENU.OpenTab.Settings()
 	lodDistancePanel:SetSize(0, EFGM.MenuScale(50))
 
 	function lodDistancePanel:Paint(w, h)
-		draw.SimpleTextOutlined("LOD (Level Of Detail) Distance Multiplier", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("LOD (Level Of Detail) Distance Multiplier", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local lodDistance = vgui.Create("DNumSlider", lodDistancePanel)
@@ -9756,7 +9746,7 @@ function EFGM.MENU.OpenTab.Settings()
 	interactableGlowPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function interactableGlowPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Interactable Object Outline Glow", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Interactable Object Outline Glow", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local interactableGlow = vgui.Create("DCheckBox", interactableGlowPanel)
@@ -9770,7 +9760,7 @@ function EFGM.MENU.OpenTab.Settings()
 	factionPreferencePanel:SetSize(0, EFGM.MenuScale(55))
 
 	function factionPreferencePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Faction Preference", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Faction Preference", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local factionPreference = vgui.Create("DComboBox", factionPreferencePanel)
@@ -9799,7 +9789,7 @@ function EFGM.MENU.OpenTab.Settings()
 	invitePrivacyPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function invitePrivacyPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Receive Squad Invites From", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Receive Squad Invites From", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local invitePrivacy = vgui.Create("DComboBox", invitePrivacyPanel)
@@ -9828,7 +9818,7 @@ function EFGM.MENU.OpenTab.Settings()
 	duelPrivacyPanel:SetSize(0, EFGM.MenuScale(55))
 
 	function duelPrivacyPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Receive Duel Invites From", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Receive Duel Invites From", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local duelPrivacy = vgui.Create("DComboBox", duelPrivacyPanel)
@@ -9857,7 +9847,7 @@ function EFGM.MENU.OpenTab.Settings()
 	invitesBlockedPanel:SetSize(0, EFGM.MenuScale(50))
 
 	function invitesBlockedPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Receive Invites From Blocked Players", "Purista18", w / 2, EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined("Receive Invites From Blocked Players", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local invitesBlocked = vgui.Create("DCheckBox", invitesBlockedPanel)
@@ -9919,10 +9909,10 @@ function EFGM.MENU.OpenTab.Tasks()
 	function taskList:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
@@ -9934,10 +9924,10 @@ function EFGM.MENU.OpenTab.Tasks()
 		taskListHeader:SetSize(0, EFGM.MenuScale(36))
 
 		function taskListHeader:Paint(w, h)
-			surface.SetDrawColor(Colors.containerHeaderColor)
+			surface.SetDrawColor(COLORS.containerHeaderColor)
 			surface.DrawRect(0, 0, w, h)
 
-			draw.SimpleTextOutlined("TASKS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("TASKS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		local taskListScroller = vgui.Create("DScrollPanel", taskList)
@@ -9948,17 +9938,17 @@ function EFGM.MENU.OpenTab.Tasks()
 		taskListBar:SetSize(EFGM.MenuScale(15), 0)
 
 		function taskListBar:Paint(w, h)
-			surface.SetDrawColor(Colors.scrollerColor)
+			surface.SetDrawColor(COLORS.scrollerColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
 		function taskListBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
-		if !table.IsEmpty(playerTasks) then
-			for taskName, taskInstance in pairs(playerTasks) do
+		if !table.IsEmpty(EFGM.CLIENT.TASKS) then
+			for taskName, taskInstance in pairs(EFGM.CLIENT.TASKS) do
 				local taskInfo = EFGMTASKS[taskName]
 
 				local taskButton = taskListScroller:Add("DButton")
@@ -9971,7 +9961,7 @@ function EFGM.MENU.OpenTab.Tasks()
 
 				function taskButton:Paint(w, h)
 					surface.SetMaterial(taskInfo.uibackground or genericTaskBG)
-					surface.SetDrawColor(Colors.pureWhiteColor)
+					surface.SetDrawColor(COLORS.pureWhiteColor)
 					surface.DrawTexturedRect(0, 0, w, h)
 				end
 
@@ -9979,18 +9969,18 @@ function EFGM.MENU.OpenTab.Tasks()
 					surface.SetDrawColor(Color(0, 0, 0, 155))
 					surface.DrawRect(0, 0, w, EFGM.MenuScale(36))
 
-					surface.SetDrawColor(Colors.transparentWhiteColor)
+					surface.SetDrawColor(COLORS.transparentWhiteColor)
 					surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-					surface.SetDrawColor(Colors.whiteBorderColor)
+					surface.SetDrawColor(COLORS.whiteBorderColor)
 					surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 					surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 					surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-					draw.SimpleTextOutlined(string.upper(taskInfo.name), "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(string.upper(taskInfo.name), "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(7), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-					draw.SimpleTextOutlined("[" .. string.upper(TASKSTATUSSTRING[playerTasks[taskName].status]) .. "]", "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined("[" .. string.upper(TASKSTATUSSTRING[EFGM.CLIENT.TASKS[taskName].status]) .. "]", "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(7), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 
 				function taskButton:OnCursorEntered()
@@ -10015,10 +10005,10 @@ function EFGM.MENU.OpenTab.Tasks()
 	function taskDisplay:Paint(w, h)
 		BlurPanel(self, 5)
 
-		surface.SetDrawColor(Colors.containerBackgroundColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
@@ -10035,13 +10025,13 @@ function EFGM.MENU.OpenTab.Tasks()
 		taskDisplayHeader:SetSize(0, EFGM.MenuScale(36))
 
 		function taskDisplayHeader:Paint(w, h)
-			surface.SetDrawColor(Colors.containerHeaderColor)
+			surface.SetDrawColor(COLORS.containerHeaderColor)
 			surface.DrawRect(0, 0, w, h)
 
-			draw.SimpleTextOutlined(string.upper(taskInfo.name), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(string.upper(taskInfo.name), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		if playerTasks[taskName].status == TASKSTATUS.AcceptPending and EFGM.MENU.Player:IsInHideout() then
+		if EFGM.CLIENT.TASKS[taskName].status == TASKSTATUS.AcceptPending and EFGM.MENU.Player:IsInHideout() then
 			local acceptButton = vgui.Create("DButton", taskDisplay)
 			acceptButton:Dock(TOP)
 			acceptButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
@@ -10049,13 +10039,13 @@ function EFGM.MENU.OpenTab.Tasks()
 			acceptButton:SetText("")
 
 			function acceptButton:Paint(w, h)
-				surface.SetDrawColor(Colors.containerBackgroundColor)
+				surface.SetDrawColor(COLORS.containerBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, acceptButton:GetWide(), EFGM.MenuScale(2))
 
-				draw.SimpleTextOutlined("ACCEPT", "PuristaBold32", w / 2, EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("ACCEPT", "PuristaBold32", w / 2, EFGM.MenuScale(7), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function acceptButton:OnCursorEntered()
@@ -10075,7 +10065,7 @@ function EFGM.MENU.OpenTab.Tasks()
 			end
 		end
 
-		if playerTasks[taskName].status == TASKSTATUS.CompletePending and EFGM.MENU.Player:IsInHideout() then
+		if EFGM.CLIENT.TASKS[taskName].status == TASKSTATUS.CompletePending and EFGM.MENU.Player:IsInHideout() then
 			local completeButton = vgui.Create("DButton", taskDisplay)
 			completeButton:Dock(TOP)
 			completeButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
@@ -10083,13 +10073,13 @@ function EFGM.MENU.OpenTab.Tasks()
 			completeButton:SetText("")
 
 			function completeButton:Paint(w, h)
-				surface.SetDrawColor(Colors.containerBackgroundColor)
+				surface.SetDrawColor(COLORS.containerBackgroundColor)
 				surface.DrawRect(0, 0, w, h)
 
-				surface.SetDrawColor(Colors.transparentWhiteColor)
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
 				surface.DrawRect(0, 0, completeButton:GetWide(), EFGM.MenuScale(2))
 
-				draw.SimpleTextOutlined("COMPLETE", "PuristaBold32", w / 2, EFGM.MenuScale(7), Colors.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined("COMPLETE", "PuristaBold32", w / 2, EFGM.MenuScale(7), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function completeButton:OnCursorEntered()
@@ -10122,13 +10112,13 @@ function EFGM.MENU.OpenTab.Tasks()
 		messagePanelHeader:SetSize(0, EFGM.MenuScale(36))
 
 		function messagePanelHeader:Paint(w, h)
-			surface.SetDrawColor(Colors.containerHeaderColor)
+			surface.SetDrawColor(COLORS.containerHeaderColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-			draw.SimpleTextOutlined(taskInfo.messageOverride or ("INCOMING TRANSMISSION FROM " .. string.upper(taskInfo.traderName)), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined(taskInfo.messageOverride or ("INCOMING TRANSMISSION FROM " .. string.upper(taskInfo.traderName)), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		local messageIcon = vgui.Create("DPanel", messagePanel)
@@ -10138,12 +10128,12 @@ function EFGM.MENU.OpenTab.Tasks()
 
 		function messageIcon:Paint(w, h)
 			surface.SetMaterial(taskInfo.traderIcon or genericTraderIcon)
-			surface.SetDrawColor(Colors.pureWhiteColor)
+			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.DrawTexturedRect(0, 0, EFGM.MenuScale(200), EFGM.MenuScale(200))
 		end
 
 		function messageIcon:PaintOver(w, h)
-			surface.SetDrawColor(Colors.whiteBorderColor)
+			surface.SetDrawColor(COLORS.whiteBorderColor)
 			surface.DrawRect(0, 0, EFGM.MenuScale(200), EFGM.MenuScale(1))
 			surface.DrawRect(0, EFGM.MenuScale(200) - 1, EFGM.MenuScale(200), EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), EFGM.MenuScale(200))
@@ -10160,12 +10150,12 @@ function EFGM.MENU.OpenTab.Tasks()
 		messageBar:SetSize(EFGM.MenuScale(15), 0)
 
 		function messageBar:Paint(w, h)
-			surface.SetDrawColor(Colors.scrollerColor)
+			surface.SetDrawColor(COLORS.scrollerColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
 		function messageBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
@@ -10187,13 +10177,13 @@ function EFGM.MENU.OpenTab.Tasks()
 		objectivePanelHeader:SetSize(0, EFGM.MenuScale(36))
 
 		function objectivePanelHeader:Paint(w, h)
-			surface.SetDrawColor(Colors.containerHeaderColor)
+			surface.SetDrawColor(COLORS.containerHeaderColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-			draw.SimpleTextOutlined("OBJECTIVES", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("OBJECTIVES", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		local objectiveScroller = vgui.Create("DScrollPanel", objectivePanel)
@@ -10205,18 +10195,18 @@ function EFGM.MENU.OpenTab.Tasks()
 		objectiveBar:SetSize(EFGM.MenuScale(15), 0)
 
 		function objectiveBar:Paint(w, h)
-			surface.SetDrawColor(Colors.scrollerColor)
+			surface.SetDrawColor(COLORS.scrollerColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
 		function objectiveBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
 		for objIndex, objInfo in ipairs(taskInfo.objectives) do
-			local curProgress = playerTasks[taskName].progress[objIndex]
-			local curTempProgress = playerTasks[taskName].tempProgress[objIndex]
+			local curProgress = EFGM.CLIENT.TASKS[taskName].progress[objIndex]
+			local curTempProgress = EFGM.CLIENT.TASKS[taskName].tempProgress[objIndex]
 			local curProgressTotal = curProgress + curTempProgress
 			local maxProgress = objInfo.count or 1
 
@@ -10233,16 +10223,16 @@ function EFGM.MENU.OpenTab.Tasks()
 			local objText = GetObjectiveText(objInfo)
 
 			function objective:Paint(w, h)
-				surface.SetDrawColor(Colors.containerHeaderColor)
+				surface.SetDrawColor(COLORS.containerHeaderColor)
 				surface.DrawRect(0, 0, w, h)
 
-				draw.SimpleTextOutlined(objText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(6), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(objText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(6), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-				if playerTasks[taskName].status == TASKSTATUS.AcceptPending then
+				if EFGM.CLIENT.TASKS[taskName].status == TASKSTATUS.AcceptPending then
 					surface.SetFont("PuristaBold24")
 					progressText = "0/" .. string.FormatComma(maxProgress)
 					progressTextSize = surface.GetTextSize(progressText)
-					draw.SimpleTextOutlined(progressText, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(6), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(progressText, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(6), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				else
 					surface.SetFont("PuristaBold24")
 					progressText = string.FormatComma(curProgressTotal) .. "/" .. string.FormatComma(maxProgress)
@@ -10256,7 +10246,7 @@ function EFGM.MENU.OpenTab.Tasks()
 					surface.SetDrawColor(Color(80, 80, 80, 255))
 					surface.DrawRect(w - EFGM.MenuScale(410), EFGM.MenuScale(5), math.Remap(curProgress, 0, maxProgress, 0, EFGM.MenuScale(400) - progressTextSize), h - EFGM.MenuScale(10))
 
-					draw.SimpleTextOutlined(progressText, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(6), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+					draw.SimpleTextOutlined(progressText, "PuristaBold24", w - EFGM.MenuScale(5), EFGM.MenuScale(6), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 
 				surface.SetDrawColor(Color(205, 205, 205, 255))
@@ -10264,14 +10254,14 @@ function EFGM.MENU.OpenTab.Tasks()
 			end
 
 			function objective:PaintOver(w, h)
-				surface.SetDrawColor(Colors.whiteBorderColor)
+				surface.SetDrawColor(COLORS.whiteBorderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 			end
 
-			if curProgress != maxProgress and objInfo.type == OBJECTIVE.Pay and playerTasks[taskName].status == TASKSTATUS.InProgress and EFGM.MENU.Player:IsInHideout() then
+			if curProgress != maxProgress and objInfo.type == OBJECTIVE.Pay and EFGM.CLIENT.TASKS[taskName].status == TASKSTATUS.InProgress and EFGM.MENU.Player:IsInHideout() then
 				local payAmount = math.Clamp(maxProgress - curProgress, 0, EFGM.MENU.Player:GetNWInt("Money", 0))
 
 				local payButton = vgui.Create("DButton", objective)
@@ -10302,13 +10292,13 @@ function EFGM.MENU.OpenTab.Tasks()
 		rewardPanelHeader:SetSize(0, EFGM.MenuScale(36))
 
 		function rewardPanelHeader:Paint(w, h)
-			surface.SetDrawColor(Colors.containerHeaderColor)
+			surface.SetDrawColor(COLORS.containerHeaderColor)
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 
-			draw.SimpleTextOutlined("REWARDS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+			draw.SimpleTextOutlined("REWARDS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		local rewardScroller = vgui.Create("DScrollPanel", rewardPanel)
@@ -10320,12 +10310,12 @@ function EFGM.MENU.OpenTab.Tasks()
 		rewardBar:SetSize(EFGM.MenuScale(15), 0)
 
 		function rewardBar:Paint(w, h)
-			surface.SetDrawColor(Colors.scrollerColor)
+			surface.SetDrawColor(COLORS.scrollerColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
 		function rewardBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(Colors.transparentWhiteColor)
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 		end
 
@@ -10343,14 +10333,14 @@ function EFGM.MENU.OpenTab.Tasks()
 			local rewardText = GetRewardText(rewardInfo)
 
 			function reward:Paint(w, h)
-				surface.SetDrawColor(Colors.containerHeaderColor)
+				surface.SetDrawColor(COLORS.containerHeaderColor)
 				surface.DrawRect(0, 0, w, h)
 
-				draw.SimpleTextOutlined(rewardText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(6), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+				draw.SimpleTextOutlined(rewardText, "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(6), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function reward:PaintOver(w, h)
-				surface.SetDrawColor(Colors.whiteBorderColor)
+				surface.SetDrawColor(COLORS.whiteBorderColor)
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -10385,9 +10375,9 @@ function GetObjectiveText(obj)
 
 	if obj.type == OBJECTIVE.GiveItem then
 		if obj.isFIR != nil then
-			return "Hand over found in raid " .. EFGMITEMS[obj.itemName].fullName
+			return "Hand over found in raid " .. EFGM.ITEMS[obj.itemName].fullName
 		else
-			return "Hand over " .. EFGMITEMS[obj.itemName].fullName
+			return "Hand over " .. EFGM.ITEMS[obj.itemName].fullName
 		end
 	end
 

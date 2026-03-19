@@ -142,19 +142,19 @@ if SERVER then
 
 	-- equipping items here to bypass the equip block when in a duel
 	function DUEL:EquipPrimary(ply, item)
-		ply.weaponSlots[1][1] = item
+		ply.weaponSlots[WEAPONSLOTS.PRIMARY.ID][1] = item
 		GiveWepWithPresetFromCode(ply, item.name, item.data)
 		ply:SelectWeapon(item.name)
 	end
 
 	function DUEL:EquipHolster(ply, item, doEquip)
-		ply.weaponSlots[2][1] = item
+		ply.weaponSlots[WEAPONSLOTS.HOLSTER.ID][1] = item
 		GiveWepWithPresetFromCode(ply, item.name, item.data)
 		if doEquip then ply:SelectWeapon(item.name) end
 	end
 
 	function DUEL:EquipGrenade(ply, item)
-		ply.weaponSlots[4][1] = item
+		ply.weaponSlots[WEAPONSLOTS.GRENADE.ID][1] = item
 		GiveWepWithPresetFromCode(ply, item.name, item.data)
 	end
 
@@ -165,7 +165,7 @@ if SERVER then
 
 		if math.random(1, 3) == 3 then
 			local _, nadeItemKey = table.Random(DUEL_GRENADE[1])
-			local nadeDef = EFGMITEMS[nadeItemKey]
+			local nadeDef = EFGM.ITEMS[nadeItemKey]
 
 			local nadeData = {}
 			nadeData.count = 1
@@ -174,7 +174,7 @@ if SERVER then
 
 		if num < 8 then
 			local _, primaryItemKey = table.Random(DUEL_PRIMARY[num])
-			local primaryDef = EFGMITEMS[primaryItemKey]
+			local primaryDef = EFGM.ITEMS[primaryItemKey]
 
 			local primaryData = {}
 			primaryData.count = 1
@@ -183,7 +183,7 @@ if SERVER then
 			local primaryItem = ITEM.Instantiate(primaryItemKey, primaryDef.equipType, primaryData)
 
 			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
-			local secondaryDef = EFGMITEMS[secondaryItemKey]
+			local secondaryDef = EFGM.ITEMS[secondaryItemKey]
 
 			local secondaryData = {}
 			secondaryData.count = 1
@@ -194,7 +194,7 @@ if SERVER then
 			return primaryItem, secondaryItem, nadeItem
 		elseif num == 8 then
 			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
-			local secondaryDef = EFGMITEMS[secondaryItemKey]
+			local secondaryDef = EFGM.ITEMS[secondaryItemKey]
 
 			local secondaryData = {}
 			secondaryData.count = 1
@@ -211,7 +211,7 @@ if SERVER then
 		if !ply:Alive() then return end
 
 		for k, v in ipairs(ply:GetWeapons()) do
-			local def = EFGMITEMS[v:GetClass()]
+			local def = EFGM.ITEMS[v:GetClass()]
 			if !def then continue end
 			if def.equipType != EQUIPTYPE.Weapon then continue end
 
@@ -242,7 +242,7 @@ if SERVER then
 					if table.IsEmpty(item) then return end
 
 					local wep = ply:GetWeapon(item.name)
-					local def = EFGMITEMS[item.name]
+					local def = EFGM.ITEMS[item.name]
 
 					if wep != NULL and def.displayType != "Grenade" then
 						wep:Unload()
@@ -328,8 +328,8 @@ if CLIENT then
 		secondaryItem = net.ReadTable()
 		nadeItem = net.ReadTable()
 
-		if primaryItem.name then playerWeaponSlots[1][1] = primaryItem end
-		if secondaryItem.name then playerWeaponSlots[2][1] = secondaryItem end
-		if nadeItem.name then playerWeaponSlots[4][1] = nadeItem end
+		if primaryItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1] = primaryItem end
+		if secondaryItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.SECONDARY.ID][1] = secondaryItem end
+		if nadeItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1] = nadeItem end
 	end)
 end

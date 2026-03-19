@@ -50,10 +50,10 @@ function SWEP:UpdateDurability(val)
 	self:SetClip1(self.Durability)
 
 	if self.Durability > 0 then
-		owner.weaponSlots[5][1].data.durability = self.Durability
+		owner.weaponSlots[WEAPONSLOTS.CONSUMABLE][1].data.durability = self.Durability
 
 		net.Start("PlayerInventoryUpdateEquipped", false)
-			net.WriteTable(owner.weaponSlots[5][1].data)
+			net.WriteTable(owner.weaponSlots[WEAPONSLOTS.CONSUMABLE][1].data)
 			net.WriteUInt(5, 16)
 			net.WriteUInt(1, 16)
 		net.Send(owner)

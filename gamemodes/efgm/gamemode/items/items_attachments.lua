@@ -42,7 +42,7 @@ local function AttMaterial(imgType, imgPath, paramOverride)
 	return Material(imgType .. imgPath, paramOverride or "smooth")
 end
 
-EFGMITEMS["arc9_att_eft_1911_hammer_hex"] = {
+EFGM.ITEMS["arc9_att_eft_1911_hammer_hex"] = {
 	["fullName"] = "M1911A1 STI HEX hammer",
 	["displayName"] = "1911 HEX",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -62,7 +62,7 @@ EFGMITEMS["arc9_att_eft_1911_hammer_hex"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_hammer_m45"] = {
+EFGM.ITEMS["arc9_att_eft_1911_hammer_m45"] = {
 	["fullName"] = "M45A1 hammer",
 	["displayName"] = "M45 hammer",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -82,7 +82,7 @@ EFGMITEMS["arc9_att_eft_1911_hammer_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_hammer_m45_blk"] = {
+EFGM.ITEMS["arc9_att_eft_1911_hammer_m45_blk"] = {
 	["fullName"] = "M45A1 black hammer",
 	["displayName"] = "M45 blk hammer",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -102,7 +102,7 @@ EFGMITEMS["arc9_att_eft_1911_hammer_m45_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_hammer_retro"] = {
+EFGM.ITEMS["arc9_att_eft_1911_hammer_retro"] = {
 	["fullName"] = "M1911A1 Wilson Retro Commander hammer",
 	["displayName"] = "1911 Retro",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -122,7 +122,7 @@ EFGMITEMS["arc9_att_eft_1911_hammer_retro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_hammer_std"] = {
+EFGM.ITEMS["arc9_att_eft_1911_hammer_std"] = {
 	["fullName"] = "M1911A1 hammer",
 	["displayName"] = "1911 hammer",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -142,7 +142,7 @@ EFGMITEMS["arc9_att_eft_1911_hammer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_hammer_ultra"] = {
+EFGM.ITEMS["arc9_att_eft_1911_hammer_ultra"] = {
 	["fullName"] = "M1911A1 Wilson Ultralight skeletonized hammer",
 	["displayName"] = "1911 Ultralight",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -162,7 +162,7 @@ EFGMITEMS["arc9_att_eft_1911_hammer_ultra"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_pgrip_gene"] = {
+EFGM.ITEMS["arc9_att_eft_1911_pgrip_gene"] = {
 	["fullName"] = "M1911 Kiba Arms Geneburn custom side grips",
 	["displayName"] = "1911 Geneburn",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -182,7 +182,7 @@ EFGMITEMS["arc9_att_eft_1911_pgrip_gene"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_pgrip_m45"] = {
+EFGM.ITEMS["arc9_att_eft_1911_pgrip_m45"] = {
 	["fullName"] = "M45A1 Mil-Tac GVT G10 side grips",
 	["displayName"] = "1911 G10",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -202,7 +202,7 @@ EFGMITEMS["arc9_att_eft_1911_pgrip_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_pgrip_m45_blk"] = {
+EFGM.ITEMS["arc9_att_eft_1911_pgrip_m45_blk"] = {
 	["fullName"] = "M45A1 Mil-Tac GVT G10 black side grips",
 	["displayName"] = "1911 G10 BLK",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -222,7 +222,7 @@ EFGMITEMS["arc9_att_eft_1911_pgrip_m45_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_pgrip_pach"] = {
+EFGM.ITEMS["arc9_att_eft_1911_pgrip_pach"] = {
 	["fullName"] = "M1911 Pachmayr American Legend Grip #423",
 	["displayName"] = "1911 Pachmayr",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -242,7 +242,7 @@ EFGMITEMS["arc9_att_eft_1911_pgrip_pach"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_1911_pgrip_std"] = {
 	["fullName"] = "M1911A1 side grips",
 	["displayName"] = "1911 grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -262,7 +262,7 @@ EFGMITEMS["arc9_att_eft_1911_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_slock_m45"] = {
+EFGM.ITEMS["arc9_att_eft_1911_slock_m45"] = {
 	["fullName"] = "M45A1 slide lock",
 	["displayName"] = "M45 lock",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -282,7 +282,7 @@ EFGMITEMS["arc9_att_eft_1911_slock_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_slock_m45_blk"] = {
+EFGM.ITEMS["arc9_att_eft_1911_slock_m45_blk"] = {
 	["fullName"] = "M45A1 black slide lock",
 	["displayName"] = "M45 blk lock",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -302,7 +302,7 @@ EFGMITEMS["arc9_att_eft_1911_slock_m45_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_slock_std"] = {
+EFGM.ITEMS["arc9_att_eft_1911_slock_std"] = {
 	["fullName"] = "M1911A1 slide stop",
 	["displayName"] = "1911 lock",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -322,7 +322,7 @@ EFGMITEMS["arc9_att_eft_1911_slock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_slock_wils"] = {
+EFGM.ITEMS["arc9_att_eft_1911_slock_wils"] = {
 	["fullName"] = "M1911A1 Wilson Extended slide stop",
 	["displayName"] = "Wilson lock",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -342,7 +342,7 @@ EFGMITEMS["arc9_att_eft_1911_slock_wils"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_trigger_m45"] = {
+EFGM.ITEMS["arc9_att_eft_1911_trigger_m45"] = {
 	["fullName"] = "M45A1 trigger",
 	["displayName"] = "M45 trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -362,7 +362,7 @@ EFGMITEMS["arc9_att_eft_1911_trigger_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_trigger_std"] = {
+EFGM.ITEMS["arc9_att_eft_1911_trigger_std"] = {
 	["fullName"] = "M1911A1 trigger",
 	["displayName"] = "1911 trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -382,7 +382,7 @@ EFGMITEMS["arc9_att_eft_1911_trigger_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_1911_trigger_trik"] = {
+EFGM.ITEMS["arc9_att_eft_1911_trigger_trik"] = {
 	["fullName"] = "M1911A1 Caspian Arms Trik Trigger",
 	["displayName"] = "Trik trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -402,7 +402,7 @@ EFGMITEMS["arc9_att_eft_1911_trigger_trik"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_barrel"] = {
+EFGM.ITEMS["arc9_att_eft_57_barrel"] = {
 	["fullName"] = "FN Five-seveN 5.7x28 barrel",
 	["displayName"] = "5-7 barrel",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -422,7 +422,7 @@ EFGMITEMS["arc9_att_eft_57_barrel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_barrel_threaded"] = {
+EFGM.ITEMS["arc9_att_eft_57_barrel_threaded"] = {
 	["fullName"] = "FN Five-seveN 5.7x28 threaded barrel",
 	["displayName"] = "5-7 thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -442,7 +442,7 @@ EFGMITEMS["arc9_att_eft_57_barrel_threaded"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_fs"] = {
+EFGM.ITEMS["arc9_att_eft_57_fs"] = {
 	["fullName"] = "FN Five-seveN MK2 front sight",
 	["displayName"] = "5-7 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -462,7 +462,7 @@ EFGMITEMS["arc9_att_eft_57_fs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_mag"] = {
+EFGM.ITEMS["arc9_att_eft_57_mag"] = {
 	["fullName"] = "FN Five-seveN 5.7x28 20-round magazine",
 	["displayName"] = "5-7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -482,7 +482,7 @@ EFGMITEMS["arc9_att_eft_57_mag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_rec"] = {
+EFGM.ITEMS["arc9_att_eft_57_rec"] = {
 	["fullName"] = "FN Five-seveN MK2 pistol slide",
 	["displayName"] = "5-7",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -502,7 +502,7 @@ EFGMITEMS["arc9_att_eft_57_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_rs"] = {
+EFGM.ITEMS["arc9_att_eft_57_rs"] = {
 	["fullName"] = "FN Five-seveN MK2 rear sight",
 	["displayName"] = "5-7 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -522,7 +522,7 @@ EFGMITEMS["arc9_att_eft_57_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_rs_rmr"] = {
+EFGM.ITEMS["arc9_att_eft_57_rs_rmr"] = {
 	["fullName"] = "FN Five-seveN MK2 RMR mount",
 	["displayName"] = "5-7 RMR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -542,7 +542,7 @@ EFGMITEMS["arc9_att_eft_57_rs_rmr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_57_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_57_silencer"] = {
 	["fullName"] = "Gemtech SFN-57 5.7x28 sound suppressor",
 	["displayName"] = "SFN-57",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -562,7 +562,7 @@ EFGMITEMS["arc9_att_eft_57_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_barrel_330"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_barrel_330"] = {
 	["fullName"] = "AA-12 12ga 330mm barrel",
 	["displayName"] = "AA-12 330mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -582,7 +582,7 @@ EFGMITEMS["arc9_att_eft_aa12_barrel_330"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_barrel_342"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_barrel_342"] = {
 	["fullName"] = "AA-12 12ga 342mm threaded barrel",
 	["displayName"] = "AA-12 342mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -602,7 +602,7 @@ EFGMITEMS["arc9_att_eft_aa12_barrel_342"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_barrel_417"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_barrel_417"] = {
 	["fullName"] = "AA-12 12ga 417mm threaded barrel",
 	["displayName"] = "AA-12 417mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -622,7 +622,7 @@ EFGMITEMS["arc9_att_eft_aa12_barrel_417"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_barrel_457"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_barrel_457"] = {
 	["fullName"] = "AA-12 12ga 457mm barrel",
 	["displayName"] = "AA-12 457mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -642,7 +642,7 @@ EFGMITEMS["arc9_att_eft_aa12_barrel_457"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_chok"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_chok"] = {
 	["fullName"] = "AA-12 12ga choke",
 	["displayName"] = "AA-12 choke",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -662,7 +662,7 @@ EFGMITEMS["arc9_att_eft_aa12_chok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_gen2"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_gen2"] = {
 	["fullName"] = "MPS Auto Assault-12 Gen 2 Receiver",
 	["displayName"] = "Gen 2",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -682,7 +682,7 @@ EFGMITEMS["arc9_att_eft_aa12_gen2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_mag_20"] = {
 	["fullName"] = "AA-12 12ga 20-round drum magazine",
 	["displayName"] = "AA-12 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -702,7 +702,7 @@ EFGMITEMS["arc9_att_eft_aa12_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_mag_8"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_mag_8"] = {
 	["fullName"] = "AA-12 12ga 8-round magazine",
 	["displayName"] = "AA-12 8",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -722,7 +722,7 @@ EFGMITEMS["arc9_att_eft_aa12_mag_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_mount_utg"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_mount_utg"] = {
 	["fullName"] = "Leapers UTG Universal Shotgun Barrel Mount",
 	["displayName"] = "UTG",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -742,7 +742,7 @@ EFGMITEMS["arc9_att_eft_aa12_mount_utg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_stock_fde"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_stock_fde"] = {
 	["fullName"] = "AA-12 stock assembly (FDE)",
 	["displayName"] = "AA-12 stock (F)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -762,7 +762,7 @@ EFGMITEMS["arc9_att_eft_aa12_stock_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_stock_labs"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_stock_labs"] = {
 	["fullName"] = "AA-12 stock assembly (TerraGroup)",
 	["displayName"] = "AA-12 stock (TG)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -782,7 +782,7 @@ EFGMITEMS["arc9_att_eft_aa12_stock_labs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_stock_std"] = {
 	["fullName"] = "AA-12 stock assembly",
 	["displayName"] = "AA-12 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -802,7 +802,7 @@ EFGMITEMS["arc9_att_eft_aa12_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aa12_thr"] = {
+EFGM.ITEMS["arc9_att_eft_aa12_thr"] = {
 	["fullName"] = "AA-12 thread protector",
 	["displayName"] = "AA-12 thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -822,7 +822,7 @@ EFGMITEMS["arc9_att_eft_aa12_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_grip_ergo"] = {
+EFGM.ITEMS["arc9_att_eft_aek_grip_ergo"] = {
 	["fullName"] = "AEK series ergonomic polymer pistol grip",
 	["displayName"] = "Ergo",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -842,7 +842,7 @@ EFGMITEMS["arc9_att_eft_aek_grip_ergo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_grip_grooved"] = {
+EFGM.ITEMS["arc9_att_eft_aek_grip_grooved"] = {
 	["fullName"] = "AEK series grooved polymer pistol grip",
 	["displayName"] = "Grooved",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -862,7 +862,7 @@ EFGMITEMS["arc9_att_eft_aek_grip_grooved"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_grip_plum"] = {
+EFGM.ITEMS["arc9_att_eft_aek_grip_plum"] = {
 	["fullName"] = "AEK series prototype polymer pistol grip",
 	["displayName"] = "Proto",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -882,7 +882,7 @@ EFGMITEMS["arc9_att_eft_aek_grip_plum"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_grip_std"] = {
+EFGM.ITEMS["arc9_att_eft_aek_grip_std"] = {
 	["fullName"] = "AEK series polymer pistol grip",
 	["displayName"] = "Standard",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -902,7 +902,7 @@ EFGMITEMS["arc9_att_eft_aek_grip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_hg_boss"] = {
+EFGM.ITEMS["arc9_att_eft_aek_hg_boss"] = {
 	["fullName"] = "AEK-971 custom 5.45x39 front-end assembly",
 	["displayName"] = "AEK-CUST",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -922,7 +922,7 @@ EFGMITEMS["arc9_att_eft_aek_hg_boss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_hg_experimental"] = {
+EFGM.ITEMS["arc9_att_eft_aek_hg_experimental"] = {
 	["fullName"] = "AEK-971 5.45x39 experimental front-end assembly",
 	["displayName"] = "AEK-EXP",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -942,7 +942,7 @@ EFGMITEMS["arc9_att_eft_aek_hg_experimental"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_hg_plum"] = {
+EFGM.ITEMS["arc9_att_eft_aek_hg_plum"] = {
 	["fullName"] = 'AEK-971 5.45x39 "GRU" front-end assembly',
 	["displayName"] = "AEK-GRU",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -962,7 +962,7 @@ EFGMITEMS["arc9_att_eft_aek_hg_plum"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_hg_prototype"] = {
+EFGM.ITEMS["arc9_att_eft_aek_hg_prototype"] = {
 	["fullName"] = "AEK-971 5.45x39 prototype front-end assembly",
 	["displayName"] = "AEK-PROTO",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -982,7 +982,7 @@ EFGMITEMS["arc9_att_eft_aek_hg_prototype"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_aek_hg_std"] = {
 	["fullName"] = "AEK-971 5.45x39 front-end assembly",
 	["displayName"] = "AEK-971",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1002,7 +1002,7 @@ EFGMITEMS["arc9_att_eft_aek_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_hg_tactical"] = {
+EFGM.ITEMS["arc9_att_eft_aek_hg_tactical"] = {
 	["fullName"] = "AEK-971 5.45x39 tactical front-end assembly",
 	["displayName"] = "AEK-TAC",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1022,7 +1022,7 @@ EFGMITEMS["arc9_att_eft_aek_hg_tactical"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_lightmount"] = {
+EFGM.ITEMS["arc9_att_eft_aek_lightmount"] = {
 	["fullName"] = "AEK-971 tactical light mount",
 	["displayName"] = "AEK-TAC",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -1042,7 +1042,7 @@ EFGMITEMS["arc9_att_eft_aek_lightmount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_aek_muzzle_std"] = {
 	["fullName"] = "AEK-971 5.45x39 muzzle brake-compensator",
 	["displayName"] = "AEK-971",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -1062,7 +1062,7 @@ EFGMITEMS["arc9_att_eft_aek_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_rearsight_cqb"] = {
+EFGM.ITEMS["arc9_att_eft_aek_rearsight_cqb"] = {
 	["fullName"] = "AK series CQB rear sight",
 	["displayName"] = "AK CQB",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -1082,7 +1082,7 @@ EFGMITEMS["arc9_att_eft_aek_rearsight_cqb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_stock_marksman"] = {
+EFGM.ITEMS["arc9_att_eft_aek_stock_marksman"] = {
 	["fullName"] = "AEK Marksman Folding Stock",
 	["displayName"] = "DMR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1102,7 +1102,7 @@ EFGMITEMS["arc9_att_eft_aek_stock_marksman"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_stock_pkm"] = {
+EFGM.ITEMS["arc9_att_eft_aek_stock_pkm"] = {
 	["fullName"] = "AEK PKM Folding Stock",
 	["displayName"] = "PKM",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1122,7 +1122,7 @@ EFGMITEMS["arc9_att_eft_aek_stock_pkm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_stock_proto"] = {
+EFGM.ITEMS["arc9_att_eft_aek_stock_proto"] = {
 	["fullName"] = "AEK Prototype Folding Stock",
 	["displayName"] = "Prototype",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1142,7 +1142,7 @@ EFGMITEMS["arc9_att_eft_aek_stock_proto"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aek_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_aek_stock_std"] = {
 	["fullName"] = "AEK Standard Folding Stock",
 	["displayName"] = "Standard",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1162,7 +1162,7 @@ EFGMITEMS["arc9_att_eft_aek_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_gas_std"] = {
 	["fullName"] = "AK-12 gas tube",
 	["displayName"] = "AK-12 gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -1182,7 +1182,7 @@ EFGMITEMS["arc9_att_eft_ak12_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_hg_std"] = {
 	["fullName"] = "AK-12 handguard",
 	["displayName"] = "AK-12 HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1202,7 +1202,7 @@ EFGMITEMS["arc9_att_eft_ak12_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_muzzle_std"] = {
 	["fullName"] = "AK-12 5.45x39 muzzle brake",
 	["displayName"] = "AK-12 MB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -1222,7 +1222,7 @@ EFGMITEMS["arc9_att_eft_ak12_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_rec"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_rec"] = {
 	["fullName"] = "AK-12 dust cover",
 	["displayName"] = "AK-12 DC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -1242,7 +1242,7 @@ EFGMITEMS["arc9_att_eft_ak12_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_rs"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_rs"] = {
 	["fullName"] = "AK-12 rear sight",
 	["displayName"] = "AK-12 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -1262,7 +1262,7 @@ EFGMITEMS["arc9_att_eft_ak12_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_rs_base"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_rs_base"] = {
 	["fullName"] = "AK-12 rear sight base",
 	["displayName"] = "AK-12 RSB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -1282,7 +1282,7 @@ EFGMITEMS["arc9_att_eft_ak12_rs_base"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_silencer_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_silencer_std"] = {
 	["fullName"] = "AK-12 5.45x39 sound suppressor",
 	["displayName"] = "AK-12",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -1302,7 +1302,7 @@ EFGMITEMS["arc9_att_eft_ak12_silencer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak12_stock_tube"] = {
+EFGM.ITEMS["arc9_att_eft_ak12_stock_tube"] = {
 	["fullName"] = "AK-12 buffer tube",
 	["displayName"] = "AK-12 BT",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1322,7 +1322,7 @@ EFGMITEMS["arc9_att_eft_ak12_stock_tube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak50_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak50_barrel_std"] = {
 	["fullName"] = "AK-50 .50 BMG 24 inch barrel",
 	["displayName"] = 'AK-50 24"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -1342,7 +1342,7 @@ EFGMITEMS["arc9_att_eft_ak50_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak50_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak50_gas_std"] = {
 	["fullName"] = "AK-50 M-LOK handguard with gas tube",
 	["displayName"] = "AK-50",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -1362,7 +1362,7 @@ EFGMITEMS["arc9_att_eft_ak50_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak50_mz_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak50_mz_std"] = {
 	["fullName"] = "AK-50 .BMG muzzle brake",
 	["displayName"] = "AK-50 MB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -1382,7 +1382,7 @@ EFGMITEMS["arc9_att_eft_ak50_mz_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ak50_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_ak50_rec_std"] = {
 	["fullName"] = "AK-50 dust cover",
 	["displayName"] = "AK-50 DC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -1402,7 +1402,7 @@ EFGMITEMS["arc9_att_eft_ak50_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_akn"] = {
+EFGM.ITEMS["arc9_att_eft_akn"] = {
 	["fullName"] = "N Mount",
 	["displayName"] = "-N",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -1422,7 +1422,7 @@ EFGMITEMS["arc9_att_eft_akn"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_gas_ak"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_gas_ak"] = {
 	["fullName"] = "AKS-74U gas tube",
 	["displayName"] = "6P26 Sb.1-2",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -1442,7 +1442,7 @@ EFGMITEMS["arc9_att_eft_aksu_gas_ak"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_hg_ak_std"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_hg_ak_std"] = {
 	["fullName"] = "AKS-74U wooden handguard",
 	["displayName"] = "6P26 Sb.6",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1462,7 +1462,7 @@ EFGMITEMS["arc9_att_eft_aksu_hg_ak_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_mount_b18"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_mount_b18"] = {
 	["fullName"] = "AKS-74U Zenit B-18 Mount",
 	["displayName"] = "B-18",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -1482,7 +1482,7 @@ EFGMITEMS["arc9_att_eft_aksu_mount_b18"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_muzzle_ak_std"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_muzzle_ak_std"] = {
 	["fullName"] = "AKS-74U 5.45x39 muzzle brake",
 	["displayName"] = "6P26 0-20",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -1502,7 +1502,7 @@ EFGMITEMS["arc9_att_eft_aksu_muzzle_ak_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_rec_ak_b"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_rec_ak_b"] = {
 	["fullName"] = "AKS-74UB dust cover",
 	["displayName"] = "AKS-74UB",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -1522,7 +1522,7 @@ EFGMITEMS["arc9_att_eft_aksu_rec_ak_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_rec_ak_std"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_rec_ak_std"] = {
 	["fullName"] = "AKS-74U dust cover",
 	["displayName"] = "6P26 Sb.7",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -1542,7 +1542,7 @@ EFGMITEMS["arc9_att_eft_aksu_rec_ak_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_rec_piligrim"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_rec_piligrim"] = {
 	["fullName"] = "AKS-74U Legal Arsenal Piligrim railed dust cover",
 	["displayName"] = "Piligrim",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -1562,7 +1562,7 @@ EFGMITEMS["arc9_att_eft_aksu_rec_piligrim"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aksu_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_aksu_stock_std"] = {
 	["fullName"] = "AKS-74U metal skeleton stock",
 	["displayName"] = "6P26 Sb.5",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1582,7 +1582,7 @@ EFGMITEMS["arc9_att_eft_aksu_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_an94_handguard_kirov"] = {
+EFGM.ITEMS["arc9_att_eft_an94_handguard_kirov"] = {
 	["fullName"] = "AN-94 Handguard 'Kirov'",
 	["displayName"] = "Kirov",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1602,7 +1602,7 @@ EFGMITEMS["arc9_att_eft_an94_handguard_kirov"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_an94_stock_buffertube"] = {
+EFGM.ITEMS["arc9_att_eft_an94_stock_buffertube"] = {
 	["fullName"] = "AN-94 Buffer Tube",
 	["displayName"] = "AN-94 Buffer",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1622,7 +1622,7 @@ EFGMITEMS["arc9_att_eft_an94_stock_buffertube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_an94_stock_kirov"] = {
+EFGM.ITEMS["arc9_att_eft_an94_stock_kirov"] = {
 	["fullName"] = "AN-94 Skeletonized Folding Stock",
 	["displayName"] = "AN-94 Fold",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1642,7 +1642,7 @@ EFGMITEMS["arc9_att_eft_an94_stock_kirov"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_an94_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_an94_stock_std"] = {
 	["fullName"] = "AN-94 Polymer Folding Stock",
 	["displayName"] = "AN-94",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1662,7 +1662,7 @@ EFGMITEMS["arc9_att_eft_an94_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_apb_silencer_std"] = {
+EFGM.ITEMS["arc9_att_eft_apb_silencer_std"] = {
 	["fullName"] = "APB 9x18PM sound suppressor",
 	["displayName"] = "APB supp.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -1682,7 +1682,7 @@ EFGMITEMS["arc9_att_eft_apb_silencer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aps_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_aps_fs_std"] = {
 	["fullName"] = "APS front sight",
 	["displayName"] = "APS FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -1702,7 +1702,7 @@ EFGMITEMS["arc9_att_eft_aps_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aps_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_aps_mag_20"] = {
 	["fullName"] = "APS 9x18PM 20-round magazine",
 	["displayName"] = "APS 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -1722,7 +1722,7 @@ EFGMITEMS["arc9_att_eft_aps_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aps_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_aps_pg_std"] = {
 	["fullName"] = "APS bakelite side-pieces",
 	["displayName"] = "APS bak.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -1742,7 +1742,7 @@ EFGMITEMS["arc9_att_eft_aps_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aps_rs_apb"] = {
+EFGM.ITEMS["arc9_att_eft_aps_rs_apb"] = {
 	["fullName"] = "APB rear sight",
 	["displayName"] = "APB RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -1762,7 +1762,7 @@ EFGMITEMS["arc9_att_eft_aps_rs_apb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aps_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_aps_rs_std"] = {
 	["fullName"] = "APS rear sight",
 	["displayName"] = "APS RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -1782,7 +1782,7 @@ EFGMITEMS["arc9_att_eft_aps_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aps_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_aps_stock_std"] = {
 	["fullName"] = "APB detachable wire stock",
 	["displayName"] = "APB stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -1802,7 +1802,7 @@ EFGMITEMS["arc9_att_eft_aps_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_charge_ambi"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_charge_ambi"] = {
 	["fullName"] = "AR-10 KAC ambidextrous charging handle",
 	["displayName"] = "AR10 Ambi",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -1822,7 +1822,7 @@ EFGMITEMS["arc9_att_eft_ar10_charge_ambi"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_charge_kac"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_charge_kac"] = {
 	["fullName"] = "AR-10 KAC charging handle",
 	["displayName"] = "KAC AR10",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -1842,7 +1842,7 @@ EFGMITEMS["arc9_att_eft_ar10_charge_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_gas_cmmg"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_gas_cmmg"] = {
 	["fullName"] = "AR-10 CMMG low profile gas block",
 	["displayName"] = "CMMG",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -1862,7 +1862,7 @@ EFGMITEMS["arc9_att_eft_ar10_gas_cmmg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_gas_jp"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_gas_jp"] = {
 	["fullName"] = "AR-10 JP Enterprises Gas System-6",
 	["displayName"] = "GS-6",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -1882,7 +1882,7 @@ EFGMITEMS["arc9_att_eft_ar10_gas_jp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_gas_kac"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_gas_kac"] = {
 	["fullName"] = "AR-10 KAC Low Profile Gas Block",
 	["displayName"] = "KAC",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -1902,7 +1902,7 @@ EFGMITEMS["arc9_att_eft_ar10_gas_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_lch7"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_lch7"] = {
 	["fullName"] = "AR-10 Lancer LCH7 12.5 inch M-LOK handguard",
 	["displayName"] = 'LCH7 12.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1922,7 +1922,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_lch7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_rml15"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_rml15"] = {
 	["fullName"] = "AR-10 CMMG MK3 RML15 15 inch M-LOK handguard",
 	["displayName"] = "MK3 RML15",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1942,7 +1942,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_rml15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_rml9"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_rml9"] = {
 	["fullName"] = "AR-10 CMMG MK3 RML9 9 inch M-LOK handguard",
 	["displayName"] = "MK3 RML9",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1962,7 +1962,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_rml9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_rsass"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_rsass"] = {
 	["fullName"] = "R11 RSASS handguard",
 	["displayName"] = "RSASS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -1982,7 +1982,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_rsass"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_rsass_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_rsass_blk"] = {
 	["fullName"] = "R11 RSASS handguard",
 	["displayName"] = "RSASS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -2002,7 +2002,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_rsass_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_sws105"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_sws105"] = {
 	["fullName"] = "AR-10 Noveske SWS N6 10.5 inch handguard",
 	["displayName"] = 'SWS N6 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -2022,7 +2022,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_sws105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_swssplit"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_swssplit"] = {
 	["fullName"] = "AR-10 Noveske SWS N6 Split handguard",
 	["displayName"] = "SWS N6 Split",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -2042,7 +2042,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_swssplit"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_hg_urx"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_hg_urx"] = {
 	["fullName"] = "AR-10 KAC URX 4 14.5 inch handguard",
 	["displayName"] = 'URX4 14.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -2062,7 +2062,7 @@ EFGMITEMS["arc9_att_eft_ar10_hg_urx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_drum50"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_drum50"] = {
 	["fullName"] = "AR-10 7.62x51 X Products X-25 50-round drum magazine",
 	["displayName"] = "X-25 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2082,7 +2082,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_drum50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_kac10"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_kac10"] = {
 	["fullName"] = "AR-10 7.62x51 KAC 10-round steel magazine",
 	["displayName"] = "KAC 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2102,7 +2102,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_kac10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_kac20"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_kac20"] = {
 	["fullName"] = "AR-10 7.62x51 KAC 20-round steel magazine",
 	["displayName"] = "KAC 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2122,7 +2122,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_kac20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_l7_20"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_20"] = {
 	["fullName"] = "AR-10 7.62x51 Lancer L7AWM 20-round magazine",
 	["displayName"] = "L7AWM 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2142,7 +2142,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_l7_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_l7_20_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_20_blk"] = {
 	["fullName"] = "AR-10 7.62x51 Lancer L7AWM 20-round magazine",
 	["displayName"] = "L7AWM 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2162,7 +2162,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_l7_20_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_l7_25"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_25"] = {
 	["fullName"] = "AR-10 7.62x51 Lancer L7AWM 25-round magazine",
 	["displayName"] = "L7AWM 25",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2182,7 +2182,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_l7_25"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_l7_25_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_25_blk"] = {
 	["fullName"] = "AR-10 7.62x51 Lancer L7AWM 25-round magazine",
 	["displayName"] = "L7AWM 25",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2202,7 +2202,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_l7_25_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar10_mag_pmag20"] = {
+EFGM.ITEMS["arc9_att_eft_ar10_mag_pmag20"] = {
 	["fullName"] = "AR-10 7.62x51 Magpul PMAG 20 SR-LR GEN M3 20-round magazine",
 	["displayName"] = "PMAG 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -2222,7 +2222,7 @@ EFGMITEMS["arc9_att_eft_ar10_mag_pmag20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_a2"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_a2"] = {
 	["fullName"] = "AR-15 Colt A2 buffer tube",
 	["displayName"] = "CS2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2242,7 +2242,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_adar"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_adar"] = {
 	["fullName"] = "AR-15 ADAR 2-15 buffer tube",
 	["displayName"] = "ADAR St.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2262,7 +2262,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_adar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_arfx"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_arfx"] = {
 	["fullName"] = "AR-15 DoubleStar ACE ARFX Skeleton Stock",
 	["displayName"] = "ACE ARFX",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2282,7 +2282,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_arfx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_baskak"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_baskak"] = {
 	["fullName"] = "Armacon Baskak stock",
 	["displayName"] = "Baskak",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2302,7 +2302,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_baskak"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_cgnl"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_cgnl"] = {
 	["fullName"] = "AR-15 Custom Guns buffer tube",
 	["displayName"] = "CGNL",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2322,7 +2322,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_cgnl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_cgnl_fde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_cgnl_fde"] = {
 	["fullName"] = "AR-15 Custom Guns buffer tube (FDE)",
 	["displayName"] = "CGNL",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2342,7 +2342,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_cgnl_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_cmmg"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_cmmg"] = {
 	["fullName"] = "CMMG buffer tube",
 	["displayName"] = "CMMG",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2362,7 +2362,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_cmmg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_f93pro"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_f93pro"] = {
 	["fullName"] = "ERGO F93 PRO stock",
 	["displayName"] = "F93 PRO stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2382,7 +2382,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_f93pro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_hkenh"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_hkenh"] = {
 	["fullName"] = "HK Enhanced Tube buffer tube",
 	["displayName"] = "Enhanced Tube",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2402,7 +2402,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_hkenh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_m7a1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_m7a1"] = {
 	["fullName"] = "TROY M7A1 PDW stock (Black)",
 	["displayName"] = "M7A1PDW",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2422,7 +2422,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_m7a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_m7a1f"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_m7a1f"] = {
 	["fullName"] = "TROY M7A1 PDW stock (Flat Dark Earth)",
 	["displayName"] = "M7A1PDW",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2442,7 +2442,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_m7a1f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_rtm"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_rtm"] = {
 	["fullName"] = "AR-15 RTM ATP buffer tube",
 	["displayName"] = "ATP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2462,7 +2462,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_rtm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_siadv"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_siadv"] = {
 	["fullName"] = "Strike Industries Advanced Receiver Extension buffer tube",
 	["displayName"] = "Advanced Tube",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2482,7 +2482,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_siadv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_siadvred"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_siadvred"] = {
 	["fullName"] = "Strike Industries Advanced Receiver Extension buffer tube (Anodized Red)",
 	["displayName"] = "Advanced Tube",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2502,7 +2502,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_siadvred"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_socom"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_socom"] = {
 	["fullName"] = "AR-15 DoubleStar ACE SOCOM Gen.4 stock",
 	["displayName"] = "Gen.4 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2522,7 +2522,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_socom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_std"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_std"] = {
 	["fullName"] = "Colt Carbine buffer tube",
 	["displayName"] = "CST",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2542,7 +2542,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_ubrgen2"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_ubrgen2"] = {
 	["fullName"] = "Magpul UBR GEN2 stock (Black)",
 	["displayName"] = "UBR GEN2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2562,7 +2562,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_ubrgen2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_ubrgen2f"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_ubrgen2f"] = {
 	["fullName"] = "Magpul UBR GEN2 stock (Flat Dark Earth)",
 	["displayName"] = "UBR GEN2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2582,7 +2582,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_ubrgen2f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_buffertube_viperpdw"] = {
+EFGM.ITEMS["arc9_att_eft_ar_buffertube_viperpdw"] = {
 	["fullName"] = "Strike Industries Viper PDW stock",
 	["displayName"] = "Viper PDW",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -2602,7 +2602,7 @@ EFGMITEMS["arc9_att_eft_ar_buffertube_viperpdw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_a1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_a1"] = {
 	["fullName"] = "AR-15 Colt A1 pistol grip",
 	["displayName"] = "A1",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2622,7 +2622,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_colta2"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_colta2"] = {
 	["fullName"] = "AR-15 Colt A2 pistol grip",
 	["displayName"] = "Colt A2",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2642,7 +2642,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_colta2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_diecsfde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_diecsfde"] = {
 	["fullName"] = "AR-15 Damage Industries ECS pistol grip (FDE)",
 	["displayName"] = "ESC FDE",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2662,7 +2662,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_diecsfde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_dlg123"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_dlg123"] = {
 	["fullName"] = "AR-15 DLG Tactical DLG-123 pistol grip",
 	["displayName"] = "DLG-123",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2682,7 +2682,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_dlg123"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_dlg138"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_dlg138"] = {
 	["fullName"] = "AR-15 DLG Tactical DLG-138 pistol grip (Black)",
 	["displayName"] = "DLG138",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2702,7 +2702,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_dlg138"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_dlg138_fde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_dlg138_fde"] = {
 	["fullName"] = "AR-15 DLG Tactical DLG-138 pistol grip (FDE)",
 	["displayName"] = "DLG138",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2722,7 +2722,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_dlg138_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s1"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 1 pistol grip",
 	["displayName"] = "F1 St1",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2742,7 +2742,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 pistol grip",
 	["displayName"] = "F1 St2",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2762,7 +2762,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
 	["displayName"] = "F1 St2 PC",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2782,7 +2782,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_blk"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
 	["displayName"] = "F1 St2 PC",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2802,7 +2802,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_camo"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_camo"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
 	["displayName"] = "F1 St2 PC",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2822,7 +2822,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_camo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_red"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_red"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
 	["displayName"] = "F1 St2 PC",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2842,7 +2842,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_red"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_wht"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_wht"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
 	["displayName"] = "F1 St2 PC",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2862,7 +2862,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_f1s2pc_wht"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_grals"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_grals"] = {
 	["fullName"] = "AR-15 Naroh Arms GRAL-S pistol grip",
 	["displayName"] = "GRAL-S",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2882,7 +2882,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_grals"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hexgrip"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hexgrip"] = {
 	["fullName"] = "AR-15 Tactical Dynamics Hexgrip pistol grip",
 	["displayName"] = "Hexgrip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2902,7 +2902,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hexgrip"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hg15"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hg15"] = {
 	["fullName"] = "AR-15 Hera Arms HG-15 pistol grip",
 	["displayName"] = "HG-15",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2922,7 +2922,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hg15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hkbg"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkbg"] = {
 	["fullName"] = "AR-15 HK Battle Grip pistol grip",
 	["displayName"] = "Battle Grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2942,7 +2942,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hkbg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hkbgbeav"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkbgbeav"] = {
 	["fullName"] = "AR-15 HK Battle Grip Beavertail pistol grip",
 	["displayName"] = "Beavertail",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2962,7 +2962,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hkbgbeav"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hkbgbeavral"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkbgbeavral"] = {
 	["fullName"] = "AR-15 HK Battle Grip Beavertail pistol grip (RAL 8000)",
 	["displayName"] = "Beavertail",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -2982,7 +2982,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hkbgbeavral"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hkv2"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkv2"] = {
 	["fullName"] = "AR-15 HK V2 pistol grip",
 	["displayName"] = "HK V2",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3002,7 +3002,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hkv2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hkv2_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkv2_blk"] = {
 	["fullName"] = "AR-15 HK V2 pistol grip",
 	["displayName"] = "HK V2",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3022,7 +3022,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hkv2_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hog"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hog"] = {
 	["fullName"] = "Hogue OverMolded Rubber Grip (Black)",
 	["displayName"] = "OMRG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3042,7 +3042,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hog"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hogfde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hogfde"] = {
 	["fullName"] = "Hogue OverMolded Rubber Grip (FDE)",
 	["displayName"] = "OMRG FDE",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3062,7 +3062,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hogfde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hogge"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hogge"] = {
 	["fullName"] = "Hogue OverMolded Rubber Grip (Ghillie Earth)",
 	["displayName"] = "OMRG GE",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3082,7 +3082,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hogge"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hoggg"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hoggg"] = {
 	["fullName"] = "Hogue OverMolded Rubber Grip (Ghillie Green)",
 	["displayName"] = "OMRG GG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3102,7 +3102,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hoggg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_hogod"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_hogod"] = {
 	["fullName"] = "Hogue OverMolded Rubber Grip (Olive Drab)",
 	["displayName"] = "OMRG OD",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3122,7 +3122,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_hogod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_mcx"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_mcx"] = {
 	["fullName"] = "MCX pistol grip",
 	["displayName"] = "MCX",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3142,7 +3142,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_mcx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_miad"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_miad"] = {
 	["fullName"] = "AR-15 Magpul MIAD pistol grip (FDE)",
 	["displayName"] = "MIAD",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3162,7 +3162,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_miad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_miad_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_miad_blk"] = {
 	["fullName"] = "AR-15 Magpul MIAD pistol grip (BLK)",
 	["displayName"] = "MIAD",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3182,7 +3182,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_miad_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_moe"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_moe"] = {
 	["fullName"] = "AR-15 Magpul MOE pistol grip (Black)",
 	["displayName"] = "MOE AR15",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3202,7 +3202,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_moefde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_moefde"] = {
 	["fullName"] = "AR-15 Magpul MOE pistol grip (FDE)",
 	["displayName"] = "MOE AR15",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3222,7 +3222,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_moefde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_orion"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_orion"] = {
 	["fullName"] = "AR-15 Aeroknox Orion pistol grip",
 	["displayName"] = "Orion",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3242,7 +3242,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_orion"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_psg1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_psg1"] = {
 	["fullName"] = "AR-15 HK Ergo PSG-1 style pistol grip",
 	["displayName"] = "Ergo PSG-1",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3262,7 +3262,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_psg1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_sig"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_sig"] = {
 	["fullName"] = "AR-15 SIG M400 Reduced Angle Pistol Grip (Coyote Tan) ",
 	["displayName"] = "M400",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3282,7 +3282,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_sig"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_sig_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_sig_blk"] = {
 	["fullName"] = "AR-15 SIG M400 Reduced Angle Pistol Grip (Black) ",
 	["displayName"] = "M400",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3302,7 +3302,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_sig_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_spr"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_spr"] = {
 	["fullName"] = "AR-15 Sierra Precision SPR pistol grip",
 	["displayName"] = "SP SPR",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3322,7 +3322,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_spr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_stark"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_stark"] = {
 	["fullName"] = "AR-15 Stark AR Rifle Grip (Black)",
 	["displayName"] = "Stark AR",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3342,7 +3342,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_stark"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_starkfde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_starkfde"] = {
 	["fullName"] = "AR-15 Stark AR Rifle Grip (FDE)",
 	["displayName"] = "Stark AR",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3362,7 +3362,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_starkfde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_pgrip_tdskelet"] = {
+EFGM.ITEMS["arc9_att_eft_ar_pgrip_tdskelet"] = {
 	["fullName"] = "AR-15 Tactical Dynamics Skeletonized pistol grip",
 	["displayName"] = "TD120001",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -3382,7 +3382,7 @@ EFGMITEMS["arc9_att_eft_ar_pgrip_tdskelet"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_7"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_7"] = {
 	["fullName"] = "AR-15 Colt M16A1 Type 7 stock",
 	["displayName"] = "Type 7",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3402,7 +3402,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_a2"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_a2"] = {
 	["fullName"] = "AR-15 Colt A2 stock",
 	["displayName"] = "A2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3422,7 +3422,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_adar"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_adar"] = {
 	["fullName"] = "ADAR 2-15 wooden stock",
 	["displayName"] = "ADAR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3442,7 +3442,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_adar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ak12"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ak12"] = {
 	["fullName"] = "AK-12 stock",
 	["displayName"] = "AK-12",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3462,7 +3462,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ak12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_b5"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_b5"] = {
 	["fullName"] = "AR-15 B5 Systems Precision stock",
 	["displayName"] = "Precision",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3482,7 +3482,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_b5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_buttpad"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_buttpad"] = {
 	["fullName"] = "Magpul MOE Carbine rubber buttpad",
 	["displayName"] = "RBP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3502,7 +3502,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_buttpad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ctr"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ctr"] = {
 	["fullName"] = "Magpul CTR Carbine stock (Black)",
 	["displayName"] = "CTR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3522,7 +3522,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ctr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ctrf"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ctrf"] = {
 	["fullName"] = "Magpul CTR Carbine stock (Flat Dark Earth)",
 	["displayName"] = "CTR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3542,7 +3542,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ctrf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ddecb"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ddecb"] = {
 	["fullName"] = "AR-15 Daniel Defense Enhanced Collapsible Buttstock (Black)",
 	["displayName"] = "DD ECB",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3562,7 +3562,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ddecb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ddecb_f"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ddecb_f"] = {
 	["fullName"] = "AR-15 Daniel Defense Enhanced Collapsible Buttstock (FDE)",
 	["displayName"] = "DD ECB (FDE)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3582,7 +3582,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ddecb_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ds150"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ds150"] = {
 	["fullName"] = "KRISS Defiance DS150 stock (Black)",
 	["displayName"] = "DS150",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3602,7 +3602,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ds150"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ds150f"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ds150f"] = {
 	["fullName"] = "KRISS Defiance DS150 stock (Flat Dark Earth)",
 	["displayName"] = "DS150",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3622,7 +3622,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ds150f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_e1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_e1"] = {
 	["fullName"] = "AR-15 HK E1 buttstock",
 	["displayName"] = "HK E1",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3642,7 +3642,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_e1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_emod"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_emod"] = {
 	["fullName"] = "Vltor EMOD stock",
 	["displayName"] = "EMOD",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3662,7 +3662,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_emod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_glcore"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_glcore"] = {
 	["fullName"] = "FAB Defense GL-CORE buttstock",
 	["displayName"] = "GL CORE",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3682,7 +3682,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_glcore"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_glr16s"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_glr16s"] = {
 	["fullName"] = "FAB Defense GLR-16-S stock",
 	["displayName"] = "GLR-16-S",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3702,7 +3702,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_glr16s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_glshock"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_glshock"] = {
 	["fullName"] = "FAB Defense GL-SHOCK buttstock",
 	["displayName"] = "GL SHOCK",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3722,7 +3722,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_glshock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_heracqr"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_heracqr"] = {
 	["fullName"] = "AR-15 Hera Arms CQR pistol grip/buttstock",
 	["displayName"] = "CQR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3742,7 +3742,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_heracqr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_m4ss"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_m4ss"] = {
 	["fullName"] = "High Standard M4SS Stock",
 	["displayName"] = "M4SS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3762,7 +3762,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_m4ss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpul_acs"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_acs"] = {
 	["fullName"] = "AR-15 Magpul ACS Carbine stock (Black)",
 	["displayName"] = "ACS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3782,7 +3782,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpul_acs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpul_acs_fde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_acs_fde"] = {
 	["fullName"] = "AR-15 Magpul ACS Carbine stock (FDE)",
 	["displayName"] = "ACS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3802,7 +3802,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpul_acs_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpul_slk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_slk"] = {
 	["fullName"] = "AR-15 Magpul MOE SL-K buttstock (Coyote Tan)",
 	["displayName"] = "MOE SL-K",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3822,7 +3822,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpul_slk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpul_slk_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_slk_blk"] = {
 	["fullName"] = "AR-15 Magpul MOE SL-K buttstock (Black)",
 	["displayName"] = "MOE SL-K",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3842,7 +3842,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpul_slk_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe"] = {
 	["fullName"] = "Magpul MOE Carbine stock (Black)",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3862,7 +3862,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_fde"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_fde"] = {
 	["fullName"] = "Magpul MOE Carbine stock (Flat Dark Earth)",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3882,7 +3882,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_fg"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_fg"] = {
 	["fullName"] = "Magpul MOE Carbine stock (Foliage Green)",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3902,7 +3902,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_fg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_od"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_od"] = {
 	["fullName"] = "Magpul MOE Carbine stock (Olive Drab)",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3922,7 +3922,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_od"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_sg"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_sg"] = {
 	["fullName"] = "Magpul MOE Carbine stock (Stealth Gray)",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3942,7 +3942,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_magpulmoe_sg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_mftbus"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_mftbus"] = {
 	["fullName"] = "MFT BUS stock",
 	["displayName"] = "BUS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3962,7 +3962,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_mftbus"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_n1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_n1"] = {
 	["fullName"] = "AR-15 Colt N1 Stock",
 	["displayName"] = "N1",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -3982,7 +3982,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_n1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_n1_buttpad"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_n1_buttpad"] = {
 	["fullName"] = "AR-15 John Masen Recoil Pad",
 	["displayName"] = "N1 RP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4002,7 +4002,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_n1_buttpad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_prsgen2f"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen2f"] = {
 	["fullName"] = "Magpul PRS GEN2 stock (FDE)",
 	["displayName"] = "PRS GEN2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4022,7 +4022,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_prsgen2f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_prsgen2f_blk"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen2f_blk"] = {
 	["fullName"] = "Magpul PRS GEN2 stock (BLK)",
 	["displayName"] = "PRS GEN2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4042,7 +4042,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_prsgen2f_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_prsgen3"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen3"] = {
 	["fullName"] = "Magpul PRS GEN3 stock (Black)",
 	["displayName"] = "PRS GEN3",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4062,7 +4062,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_prsgen3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_prsgen3g"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen3g"] = {
 	["fullName"] = "Magpul PRS GEN3 stock (Grey)",
 	["displayName"] = "PRS GEN3",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4082,7 +4082,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_prsgen3g"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_ripstop"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_ripstop"] = {
 	["fullName"] = "CMMG RipStock buttstock",
 	["displayName"] = "RipStock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4102,7 +4102,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_ripstop"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_sba3"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_sba3"] = {
 	["fullName"] = "SB Tactical SBA3 brace",
 	["displayName"] = "SBA3",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4122,7 +4122,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_sba3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_slim"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_slim"] = {
 	["fullName"] = "AR-15 HK Slim Line buttstock",
 	["displayName"] = "Slim Line",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4142,7 +4142,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_slim"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_sopmod"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_sopmod"] = {
 	["fullName"] = "LMT SOPMOD stock",
 	["displayName"] = "SOPMOD",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4162,7 +4162,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_sopmod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ar_stock_vipermod1"] = {
+EFGM.ITEMS["arc9_att_eft_ar_stock_vipermod1"] = {
 	["fullName"] = "Strike Industries Viper Mod 1 stock",
 	["displayName"] = "Viper Mod.1",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -4182,7 +4182,7 @@ EFGMITEMS["arc9_att_eft_ar_stock_vipermod1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_fs_std"] = {
 	["fullName"] = "ASh-12 folding front sight",
 	["displayName"] = "ASh-12 Fr",
 	["displayType"] = "Sights",
@@ -4202,7 +4202,7 @@ EFGMITEMS["arc9_att_eft_ash12_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_hg_std"] = {
 	["fullName"] = "ASh-12 polymer handguard",
 	["displayName"] = "ASh-12 pol",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -4222,7 +4222,7 @@ EFGMITEMS["arc9_att_eft_ash12_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_mag_10"] = {
 	["fullName"] = "ASh-12 12.7x55 10-round magazine",
 	["displayName"] = "ASh-12 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4242,7 +4242,7 @@ EFGMITEMS["arc9_att_eft_ash12_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_mag_20"] = {
 	["fullName"] = "ASh-12 12.7x55 20-round magazine",
 	["displayName"] = "ASh-12 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4262,7 +4262,7 @@ EFGMITEMS["arc9_att_eft_ash12_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_muzzle_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_muzzle_silencer"] = {
 	["fullName"] = "ASh-12 12.7x55 sound suppressor",
 	["displayName"] = "ASh supp",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -4282,7 +4282,7 @@ EFGMITEMS["arc9_att_eft_ash12_muzzle_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_muzzle_std"] = {
 	["fullName"] = "ASh-12 12.7x55 muzzle brake-compensator",
 	["displayName"] = "ASh MB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -4302,7 +4302,7 @@ EFGMITEMS["arc9_att_eft_ash12_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ash12_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_ash12_rs_std"] = {
 	["fullName"] = "ASh-12 rear sight carry handle",
 	["displayName"] = "ASh-12 Ca",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -4322,7 +4322,7 @@ EFGMITEMS["arc9_att_eft_ash12_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_barrel_16"] = {
+EFGM.ITEMS["arc9_att_eft_aug_barrel_16"] = {
 	["fullName"] = "Steyr AUG A3 5.56x45 16 inch barrel",
 	["displayName"] = 'A3 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -4342,7 +4342,7 @@ EFGMITEMS["arc9_att_eft_aug_barrel_16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_barrel_16a1"] = {
+EFGM.ITEMS["arc9_att_eft_aug_barrel_16a1"] = {
 	["fullName"] = "Steyr AUG A1 5.56x45 16 inch barrel",
 	["displayName"] = 'A1 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -4362,7 +4362,7 @@ EFGMITEMS["arc9_att_eft_aug_barrel_16a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_barrel_20"] = {
+EFGM.ITEMS["arc9_att_eft_aug_barrel_20"] = {
 	["fullName"] = "Steyr AUG A1 5.56x45 20 inch barrel",
 	["displayName"] = 'A1 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -4382,7 +4382,7 @@ EFGMITEMS["arc9_att_eft_aug_barrel_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_ch_a1"] = {
+EFGM.ITEMS["arc9_att_eft_aug_ch_a1"] = {
 	["fullName"] = "Steyr AUG A1 charging handle",
 	["displayName"] = "A1 CH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -4402,7 +4402,7 @@ EFGMITEMS["arc9_att_eft_aug_ch_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_ch_a3"] = {
+EFGM.ITEMS["arc9_att_eft_aug_ch_a3"] = {
 	["fullName"] = "Steyr AUG A3 charging handle",
 	["displayName"] = "A3 CH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -4422,7 +4422,7 @@ EFGMITEMS["arc9_att_eft_aug_ch_a3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_grip"] = {
+EFGM.ITEMS["arc9_att_eft_aug_grip"] = {
 	["fullName"] = "Steyr AUG vertical foregrip",
 	["displayName"] = "AUG grip",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -4442,7 +4442,7 @@ EFGMITEMS["arc9_att_eft_aug_grip"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_grip_mount"] = {
+EFGM.ITEMS["arc9_att_eft_aug_grip_mount"] = {
 	["fullName"] = "Steyr AUG Corvus Defensio KeyMod Forward Accessory Rail",
 	["displayName"] = "AUG Corvus",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4462,7 +4462,7 @@ EFGMITEMS["arc9_att_eft_aug_grip_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_aug_mag_10"] = {
 	["fullName"] = "Steyr AUG 5.56x45 10-round magazine",
 	["displayName"] = "AUG 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4482,7 +4482,7 @@ EFGMITEMS["arc9_att_eft_aug_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_mag_10_blk"] = {
+EFGM.ITEMS["arc9_att_eft_aug_mag_10_blk"] = {
 	["fullName"] = "Steyr AUG 5.56x45 10-round magazine",
 	["displayName"] = "AUG 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4502,7 +4502,7 @@ EFGMITEMS["arc9_att_eft_aug_mag_10_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_aug_mag_30"] = {
 	["fullName"] = "Steyr AUG 5.56x45 30-round magazine",
 	["displayName"] = "AUG 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4522,7 +4522,7 @@ EFGMITEMS["arc9_att_eft_aug_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_mag_30_blk"] = {
+EFGM.ITEMS["arc9_att_eft_aug_mag_30_blk"] = {
 	["fullName"] = "Steyr AUG 5.56x45 30-round magazine",
 	["displayName"] = "AUG 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4542,7 +4542,7 @@ EFGMITEMS["arc9_att_eft_aug_mag_30_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_mag_42"] = {
+EFGM.ITEMS["arc9_att_eft_aug_mag_42"] = {
 	["fullName"] = "Steyr AUG 5.56x45 42-round magazine",
 	["displayName"] = "AUG 42",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4562,7 +4562,7 @@ EFGMITEMS["arc9_att_eft_aug_mag_42"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_mag_42_blk"] = {
+EFGM.ITEMS["arc9_att_eft_aug_mag_42_blk"] = {
 	["fullName"] = "Steyr AUG 5.56x45 42-round magazine",
 	["displayName"] = "AUG 42",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4582,7 +4582,7 @@ EFGMITEMS["arc9_att_eft_aug_mag_42_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_scope_m1"] = {
+EFGM.ITEMS["arc9_att_eft_aug_scope_m1"] = {
 	["fullName"] = "Steyr AUG A3 M1 1.5x optic sight",
 	["displayName"] = "M1 1.5x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -4602,7 +4602,7 @@ EFGMITEMS["arc9_att_eft_aug_scope_m1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_upper"] = {
+EFGM.ITEMS["arc9_att_eft_aug_upper"] = {
 	["fullName"] = "Steyr AUG A3 5.56x45 receiver",
 	["displayName"] = "A3",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -4622,7 +4622,7 @@ EFGMITEMS["arc9_att_eft_aug_upper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_upper_rail_high"] = {
+EFGM.ITEMS["arc9_att_eft_aug_upper_rail_high"] = {
 	["fullName"] = "Steyr AUG A3 M1 high sight mount",
 	["displayName"] = "A3 M1 High",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4642,7 +4642,7 @@ EFGMITEMS["arc9_att_eft_aug_upper_rail_high"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_upper_rail_low"] = {
+EFGM.ITEMS["arc9_att_eft_aug_upper_rail_low"] = {
 	["fullName"] = "Steyr AUG A3 M1 low sight mount",
 	["displayName"] = "A3 M1",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4662,7 +4662,7 @@ EFGMITEMS["arc9_att_eft_aug_upper_rail_low"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_upper_rail_vltor"] = {
+EFGM.ITEMS["arc9_att_eft_aug_upper_rail_vltor"] = {
 	["fullName"] = "Steyr AUG A3 Corvus Defensio Receiver Rail MOI 30 Slots",
 	["displayName"] = "A3 Corvus",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4682,7 +4682,7 @@ EFGMITEMS["arc9_att_eft_aug_upper_rail_vltor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_upper_stg"] = {
+EFGM.ITEMS["arc9_att_eft_aug_upper_stg"] = {
 	["fullName"] = "Steyr AUG A1 STG77 1.5x optic sight",
 	["displayName"] = "STG77",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -4702,7 +4702,7 @@ EFGMITEMS["arc9_att_eft_aug_upper_stg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aug_upper_vltor"] = {
+EFGM.ITEMS["arc9_att_eft_aug_upper_vltor"] = {
 	["fullName"] = "Steyr AUG A3 Vltor 5.56x45 receiver",
 	["displayName"] = "Vltor A3",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4722,7 +4722,7 @@ EFGMITEMS["arc9_att_eft_aug_upper_vltor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_aux_ekp_shade"] = {
+EFGM.ITEMS["arc9_att_eft_aux_ekp_shade"] = {
 	["fullName"] = "Axion Kobra sight shade",
 	["displayName"] = "Kobra",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -4742,7 +4742,7 @@ EFGMITEMS["arc9_att_eft_aux_ekp_shade"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_barrel338_28"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_barrel338_28"] = {
 	["fullName"] = "AI AXMC .338 LM 28 inch barrel",
 	["displayName"] = '.338LM 28"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -4762,7 +4762,7 @@ EFGMITEMS["arc9_att_eft_axmc_barrel338_28"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_bolt338"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_bolt338"] = {
 	["fullName"] = "AI AXMC .338 LM bolt assembly",
 	["displayName"] = "AXMC .338LM",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -4782,7 +4782,7 @@ EFGMITEMS["arc9_att_eft_axmc_bolt338"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_chassis"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_chassis"] = {
 	["fullName"] = "AI AXMC .338 LM chassis",
 	["displayName"] = "AXMC .338LM",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -4802,7 +4802,7 @@ EFGMITEMS["arc9_att_eft_axmc_chassis"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_grip"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_grip"] = {
 	["fullName"] = "AI AXMC pistol grip",
 	["displayName"] = "AXMC PG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -4822,7 +4822,7 @@ EFGMITEMS["arc9_att_eft_axmc_grip"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_gripar"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_gripar"] = {
 	["fullName"] = "AI AXMC GTAC AR-type pistol grip adapter",
 	["displayName"] = "GTAC",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -4842,7 +4842,7 @@ EFGMITEMS["arc9_att_eft_axmc_gripar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_hg"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_hg"] = {
 	["fullName"] = "AI AXMC AX KeySlot 16 inch handguard",
 	["displayName"] = 'AX 16"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -4862,7 +4862,7 @@ EFGMITEMS["arc9_att_eft_axmc_hg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_mag338"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_mag338"] = {
 	["fullName"] = "AI AXMC .338 LM 10-round magazine",
 	["displayName"] = "AXMC 338LM",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -4882,7 +4882,7 @@ EFGMITEMS["arc9_att_eft_axmc_mag338"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_pad"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_pad"] = {
 	["fullName"] = "AI AXMC padded handguard grip",
 	["displayName"] = "AXMC pad",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -4902,7 +4902,7 @@ EFGMITEMS["arc9_att_eft_axmc_pad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_railbipod"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_railbipod"] = {
 	["fullName"] = "AI AXMC KeySlot Harris bipod mount",
 	["displayName"] = "AXMC Harris",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4922,7 +4922,7 @@ EFGMITEMS["arc9_att_eft_axmc_railbipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_railmid"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_railmid"] = {
 	["fullName"] = "AI AXMC Adapter Kit medium length rail",
 	["displayName"] = "AXMC med",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4942,7 +4942,7 @@ EFGMITEMS["arc9_att_eft_axmc_railmid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_railmid_b"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_railmid_b"] = {
 	["fullName"] = "AI AXMC Adapter Kit medium length rail (Black)",
 	["displayName"] = "AXMC med B",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4962,7 +4962,7 @@ EFGMITEMS["arc9_att_eft_axmc_railmid_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_railshort"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_railshort"] = {
 	["fullName"] = "AI AXMC Adapter Kit short length rail",
 	["displayName"] = "AXMC short",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -4982,7 +4982,7 @@ EFGMITEMS["arc9_att_eft_axmc_railshort"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_railshort_b"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_railshort_b"] = {
 	["fullName"] = "AI AXMC Adapter Kit short length rail (Black)",
 	["displayName"] = "AXMC short B",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -5002,7 +5002,7 @@ EFGMITEMS["arc9_att_eft_axmc_railshort_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_stock"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_stock"] = {
 	["fullName"] = "AI AXMC AX buttstock",
 	["displayName"] = "AXMC",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -5022,7 +5022,7 @@ EFGMITEMS["arc9_att_eft_axmc_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_toprail"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_toprail"] = {
 	["fullName"] = "AI AXMC AT X Top Rail",
 	["displayName"] = "AXMC top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -5042,7 +5042,7 @@ EFGMITEMS["arc9_att_eft_axmc_toprail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_axmc_upper"] = {
+EFGM.ITEMS["arc9_att_eft_axmc_upper"] = {
 	["fullName"] = "AI AXMC upper receiver",
 	["displayName"] = "AXMC upper",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -5062,7 +5062,7 @@ EFGMITEMS["arc9_att_eft_axmc_upper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_1911_nat"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_1911_nat"] = {
 	["fullName"] = "M1911A1 .45 ACP National Match barrel",
 	["displayName"] = "1911 Match",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5082,7 +5082,7 @@ EFGMITEMS["arc9_att_eft_barrel_1911_nat"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_1911_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_1911_std"] = {
 	["fullName"] = "M1911A1 .45 ACP 127mm barrel",
 	["displayName"] = "1911 127mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5102,7 +5102,7 @@ EFGMITEMS["arc9_att_eft_barrel_1911_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_1911_thr"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_1911_thr"] = {
 	["fullName"] = "M1911A1 .45 ACP threaded barrel",
 	["displayName"] = "1911 thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5122,7 +5122,7 @@ EFGMITEMS["arc9_att_eft_barrel_1911_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_16i_mk12"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_16i_mk12"] = {
 	["fullName"] = "AR-15 5.56x45 Centurion Arms Mk12 16 inch barrel",
 	["displayName"] = 'Mk12 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5142,7 +5142,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_16i_mk12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_18i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_18i"] = {
 	["fullName"] = "AR-15 5.56x45 18 inch barrel",
 	["displayName"] = 'AR-15 18"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5162,7 +5162,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_18i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_18i_mk12"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_18i_mk12"] = {
 	["fullName"] = "AR-15 5.56x45 Centurion Arms Mk12 18 inch barrel",
 	["displayName"] = 'Mk12 18"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5182,7 +5182,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_18i_mk12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_20i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_20i"] = {
 	["fullName"] = "AR-15 5.56x45 20 inch barrel",
 	["displayName"] = 'AR-15 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5202,7 +5202,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_20i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_260mm"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_260mm"] = {
 	["fullName"] = 'AR-15 5.56x45 10.3" barrel',
 	["displayName"] = 'AR-15 10.3"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5222,7 +5222,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_260mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_292mm"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_292mm"] = {
 	["fullName"] = "AR-15 5.56x45 11.5 inch barrel",
 	["displayName"] = 'AR-15 11.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5242,7 +5242,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_292mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_370mm"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_370mm"] = {
 	["fullName"] = "AR-15 5.56x45 370mm barrel",
 	["displayName"] = "AR-15 370mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5262,7 +5262,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_370mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_406mm"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_406mm"] = {
 	["fullName"] = "AR-15 5.56x45 Molot Arms 406mm barrel",
 	["displayName"] = 'ADAR 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5282,7 +5282,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_406mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_hanson_137"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_hanson_137"] = {
 	["fullName"] = "AR-15 Hanson Carbine 5.56x45 13.7 inch barrel",
 	["displayName"] = 'Hanson 13.7"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5302,7 +5302,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_hanson_137"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_hanson_16"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_hanson_16"] = {
 	["fullName"] = "AR-15 Hanson Carbine 5.56x45 16 inch barrel",
 	["displayName"] = 'Hanson 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5322,7 +5322,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_hanson_16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ar15_m16_20i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ar15_m16_20i"] = {
 	["fullName"] = "AR-15 5.56x45 A2 type 20 inch barrel",
 	["displayName"] = 'AR-15 A2 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5342,7 +5342,7 @@ EFGMITEMS["arc9_att_eft_barrel_ar15_m16_20i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_deagle_l5_357"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_deagle_l5_357"] = {
 	["fullName"] = "Desert Eagle L5 .357 127mm barrel",
 	["displayName"] = "L5 .357",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5362,7 +5362,7 @@ EFGMITEMS["arc9_att_eft_barrel_deagle_l5_357"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_deagle_l6_50ae"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_deagle_l6_50ae"] = {
 	["fullName"] = "Desert Eagle L6 .50 AE 152mm barrel",
 	["displayName"] = "L6 .50AE",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5382,7 +5382,7 @@ EFGMITEMS["arc9_att_eft_barrel_deagle_l6_50ae"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_deagle_l6_wts"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_deagle_l6_wts"] = {
 	["fullName"] = "Desert Eagle L6 .50 AE 152mm barrel (WTS)",
 	["displayName"] = "L6 .50AE (WTS)",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5402,7 +5402,7 @@ EFGMITEMS["arc9_att_eft_barrel_deagle_l6_wts"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_deagle_xix"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_deagle_xix"] = {
 	["fullName"] = "Desert Eagle Mk XIX .50 AE 152mm barrel",
 	["displayName"] = "XIX .50AE",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5422,7 +5422,7 @@ EFGMITEMS["arc9_att_eft_barrel_deagle_xix"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g17_aw"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g17_aw"] = {
 	["fullName"] = "Glock 9x19 Lone Wolf threaded barrel",
 	["displayName"] = "G AW",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5442,7 +5442,7 @@ EFGMITEMS["arc9_att_eft_barrel_g17_aw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g17_comp"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g17_comp"] = {
 	["fullName"] = "Glock 17 9x19 barrel with a compensator",
 	["displayName"] = "G17 comp",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5462,7 +5462,7 @@ EFGMITEMS["arc9_att_eft_barrel_g17_comp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g17_dd_thr"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g17_dd_thr"] = {
 	["fullName"] = "Glock 9x19 Double Diamond threaded barrel",
 	["displayName"] = "G DD thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5482,7 +5482,7 @@ EFGMITEMS["arc9_att_eft_barrel_g17_dd_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g17_sai"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g17_sai"] = {
 	["fullName"] = "Glock 9x19 SAI threaded barrel",
 	["displayName"] = "G SAI",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5502,7 +5502,7 @@ EFGMITEMS["arc9_att_eft_barrel_g17_sai"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g17_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g17_std"] = {
 	["fullName"] = "Glock 17 9x19 barrel",
 	["displayName"] = "G17",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5522,7 +5522,7 @@ EFGMITEMS["arc9_att_eft_barrel_g17_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g18c_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g18c_std"] = {
 	["fullName"] = "Glock 18C 9x19 barrel with a compensator",
 	["displayName"] = "G18C comp",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5542,7 +5542,7 @@ EFGMITEMS["arc9_att_eft_barrel_g18c_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_g19x_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_g19x_std"] = {
 	["fullName"] = "Glock 19X 9x19 barrel",
 	["displayName"] = "G19X",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5562,7 +5562,7 @@ EFGMITEMS["arc9_att_eft_barrel_g19x_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_hk416_106i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_hk416_106i"] = {
 	["fullName"] = "HK 416A5 5.56x45 10.6 inch barrel",
 	["displayName"] = '10.6" 416A5',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5582,7 +5582,7 @@ EFGMITEMS["arc9_att_eft_barrel_hk416_106i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_hk416_11i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_hk416_11i"] = {
 	["fullName"] = "HK 416A5 5.56x45 11 inch barrel",
 	["displayName"] = '11" 416A5',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5602,7 +5602,7 @@ EFGMITEMS["arc9_att_eft_barrel_hk416_11i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_hk416_145i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_hk416_145i"] = {
 	["fullName"] = "HK 416A5 5.56x45 14.5 inch barrel",
 	["displayName"] = '14.5" 416A5',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5622,7 +5622,7 @@ EFGMITEMS["arc9_att_eft_barrel_hk416_145i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_hk416_165i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_hk416_165i"] = {
 	["fullName"] = "HK 416A5 5.56x45 16.5 inch barrel with flip-up front sight",
 	["displayName"] = '16.5" 416A5',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5642,7 +5642,7 @@ EFGMITEMS["arc9_att_eft_barrel_hk416_165i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_hk416_20i"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_hk416_20i"] = {
 	["fullName"] = "HK 416A5 5.56x45 20 inch barrel",
 	["displayName"] = '20" 416A5',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5662,7 +5662,7 @@ EFGMITEMS["arc9_att_eft_barrel_hk416_20i"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_m9a3_std"] = {
 	["fullName"] = "M9A3 9x19 threaded barrel",
 	["displayName"] = "M9A3 thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5682,7 +5682,7 @@ EFGMITEMS["arc9_att_eft_barrel_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_p226_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_p226_std"] = {
 	["fullName"] = "P226 9x19 112mm barrel",
 	["displayName"] = "P226",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5702,7 +5702,7 @@ EFGMITEMS["arc9_att_eft_barrel_p226_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_p226_thr"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_p226_thr"] = {
 	["fullName"] = "P226 9x19 threaded barrel",
 	["displayName"] = "P226 thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5722,7 +5722,7 @@ EFGMITEMS["arc9_att_eft_barrel_p226_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_pkm"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_pkm"] = {
 	["fullName"] = "PKM 7.62x54R 658mm barrel",
 	["displayName"] = "PKM 658mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5742,7 +5742,7 @@ EFGMITEMS["arc9_att_eft_barrel_pkm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_pkp"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_pkp"] = {
 	["fullName"] = "PKP 7.62x54R 658mm barrel",
 	["displayName"] = "PKP 658mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5762,7 +5762,7 @@ EFGMITEMS["arc9_att_eft_barrel_pkp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_pl15_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_pl15_std"] = {
 	["fullName"] = "PL-15 9x19 barrel",
 	["displayName"] = "PL-15",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5782,7 +5782,7 @@ EFGMITEMS["arc9_att_eft_barrel_pl15_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_pl15_thr"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_pl15_thr"] = {
 	["fullName"] = "PL-15 9x19 threaded barrel",
 	["displayName"] = "PL-15 thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5802,7 +5802,7 @@ EFGMITEMS["arc9_att_eft_barrel_pl15_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ump_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ump_std"] = {
 	["fullName"] = "HK UMP .45 ACP 8 inch barrel",
 	["displayName"] = 'UMP-45 8"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5822,7 +5822,7 @@ EFGMITEMS["arc9_att_eft_barrel_ump_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_ump_thr"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_ump_thr"] = {
 	["fullName"] = "HK UMP .45 ACP 8 inch threaded barrel",
 	["displayName"] = 'UMP-45 8" thr.',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5842,7 +5842,7 @@ EFGMITEMS["arc9_att_eft_barrel_ump_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_usp_elite"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_usp_elite"] = {
 	["fullName"] = "HK USP Elite .45 ACP barrel",
 	["displayName"] = "USP45EL",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5862,7 +5862,7 @@ EFGMITEMS["arc9_att_eft_barrel_usp_elite"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_usp_expert"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_usp_expert"] = {
 	["fullName"] = "HK USP Expert .45 ACP barrel",
 	["displayName"] = "USP45EX",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5882,7 +5882,7 @@ EFGMITEMS["arc9_att_eft_barrel_usp_expert"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_usp_match"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_usp_match"] = {
 	["fullName"] = "HK USP Match .45 ACP barrel",
 	["displayName"] = "USP45M",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5902,7 +5902,7 @@ EFGMITEMS["arc9_att_eft_barrel_usp_match"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_usp_std"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_usp_std"] = {
 	["fullName"] = "HK USP .45 ACP barrel",
 	["displayName"] = "USP45 std",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5922,7 +5922,7 @@ EFGMITEMS["arc9_att_eft_barrel_usp_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_usp_tac"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_usp_tac"] = {
 	["fullName"] = "HK USP Tactical .45 ACP threaded barrel",
 	["displayName"] = "USP45T",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5942,7 +5942,7 @@ EFGMITEMS["arc9_att_eft_barrel_usp_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_vector45_5"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_vector45_5"] = {
 	["fullName"] = "KRISS Vector .45 ACP 5 inch barrel",
 	["displayName"] = 'Vector 5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5962,7 +5962,7 @@ EFGMITEMS["arc9_att_eft_barrel_vector45_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_vector45_6"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_vector45_6"] = {
 	["fullName"] = "KRISS Vector .45 ACP 6 inch barrel",
 	["displayName"] = 'Vector 6"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -5982,7 +5982,7 @@ EFGMITEMS["arc9_att_eft_barrel_vector45_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_vector9_5"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_vector9_5"] = {
 	["fullName"] = "KRISS Vector 9x19 5 inch barrel",
 	["displayName"] = 'Vector 5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -6002,7 +6002,7 @@ EFGMITEMS["arc9_att_eft_barrel_vector9_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barrel_vector9_6"] = {
+EFGM.ITEMS["arc9_att_eft_barrel_vector9_6"] = {
 	["fullName"] = "KRISS Vector 9x19 6 inch barrel",
 	["displayName"] = 'Vector 6"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -6022,7 +6022,7 @@ EFGMITEMS["arc9_att_eft_barrel_vector9_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_barret_mag10"] = {
+EFGM.ITEMS["arc9_att_eft_barret_mag10"] = {
 	["fullName"] = "M82A1 .50 BMG 10-round magazine",
 	["displayName"] = "M82 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -6042,7 +6042,7 @@ EFGMITEMS["arc9_att_eft_barret_mag10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_bipod_atlas_v8"] = {
+EFGM.ITEMS["arc9_att_eft_bipod_atlas_v8"] = {
 	["fullName"] = "BT10 V8 Atlas Bipod",
 	["displayName"] = "BT10",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -6062,7 +6062,7 @@ EFGMITEMS["arc9_att_eft_bipod_atlas_v8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_bipod_harris"] = {
+EFGM.ITEMS["arc9_att_eft_bipod_harris"] = {
 	["fullName"] = 'Harris S-BRM 6-9" Bipod',
 	["displayName"] = "S-BRM",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -6082,7 +6082,7 @@ EFGMITEMS["arc9_att_eft_bipod_harris"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ak_css"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ak_css"] = {
 	["fullName"] = "AK CSS knurled charging handle",
 	["displayName"] = "CSS",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6102,7 +6102,7 @@ EFGMITEMS["arc9_att_eft_charge_ak_css"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ak_rp1"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ak_rp1"] = {
 	["fullName"] = "AK Zenit RP-1 charging handle",
 	["displayName"] = "RP-1",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6122,7 +6122,7 @@ EFGMITEMS["arc9_att_eft_charge_ak_rp1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_ach"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_ach"] = {
 	["fullName"] = "AR-15 Geissele ACH charging handle",
 	["displayName"] = "ACH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6142,7 +6142,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_ach"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_ach_blk"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_ach_blk"] = {
 	["fullName"] = "AR-15 Geissele ACH charging handle",
 	["displayName"] = "ACH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6162,7 +6162,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_ach_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_adar"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_adar"] = {
 	["fullName"] = "AR-15 ADAR 2-15 charging handle",
 	["displayName"] = "ADAR 2-15",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6182,7 +6182,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_adar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_badlever"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_badlever"] = {
 	["fullName"] = "AR-15 Magpul B.A.D. Lever bolt release",
 	["displayName"] = "B.A.D.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -6202,7 +6202,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_badlever"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_botl"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_botl"] = {
 	["fullName"] = "AR-15 Badger Ordnance Tactical Charging Handle Latch",
 	["displayName"] = "BOTL",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6222,7 +6222,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_botl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_colt"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_colt"] = {
 	["fullName"] = "AR-15 Colt charging handle",
 	["displayName"] = "Colt",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6242,7 +6242,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_colt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_early"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_early"] = {
 	["fullName"] = "AR-15 Colt early type charging handle ",
 	["displayName"] = "AR-15 ET",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6262,7 +6262,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_early"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_gnr"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_gnr"] = {
 	["fullName"] = "AR-15 Daniel Defense GRIP-N-RIP charging handle",
 	["displayName"] = "GNR",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6282,7 +6282,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_gnr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_hkext"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_hkext"] = {
 	["fullName"] = "AR-15 HK Extended Latch charging handle",
 	["displayName"] = "Extended",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6302,7 +6302,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_hkext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_m84"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_m84"] = {
 	["fullName"] = "AR-15 Precision Reflex M84 Gas Buster Charging Handle",
 	["displayName"] = "M84 GB",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6322,7 +6322,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_m84"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_masp"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_masp"] = {
 	["fullName"] = "AR-15 MASP Industries Ambidextrous Battle Charging Handle",
 	["displayName"] = "MASP",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6342,7 +6342,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_masp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_mod2"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_mod2"] = {
 	["fullName"] = "AR-15 Rainier Arms Avalanche MOD2 charging handle",
 	["displayName"] = "MOD2",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6362,7 +6362,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_mod2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_raptor"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_raptor"] = {
 	["fullName"] = "AR-15 Radian Weapons Raptor charging handle",
 	["displayName"] = "Raptor",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6382,7 +6382,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_raptor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_raptor_g"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_raptor_g"] = {
 	["fullName"] = "AR-15 Radian Weapons Raptor charging handle (Gray)",
 	["displayName"] = "Raptor",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6402,7 +6402,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_raptor_g"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_charge_ar15_raptor_sd"] = {
+EFGM.ITEMS["arc9_att_eft_charge_ar15_raptor_sd"] = {
 	["fullName"] = "AR-15 Radian Weapons Raptor-SD charging handle",
 	["displayName"] = "Raptor-SD",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -6422,7 +6422,7 @@ EFGMITEMS["arc9_att_eft_charge_ar15_raptor_sd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dd_buttpad_14"] = {
+EFGM.ITEMS["arc9_att_eft_dd_buttpad_14"] = {
 	["fullName"] = "Daniel Defense TCS 12mm Buttpad",
 	["displayName"] = "TCS 12",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -6442,7 +6442,7 @@ EFGMITEMS["arc9_att_eft_dd_buttpad_14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dd_buttpad_20"] = {
+EFGM.ITEMS["arc9_att_eft_dd_buttpad_20"] = {
 	["fullName"] = "Daniel Defense TCS 20mm Buttpad",
 	["displayName"] = "TCS 20",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -6462,7 +6462,7 @@ EFGMITEMS["arc9_att_eft_dd_buttpad_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_barrel_std"] = {
 	["fullName"] = "DVL-10 M2 7.62x51 660mm barrel",
 	["displayName"] = "DVL-10 660mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -6482,7 +6482,7 @@ EFGMITEMS["arc9_att_eft_dvl10_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_barrel_sup"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_barrel_sup"] = {
 	["fullName"] = "DVL-10 7.62x51 500mm barrel",
 	["displayName"] = "DVL-10 500mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -6502,7 +6502,7 @@ EFGMITEMS["arc9_att_eft_dvl10_barrel_sup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_hg_std"] = {
 	["fullName"] = "DVL-10 M2 handguard",
 	["displayName"] = "DVL-10 HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -6522,7 +6522,7 @@ EFGMITEMS["arc9_att_eft_dvl10_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_mag_10"] = {
 	["fullName"] = "DVL-10 7.62x51 10-round magazine",
 	["displayName"] = "DVL-10 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -6542,7 +6542,7 @@ EFGMITEMS["arc9_att_eft_dvl10_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_muzzle_brake"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_muzzle_brake"] = {
 	["fullName"] = "DVL-10 M2 7.62x51 muzzle brake",
 	["displayName"] = "DVL-10 brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -6562,7 +6562,7 @@ EFGMITEMS["arc9_att_eft_dvl10_muzzle_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_muzzle_cap"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_muzzle_cap"] = {
 	["fullName"] = "DVL-10 7.62x51 muzzle device",
 	["displayName"] = "DVL-10 muzzle",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -6582,7 +6582,7 @@ EFGMITEMS["arc9_att_eft_dvl10_muzzle_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_dvl10_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_dvl10_stock_std"] = {
 	["fullName"] = "DVL-10 Lobaev Arms stock",
 	["displayName"] = "DVL-10 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -6602,7 +6602,7 @@ EFGMITEMS["arc9_att_eft_dvl10_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_etmi019"] = {
+EFGM.ITEMS["arc9_att_eft_etmi019"] = {
 	["fullName"] = "ETMI-019 shotgun rail mount",
 	["displayName"] = "ETMI-019",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -6622,7 +6622,7 @@ EFGMITEMS["arc9_att_eft_etmi019"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_afg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_afg"] = {
 	["fullName"] = "Magpul AFG tactical foregrip Black",
 	["displayName"] = "AFG BLK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6642,7 +6642,7 @@ EFGMITEMS["arc9_att_eft_foregrip_afg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_afg_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_afg_fde"] = {
 	["fullName"] = "Magpul AFG tactical foregrip Flat Dark Earth",
 	["displayName"] = "AFG FDE",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6662,7 +6662,7 @@ EFGMITEMS["arc9_att_eft_foregrip_afg_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_afg_fg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_afg_fg"] = {
 	["fullName"] = "Magpul AFG tactical foregrip Forest Green",
 	["displayName"] = "AFG FG",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6682,7 +6682,7 @@ EFGMITEMS["arc9_att_eft_foregrip_afg_fg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_afg_od"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_afg_od"] = {
 	["fullName"] = "Magpul AFG tactical foregrip Olive Drab",
 	["displayName"] = "AFG OD",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6702,7 +6702,7 @@ EFGMITEMS["arc9_att_eft_foregrip_afg_od"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_ash12"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_ash12"] = {
 	["fullName"] = "ASh-12 vertical foregrip",
 	["displayName"] = "ASh-12",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6722,7 +6722,7 @@ EFGMITEMS["arc9_att_eft_foregrip_ash12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_b25u"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_b25u"] = {
 	["fullName"] = "Zenit RK-1 tactical foregrip on B-25U mount",
 	["displayName"] = "B-25U RK-1",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6742,7 +6742,7 @@ EFGMITEMS["arc9_att_eft_foregrip_b25u"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bcm"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bcm"] = {
 	["fullName"] = "BCM GUNFIGHTER MOD 3 vertical foregrip",
 	["displayName"] = "MOD3",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6762,7 +6762,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bcm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv"] = {
 	["fullName"] = "TangoDown Stubby BGV-MK46K foregrip Black",
 	["displayName"] = "BGV-MK46K",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6782,7 +6782,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv_fde"] = {
 	["fullName"] = "TangoDown Stubby BGV-MK46K foregrip Flat Dark Earth",
 	["displayName"] = "BGV-MK46K",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6802,7 +6802,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv_qditi"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qditi"] = {
 	["fullName"] = "TangoDown Stubby BGV-QDITI foregrip",
 	["displayName"] = "BGV-QDITI",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6822,7 +6822,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv_qditi"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv_qditi_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qditi_fde"] = {
 	["fullName"] = "TangoDown Stubby BGV-QDITI foregrip (FDE)",
 	["displayName"] = "BGV-QDITI (FDE)",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6842,7 +6842,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv_qditi_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv_qdk"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qdk"] = {
 	["fullName"] = "TangoDown Stubby BGV-QDK foregrip (Black)",
 	["displayName"] = "BGV-QDK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6862,7 +6862,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv_qdk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv_qdk_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qdk_fde"] = {
 	["fullName"] = "TangoDown Stubby BGV-QDK foregrip (FDE)",
 	["displayName"] = "BGV-QDK (FDE)",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6882,7 +6882,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv_qdk_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_bgv_sg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_bgv_sg"] = {
 	["fullName"] = "TangoDown Stubby BGV-MK46K foregrip Stealth Gray",
 	["displayName"] = "BGV-MK46K",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6902,7 +6902,7 @@ EFGMITEMS["arc9_att_eft_foregrip_bgv_sg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_cobra"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_cobra"] = {
 	["fullName"] = "Strike Industries Cobra Tactical foregrip",
 	["displayName"] = "Cobra",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6922,7 +6922,7 @@ EFGMITEMS["arc9_att_eft_foregrip_cobra"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_cqr"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_cqr"] = {
 	["fullName"] = "Hera Arms CQR tactical foregrip",
 	["displayName"] = "CQR",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6942,7 +6942,7 @@ EFGMITEMS["arc9_att_eft_foregrip_cqr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_fortis"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_fortis"] = {
 	["fullName"] = "Fortis Shift tactical foregrip",
 	["displayName"] = "Shift",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6962,7 +6962,7 @@ EFGMITEMS["arc9_att_eft_foregrip_fortis"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_kac"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_kac"] = {
 	["fullName"] = "KAC vertical foregrip",
 	["displayName"] = "KAC VFG",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -6982,7 +6982,7 @@ EFGMITEMS["arc9_att_eft_foregrip_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_keymod_monstrum"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_keymod_monstrum"] = {
 	["fullName"] = "Monstrum Tactical Vertical Fore Grip KeyMod",
 	["displayName"] = "MT VFG",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7002,7 +7002,7 @@ EFGMITEMS["arc9_att_eft_foregrip_keymod_monstrum"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_keymod_mvf"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_keymod_mvf"] = {
 	["fullName"] = "A3 Tactical MVF001 KeyMod vertical foregrip (Black)",
 	["displayName"] = "MVF001 A3",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7022,7 +7022,7 @@ EFGMITEMS["arc9_att_eft_foregrip_keymod_mvf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_keymod_sig"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_keymod_sig"] = {
 	["fullName"] = "SIG Sauer Vertical Foregrip KeyMod (Black)",
 	["displayName"] = "SSVFK blk.",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7042,7 +7042,7 @@ EFGMITEMS["arc9_att_eft_foregrip_keymod_sig"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_afg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg"] = {
 	["fullName"] = "Magpul M-LOK AFG tactical foregrip (Black)",
 	["displayName"] = "AFG M-LOK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7062,7 +7062,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_afg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_afg_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg_fde"] = {
 	["fullName"] = "Magpul M-LOK AFG tactical foregrip (Flat Dark Earth)",
 	["displayName"] = "AFG M-LOK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7082,7 +7082,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_afg_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_afg_od"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg_od"] = {
 	["fullName"] = "Magpul M-LOK AFG tactical foregrip (Olive Drab)",
 	["displayName"] = "AFG M-LOK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7102,7 +7102,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_afg_od"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_afg_sg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg_sg"] = {
 	["fullName"] = "Magpul M-LOK AFG tactical foregrip (Stealth Gray)",
 	["displayName"] = "AFG M-LOK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7122,7 +7122,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_afg_sg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_dd"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_dd"] = {
 	["fullName"] = "Daniel Defense Enhanced M-LOK Vertical Foregrip (Black)",
 	["displayName"] = "DD M-LOK",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7142,7 +7142,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_dd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_dd_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_dd_fde"] = {
 	["fullName"] = "Daniel Defense Enhanced M-LOK Vertical Foregrip (Coyote Brown)",
 	["displayName"] = "DD M-LOK (C)",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7162,7 +7162,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_dd_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_mod3"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_mod3"] = {
 	["fullName"] = "BCM GUNFIGHTER MOD 3 M-LOK foregrip",
 	["displayName"] = "MOD 3",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7182,7 +7182,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_mod3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_mlok_mod3f"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_mlok_mod3f"] = {
 	["fullName"] = "BCM GUNFIGHTER MOD 3 M-LOK foregrip (FDE)",
 	["displayName"] = "MOD 3",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7202,7 +7202,7 @@ EFGMITEMS["arc9_att_eft_foregrip_mlok_mod3f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rk0"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rk0"] = {
 	["fullName"] = "Zenit RK-0 tactical foregrip",
 	["displayName"] = "RK-0",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7222,7 +7222,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rk0"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rk1"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rk1"] = {
 	["fullName"] = "Zenit RK-1 tactical foregrip",
 	["displayName"] = "RK-1",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7242,7 +7242,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rk1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rk2"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rk2"] = {
 	["fullName"] = "Zenit RK-2 tactical foregrip",
 	["displayName"] = "RK-2",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7262,7 +7262,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rk2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rk4"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rk4"] = {
 	["fullName"] = "Zenit RK-4 tactical foregrip",
 	["displayName"] = "RK-4",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7282,7 +7282,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rk4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rk5"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rk5"] = {
 	["fullName"] = "Zenit RK-5 tactical foregrip",
 	["displayName"] = "RK-5",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7302,7 +7302,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rk5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rk6"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rk6"] = {
 	["fullName"] = "Zenit RK-6 tactical foregrip",
 	["displayName"] = "RK-6",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7322,7 +7322,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rk6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rtm"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rtm"] = {
 	["fullName"] = "RTM Pillau tactical foregrip",
 	["displayName"] = "Pillau",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7342,7 +7342,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rtm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rtm_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rtm_fde"] = {
 	["fullName"] = "RTM Pillau tactical foregrip (Sand)",
 	["displayName"] = "Pillau (Sand)",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7362,7 +7362,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rtm_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rtm_oso"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rtm_oso"] = {
 	["fullName"] = "RTM Osovets P-2 tactical foregrip",
 	["displayName"] = "Osovets",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7382,7 +7382,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rtm_oso"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rtm_oso_khaki"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rtm_oso_khaki"] = {
 	["fullName"] = "RTM Osovets P-2 tactical foregrip (Khaki)",
 	["displayName"] = "Osovets (K)",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7402,7 +7402,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rtm_oso_khaki"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rtm_p2"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rtm_p2"] = {
 	["fullName"] = "RTM Pillau P-2 tactical foregrip",
 	["displayName"] = "P-2",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7422,7 +7422,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rtm_p2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rtm_p2_blk"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rtm_p2_blk"] = {
 	["fullName"] = "RTM Pillau P-2 tactical foregrip",
 	["displayName"] = "P-2",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7442,7 +7442,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rtm_p2_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rvg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rvg"] = {
 	["fullName"] = "Magpul RVG foregrip Black",
 	["displayName"] = "RVG blk.",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7462,7 +7462,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rvg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_rvg_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_rvg_fde"] = {
 	["fullName"] = "Magpul RVG foregrip Flat Dark Earth",
 	["displayName"] = "RVG FDE",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7482,7 +7482,7 @@ EFGMITEMS["arc9_att_eft_foregrip_rvg_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_se5"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_se5"] = {
 	["fullName"] = "Stark SE-5 Express Forward foregrip",
 	["displayName"] = "SE-5",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7502,7 +7502,7 @@ EFGMITEMS["arc9_att_eft_foregrip_se5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_se5_fde"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_se5_fde"] = {
 	["fullName"] = "Stark SE-5 Express Forward foregrip (FDE)",
 	["displayName"] = "SE-5 (FDE)",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7522,7 +7522,7 @@ EFGMITEMS["arc9_att_eft_foregrip_se5_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_sturm"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_sturm"] = {
 	["fullName"] = "HK Sturmgriff foregrip",
 	["displayName"] = "Sturmgriff",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7542,7 +7542,7 @@ EFGMITEMS["arc9_att_eft_foregrip_sturm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_sturm_blk"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_sturm_blk"] = {
 	["fullName"] = "HK Sturmgriff foregrip",
 	["displayName"] = "Sturmgriff",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7562,7 +7562,7 @@ EFGMITEMS["arc9_att_eft_foregrip_sturm_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_td"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_td"] = {
 	["fullName"] = "Tactical Dynamics Skeletonized Foregrip",
 	["displayName"] = "TD",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7582,7 +7582,7 @@ EFGMITEMS["arc9_att_eft_foregrip_td"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_foregrip_uvg"] = {
+EFGM.ITEMS["arc9_att_eft_foregrip_uvg"] = {
 	["fullName"] = "Viking Tactics UVG tactical foregrip",
 	["displayName"] = "UVG",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -7602,7 +7602,7 @@ EFGMITEMS["arc9_att_eft_foregrip_uvg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_a2"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_a2"] = {
 	["fullName"] = "AR-15 Leapers UTG Low Profile A2 front sight",
 	["displayName"] = "LPA2F",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7622,7 +7622,7 @@ EFGMITEMS["arc9_att_eft_frontsight_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_kac"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_kac"] = {
 	["fullName"] = "KAC Folding front sight",
 	["displayName"] = "KAC",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7642,7 +7642,7 @@ EFGMITEMS["arc9_att_eft_frontsight_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_kacmicro"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_kacmicro"] = {
 	["fullName"] = "KAC Folding Micro front sight",
 	["displayName"] = "KAC Micro",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7662,7 +7662,7 @@ EFGMITEMS["arc9_att_eft_frontsight_kacmicro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_kriss_defiance"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_kriss_defiance"] = {
 	["fullName"] = "KRISS Defiance low profile flip-up front sight",
 	["displayName"] = "Defiance",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7682,7 +7682,7 @@ EFGMITEMS["arc9_att_eft_frontsight_kriss_defiance"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_mbus"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_mbus"] = {
 	["fullName"] = "Magpul MBUS Gen2 flip-up front sight",
 	["displayName"] = "MBUS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7702,7 +7702,7 @@ EFGMITEMS["arc9_att_eft_frontsight_mbus"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_mbus_fde"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_mbus_fde"] = {
 	["fullName"] = "Magpul MBUS Gen2 flip-up front sight FDE",
 	["displayName"] = "MBUS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7722,7 +7722,7 @@ EFGMITEMS["arc9_att_eft_frontsight_mbus_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_mcx"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_mcx"] = {
 	["fullName"] = "MCX flip-up front sight",
 	["displayName"] = "MCX",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7742,7 +7742,7 @@ EFGMITEMS["arc9_att_eft_frontsight_mcx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_mp7"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_mp7"] = {
 	["fullName"] = "HK MP7 flip-up front sight",
 	["displayName"] = "MP7",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7762,7 +7762,7 @@ EFGMITEMS["arc9_att_eft_frontsight_mp7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_frontsight_mpx"] = {
+EFGM.ITEMS["arc9_att_eft_frontsight_mpx"] = {
 	["fullName"] = "MPX flip-up front sight",
 	["displayName"] = "MPX",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7782,7 +7782,7 @@ EFGMITEMS["arc9_att_eft_frontsight_mpx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_1911_m45"] = {
+EFGM.ITEMS["arc9_att_eft_fs_1911_m45"] = {
 	["fullName"] = "M45A1 Novak Lomount front sight",
 	["displayName"] = "M45 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7802,7 +7802,7 @@ EFGMITEMS["arc9_att_eft_fs_1911_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_1911_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_1911_std"] = {
 	["fullName"] = "M1911A1 front sight",
 	["displayName"] = "1911 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7822,7 +7822,7 @@ EFGMITEMS["arc9_att_eft_fs_1911_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_ak_akmp"] = {
+EFGM.ITEMS["arc9_att_eft_fs_ak_akmp"] = {
 	["fullName"] = "AKMP system front sight device",
 	["displayName"] = "AKMP FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7842,7 +7842,7 @@ EFGMITEMS["arc9_att_eft_fs_ak_akmp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_deagle_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_deagle_std"] = {
 	["fullName"] = "Desert Eagle front sight",
 	["displayName"] = "DE FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7862,7 +7862,7 @@ EFGMITEMS["arc9_att_eft_fs_deagle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_g17_se"] = {
+EFGM.ITEMS["arc9_att_eft_fs_g17_se"] = {
 	["fullName"] = "Glock Dead Ringer Snake Eye front sight",
 	["displayName"] = "G SE FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7882,7 +7882,7 @@ EFGMITEMS["arc9_att_eft_fs_g17_se"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_g17_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_g17_std"] = {
 	["fullName"] = "Glock front sight",
 	["displayName"] = "Glock FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7902,7 +7902,7 @@ EFGMITEMS["arc9_att_eft_fs_g17_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_g17_tfx"] = {
+EFGM.ITEMS["arc9_att_eft_fs_g17_tfx"] = {
 	["fullName"] = "Glock TruGlo TFX front sight",
 	["displayName"] = "G TFX FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7922,7 +7922,7 @@ EFGMITEMS["arc9_att_eft_fs_g17_tfx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_g17_zt"] = {
+EFGM.ITEMS["arc9_att_eft_fs_g17_zt"] = {
 	["fullName"] = "Glock ZEV Tech front sight",
 	["displayName"] = "G ZT FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7942,7 +7942,7 @@ EFGMITEMS["arc9_att_eft_fs_g17_zt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_g19x_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_g19x_std"] = {
 	["fullName"] = "Glock 19X front sight",
 	["displayName"] = "G19X FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7962,7 +7962,7 @@ EFGMITEMS["arc9_att_eft_fs_g19x_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_m9a3_std"] = {
 	["fullName"] = "M9A3 front sight",
 	["displayName"] = "M9A3 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -7982,7 +7982,7 @@ EFGMITEMS["arc9_att_eft_fs_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_p226_merp"] = {
+EFGM.ITEMS["arc9_att_eft_fs_p226_merp"] = {
 	["fullName"] = "P226 Meprolight TRU-DOT Night front sight",
 	["displayName"] = "P226 TRU-DOT",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8002,7 +8002,7 @@ EFGMITEMS["arc9_att_eft_fs_p226_merp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_p226_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_p226_std"] = {
 	["fullName"] = "P226 front sight",
 	["displayName"] = "P226 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8022,7 +8022,7 @@ EFGMITEMS["arc9_att_eft_fs_p226_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_pl15_long"] = {
+EFGM.ITEMS["arc9_att_eft_fs_pl15_long"] = {
 	["fullName"] = "PL-15 extended front sight",
 	["displayName"] = "PL-15 FS ext",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8042,7 +8042,7 @@ EFGMITEMS["arc9_att_eft_fs_pl15_long"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_pl15_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_pl15_std"] = {
 	["fullName"] = "PL-15 front sight",
 	["displayName"] = "PL-15 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8062,7 +8062,7 @@ EFGMITEMS["arc9_att_eft_fs_pl15_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_usp_std"] = {
+EFGM.ITEMS["arc9_att_eft_fs_usp_std"] = {
 	["fullName"] = "HK USP front sight",
 	["displayName"] = "USP FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8082,7 +8082,7 @@ EFGMITEMS["arc9_att_eft_fs_usp_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_fs_usp_tac"] = {
+EFGM.ITEMS["arc9_att_eft_fs_usp_tac"] = {
 	["fullName"] = "HK USP Tactical front sight",
 	["displayName"] = "USPT FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8102,7 +8102,7 @@ EFGMITEMS["arc9_att_eft_fs_usp_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_barrel_std"] = {
 	["fullName"] = "HK417 7.62x51 16.5 inch barrel",
 	["displayName"] = 'HK417 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -8122,7 +8122,7 @@ EFGMITEMS["arc9_att_eft_g28_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_buffer_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_buffer_std"] = {
 	["fullName"] = "HK G28 buffer tube",
 	["displayName"] = "G28",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8142,7 +8142,7 @@ EFGMITEMS["arc9_att_eft_g28_buffer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_charge_std"] = {
 	["fullName"] = "HK417 E1 extended charging handle",
 	["displayName"] = "HK417",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -8162,7 +8162,7 @@ EFGMITEMS["arc9_att_eft_g28_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_gas_std"] = {
 	["fullName"] = "HK417 low profile gas block",
 	["displayName"] = "HK417",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -8182,7 +8182,7 @@ EFGMITEMS["arc9_att_eft_g28_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_hg_ext"] = {
+EFGM.ITEMS["arc9_att_eft_g28_hg_ext"] = {
 	["fullName"] = "HK417 Extended Free Float handguard with flip-up front sight",
 	["displayName"] = "HK417 Ext",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8202,7 +8202,7 @@ EFGMITEMS["arc9_att_eft_g28_hg_ext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_hg_std"] = {
 	["fullName"] = "HK417 Patrol handguard with flip-up front sight",
 	["displayName"] = "HK417",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8222,7 +8222,7 @@ EFGMITEMS["arc9_att_eft_g28_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_g28_mag_10"] = {
 	["fullName"] = "HK417/G28 7.62x51 10-round magazine",
 	["displayName"] = "G28 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -8242,7 +8242,7 @@ EFGMITEMS["arc9_att_eft_g28_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_g28_mag_20"] = {
 	["fullName"] = "HK417/G28 7.62x51 20-round magazine",
 	["displayName"] = "G28 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -8262,7 +8262,7 @@ EFGMITEMS["arc9_att_eft_g28_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_g28_mag_30"] = {
 	["fullName"] = "HK G36 5.56x45 30-round magazine",
 	["displayName"] = "G36 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -8282,7 +8282,7 @@ EFGMITEMS["arc9_att_eft_g28_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_muzzle_std"] = {
 	["fullName"] = "HK Prolonged 7.62x51 flash hider",
 	["displayName"] = "HK Prolonged",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -8302,7 +8302,7 @@ EFGMITEMS["arc9_att_eft_g28_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_silencer_blk"] = {
+EFGM.ITEMS["arc9_att_eft_g28_silencer_blk"] = {
 	["fullName"] = "HK G28 B&T QD 7.62x51 sound suppressor",
 	["displayName"] = "B&T QD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -8322,7 +8322,7 @@ EFGMITEMS["arc9_att_eft_g28_silencer_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_silencer_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_silencer_std"] = {
 	["fullName"] = "HK G28 B&T QD 7.62x51 sound suppressor",
 	["displayName"] = "B&T QD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -8342,7 +8342,7 @@ EFGMITEMS["arc9_att_eft_g28_silencer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_stock_adj"] = {
+EFGM.ITEMS["arc9_att_eft_g28_stock_adj"] = {
 	["fullName"] = "HK417 Adjustable Buttstock",
 	["displayName"] = "HK417 Adj.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8362,7 +8362,7 @@ EFGMITEMS["arc9_att_eft_g28_stock_adj"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_stock_cheek"] = {
+EFGM.ITEMS["arc9_att_eft_g28_stock_cheek"] = {
 	["fullName"] = "HK Adjustable Buttstock cheek rest",
 	["displayName"] = "HK cheek",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8382,7 +8382,7 @@ EFGMITEMS["arc9_att_eft_g28_stock_cheek"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_stock_e2"] = {
+EFGM.ITEMS["arc9_att_eft_g28_stock_e2"] = {
 	["fullName"] = "HK417 E2 buttstock",
 	["displayName"] = "HK417 E2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8402,7 +8402,7 @@ EFGMITEMS["arc9_att_eft_g28_stock_e2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g28_upper_std"] = {
+EFGM.ITEMS["arc9_att_eft_g28_upper_std"] = {
 	["fullName"] = "HK G28 7.62x51 upper receiver",
 	["displayName"] = "G28",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -8422,7 +8422,7 @@ EFGMITEMS["arc9_att_eft_g28_upper_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_barrel_228"] = {
+EFGM.ITEMS["arc9_att_eft_g36_barrel_228"] = {
 	["fullName"] = "HK G36 5.56x45 228mm barrel",
 	["displayName"] = "G36 228mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -8442,7 +8442,7 @@ EFGMITEMS["arc9_att_eft_g36_barrel_228"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_barrel_318"] = {
+EFGM.ITEMS["arc9_att_eft_g36_barrel_318"] = {
 	["fullName"] = "HK G36 5.56x45 318mm barrel",
 	["displayName"] = "G36 318mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -8462,7 +8462,7 @@ EFGMITEMS["arc9_att_eft_g36_barrel_318"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_barrel_480"] = {
+EFGM.ITEMS["arc9_att_eft_g36_barrel_480"] = {
 	["fullName"] = "HK G36 5.56x45 480mm barrel",
 	["displayName"] = "G36 480mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -8482,7 +8482,7 @@ EFGMITEMS["arc9_att_eft_g36_barrel_480"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_fs_std"] = {
 	["fullName"] = "HK G36 front sight",
 	["displayName"] = "G36 fs",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8502,7 +8502,7 @@ EFGMITEMS["arc9_att_eft_g36_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_gas_std"] = {
 	["fullName"] = "HK G36 gas block",
 	["displayName"] = "G36 block",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -8522,7 +8522,7 @@ EFGMITEMS["arc9_att_eft_g36_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hensoldt_rail"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hensoldt_rail"] = {
 	["fullName"] = "Hensoldt RIS top rail",
 	["displayName"] = "HKV RIS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -8542,7 +8542,7 @@ EFGMITEMS["arc9_att_eft_g36_hensoldt_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hensoldt_sight"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hensoldt_sight"] = {
 	["fullName"] = "Hensoldt RV red dot sight",
 	["displayName"] = "RV",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -8562,7 +8562,7 @@ EFGMITEMS["arc9_att_eft_g36_hensoldt_sight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_2"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_2"] = {
 	["fullName"] = "HK G36 2-vent handguard",
 	["displayName"] = "G36 2-vent",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8582,7 +8582,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_4"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_4"] = {
 	["fullName"] = "HK G36 4-vent handguard",
 	["displayName"] = "G36 4-vent",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8602,7 +8602,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_6"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_6"] = {
 	["fullName"] = "HK G36 6-vent handguard",
 	["displayName"] = "G36 6-vent",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8622,7 +8622,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_bipod"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_bipod"] = {
 	["fullName"] = "HK G36 bipod",
 	["displayName"] = "G36 bipod",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -8642,7 +8642,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_bipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_handstop"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_handstop"] = {
 	["fullName"] = "HK G36 hand stop",
 	["displayName"] = "G36 HS",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -8662,7 +8662,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_handstop"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_mount_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_mount_bottom"] = {
 	["fullName"] = "HK G36 bottom handguard rail",
 	["displayName"] = "G36 bott.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -8682,7 +8682,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_mount_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_mount_side"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_mount_side"] = {
 	["fullName"] = "HK G36 side handguard rail",
 	["displayName"] = "G36 side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -8702,7 +8702,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_mount_side"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_quad"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_quad"] = {
 	["fullName"] = "HK G36 KAC Quad Rail handguard",
 	["displayName"] = "G36 KAC Quad",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8722,7 +8722,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_quad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_hg_slim"] = {
+EFGM.ITEMS["arc9_att_eft_g36_hg_slim"] = {
 	["fullName"] = "HK G36 Slim Line HKey Handguard",
 	["displayName"] = "G36 Slim",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -8742,7 +8742,7 @@ EFGMITEMS["arc9_att_eft_g36_hg_slim"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_magwell_stanag"] = {
+EFGM.ITEMS["arc9_att_eft_g36_magwell_stanag"] = {
 	["fullName"] = "HK G36 STANAG magwell",
 	["displayName"] = "G36 NATO",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -8762,7 +8762,7 @@ EFGMITEMS["arc9_att_eft_g36_magwell_stanag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_magwell_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_magwell_std"] = {
 	["fullName"] = "HK G36 magwell",
 	["displayName"] = "G36 std",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -8782,7 +8782,7 @@ EFGMITEMS["arc9_att_eft_g36_magwell_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_muzzle_4"] = {
+EFGM.ITEMS["arc9_att_eft_g36_muzzle_4"] = {
 	["fullName"] = "HK G36 5.56x45 4-prong flash hider",
 	["displayName"] = "G36 long",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -8802,7 +8802,7 @@ EFGMITEMS["arc9_att_eft_g36_muzzle_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_muzzle_c"] = {
+EFGM.ITEMS["arc9_att_eft_g36_muzzle_c"] = {
 	["fullName"] = "HK G36C 5.56x45 4-prong flash hider",
 	["displayName"] = "G36C shor",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -8822,7 +8822,7 @@ EFGMITEMS["arc9_att_eft_g36_muzzle_c"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_muzzle_std"] = {
 	["fullName"] = "HK G36 5.56x45 flash hider",
 	["displayName"] = "G36 std",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -8842,7 +8842,7 @@ EFGMITEMS["arc9_att_eft_g36_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_rs_std"] = {
 	["fullName"] = "HK G36 rear sight",
 	["displayName"] = "G36 rs",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -8862,7 +8862,7 @@ EFGMITEMS["arc9_att_eft_g36_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_stock_buffer"] = {
+EFGM.ITEMS["arc9_att_eft_g36_stock_buffer"] = {
 	["fullName"] = "HK G36 Tommy Built AR Stock Adapter",
 	["displayName"] = "Tommy AR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8882,7 +8882,7 @@ EFGMITEMS["arc9_att_eft_g36_stock_buffer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_stock_idz"] = {
+EFGM.ITEMS["arc9_att_eft_g36_stock_idz"] = {
 	["fullName"] = "HK G36 IDZ adjustable stock",
 	["displayName"] = "G36 IDZ",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8902,7 +8902,7 @@ EFGMITEMS["arc9_att_eft_g36_stock_idz"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_stock_idz_butt_cave"] = {
+EFGM.ITEMS["arc9_att_eft_g36_stock_idz_butt_cave"] = {
 	["fullName"] = "HK G36 IDZ Concave Buttpad",
 	["displayName"] = "IDZ Concave",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8922,7 +8922,7 @@ EFGMITEMS["arc9_att_eft_g36_stock_idz_butt_cave"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_stock_idz_butt_vex"] = {
+EFGM.ITEMS["arc9_att_eft_g36_stock_idz_butt_vex"] = {
 	["fullName"] = "HK G36 IDZ Convex Buttpad",
 	["displayName"] = "IDZ Convex",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8942,7 +8942,7 @@ EFGMITEMS["arc9_att_eft_g36_stock_idz_butt_vex"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_stock_kv"] = {
+EFGM.ITEMS["arc9_att_eft_g36_stock_kv"] = {
 	["fullName"] = "HK G36 KV adjustable stock",
 	["displayName"] = "G36 KV",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8962,7 +8962,7 @@ EFGMITEMS["arc9_att_eft_g36_stock_kv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_stock_std"] = {
 	["fullName"] = "HK G36 polymer stock",
 	["displayName"] = "G36",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -8982,7 +8982,7 @@ EFGMITEMS["arc9_att_eft_g36_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_top_15x"] = {
+EFGM.ITEMS["arc9_att_eft_g36_top_15x"] = {
 	["fullName"] = "HK G36 Hensoldt HKV ZF 1.5x carry handle",
 	["displayName"] = "HKV 1.5x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -9002,7 +9002,7 @@ EFGMITEMS["arc9_att_eft_g36_top_15x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_top_3x"] = {
+EFGM.ITEMS["arc9_att_eft_g36_top_3x"] = {
 	["fullName"] = "HK G36 Hensoldt HKV 3x carry handle",
 	["displayName"] = "HKV 3x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -9022,7 +9022,7 @@ EFGMITEMS["arc9_att_eft_g36_top_3x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_top_flip"] = {
+EFGM.ITEMS["arc9_att_eft_g36_top_flip"] = {
 	["fullName"] = "HK G36 optic rail with flip-up sights",
 	["displayName"] = "G36 flip-up",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -9042,7 +9042,7 @@ EFGMITEMS["arc9_att_eft_g36_top_flip"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_g36_top_std"] = {
+EFGM.ITEMS["arc9_att_eft_g36_top_std"] = {
 	["fullName"] = "HK G36 sight mount",
 	["displayName"] = "G36",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -9062,7 +9062,7 @@ EFGMITEMS["arc9_att_eft_g36_top_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_6p1"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_6p1"] = {
 	["fullName"] = "AKM gas tube (6P1 Sb.1-2)",
 	["displayName"] = "6P1 Sb.1-2",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9082,7 +9082,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_6p1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_6p20"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_6p20"] = {
 	["fullName"] = "AK-74 gas tube (6P20 Sb.1-2)",
 	["displayName"] = "6P20 Sb.1-2",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9102,7 +9102,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_6p20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_m1b"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_m1b"] = {
 	["fullName"] = "AK UltiMAK M1-B gas tube & handguard",
 	["displayName"] = "M1-B",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -9122,7 +9122,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_m1b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_molot"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_molot"] = {
 	["fullName"] = "Molot AKM-type gas tube",
 	["displayName"] = "Molot",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9142,7 +9142,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_molot"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_troy"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_troy"] = {
 	["fullName"] = "AK TROY Full Length Rail handguard & gas tube combo",
 	["displayName"] = "TROY FLR",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -9162,7 +9162,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_troy"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_vdmcs"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_vdmcs"] = {
 	["fullName"] = "AK Kiba Arms VDM CS gas tube",
 	["displayName"] = "VDM CS",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9182,7 +9182,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_vdmcs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_vs24vs33"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_vs24vs33"] = {
 	["fullName"] = "AK Vezhlivyy Strelok VS-24 + VS-33c handguard & gas tube combo",
 	["displayName"] = "VS Combo",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -9202,7 +9202,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_vs24vs33"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ak_vs24vs33_w"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ak_vs24vs33_w"] = {
 	["fullName"] = "AK Vezhlivyy Strelok VS-24 + VS-33c handguard & gas tube combo (White)",
 	["displayName"] = "VS Combo (W)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -9223,7 +9223,7 @@ EFGMITEMS["arc9_att_eft_gas_ak_vs24vs33_w"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_jp"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_jp"] = {
 	["fullName"] = "AR-15 JP Enterprises Gas System-5B",
 	["displayName"] = "GS-5B",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9243,7 +9243,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_jp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_lopro"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_lopro"] = {
 	["fullName"] = "AR-15 Ballistic Advantage Lo-Pro Gas Block",
 	["displayName"] = "Lo-Pro",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9263,7 +9263,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_lopro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_m4fs"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_m4fs"] = {
 	["fullName"] = "M4A1 front sight with gas block",
 	["displayName"] = "M4 FS",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9283,7 +9283,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_m4fs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_mk12"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_mk12"] = {
 	["fullName"] = "AR-15 Daniel Defense MK12 Low Profile Gas Block",
 	["displayName"] = "MK12",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9303,7 +9303,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_mk12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_mk12g1"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_mk12g1"] = {
 	["fullName"] = "AR-15 Precision Reflex Mk12 Gen.1 Flip-Up Front Sight Gas Block",
 	["displayName"] = "Mk12 Gen.1",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9323,7 +9323,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_mk12g1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_rg"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_rg"] = {
 	["fullName"] = "AR-15 Windham Weaponry Rail Gas Block",
 	["displayName"] = "RGBlock",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9343,7 +9343,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_rg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_ar15_sentry7"] = {
+EFGM.ITEMS["arc9_att_eft_gas_ar15_sentry7"] = {
 	["fullName"] = "AR-15 SLR Rifleworks Sentry 7 gas block",
 	["displayName"] = "Sentry 7",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9363,7 +9363,7 @@ EFGMITEMS["arc9_att_eft_gas_ar15_sentry7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_hk416_std"] = {
+EFGM.ITEMS["arc9_att_eft_gas_hk416_std"] = {
 	["fullName"] = "HK 416A5 low profile gas block",
 	["displayName"] = "416A5",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -9383,7 +9383,7 @@ EFGMITEMS["arc9_att_eft_gas_hk416_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gas_rd704_ionlite"] = {
+EFGM.ITEMS["arc9_att_eft_gas_rd704_ionlite"] = {
 	["fullName"] = "RD-704 SLR ION Lite + Railed Gas Tube handguard & gas tube combo",
 	["displayName"] = 'ION Lite 9"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -9403,7 +9403,7 @@ EFGMITEMS["arc9_att_eft_gas_rd704_ionlite"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_gp25"] = {
+EFGM.ITEMS["arc9_att_eft_gp25"] = {
 	["fullName"] = 'GP-25 "Kostyor" 40x53mm underbarrel grenade launcher',
 	["displayName"] = "GP-25",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -9423,7 +9423,7 @@ EFGMITEMS["arc9_att_eft_gp25"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_6p1sb8"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_6p1sb8"] = {
 	["fullName"] = "AK polymer pistol grip (6P1 Sb.8)",
 	["displayName"] = "6P1 Sb.8",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9443,7 +9443,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_6p1sb8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_6p1sb8v"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_6p1sb8v"] = {
 	["fullName"] = "AK bakelite pistol grip (6P1 Sb.8V)",
 	["displayName"] = "6P1 Sb.8v",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9463,7 +9463,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_6p1sb8v"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_6p4sb9"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_6p4sb9"] = {
 	["fullName"] = "AK bakelite pistol grip (6P4 Sb.9)",
 	["displayName"] = "6P4 Sb.9",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9483,7 +9483,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_6p4sb9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_aeroknox"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_aeroknox"] = {
 	["fullName"] = "AK Aeroknox Scorpius pistol grip",
 	["displayName"] = "Scorpius",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9503,7 +9503,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_aeroknox"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_agr47"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_agr47"] = {
 	["fullName"] = "AK FAB Defense AGR-47 pistol grip",
 	["displayName"] = "AGR47",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9523,7 +9523,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_agr47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_agr47_blk"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_agr47_blk"] = {
 	["fullName"] = "AK FAB Defense AGR-47 pistol grip",
 	["displayName"] = "AGR47",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9543,7 +9543,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_agr47_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_ags74"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_ags74"] = {
 	["fullName"] = "AK Custom Arms AGS-74 PRO + Sniper Kit pistol grip",
 	["displayName"] = "AGS-74",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9563,7 +9563,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_ags74"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_ak12"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_ak12"] = {
 	["fullName"] = "AK-12 pistol grip",
 	["displayName"] = "AK-12",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9583,7 +9583,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_ak12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_ak_b"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_ak_b"] = {
 	["fullName"] = "AK bakelite pistol grip",
 	["displayName"] = "Bakelite",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9603,7 +9603,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_ak_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_akepg"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_akepg"] = {
 	["fullName"] = "AK Strike Industries Enhanced Pistol Grip (Black)",
 	["displayName"] = "AK-EPG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9623,7 +9623,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_akepg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_akepg_fde"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_akepg_fde"] = {
 	["fullName"] = "AK Strike Industries Enhanced Pistol Grip (FDE)",
 	["displayName"] = "AK-EPG (FDE)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9643,7 +9643,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_akepg_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_akm_b"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_akm_b"] = {
 	["fullName"] = "AKM bakelite pistol grip",
 	["displayName"] = "AKM Bak.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9663,7 +9663,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_akm_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_akm_w"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_akm_w"] = {
 	["fullName"] = "AKM wooden pistol grip",
 	["displayName"] = "AKM Wood",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9683,7 +9683,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_akm_w"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_cg101"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_cg101"] = {
 	["fullName"] = "AK CG101 AR-type pistol grip adapter",
 	["displayName"] = "CG101",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9703,7 +9703,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_cg101"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_cqr47"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_cqr47"] = {
 	["fullName"] = "AKM/AK-74 Hera Arms CQR47 pistol grip/buttstock",
 	["displayName"] = "CQR47",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -9723,7 +9723,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_cqr47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_mft"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_mft"] = {
 	["fullName"] = "AK Mission First Tactical ENGAGE AK47 pistol grip",
 	["displayName"] = "MFT47",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9743,7 +9743,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_mft"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_mg47"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_mg47"] = {
 	["fullName"] = "AK KGB MG-47 pistol grip",
 	["displayName"] = "MG-47",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9763,7 +9763,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_mg47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_mg47_ar"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_mg47_ar"] = {
 	["fullName"] = "AK KGB MG-47 pistol grip (Anodized Red)",
 	["displayName"] = "MG-47 (AR)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9783,7 +9783,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_mg47_ar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_mg47_blk"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_mg47_blk"] = {
 	["fullName"] = "AK KGB MG-47 pistol grip (Black)",
 	["displayName"] = "MG-47 (BLK)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9803,7 +9803,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_mg47_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_moe"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_moe"] = {
 	["fullName"] = "AK Magpul MOE pistol grip (Black)",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9823,7 +9823,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_pp19"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_pp19"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" pistol grip',
 	["displayName"] = "PP-19-01",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9843,7 +9843,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_pp19"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_puf"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_puf"] = {
 	["fullName"] = "AK PUFGUN SG-M2 pistol grip",
 	["displayName"] = "SG-M2",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9863,7 +9863,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_puf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_rk3"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_rk3"] = {
 	["fullName"] = "AK Zenit RK-3 pistol grip",
 	["displayName"] = "RK-3",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9883,7 +9883,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_rk3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_tangodown"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_tangodown"] = {
 	["fullName"] = "AK TangoDown Battle Grip pistol grip",
 	["displayName"] = "TD BG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9903,7 +9903,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_tangodown"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_tangodown_fde"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_tangodown_fde"] = {
 	["fullName"] = "AK TangoDown Battle Grip pistol grip (FDE)",
 	["displayName"] = "TD BG (FDE)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9923,7 +9923,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_tangodown_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_tapco_saw"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_tapco_saw"] = {
 	["fullName"] = "AK TAPCO SAW-Style pistol grip (Black)",
 	["displayName"] = "TAPCO SAW",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9943,7 +9943,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_tapco_saw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_tapco_saw_fde"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_tapco_saw_fde"] = {
 	["fullName"] = "AK TAPCO SAW-Style pistol grip (FDE)",
 	["displayName"] = "TAPCO SAW (FDE)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9963,7 +9963,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_tapco_saw_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_ak_us_palm"] = {
+EFGM.ITEMS["arc9_att_eft_grip_ak_us_palm"] = {
 	["fullName"] = "AK US Palm pistol grip",
 	["displayName"] = "US Palm",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -9983,7 +9983,7 @@ EFGMITEMS["arc9_att_eft_grip_ak_us_palm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_grip_m9a3_std"] = {
 	["fullName"] = "M9A3 polymer side grips",
 	["displayName"] = "M9A3",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10003,7 +10003,7 @@ EFGMITEMS["arc9_att_eft_grip_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_mp443_std"] = {
+EFGM.ITEMS["arc9_att_eft_grip_mp443_std"] = {
 	["fullName"] = "MP-443 Grach polymer pistol grip",
 	["displayName"] = "MP-443",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10023,7 +10023,7 @@ EFGMITEMS["arc9_att_eft_grip_mp443_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_axel"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_axel"] = {
 	["fullName"] = "P226 Axelson Tactical MK25 pistol grip",
 	["displayName"] = "P226 Axelson",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10043,7 +10043,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_axel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_emp"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_emp"] = {
 	["fullName"] = "P226 Emperor Scorpion pistol grip",
 	["displayName"] = "P226 Emperor",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10063,7 +10063,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_emp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_fde"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_fde"] = {
 	["fullName"] = "P226 Combat pistol grip (FDE)",
 	["displayName"] = "P226 FDE",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10083,7 +10083,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_g10"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_g10"] = {
 	["fullName"] = "P226 Hogue G10 Chain Link pistol grip",
 	["displayName"] = "P226 G10",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10103,7 +10103,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_g10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_hog"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_hog"] = {
 	["fullName"] = "P226 Hogue Rubberized pistol grip",
 	["displayName"] = "P226 Hogue",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10123,7 +10123,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_hog"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_stain"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_stain"] = {
 	["fullName"] = "P226 Stainless Elite Wooden pistol grip",
 	["displayName"] = "P226 Wooden",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10143,7 +10143,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_stain"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_p226_std"] = {
+EFGM.ITEMS["arc9_att_eft_grip_p226_std"] = {
 	["fullName"] = "P226 polymer pistol grip (Black)",
 	["displayName"] = "P226",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10163,7 +10163,7 @@ EFGMITEMS["arc9_att_eft_grip_p226_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_grip_toz106"] = {
+EFGM.ITEMS["arc9_att_eft_grip_toz106"] = {
 	["fullName"] = "TOZ-106 002 pistol grip",
 	["displayName"] = "TOZ106",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -10183,7 +10183,7 @@ EFGMITEMS["arc9_att_eft_grip_toz106"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_6p1"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_6p1"] = {
 	["fullName"] = "AKM wooden handguard (6P1 Sb.6-1)",
 	["displayName"] = "6P1 Sb.6-1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10203,7 +10203,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_6p1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_6p20sb6"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_6p20sb6"] = {
 	["fullName"] = "AK-74 wooden handguard (6P20 Sb.6)",
 	["displayName"] = "6P20 Sb.6",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10223,7 +10223,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_6p20sb6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_6p20sb9"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_6p20sb9"] = {
 	["fullName"] = "AK-74 polymer handguard (6P20 Sb.9)",
 	["displayName"] = "6P20 Sb.9",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10243,7 +10243,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_6p20sb9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_6p20sb9p"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_6p20sb9p"] = {
 	["fullName"] = 'AK-74 "Plum" polymer handguard (6P20 Sb.9)',
 	["displayName"] = "6P20 Sb.9",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10263,7 +10263,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_6p20sb9p"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_agressor"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_agressor"] = {
 	["fullName"] = "AK 5.45 Design Aggressor handguard",
 	["displayName"] = "Aggressor",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10283,7 +10283,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_agressor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_ak100"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_ak100"] = {
 	["fullName"] = "AK-100 series polymer handguard",
 	["displayName"] = "AK100",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10303,7 +10303,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_ak100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_akm_l"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_akm_l"] = {
 	["fullName"] = "AK TDI AKM-L handguard",
 	["displayName"] = "TDI AKM-L",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10323,7 +10323,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_akm_l"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_akm_l_ab"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_akm_l_ab"] = {
 	["fullName"] = "AK TDI AKM-L handguard (Anodized Bronze)",
 	["displayName"] = "TDI AKM-L (AB)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10344,7 +10344,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_akm_l_ab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_akm_l_ar"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_akm_l_ar"] = {
 	["fullName"] = "AK TDI AKM-L handguard (Anodized Red)",
 	["displayName"] = "TDI AKM-L (AR)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10365,7 +10365,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_akm_l_ar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_aspid"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_aspid"] = {
 	["fullName"] = "AK Alfa Arms ASPID handguard",
 	["displayName"] = "Aspid",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10385,7 +10385,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_aspid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_b10"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_b10"] = {
 	["fullName"] = "AK Zenit B-10 Handguard",
 	["displayName"] = "B-10",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10405,7 +10405,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_b10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_b10mb19"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_b10mb19"] = {
 	["fullName"] = "AK Zenit B-10M handguard with B-19 upper mount",
 	["displayName"] = "B10M+B19",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10425,7 +10425,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_b10mb19"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_b11"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_b11"] = {
 	["fullName"] = "AKS-74U Zenit B-11 handguard",
 	["displayName"] = "B-11",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10445,7 +10445,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_b11"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_b11_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_b11_blk"] = {
 	["fullName"] = "AKS-74U Zenit B-11 handguard",
 	["displayName"] = "B-11",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10465,7 +10465,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_b11_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_b30b31s"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_b30b31s"] = {
 	["fullName"] = "AK Zenit B-30 handguard with B-31S upper handguard rail",
 	["displayName"] = "B30+B31S",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10485,7 +10485,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_b30b31s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_cmrd"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_cmrd"] = {
 	["fullName"] = "AK Vltor CMRD KeyMod handguard",
 	["displayName"] = "CMRD",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10505,7 +10505,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_cmrd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_cncguns"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_cncguns"] = {
 	["fullName"] = "AK CNC Guns OV GP handguard",
 	["displayName"] = "OV GP",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10525,7 +10525,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_cncguns"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_cncguns_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_cncguns_blk"] = {
 	["fullName"] = "AK CNC Guns OV GP handguard",
 	["displayName"] = "OV GP",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10545,7 +10545,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_cncguns_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_dominat"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_dominat"] = {
 	["fullName"] = "AK AKdemia Dominator handguard",
 	["displayName"] = "Dominator",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10565,7 +10565,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_dominat"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_goliaf"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf"] = {
 	["fullName"] = "AKS-74U Alfa Arms Goliaf handguard",
 	["displayName"] = "Goliaf",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10585,7 +10585,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_goliaf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_goliaf_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf_blk"] = {
 	["fullName"] = "AKS-74U Alfa Arms Goliaf handguard",
 	["displayName"] = "Goliaf",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10605,7 +10605,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_goliaf_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_goliaf_mlok"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf_mlok"] = {
 	["fullName"] = "AKS-74U Alfa Arms Goliaf M-LOK handguard",
 	["displayName"] = "Goliaf MLOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10625,7 +10625,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_goliaf_mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_goliaf_mlok_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf_mlok_blk"] = {
 	["fullName"] = "AKS-74U Alfa Arms Goliaf M-LOK handguard",
 	["displayName"] = "Goliaf MLOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10645,7 +10645,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_goliaf_mlok_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_hartman"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_hartman"] = {
 	["fullName"] = "Saiga-9 Hartman Gyurza handguard",
 	["displayName"] = "Gyurza-9",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10665,7 +10665,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_hartman"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_hexagon"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_hexagon"] = {
 	["fullName"] = "AK Hexagon tubular handguard",
 	["displayName"] = "Hexagon",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10685,7 +10685,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_hexagon"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_hexagon_r"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_hexagon_r"] = {
 	["fullName"] = "AK Hexagon tubular handguard (Anodized Red)",
 	["displayName"] = "Hexagon (AR)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10706,7 +10706,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_hexagon_r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_moe"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_moe"] = {
 	["fullName"] = "AK Magpul MOE AKM handguard (Black)",
 	["displayName"] = "MOE (Black)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10727,7 +10727,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_moe_fde"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_moe_fde"] = {
 	["fullName"] = "AK Magpul MOE AKM handguard (FDE)",
 	["displayName"] = "MOE (FDE)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10748,7 +10748,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_moe_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_moe_olv"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_moe_olv"] = {
 	["fullName"] = "AK Magpul MOE AKM handguard (Olive Drab)",
 	["displayName"] = "MOE (OD)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10768,7 +10768,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_moe_olv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_moe_plm"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_moe_plm"] = {
 	["fullName"] = "AK Magpul MOE AKM handguard (Plum)",
 	["displayName"] = "MOE (Plum)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10788,7 +10788,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_moe_plm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_moe_sg"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_moe_sg"] = {
 	["fullName"] = "AK Magpul MOE AKM handguard (Stealth Gray)",
 	["displayName"] = "MOE (SG)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10808,7 +10808,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_moe_sg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_rs47"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_rs47"] = {
 	["fullName"] = "AK CAA RS47 handguard",
 	["displayName"] = "RS47",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10828,7 +10828,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_rs47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_trax1"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_trax1"] = {
 	["fullName"] = "AK Strike Industries TRAX 1 handguard",
 	["displayName"] = "TRAX 1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10848,7 +10848,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_trax1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_trax2"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_trax2"] = {
 	["fullName"] = "AK Strike Industries TRAX 2 handguard extension",
 	["displayName"] = "TRAX2 ext",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10868,7 +10868,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_trax2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_trax_bridge"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_trax_bridge"] = {
 	["fullName"] = "Strike Industries TRAX bridge rail",
 	["displayName"] = "TRAX Bridge",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -10888,7 +10888,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_trax_bridge"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_ufm"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_ufm"] = {
 	["fullName"] = "AK Krebs Custom UFM KeyMod handguard",
 	["displayName"] = "UFM",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10908,7 +10908,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_ufm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_vpo136"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_vpo136"] = {
 	["fullName"] = 'VPO-136 "Vepr-KM" wooden handguard',
 	["displayName"] = "VPO-136",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10928,7 +10928,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_vpo136"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_vpo209"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_vpo209"] = {
 	["fullName"] = "VPO-209 wooden handguard",
 	["displayName"] = "VPO-209",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10948,7 +10948,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_vpo209"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_wasr"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_wasr"] = {
 	["fullName"] = "WASR-10/63 CAF wooden foregrip",
 	["displayName"] = "WASR",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10968,7 +10968,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_wasr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_x47"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_x47"] = {
 	["fullName"] = "AK TDI X47 tactical handguard rail system",
 	["displayName"] = "TDI X47",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -10988,7 +10988,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_x47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_xrsu47"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_xrsu47"] = {
 	["fullName"] = "AKS-74U CAA XRSU47SU tactical handguard",
 	["displayName"] = "XRSU47SU",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11008,7 +11008,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_xrsu47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_xrsu47_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_xrsu47_blk"] = {
 	["fullName"] = "AKS-74U CAA XRSU47SU tactical handguard",
 	["displayName"] = "XRSU47SU",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11028,7 +11028,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_xrsu47_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_zhu"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_zhu"] = {
 	["fullName"] = "AK Magpul Zhukov-U handguard (Black)",
 	["displayName"] = "Zh-U (B)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11048,7 +11048,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_zhu"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_zhu_fde"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_zhu_fde"] = {
 	["fullName"] = "AK Magpul Zhukov-U handguard (FDE)",
 	["displayName"] = "Zh-U (FDE)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11068,7 +11068,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_zhu_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ak_zhu_plm"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ak_zhu_plm"] = {
 	["fullName"] = "AK Magpul Zhukov-U handguard (Plum)",
 	["displayName"] = "Zh-U (Plum)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11088,7 +11088,7 @@ EFGMITEMS["arc9_att_eft_hg_ak_zhu_plm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_abamod1"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_abamod1"] = {
 	["fullName"] = "AR-15 AB Arms MOD1 handguard",
 	["displayName"] = "ABA M1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11108,7 +11108,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_abamod1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_abamod1_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_abamod1_lower"] = {
 	["fullName"] = "AR-15 AB Arms MOD1 lower handguard",
 	["displayName"] = "ABA M1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11128,7 +11128,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_abamod1_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_adar"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_adar"] = {
 	["fullName"] = "AR-15 ADAR 2-15 wooden handguard",
 	["displayName"] = "2-15 wood",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11148,7 +11148,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_adar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ax15"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ax15"] = {
 	["fullName"] = "AR-15 Aeroknox AX-15 10.5 inch M-LOK handguard",
 	["displayName"] = "AX-15 10.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11168,7 +11168,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ax15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ax15_158"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ax15_158"] = {
 	["fullName"] = "AR-15 Aeroknox AX-15 15.8 inch M-LOK handguard ",
 	["displayName"] = "AX-15 15.8",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11188,7 +11188,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ax15_158"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ax15_4"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ax15_4"] = {
 	["fullName"] = "AR-15 Aeroknox AX-15 4 inch M-LOK handguard",
 	["displayName"] = 'AX-15 4"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11208,7 +11208,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ax15_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_cgnl_105"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_cgnl_105"] = {
 	["fullName"] = "AR-15 Custom Guns 10.5 inch M-LOK handguard",
 	["displayName"] = 'CGNL 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11228,7 +11228,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_cgnl_105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_cgnl_14"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_cgnl_14"] = {
 	["fullName"] = "AR-15 Custom Guns 14 inch M-LOK handguard",
 	["displayName"] = 'CGNL 14"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11248,7 +11248,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_cgnl_14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddfsp"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddfsp"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II FSP 9.5 handguard (Coyote Brown)",
 	["displayName"] = "RIS II FSP 9.5 CB",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11268,7 +11268,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddfsp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddfsp_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddfsp_blk"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II FSP 9.5 handguard (Black)",
 	["displayName"] = "RIS II FSP 9.5 CB",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11288,7 +11288,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddfsp_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 12.25 handguard (Coyote Brown)",
 	["displayName"] = "RIS II 12.25",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11308,7 +11308,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225_blk"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 12.25 handguard (Black)",
 	["displayName"] = "RIS II 12.25",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11328,7 +11328,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 12.25 lower handguard (Coyote Brown)",
 	["displayName"] = "RIS II 12.25",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11348,7 +11348,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower_blk"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 12.25 lower handguard (Black)",
 	["displayName"] = "RIS II 12.25",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11368,7 +11368,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 9.5 handguard",
 	["displayName"] = "RIS II 9.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11388,7 +11388,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95_b"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95_b"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 9.5 handguard (Coyote brown)",
 	["displayName"] = "RIS II 9.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11408,7 +11408,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 9.5 lower handguard",
 	["displayName"] = "RIS II 12.25",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11428,7 +11428,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower_b"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower_b"] = {
 	["fullName"] = "AR-15 Daniel Defense RIS II 9.5 lower handguard (Coyote Brown)",
 	["displayName"] = "RIS II 12.25",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11448,7 +11448,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_11"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_11"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK 11 inch handguard",
 	["displayName"] = 'GRIDLOK 11"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11468,7 +11468,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_11"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_15"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_15"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK 15 inch handguard",
 	["displayName"] = 'GRIDLOK 15"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11488,7 +11488,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_17"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_17"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK 17 inch handguard",
 	["displayName"] = 'GRIDLOK 17"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11508,7 +11508,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_17"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_85"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_85"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK 8.5 inch handguard",
 	["displayName"] = 'GRIDLOK 8.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11528,7 +11528,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_85"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_base_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_base_blk"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK base (Black)",
 	["displayName"] = "GRIDLOK base",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11548,7 +11548,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_base_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_base_red"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_base_red"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK base (Red)",
 	["displayName"] = "GRIDLOK base",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11568,7 +11568,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_base_red"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_base_yellow"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_base_yellow"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK base (Yellow)",
 	["displayName"] = "GRIDLOK base",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11588,7 +11588,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_base_yellow"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_ext_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_ext_blk"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK Extension (Black)",
 	["displayName"] = "GRIDLOK Ext.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -11608,7 +11608,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_ext_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_ext_red"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_ext_red"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK Extension (Red)",
 	["displayName"] = "GRIDLOK Ext.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -11628,7 +11628,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_ext_red"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_ext_yellow"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_ext_yellow"] = {
 	["fullName"] = "AR-15 Strike Industries GRIDLOK Extension (Yellow)",
 	["displayName"] = "GRIDLOK Ext.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -11648,7 +11648,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_gridlok_ext_yellow"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_ionlite"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_ionlite"] = {
 	["fullName"] = "AR-15 Lone Star Ion Lite handguard",
 	["displayName"] = "Ion Lite",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11668,7 +11668,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_ionlite"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kac_ff"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kac_ff"] = {
 	["fullName"] = "AR-15 KAC Free Float Rifle RAS 12 inch handguard",
 	["displayName"] = 'FF RAS 12"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11688,7 +11688,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kac_ff"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kac_m5"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kac_m5"] = {
 	["fullName"] = "AR-15 KAC M5 RAS handguard",
 	["displayName"] = "M5 RAS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11708,7 +11708,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kac_m5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kac_m5_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kac_m5_lower"] = {
 	["fullName"] = "AR-15 KAC M5 RAS lower handguard",
 	["displayName"] = "M5 RAS lower",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11728,7 +11728,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kac_m5_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kacris"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kacris"] = {
 	["fullName"] = "AR-15 KAC RIS handguard",
 	["displayName"] = "KAC RIS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11748,7 +11748,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kacris"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kacris_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kacris_lower"] = {
 	["fullName"] = "AR-15 KAC RIS lower handguard",
 	["displayName"] = "KAC RIS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11768,7 +11768,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kacris_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kacurx31"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx31"] = {
 	["fullName"] = 'AR-15 KAC "URX 3.1" 10.75 inch handguard',
 	["displayName"] = 'URX 3.1 10.75"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11788,7 +11788,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kacurx31"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kacurx31_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx31_lower"] = {
 	["fullName"] = "AR-15 KAC URX 3.1 10.75 inch lower handguard",
 	["displayName"] = 'URX3.1 10.75"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11808,7 +11808,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kacurx31_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kacurx38"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx38"] = {
 	["fullName"] = "AR-15 KAC URX 3 8 inch handguard",
 	["displayName"] = 'URX 3 8"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11828,7 +11828,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kacurx38"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_kacurx38_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx38_lower"] = {
 	["fullName"] = "AR-15 KAC URX 3 8 inch lower handguard",
 	["displayName"] = 'URX3 8"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11848,7 +11848,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_kacurx38_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_lvoac_b"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoac_b"] = {
 	["fullName"] = "AR-15 War Sport LVOA-C handguard (Black)",
 	["displayName"] = "LVOA-C blk.",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11868,7 +11868,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_lvoac_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_lvoac_f"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoac_f"] = {
 	["fullName"] = "AR-15 War Sport LVOA-C handguard (FDE)",
 	["displayName"] = "LVOA-C FDE",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11888,7 +11888,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_lvoac_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_lvoac_g"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoac_g"] = {
 	["fullName"] = "AR-15 War Sport LVOA-C handguard (Gray)",
 	["displayName"] = "LVOA-C Gray",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11908,7 +11908,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_lvoac_g"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_lvoas_b"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoas_b"] = {
 	["fullName"] = "AR-15 War Sport LVOA-S handguard (Black)",
 	["displayName"] = "LVOA-S blk.",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11928,7 +11928,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_lvoas_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_lvoas_f"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoas_f"] = {
 	["fullName"] = "AR-15 War Sport LVOA-S handguard (FDE)",
 	["displayName"] = "LVOA-S FDE",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11948,7 +11948,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_lvoas_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_lvoas_g"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoas_g"] = {
 	["fullName"] = "AR-15 War Sport LVOA-S handguard (Gray)",
 	["displayName"] = "LVOA-S Gray",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11968,7 +11968,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_lvoas_g"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_m16a1"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_m16a1"] = {
 	["fullName"] = "AR-15 Colt M16A1 handguard",
 	["displayName"] = "M16A1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -11988,7 +11988,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_m16a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_m16a2"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_m16a2"] = {
 	["fullName"] = "AR-15 Colt M16A2 handguard",
 	["displayName"] = "M16A2",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12008,7 +12008,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_m16a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_m16a2_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_m16a2_lower"] = {
 	["fullName"] = "AR-15 Colt A2 lower handguard",
 	["displayName"] = "M16A2 lower",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12028,7 +12028,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_m16a2_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_m4"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_m4"] = {
 	["fullName"] = "AR-15 Colt M4 Carbine Length handguard",
 	["displayName"] = "M4 Carbine",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12048,7 +12048,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_m4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_m4_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_m4_lower"] = {
 	["fullName"] = "AR-15 Colt M4 Carbine Length lower handguard",
 	["displayName"] = "M4 Carbine",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12068,7 +12068,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_m4_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_mk10"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_mk10"] = {
 	["fullName"] = "AR-15 Alexander Arms MK10 rifle length handguard",
 	["displayName"] = "MK10 RL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12088,7 +12088,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_mk10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_mk16"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_mk16"] = {
 	["fullName"] = "AR-15 Geissele SMR MK16 13.5 inch M-LOK handguard",
 	["displayName"] = "SMR MK16 13.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12108,7 +12108,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_mk16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_mk1695"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_mk1695"] = {
 	["fullName"] = "AR-15 Geissele SMR MK16 9.5 inch M-LOK handguard",
 	["displayName"] = "SMR MK16 9.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12128,7 +12128,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_mk1695"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_mk1695_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_mk1695_blk"] = {
 	["fullName"] = "AR-15 Geissele SMR MK16 9.5 inch M-LOK handguard",
 	["displayName"] = "SMR MK16 9.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12148,7 +12148,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_mk1695_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_mk16_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_mk16_blk"] = {
 	["fullName"] = "AR-15 Geissele SMR MK16 13.5 inch M-LOK handguard",
 	["displayName"] = "SMR MK16 13.5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12168,7 +12168,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_mk16_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_moesl"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_moesl"] = {
 	["fullName"] = "AR-15 Magpul MOE SL carbine length M-LOK handguard",
 	["displayName"] = "MOE SL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12188,7 +12188,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_moesl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_moeslmid"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_moeslmid"] = {
 	["fullName"] = "AR-15 Magpul MOE SL medium length M-LOK handguard",
 	["displayName"] = "MOE SL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12208,7 +12208,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_moeslmid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_precision"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_precision"] = {
 	["fullName"] = "AR-15 Precision Reflex GEN III Delta Carbon handguard",
 	["displayName"] = "Delta Carbon",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12228,7 +12228,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_precision"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_precision_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_precision_blk"] = {
 	["fullName"] = "AR-15 Precision Reflex GEN III Delta Carbon handguard",
 	["displayName"] = "Delta Carbon",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12248,7 +12248,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_precision_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_precision_round"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_precision_round"] = {
 	["fullName"] = "AR-15 Precision Reflex GEN III Round Carbon 12 inch handguard",
 	["displayName"] = "Round Carbon",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12268,7 +12268,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_precision_round"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_precision_round_fde"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_precision_round_fde"] = {
 	["fullName"] = "AR-15 Precision Reflex GEN III Round Carbon 12 inch handguard (FDE)",
 	["displayName"] = "Round Carbon",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12288,7 +12288,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_precision_round_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_radian_14"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_radian_14"] = {
 	["fullName"] = "AR-15 Radian Model 1 14 inch handguard",
 	["displayName"] = 'Radian 14"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12308,7 +12308,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_radian_14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_saiqd"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_saiqd"] = {
 	["fullName"] = "AR-15 SAI 14.5 inch QD Rail handguard",
 	["displayName"] = "SAI QD Rail",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12328,7 +12328,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_saiqd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_saiqd10"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_saiqd10"] = {
 	["fullName"] = "AR-15 SAI 10 inch QD Rail handguard",
 	["displayName"] = 'SAI QD 10"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12348,7 +12348,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_saiqd10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_skinny"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_skinny"] = {
 	["fullName"] = "AR-15 CAR-15 Skinny handguard",
 	["displayName"] = "CAR-15",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12368,7 +12368,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_skinny"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_skinny_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_skinny_lower"] = {
 	["fullName"] = "AR-15 Colt CAR-15 Skinny lower handguard",
 	["displayName"] = "CAR-15 lower",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12388,7 +12388,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_skinny_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_stm12"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_stm12"] = {
 	["fullName"] = "AR-15 Soyuz-TM 12 inch M-LOK handguard",
 	["displayName"] = 'STM 12"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12408,7 +12408,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_stm12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_stm15"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_stm15"] = {
 	["fullName"] = "AR-15 Soyuz-TM 15 inch M-LOK handguard",
 	["displayName"] = 'STM 15"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12428,7 +12428,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_stm15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_stm9"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_stm9"] = {
 	["fullName"] = "AR-15 Soyuz-TM 9 inch M-LOK handguard",
 	["displayName"] = 'STM 9"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12448,7 +12448,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_stm9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_viper"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_viper"] = {
 	["fullName"] = "AR-15 Strike Industries Viper carbine length M-LOK handguard",
 	["displayName"] = "AR15 Viper",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12468,7 +12468,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_viper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_viper_f"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_viper_f"] = {
 	["fullName"] = "AR-15 Strike Industries Viper carbine length M-LOK handguard (Flat dark earth)",
 	["displayName"] = "AR15 Viper",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12488,7 +12488,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_viper_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_viper_lower"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_viper_lower"] = {
 	["fullName"] = "AR-15 Strike Industries Viper carbine length M-LOK lower handguard",
 	["displayName"] = "Viper AR15",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12508,7 +12508,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_viper_lower"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_viper_lower_fde"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_viper_lower_fde"] = {
 	["fullName"] = "AR-15 Strike Industries Viper carbine length M-LOK lower handguard (Flat dark earth)",
 	["displayName"] = "Viper AR15",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12528,7 +12528,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_viper_lower_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_vypr"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_vypr"] = {
 	["fullName"] = "AR-15 STNGR VYPR 10 inch M-LOK handguard",
 	["displayName"] = "Stngr Vypr",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12548,7 +12548,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_vypr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_ar15_wing"] = {
+EFGM.ITEMS["arc9_att_eft_hg_ar15_wing"] = {
 	["fullName"] = "AR-15 Unique-ARs Wing & Skull 12 inch handguard",
 	["displayName"] = "Wing&Skull",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12568,7 +12568,7 @@ EFGMITEMS["arc9_att_eft_hg_ar15_wing"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_cgnl"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_cgnl"] = {
 	["fullName"] = "NL545 10.5 inch M-LOK handguard (FDE)",
 	["displayName"] = 'NL545 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12588,7 +12588,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_cgnl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_cgnl_blk"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_cgnl_blk"] = {
 	["fullName"] = "NL545 10.5 inch M-LOK handguard",
 	["displayName"] = 'NL545 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12608,7 +12608,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_cgnl_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_crux"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_crux"] = {
 	["fullName"] = "HK 416A5 Strike Industries CRUX 15 inch M-LOK handguard",
 	["displayName"] = "CRUX Handguard",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12628,7 +12628,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_crux"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_midwest135"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_midwest135"] = {
 	["fullName"] = "HK 416A5 Midwest Industries 13.5 inch M-LOK handguard",
 	["displayName"] = "Midwest M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12648,7 +12648,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_midwest135"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_midwest9"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_midwest9"] = {
 	["fullName"] = "HK 416A5 Midwest Industries 9 inch M-LOK handguard",
 	["displayName"] = "Midwest M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12668,7 +12668,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_midwest9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_mrs14"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_mrs14"] = {
 	["fullName"] = "HK 416A5 MRS KeyMod 14 inch handguard",
 	["displayName"] = "HK KeyMod",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12688,7 +12688,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_mrs14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_quad"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_quad"] = {
 	["fullName"] = "HK 416A5 Quad Rail handguard",
 	["displayName"] = "Quadrail",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12708,7 +12708,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_quad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_quadext"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_quadext"] = {
 	["fullName"] = "HK 416A5 Quad Rail Extended handguard",
 	["displayName"] = "Ext.Quad",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12728,7 +12728,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_quadext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_quadsight"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_quadsight"] = {
 	["fullName"] = "HK 416A5 Quad Rail handguard with flip-up front sight",
 	["displayName"] = "Quad. sight",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12748,7 +12748,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_quadsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_hk416_troy"] = {
+EFGM.ITEMS["arc9_att_eft_hg_hk416_troy"] = {
 	["fullName"] = "HK 416A5 TROY M-LOK 13 inch handguard",
 	["displayName"] = "TROY M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12768,7 +12768,7 @@ EFGMITEMS["arc9_att_eft_hg_hk416_troy"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_pk_zenit"] = {
+EFGM.ITEMS["arc9_att_eft_hg_pk_zenit"] = {
 	["fullName"] = "PK Zenit B-50 handguard",
 	["displayName"] = "B-50",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12788,7 +12788,7 @@ EFGMITEMS["arc9_att_eft_hg_pk_zenit"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_svds_mod"] = {
+EFGM.ITEMS["arc9_att_eft_hg_svds_mod"] = {
 	["fullName"] = "SVD modernization kit handguard",
 	["displayName"] = "SVD mod.",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12808,7 +12808,7 @@ EFGMITEMS["arc9_att_eft_hg_svds_mod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_svds_mod2"] = {
+EFGM.ITEMS["arc9_att_eft_hg_svds_mod2"] = {
 	["fullName"] = "SVD modernization kit top rail",
 	["displayName"] = "SVD mod.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -12828,7 +12828,7 @@ EFGMITEMS["arc9_att_eft_hg_svds_mod2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_svds_std"] = {
+EFGM.ITEMS["arc9_att_eft_hg_svds_std"] = {
 	["fullName"] = "SVDS polymer handguard",
 	["displayName"] = "SVDS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12848,7 +12848,7 @@ EFGMITEMS["arc9_att_eft_hg_svds_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_svds_xrs"] = {
+EFGM.ITEMS["arc9_att_eft_hg_svds_xrs"] = {
 	["fullName"] = "SVD CAA XRS-DRG handguard",
 	["displayName"] = "XRS-DRG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12868,7 +12868,7 @@ EFGMITEMS["arc9_att_eft_hg_svds_xrs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_tkpd_fde"] = {
+EFGM.ITEMS["arc9_att_eft_hg_tkpd_fde"] = {
 	["fullName"] = "TKPD handguard (FDE)",
 	["displayName"] = "TKPD (FDE)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12888,7 +12888,7 @@ EFGMITEMS["arc9_att_eft_hg_tkpd_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_tkpd_std"] = {
+EFGM.ITEMS["arc9_att_eft_hg_tkpd_std"] = {
 	["fullName"] = "TKPD handguard",
 	["displayName"] = "TKPD",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12908,7 +12908,7 @@ EFGMITEMS["arc9_att_eft_hg_tkpd_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_velociraptor_std"] = {
+EFGM.ITEMS["arc9_att_eft_hg_velociraptor_std"] = {
 	["fullName"] = "Velociraptor polymer handguard",
 	["displayName"] = "Velociraptor",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -12928,7 +12928,7 @@ EFGMITEMS["arc9_att_eft_hg_velociraptor_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_conv_b"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_conv_b"] = {
 	["fullName"] = 'PP-91-01 "Kedr-B"',
 	["displayName"] = "Kedr-B",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -12948,7 +12948,7 @@ EFGMITEMS["arc9_att_eft_kedr_conv_b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_conv_klin"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_conv_klin"] = {
 	["fullName"] = 'PP-9 "Klin"',
 	["displayName"] = "Klin",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -12968,7 +12968,7 @@ EFGMITEMS["arc9_att_eft_kedr_conv_klin"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_mag_20"] = {
 	["fullName"] = 'PP-91 "Kedr" 9x18PM 20-round magazine',
 	["displayName"] = "Kedr 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -12988,7 +12988,7 @@ EFGMITEMS["arc9_att_eft_kedr_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_mag_30"] = {
 	["fullName"] = 'PP-91 "Kedr" 9x18PM 30-round magazine',
 	["displayName"] = "Kedr 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -13008,7 +13008,7 @@ EFGMITEMS["arc9_att_eft_kedr_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_pg"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_pg"] = {
 	["fullName"] = 'PP-91 "Kedr" polymer pistol grip',
 	["displayName"] = "Kedr PG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -13028,7 +13028,7 @@ EFGMITEMS["arc9_att_eft_kedr_pg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_silencer"] = {
 	["fullName"] = 'PP-91-01 "Kedr-B" 9x18PM sound suppressor',
 	["displayName"] = "Kedr-B",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13048,7 +13048,7 @@ EFGMITEMS["arc9_att_eft_kedr_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_silmount"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_silmount"] = {
 	["fullName"] = 'PP-91-01 "Kedr-B" threaded suppressor adapter',
 	["displayName"] = "Kedr-B",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13068,7 +13068,7 @@ EFGMITEMS["arc9_att_eft_kedr_silmount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_kedr_stockk"] = {
+EFGM.ITEMS["arc9_att_eft_kedr_stockk"] = {
 	["fullName"] = 'Folded PP-91 "Kedr" stock',
 	["displayName"] = "Folded",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -13088,7 +13088,7 @@ EFGMITEMS["arc9_att_eft_kedr_stockk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_barrel_510"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_barrel_510"] = {
 	["fullName"] = "KS-23 23x75 510mm barrel",
 	["displayName"] = "KS23 510mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -13108,7 +13108,7 @@ EFGMITEMS["arc9_att_eft_ks23_barrel_510"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_barrel_700"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_barrel_700"] = {
 	["fullName"] = "KS-23 23x75 700mm barrel",
 	["displayName"] = "KS23 700mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -13128,7 +13128,7 @@ EFGMITEMS["arc9_att_eft_ks23_barrel_700"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_hg_std"] = {
 	["fullName"] = "KS-23M forestock",
 	["displayName"] = "KS23M",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -13148,7 +13148,7 @@ EFGMITEMS["arc9_att_eft_ks23_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_mag_3"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_mag_3"] = {
 	["fullName"] = "KS-23M 23x75 3-shell magazine cap",
 	["displayName"] = "KS-23Mx3",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -13168,7 +13168,7 @@ EFGMITEMS["arc9_att_eft_ks23_mag_3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_stock_pistol"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_stock_pistol"] = {
 	["fullName"] = "KS-23M pistol grip",
 	["displayName"] = "KS23M",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -13188,7 +13188,7 @@ EFGMITEMS["arc9_att_eft_ks23_stock_pistol"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_stock_steel"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_stock_steel"] = {
 	["fullName"] = "KS-23M wire stock",
 	["displayName"] = "KS23M steel",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -13208,7 +13208,7 @@ EFGMITEMS["arc9_att_eft_ks23_stock_steel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ks23_stock_wood"] = {
+EFGM.ITEMS["arc9_att_eft_ks23_stock_wood"] = {
 	["fullName"] = "KS-23 wooden stock",
 	["displayName"] = "KS23 wood",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -13228,7 +13228,7 @@ EFGMITEMS["arc9_att_eft_ks23_stock_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_barrel_16"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_barrel_16"] = {
 	["fullName"] = "M1A 7.62x51 16 inch barrel",
 	["displayName"] = 'M1A 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -13248,7 +13248,7 @@ EFGMITEMS["arc9_att_eft_m1a_barrel_16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_barrel_22"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_barrel_22"] = {
 	["fullName"] = "M1A 7.62x51 22 inch barrel",
 	["displayName"] = 'M1A 22"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -13268,7 +13268,7 @@ EFGMITEMS["arc9_att_eft_m1a_barrel_22"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_fs_062"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_fs_062"] = {
 	["fullName"] = "M1A SA National Match .062 Blade front sight",
 	["displayName"] = "M1A .062",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -13288,7 +13288,7 @@ EFGMITEMS["arc9_att_eft_m1a_fs_062"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_fs_xs"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_fs_xs"] = {
 	["fullName"] = "M1A SA XS Post .125 Blade front sight",
 	["displayName"] = "M1A XS Post",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -13308,7 +13308,7 @@ EFGMITEMS["arc9_att_eft_m1a_fs_xs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_mag_10"] = {
 	["fullName"] = "M1A 7.62x51 10-round magazine",
 	["displayName"] = "M1A 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -13328,7 +13328,7 @@ EFGMITEMS["arc9_att_eft_m1a_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_mag_20"] = {
 	["fullName"] = "M1A 7.62x51 20-round magazine",
 	["displayName"] = "M1A 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -13348,7 +13348,7 @@ EFGMITEMS["arc9_att_eft_m1a_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_mag_30"] = {
 	["fullName"] = "M14 7.62x51 30-round magazine",
 	["displayName"] = "M1A 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -13368,7 +13368,7 @@ EFGMITEMS["arc9_att_eft_m1a_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_mag_50"] = {
 	["fullName"] = "M14 7.62x51 X Products X-14 50-round drum magazine",
 	["displayName"] = "M14 X-14 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -13388,7 +13388,7 @@ EFGMITEMS["arc9_att_eft_m1a_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_brakecomp"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_brakecomp"] = {
 	["fullName"] = "M1A SOCOM 16 7.62x51 muzzle brake-compensator",
 	["displayName"] = "SOCOM 16",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13408,7 +13408,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_brakecomp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_fsup"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_fsup"] = {
 	["fullName"] = "M1A National Match 7.62x51 flash suppressor",
 	["displayName"] = "M1A flash",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13428,7 +13428,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_fsup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_gas"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_gas"] = {
 	["fullName"] = "M1A Smith Enterprise SOCOM 16 7.62x51 threaded muzzle brake & gas block",
 	["displayName"] = "M1A brake&gas",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13448,7 +13448,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_gas"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_good"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_good"] = {
 	["fullName"] = "M14 Smith Enterprise Good Iron 7.62x51 muzzle brake",
 	["displayName"] = "M14 brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13468,7 +13468,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_good"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_jp"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_jp"] = {
 	["fullName"] = "M14 JP Enterprises 7.62x51 Tactical Compensator",
 	["displayName"] = "M14 comp.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13488,7 +13488,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_jp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_vortex"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_vortex"] = {
 	["fullName"] = "M14 Smith Enterprise Vortex 7.62x51 muzzle brake",
 	["displayName"] = "M14 Vortex",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13508,7 +13508,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_vortex"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_muzzle_yan"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_muzzle_yan"] = {
 	["fullName"] = "M14 Yankee Hill Phantom 7.62x51 flash hider",
 	["displayName"] = "M14 Phantom",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -13528,7 +13528,7 @@ EFGMITEMS["arc9_att_eft_m1a_muzzle_yan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_pgrip_sage"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_pgrip_sage"] = {
 	["fullName"] = "M14 SAGE International M14ALCS (MOD-0) pistol grip",
 	["displayName"] = "M14ALCS grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -13548,7 +13548,7 @@ EFGMITEMS["arc9_att_eft_m1a_pgrip_sage"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_rearsight"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_rearsight"] = {
 	["fullName"] = "M14 SA Enlarged Military Aperture rear sight",
 	["displayName"] = "M14 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -13568,7 +13568,7 @@ EFGMITEMS["arc9_att_eft_m1a_rearsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_side_arms"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_side_arms"] = {
 	["fullName"] = "M14 A.R.M.S. #18 scope mount",
 	["displayName"] = "A.R.M.S.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13588,7 +13588,7 @@ EFGMITEMS["arc9_att_eft_m1a_side_arms"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_side_dcsb"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_side_dcsb"] = {
 	["fullName"] = "M14 SAGE International DCSB mount",
 	["displayName"] = "DCSB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13608,7 +13608,7 @@ EFGMITEMS["arc9_att_eft_m1a_side_dcsb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_side_deluxe"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_side_deluxe"] = {
 	["fullName"] = "M14 Leapers UTG 4-Point Locking Deluxe mount",
 	["displayName"] = "UTG 4-Point",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13628,7 +13628,7 @@ EFGMITEMS["arc9_att_eft_m1a_side_deluxe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_arch"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_arch"] = {
 	["fullName"] = "M1A ProMag Archangel chassis",
 	["displayName"] = "Archangel",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -13648,7 +13648,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_arch"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_arch_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_arch_blk"] = {
 	["fullName"] = "M1A ProMag Archangel chassis",
 	["displayName"] = "Archangel",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -13668,7 +13668,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_arch_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_sage"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_sage"] = {
 	["fullName"] = "M14 SAGE International M14ALCS chassis",
 	["displayName"] = "SAGE M14ALCS",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -13688,7 +13688,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_sage"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_sage_stock"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_sage_stock"] = {
 	["fullName"] = "M14 SAGE International M14ALCS (MOD-0) stock",
 	["displayName"] = "M14ALCS stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -13708,7 +13708,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_sage_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_sass"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_sass"] = {
 	["fullName"] = "M14 TROY S.A.S.S. Chassis stock",
 	["displayName"] = "S.A.S.S.",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -13728,7 +13728,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_sass"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_sass_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_sass_blk"] = {
 	["fullName"] = "M14 TROY S.A.S.S. Chassis stock",
 	["displayName"] = "S.A.S.S.",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -13748,7 +13748,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_sass_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_stock_std"] = {
 	["fullName"] = "M1A SOCOM 16 stock",
 	["displayName"] = "SOCOM 16",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -13768,7 +13768,7 @@ EFGMITEMS["arc9_att_eft_m1a_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_upper_amega"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_upper_amega"] = {
 	["fullName"] = "M14 Amega Mini Scout Mount system",
 	["displayName"] = "M14 MSM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13788,7 +13788,7 @@ EFGMITEMS["arc9_att_eft_m1a_upper_amega"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_upper_m8"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_upper_m8"] = {
 	["fullName"] = "M14 UltiMAK M8 Forward Optic mount",
 	["displayName"] = "UltiMAK M8",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13808,7 +13808,7 @@ EFGMITEMS["arc9_att_eft_m1a_upper_m8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_upper_std"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_upper_std"] = {
 	["fullName"] = "M1A SOCOM 16 upper part",
 	["displayName"] = "SOCOM 16",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13828,7 +13828,7 @@ EFGMITEMS["arc9_att_eft_m1a_upper_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m1a_upper_vltor"] = {
+EFGM.ITEMS["arc9_att_eft_m1a_upper_vltor"] = {
 	["fullName"] = "M14 Vltor CASV-14 rail system",
 	["displayName"] = "Vltor CASV-14",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -13848,7 +13848,7 @@ EFGMITEMS["arc9_att_eft_m1a_upper_vltor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m203"] = {
+EFGM.ITEMS["arc9_att_eft_m203"] = {
 	["fullName"] = "M203 40x46mm underbarrel grenade launcher",
 	["displayName"] = "M203",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -13868,7 +13868,7 @@ EFGMITEMS["arc9_att_eft_m203"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_m249_barrel_370mm"] = {
+EFGM.ITEMS["arc9_att_eft_m249_barrel_370mm"] = {
 	["fullName"] = "FN M249 Paratrooper 370mm Barrel",
 	["displayName"] = "M249 Para.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -13888,7 +13888,7 @@ EFGMITEMS["arc9_att_eft_m249_barrel_370mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_barrel_457mm"] = {
+EFGM.ITEMS["arc9_att_eft_m249_barrel_457mm"] = {
 	["fullName"] = "FN M249 Standard 457mm Barrel",
 	["displayName"] = "M249 Std.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -13908,7 +13908,7 @@ EFGMITEMS["arc9_att_eft_m249_barrel_457mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_bipod"] = {
+EFGM.ITEMS["arc9_att_eft_m249_bipod"] = {
 	["fullName"] = "M249 Standard Bipod",
 	["displayName"] = "M249 Std.",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -13928,7 +13928,7 @@ EFGMITEMS["arc9_att_eft_m249_bipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_grip_std"] = {
+EFGM.ITEMS["arc9_att_eft_m249_grip_std"] = {
 	["fullName"] = "M249 Standard Grip",
 	["displayName"] = "M249 SAW",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -13948,7 +13948,7 @@ EFGMITEMS["arc9_att_eft_m249_grip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_hg_kac"] = {
+EFGM.ITEMS["arc9_att_eft_m249_hg_kac"] = {
 	["fullName"] = "M249 KAC Handguard",
 	["displayName"] = "M249 KAC",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -13968,7 +13968,7 @@ EFGMITEMS["arc9_att_eft_m249_hg_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_hg_minimal"] = {
+EFGM.ITEMS["arc9_att_eft_m249_hg_minimal"] = {
 	["fullName"] = "Moloc Armament Co. Mini Handguard",
 	["displayName"] = "MAC Mini",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -13988,7 +13988,7 @@ EFGMITEMS["arc9_att_eft_m249_hg_minimal"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_hg_od"] = {
+EFGM.ITEMS["arc9_att_eft_m249_hg_od"] = {
 	["fullName"] = 'M249 Moloc Armament "Sleek" Handguard (OD)',
 	["displayName"] = "Sleek",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14008,7 +14008,7 @@ EFGMITEMS["arc9_att_eft_m249_hg_od"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_m249_hg_std"] = {
 	["fullName"] = "M249 Polymer Handguard",
 	["displayName"] = "M249 Poly",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14028,7 +14028,7 @@ EFGMITEMS["arc9_att_eft_m249_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_hg_tactical"] = {
+EFGM.ITEMS["arc9_att_eft_m249_hg_tactical"] = {
 	["fullName"] = "MAC Slim RAS",
 	["displayName"] = "MAC S-RAS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14048,7 +14048,7 @@ EFGMITEMS["arc9_att_eft_m249_hg_tactical"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_mag_100rnd"] = {
+EFGM.ITEMS["arc9_att_eft_m249_mag_100rnd"] = {
 	["fullName"] = "M249 5.56x45 Soft Pack 100-round Magazine",
 	["displayName"] = "M249 100rnd",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14068,7 +14068,7 @@ EFGMITEMS["arc9_att_eft_m249_mag_100rnd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_mag_200rnd"] = {
+EFGM.ITEMS["arc9_att_eft_m249_mag_200rnd"] = {
 	["fullName"] = "M249 5.56x45 200-round Box Magazine",
 	["displayName"] = "M249 200rnd",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14088,7 +14088,7 @@ EFGMITEMS["arc9_att_eft_m249_mag_200rnd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_m249_muzzle_std"] = {
 	["fullName"] = "M249 5.56x45 standard flash hider",
 	["displayName"] = "M249 Std.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -14108,7 +14108,7 @@ EFGMITEMS["arc9_att_eft_m249_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_stock_buffer"] = {
+EFGM.ITEMS["arc9_att_eft_m249_stock_buffer"] = {
 	["fullName"] = "M249 Custom Buffer Tube",
 	["displayName"] = "M249 Buffer",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14128,7 +14128,7 @@ EFGMITEMS["arc9_att_eft_m249_stock_buffer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_stock_moe"] = {
+EFGM.ITEMS["arc9_att_eft_m249_stock_moe"] = {
 	["fullName"] = "AR-15 Magpul MOE Custom Carbine Stock",
 	["displayName"] = "MOE Chk.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14148,7 +14148,7 @@ EFGMITEMS["arc9_att_eft_m249_stock_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_stock_para"] = {
+EFGM.ITEMS["arc9_att_eft_m249_stock_para"] = {
 	["fullName"] = "M249 Paratrooper Adjustable Stock",
 	["displayName"] = "M249 Para.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14168,7 +14168,7 @@ EFGMITEMS["arc9_att_eft_m249_stock_para"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_stock_solid"] = {
+EFGM.ITEMS["arc9_att_eft_m249_stock_solid"] = {
 	["fullName"] = "M249 Polymer Stock",
 	["displayName"] = "M249 Poly",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14188,7 +14188,7 @@ EFGMITEMS["arc9_att_eft_m249_stock_solid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_uhg_heatshield"] = {
+EFGM.ITEMS["arc9_att_eft_m249_uhg_heatshield"] = {
 	["fullName"] = "FN M249 Heatshield",
 	["displayName"] = "Heatshield",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14208,7 +14208,7 @@ EFGMITEMS["arc9_att_eft_m249_uhg_heatshield"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m249_uhg_kac"] = {
+EFGM.ITEMS["arc9_att_eft_m249_uhg_kac"] = {
 	["fullName"] = "FN M249 KAC Upper Heatshield",
 	["displayName"] = "M249 KAC",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14228,7 +14228,7 @@ EFGMITEMS["arc9_att_eft_m249_uhg_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m32a1_mag_std"] = {
+EFGM.ITEMS["arc9_att_eft_m32a1_mag_std"] = {
 	["fullName"] = "M32A1 40mm cylinder",
 	["displayName"] = "M32A1 cyl.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14248,7 +14248,7 @@ EFGMITEMS["arc9_att_eft_m32a1_mag_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_barrel_std"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga 500mm barrel",
 	["displayName"] = "M3 500mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -14268,7 +14268,7 @@ EFGMITEMS["arc9_att_eft_m3s90_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_charge_std"] = {
 	["fullName"] = "Benelli M3 Super 90 charging handle",
 	["displayName"] = "M3",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -14288,7 +14288,7 @@ EFGMITEMS["arc9_att_eft_m3s90_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_hg_std"] = {
 	["fullName"] = "Benelli M3 forend",
 	["displayName"] = "M3 std",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14308,7 +14308,7 @@ EFGMITEMS["arc9_att_eft_m3s90_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_mag_11"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_mag_11"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga Toni System 11-shell magazine",
 	["displayName"] = "M3x11",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14328,7 +14328,7 @@ EFGMITEMS["arc9_att_eft_m3s90_mag_11"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_mag_13"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_mag_13"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga Toni System 13-shell magazine",
 	["displayName"] = "M3x13",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14348,7 +14348,7 @@ EFGMITEMS["arc9_att_eft_m3s90_mag_13"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_mag_5"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_mag_5"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga 5-shell magazine cap",
 	["displayName"] = "M3x5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14368,7 +14368,7 @@ EFGMITEMS["arc9_att_eft_m3s90_mag_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_mag_7"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_mag_7"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga 7-shell magazine",
 	["displayName"] = "M3x7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14388,7 +14388,7 @@ EFGMITEMS["arc9_att_eft_m3s90_mag_7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_mag_9"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_mag_9"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga Toni System 9-shell magazine",
 	["displayName"] = "M3x9",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14408,7 +14408,7 @@ EFGMITEMS["arc9_att_eft_m3s90_mag_9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_mount_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_mount_std"] = {
 	["fullName"] = "Benelli M3 Super 90 upper receiver top rail",
 	["displayName"] = "M3 top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -14428,7 +14428,7 @@ EFGMITEMS["arc9_att_eft_m3s90_mount_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_pg_std"] = {
 	["fullName"] = "Benelli M3 telescopic stock pistol grip",
 	["displayName"] = "M3 PGrip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -14448,7 +14448,7 @@ EFGMITEMS["arc9_att_eft_m3s90_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_rs_std"] = {
 	["fullName"] = "Benelli M3 Ghost Ring rear sight",
 	["displayName"] = "M3 GR",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -14468,7 +14468,7 @@ EFGMITEMS["arc9_att_eft_m3s90_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_stock_std"] = {
 	["fullName"] = "Benelli M3 telescopic stock",
 	["displayName"] = "M3 tel.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14488,7 +14488,7 @@ EFGMITEMS["arc9_att_eft_m3s90_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m3s90_stock_urba"] = {
+EFGM.ITEMS["arc9_att_eft_m3s90_stock_urba"] = {
 	["fullName"] = "Benelli M3 Mesa Tactical Urbino stock",
 	["displayName"] = "M3 Urbino",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14508,7 +14508,7 @@ EFGMITEMS["arc9_att_eft_m3s90_stock_urba"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_barrel_508"] = {
+EFGM.ITEMS["arc9_att_eft_m590_barrel_508"] = {
 	["fullName"] = "Mossberg 590A1 12ga 20 inch barrel",
 	["displayName"] = "590 barrel",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -14528,7 +14528,7 @@ EFGMITEMS["arc9_att_eft_m590_barrel_508"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_fs_ghost"] = {
+EFGM.ITEMS["arc9_att_eft_m590_fs_ghost"] = {
 	["fullName"] = "Mossberg 590 Ghost Ring front sight",
 	["displayName"] = "Ghost Ring",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -14548,7 +14548,7 @@ EFGMITEMS["arc9_att_eft_m590_fs_ghost"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_hg_moe"] = {
+EFGM.ITEMS["arc9_att_eft_m590_hg_moe"] = {
 	["fullName"] = "Mossberg 590A1 Magpul MOE forestock",
 	["displayName"] = "Magpul MOE",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14568,7 +14568,7 @@ EFGMITEMS["arc9_att_eft_m590_hg_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_hg_speed"] = {
+EFGM.ITEMS["arc9_att_eft_m590_hg_speed"] = {
 	["fullName"] = "Mossberg 590A1 SpeedFeed short handguard",
 	["displayName"] = "SpeedFeed",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14588,7 +14588,7 @@ EFGMITEMS["arc9_att_eft_m590_hg_speed"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_mag_8"] = {
+EFGM.ITEMS["arc9_att_eft_m590_mag_8"] = {
 	["fullName"] = "Mossberg 590A1 12ga 8-shell magazine cap",
 	["displayName"] = "590 cap",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14608,7 +14608,7 @@ EFGMITEMS["arc9_att_eft_m590_mag_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_mount_tac"] = {
+EFGM.ITEMS["arc9_att_eft_m590_mount_tac"] = {
 	["fullName"] = "Mossberg 590A1 Tactical rail",
 	["displayName"] = "590 Tactical",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -14628,7 +14628,7 @@ EFGMITEMS["arc9_att_eft_m590_mount_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_rs_ghost"] = {
+EFGM.ITEMS["arc9_att_eft_m590_rs_ghost"] = {
 	["fullName"] = "Mossberg 590 Ghost Ring rear sight",
 	["displayName"] = "Ghost Ring",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -14648,7 +14648,7 @@ EFGMITEMS["arc9_att_eft_m590_rs_ghost"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_stock_leo"] = {
+EFGM.ITEMS["arc9_att_eft_m590_stock_leo"] = {
 	["fullName"] = "Mossberg 590A1 Mesa Tactical LEO gen.1 stock adapter",
 	["displayName"] = "Mesa LEO",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14668,7 +14668,7 @@ EFGMITEMS["arc9_att_eft_m590_stock_leo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_stock_sga"] = {
+EFGM.ITEMS["arc9_att_eft_m590_stock_sga"] = {
 	["fullName"] = "Mossberg 590A1 Magpul SGA stock",
 	["displayName"] = "Magpul SGA",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14688,7 +14688,7 @@ EFGMITEMS["arc9_att_eft_m590_stock_sga"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m590_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_m590_stock_std"] = {
 	["fullName"] = "Mossberg 590A1 polymer stock",
 	["displayName"] = "590 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -14708,7 +14708,7 @@ EFGMITEMS["arc9_att_eft_m590_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_barrel_e3_584"] = {
+EFGM.ITEMS["arc9_att_eft_m60_barrel_e3_584"] = {
 	["fullName"] = "M60E3 7.62x51 584mm barrel",
 	["displayName"] = "M60E3 584mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -14728,7 +14728,7 @@ EFGMITEMS["arc9_att_eft_m60_barrel_e3_584"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_barrel_e4_458"] = {
+EFGM.ITEMS["arc9_att_eft_m60_barrel_e4_458"] = {
 	["fullName"] = "M60E4 7.62x51 458mm barrel",
 	["displayName"] = "M60E4 458mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -14748,7 +14748,7 @@ EFGMITEMS["arc9_att_eft_m60_barrel_e4_458"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_barrel_e4_475"] = {
+EFGM.ITEMS["arc9_att_eft_m60_barrel_e4_475"] = {
 	["fullName"] = "M60E4 7.62x51 475mm heavy barrel",
 	["displayName"] = "M60E4 475mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -14768,7 +14768,7 @@ EFGMITEMS["arc9_att_eft_m60_barrel_e4_475"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_barrel_e6_458"] = {
+EFGM.ITEMS["arc9_att_eft_m60_barrel_e6_458"] = {
 	["fullName"] = "M60E6 7.62x51 458mm barrel",
 	["displayName"] = "M60E6 458mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -14788,7 +14788,7 @@ EFGMITEMS["arc9_att_eft_m60_barrel_e6_458"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_bipod"] = {
+EFGM.ITEMS["arc9_att_eft_m60_bipod"] = {
 	["fullName"] = "M60 bipod",
 	["displayName"] = "M60 bipod",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -14808,7 +14808,7 @@ EFGMITEMS["arc9_att_eft_m60_bipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_fs_e4"] = {
+EFGM.ITEMS["arc9_att_eft_m60_fs_e4"] = {
 	["fullName"] = "M60E4 front sight",
 	["displayName"] = "M60E4 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -14828,7 +14828,7 @@ EFGMITEMS["arc9_att_eft_m60_fs_e4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_fs_e6"] = {
+EFGM.ITEMS["arc9_att_eft_m60_fs_e6"] = {
 	["fullName"] = "M60E6 front sight rail",
 	["displayName"] = "M60E6 FS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -14848,7 +14848,7 @@ EFGMITEMS["arc9_att_eft_m60_fs_e6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_hg_e4"] = {
+EFGM.ITEMS["arc9_att_eft_m60_hg_e4"] = {
 	["fullName"] = "M60E4 Mod 1 handguard",
 	["displayName"] = "M60E4 hg",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14868,7 +14868,7 @@ EFGMITEMS["arc9_att_eft_m60_hg_e4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_hg_e4_fde"] = {
+EFGM.ITEMS["arc9_att_eft_m60_hg_e4_fde"] = {
 	["fullName"] = "M60E4 Mod 1 handguard (FDE)",
 	["displayName"] = "M60E4 hg",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14888,7 +14888,7 @@ EFGMITEMS["arc9_att_eft_m60_hg_e4_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_hg_e6"] = {
+EFGM.ITEMS["arc9_att_eft_m60_hg_e6"] = {
 	["fullName"] = "M60E6 handguard",
 	["displayName"] = "M60E6 hg",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -14908,7 +14908,7 @@ EFGMITEMS["arc9_att_eft_m60_hg_e6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_mag_100"] = {
+EFGM.ITEMS["arc9_att_eft_m60_mag_100"] = {
 	["fullName"] = "M60 7.62x51 Capco 100-round Assault Box",
 	["displayName"] = "M60 Capco 100",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -14928,7 +14928,7 @@ EFGMITEMS["arc9_att_eft_m60_mag_100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_muzzle_e3"] = {
+EFGM.ITEMS["arc9_att_eft_m60_muzzle_e3"] = {
 	["fullName"] = "M60E3 7.62x51 flash hider",
 	["displayName"] = "M60E3 flash",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -14948,7 +14948,7 @@ EFGMITEMS["arc9_att_eft_m60_muzzle_e3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_muzzle_e6"] = {
+EFGM.ITEMS["arc9_att_eft_m60_muzzle_e6"] = {
 	["fullName"] = "M60E6 7.62x51 flash hider",
 	["displayName"] = "M60E6 flash",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -14968,7 +14968,7 @@ EFGMITEMS["arc9_att_eft_m60_muzzle_e6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_pg_e4"] = {
+EFGM.ITEMS["arc9_att_eft_m60_pg_e4"] = {
 	["fullName"] = "M60E4 pistol grip",
 	["displayName"] = "M60E4 grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -14988,7 +14988,7 @@ EFGMITEMS["arc9_att_eft_m60_pg_e4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_pg_e6"] = {
+EFGM.ITEMS["arc9_att_eft_m60_pg_e6"] = {
 	["fullName"] = "M60E6 pistol grip",
 	["displayName"] = "M60E6 grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -15008,7 +15008,7 @@ EFGMITEMS["arc9_att_eft_m60_pg_e6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_pg_e6_fde"] = {
+EFGM.ITEMS["arc9_att_eft_m60_pg_e6_fde"] = {
 	["fullName"] = "M60E6 pistol grip (FDE)",
 	["displayName"] = "M60E6 grip (F)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -15028,7 +15028,7 @@ EFGMITEMS["arc9_att_eft_m60_pg_e6_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_rearsight"] = {
+EFGM.ITEMS["arc9_att_eft_m60_rearsight"] = {
 	["fullName"] = "M60 rear sight",
 	["displayName"] = "M60 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -15048,7 +15048,7 @@ EFGMITEMS["arc9_att_eft_m60_rearsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_stock_e4"] = {
+EFGM.ITEMS["arc9_att_eft_m60_stock_e4"] = {
 	["fullName"] = "M60E4 buttstock",
 	["displayName"] = "M60E4 butt.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15068,7 +15068,7 @@ EFGMITEMS["arc9_att_eft_m60_stock_e4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_stock_e6"] = {
+EFGM.ITEMS["arc9_att_eft_m60_stock_e6"] = {
 	["fullName"] = "M60E6 buttstock",
 	["displayName"] = "M60E6 butt.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15088,7 +15088,7 @@ EFGMITEMS["arc9_att_eft_m60_stock_e6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_stock_e6_fde"] = {
+EFGM.ITEMS["arc9_att_eft_m60_stock_e6_fde"] = {
 	["fullName"] = "M60E6 buttstock (FDE)",
 	["displayName"] = "M60E4 butt. (F)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15108,7 +15108,7 @@ EFGMITEMS["arc9_att_eft_m60_stock_e6_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_trigger_e4"] = {
+EFGM.ITEMS["arc9_att_eft_m60_trigger_e4"] = {
 	["fullName"] = "M60E4 trigger group",
 	["displayName"] = "M60E4 trig.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -15128,7 +15128,7 @@ EFGMITEMS["arc9_att_eft_m60_trigger_e4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_trigger_e6"] = {
+EFGM.ITEMS["arc9_att_eft_m60_trigger_e6"] = {
 	["fullName"] = "M60E6 trigger group",
 	["displayName"] = "M60E6 trig.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -15148,7 +15148,7 @@ EFGMITEMS["arc9_att_eft_m60_trigger_e6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m60_trigger_e6_fde"] = {
+EFGM.ITEMS["arc9_att_eft_m60_trigger_e6_fde"] = {
 	["fullName"] = "M60E6 trigger group (FDE)",
 	["displayName"] = "M60E6 trig. (F)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -15168,7 +15168,7 @@ EFGMITEMS["arc9_att_eft_m60_trigger_e6_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_barrel_20"] = {
+EFGM.ITEMS["arc9_att_eft_m700_barrel_20"] = {
 	["fullName"] = "M700 7.62x51 20 inch threaded barrel",
 	["displayName"] = 'M700 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15188,7 +15188,7 @@ EFGMITEMS["arc9_att_eft_m700_barrel_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_barrel_20s"] = {
+EFGM.ITEMS["arc9_att_eft_m700_barrel_20s"] = {
 	["fullName"] = "M700 7.62x51 20 inch stainless steel threaded barrel",
 	["displayName"] = 'M700 20" S',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15208,7 +15208,7 @@ EFGMITEMS["arc9_att_eft_m700_barrel_20s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_barrel_26"] = {
+EFGM.ITEMS["arc9_att_eft_m700_barrel_26"] = {
 	["fullName"] = "M700 7.62x51 26 inch barrel",
 	["displayName"] = 'M700 26"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15228,7 +15228,7 @@ EFGMITEMS["arc9_att_eft_m700_barrel_26"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_barrel_26s"] = {
+EFGM.ITEMS["arc9_att_eft_m700_barrel_26s"] = {
 	["fullName"] = "M700 7.62x51 26 inch stainless steel barrel",
 	["displayName"] = 'M700 26" S',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15248,7 +15248,7 @@ EFGMITEMS["arc9_att_eft_m700_barrel_26s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_buffer_adap_gen3"] = {
+EFGM.ITEMS["arc9_att_eft_m700_buffer_adap_gen3"] = {
 	["fullName"] = "M700 AB Arms MOD*X buffer tube side folder adapter",
 	["displayName"] = "MOD*X buffer",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15268,7 +15268,7 @@ EFGMITEMS["arc9_att_eft_m700_buffer_adap_gen3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_buffer_adap_gen3_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m700_buffer_adap_gen3_blk"] = {
 	["fullName"] = "M700 AB Arms MOD*X buffer tube side folder adapter",
 	["displayName"] = "MOD*X buffer",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15288,7 +15288,7 @@ EFGMITEMS["arc9_att_eft_m700_buffer_adap_gen3_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_hg_gen3"] = {
+EFGM.ITEMS["arc9_att_eft_m700_hg_gen3"] = {
 	["fullName"] = "M700 AB Arms MOD*X GEN 3 KeyMod handguard",
 	["displayName"] = "MOD*X GEN 3",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -15308,7 +15308,7 @@ EFGMITEMS["arc9_att_eft_m700_hg_gen3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_hg_gen3_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m700_hg_gen3_blk"] = {
 	["fullName"] = "M700 AB Arms MOD*X GEN 3 KeyMod handguard",
 	["displayName"] = "MOD*X GEN 3",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -15328,7 +15328,7 @@ EFGMITEMS["arc9_att_eft_m700_hg_gen3_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_a10"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_a10"] = {
 	["fullName"] = "M700 7.62x51 AI AICS 10-round magazine",
 	["displayName"] = "M700 AICS 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15348,7 +15348,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_a10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_a12"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_a12"] = {
 	["fullName"] = "M700 7.62x51 MDT AICS 12-round magazine",
 	["displayName"] = "M700 AICS 12",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15368,7 +15368,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_a12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_a5"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_a5"] = {
 	["fullName"] = "M700 7.62x51 AI AICS 5-round magazine",
 	["displayName"] = "M700 AICS 5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15388,7 +15388,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_a5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_p10"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_p10"] = {
 	["fullName"] = "M700 7.62x51 Magpul PMAG AC 10-round magazine",
 	["displayName"] = "M700 PMAG 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15408,7 +15408,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_p10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_p5"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_p5"] = {
 	["fullName"] = "M700 7.62x51 Magpul PMAG AC 5-round magazine",
 	["displayName"] = "M700 PMAG 5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15428,7 +15428,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_p5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_pro10"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_pro10"] = {
 	["fullName"] = "M700 7.62x51 ProMag AA-70 10-round magazine",
 	["displayName"] = "M700 ProMag 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15448,7 +15448,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_pro10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_pro20"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_pro20"] = {
 	["fullName"] = "M700 7.62x51 ProMag AA-70 20-round magazine",
 	["displayName"] = "M700 ProMag 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15468,7 +15468,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_pro20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_w10"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_w10"] = {
 	["fullName"] = "M700 7.62x51 Wyatts Outdoor 10-round magazine",
 	["displayName"] = "M700 Wyatts 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15488,7 +15488,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_w10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mag_w5"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mag_w5"] = {
 	["fullName"] = "M700 7.62x51 Wyatts Outdoor 5-round magazine",
 	["displayName"] = "M700 Wyatts 5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -15508,7 +15508,7 @@ EFGMITEMS["arc9_att_eft_m700_mag_w5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_mount_pro700"] = {
+EFGM.ITEMS["arc9_att_eft_m700_mount_pro700"] = {
 	["fullName"] = "M700 Magpul Pro 700 chassis inline mount",
 	["displayName"] = "Pro 700",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -15528,7 +15528,7 @@ EFGMITEMS["arc9_att_eft_m700_mount_pro700"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_muzzle_thr"] = {
+EFGM.ITEMS["arc9_att_eft_m700_muzzle_thr"] = {
 	["fullName"] = "M700 thread protection cap",
 	["displayName"] = "M700 thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -15548,7 +15548,7 @@ EFGMITEMS["arc9_att_eft_m700_muzzle_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_muzzle_thrs"] = {
+EFGM.ITEMS["arc9_att_eft_m700_muzzle_thrs"] = {
 	["fullName"] = "M700 thread protection cap (Stainless steel)",
 	["displayName"] = "M700 thr. steel",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -15568,7 +15568,7 @@ EFGMITEMS["arc9_att_eft_m700_muzzle_thrs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_pro700_folding"] = {
+EFGM.ITEMS["arc9_att_eft_m700_pro700_folding"] = {
 	["fullName"] = "M700 Magpul Pro 700 folding stock",
 	["displayName"] = "Pro 700",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15588,7 +15588,7 @@ EFGMITEMS["arc9_att_eft_m700_pro700_folding"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_pro700_pistol_grip"] = {
+EFGM.ITEMS["arc9_att_eft_m700_pro700_pistol_grip"] = {
 	["fullName"] = "M700 Magpul Pro 700 pistol grip",
 	["displayName"] = "Pro 700",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -15608,7 +15608,7 @@ EFGMITEMS["arc9_att_eft_m700_pro700_pistol_grip"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_rail_badger"] = {
+EFGM.ITEMS["arc9_att_eft_m700_rail_badger"] = {
 	["fullName"] = "M700 Badger Ordnance Scope Rail",
 	["displayName"] = "M700 SR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -15628,7 +15628,7 @@ EFGMITEMS["arc9_att_eft_m700_rail_badger"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_rail_ext"] = {
+EFGM.ITEMS["arc9_att_eft_m700_rail_ext"] = {
 	["fullName"] = "M700 extended multi-slot Weaver rail base",
 	["displayName"] = "Multi-slot",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -15648,7 +15648,7 @@ EFGMITEMS["arc9_att_eft_m700_rail_ext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_rail_modx"] = {
+EFGM.ITEMS["arc9_att_eft_m700_rail_modx"] = {
 	["fullName"] = "M700 AB Arms MOD*X rail mount",
 	["displayName"] = "MOD*X rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -15668,7 +15668,7 @@ EFGMITEMS["arc9_att_eft_m700_rail_modx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_rail_modx_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m700_rail_modx_blk"] = {
 	["fullName"] = "M700 AB Arms MOD*X rail mount",
 	["displayName"] = "MOD*X rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -15688,7 +15688,7 @@ EFGMITEMS["arc9_att_eft_m700_rail_modx_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_rail_ring"] = {
+EFGM.ITEMS["arc9_att_eft_m700_rail_ring"] = {
 	["fullName"] = "M700 30mm integral ring scope mount",
 	["displayName"] = "M700 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -15708,7 +15708,7 @@ EFGMITEMS["arc9_att_eft_m700_rail_ring"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_aics"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_aics"] = {
 	["fullName"] = "M700 AI AT AICS polymer chassis",
 	["displayName"] = "AT AICS",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -15728,7 +15728,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_aics"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_archangel"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_archangel"] = {
 	["fullName"] = "M700 ProMag Archangel chassis",
 	["displayName"] = "Archangel",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -15748,7 +15748,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_archangel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_gen3"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_gen3"] = {
 	["fullName"] = "M700 AB Arms MOD*X GEN 3 chassis",
 	["displayName"] = "MOD*X GEN 3",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -15768,7 +15768,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_gen3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_gen3_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_gen3_blk"] = {
 	["fullName"] = "M700 AB Arms MOD*X GEN 3 chassis",
 	["displayName"] = "MOD*X GEN 3",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -15788,7 +15788,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_gen3_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_hogue"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_hogue"] = {
 	["fullName"] = "M700 Hogue Overmolded Ghillie stock",
 	["displayName"] = "Overmolded Ghillie",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15808,7 +15808,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_hogue"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_hogue_blk"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_hogue_blk"] = {
 	["fullName"] = "M700 Hogue Overmolded Ghillie stock",
 	["displayName"] = "Overmolded Ghillie",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15828,7 +15828,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_hogue_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_hogue_green"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_hogue_green"] = {
 	["fullName"] = "M700 Hogue Overmolded Ghillie stock",
 	["displayName"] = "Overmolded Ghillie",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15848,7 +15848,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_hogue_green"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_hogue_wht"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_hogue_wht"] = {
 	["fullName"] = "M700 Hogue Overmolded Ghillie stock",
 	["displayName"] = "Overmolded Ghillie",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -15868,7 +15868,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_hogue_wht"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m700_stock_pro700"] = {
+EFGM.ITEMS["arc9_att_eft_m700_stock_pro700"] = {
 	["fullName"] = "M700 Magpul Pro 700 chassis",
 	["displayName"] = "Pro 700",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -15888,7 +15888,7 @@ EFGMITEMS["arc9_att_eft_m700_stock_pro700"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_barrel_325"] = {
+EFGM.ITEMS["arc9_att_eft_m870_barrel_325"] = {
 	["fullName"] = "M870 12ga sawn-off 325mm barrel",
 	["displayName"] = "M870 325mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15908,7 +15908,7 @@ EFGMITEMS["arc9_att_eft_m870_barrel_325"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_barrel_355"] = {
+EFGM.ITEMS["arc9_att_eft_m870_barrel_355"] = {
 	["fullName"] = "M870 12ga 355mm barrel",
 	["displayName"] = "M870 355mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15928,7 +15928,7 @@ EFGMITEMS["arc9_att_eft_m870_barrel_355"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_barrel_508"] = {
+EFGM.ITEMS["arc9_att_eft_m870_barrel_508"] = {
 	["fullName"] = "M870 12ga 508mm barrel",
 	["displayName"] = "M870 508mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15948,7 +15948,7 @@ EFGMITEMS["arc9_att_eft_m870_barrel_508"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_barrel_508fs"] = {
+EFGM.ITEMS["arc9_att_eft_m870_barrel_508fs"] = {
 	["fullName"] = "M870 12ga 508mm barrel with a fixed sight",
 	["displayName"] = "M870 508mm FS",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15968,7 +15968,7 @@ EFGMITEMS["arc9_att_eft_m870_barrel_508fs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_barrel_660"] = {
+EFGM.ITEMS["arc9_att_eft_m870_barrel_660"] = {
 	["fullName"] = "M870 12ga 660mm vent rib barrel",
 	["displayName"] = "M870 660mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -15988,7 +15988,7 @@ EFGMITEMS["arc9_att_eft_m870_barrel_660"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_hg_moe"] = {
+EFGM.ITEMS["arc9_att_eft_m870_hg_moe"] = {
 	["fullName"] = "M870 Magpul MOE handguard",
 	["displayName"] = "MOE 870",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -16008,7 +16008,7 @@ EFGMITEMS["arc9_att_eft_m870_hg_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_hg_pr"] = {
+EFGM.ITEMS["arc9_att_eft_m870_hg_pr"] = {
 	["fullName"] = "M870 FAB Defense PR-870 forestock",
 	["displayName"] = "PR-870",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -16028,7 +16028,7 @@ EFGMITEMS["arc9_att_eft_m870_hg_pr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_hg_speed"] = {
+EFGM.ITEMS["arc9_att_eft_m870_hg_speed"] = {
 	["fullName"] = "M870 SpeedFeed Short handguard",
 	["displayName"] = "870 SFeed",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -16048,7 +16048,7 @@ EFGMITEMS["arc9_att_eft_m870_hg_speed"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_m870_mag_10"] = {
 	["fullName"] = "M870 12ga 10-shell magazine",
 	["displayName"] = "M870x10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16068,7 +16068,7 @@ EFGMITEMS["arc9_att_eft_m870_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_mag_4"] = {
+EFGM.ITEMS["arc9_att_eft_m870_mag_4"] = {
 	["fullName"] = "M870 12ga 4-shell magazine cap",
 	["displayName"] = "M870x4",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16088,7 +16088,7 @@ EFGMITEMS["arc9_att_eft_m870_mag_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_mag_7"] = {
+EFGM.ITEMS["arc9_att_eft_m870_mag_7"] = {
 	["fullName"] = "M870 12ga 7-shell magazine",
 	["displayName"] = "M870x7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16108,7 +16108,7 @@ EFGMITEMS["arc9_att_eft_m870_mag_7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_mount_clamp"] = {
+EFGM.ITEMS["arc9_att_eft_m870_mount_clamp"] = {
 	["fullName"] = "M870 Mesa Tactical magazine clamp",
 	["displayName"] = "MT Clamp",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -16128,7 +16128,7 @@ EFGMITEMS["arc9_att_eft_m870_mount_clamp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_mount_utg"] = {
+EFGM.ITEMS["arc9_att_eft_m870_mount_utg"] = {
 	["fullName"] = "M870 Leapers UTG PRO MTU-028SG rail",
 	["displayName"] = "MTU-028SG",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -16148,7 +16148,7 @@ EFGMITEMS["arc9_att_eft_m870_mount_utg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_mount_xs"] = {
+EFGM.ITEMS["arc9_att_eft_m870_mount_xs"] = {
 	["fullName"] = "M870 XS SHOTRAIL rail with Ghost Ring rear sight",
 	["displayName"] = "M870 XS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -16168,7 +16168,7 @@ EFGMITEMS["arc9_att_eft_m870_mount_xs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_agr"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_agr"] = {
 	["fullName"] = "M870 FAB Defense AGR-870 pistol grip",
 	["displayName"] = "AGR-870",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -16188,7 +16188,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_agr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_agr_cap"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_agr_cap"] = {
 	["fullName"] = "FAB Defense protection cap for AGR-870",
 	["displayName"] = "AGR-870 cap",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -16208,7 +16208,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_agr_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_agr_tube"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_agr_tube"] = {
 	["fullName"] = "FAB Defense buffer tube for AGR-870",
 	["displayName"] = "AGR-870 tube",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -16228,7 +16228,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_agr_tube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_leo"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_leo"] = {
 	["fullName"] = "M870 Mesa Tactical LEO stock adapter",
 	["displayName"] = "M870 LEO",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -16248,7 +16248,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_leo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_raptor"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_raptor"] = {
 	["fullName"] = "M870 Shockwave Raptor grip",
 	["displayName"] = "870 Raptor",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -16268,7 +16268,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_raptor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_sga"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_sga"] = {
 	["fullName"] = "M870 Magpul SGA polymer stock",
 	["displayName"] = "M870 SGA",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -16288,7 +16288,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_sga"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_m870_stock_sps"] = {
+EFGM.ITEMS["arc9_att_eft_m870_stock_sps"] = {
 	["fullName"] = "M870 SPS polymer stock",
 	["displayName"] = "M870 SPS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -16308,7 +16308,7 @@ EFGMITEMS["arc9_att_eft_m870_stock_sps"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_1911_11"] = {
+EFGM.ITEMS["arc9_att_eft_mag_1911_11"] = {
 	["fullName"] = "M1911A1 .45 ACP Mec-Gar 11-round magazine",
 	["displayName"] = "Mec-Gar 11",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16328,7 +16328,7 @@ EFGMITEMS["arc9_att_eft_mag_1911_11"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_1911_std"] = {
+EFGM.ITEMS["arc9_att_eft_mag_1911_std"] = {
 	["fullName"] = "M1911A1 .45 ACP 7-round magazine",
 	["displayName"] = "1911 7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16348,7 +16348,7 @@ EFGMITEMS["arc9_att_eft_mag_1911_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_1911_tac"] = {
+EFGM.ITEMS["arc9_att_eft_mag_1911_tac"] = {
 	["fullName"] = "M1911A1 .45 ACP Wilson Combat 7-round magazine",
 	["displayName"] = "1911 Wilson 7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16368,7 +16368,7 @@ EFGMITEMS["arc9_att_eft_mag_1911_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_545_20"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_545_20"] = {
 	["fullName"] = 'AK-74 "Saiga 545" 5.45x39 20-round magazine',
 	["displayName"] = "Saiga 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16388,7 +16388,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_545_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_55_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_55_762_30"] = {
 	["fullName"] = "AK 7.62x39 30-round magazine (issued '55 or later)",
 	["displayName"] = "AK55",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16408,7 +16408,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_55_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l10_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l10_762_30"] = {
 	["fullName"] = "AK 7.62x39 6L10 30-round magazine",
 	["displayName"] = "6L10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16428,7 +16428,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l10_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l18_545_45"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l18_545_45"] = {
 	["fullName"] = "AK-74 5.45x39 6L18 45-round magazine",
 	["displayName"] = "6L18",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16448,7 +16448,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l18_545_45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l20_545_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l20_545_30"] = {
 	["fullName"] = "AK-74 5.45x39 6L20 30-round magazine",
 	["displayName"] = "6L20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16468,7 +16468,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l20_545_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l23_545_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l23_545_30"] = {
 	["fullName"] = "AK-74 5.45x39 6L23 30-round magazine",
 	["displayName"] = "6L23",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16488,7 +16488,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l23_545_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l23p_545_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l23p_545_30"] = {
 	["fullName"] = 'AK-74 5.45x39 6L23 "Plum" 30-round magazine',
 	["displayName"] = "6L23",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16508,7 +16508,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l23p_545_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l26_545_45"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l26_545_45"] = {
 	["fullName"] = "AK-74 5.45x39 6L26 45-round magazine",
 	["displayName"] = "6L26",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16528,7 +16528,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l26_545_45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l29_556_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l29_556_30"] = {
 	["fullName"] = "AK-101 5.56x45 6L29 30-round magazine",
 	["displayName"] = "6L29",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16548,7 +16548,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l29_556_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6l31_545_60"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6l31_545_60"] = {
 	["fullName"] = "AK-74 5.45x39 6L31 60-round magazine",
 	["displayName"] = "6L31",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16568,7 +16568,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6l31_545_60"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6p2bak_762_40"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6p2bak_762_40"] = {
 	["fullName"] = "AK 7.62x39 bakelite 40-round magazine",
 	["displayName"] = "6P2 bak.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16588,7 +16588,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6p2bak_762_40"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6p2bak_762_40_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6p2bak_762_40_blk"] = {
 	["fullName"] = "AK 7.62x39 bakelite 40-round magazine",
 	["displayName"] = "6P2 bak.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16608,7 +16608,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6p2bak_762_40_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_6p2sb11_762_40"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_6p2sb11_762_40"] = {
 	["fullName"] = "AK 7.62x39 Molot 40-round magazine",
 	["displayName"] = "6P2.Sb-11",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16628,7 +16628,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_6p2sb11_762_40"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ak103_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ak103_762_30"] = {
 	["fullName"] = "AK-103 7.62x39 30-round magazine",
 	["displayName"] = "AK-103",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16648,7 +16648,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ak103_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ak12_545_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ak12_545_30"] = {
 	["fullName"] = "AK-12 5.45x39 30-round magazine",
 	["displayName"] = "AK12",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16668,7 +16668,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ak12_545_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ak12_545_30_old"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ak12_545_30_old"] = {
 	["fullName"] = "AK-12 5.45x39 early model 30-round magazine",
 	["displayName"] = "AK-12 old",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16688,7 +16688,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ak12_545_30_old"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ak30_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ak30_762_30"] = {
 	["fullName"] = 'AK 7.62x39 US Palm "AK30" 30-round magazine',
 	["displayName"] = "AK30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16708,7 +16708,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ak30_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ak30fde_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ak30fde_762_30"] = {
 	["fullName"] = 'AK 7.62x39 US Palm "AK30" 30-round magazine (FDE)',
 	["displayName"] = "AK30 FDE",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16728,7 +16728,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ak30fde_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_akms_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_akms_762_30"] = {
 	["fullName"] = "AKMS 7.62x39 aluminium 30-round magazine",
 	["displayName"] = "AKMS al.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16748,7 +16748,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_akms_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_alum_762_10"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_alum_762_10"] = {
 	["fullName"] = "AK 7.62x39 aluminium 10-round magazine",
 	["displayName"] = "AK al.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16768,7 +16768,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_alum_762_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_molot_556_45"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_molot_556_45"] = {
 	["fullName"] = "AK 5.56x45 Molot Arms 45-round magazine",
 	["displayName"] = "Molot 45",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16788,7 +16788,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_molot_556_45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_molot_762_75"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_molot_762_75"] = {
 	["fullName"] = "AK 7.62x39 Molot 75-round drum magazine",
 	["displayName"] = "Molot",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16808,7 +16808,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_molot_762_75"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_pmag_545_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_545_30"] = {
 	["fullName"] = "AK-74 5.45x39 Magpul PMAG 30 GEN M3 30-round magazine",
 	["displayName"] = "PMAG",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16828,7 +16828,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_pmag_545_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_pmag_545_30_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_545_30_fde"] = {
 	["fullName"] = "AK-74 5.45x39 Magpul PMAG 30 GEN M3 30-round magazine FDE",
 	["displayName"] = "PMAG (F)",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16848,7 +16848,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_pmag_545_30_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_pmag_762_20"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_762_20"] = {
 	["fullName"] = "AK 7.62x39 Magpul PMAG 20 GEN M3 20-round magazine",
 	["displayName"] = "GEN M3 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16868,7 +16868,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_pmag_762_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_pmag_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_762_30"] = {
 	["fullName"] = "AK 7.62x39 Magpul PMAG 30 GEN M3 30-round magazine",
 	["displayName"] = "GEN M3",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16888,7 +16888,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_pmag_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_pmag_762_30_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_762_30_fde"] = {
 	["fullName"] = "AK 7.62x39 Magpul PMAG 30 GEN M3 30-round magazine FDE",
 	["displayName"] = "GEN M3 (F)",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16908,7 +16908,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_pmag_762_30_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_pmag_banana_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_banana_762_30"] = {
 	["fullName"] = "AK 7.62x39 Magpul PMAG 30 GEN M3 30-round magazine (Banana)",
 	["displayName"] = "GEN M3 Ban.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16928,7 +16928,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_pmag_banana_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_promag_762_73"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_promag_762_73"] = {
 	["fullName"] = "AK 7.62x39 ProMag AK-A-16 73-round drum magazine",
 	["displayName"] = "AK-A-16",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16948,7 +16948,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_promag_762_73"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ribbed_762_10"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ribbed_762_10"] = {
 	["fullName"] = "AK 7.62x39 ribbed metal 10-round magazine",
 	["displayName"] = "AK ribbed",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16968,7 +16968,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ribbed_762_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_rpk16_545_95"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_rpk16_545_95"] = {
 	["fullName"] = "RPK-16 5.45x39 95-round drum magazine",
 	["displayName"] = "RPK16",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -16988,7 +16988,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_rpk16_545_95"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_slr106_556_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_slr106_556_30"] = {
 	["fullName"] = "SLR-106/AK 5.56x45 Circle 10 30-round magazine",
 	["displayName"] = "C-10 AK",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17008,7 +17008,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_slr106_556_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_slr106_556_30_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_slr106_556_30_blk"] = {
 	["fullName"] = "SLR-106/AK 5.56x45 Circle 10 30-round magazine",
 	["displayName"] = "C-10 AK",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17028,7 +17028,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_slr106_556_30_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_std_545_10"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_std_545_10"] = {
 	["fullName"] = 'AK-74 "Saiga 545" 5.45x39 10-round magazine',
 	["displayName"] = "Saiga",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17048,7 +17048,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_std_545_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_ultimag_762_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_ultimag_762_30"] = {
 	["fullName"] = "AK 7.62x39 FAB Defense Ultimag 30R 30-round magazine",
 	["displayName"] = "Ultimag",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17068,7 +17068,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_ultimag_762_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ak_x47_762_50"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ak_x47_762_50"] = {
 	["fullName"] = "AK 7.62x39 X Products X-47 50-round drum magazine",
 	["displayName"] = "X-47 7.62",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17088,7 +17088,7 @@ EFGMITEMS["arc9_att_eft_mag_ak_x47_762_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_battlemag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_battlemag_30"] = {
 	["fullName"] = "5.56x45 TROY BattleMag STANAG 30-round magazine",
 	["displayName"] = "BattleMag",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17108,7 +17108,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_battlemag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_beta_100"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_beta_100"] = {
 	["fullName"] = "5.56x45 Beta C-Mag 100-round drum magazine",
 	["displayName"] = "C-Mag 100",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17128,7 +17128,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_beta_100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_hkpmgen2"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_hkpmgen2"] = {
 	["fullName"] = "5.56x45 HK PM Gen.2 STANAG 30-round magazine",
 	["displayName"] = "PM Gen.2",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17148,7 +17148,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_hkpmgen2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_hkstanag"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_hkstanag"] = {
 	["fullName"] = "5.56x45 HK 30 STANAG polymer 30-round magazine",
 	["displayName"] = "Polymer mag",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17168,7 +17168,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_hkstanag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_hkstanag_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_hkstanag_blk"] = {
 	["fullName"] = "5.56x45 HK 30 STANAG polymer 30-round magazine",
 	["displayName"] = "Polymer mag",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17188,7 +17188,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_hkstanag_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_hksteel"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_hksteel"] = {
 	["fullName"] = "5.56x45 HK Steel Maritime STANAG 30-round magazine",
 	["displayName"] = "HK Steel",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17208,7 +17208,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_hksteel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_mk16_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_mk16_30"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 30-round magazine",
 	["displayName"] = "Mk16",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17228,7 +17228,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_mk16_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_mk16_30_f"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_mk16_30_f"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 30-round magazine (FDE)",
 	["displayName"] = "Mk16",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17248,7 +17248,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_mk16_30_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_10"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_10"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 10 GEN M3 STANAG 10-round magazine",
 	["displayName"] = "GEN M3 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17268,7 +17268,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_20"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_20"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 20 GEN M3 STANAG 20-round magazine",
 	["displayName"] = "GEN M3 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17288,7 +17288,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_30"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 30 GEN M3 STANAG 30-round magazine",
 	["displayName"] = "GEN M3 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17308,7 +17308,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_30_f"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_30_f"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 30 GEN M3 STANAG 30-round magazine (FDE)",
 	["displayName"] = "GEN M3 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17328,7 +17328,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_30_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_30_w_f"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_30_w_f"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 30 GEN M3 W STANAG 30-round magazine (FDE)",
 	["displayName"] = "GEN M3 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17348,7 +17348,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_30_w_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_40"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_40"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 40 GEN M3 STANAG 40-round magazine",
 	["displayName"] = "GEN M3 40",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17368,7 +17368,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_40"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_40_f"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_40_f"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 40 GEN M3 STANAG 40-round magazine (FDE)",
 	["displayName"] = "GEN M3 40",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17388,7 +17388,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_40_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_60"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_60"] = {
 	["fullName"] = "5.56x45 Magpul PMAG D-60 STANAG 60-round magazine",
 	["displayName"] = "PMAG D60",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17408,7 +17408,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_60"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_pmag_w_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_w_30"] = {
 	["fullName"] = "5.56x45 Magpul PMAG 30 GEN M3 W STANAG 30-round magazine",
 	["displayName"] = "GEN M3 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17428,7 +17428,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_pmag_w_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_stanag_20"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_stanag_20"] = {
 	["fullName"] = "AR-15 5.56x45 Colt STANAG 20-round magazine",
 	["displayName"] = "STANAG 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17448,7 +17448,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_stanag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_stanag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_stanag_30"] = {
 	["fullName"] = "5.56x45 Colt AR-15 STANAG 30-round magazine",
 	["displayName"] = "STANAG",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17468,7 +17468,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_stanag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_surefire_100"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_surefire_100"] = {
 	["fullName"] = "5.56x45 SureFire MAG5-100 STANAG 100-round magazine",
 	["displayName"] = "MAG5-100",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17488,7 +17488,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_surefire_100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_ar15_surefire_60"] = {
+EFGM.ITEMS["arc9_att_eft_mag_ar15_surefire_60"] = {
 	["fullName"] = "5.56x45 SureFire MAG5-60 STANAG 60-round magazine",
 	["displayName"] = "MAG5-60",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17508,7 +17508,7 @@ EFGMITEMS["arc9_att_eft_mag_ar15_surefire_60"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_bigstick24"] = {
+EFGM.ITEMS["arc9_att_eft_mag_bigstick24"] = {
 	["fullName"] = 'Glock 9x19 "Big Stick" 24-round magazine (Coyote)',
 	["displayName"] = "Big Stick",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17528,7 +17528,7 @@ EFGMITEMS["arc9_att_eft_mag_bigstick24"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_bigstick31"] = {
+EFGM.ITEMS["arc9_att_eft_mag_bigstick31"] = {
 	["fullName"] = 'Glock 9x19 "Big Stick" 31-round magazine (Coyote)',
 	["displayName"] = "Big Stick",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17548,7 +17548,7 @@ EFGMITEMS["arc9_att_eft_mag_bigstick31"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_deagle_7"] = {
+EFGM.ITEMS["arc9_att_eft_mag_deagle_7"] = {
 	["fullName"] = "Desert Eagle .50 AE 7-round magazine",
 	["displayName"] = "DE .50 AE",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17568,7 +17568,7 @@ EFGMITEMS["arc9_att_eft_mag_deagle_7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_deagle_9"] = {
+EFGM.ITEMS["arc9_att_eft_mag_deagle_9"] = {
 	["fullName"] = "Desert Eagle .357 9-round magazine",
 	["displayName"] = "DE .357",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17588,7 +17588,7 @@ EFGMITEMS["arc9_att_eft_mag_deagle_9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_g17_bigstick_33"] = {
+EFGM.ITEMS["arc9_att_eft_mag_g17_bigstick_33"] = {
 	["fullName"] = 'Glock 9x19 "Big Stick" 33-round magazine',
 	["displayName"] = "Big Stick",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17608,7 +17608,7 @@ EFGMITEMS["arc9_att_eft_mag_g17_bigstick_33"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_g17_gl9_21"] = {
+EFGM.ITEMS["arc9_att_eft_mag_g17_gl9_21"] = {
 	["fullName"] = "Glock 9x19 Magpul PMAG GL9 21-round magazine",
 	["displayName"] = "GL9",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17628,7 +17628,7 @@ EFGMITEMS["arc9_att_eft_mag_g17_gl9_21"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_g17_sgmt_50"] = {
+EFGM.ITEMS["arc9_att_eft_mag_g17_sgmt_50"] = {
 	["fullName"] = "Glock 9x19 SGM Tactical 50-round drum magazine",
 	["displayName"] = "G SGMT",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17648,7 +17648,7 @@ EFGMITEMS["arc9_att_eft_mag_g17_sgmt_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_g17_std_17"] = {
+EFGM.ITEMS["arc9_att_eft_mag_g17_std_17"] = {
 	["fullName"] = "Glock 9x19 17-round magazine",
 	["displayName"] = "Glock 9x19",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17668,7 +17668,7 @@ EFGMITEMS["arc9_att_eft_mag_g17_std_17"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_g19x"] = {
+EFGM.ITEMS["arc9_att_eft_mag_g19x"] = {
 	["fullName"] = "Glock 9x19 19-round magazine (Coyote)",
 	["displayName"] = "G19X",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17688,7 +17688,7 @@ EFGMITEMS["arc9_att_eft_mag_g19x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_m9a3_ext"] = {
+EFGM.ITEMS["arc9_att_eft_mag_m9a3_ext"] = {
 	["fullName"] = "M9A3 9x19 CX4 30-round magazine",
 	["displayName"] = "CX4 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17708,7 +17708,7 @@ EFGMITEMS["arc9_att_eft_mag_m9a3_ext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_mag_m9a3_std"] = {
 	["fullName"] = "M9A3 9x19 17-round magazine",
 	["displayName"] = "M9A3 17",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17728,7 +17728,7 @@ EFGMITEMS["arc9_att_eft_mag_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_mp443_std"] = {
+EFGM.ITEMS["arc9_att_eft_mag_mp443_std"] = {
 	["fullName"] = "MP-443 Grach 9x19 18-round magazine",
 	["displayName"] = "MP-443 18",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17748,7 +17748,7 @@ EFGMITEMS["arc9_att_eft_mag_mp443_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_p226_15"] = {
+EFGM.ITEMS["arc9_att_eft_mag_p226_15"] = {
 	["fullName"] = "P226 9x19 15-round magazine",
 	["displayName"] = "P226 15",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17768,7 +17768,7 @@ EFGMITEMS["arc9_att_eft_mag_p226_15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_p226_20"] = {
+EFGM.ITEMS["arc9_att_eft_mag_p226_20"] = {
 	["fullName"] = "P226 9x19 20-round extended magazine",
 	["displayName"] = "P226 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17788,7 +17788,7 @@ EFGMITEMS["arc9_att_eft_mag_p226_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_pl15_std"] = {
+EFGM.ITEMS["arc9_att_eft_mag_pl15_std"] = {
 	["fullName"] = "PL-15 9x19 16-round magazine",
 	["displayName"] = "PL-15 16",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17808,7 +17808,7 @@ EFGMITEMS["arc9_att_eft_mag_pl15_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_sr1mp_std"] = {
+EFGM.ITEMS["arc9_att_eft_mag_sr1mp_std"] = {
 	["fullName"] = "SR-1MP 9x21 18-round magazine",
 	["displayName"] = "SR-1MP 18",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17828,7 +17828,7 @@ EFGMITEMS["arc9_att_eft_mag_sr1mp_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_toz106_2"] = {
+EFGM.ITEMS["arc9_att_eft_mag_toz106_2"] = {
 	["fullName"] = "TOZ-106 20ga MTs 20-01 Sb.3 2-shot magazine",
 	["displayName"] = "20-01 Sb.3x2",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17848,7 +17848,7 @@ EFGMITEMS["arc9_att_eft_mag_toz106_2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_toz106_4"] = {
+EFGM.ITEMS["arc9_att_eft_mag_toz106_4"] = {
 	["fullName"] = "TOZ-106 20ga MTs 20-01 Sb.3 4-shot magazine",
 	["displayName"] = "Sb.3x4",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17868,7 +17868,7 @@ EFGMITEMS["arc9_att_eft_mag_toz106_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_toz106_5"] = {
+EFGM.ITEMS["arc9_att_eft_mag_toz106_5"] = {
 	["fullName"] = "TOZ-106 20ga MTs 20-01 Sb.3 5-shot magazine",
 	["displayName"] = "Sb.3x5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17888,7 +17888,7 @@ EFGMITEMS["arc9_att_eft_mag_toz106_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_usp_std"] = {
+EFGM.ITEMS["arc9_att_eft_mag_usp_std"] = {
 	["fullName"] = "HK USP .45 ACP 12-round magazine",
 	["displayName"] = "USP45",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17908,7 +17908,7 @@ EFGMITEMS["arc9_att_eft_mag_usp_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mag_usp_tac"] = {
+EFGM.ITEMS["arc9_att_eft_mag_usp_tac"] = {
 	["fullName"] = "HK USP Tactical .45 ACP 12-round magazine",
 	["displayName"] = "USP45T",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -17928,7 +17928,7 @@ EFGMITEMS["arc9_att_eft_mag_usp_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_barrel171"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_barrel171"] = {
 	["fullName"] = "MCX .300 BLK 171mm barrel",
 	["displayName"] = "MCX 171mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -17948,7 +17948,7 @@ EFGMITEMS["arc9_att_eft_mcx_barrel171"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_barrel229"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_barrel229"] = {
 	["fullName"] = "MCX .300 BLK 229mm barrel",
 	["displayName"] = "MCX 229mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -17968,7 +17968,7 @@ EFGMITEMS["arc9_att_eft_mcx_barrel229"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_barrel406"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_barrel406"] = {
 	["fullName"] = "MCX .300 BLK 16 inch barrel",
 	["displayName"] = 'MCX 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -17988,7 +17988,7 @@ EFGMITEMS["arc9_att_eft_mcx_barrel406"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_ch"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_ch"] = {
 	["fullName"] = "MCX charging handle",
 	["displayName"] = "MCX",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -18008,7 +18008,7 @@ EFGMITEMS["arc9_att_eft_mcx_ch"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_gb"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_gb"] = {
 	["fullName"] = "MCX gas block",
 	["displayName"] = "MCX block",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -18028,7 +18028,7 @@ EFGMITEMS["arc9_att_eft_mcx_gb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_gbcalx"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_gbcalx"] = {
 	["fullName"] = "MCX Cal-X Mid-Piston gas block",
 	["displayName"] = "MCX mid",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -18048,7 +18048,7 @@ EFGMITEMS["arc9_att_eft_mcx_gbcalx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_hg_12"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_hg_12"] = {
 	["fullName"] = "MCX GEN1 KeyMod 12 inch handguard",
 	["displayName"] = 'MCX 12"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18068,7 +18068,7 @@ EFGMITEMS["arc9_att_eft_mcx_hg_12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_hg_8"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_hg_8"] = {
 	["fullName"] = "MCX GEN1 KeyMod 8 inch handguard",
 	["displayName"] = 'MCX 8"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18088,7 +18088,7 @@ EFGMITEMS["arc9_att_eft_mcx_hg_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_hg_gen1"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_hg_gen1"] = {
 	["fullName"] = "MCX GEN1 10.5 inch handguard",
 	["displayName"] = 'MCX 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18108,7 +18108,7 @@ EFGMITEMS["arc9_att_eft_mcx_hg_gen1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_hg_lancer_105"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_hg_lancer_105"] = {
 	["fullName"] = "MCX Lancer Carbon Fiber M-LOK 10.5 inch handguard",
 	["displayName"] = 'CF 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18128,7 +18128,7 @@ EFGMITEMS["arc9_att_eft_mcx_hg_lancer_105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_hg_lancer_12"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_hg_lancer_12"] = {
 	["fullName"] = "MCX Lancer Carbon Fiber M-LOK 12 inch handguard",
 	["displayName"] = 'CF 12"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18148,7 +18148,7 @@ EFGMITEMS["arc9_att_eft_mcx_hg_lancer_12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_hg_lancer_18"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_hg_lancer_18"] = {
 	["fullName"] = "MCX Lancer Carbon Fiber M-LOK 18 inch handguard",
 	["displayName"] = 'CF 18"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18168,7 +18168,7 @@ EFGMITEMS["arc9_att_eft_mcx_hg_lancer_18"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_rec"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_rec"] = {
 	["fullName"] = "MCX GEN1 .300 BLK upper receiver",
 	["displayName"] = "MCX GEN1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -18188,7 +18188,7 @@ EFGMITEMS["arc9_att_eft_mcx_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_adap"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_adap"] = {
 	["fullName"] = "MPX/MCX retractable stock pipe adapter",
 	["displayName"] = "MPX/MCX",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18208,7 +18208,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_brace"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_brace"] = {
 	["fullName"] = "MPX/MCX SB Tactical Pistol Stabilizing Brace",
 	["displayName"] = "MPX brace",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18228,7 +18228,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_brace"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_colap"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_colap"] = {
 	["fullName"] = "MPX/MCX collapsing/telescoping stock",
 	["displayName"] = "MPX/MCX",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18248,7 +18248,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_colap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_cqb"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_cqb"] = {
 	["fullName"] = "MPX/MCX Maxim Defense CQB telescoping stock",
 	["displayName"] = "MPX/MCX CQB",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18268,7 +18268,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_cqb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_hinge"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_hinge"] = {
 	["fullName"] = "MCX/MPX Stock Locking Hinge Assembly",
 	["displayName"] = "MPX/MCX",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18288,7 +18288,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_hinge"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_light"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_light"] = {
 	["fullName"] = "MPX/MCX lightweight stock",
 	["displayName"] = "MPX/MCX light",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18308,7 +18308,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_light"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_tele"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_tele"] = {
 	["fullName"] = "MPX/MCX telescoping stock",
 	["displayName"] = "MPX/MCX tele",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18328,7 +18328,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_tele"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_ucs"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_ucs"] = {
 	["fullName"] = "Magpul UCS buttstock (Black)",
 	["displayName"] = "UCS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18348,7 +18348,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_ucs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_ucs_cheek"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_ucs_cheek"] = {
 	["fullName"] = "Magpul UCS Stock Cheek Riser",
 	["displayName"] = "UCS CR",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -18368,7 +18368,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_ucs_cheek"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_ucs_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_ucs_fde"] = {
 	["fullName"] = "Magpul UCS buttstock (FDE)",
 	["displayName"] = "UCS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18388,7 +18388,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_ucs_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mcx_stock_ulss"] = {
+EFGM.ITEMS["arc9_att_eft_mcx_stock_ulss"] = {
 	["fullName"] = "MPX/MCX PMM ULSS foldable stock",
 	["displayName"] = "ULSS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18408,7 +18408,7 @@ EFGMITEMS["arc9_att_eft_mcx_stock_ulss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mdr_barrel_556"] = {
+EFGM.ITEMS["arc9_att_eft_mdr_barrel_556"] = {
 	["fullName"] = "MDR 5.56x45 16 inch barrel",
 	["displayName"] = 'MDR 556 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18428,7 +18428,7 @@ EFGMITEMS["arc9_att_eft_mdr_barrel_556"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mdr_barrel_762"] = {
+EFGM.ITEMS["arc9_att_eft_mdr_barrel_762"] = {
 	["fullName"] = "MDR 7.62x51 16 inch barrel",
 	["displayName"] = 'MDR 762 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18448,7 +18448,7 @@ EFGMITEMS["arc9_att_eft_mdr_barrel_762"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mdr_hg_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mdr_hg_blk"] = {
 	["fullName"] = "MDR handguard",
 	["displayName"] = "MDR Black",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18468,7 +18468,7 @@ EFGMITEMS["arc9_att_eft_mdr_hg_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mdr_hg_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mdr_hg_fde"] = {
 	["fullName"] = "MDR handguard (FDE)",
 	["displayName"] = "MDR",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18488,7 +18488,7 @@ EFGMITEMS["arc9_att_eft_mdr_hg_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mdr_pg_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mdr_pg_blk"] = {
 	["fullName"] = "MDR pistol grip",
 	["displayName"] = "MDR black",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -18508,7 +18508,7 @@ EFGMITEMS["arc9_att_eft_mdr_pg_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mdr_pg_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mdr_pg_fde"] = {
 	["fullName"] = "MDR pistol grip (FDE)",
 	["displayName"] = "MDR",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -18528,7 +18528,7 @@ EFGMITEMS["arc9_att_eft_mdr_pg_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk18_barrel_24"] = {
+EFGM.ITEMS["arc9_att_eft_mk18_barrel_24"] = {
 	["fullName"] = "Mk-18 .338 LM 24 inch barrel",
 	["displayName"] = 'Mk-18 24"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18548,7 +18548,7 @@ EFGMITEMS["arc9_att_eft_mk18_barrel_24"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk18_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_mk18_gas_std"] = {
 	["fullName"] = "Mk-18 gas block",
 	["displayName"] = "Mk18 block",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -18568,7 +18568,7 @@ EFGMITEMS["arc9_att_eft_mk18_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk18_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_mk18_hg_std"] = {
 	["fullName"] = "Mk-18 18 inch handguard",
 	["displayName"] = 'Mk-18 18"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -18588,7 +18588,7 @@ EFGMITEMS["arc9_att_eft_mk18_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk18_mag10"] = {
+EFGM.ITEMS["arc9_att_eft_mk18_mag10"] = {
 	["fullName"] = "Mk-18 .338 LM 10-round magazine",
 	["displayName"] = "Mk-18",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -18608,7 +18608,7 @@ EFGMITEMS["arc9_att_eft_mk18_mag10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk18_upper_std"] = {
+EFGM.ITEMS["arc9_att_eft_mk18_upper_std"] = {
 	["fullName"] = "Mk-18 .338 LM upper receiver",
 	["displayName"] = "Mk-18",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -18628,7 +18628,7 @@ EFGMITEMS["arc9_att_eft_mk18_upper_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk47_barrel_254"] = {
+EFGM.ITEMS["arc9_att_eft_mk47_barrel_254"] = {
 	["fullName"] = "Mk47 254mm barrel",
 	["displayName"] = "Mk47 254mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18648,7 +18648,7 @@ EFGMITEMS["arc9_att_eft_mk47_barrel_254"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk47_barrel_409"] = {
+EFGM.ITEMS["arc9_att_eft_mk47_barrel_409"] = {
 	["fullName"] = "Mk47 409mm barrel",
 	["displayName"] = "Mk47 409mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18668,7 +18668,7 @@ EFGMITEMS["arc9_att_eft_mk47_barrel_409"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk47_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_mk47_charge_std"] = {
 	["fullName"] = "Mk47 ambidextrous charging handle",
 	["displayName"] = "Mk47 Ambi",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -18688,7 +18688,7 @@ EFGMITEMS["arc9_att_eft_mk47_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mk47_upper_std"] = {
+EFGM.ITEMS["arc9_att_eft_mk47_upper_std"] = {
 	["fullName"] = "Mk47 Resolute 7.62x39 upper receiver",
 	["displayName"] = "Mk47 Resolute",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -18708,7 +18708,7 @@ EFGMITEMS["arc9_att_eft_mk47_upper_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_barrel_200"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_barrel_200"] = {
 	["fullName"] = "Mosin Rifle 7.62x54R sawn-off 200mm barrel",
 	["displayName"] = "Mosin 200mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18728,7 +18728,7 @@ EFGMITEMS["arc9_att_eft_mosin_barrel_200"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_barrel_220"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_barrel_220"] = {
 	["fullName"] = "Mosin Rifle 7.62x54R sawn-off 220mm threaded barrel",
 	["displayName"] = "Mosin 220mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18748,7 +18748,7 @@ EFGMITEMS["arc9_att_eft_mosin_barrel_220"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_barrel_514"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_barrel_514"] = {
 	["fullName"] = "Mosin Carbine 7.62x54R 514mm barrel",
 	["displayName"] = "Mosin 514mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18768,7 +18768,7 @@ EFGMITEMS["arc9_att_eft_mosin_barrel_514"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_barrel_730"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_barrel_730"] = {
 	["fullName"] = "Mosin Rifle 7.62x54R 730mm regular barrel",
 	["displayName"] = "Mosin 730mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -18788,7 +18788,7 @@ EFGMITEMS["arc9_att_eft_mosin_barrel_730"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_butt_aim"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_butt_aim"] = {
 	["fullName"] = "Mosin Rifle AIM Sports Recoil Pad",
 	["displayName"] = "Mosin RPad",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -18808,7 +18808,7 @@ EFGMITEMS["arc9_att_eft_mosin_butt_aim"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_carb_rs"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_carb_rs"] = {
 	["fullName"] = "Mosin Rifle carbine rear sight",
 	["displayName"] = "Mosin RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -18828,7 +18828,7 @@ EFGMITEMS["arc9_att_eft_mosin_carb_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mag_10"] = {
 	["fullName"] = "Mosin Rifle 7.62x54R ProMag Archangel OPFOR 10-round magazine",
 	["displayName"] = "AA762R 02",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -18848,7 +18848,7 @@ EFGMITEMS["arc9_att_eft_mosin_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mag_5"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mag_5"] = {
 	["fullName"] = "Mosin Rifle 7.62x54R 5-round magazine",
 	["displayName"] = "Mosin",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -18868,7 +18868,7 @@ EFGMITEMS["arc9_att_eft_mosin_mag_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mount_kochetov"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mount_kochetov"] = {
 	["fullName"] = "Mosin Rifle Kochetov mount",
 	["displayName"] = "Kochetov",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -18888,7 +18888,7 @@ EFGMITEMS["arc9_att_eft_mosin_mount_kochetov"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mount_mng"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mount_mng"] = {
 	["fullName"] = "Mosin Rifle AIM Sports MNG rail mount",
 	["displayName"] = "Mosin MNG",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -18908,7 +18908,7 @@ EFGMITEMS["arc9_att_eft_mosin_mount_mng"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mount_patriot"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mount_patriot"] = {
 	["fullName"] = "Mosin Rifle Arbalet Patriot K+W rail mount",
 	["displayName"] = "Patriot K+W",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -18928,7 +18928,7 @@ EFGMITEMS["arc9_att_eft_mosin_mount_patriot"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mount_rings"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mount_rings"] = {
 	["fullName"] = "PU 3.5x ring scope mount",
 	["displayName"] = "PU rings",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -18948,7 +18948,7 @@ EFGMITEMS["arc9_att_eft_mosin_mount_rings"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_mount_trirail"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_mount_trirail"] = {
 	["fullName"] = "Mosin Rifle AIM Sports Tri-Rail mount",
 	["displayName"] = "Mosin 3Rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -18968,7 +18968,7 @@ EFGMITEMS["arc9_att_eft_mosin_mount_trirail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_bramit"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_bramit"] = {
 	["fullName"] = "Mosin Rifle Bramit 7.62x54R sound suppressor",
 	["displayName"] = "Bramit",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -18988,7 +18988,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_bramit"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_kiba"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_kiba"] = {
 	["fullName"] = "Mosin Rifle Kiba Arms 7.62x54R custom thread adapter",
 	["displayName"] = "Mosin thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -19008,7 +19008,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_kiba"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_tanker"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_tanker"] = {
 	["fullName"] = "Mosin Rifle Tacfire Tanker Style 7.62x54R muzzle brake",
 	["displayName"] = "Mosin Tanker",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -19028,7 +19028,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_tanker"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_tpp"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_tpp"] = {
 	["fullName"] = "Mosin Rifle Texas Precision Products 7.62x54R muzzle brake",
 	["displayName"] = "Mosin TPP",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -19048,7 +19048,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_tpp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_tr"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_tr"] = {
 	["fullName"] = "Mosin Rifle Tiger Rock 7.62x51 thread adapter",
 	["displayName"] = "TR thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -19068,7 +19068,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_tr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_wm"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_wm"] = {
 	["fullName"] = "Mosin Rifle Witt Machine 7.62x54R muzzle brake",
 	["displayName"] = "Mosin WM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -19088,7 +19088,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_wm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_muzzle_wt"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_muzzle_wt"] = {
 	["fullName"] = "Mosin Rifle Weapon Tuning 7.62x39 thread adapter",
 	["displayName"] = "WT1052",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -19108,7 +19108,7 @@ EFGMITEMS["arc9_att_eft_mosin_muzzle_wt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_pgrip_tacfire"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_pgrip_tacfire"] = {
 	["fullName"] = "Mosin Rifle Tacfire pistol grip",
 	["displayName"] = "Mosin",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -19128,7 +19128,7 @@ EFGMITEMS["arc9_att_eft_mosin_pgrip_tacfire"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_scope_pu"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_scope_pu"] = {
 	["fullName"] = "PU 3.5x riflescope",
 	["displayName"] = "PU 3.5x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -19148,7 +19148,7 @@ EFGMITEMS["arc9_att_eft_mosin_scope_pu"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_std_fs"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_std_fs"] = {
 	["fullName"] = "Mosin Rifle front sight",
 	["displayName"] = "Mosin FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -19168,7 +19168,7 @@ EFGMITEMS["arc9_att_eft_mosin_std_fs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_std_rs"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_std_rs"] = {
 	["fullName"] = "Mosin Rifle rear sight",
 	["displayName"] = "Mosin RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -19188,7 +19188,7 @@ EFGMITEMS["arc9_att_eft_mosin_std_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_ati"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_ati"] = {
 	["fullName"] = "Mosin Rifle ATI Monte Carlo chassis",
 	["displayName"] = "Mosin MonteCarlo",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -19208,7 +19208,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_ati"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_carbine"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_carbine"] = {
 	["fullName"] = "Mosin Rifle carbine stock",
 	["displayName"] = "Mosin carbine",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -19228,7 +19228,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_carbine"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_inf"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_inf"] = {
 	["fullName"] = "Mosin Rifle Infantry stock",
 	["displayName"] = "Mosin inf. stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -19248,7 +19248,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_inf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_opfor"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_opfor"] = {
 	["fullName"] = "Mosin Rifle ProMag Archangel OPFOR PRS chassis",
 	["displayName"] = "Archangel Mosin",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -19268,7 +19268,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_opfor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_opfor_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_opfor_blk"] = {
 	["fullName"] = "Mosin Rifle ProMag Archangel OPFOR PRS chassis",
 	["displayName"] = "Archangel Mosin",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -19288,7 +19288,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_opfor_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_sawnoff"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_sawnoff"] = {
 	["fullName"] = "Mosin Rifle sawn-off stock",
 	["displayName"] = "Mosin sawn-off",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -19308,7 +19308,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_sawnoff"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_sawnoff_sniper"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_sawnoff_sniper"] = {
 	["fullName"] = "Mosin Rifle sawn-off sniper stock",
 	["displayName"] = "Mosin sawn-off sniper",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -19328,7 +19328,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_sawnoff_sniper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_sniper_carbine"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_sniper_carbine"] = {
 	["fullName"] = "Mosin Rifle sniper carbine stock",
 	["displayName"] = "Mosin sniper carbine",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -19348,7 +19348,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_sniper_carbine"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mosin_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_mosin_stock_std"] = {
 	["fullName"] = "Mosin Rifle standard stock",
 	["displayName"] = "Mosin stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -19368,7 +19368,7 @@ EFGMITEMS["arc9_att_eft_mosin_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_1911_rail"] = {
+EFGM.ITEMS["arc9_att_eft_mount_1911_rail"] = {
 	["fullName"] = "M1911A1 NcSTAR trigger guard mount",
 	["displayName"] = "1911 mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19388,7 +19388,7 @@ EFGMITEMS["arc9_att_eft_mount_1911_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_1911_top"] = {
+EFGM.ITEMS["arc9_att_eft_mount_1911_top"] = {
 	["fullName"] = "M1911A1 Weigand Weig-a-tinny rail mount",
 	["displayName"] = "Weig-a-tinny",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19408,7 +19408,7 @@ EFGMITEMS["arc9_att_eft_mount_1911_top"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_25mm"] = {
+EFGM.ITEMS["arc9_att_eft_mount_25mm"] = {
 	["fullName"] = "Kiba Arms 25mm accessory ring mount",
 	["displayName"] = "25mm ring",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19428,7 +19428,7 @@ EFGMITEMS["arc9_att_eft_mount_25mm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_25mm_dd_offset"] = {
+EFGM.ITEMS["arc9_att_eft_mount_25mm_dd_offset"] = {
 	["fullName"] = "Daniel Defense 25mm accessory ring mount",
 	["displayName"] = "25mm DD",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19448,7 +19448,7 @@ EFGMITEMS["arc9_att_eft_mount_25mm_dd_offset"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_25mm_utg"] = {
+EFGM.ITEMS["arc9_att_eft_mount_25mm_utg"] = {
 	["fullName"] = "Leapers UTG 25mm ring scope mount",
 	["displayName"] = "UTG 25mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19468,7 +19468,7 @@ EFGMITEMS["arc9_att_eft_mount_25mm_utg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_alpha4"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_alpha4"] = {
 	["fullName"] = "SIG ALPHA4 30mm ring scope mount",
 	["displayName"] = "ALPHA4 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19488,7 +19488,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_alpha4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_alpha4_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_alpha4_blk"] = {
 	["fullName"] = "SIG ALPHA4 30mm ring scope mount",
 	["displayName"] = "ALPHA4 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19508,7 +19508,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_alpha4_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_arms"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_arms"] = {
 	["fullName"] = "A.R.M.S. #22 30mm ring scope mount",
 	["displayName"] = "ARMS#22",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19528,7 +19528,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_arms"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_geis"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_geis"] = {
 	["fullName"] = "Geissele Super Precision 30mm ring scope mount",
 	["displayName"] = "Geis 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19548,7 +19548,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_geis"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_geis_tan"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_geis_tan"] = {
 	["fullName"] = "Geissele Super Precision 30mm ring scope mount (DDC)",
 	["displayName"] = "Geis 30mm D",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19568,7 +19568,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_geis_tan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_jp"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_jp"] = {
 	["fullName"] = "JP Enterprises Flat-Top 30mm ring scope mount",
 	["displayName"] = "JP 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19588,7 +19588,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_jp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_lobaev"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_lobaev"] = {
 	["fullName"] = "Lobaev Arms 30mm scope mount",
 	["displayName"] = "Lobaev 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19608,7 +19608,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_lobaev"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_nf"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_nf"] = {
 	["fullName"] = "Nightforce Magmount 30mm ring scope mount",
 	["displayName"] = "NF 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19628,7 +19628,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_nf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_pepr"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_pepr"] = {
 	["fullName"] = "Burris AR-P.E.P.R. 30mm ring scope mount",
 	["displayName"] = "PEPR 30mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19648,7 +19648,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_pepr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_rn"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_rn"] = {
 	["fullName"] = "Recknagel Era-Tac 30mm ring scope mount",
 	["displayName"] = "RN 30mm ET",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19668,7 +19668,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_rn"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_30mm_rn_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mount_30mm_rn_blk"] = {
 	["fullName"] = "Recknagel Era-Tac 30mm ring scope mount",
 	["displayName"] = "RN 30mm ET",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19688,7 +19688,7 @@ EFGMITEMS["arc9_att_eft_mount_30mm_rn_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_ax50"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_ax50"] = {
 	["fullName"] = "AI AX-50 34mm scope mount",
 	["displayName"] = "AX-50 34mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19708,7 +19708,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_ax50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_ax50_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_ax50_blk"] = {
 	["fullName"] = "AI AX-50 34mm scope mount",
 	["displayName"] = "AX-50 34mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19728,7 +19728,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_ax50_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_nf"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_nf"] = {
 	["fullName"] = "Nightforce Magmount 34mm ring scope mount",
 	["displayName"] = "NF 34mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19748,7 +19748,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_nf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_nfris"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_nfris"] = {
 	["fullName"] = "Nightforce Magmount 34mm ring scope mount with Ruggedized Accessory Platform",
 	["displayName"] = "NF 34mm RIS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19768,7 +19768,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_nfris"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_one_piece_is_real"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_one_piece_is_real"] = {
 	["fullName"] = "IEA Mil-Optics KH/F 34mm one-piece magmount",
 	["displayName"] = "KH/F 34mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19788,7 +19788,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_one_piece_is_real"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_rn"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_rn"] = {
 	["fullName"] = "Recknagel Era-Tac 34mm ring scope mount",
 	["displayName"] = "RN 34mm ET",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19808,7 +19808,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_rn"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_34mm_rn_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mount_34mm_rn_blk"] = {
 	["fullName"] = "Recknagel Era-Tac 34mm ring scope mount",
 	["displayName"] = "RN 34mm ET",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19828,7 +19828,7 @@ EFGMITEMS["arc9_att_eft_mount_34mm_rn_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_35mm_ims"] = {
+EFGM.ITEMS["arc9_att_eft_mount_35mm_ims"] = {
 	["fullName"] = "Leupold Mark IMS 35mm ring scope mount",
 	["displayName"] = "IMS 35mm",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19848,7 +19848,7 @@ EFGMITEMS["arc9_att_eft_mount_35mm_ims"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_ac32062"] = {
+EFGM.ITEMS["arc9_att_eft_mount_ac32062"] = {
 	["fullName"] = "Trijicon RMR high profile mount",
 	["displayName"] = "AC32062",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19868,7 +19868,7 @@ EFGMITEMS["arc9_att_eft_mount_ac32062"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_acogrs"] = {
+EFGM.ITEMS["arc9_att_eft_mount_acogrs"] = {
 	["fullName"] = "Trijicon ACOG backup rear sight",
 	["displayName"] = "Trij.Bck-up",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -19888,7 +19888,7 @@ EFGMITEMS["arc9_att_eft_mount_acogrs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_alexander_10"] = {
+EFGM.ITEMS["arc9_att_eft_mount_alexander_10"] = {
 	["fullName"] = "Alexander Arms 10 inch rail",
 	["displayName"] = 'Mk10 10"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19908,7 +19908,7 @@ EFGMITEMS["arc9_att_eft_mount_alexander_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_alexander_3"] = {
+EFGM.ITEMS["arc9_att_eft_mount_alexander_3"] = {
 	["fullName"] = "Alexander Arms 3 inch rail",
 	["displayName"] = "Mk10 3 in.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19928,7 +19928,7 @@ EFGMITEMS["arc9_att_eft_mount_alexander_3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_all_kmz_1p69"] = {
+EFGM.ITEMS["arc9_att_eft_mount_all_kmz_1p69"] = {
 	["fullName"] = "KMZ 1P69 Weaver mount",
 	["displayName"] = "1P69 mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19948,7 +19948,7 @@ EFGMITEMS["arc9_att_eft_mount_all_kmz_1p69"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_amm"] = {
+EFGM.ITEMS["arc9_att_eft_mount_amm"] = {
 	["fullName"] = "Aimpoint Micro Standard Mount",
 	["displayName"] = "AMM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19968,7 +19968,7 @@ EFGMITEMS["arc9_att_eft_mount_amm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_amsh"] = {
+EFGM.ITEMS["arc9_att_eft_mount_amsh"] = {
 	["fullName"] = "Aimpoint Micro Spacer High",
 	["displayName"] = "AMSH",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -19988,7 +19988,7 @@ EFGMITEMS["arc9_att_eft_mount_amsh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_arms_22_cap"] = {
+EFGM.ITEMS["arc9_att_eft_mount_arms_22_cap"] = {
 	["fullName"] = "A.R.M.S. #22 ring cap",
 	["displayName"] = "ARMS#22",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20008,7 +20008,7 @@ EFGMITEMS["arc9_att_eft_mount_arms_22_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_arms_22_tr"] = {
+EFGM.ITEMS["arc9_att_eft_mount_arms_22_tr"] = {
 	["fullName"] = "A.R.M.S. #22 Tactical Ring Rail mount",
 	["displayName"] = "#22 TRR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20028,7 +20028,7 @@ EFGMITEMS["arc9_att_eft_mount_arms_22_tr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_b12"] = {
+EFGM.ITEMS["arc9_att_eft_mount_b12"] = {
 	["fullName"] = "AK Zenit B-12 Mount",
 	["displayName"] = "B-12",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20048,7 +20048,7 @@ EFGMITEMS["arc9_att_eft_mount_b12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_b50_16"] = {
+EFGM.ITEMS["arc9_att_eft_mount_b50_16"] = {
 	["fullName"] = "PK Zenit B-50 16mm top mount",
 	["displayName"] = "B50 16",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20068,7 +20068,7 @@ EFGMITEMS["arc9_att_eft_mount_b50_16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_b50_66"] = {
+EFGM.ITEMS["arc9_att_eft_mount_b50_66"] = {
 	["fullName"] = "PK Zenit B-50 66mm top mount",
 	["displayName"] = "B50 66",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20088,7 +20088,7 @@ EFGMITEMS["arc9_att_eft_mount_b50_66"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_compact"] = {
+EFGM.ITEMS["arc9_att_eft_mount_compact"] = {
 	["fullName"] = "Compact Mount adapter for sights",
 	["displayName"] = "Compact",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20108,7 +20108,7 @@ EFGMITEMS["arc9_att_eft_mount_compact"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_deltapoint"] = {
+EFGM.ITEMS["arc9_att_eft_mount_deltapoint"] = {
 	["fullName"] = "DeltaPoint Cross Slot Mount base",
 	["displayName"] = "DPCSM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20128,7 +20128,7 @@ EFGMITEMS["arc9_att_eft_mount_deltapoint"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_aksion_kobra"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_aksion_kobra"] = {
 	["fullName"] = "Axion Kobra dovetail mount",
 	["displayName"] = "A. Kobra",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20148,7 +20148,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_aksion_kobra"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_b13"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_b13"] = {
 	["fullName"] = 'Zenit B-13 "Klassika" dovetail rail platform',
 	["displayName"] = "B-13",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20168,7 +20168,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_b13"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_b13v"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_b13v"] = {
 	["fullName"] = 'Zenit B-13V "Klassika" dovetail rail platform',
 	["displayName"] = "B-13V",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20188,7 +20188,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_b13v"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_caaxdrgl"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_caaxdrgl"] = {
 	["fullName"] = "SVD CAA XD RGL receiver mount",
 	["displayName"] = "XD RGL",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20208,7 +20208,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_caaxdrgl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_kmz_1p59"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_kmz_1p59"] = {
 	["fullName"] = "KMZ 1P59 dovetail mount",
 	["displayName"] = "1P59 mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20228,7 +20228,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_kmz_1p59"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_npz"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_npz"] = {
 	["fullName"] = "NPZ 1P78-1 dovetail mount",
 	["displayName"] = "NPZ 1P78",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20248,7 +20248,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_npz"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_pilad"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_pilad"] = {
 	["fullName"] = "VOMZ Pilad 043-02 dovetail mount",
 	["displayName"] = "043-02",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20268,7 +20268,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_pilad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_rsr"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_rsr"] = {
 	["fullName"] = "RS Regulate AK-303M Full Length Lower dovetail mount",
 	["displayName"] = "AK-303M",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20288,7 +20288,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_rsr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_sag"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_sag"] = {
 	["fullName"] = "SAG AK dovetail sidemount",
 	["displayName"] = "SAG AK",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20308,7 +20308,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_sag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_sagbit"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_sagbit"] = {
 	["fullName"] = "SAG Bit low profile dovetail sidemount",
 	["displayName"] = "SAG Bit",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20328,7 +20328,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_sagbit"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_sagsvd"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_sagsvd"] = {
 	["fullName"] = "SVD SAG low profile sidemount",
 	["displayName"] = "SAG SVD",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20348,7 +20348,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_sagsvd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_sr3mp"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_sr3mp"] = {
 	["fullName"] = "SR-3MP dovetail side rail",
 	["displayName"] = "SR-3MP D",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20368,7 +20368,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_sr3mp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_sr3mpp"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_sr3mpp"] = {
 	["fullName"] = "SR-3MP dovetail side rail (Plum)",
 	["displayName"] = "SR-3MP D",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20388,7 +20388,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_sr3mpp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_dovetail_vpo102"] = {
+EFGM.ITEMS["arc9_att_eft_mount_dovetail_vpo102"] = {
 	["fullName"] = "VPO-102 Arbalet mount",
 	["displayName"] = "Arbalet VPO",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20408,7 +20408,7 @@ EFGMITEMS["arc9_att_eft_mount_dovetail_vpo102"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_ffwb"] = {
+EFGM.ITEMS["arc9_att_eft_mount_ffwb"] = {
 	["fullName"] = "Burris FastFire Weaver Base",
 	["displayName"] = "FFWB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20428,7 +20428,7 @@ EFGMITEMS["arc9_att_eft_mount_ffwb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_g17_at_base"] = {
+EFGM.ITEMS["arc9_att_eft_mount_g17_at_base"] = {
 	["fullName"] = "Glock Aimtech mount base",
 	["displayName"] = "G AT base",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20448,7 +20448,7 @@ EFGMITEMS["arc9_att_eft_mount_g17_at_base"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_g17_tshark"] = {
+EFGM.ITEMS["arc9_att_eft_mount_g17_tshark"] = {
 	["fullName"] = "Glock Aimtech Tiger Shark sight mount",
 	["displayName"] = "G TShark",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20468,7 +20468,7 @@ EFGMITEMS["arc9_att_eft_mount_g17_tshark"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_geis_cap"] = {
+EFGM.ITEMS["arc9_att_eft_mount_geis_cap"] = {
 	["fullName"] = "Geissele Super Precision top ring cap",
 	["displayName"] = "Geis top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20488,7 +20488,7 @@ EFGMITEMS["arc9_att_eft_mount_geis_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_geis_cap_ddc"] = {
+EFGM.ITEMS["arc9_att_eft_mount_geis_cap_ddc"] = {
 	["fullName"] = "Geissele Super Precision top ring cap (DDC)",
 	["displayName"] = "Geis top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20508,7 +20508,7 @@ EFGMITEMS["arc9_att_eft_mount_geis_cap_ddc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_geis_rmr"] = {
+EFGM.ITEMS["arc9_att_eft_mount_geis_rmr"] = {
 	["fullName"] = "Reptilia ROF-90 RMR mount for Geissele scope mounts",
 	["displayName"] = "ROF-90 RMR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20528,7 +20528,7 @@ EFGMITEMS["arc9_att_eft_mount_geis_rmr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_geis_rmr_ddc"] = {
+EFGM.ITEMS["arc9_att_eft_mount_geis_rmr_ddc"] = {
 	["fullName"] = "Reptilia ROF-90 RMR mount for Geissele scope mounts (DDC)",
 	["displayName"] = "ROF-90 RMR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20548,7 +20548,7 @@ EFGMITEMS["arc9_att_eft_mount_geis_rmr_ddc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_h2"] = {
+EFGM.ITEMS["arc9_att_eft_mount_h2"] = {
 	["fullName"] = "Aimpoint Micro H-2 Standard Mount",
 	["displayName"] = "H-2",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20568,7 +20568,7 @@ EFGMITEMS["arc9_att_eft_mount_h2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hexagon_m"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hexagon_m"] = {
 	["fullName"] = "Hexagon medium length rail",
 	["displayName"] = "HEX M",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20588,7 +20588,7 @@ EFGMITEMS["arc9_att_eft_mount_hexagon_m"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hexagon_m_ar"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hexagon_m_ar"] = {
 	["fullName"] = "Hexagon medium length rail (Anodized Red)",
 	["displayName"] = "HEX M (AR)",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20608,7 +20608,7 @@ EFGMITEMS["arc9_att_eft_mount_hexagon_m_ar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hexagon_s"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hexagon_s"] = {
 	["fullName"] = "Hexagon short length rail",
 	["displayName"] = "HEX S",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20628,7 +20628,7 @@ EFGMITEMS["arc9_att_eft_mount_hexagon_s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hexagon_s_ar"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hexagon_s_ar"] = {
 	["fullName"] = "Hexagon short length rail (Anodized Red)",
 	["displayName"] = "HEX S (AR)",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20648,7 +20648,7 @@ EFGMITEMS["arc9_att_eft_mount_hexagon_s_ar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hkey_3"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hkey_3"] = {
 	["fullName"] = "HK HKey 3 inch rail",
 	["displayName"] = 'HKey 3"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20668,7 +20668,7 @@ EFGMITEMS["arc9_att_eft_mount_hkey_3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hydra"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hydra"] = {
 	["fullName"] = "GBRS Aimpoint Hydra Mount Kit",
 	["displayName"] = "Hydra",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20688,7 +20688,7 @@ EFGMITEMS["arc9_att_eft_mount_hydra"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_hydra_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mount_hydra_fde"] = {
 	["fullName"] = "GBRS Aimpoint Hydra Mount Kit (FDE)",
 	["displayName"] = "Hydra (FDE)",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20708,7 +20708,7 @@ EFGMITEMS["arc9_att_eft_mount_hydra_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_kac_bipod"] = {
+EFGM.ITEMS["arc9_att_eft_mount_kac_bipod"] = {
 	["fullName"] = "KAC MWS Bipod Adapter",
 	["displayName"] = "MWS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20728,7 +20728,7 @@ EFGMITEMS["arc9_att_eft_mount_kac_bipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_kedr_ris"] = {
+EFGM.ITEMS["arc9_att_eft_mount_kedr_ris"] = {
 	["fullName"] = 'PP-91 "Kedr" Rotor 43 RIS mount',
 	["displayName"] = "Kedr RIS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20748,7 +20748,7 @@ EFGMITEMS["arc9_att_eft_mount_kedr_ris"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_bipodd"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_bipodd"] = {
 	["fullName"] = "Odin Works K-Pod KeyMod bipod adapter",
 	["displayName"] = "K-Pod",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20768,7 +20768,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_bipodd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_cnc2"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_cnc2"] = {
 	["fullName"] = "CNC Guns KeyMod 2 inch rail",
 	["displayName"] = 'CNC 2"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20788,7 +20788,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_cnc2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_cnc4"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_cnc4"] = {
 	["fullName"] = "CNC Guns KeyMod 4 inch rail",
 	["displayName"] = 'CNC 4"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20808,7 +20808,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_cnc4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_corvus18"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_corvus18"] = {
 	["fullName"] = "Corvus Defensio KeyMod 1.8 inch rail section",
 	["displayName"] = 'CD 1.8"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20828,7 +20828,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_corvus18"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_corvus68"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_corvus68"] = {
 	["fullName"] = "Corvus Defensio KeyMod 6.8 inch rail section",
 	["displayName"] = 'CD 6.8"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20848,7 +20848,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_corvus68"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_si4"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_si4"] = {
 	["fullName"] = "Strike Industries KeyMod 4 inch rail",
 	["displayName"] = "4In SI",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20868,7 +20868,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_si4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_si6"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_si6"] = {
 	["fullName"] = "Strike Industries KeyMod 6 inch rail",
 	["displayName"] = "6In SI",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20888,7 +20888,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_si6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_vltor2"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_vltor2"] = {
 	["fullName"] = "Vltor CASV KeyMod 2 inch rail",
 	["displayName"] = "2In CASV",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20908,7 +20908,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_vltor2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_vltor4"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_vltor4"] = {
 	["fullName"] = "Vltor CASV KeyMod 4 inch rail",
 	["displayName"] = "4In CASV",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20928,7 +20928,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_vltor4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_keymod_vltor6"] = {
+EFGM.ITEMS["arc9_att_eft_mount_keymod_vltor6"] = {
 	["fullName"] = "Vltor CASV KeyMod 6 inch rail",
 	["displayName"] = "6In CASV",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20948,7 +20948,7 @@ EFGMITEMS["arc9_att_eft_mount_keymod_vltor6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_lenok_70"] = {
+EFGM.ITEMS["arc9_att_eft_mount_lenok_70"] = {
 	["fullName"] = "Hartman Lenok 70mm rail",
 	["displayName"] = "Lenok",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20968,7 +20968,7 @@ EFGMITEMS["arc9_att_eft_mount_lenok_70"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_lrp"] = {
+EFGM.ITEMS["arc9_att_eft_mount_lrp"] = {
 	["fullName"] = "Aimpoint LRP mount for CompM4 sights",
 	["displayName"] = "LRP",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -20988,7 +20988,7 @@ EFGMITEMS["arc9_att_eft_mount_lrp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_lrp_spacer"] = {
+EFGM.ITEMS["arc9_att_eft_mount_lrp_spacer"] = {
 	["fullName"] = "Aimpoint Standard Spacer",
 	["displayName"] = "SS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21008,7 +21008,7 @@ EFGMITEMS["arc9_att_eft_mount_lrp_spacer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_lt101"] = {
+EFGM.ITEMS["arc9_att_eft_mount_lt101"] = {
 	["fullName"] = "LaRue LT101 QD Tactical Picatinny Riser mount",
 	["displayName"] = "QD LT101",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21028,7 +21028,7 @@ EFGMITEMS["arc9_att_eft_mount_lt101"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mepro"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mepro"] = {
 	["fullName"] = "MeproLight Mepro red dot mount",
 	["displayName"] = "Mepro",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21048,7 +21048,7 @@ EFGMITEMS["arc9_att_eft_mount_mepro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mlok093"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mlok093"] = {
 	["fullName"] = "Magpul M-LOK 0.93 inch rail",
 	["displayName"] = 'M-LOK 0.93"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21068,7 +21068,7 @@ EFGMITEMS["arc9_att_eft_mount_mlok093"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mlok25"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mlok25"] = {
 	["fullName"] = "Magpul M-LOK 2.5 inch rail",
 	["displayName"] = 'M-LOK 2.5"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21088,7 +21088,7 @@ EFGMITEMS["arc9_att_eft_mount_mlok25"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mlok41"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mlok41"] = {
 	["fullName"] = "Magpul M-LOK 4.1 inch rail",
 	["displayName"] = 'M-LOK 4.1"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21108,7 +21108,7 @@ EFGMITEMS["arc9_att_eft_mount_mlok41"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mlok_bipodd"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mlok_bipodd"] = {
 	["fullName"] = "Magpul M-LOK Bipod Mount",
 	["displayName"] = "M-LOK BP",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21128,7 +21128,7 @@ EFGMITEMS["arc9_att_eft_mount_mlok_bipodd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mlokcanti"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mlokcanti"] = {
 	["fullName"] = "Magpul M-LOK Cantilever Mount",
 	["displayName"] = "M-LOK RL",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21148,7 +21148,7 @@ EFGMITEMS["arc9_att_eft_mount_mlokcanti"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mlokoffset"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mlokoffset"] = {
 	["fullName"] = "Magpul M-LOK Offset Light Mount",
 	["displayName"] = "M-LOK Off",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21168,7 +21168,7 @@ EFGMITEMS["arc9_att_eft_mount_mlokoffset"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mp443_rail"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mp443_rail"] = {
 	["fullName"] = "MP-443 Grach Zenit B-8 mount",
 	["displayName"] = "B-8",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21188,7 +21188,7 @@ EFGMITEMS["arc9_att_eft_mount_mp443_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mpx_2"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mpx_2"] = {
 	["fullName"] = "MPX GEN1 handguard 2 inch rail",
 	["displayName"] = 'MPX 2"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21208,7 +21208,7 @@ EFGMITEMS["arc9_att_eft_mount_mpx_2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_mpx_4"] = {
+EFGM.ITEMS["arc9_att_eft_mount_mpx_4"] = {
 	["fullName"] = "MPX GEN1 handguard 4 inch rail",
 	["displayName"] = 'MPX 4"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21228,7 +21228,7 @@ EFGMITEMS["arc9_att_eft_mount_mpx_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_nar"] = {
+EFGM.ITEMS["arc9_att_eft_mount_nar"] = {
 	["fullName"] = "B&T QD NAR mount for Aimpoint ACRO",
 	["displayName"] = "NAR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21248,7 +21248,7 @@ EFGMITEMS["arc9_att_eft_mount_nar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_ncstar"] = {
+EFGM.ITEMS["arc9_att_eft_mount_ncstar"] = {
 	["fullName"] = "NcSTAR MPR45 Backup mount",
 	["displayName"] = "MPR45",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21268,7 +21268,7 @@ EFGMITEMS["arc9_att_eft_mount_ncstar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_p226_bridge"] = {
+EFGM.ITEMS["arc9_att_eft_mount_p226_bridge"] = {
 	["fullName"] = "P226 Bridge sight mount",
 	["displayName"] = "P226 Bridge",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21288,7 +21288,7 @@ EFGMITEMS["arc9_att_eft_mount_p226_bridge"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_precision_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_mount_precision_bottom"] = {
 	["fullName"] = "Precision Reflex handguard bottom rail mount",
 	["displayName"] = "PR bot.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21308,7 +21308,7 @@ EFGMITEMS["arc9_att_eft_mount_precision_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_precision_side"] = {
+EFGM.ITEMS["arc9_att_eft_mount_precision_side"] = {
 	["fullName"] = "Precision Reflex handguard short side rail mount",
 	["displayName"] = "PR side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21328,7 +21328,7 @@ EFGMITEMS["arc9_att_eft_mount_precision_side"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_precision_top"] = {
+EFGM.ITEMS["arc9_att_eft_mount_precision_top"] = {
 	["fullName"] = "Precision Reflex handguard long top rail mount",
 	["displayName"] = "PR top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21348,7 +21348,7 @@ EFGMITEMS["arc9_att_eft_mount_precision_top"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_qars32"] = {
+EFGM.ITEMS["arc9_att_eft_mount_qars32"] = {
 	["fullName"] = "TROY QARS 3.2 inch rail",
 	["displayName"] = 'QARS 3.2"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21368,7 +21368,7 @@ EFGMITEMS["arc9_att_eft_mount_qars32"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_qars42"] = {
+EFGM.ITEMS["arc9_att_eft_mount_qars42"] = {
 	["fullName"] = "TROY QARS 4.2 inch rail",
 	["displayName"] = 'QARS 4.2"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21388,7 +21388,7 @@ EFGMITEMS["arc9_att_eft_mount_qars42"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_qrp2"] = {
+EFGM.ITEMS["arc9_att_eft_mount_qrp2"] = {
 	["fullName"] = "Aimpoint QRP2 mount for CompM4/PRO reflex sights",
 	["displayName"] = "QRP2",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21408,7 +21408,7 @@ EFGMITEMS["arc9_att_eft_mount_qrp2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_rahg2"] = {
+EFGM.ITEMS["arc9_att_eft_mount_rahg2"] = {
 	["fullName"] = "Remington RAHG 2 inch rail",
 	["displayName"] = 'RAHG 2"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21428,7 +21428,7 @@ EFGMITEMS["arc9_att_eft_mount_rahg2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_rahg41"] = {
+EFGM.ITEMS["arc9_att_eft_mount_rahg41"] = {
 	["fullName"] = "Remington RAHG 4 inch rail",
 	["displayName"] = 'RAHG 4"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21448,7 +21448,7 @@ EFGMITEMS["arc9_att_eft_mount_rahg41"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_reapir"] = {
+EFGM.ITEMS["arc9_att_eft_mount_reapir"] = {
 	["fullName"] = "UNV DLOC-IRD sight mount",
 	["displayName"] = "DLOC-IRD",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21468,7 +21468,7 @@ EFGMITEMS["arc9_att_eft_mount_reapir"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_rm33"] = {
+EFGM.ITEMS["arc9_att_eft_mount_rm33"] = {
 	["fullName"] = "Trijicon RMR low profile mount",
 	["displayName"] = "RM33",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21488,7 +21488,7 @@ EFGMITEMS["arc9_att_eft_mount_rm33"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_rm35"] = {
+EFGM.ITEMS["arc9_att_eft_mount_rm35"] = {
 	["fullName"] = "Trijicon RMR mount for ACOG scopes",
 	["displayName"] = "RM35",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21508,7 +21508,7 @@ EFGMITEMS["arc9_att_eft_mount_rm35"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_romeo"] = {
+EFGM.ITEMS["arc9_att_eft_mount_romeo"] = {
 	["fullName"] = "SIG Sauer ROMEO sight mount",
 	["displayName"] = "ROMEO",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21528,7 +21528,7 @@ EFGMITEMS["arc9_att_eft_mount_romeo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_scout_keymod"] = {
+EFGM.ITEMS["arc9_att_eft_mount_scout_keymod"] = {
 	["fullName"] = "Arisaka Inline Scout Mount KeyMod",
 	["displayName"] = "Inline KM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21548,7 +21548,7 @@ EFGMITEMS["arc9_att_eft_mount_scout_keymod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_scout_mlok"] = {
+EFGM.ITEMS["arc9_att_eft_mount_scout_mlok"] = {
 	["fullName"] = "Arisaka Inline Scout Mount M-LOK",
 	["displayName"] = "Inline M-LOK",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21568,7 +21568,7 @@ EFGMITEMS["arc9_att_eft_mount_scout_mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_scout_pic"] = {
+EFGM.ITEMS["arc9_att_eft_mount_scout_pic"] = {
 	["fullName"] = "SureFire M600 Scout Light Thumbscrew Mount",
 	["displayName"] = "M600",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21588,7 +21588,7 @@ EFGMITEMS["arc9_att_eft_mount_scout_pic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_shakhin"] = {
+EFGM.ITEMS["arc9_att_eft_mount_shakhin"] = {
 	["fullName"] = "Cyclone Shakhin mount",
 	["displayName"] = "Shakhin",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21608,7 +21608,7 @@ EFGMITEMS["arc9_att_eft_mount_shakhin"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_sr1mp_1x"] = {
+EFGM.ITEMS["arc9_att_eft_mount_sr1mp_1x"] = {
 	["fullName"] = "SR-1MP single rail mount",
 	["displayName"] = "SR-1MP 1x",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21628,7 +21628,7 @@ EFGMITEMS["arc9_att_eft_mount_sr1mp_1x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_sr1mp_4x"] = {
+EFGM.ITEMS["arc9_att_eft_mount_sr1mp_4x"] = {
 	["fullName"] = "SR-1MP quad rail mount",
 	["displayName"] = "SR-1MP 4x",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21648,7 +21648,7 @@ EFGMITEMS["arc9_att_eft_mount_sr1mp_4x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_sr1mp_sil"] = {
+EFGM.ITEMS["arc9_att_eft_mount_sr1mp_sil"] = {
 	["fullName"] = "SR-1MP sound suppressor mount",
 	["displayName"] = "SR-1MP mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21668,7 +21668,7 @@ EFGMITEMS["arc9_att_eft_mount_sr1mp_sil"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_t1sun"] = {
+EFGM.ITEMS["arc9_att_eft_mount_t1sun"] = {
 	["fullName"] = "Recknagel Era-Tac Sunshade mount for Aimpoint",
 	["displayName"] = "T-1 Sun",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21688,7 +21688,7 @@ EFGMITEMS["arc9_att_eft_mount_t1sun"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_t1sun_blk"] = {
+EFGM.ITEMS["arc9_att_eft_mount_t1sun_blk"] = {
 	["fullName"] = "Recknagel Era-Tac Sunshade mount for Aimpoint",
 	["displayName"] = "T-1 Sun",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21708,7 +21708,7 @@ EFGMITEMS["arc9_att_eft_mount_t1sun_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_toz106_mountdove"] = {
+EFGM.ITEMS["arc9_att_eft_mount_toz106_mountdove"] = {
 	["fullName"] = "TOZ-106 dovetail mount",
 	["displayName"] = "106 DT",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21728,7 +21728,7 @@ EFGMITEMS["arc9_att_eft_mount_toz106_mountdove"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_toz106_mountrail"] = {
+EFGM.ITEMS["arc9_att_eft_mount_toz106_mountrail"] = {
 	["fullName"] = "TOZ-106 rail scope mount",
 	["displayName"] = "106 mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21748,7 +21748,7 @@ EFGMITEMS["arc9_att_eft_mount_toz106_mountrail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_trijicon"] = {
+EFGM.ITEMS["arc9_att_eft_mount_trijicon"] = {
 	["fullName"] = "Trijicon TA51 sight mount",
 	["displayName"] = "TA51 Mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21768,7 +21768,7 @@ EFGMITEMS["arc9_att_eft_mount_trijicon"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_um3"] = {
+EFGM.ITEMS["arc9_att_eft_mount_um3"] = {
 	["fullName"] = "UM Tactical UM3 pistol sight mount (UM3)",
 	["displayName"] = "UM3",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21788,7 +21788,7 @@ EFGMITEMS["arc9_att_eft_mount_um3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_ump_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_mount_ump_bottom"] = {
 	["fullName"] = "HK UMP bottom handguard rail",
 	["displayName"] = "UMP bott",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21808,7 +21808,7 @@ EFGMITEMS["arc9_att_eft_mount_ump_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_ump_side"] = {
+EFGM.ITEMS["arc9_att_eft_mount_ump_side"] = {
 	["fullName"] = "HK UMP side handguard rail",
 	["displayName"] = "UMP side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21828,7 +21828,7 @@ EFGMITEMS["arc9_att_eft_mount_ump_side"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_usp_elite"] = {
+EFGM.ITEMS["arc9_att_eft_mount_usp_elite"] = {
 	["fullName"] = "HK USP .45 ACP Elite compensator",
 	["displayName"] = "USP45EL",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -21848,7 +21848,7 @@ EFGMITEMS["arc9_att_eft_mount_usp_elite"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_usp_match"] = {
+EFGM.ITEMS["arc9_att_eft_mount_usp_match"] = {
 	["fullName"] = "HK USP .45 ACP Match compensator",
 	["displayName"] = "USP45M",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -21868,7 +21868,7 @@ EFGMITEMS["arc9_att_eft_mount_usp_match"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_usp_rail"] = {
+EFGM.ITEMS["arc9_att_eft_mount_usp_rail"] = {
 	["fullName"] = "HK USP rail adapter",
 	["displayName"] = "USP rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21888,7 +21888,7 @@ EFGMITEMS["arc9_att_eft_mount_usp_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_vector_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_mount_vector_bottom"] = {
 	["fullName"] = "KRISS Vector bottom rail",
 	["displayName"] = "Vector bott",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21908,7 +21908,7 @@ EFGMITEMS["arc9_att_eft_mount_vector_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_vector_modular"] = {
+EFGM.ITEMS["arc9_att_eft_mount_vector_modular"] = {
 	["fullName"] = "KRISS Vector Mk.5 modular rail",
 	["displayName"] = "Vector Mk.5",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21928,7 +21928,7 @@ EFGMITEMS["arc9_att_eft_mount_vector_modular"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_vector_side"] = {
+EFGM.ITEMS["arc9_att_eft_mount_vector_side"] = {
 	["fullName"] = "KRISS Vector side rail",
 	["displayName"] = "Vector side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21948,7 +21948,7 @@ EFGMITEMS["arc9_att_eft_mount_vector_side"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_vulcan"] = {
+EFGM.ITEMS["arc9_att_eft_mount_vulcan"] = {
 	["fullName"] = "Armasight Vulcan universal base",
 	["displayName"] = "Vulcan",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21968,7 +21968,7 @@ EFGMITEMS["arc9_att_eft_mount_vulcan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mount_zeus"] = {
+EFGM.ITEMS["arc9_att_eft_mount_zeus"] = {
 	["fullName"] = "Armasight Zeus universal base",
 	["displayName"] = "Zeus",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -21988,7 +21988,7 @@ EFGMITEMS["arc9_att_eft_mount_zeus"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp18_barrel_762x54r"] = {
+EFGM.ITEMS["arc9_att_eft_mp18_barrel_762x54r"] = {
 	["fullName"] = "MP-18 7.62x54R 600mm barrel",
 	["displayName"] = "MP18 7.62x54R",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -22008,7 +22008,7 @@ EFGMITEMS["arc9_att_eft_mp18_barrel_762x54r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp18_hg_poly"] = {
+EFGM.ITEMS["arc9_att_eft_mp18_hg_poly"] = {
 	["fullName"] = "MP-18 polymer handguard",
 	["displayName"] = "MP18 poly",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22028,7 +22028,7 @@ EFGMITEMS["arc9_att_eft_mp18_hg_poly"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp18_hg_wood"] = {
+EFGM.ITEMS["arc9_att_eft_mp18_hg_wood"] = {
 	["fullName"] = "MP-18 wooden handguard",
 	["displayName"] = "MP18 wood",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22048,7 +22048,7 @@ EFGMITEMS["arc9_att_eft_mp18_hg_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp18_mount_std"] = {
+EFGM.ITEMS["arc9_att_eft_mp18_mount_std"] = {
 	["fullName"] = "MP-18 sight mount",
 	["displayName"] = "MP18 RIS",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -22068,7 +22068,7 @@ EFGMITEMS["arc9_att_eft_mp18_mount_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp18_stock_poly"] = {
+EFGM.ITEMS["arc9_att_eft_mp18_stock_poly"] = {
 	["fullName"] = "MP-18 polymer stock",
 	["displayName"] = "MP18 poly",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22088,7 +22088,7 @@ EFGMITEMS["arc9_att_eft_mp18_stock_poly"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp18_stock_wood"] = {
+EFGM.ITEMS["arc9_att_eft_mp18_stock_wood"] = {
 	["fullName"] = "MP-18 wooden stock",
 	["displayName"] = "MP18 wood",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22108,7 +22108,7 @@ EFGMITEMS["arc9_att_eft_mp18_stock_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_charge_k"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_charge_k"] = {
 	["fullName"] = "HK MP5K cocking handle",
 	["displayName"] = "MP5K handle",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -22128,7 +22128,7 @@ EFGMITEMS["arc9_att_eft_mp5_charge_k"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_charge_std"] = {
 	["fullName"] = "HK MP5 cocking handle",
 	["displayName"] = "MP5 handle",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -22148,7 +22148,7 @@ EFGMITEMS["arc9_att_eft_mp5_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_hg_caa"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_hg_caa"] = {
 	["fullName"] = "HK MP5 CAA HX-5 handguard",
 	["displayName"] = "CAA HX-5",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22168,7 +22168,7 @@ EFGMITEMS["arc9_att_eft_mp5_hg_caa"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_hg_k"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_hg_k"] = {
 	["fullName"] = "HK MP5K polymer handguard",
 	["displayName"] = "MP5K HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22188,7 +22188,7 @@ EFGMITEMS["arc9_att_eft_mp5_hg_k"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_hg_ptr"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_hg_ptr"] = {
 	["fullName"] = "HK MP5 PTR Tri-Rail handguard",
 	["displayName"] = "PTR",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22208,7 +22208,7 @@ EFGMITEMS["arc9_att_eft_mp5_hg_ptr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_hg_sd"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_hg_sd"] = {
 	["fullName"] = "HK MP5SD polymer handguard",
 	["displayName"] = "MP5SD HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22228,7 +22228,7 @@ EFGMITEMS["arc9_att_eft_mp5_hg_sd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_hg_std"] = {
 	["fullName"] = "HK MP5 Wide Tropical polymer handguard",
 	["displayName"] = "Wide",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22248,7 +22248,7 @@ EFGMITEMS["arc9_att_eft_mp5_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_hg_tl99"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_hg_tl99"] = {
 	["fullName"] = "HK MP5 B&T TL-99 aluminum handguard",
 	["displayName"] = "TL-99",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -22268,7 +22268,7 @@ EFGMITEMS["arc9_att_eft_mp5_hg_tl99"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_mag_20"] = {
 	["fullName"] = "HK MP5 9x19 20-round magazine",
 	["displayName"] = "MP5 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22288,7 +22288,7 @@ EFGMITEMS["arc9_att_eft_mp5_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_mag_30"] = {
 	["fullName"] = "HK MP5 9x19 30-round magazine",
 	["displayName"] = "MP5 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22308,7 +22308,7 @@ EFGMITEMS["arc9_att_eft_mp5_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_mag_50"] = {
 	["fullName"] = "HK MP5 9x19 X Products X-5 50-round drum magazine",
 	["displayName"] = "MP5 X-5 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22328,7 +22328,7 @@ EFGMITEMS["arc9_att_eft_mp5_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_mount_sil"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_mount_sil"] = {
 	["fullName"] = "HK MP5SD B&T tri-rail ring mount",
 	["displayName"] = "B&T ring",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -22348,7 +22348,7 @@ EFGMITEMS["arc9_att_eft_mp5_mount_sil"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_mount_top"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_mount_top"] = {
 	["fullName"] = "HK MP5 MFI HK universal low profile scope mount",
 	["displayName"] = "MFI HK",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -22368,7 +22368,7 @@ EFGMITEMS["arc9_att_eft_mp5_mount_top"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_mount_top_tri"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_mount_top_tri"] = {
 	["fullName"] = "HK MP5 B&T tri-rail receiver mount",
 	["displayName"] = "B&T tri-rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -22388,7 +22388,7 @@ EFGMITEMS["arc9_att_eft_mp5_mount_top_tri"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_muzzle_3lug"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_muzzle_3lug"] = {
 	["fullName"] = "HK MP5 3-lug thread protector",
 	["displayName"] = "MP5 3-lug",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22408,7 +22408,7 @@ EFGMITEMS["arc9_att_eft_mp5_muzzle_3lug"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_muzzle_navy"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_muzzle_navy"] = {
 	["fullName"] = "HK MP5 Navy Style 3-lug suppressor adapter",
 	["displayName"] = "MP5 Navy Style",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22428,7 +22428,7 @@ EFGMITEMS["arc9_att_eft_mp5_muzzle_navy"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_muzzle_noveske"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_muzzle_noveske"] = {
 	["fullName"] = "HK MP5 Noveske-style 9x19 muzzle brake-compensator",
 	["displayName"] = "Noveske",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22448,7 +22448,7 @@ EFGMITEMS["arc9_att_eft_mp5_muzzle_noveske"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_muzzle_qd"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_muzzle_qd"] = {
 	["fullName"] = "HK MP5 B&T QD 9x19 muzzle brake",
 	["displayName"] = "B&T QD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22468,7 +22468,7 @@ EFGMITEMS["arc9_att_eft_mp5_muzzle_qd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_muzzle_sd"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_muzzle_sd"] = {
 	["fullName"] = "HK MP5SD 9x19 sound suppressor",
 	["displayName"] = "MP5SD sup.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22488,7 +22488,7 @@ EFGMITEMS["arc9_att_eft_mp5_muzzle_sd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_rec_k"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_rec_k"] = {
 	["fullName"] = "HK MP5K 9x19 upper receiver",
 	["displayName"] = "MP5K upper",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -22508,7 +22508,7 @@ EFGMITEMS["arc9_att_eft_mp5_rec_k"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_rec_sd"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_rec_sd"] = {
 	["fullName"] = "HK MP5SD 9x19 upper receiver",
 	["displayName"] = "MP5SD upper",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -22528,7 +22528,7 @@ EFGMITEMS["arc9_att_eft_mp5_rec_sd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_rec_std"] = {
 	["fullName"] = "HK MP5 9x19 upper receiver",
 	["displayName"] = "MP5 upper",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -22548,7 +22548,7 @@ EFGMITEMS["arc9_att_eft_mp5_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_rs_std"] = {
 	["fullName"] = "HK MP5 Drum rear sight",
 	["displayName"] = "MP5 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -22568,7 +22568,7 @@ EFGMITEMS["arc9_att_eft_mp5_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_stock_a2"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_stock_a2"] = {
 	["fullName"] = "HK MP5 A2 stock",
 	["displayName"] = "MP5 A2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22588,7 +22588,7 @@ EFGMITEMS["arc9_att_eft_mp5_stock_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_stock_a3"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_stock_a3"] = {
 	["fullName"] = "HK MP5 A3 old model stock",
 	["displayName"] = "MP5 A3",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22608,7 +22608,7 @@ EFGMITEMS["arc9_att_eft_mp5_stock_a3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_stock_cap"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_stock_cap"] = {
 	["fullName"] = "HK MP5 End Cap stock",
 	["displayName"] = "MP5 Cap",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22628,7 +22628,7 @@ EFGMITEMS["arc9_att_eft_mp5_stock_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp5_stock_capk"] = {
+EFGM.ITEMS["arc9_att_eft_mp5_stock_capk"] = {
 	["fullName"] = "HK MP5K End Cap stock",
 	["displayName"] = "MP5K Cap",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22648,7 +22648,7 @@ EFGMITEMS["arc9_att_eft_mp5_stock_capk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_fh"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_fh"] = {
 	["fullName"] = "HK MP7A1 4.6x30 flash hider",
 	["displayName"] = "MP7A1",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22668,7 +22668,7 @@ EFGMITEMS["arc9_att_eft_mp7_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_mag_20"] = {
 	["fullName"] = "HK MP7 4.6x30 20-round magazine",
 	["displayName"] = "MP7 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22688,7 +22688,7 @@ EFGMITEMS["arc9_att_eft_mp7_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_mag_30"] = {
 	["fullName"] = "HK MP7 4.6x30 30-round magazine",
 	["displayName"] = "MP7 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22708,7 +22708,7 @@ EFGMITEMS["arc9_att_eft_mp7_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_mag_40"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_mag_40"] = {
 	["fullName"] = "HK MP7 4.6x30 40-round magazine",
 	["displayName"] = "MP7 40",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22728,7 +22728,7 @@ EFGMITEMS["arc9_att_eft_mp7_mag_40"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_silencer"] = {
 	["fullName"] = "HK MP7 B&T Rotex 2 4.6x30 sound suppressor",
 	["displayName"] = "Rotex 2",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -22748,7 +22748,7 @@ EFGMITEMS["arc9_att_eft_mp7_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_stock_a1"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_stock_a1"] = {
 	["fullName"] = "HK MP7A1 stock",
 	["displayName"] = "A1",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22768,7 +22768,7 @@ EFGMITEMS["arc9_att_eft_mp7_stock_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp7_stock_a2"] = {
+EFGM.ITEMS["arc9_att_eft_mp7_stock_a2"] = {
 	["fullName"] = "HK MP7A2 stock",
 	["displayName"] = "A2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -22788,7 +22788,7 @@ EFGMITEMS["arc9_att_eft_mp7_stock_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_bottomrail"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_bottomrail"] = {
 	["fullName"] = "MP9 bottom rail",
 	["displayName"] = "MP9 bottom",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -22808,7 +22808,7 @@ EFGMITEMS["arc9_att_eft_mp9_bottomrail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_charge"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_charge"] = {
 	["fullName"] = "MP9 charging handle",
 	["displayName"] = "MP9",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -22828,7 +22828,7 @@ EFGMITEMS["arc9_att_eft_mp9_charge"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_fg"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_fg"] = {
 	["fullName"] = "MP9-N vertical foregrip",
 	["displayName"] = "MP9 grip",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -22848,7 +22848,7 @@ EFGMITEMS["arc9_att_eft_mp9_fg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_mag_15"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_mag_15"] = {
 	["fullName"] = "MP9 9x19 15-round magazine",
 	["displayName"] = "MP9 15",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22868,7 +22868,7 @@ EFGMITEMS["arc9_att_eft_mp9_mag_15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_mag_20"] = {
 	["fullName"] = "MP9 9x19 20-round magazine",
 	["displayName"] = "MP9 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22888,7 +22888,7 @@ EFGMITEMS["arc9_att_eft_mp9_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_mag_25"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_mag_25"] = {
 	["fullName"] = "MP9 9x19 25-round magazine",
 	["displayName"] = "MP9 25",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22908,7 +22908,7 @@ EFGMITEMS["arc9_att_eft_mp9_mag_25"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_mag_30"] = {
 	["fullName"] = "MP9 9x19 30-round magazine",
 	["displayName"] = "MP9 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -22928,7 +22928,7 @@ EFGMITEMS["arc9_att_eft_mp9_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_rec_n"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_rec_n"] = {
 	["fullName"] = "MP9-N 9x19 upper receiver",
 	["displayName"] = "MP9-N",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -22948,7 +22948,7 @@ EFGMITEMS["arc9_att_eft_mp9_rec_n"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_rec_std"] = {
 	["fullName"] = "MP9 9x19 upper receiver",
 	["displayName"] = "MP9",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -22968,7 +22968,7 @@ EFGMITEMS["arc9_att_eft_mp9_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_rs"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_rs"] = {
 	["fullName"] = "MP9 rear sight",
 	["displayName"] = "MP9 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -22988,7 +22988,7 @@ EFGMITEMS["arc9_att_eft_mp9_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_siderail"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_siderail"] = {
 	["fullName"] = "MP9 side rail",
 	["displayName"] = "MP9 side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -23008,7 +23008,7 @@ EFGMITEMS["arc9_att_eft_mp9_siderail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_silencer"] = {
 	["fullName"] = "MP9 9x19 sound suppressor",
 	["displayName"] = "MP9 sup.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -23028,7 +23028,7 @@ EFGMITEMS["arc9_att_eft_mp9_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_silmount"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_silmount"] = {
 	["fullName"] = "MP9 9x19 sound suppressor mount",
 	["displayName"] = "MP9",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -23048,7 +23048,7 @@ EFGMITEMS["arc9_att_eft_mp9_silmount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mp9_stockk"] = {
+EFGM.ITEMS["arc9_att_eft_mp9_stockk"] = {
 	["fullName"] = "MP9 stock",
 	["displayName"] = "MP9",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -23068,7 +23068,7 @@ EFGMITEMS["arc9_att_eft_mp9_stockk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel105"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel105"] = {
 	["fullName"] = "MPX 9x19 10.5 inch barrel",
 	["displayName"] = 'MPX 10.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23088,7 +23088,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel114"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel114"] = {
 	["fullName"] = "MPX 9x19 4.5 inch barrel",
 	["displayName"] = 'MPX 4.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23108,7 +23108,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel114"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel121ronin"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel121ronin"] = {
 	["fullName"] = "MPX 9x19 Ronin Arms 4.75 inch Ported SD Barrel",
 	["displayName"] = 'MPX-SD 4.75"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23128,7 +23128,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel121ronin"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel165"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel165"] = {
 	["fullName"] = "MPX 9x19 6.5 inch barrel",
 	["displayName"] = 'MPX 6.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23148,7 +23148,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel165"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel165sd"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel165sd"] = {
 	["fullName"] = "MPX-SD 9x19 165mm ported barrel",
 	["displayName"] = 'MPX-SD 6.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23168,7 +23168,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel165sd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel171ronin"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel171ronin"] = {
 	["fullName"] = "MPX 9x19 Ronin Arms 6.75 inch Ported SD Barrel",
 	["displayName"] = 'MPX-SD 6.75"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23188,7 +23188,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel171ronin"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel203"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel203"] = {
 	["fullName"] = "MPX 9x19 203mm barrel",
 	["displayName"] = "MPX 203mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23208,7 +23208,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel203"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_barrel355"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_barrel355"] = {
 	["fullName"] = "MPX 9x19 14 inch barrel",
 	["displayName"] = 'MPX 14"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23228,7 +23228,7 @@ EFGMITEMS["arc9_att_eft_mpx_barrel355"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_ch_1x"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_ch_1x"] = {
 	["fullName"] = "MPX single latch charging handle",
 	["displayName"] = "MPX 1x",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -23248,7 +23248,7 @@ EFGMITEMS["arc9_att_eft_mpx_ch_1x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_ch_2x"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_ch_2x"] = {
 	["fullName"] = "MPX double latch charging handle",
 	["displayName"] = "MPX 2x",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -23268,7 +23268,7 @@ EFGMITEMS["arc9_att_eft_mpx_ch_2x"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_ch_2x2"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_ch_2x2"] = {
 	["fullName"] = "MPX GEN 2 ambidextrous charging handle",
 	["displayName"] = "MPX 2x GEN2",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -23288,7 +23288,7 @@ EFGMITEMS["arc9_att_eft_mpx_ch_2x2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_ch_sch"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_ch_sch"] = {
 	["fullName"] = "MPX Geissele SCH charging handle",
 	["displayName"] = "MPX SCH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -23308,7 +23308,7 @@ EFGMITEMS["arc9_att_eft_mpx_ch_sch"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_105"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_105"] = {
 	["fullName"] = "MPX Midwest Industries 10.5 inch M-LOK handguard",
 	["displayName"] = 'MPX Midwest 10.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23328,7 +23328,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_14"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_14"] = {
 	["fullName"] = "MPX Midwest Industries 14 inch M-LOK handguard",
 	["displayName"] = 'MPX Midwest 14"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23348,7 +23348,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_14oem"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_14oem"] = {
 	["fullName"] = "MPX Lancer OEM 14 inch M-LOK handguard",
 	["displayName"] = 'MPX OEM 14"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23368,7 +23368,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_14oem"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_45"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_45"] = {
 	["fullName"] = "MPX Midwest Industries 4.5 inch M-LOK handguard",
 	["displayName"] = 'MPX Midwest 4.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23388,7 +23388,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_65"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_65"] = {
 	["fullName"] = "MPX Midwest Industries 6.5 inch M-LOK handguard",
 	["displayName"] = 'MPX Midwest 6.5"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23408,7 +23408,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_65"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_gen1"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_gen1"] = {
 	["fullName"] = "MPX GEN1 6 inch handguard",
 	["displayName"] = 'MPX GEN1 6"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23428,7 +23428,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_gen1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_gen1_4"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_gen1_4"] = {
 	["fullName"] = "MPX GEN1 4 inch handguard",
 	["displayName"] = 'MPX GEN1 4"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23448,7 +23448,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_gen1_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_gen1_8"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_gen1_8"] = {
 	["fullName"] = "MPX GEN1 8 inch handguard",
 	["displayName"] = 'MPX GEN1 8"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23468,7 +23468,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_gen1_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_gen2_4"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_gen2_4"] = {
 	["fullName"] = "MPX GEN2 4 inch M-LOK handguard",
 	["displayName"] = 'MPX GEN2 4"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23488,7 +23488,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_gen2_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_gen2_6"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_gen2_6"] = {
 	["fullName"] = "MPX GEN2 6 inch M-LOK handguard",
 	["displayName"] = 'MPX GEN2 6"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23508,7 +23508,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_gen2_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_hg_gen2_8"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_hg_gen2_8"] = {
 	["fullName"] = "MPX GEN2 8 inch M-LOK handguard",
 	["displayName"] = 'MPX GEN2 8"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23528,7 +23528,7 @@ EFGMITEMS["arc9_att_eft_mpx_hg_gen2_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_mag_20"] = {
 	["fullName"] = "MPX 9x19 20-round magazine",
 	["displayName"] = "MPX 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -23548,7 +23548,7 @@ EFGMITEMS["arc9_att_eft_mpx_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_mag_30"] = {
 	["fullName"] = "MPX 9x19 30-round magazine",
 	["displayName"] = "MPX 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -23568,7 +23568,7 @@ EFGMITEMS["arc9_att_eft_mpx_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_mag_41"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_mag_41"] = {
 	["fullName"] = 'MPX 9x19 TTI "Base Pad +11" 41-round magazine',
 	["displayName"] = "MPX TTI 41",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -23588,7 +23588,7 @@ EFGMITEMS["arc9_att_eft_mpx_mag_41"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_mag_50"] = {
 	["fullName"] = "MPX 9x19 F5 MFG 50-round drum magazine",
 	["displayName"] = "MPX Drum 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -23608,7 +23608,7 @@ EFGMITEMS["arc9_att_eft_mpx_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_muzzle_a2"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_muzzle_a2"] = {
 	["fullName"] = "MPX A2 9x19 flash hider",
 	["displayName"] = "MPX A2",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -23628,7 +23628,7 @@ EFGMITEMS["arc9_att_eft_mpx_muzzle_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_pgrip_std"] = {
 	["fullName"] = "MPX pistol grip",
 	["displayName"] = "MPX",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -23648,7 +23648,7 @@ EFGMITEMS["arc9_att_eft_mpx_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_rec"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_rec"] = {
 	["fullName"] = "MPX GEN1 9x19 upper receiver",
 	["displayName"] = "MPX GEN1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -23668,7 +23668,7 @@ EFGMITEMS["arc9_att_eft_mpx_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_sd_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_sd_silencer"] = {
 	["fullName"] = "MPX-SD 9x19 integrated sound suppressor",
 	["displayName"] = "MPX-SD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -23688,7 +23688,7 @@ EFGMITEMS["arc9_att_eft_mpx_sd_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_sd_silencer_ronin12"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_sd_silencer_ronin12"] = {
 	["fullName"] = "MPX 9x19 Ronin Arms 12 inch SD Suppressor",
 	["displayName"] = "Ronin 12",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -23708,7 +23708,7 @@ EFGMITEMS["arc9_att_eft_mpx_sd_silencer_ronin12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mpx_sd_silencer_ronin8"] = {
+EFGM.ITEMS["arc9_att_eft_mpx_sd_silencer_ronin8"] = {
 	["fullName"] = "MPX 9x19 Ronin Arms 8 inch SD Suppressor",
 	["displayName"] = "Ronin 8",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -23728,7 +23728,7 @@ EFGMITEMS["arc9_att_eft_mpx_sd_silencer_ronin8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_510"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_510"] = {
 	["fullName"] = "MP-133 12ga 510mm barrel",
 	["displayName"] = "MP-133 510mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23748,7 +23748,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_510"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_510r"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_510r"] = {
 	["fullName"] = "MP-133 12ga 510mm barrel with rib",
 	["displayName"] = "MP-133 510mm rib",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23768,7 +23768,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_510r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_540"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_540"] = {
 	["fullName"] = "MP-133 12ga 540mm barrel",
 	["displayName"] = "MP-133 540mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23788,7 +23788,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_540"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_540r"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_540r"] = {
 	["fullName"] = "MP-133 12ga 540mm barrel with rib",
 	["displayName"] = "MP-133 540mm rib",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23808,7 +23808,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_540r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_610"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_610"] = {
 	["fullName"] = "MP-133 12ga 610mm barrel",
 	["displayName"] = "MP-133 610mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23828,7 +23828,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_610"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_610r"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_610r"] = {
 	["fullName"] = "MP-133 12ga 610mm barrel with rib",
 	["displayName"] = "MP-133 610mm rib",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23848,7 +23848,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_610r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_660"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_660"] = {
 	["fullName"] = "MP-133 12ga 660mm barrel",
 	["displayName"] = "MP-133 660mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23868,7 +23868,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_660"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_660r"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_660r"] = {
 	["fullName"] = "MP-133 12ga 660mm barrel with rib",
 	["displayName"] = "MP-133 660mm rib",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23888,7 +23888,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_660r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_710"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_710"] = {
 	["fullName"] = "MP-133 12ga 710mm barrel",
 	["displayName"] = "MP-133 710mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23908,7 +23908,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_710"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_710r"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_710r"] = {
 	["fullName"] = "MP-133 12ga 710mm barrel with rib",
 	["displayName"] = "MP-133 710mm rib",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23928,7 +23928,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_710r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_750"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_750"] = {
 	["fullName"] = "MP-133 12ga 750mm barrel",
 	["displayName"] = "MP-133 750mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23948,7 +23948,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_750"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_barrel_750r"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_barrel_750r"] = {
 	["fullName"] = "MP-133 12ga 750mm barrel with rib",
 	["displayName"] = "MP-133 750mm rib",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -23968,7 +23968,7 @@ EFGMITEMS["arc9_att_eft_mr133_barrel_750r"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_hg_custom"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_hg_custom"] = {
 	["fullName"] = "MP-133 custom plastic forestock with rails",
 	["displayName"] = "MP-133 custom",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -23988,7 +23988,7 @@ EFGMITEMS["arc9_att_eft_mr133_hg_custom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_hg_wood"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_hg_wood"] = {
 	["fullName"] = "MP-133 beechwood forestock",
 	["displayName"] = "MP-133 wood",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -24008,7 +24008,7 @@ EFGMITEMS["arc9_att_eft_mr133_hg_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_mag_6"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_mag_6"] = {
 	["fullName"] = "MP-133 12ga 6-shell magazine",
 	["displayName"] = "MP-133 6",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24028,7 +24028,7 @@ EFGMITEMS["arc9_att_eft_mr133_mag_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_mag_8"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_mag_8"] = {
 	["fullName"] = "MP-133 12ga 8-shell magazine",
 	["displayName"] = "MP-133 8",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24048,7 +24048,7 @@ EFGMITEMS["arc9_att_eft_mr133_mag_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_mount_sprm"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_mount_sprm"] = {
 	["fullName"] = "Kiba Arms SPRM rail mount for pump-action shotguns",
 	["displayName"] = "SPRM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -24068,7 +24068,7 @@ EFGMITEMS["arc9_att_eft_mr133_mount_sprm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_sprut"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_sprut"] = {
 	["fullName"] = "Delta-Tek Sprut mount for pump-action shotguns",
 	["displayName"] = "Sprut",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -24088,7 +24088,7 @@ EFGMITEMS["arc9_att_eft_mr133_sprut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_stock_adap"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_stock_adap"] = {
 	["fullName"] = "MP-133/153 Taktika Tula 12003 stock adapter",
 	["displayName"] = "TT 12003",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24108,7 +24108,7 @@ EFGMITEMS["arc9_att_eft_mr133_stock_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_stock_pistol"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_stock_pistol"] = {
 	["fullName"] = "MP-133/153 plastic pistol grip",
 	["displayName"] = "MP-133/153 pistol",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24128,7 +24128,7 @@ EFGMITEMS["arc9_att_eft_mr133_stock_pistol"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_stock_plastic"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_stock_plastic"] = {
 	["fullName"] = "MP-133/153 plastic stock",
 	["displayName"] = "MP-133/153 plastic",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24148,7 +24148,7 @@ EFGMITEMS["arc9_att_eft_mr133_stock_plastic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr133_stock_wood"] = {
+EFGM.ITEMS["arc9_att_eft_mr133_stock_wood"] = {
 	["fullName"] = "MP-133/153 wooden stock",
 	["displayName"] = "MP-133/153 wood",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24168,7 +24168,7 @@ EFGMITEMS["arc9_att_eft_mr133_stock_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_barrel_610"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_barrel_610"] = {
 	["fullName"] = "MP-153 12ga 610mm barrel",
 	["displayName"] = "MP-153 610mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24188,7 +24188,7 @@ EFGMITEMS["arc9_att_eft_mr153_barrel_610"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_barrel_660"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_barrel_660"] = {
 	["fullName"] = "MP-153 12ga 660mm barrel",
 	["displayName"] = "MP-153 660mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24208,7 +24208,7 @@ EFGMITEMS["arc9_att_eft_mr153_barrel_660"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_barrel_710"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_barrel_710"] = {
 	["fullName"] = "MP-153 12ga 710mm barrel",
 	["displayName"] = "MP-153 710mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24228,7 +24228,7 @@ EFGMITEMS["arc9_att_eft_mr153_barrel_710"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_barrel_750"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_barrel_750"] = {
 	["fullName"] = "MP-153 12ga 750mm barrel",
 	["displayName"] = "MP-153 750mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24248,7 +24248,7 @@ EFGMITEMS["arc9_att_eft_mr153_barrel_750"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_hg_std"] = {
 	["fullName"] = "MP-153 polymer forestock",
 	["displayName"] = "MP-153 poly",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -24268,7 +24268,7 @@ EFGMITEMS["arc9_att_eft_mr153_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_mag_4"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_mag_4"] = {
 	["fullName"] = "MP-153 12ga 4-shell magazine cap",
 	["displayName"] = "MP-153 4",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24288,7 +24288,7 @@ EFGMITEMS["arc9_att_eft_mr153_mag_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_mag_5"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_mag_5"] = {
 	["fullName"] = "MP-153 12ga 5-shell magazine",
 	["displayName"] = "MP-153 5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24308,7 +24308,7 @@ EFGMITEMS["arc9_att_eft_mr153_mag_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_mag_6"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_mag_6"] = {
 	["fullName"] = "MP-153 12ga 6-shell magazine",
 	["displayName"] = "MP-153 6",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24328,7 +24328,7 @@ EFGMITEMS["arc9_att_eft_mr153_mag_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_mag_7"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_mag_7"] = {
 	["fullName"] = "MP-153 12ga 7-shell magazine",
 	["displayName"] = "MP-153 7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24348,7 +24348,7 @@ EFGMITEMS["arc9_att_eft_mr153_mag_7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr153_mag_8"] = {
+EFGM.ITEMS["arc9_att_eft_mr153_mag_8"] = {
 	["fullName"] = "MP-153 12ga 8-shell magazine",
 	["displayName"] = "MP-153 8",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24368,7 +24368,7 @@ EFGMITEMS["arc9_att_eft_mr153_mag_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_barrel_510"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_barrel_510"] = {
 	["fullName"] = "MP-155 12ga 510mm barrel",
 	["displayName"] = "MP-155 510mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24388,7 +24388,7 @@ EFGMITEMS["arc9_att_eft_mr155_barrel_510"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_hg_std"] = {
 	["fullName"] = "MP-155 walnut forestock",
 	["displayName"] = "MP-155 walnut",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -24408,7 +24408,7 @@ EFGMITEMS["arc9_att_eft_mr155_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_hg_ultima"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_hg_ultima"] = {
 	["fullName"] = "MP-155 Ultima polymer forestock",
 	["displayName"] = "MP-155 Ultima",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -24428,7 +24428,7 @@ EFGMITEMS["arc9_att_eft_mr155_hg_ultima"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_mag_6"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_mag_6"] = {
 	["fullName"] = "MP-155 12ga 6-shell magazine",
 	["displayName"] = "MP-155 6",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24448,7 +24448,7 @@ EFGMITEMS["arc9_att_eft_mr155_mag_6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_std"] = {
 	["fullName"] = "MP-155 walnut stock",
 	["displayName"] = "MP-155 walnut",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24468,7 +24468,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_ultima"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima"] = {
 	["fullName"] = "MP-155 Ultima pistol grip",
 	["displayName"] = "Ultima grip",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24488,7 +24488,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_ultima"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_ultima_cap"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_cap"] = {
 	["fullName"] = "MP-155 Ultima pistol grip rubber pad",
 	["displayName"] = "Ultima pad",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24508,7 +24508,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_ultima_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_ultima_padl"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_padl"] = {
 	["fullName"] = "MP-155 Ultima large recoil pad",
 	["displayName"] = "Ultima large",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24528,7 +24528,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_ultima_padl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_ultima_padm"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_padm"] = {
 	["fullName"] = "MP-155 Ultima medium recoil pad",
 	["displayName"] = "Ultima medium",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24548,7 +24548,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_ultima_padm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_ultima_pads"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_pads"] = {
 	["fullName"] = "MP-155 Ultima thin recoil pad",
 	["displayName"] = "Ultima thin",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24568,7 +24568,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_ultima_pads"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155_stock_ultima_stock"] = {
+EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_stock"] = {
 	["fullName"] = "MP-155 Ultima polymer stock",
 	["displayName"] = "Ultima stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24588,7 +24588,7 @@ EFGMITEMS["arc9_att_eft_mr155_stock_ultima_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155u_mount_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_mr155u_mount_bottom"] = {
 	["fullName"] = "MP-155 Ultima short rail",
 	["displayName"] = "Ultima rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -24608,7 +24608,7 @@ EFGMITEMS["arc9_att_eft_mr155u_mount_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155u_mount_bottombig"] = {
+EFGM.ITEMS["arc9_att_eft_mr155u_mount_bottombig"] = {
 	["fullName"] = "MP-155 Ultima underbarrel mount",
 	["displayName"] = "Ultima UB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -24628,7 +24628,7 @@ EFGMITEMS["arc9_att_eft_mr155u_mount_bottombig"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155u_mount_top"] = {
+EFGM.ITEMS["arc9_att_eft_mr155u_mount_top"] = {
 	["fullName"] = "MP-155 Ultima top rail",
 	["displayName"] = "Ultima top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -24648,7 +24648,7 @@ EFGMITEMS["arc9_att_eft_mr155u_mount_top"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr155u_thermal"] = {
+EFGM.ITEMS["arc9_att_eft_mr155u_thermal"] = {
 	["fullName"] = "MP-155 Ultima thermal camera",
 	["displayName"] = "Ultima camera",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -24668,7 +24668,7 @@ EFGMITEMS["arc9_att_eft_mr155u_thermal"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr43_barrel_310"] = {
+EFGM.ITEMS["arc9_att_eft_mr43_barrel_310"] = {
 	["fullName"] = "MP-43 12ga sawed-off 310mm barrel",
 	["displayName"] = "MP-43 310mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24688,7 +24688,7 @@ EFGMITEMS["arc9_att_eft_mr43_barrel_310"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr43_barrel_510"] = {
+EFGM.ITEMS["arc9_att_eft_mr43_barrel_510"] = {
 	["fullName"] = "MP-43-1C 12ga 510mm barrel",
 	["displayName"] = "MP-43 510mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24708,7 +24708,7 @@ EFGMITEMS["arc9_att_eft_mr43_barrel_510"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr43_barrel_725"] = {
+EFGM.ITEMS["arc9_att_eft_mr43_barrel_725"] = {
 	["fullName"] = "MP-43-1C 12ga 725mm barrel",
 	["displayName"] = "MP-43 725mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24728,7 +24728,7 @@ EFGMITEMS["arc9_att_eft_mr43_barrel_725"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr43_barrel_750"] = {
+EFGM.ITEMS["arc9_att_eft_mr43_barrel_750"] = {
 	["fullName"] = "MP-43-1C 12ga 750mm barrel",
 	["displayName"] = "MP-43 750mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24748,7 +24748,7 @@ EFGMITEMS["arc9_att_eft_mr43_barrel_750"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mr43_butt"] = {
+EFGM.ITEMS["arc9_att_eft_mr43_butt"] = {
 	["fullName"] = "MP-43-1C buttpad",
 	["displayName"] = "43-1C butt",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24768,7 +24768,7 @@ EFGMITEMS["arc9_att_eft_mr43_butt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mts255_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_mts255_barrel_std"] = {
 	["fullName"] = "MTs-255-12 12ga 755mm barrel with rib",
 	["displayName"] = "MTs-255-12",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -24788,7 +24788,7 @@ EFGMITEMS["arc9_att_eft_mts255_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mts255_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_mts255_hg_std"] = {
 	["fullName"] = "MTs-255-12 beechwood forestock",
 	["displayName"] = "MTs-255-12",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -24808,7 +24808,7 @@ EFGMITEMS["arc9_att_eft_mts255_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mts255_mag_std"] = {
+EFGM.ITEMS["arc9_att_eft_mts255_mag_std"] = {
 	["fullName"] = "MTs-255-12 12ga cylinder",
 	["displayName"] = "MTs-255 cyl.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -24828,7 +24828,7 @@ EFGMITEMS["arc9_att_eft_mts255_mag_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mts255_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_mts255_muzzle_std"] = {
 	["fullName"] = "MTs-255-12 12ga choke",
 	["displayName"] = "MTs-255-12",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24848,7 +24848,7 @@ EFGMITEMS["arc9_att_eft_mts255_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mts255_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_mts255_stock_std"] = {
 	["fullName"] = "MTs-255-12 wooden stock",
 	["displayName"] = "MTs-255-12",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -24868,7 +24868,7 @@ EFGMITEMS["arc9_att_eft_mts255_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_chokeapadter"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_chokeapadter"] = {
 	["fullName"] = "SilencerCo Salvo 12 choke adapter",
 	["displayName"] = "12ga adpt.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24888,7 +24888,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_chokeapadter"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_claw"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_claw"] = {
 	["fullName"] = "Tromix Monster Claw 12ga muzzle brake",
 	["displayName"] = "Monster Claw",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24908,7 +24908,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_claw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_gk02"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_gk02"] = {
 	["fullName"] = "GK-02 12ga muzzle brake",
 	["displayName"] = "GK-02",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24928,7 +24928,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_gk02"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_hexasup"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_hexasup"] = {
 	["fullName"] = "Hexagon 12K 12ga sound suppressor",
 	["displayName"] = "Hexagon 12K",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24948,7 +24948,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_hexasup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_mecyl"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_mecyl"] = {
 	["fullName"] = "ME Cylinder 12ga muzzle adapter",
 	["displayName"] = "Cylinder 12ga",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24968,7 +24968,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_mecyl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_rtc"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_rtc"] = {
 	["fullName"] = "Remington Tactical Choke 12ga",
 	["displayName"] = "RTC 12ga",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -24988,7 +24988,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_rtc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_salvo"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_salvo"] = {
 	["fullName"] = "SilencerCo Salvo 12 12ga sound suppressor",
 	["displayName"] = "Salvo 12",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25008,7 +25008,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_salvo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_12g_threadapadter"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_12g_threadapadter"] = {
 	["fullName"] = "SilencerCo Salvo 12 thread adapter",
 	["displayName"] = "12ga thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25028,7 +25028,7 @@ EFGMITEMS["arc9_att_eft_muzzle_12g_threadapadter"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_1911_anarcj"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_1911_anarcj"] = {
 	["fullName"] = "M1911 Anarchy Outdoors .45 ACP muzzle brake",
 	["displayName"] = "1911 brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25048,7 +25048,7 @@ EFGMITEMS["arc9_att_eft_muzzle_1911_anarcj"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak101_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak101_std"] = {
 	["fullName"] = "AK-101 5.56x45 muzzle brake-compensator",
 	["displayName"] = "AK-101",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25068,7 +25068,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak101_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak102_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak102_std"] = {
 	["fullName"] = "AK-102 5.56x45 muzzle brake-compensator",
 	["displayName"] = "6P44 0-20",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25088,7 +25088,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak102_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak103_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak103_std"] = {
 	["fullName"] = "AK-103 7.62x39 muzzle brake-compensator",
 	["displayName"] = "AK-103",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25108,7 +25108,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak103_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak104_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak104_std"] = {
 	["fullName"] = "AK-104 7.62x39 muzzle brake-compensator",
 	["displayName"] = "6P46 0-20",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25128,7 +25128,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak104_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak105_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak105_std"] = {
 	["fullName"] = "AK-105 5.45x39 muzzle brake-compensator",
 	["displayName"] = "6P44 0-20",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25148,7 +25148,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak105_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak74_pws_cqb"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74_pws_cqb"] = {
 	["fullName"] = "PWS CQB 74 5.45x39 muzzle brake",
 	["displayName"] = "PWS CQB 74",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25168,7 +25168,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak74_pws_cqb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak74_srvv"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74_srvv"] = {
 	["fullName"] = "AK-74 SRVV MBR Jet 5.45x39 muzzle brake",
 	["displayName"] = "SRVV AK74",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25188,7 +25188,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak74_srvv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak74_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74_std"] = {
 	["fullName"] = "AK-74 5.45x39 muzzle brake-compensator",
 	["displayName"] = "6P20 0-20",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25208,7 +25208,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak74_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_ak74m_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74m_std"] = {
 	["fullName"] = "AK-74M 5.45x39 muzzle brake-compensator",
 	["displayName"] = "6P20 0-20",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25228,7 +25228,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_ak74m_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_akm_srvv"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_akm_srvv"] = {
 	["fullName"] = "AK SRVV 7.62x39 muzzle brake-compensator",
 	["displayName"] = "SRVV AKM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25248,7 +25248,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_akm_srvv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_akm_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_akm_std"] = {
 	["fullName"] = "AKM 7.62x39 muzzle brake-compensator",
 	["displayName"] = "6P1 0-14",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25268,7 +25268,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_akm_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_akml"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_akml"] = {
 	["fullName"] = "AKML system 7.62x39 flash hider",
 	["displayName"] = "AKML",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25288,7 +25288,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_akml"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_antidote"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_antidote"] = {
 	["fullName"] = "AK 7.62x39 Venom Tactical Antidote muzzle brake-compensator",
 	["displayName"] = "Antidote",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25308,7 +25308,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_antidote"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_cncwar"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_cncwar"] = {
 	["fullName"] = "AK 5.56x45 CNC Warrior muzzle device adapter",
 	["displayName"] = "CNC War.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25328,7 +25328,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_cncwar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_dgnak47b"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_dgnak47b"] = {
 	["fullName"] = "AK 7.62x39 Lantac Drakon muzzle brake-compensator",
 	["displayName"] = "DGNAK47B",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25348,7 +25348,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_dgnak47b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_dtk1"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_dtk1"] = {
 	["fullName"] = "AK Zenit DTK-1 7.62x39/5.45x39 muzzle brake-compensator",
 	["displayName"] = "DTK-1",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25368,7 +25368,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_dtk1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_dynacomp"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_dynacomp"] = {
 	["fullName"] = "AK Spikes Tactical Dynacomp 7.62x39 muzzle brake-compensator",
 	["displayName"] = "Dynacomp AK",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25388,7 +25388,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_dynacomp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_kibaarms_308"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_kibaarms_308"] = {
 	["fullName"] = "AKM 7.62x39 Kiba Arms .308 muzzle device adapter",
 	["displayName"] = "AKM 308",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25408,7 +25408,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_kibaarms_308"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_reactor"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_reactor"] = {
 	["fullName"] = 'AK Hexagon "Reactor" 5.45x39 muzzle brake',
 	["displayName"] = "Reactor",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25428,7 +25428,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_reactor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_rrd4c"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_rrd4c"] = {
 	["fullName"] = "AKM thread type JMac Customs RRD-4C 7.62x39 muzzle brake",
 	["displayName"] = "RRD-4C",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25448,7 +25448,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_rrd4c"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_rrd4c74"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_rrd4c74"] = {
 	["fullName"] = "AK-74 thread type JMac Customs RRD-4C multi-caliber muzzle brake",
 	["displayName"] = "RRD-4C",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25468,7 +25468,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_rrd4c74"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_tt_ak"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_tt_ak"] = {
 	["fullName"] = "AK 7.62x39 Taktika Tula muzzle adapter",
 	["displayName"] = "TT AK",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25488,7 +25488,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_tt_ak"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_vpo136_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_vpo136_std"] = {
 	["fullName"] = 'VPO-136 "Vepr-KM" 7.62x39 muzzle brake & compensator',
 	["displayName"] = "VPO136",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25508,7 +25508,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_vpo136_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_vpo209"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_vpo209"] = {
 	["fullName"] = "VPO-209 thread protector",
 	["displayName"] = "209 thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25528,7 +25528,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_vpo209"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ak_vr05"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ak_vr05"] = {
 	["fullName"] = "AK Vector VR-05T 7.62x39 muzzle brake",
 	["displayName"] = "VR-05T",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25548,7 +25548,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ak_vr05"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_30cb"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_30cb"] = {
 	["fullName"] = "AR-10 Thunder Beast Arms 30CB 7.62x51 muzzle brake",
 	["displayName"] = "30CB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25568,7 +25568,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_30cb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_aac51t"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_aac51t"] = {
 	["fullName"] = "AR-10 AAC Blackout 51T 7.62x51 flash hider",
 	["displayName"] = "51T 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25588,7 +25588,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_aac51t"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_atlas"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_atlas"] = {
 	["fullName"] = "AR-10 Odin Works ATLAS-7 7.62x51 muzzle brake",
 	["displayName"] = "ATLAS-7",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25608,7 +25608,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_atlas"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_bmda3"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_bmda3"] = {
 	["fullName"] = "Lantac BMD Blast Mitigation Device A3 direct thread adapter",
 	["displayName"] = "BMD A3",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25628,7 +25628,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_bmda3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_cmmgsv"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_cmmgsv"] = {
 	["fullName"] = "AR-10 CMMG SV Brake 7.62x51 muzzle brake",
 	["displayName"] = "SV Brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25648,7 +25648,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_cmmgsv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_keymount"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_keymount"] = {
 	["fullName"] = "AR-10 Dead Air Keymount 7.62x51 muzzle brake",
 	["displayName"] = "Keymount",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25668,7 +25668,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_keymount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_lantac"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_lantac"] = {
 	["fullName"] = "AR-10 Lantac Drakon 7.62x51 muzzle brake-compensator",
 	["displayName"] = "DGN762B",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25688,7 +25688,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_lantac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_m11"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_m11"] = {
 	["fullName"] = "AR-10 Precision Armanent M11 Severe-Duty 7.62x51 muzzle brake",
 	["displayName"] = "M11",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25708,7 +25708,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_m11"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_mdr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_mdr"] = {
 	["fullName"] = "Desert Tech 7.62x51 flash hider",
 	["displayName"] = "MDR 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25728,7 +25728,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_mdr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_procomp"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_procomp"] = {
 	["fullName"] = "AR-10 SureFire ProComp 7.62x51 muzzle brake",
 	["displayName"] = "ProComp 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25748,7 +25748,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_procomp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_qdc_brake"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_qdc_brake"] = {
 	["fullName"] = "AR-10 KAC QDC 7.62x51 Muzzle Brake Kit",
 	["displayName"] = "QDC 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25768,7 +25768,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_qdc_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_qdc_sup"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_qdc_sup"] = {
 	["fullName"] = "AR-10 KAC QDC 7.62x51 Flash Suppressor Kit",
 	["displayName"] = "KAC QDC",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25788,7 +25788,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_qdc_sup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_red"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_red"] = {
 	["fullName"] = "AR-10 Fortis RED Brake 7.62x51 muzzle brake",
 	["displayName"] = "RED 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25808,7 +25808,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_red"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_scarsd"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_scarsd"] = {
 	["fullName"] = "AAC SCAR-SD 51T 7.62x51 flash hider",
 	["displayName"] = "SCAR-SD 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25828,7 +25828,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_scarsd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_shrewed"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_shrewed"] = {
 	["fullName"] = "AR-10 Keeno Arms SHREWD 7.62x51 muzzle brake",
 	["displayName"] = "SHREWD 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25848,7 +25848,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_shrewed"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_sig_taperlok"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_sig_taperlok"] = {
 	["fullName"] = "SIG Sauer Taper-LOK 7.62x51/.300 BLK muzzle adapter",
 	["displayName"] = "T-LOK",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25868,7 +25868,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_sig_taperlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_vette"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_vette"] = {
 	["fullName"] = "AR-10 Nordic Components Corvette 7.62x51 compensator",
 	["displayName"] = "Vette 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25888,7 +25888,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_vette"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_warden"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_warden"] = {
 	["fullName"] = "AR-10 SureFire Warden 7.62x51 blast regulator",
 	["displayName"] = "War 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25908,7 +25908,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_warden"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_wave"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_wave"] = {
 	["fullName"] = "AR-10 Daniel Defense WAVE 7.62x51 muzzle brake",
 	["displayName"] = "WAVE 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25928,7 +25928,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_wave"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_x3"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_x3"] = {
 	["fullName"] = "AR-10 2A Armanent X3 7.62x51 compensator",
 	["displayName"] = "X3 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25948,7 +25948,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_x3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar10_zk38"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_zk38"] = {
 	["fullName"] = "AR-10 TAA ZK-38 7.62x51 muzzle brake",
 	["displayName"] = "ZK-38",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25968,7 +25968,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar10_zk38"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_223cb"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_223cb"] = {
 	["fullName"] = "AR-15 Thunder Beast Arms 223CB 5.56x45 muzzle brake",
 	["displayName"] = "223CB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -25988,7 +25988,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_223cb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_aac51t"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_aac51t"] = {
 	["fullName"] = "AR-15 AAC Blackout 51T 5.56x45 flash hider",
 	["displayName"] = "Blackout 51T",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26008,7 +26008,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_aac51t"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_adar"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_adar"] = {
 	["fullName"] = "AR-15 ADAR 2-15 5.56x45 flash hider",
 	["displayName"] = "ADAR FH",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26028,7 +26028,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_adar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_alien"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_alien"] = {
 	["fullName"] = "AR-15 AlienTech 5.56x45 muzzle brake",
 	["displayName"] = "AlienTech",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26048,7 +26048,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_alien"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_annih"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_annih"] = {
 	["fullName"] = "Yankee Hill Annihilator multi-caliber flash hider",
 	["displayName"] = "Annihilator",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26068,7 +26068,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_annih"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_asr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_asr"] = {
 	["fullName"] = "AR-15 SilencerCo ASR 5.56x45 flash hider",
 	["displayName"] = "ASR 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26088,7 +26088,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_asr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_blitz"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_blitz"] = {
 	["fullName"] = "AR-15 HK BLITZ 5.56x45 flash hider",
 	["displayName"] = "BLITZ 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26108,7 +26108,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_blitz"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_butter"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_butter"] = {
 	["fullName"] = "AR-15 Aeroknox Butterfly 5.56x45 muzzle brake",
 	["displayName"] = "Aeroknox",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26128,7 +26128,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_butter"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_claymore"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_claymore"] = {
 	["fullName"] = "AR-15 TROY Claymore 5.56x45 muzzle brake",
 	["displayName"] = "Claymore",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26148,7 +26148,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_claymore"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_corvette"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_corvette"] = {
 	["fullName"] = "AR-15 Nordic Components Corvette 5.56x45 compensator",
 	["displayName"] = "Corvette",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26168,7 +26168,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_corvette"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_crd"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_crd"] = {
 	["fullName"] = "Ferfrans CRD 5.56x45 Concussion Reduction Device",
 	["displayName"] = "CRD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26188,7 +26188,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_crd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_ferfrans"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_ferfrans"] = {
 	["fullName"] = "AR-15 Ferfrans CQB 5.56x45 muzzle brake",
 	["displayName"] = "Ferfrans M",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26208,7 +26208,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_ferfrans"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_fh556rc"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_fh556rc"] = {
 	["fullName"] = "AR-15 SureFire SF4P FH556RC 5.56x45 flash hider",
 	["displayName"] = "FH556RC",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26228,7 +26228,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_fh556rc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_glok"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_glok"] = {
 	["fullName"] = "AR-15 Griffin Armament Gate-LOK Hammer 5.56x45 flash hider",
 	["displayName"] = "G-LOK",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26248,7 +26248,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_glok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_jailbreak"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_jailbreak"] = {
 	["fullName"] = "AR-15 SAI JailBrake 5.56x45 muzzle device",
 	["displayName"] = "Jail Brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26268,7 +26268,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_jailbreak"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_kacqdc"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_kacqdc"] = {
 	["fullName"] = "AR-15 KAC QDC 5.56x45 Flash Suppressor Kit",
 	["displayName"] = "QDC 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26288,7 +26288,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_kacqdc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_kx3"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_kx3"] = {
 	["fullName"] = "AR-15 Noveske KX3 5.56x45 flash hider",
 	["displayName"] = "KX3 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26308,7 +26308,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_kx3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_lantac"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_lantac"] = {
 	["fullName"] = "AR-15 Lantac Dragon 5.56x45 muzzle brake",
 	["displayName"] = "DGN556B",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26328,7 +26328,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_lantac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_mdr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_mdr"] = {
 	["fullName"] = "Desert Tech 5.56x45 flash hider",
 	["displayName"] = "MDR reg.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26348,7 +26348,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_mdr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_nero"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_nero"] = {
 	["fullName"] = "AR-15 WDR NERO 556 5.56x45 muzzle brake",
 	["displayName"] = "NERO 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26368,7 +26368,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_nero"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_onemount"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_onemount"] = {
 	["fullName"] = "Gemtech ONE Direct Thread Mount adapter",
 	["displayName"] = "ONE Mount",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26388,7 +26388,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_onemount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_phantom"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_phantom"] = {
 	["fullName"] = "AR-15 Yankee Hill Phantom 5.56x45 flash hider",
 	["displayName"] = "Phantom",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26408,7 +26408,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_phantom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_psr556"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_psr556"] = {
 	["fullName"] = "AR-15 AWC PSR 5.56x45 muzzle brake",
 	["displayName"] = "PSR-556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26428,7 +26428,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_psr556"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_qdc3"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_qdc3"] = {
 	["fullName"] = "KAC QDC 5.56x45 3-Prong Flash Eliminator",
 	["displayName"] = "QDC-3 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26448,7 +26448,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_qdc3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_sf3p"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_sf3p"] = {
 	["fullName"] = "AR-15 SureFire SF3P 5.56x45 Flash hider",
 	["displayName"] = "SF3P-556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26468,7 +26468,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_sf3p"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_st6012"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_st6012"] = {
 	["fullName"] = "AR-15 Bulletec ST-6012 5.56x45 muzzle brake",
 	["displayName"] = "ST6012",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26488,7 +26488,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_st6012"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_usgia2"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_usgia2"] = {
 	["fullName"] = "AR-15 Colt USGI A2 5.56x45 flash hider",
 	["displayName"] = "USGI A2",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26508,7 +26508,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_usgia2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_vp09"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_vp09"] = {
 	["fullName"] = "AR-15 Vendetta Precision VP-09 Interceptor 5.56x45 muzzle brake",
 	["displayName"] = "VP-09 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26528,7 +26528,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_vp09"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_warcomp"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_warcomp"] = {
 	["fullName"] = "AR-15 SureFire WarComp 5.56x45 flash hider",
 	["displayName"] = "WarComp",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26548,7 +26548,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_warcomp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_warden"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_warden"] = {
 	["fullName"] = "AR-15 SureFire Warden 5.56x45 blast regulator",
 	["displayName"] = "War 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26568,7 +26568,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_warden"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_wave"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_wave"] = {
 	["fullName"] = "AR-15 Daniel Defense WAVE 5.56x45 muzzle brake",
 	["displayName"] = "Wave MB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26588,7 +26588,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_wave"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ar15_zk23"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ar15_zk23"] = {
 	["fullName"] = "AR-15 TAA ZK-23 5.56x45 muzzle brake",
 	["displayName"] = "ZK-23 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26608,7 +26608,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ar15_zk23"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_asr338ac858"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_asr338ac858"] = {
 	["fullName"] = "SilencerCo AC-858 ASR .338 LM muzzle brake",
 	["displayName"] = "AC-858",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26628,7 +26628,7 @@ EFGMITEMS["arc9_att_eft_muzzle_asr338ac858"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_aug_ase"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_aug_ase"] = {
 	["fullName"] = "Steyr AUG Ase Utra S Series SL7i 5.56x45 sound suppressor",
 	["displayName"] = "SL7i",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26648,7 +26648,7 @@ EFGMITEMS["arc9_att_eft_muzzle_aug_ase"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_aug_brake"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_aug_brake"] = {
 	["fullName"] = "Steyr AUG A3 5.56x45 muzzle brake",
 	["displayName"] = "A3 brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26668,7 +26668,7 @@ EFGMITEMS["arc9_att_eft_muzzle_aug_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_aug_fh_a1"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_aug_fh_a1"] = {
 	["fullName"] = "Steyr AUG A1 5.56x45 closed flash hider",
 	["displayName"] = "A1 flash hider",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26688,7 +26688,7 @@ EFGMITEMS["arc9_att_eft_muzzle_aug_fh_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_aug_fh_a3"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_aug_fh_a3"] = {
 	["fullName"] = "Steyr AUG A3 5.56x45 closed flash hider",
 	["displayName"] = "A3 flash hider",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26708,7 +26708,7 @@ EFGMITEMS["arc9_att_eft_muzzle_aug_fh_a3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_aug_rat"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_aug_rat"] = {
 	["fullName"] = "Steyr AUG RAT Worx 5.56x45 muzzle device adapter",
 	["displayName"] = "RAT Worx",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26728,7 +26728,7 @@ EFGMITEMS["arc9_att_eft_muzzle_aug_rat"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_aug_t4"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_aug_t4"] = {
 	["fullName"] = "Steyr AUG Relfex T4AUG Ranger 5.56x45 sound suppressor",
 	["displayName"] = "T4AUG",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26748,7 +26748,7 @@ EFGMITEMS["arc9_att_eft_muzzle_aug_t4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_axmccap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_axmccap"] = {
 	["fullName"] = "AI AXMC thread protection cap",
 	["displayName"] = "AXMC cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26768,7 +26768,7 @@ EFGMITEMS["arc9_att_eft_muzzle_axmccap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_bmd_bmd762"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_bmd_bmd762"] = {
 	["fullName"] = "Lantac BMD 7.62x51 Blast Mitigation Device",
 	["displayName"] = "BMD 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26788,7 +26788,7 @@ EFGMITEMS["arc9_att_eft_muzzle_bmd_bmd762"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_borelock338"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_borelock338"] = {
 	["fullName"] = "Ase Utra BoreLock .338 LM muzzle brake",
 	["displayName"] = "BoreLock",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26808,7 +26808,7 @@ EFGMITEMS["arc9_att_eft_muzzle_borelock338"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_borelock338_cap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_borelock338_cap"] = {
 	["fullName"] = "Ase Utra BoreLock thread protector",
 	["displayName"] = "BoreLock",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26828,7 +26828,7 @@ EFGMITEMS["arc9_att_eft_muzzle_borelock338_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_borelock338_sup"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_borelock338_sup"] = {
 	["fullName"] = "Ase Utra SL7i-BL BoreLock .338 LM sound suppressor",
 	["displayName"] = "SL7i-BL .338",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26848,7 +26848,7 @@ EFGMITEMS["arc9_att_eft_muzzle_borelock338_sup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_carlson_ar15"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_carlson_ar15"] = {
 	["fullName"] = "AR-15 DoubleStar Carlson Tac Comp 5.56x45 compensator",
 	["displayName"] = "Carlson Tac",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26868,7 +26868,7 @@ EFGMITEMS["arc9_att_eft_muzzle_carlson_ar15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar10"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar10"] = {
 	["fullName"] = "AR-10 Delta-Tek DTK-AR10 7.62x51 muzzle brake",
 	["displayName"] = "DTK-AR10",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26888,7 +26888,7 @@ EFGMITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar15"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar15"] = {
 	["fullName"] = "AR-15 Delta-Tek DTK-M16 5.56x45 muzzle brake",
 	["displayName"] = "DTK-M16",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26908,7 +26908,7 @@ EFGMITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_dthybrid"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_dthybrid"] = {
 	["fullName"] = "SilencerCo Hybrid 46 Direct Thread Mount adapter",
 	["displayName"] = "DT Hybrid",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26928,7 +26928,7 @@ EFGMITEMS["arc9_att_eft_muzzle_dthybrid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_3port"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_3port"] = {
 	["fullName"] = 'Glock 9x19 CARVER Custom "Decelerator 3 Port" compensator',
 	["displayName"] = "G 3Port",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26948,7 +26948,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_3port"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_3port_blk"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_3port_blk"] = {
 	["fullName"] = 'Glock 9x19 CARVER Custom "Decelerator 3 Port" compensator',
 	["displayName"] = "G 3Port",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26968,7 +26968,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_3port_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_aw"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_aw"] = {
 	["fullName"] = "Glock 9x19 Alpha Wolf Bullnose compensator",
 	["displayName"] = "G AW",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -26988,7 +26988,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_aw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_aw_thr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_aw_thr"] = {
 	["fullName"] = "Glock 9x19 Alpha Wolf thread protector",
 	["displayName"] = "G AW thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27008,7 +27008,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_aw_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_cc4p"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_cc4p"] = {
 	["fullName"] = 'Glock 9x19 CARVER Custom "4 Port" muzzle brake',
 	["displayName"] = "G CC 4P",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27028,7 +27028,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_cc4p"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_cc4p_blk"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_cc4p_blk"] = {
 	["fullName"] = 'Glock 9x19 CARVER Custom "4 Port" muzzle brake',
 	["displayName"] = "G CC 4P",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27048,7 +27048,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_cc4p_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_dd_fh"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_dd_fh"] = {
 	["fullName"] = "Glock 9x19 Double Diamond flash hider",
 	["displayName"] = "G DD FH",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27068,7 +27068,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_dd_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_dd_fh_blk"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_dd_fh_blk"] = {
 	["fullName"] = "Glock 9x19 Double Diamond flash hider",
 	["displayName"] = "G DD FH",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27088,7 +27088,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_dd_fh_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_dd_thr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_dd_thr"] = {
 	["fullName"] = "Glock 9x19 Double Diamond thread protector",
 	["displayName"] = "G DD thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27108,7 +27108,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_dd_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_g4"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_g4"] = {
 	["fullName"] = "Glock 9x19 Strike Industries G4 SlideComp compensator",
 	["displayName"] = "G G4",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27128,7 +27128,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_g4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_lwd_comp9"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_lwd_comp9"] = {
 	["fullName"] = "Glock 9x19 Lone Wolf LWD-COMP9 compensator",
 	["displayName"] = "LWD-COMP9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27148,7 +27148,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_lwd_comp9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_g17_sai_thr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_g17_sai_thr"] = {
 	["fullName"] = "Glock SAI 9x19 thread protector",
 	["displayName"] = "G SAI thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27168,7 +27168,7 @@ EFGMITEMS["arc9_att_eft_muzzle_g17_sai_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_m9a3_blk"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_m9a3_blk"] = {
 	["fullName"] = "M9A3 thread protection cap",
 	["displayName"] = "M9A3 cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27188,7 +27188,7 @@ EFGMITEMS["arc9_att_eft_muzzle_m9a3_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_m9a3_std"] = {
 	["fullName"] = "M9A3 thread protection cap",
 	["displayName"] = "M9A3 cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27208,7 +27208,7 @@ EFGMITEMS["arc9_att_eft_muzzle_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_omegaadapter"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_omegaadapter"] = {
 	["fullName"] = "SilencerCo Omega 45k Direct Thread Mount adapter",
 	["displayName"] = "DT Omega",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27228,7 +27228,7 @@ EFGMITEMS["arc9_att_eft_muzzle_omegaadapter"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_omegasilencer"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_omegasilencer"] = {
 	["fullName"] = "SilencerCo Omega 45k .45 ACP sound suppressor",
 	["displayName"] = "Omega 45K",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27248,7 +27248,7 @@ EFGMITEMS["arc9_att_eft_muzzle_omegasilencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_p226_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_p226_std"] = {
 	["fullName"] = "P226 thread protection cap",
 	["displayName"] = "P226 cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27268,7 +27268,7 @@ EFGMITEMS["arc9_att_eft_muzzle_p226_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_p226_tjs"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_p226_tjs"] = {
 	["fullName"] = "P226 TJs Custom 9x19 compensator",
 	["displayName"] = "TJs Custom",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27288,7 +27288,7 @@ EFGMITEMS["arc9_att_eft_muzzle_p226_tjs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_pkm_dtk1p"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_pkm_dtk1p"] = {
 	["fullName"] = "PK Zenit DTK-1P 7.62x54R muzzle brake",
 	["displayName"] = "DTK-1P",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27308,7 +27308,7 @@ EFGMITEMS["arc9_att_eft_muzzle_pkm_dtk1p"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_pkm_fh"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_pkm_fh"] = {
 	["fullName"] = "PKM 7.62x54R slotted flash hider",
 	["displayName"] = "PKM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27328,7 +27328,7 @@ EFGMITEMS["arc9_att_eft_muzzle_pkm_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_pkm_mb"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_pkm_mb"] = {
 	["fullName"] = "PKM 7.62x54R muzzle brake",
 	["displayName"] = "PKM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27348,7 +27348,7 @@ EFGMITEMS["arc9_att_eft_muzzle_pkm_mb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_psr338"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_psr338"] = {
 	["fullName"] = "AWC PSR .338 LM muzzle brake",
 	["displayName"] = "PSR 338",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27368,7 +27368,7 @@ EFGMITEMS["arc9_att_eft_muzzle_psr338"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_psr_protector"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_psr_protector"] = {
 	["fullName"] = "AWC PSR muzzle brake protector",
 	["displayName"] = "PSR prot",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27388,7 +27388,7 @@ EFGMITEMS["arc9_att_eft_muzzle_psr_protector"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_pws_cqb"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_pws_cqb"] = {
 	["fullName"] = "PWS CQB 5.56x45 muzzle brake",
 	["displayName"] = "PWS CQB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27408,7 +27408,7 @@ EFGMITEMS["arc9_att_eft_muzzle_pws_cqb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_rfb_fh"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_rfb_fh"] = {
 	["fullName"] = "RFB 7.62x51 flash hider",
 	["displayName"] = "RFB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27428,7 +27428,7 @@ EFGMITEMS["arc9_att_eft_muzzle_rfb_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_sa58_3pr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_sa58_3pr"] = {
 	["fullName"] = "SA-58 3-Prong Trident 7.62x51 flash hider",
 	["displayName"] = "SA58 3-pr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27448,7 +27448,7 @@ EFGMITEMS["arc9_att_eft_muzzle_sa58_3pr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_sa58_aut"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_sa58_aut"] = {
 	["fullName"] = "SA-58 Austrian Style 7.62x51 muzzle brake",
 	["displayName"] = "SA58 AUT",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27468,7 +27468,7 @@ EFGMITEMS["arc9_att_eft_muzzle_sa58_aut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_scar_fh"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_scar_fh"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 flash hider",
 	["displayName"] = "Mk16 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27488,7 +27488,7 @@ EFGMITEMS["arc9_att_eft_muzzle_scar_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_spr_brake"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_spr_brake"] = {
 	["fullName"] = "AR-15 Allen Engineering SPR Brake 5.56x45",
 	["displayName"] = "SPR Brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27508,7 +27508,7 @@ EFGMITEMS["arc9_att_eft_muzzle_spr_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_spr_collar"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_spr_collar"] = {
 	["fullName"] = "AR-15 Allen Engineering SPR Collar suppressor mount",
 	["displayName"] = "SPR Collar",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27528,7 +27528,7 @@ EFGMITEMS["arc9_att_eft_muzzle_spr_collar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_spr_sup"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_spr_sup"] = {
 	["fullName"] = "Allen Engineering AEM-5 5.56x45 sound suppressor",
 	["displayName"] = "AEM-5",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27548,7 +27548,7 @@ EFGMITEMS["arc9_att_eft_muzzle_spr_sup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_spr_thr"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_spr_thr"] = {
 	["fullName"] = "Allen Engineering SPR Brake thread protector",
 	["displayName"] = "SPR thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27568,7 +27568,7 @@ EFGMITEMS["arc9_att_eft_muzzle_spr_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_stm9_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_stm9_std"] = {
 	["fullName"] = "STM-9 9x19 muzzle brake",
 	["displayName"] = "STM-9 muzzle",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27588,7 +27588,7 @@ EFGMITEMS["arc9_att_eft_muzzle_stm9_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_svds_adap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_svds_adap"] = {
 	["fullName"] = "SVDS Rotor 43 thread adapter",
 	["displayName"] = "SVDS thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27608,7 +27608,7 @@ EFGMITEMS["arc9_att_eft_muzzle_svds_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_svds_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_svds_std"] = {
 	["fullName"] = "SVDS 7.62x54R muzzle brake-compensator",
 	["displayName"] = "SVDS",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27628,7 +27628,7 @@ EFGMITEMS["arc9_att_eft_muzzle_svds_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_svds_suppressor"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_svds_suppressor"] = {
 	["fullName"] = "Rotor 43 7.62x54R muzzle brake-compensator",
 	["displayName"] = "R43 7.62x54R",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27648,7 +27648,7 @@ EFGMITEMS["arc9_att_eft_muzzle_svds_suppressor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_taccom"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_taccom"] = {
 	["fullName"] = "TACCOM Carbine Brake multi-caliber muzzle brake",
 	["displayName"] = "TACCOM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27668,7 +27668,7 @@ EFGMITEMS["arc9_att_eft_muzzle_taccom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_tkpd_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_tkpd_std"] = {
 	["fullName"] = "TKPD 9.3x64 muzzle brake",
 	["displayName"] = "TKPD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27688,7 +27688,7 @@ EFGMITEMS["arc9_att_eft_muzzle_tkpd_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_tlok_3prong"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_tlok_3prong"] = {
 	["fullName"] = "SIG Sauer 7.62x51 3-prong flash hider",
 	["displayName"] = "3-pr 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27708,7 +27708,7 @@ EFGMITEMS["arc9_att_eft_muzzle_tlok_3prong"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_tlok_mirco"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_tlok_mirco"] = {
 	["fullName"] = "SIG Sauer Micro Brake 7.62x51 muzzle brake",
 	["displayName"] = "Micro 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27728,7 +27728,7 @@ EFGMITEMS["arc9_att_eft_muzzle_tlok_mirco"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_tlok_tpb"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_tlok_tpb"] = {
 	["fullName"] = "SIG Sauer Two Port Brake 7.62x51 muzzle brake",
 	["displayName"] = "TPB 762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27748,7 +27748,7 @@ EFGMITEMS["arc9_att_eft_muzzle_tlok_tpb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_tmb338lm"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_tmb338lm"] = {
 	["fullName"] = "AI .338 LM Tactical Muzzle Brake",
 	["displayName"] = "TMB 338LM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27768,7 +27768,7 @@ EFGMITEMS["arc9_att_eft_muzzle_tmb338lm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_trg_cap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_trg_cap"] = {
 	["fullName"] = "Sako TRG .338 LM thread protector",
 	["displayName"] = "TRG thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27788,7 +27788,7 @@ EFGMITEMS["arc9_att_eft_muzzle_trg_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_trg_cgs"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_trg_cgs"] = {
 	["fullName"] = "CGS Hekate DT .338 LM sound suppressor",
 	["displayName"] = "Hekate .338LM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27808,7 +27808,7 @@ EFGMITEMS["arc9_att_eft_muzzle_trg_cgs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_trg_coretac"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_trg_coretac"] = {
 	["fullName"] = "Sako TRG Coretac CoreBrake .338 LM muzzle brake",
 	["displayName"] = "CoreBrake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27828,7 +27828,7 @@ EFGMITEMS["arc9_att_eft_muzzle_trg_coretac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_trg_pgm"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_trg_pgm"] = {
 	["fullName"] = "Sako TRG PGM Precision .338 LM sound suppressor",
 	["displayName"] = "PGM .338LM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27848,7 +27848,7 @@ EFGMITEMS["arc9_att_eft_muzzle_trg_pgm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_trg_std"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_trg_std"] = {
 	["fullName"] = "Sako TRG 22/42/M10 .338 LM muzzle brake",
 	["displayName"] = "TRG .338",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27868,7 +27868,7 @@ EFGMITEMS["arc9_att_eft_muzzle_trg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_tsm338lm"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_tsm338lm"] = {
 	["fullName"] = "AI .338 LM Tactical Sound Moderator",
 	["displayName"] = "TSM .338LM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27888,7 +27888,7 @@ EFGMITEMS["arc9_att_eft_muzzle_tsm338lm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_ump_oem"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_ump_oem"] = {
 	["fullName"] = "HK UMP B&T OEM .45 ACP sound suppressor",
 	["displayName"] = "UMP OEM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27908,7 +27908,7 @@ EFGMITEMS["arc9_att_eft_muzzle_ump_oem"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_usgi_a1"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_usgi_a1"] = {
 	["fullName"] = "AR-15 Colt USGI A1 3-prong 5.56x45 flash hider",
 	["displayName"] = "USGI A1 3-pr",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27928,7 +27928,7 @@ EFGMITEMS["arc9_att_eft_muzzle_usgi_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_usp_cap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_usp_cap"] = {
 	["fullName"] = "HK USP Tactical thread protector",
 	["displayName"] = "USP45T",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27948,7 +27948,7 @@ EFGMITEMS["arc9_att_eft_muzzle_usp_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_vector9_cap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_vector9_cap"] = {
 	["fullName"] = "KRISS Vector 9x19 thread protection cap",
 	["displayName"] = "Vector cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27968,7 +27968,7 @@ EFGMITEMS["arc9_att_eft_muzzle_vector9_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_vector9_fh"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_vector9_fh"] = {
 	["fullName"] = "KRISS Vector 9x19 flash hider",
 	["displayName"] = "Vector 9x19",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -27988,7 +27988,7 @@ EFGMITEMS["arc9_att_eft_muzzle_vector9_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_vector_cap"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_vector_cap"] = {
 	["fullName"] = "KRISS Vector .45 ACP thread protection cap",
 	["displayName"] = "Vector cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -28008,7 +28008,7 @@ EFGMITEMS["arc9_att_eft_muzzle_vector_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_muzzle_vector_fh"] = {
+EFGM.ITEMS["arc9_att_eft_muzzle_vector_fh"] = {
 	["fullName"] = "KRISS Vector .45 ACP flash hider",
 	["displayName"] = "Vector .45",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -28028,7 +28028,7 @@ EFGMITEMS["arc9_att_eft_muzzle_vector_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_barrel_std"] = {
 	["fullName"] = "MXLR .308 ME 24 inch barrel",
 	["displayName"] = 'MXLR 24"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -28048,7 +28048,7 @@ EFGMITEMS["arc9_att_eft_mxlr_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_fs_std"] = {
 	["fullName"] = "MXLR standard front sight",
 	["displayName"] = "MXLR FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -28068,7 +28068,7 @@ EFGMITEMS["arc9_att_eft_mxlr_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_fs_xs"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_fs_xs"] = {
 	["fullName"] = "M1895/MXLR XS Marlin Ghost front sight",
 	["displayName"] = "XS MGS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -28088,7 +28088,7 @@ EFGMITEMS["arc9_att_eft_mxlr_fs_xs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hammer_ext_black"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hammer_ext_black"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision hammer spur extension",
 	["displayName"] = "RPP spur",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28108,7 +28108,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hammer_ext_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hammer_ext_gold"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hammer_ext_gold"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision hammer spur extension (Black)",
 	["displayName"] = "RPP spur",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28128,7 +28128,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hammer_ext_gold"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hammer_ext_spur"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hammer_ext_spur"] = {
 	["fullName"] = "MXLR hammer spur extension",
 	["displayName"] = "MXLR spur",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28148,7 +28148,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hammer_ext_spur"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hammer_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hammer_std"] = {
 	["fullName"] = "MXLR hammer",
 	["displayName"] = "MXLR ham.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28168,7 +28168,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hammer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_costa"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision COSTA M-LOK handguard",
 	["displayName"] = "RPP COSTA",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28188,7 +28188,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_costa"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_costa_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa_fde"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision COSTA M-LOK handguard (FDE)",
 	["displayName"] = "RPP COSTA",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28208,7 +28208,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_costa_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_costa_green"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa_green"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision COSTA M-LOK handguard (Green)",
 	["displayName"] = "RPP COSTA",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28228,7 +28228,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_costa_green"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_costa_rail"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa_rail"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision COSTA top rail",
 	["displayName"] = "RPP COSTA",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -28248,7 +28248,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_costa_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_magpul"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_magpul"] = {
 	["fullName"] = "M1895/MXLR Magpul ELG M-LOK handguard",
 	["displayName"] = "ELG M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28268,7 +28268,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_magpul"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_magpul_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_magpul_fde"] = {
 	["fullName"] = "M1895/MXLR Magpul ELG M-LOK handguard (FDE)",
 	["displayName"] = "ELG M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28288,7 +28288,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_magpul_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_rpp"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_rpp"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision M-LOK handguard",
 	["displayName"] = "RPP M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28308,7 +28308,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_rpp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_rpp_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_rpp_fde"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision M-LOK handguard (FDE)",
 	["displayName"] = "RPP M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28328,7 +28328,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_rpp_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_rpp_green"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_rpp_green"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision M-LOK handguard (Green)",
 	["displayName"] = "RPP M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28348,7 +28348,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_rpp_green"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_hg_std"] = {
 	["fullName"] = "MXLR standard handguard",
 	["displayName"] = "MXLR HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -28368,7 +28368,7 @@ EFGMITEMS["arc9_att_eft_mxlr_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_loop_rpp"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_loop_rpp"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision medium loop lever",
 	["displayName"] = "RPP lever",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28388,7 +28388,7 @@ EFGMITEMS["arc9_att_eft_mxlr_loop_rpp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_loop_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_loop_std"] = {
 	["fullName"] = "MXLR loop lever",
 	["displayName"] = "MXLR loop",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28408,7 +28408,7 @@ EFGMITEMS["arc9_att_eft_mxlr_loop_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_mag_5"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_mag_5"] = {
 	["fullName"] = "MXLR .308 ME 5-round magazine",
 	["displayName"] = "MXLR",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -28428,7 +28428,7 @@ EFGMITEMS["arc9_att_eft_mxlr_mag_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_rail_rhino"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_rail_rhino"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision RHINO 5 inch scope rail",
 	["displayName"] = "RHINO",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -28448,7 +28448,7 @@ EFGMITEMS["arc9_att_eft_mxlr_rail_rhino"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_rail_xs"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_rail_xs"] = {
 	["fullName"] = "M1895/MXLR XS Marlin Optic Mount",
 	["displayName"] = "XS MO",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -28468,7 +28468,7 @@ EFGMITEMS["arc9_att_eft_mxlr_rail_xs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_rs_std"] = {
 	["fullName"] = "MXLR standard rear sight",
 	["displayName"] = "MXLR RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -28488,7 +28488,7 @@ EFGMITEMS["arc9_att_eft_mxlr_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_rs_xs"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_rs_xs"] = {
 	["fullName"] = "M1895/MXLR XS Marlin Ghost Ring rear sight",
 	["displayName"] = "XS MGR",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -28508,7 +28508,7 @@ EFGMITEMS["arc9_att_eft_mxlr_rs_xs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_stock_magpul"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_stock_magpul"] = {
 	["fullName"] = "M1895/MXLR Magpul ELG stock",
 	["displayName"] = "ELG",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -28528,7 +28528,7 @@ EFGMITEMS["arc9_att_eft_mxlr_stock_magpul"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_stock_magpul_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_stock_magpul_fde"] = {
 	["fullName"] = "M1895/MXLR Magpul ELG stock (FDE)",
 	["displayName"] = "ELG",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -28548,7 +28548,7 @@ EFGMITEMS["arc9_att_eft_mxlr_stock_magpul_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_stock_rpp"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_stock_rpp"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision aluminum stock",
 	["displayName"] = "RPP alu",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -28568,7 +28568,7 @@ EFGMITEMS["arc9_att_eft_mxlr_stock_rpp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_stock_rpp_fde"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_stock_rpp_fde"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision aluminum stock (FDE)",
 	["displayName"] = "RPP alu",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -28588,7 +28588,7 @@ EFGMITEMS["arc9_att_eft_mxlr_stock_rpp_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_stock_rpp_green"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_stock_rpp_green"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision aluminum stock (Green)",
 	["displayName"] = "RPP alu",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -28608,7 +28608,7 @@ EFGMITEMS["arc9_att_eft_mxlr_stock_rpp_green"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_stock_std"] = {
 	["fullName"] = "MXLR standard stock",
 	["displayName"] = "MXLR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -28628,7 +28628,7 @@ EFGMITEMS["arc9_att_eft_mxlr_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_trig_rpp"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_trig_rpp"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision trigger",
 	["displayName"] = "RPP trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28648,7 +28648,7 @@ EFGMITEMS["arc9_att_eft_mxlr_trig_rpp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_trig_rpp_black"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_trig_rpp_black"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision trigger (Black)",
 	["displayName"] = "RPP trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28668,7 +28668,7 @@ EFGMITEMS["arc9_att_eft_mxlr_trig_rpp_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_trig_rpp_gold"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_trig_rpp_gold"] = {
 	["fullName"] = "M1895/MXLR Ranger Point Precision trigger (Gold)",
 	["displayName"] = "RPP trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28688,7 +28688,7 @@ EFGMITEMS["arc9_att_eft_mxlr_trig_rpp_gold"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_mxlr_trig_std"] = {
+EFGM.ITEMS["arc9_att_eft_mxlr_trig_std"] = {
 	["fullName"] = "MXLR trigger",
 	["displayName"] = "MXLR trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28708,7 +28708,7 @@ EFGMITEMS["arc9_att_eft_mxlr_trig_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_barrel_115"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_barrel_115"] = {
 	["fullName"] = "NL545 (GP) 5.45x39 11.5 inch barrel",
 	["displayName"] = 'NL545 GP 11.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -28728,7 +28728,7 @@ EFGMITEMS["arc9_att_eft_nl545_barrel_115"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_barrel_163_di"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_barrel_163_di"] = {
 	["fullName"] = "NL545 (DI) 5.45x39 16.3 inch barrel",
 	["displayName"] = 'NL545 DI 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -28748,7 +28748,7 @@ EFGMITEMS["arc9_att_eft_nl545_barrel_163_di"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_barrel_165"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_barrel_165"] = {
 	["fullName"] = "NL545 (GP) 5.45x39 16.5 inch barrel",
 	["displayName"] = 'NL545 GP 16.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -28768,7 +28768,7 @@ EFGMITEMS["arc9_att_eft_nl545_barrel_165"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_charge_std"] = {
 	["fullName"] = "NL545 charging handle",
 	["displayName"] = "NL545 CH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -28788,7 +28788,7 @@ EFGMITEMS["arc9_att_eft_nl545_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_gass"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_gass"] = {
 	["fullName"] = "NL545 gas block",
 	["displayName"] = "NL545 gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -28808,7 +28808,7 @@ EFGMITEMS["arc9_att_eft_nl545_gass"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_upperr_di"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_upperr_di"] = {
 	["fullName"] = "NL545 (DI) 5.45x39 upper receiver",
 	["displayName"] = "NL545 DI",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -28828,7 +28828,7 @@ EFGMITEMS["arc9_att_eft_nl545_upperr_di"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_nl545_upperr_gp"] = {
+EFGM.ITEMS["arc9_att_eft_nl545_upperr_gp"] = {
 	["fullName"] = "NL545 (GP) 5.45x39 upper receiver (FDE)",
 	["displayName"] = "NL545 GP",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -28848,7 +28848,7 @@ EFGMITEMS["arc9_att_eft_nl545_upperr_gp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_1p78_eyecap"] = {
+EFGM.ITEMS["arc9_att_eft_optic_1p78_eyecap"] = {
 	["fullName"] = "NPZ 1P78 scope eyecup",
 	["displayName"] = "Eyecup",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -28868,7 +28868,7 @@ EFGMITEMS["arc9_att_eft_optic_1p78_eyecap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_553"] = {
+EFGM.ITEMS["arc9_att_eft_optic_553"] = {
 	["fullName"] = "EOTech 553 holographic sight",
 	["displayName"] = "EOT 553",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -28888,7 +28888,7 @@ EFGMITEMS["arc9_att_eft_optic_553"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_553_fde"] = {
+EFGM.ITEMS["arc9_att_eft_optic_553_fde"] = {
 	["fullName"] = "EOTech 553 FDE holographic sight",
 	["displayName"] = "EOT 553 FDE",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -28908,7 +28908,7 @@ EFGMITEMS["arc9_att_eft_optic_553_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_acrop1"] = {
+EFGM.ITEMS["arc9_att_eft_optic_acrop1"] = {
 	["fullName"] = "Aimpoint ACRO P-1 reflex sight",
 	["displayName"] = "ACRO P-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -28928,7 +28928,7 @@ EFGMITEMS["arc9_att_eft_optic_acrop1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_boss"] = {
+EFGM.ITEMS["arc9_att_eft_optic_boss"] = {
 	["fullName"] = "Wilcox BOSS Xe reflex sight",
 	["displayName"] = "BOSS Xe",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -28948,7 +28948,7 @@ EFGMITEMS["arc9_att_eft_optic_boss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_compm4"] = {
+EFGM.ITEMS["arc9_att_eft_optic_compm4"] = {
 	["fullName"] = "Aimpoint CompM4 reflex sight",
 	["displayName"] = "CompM4",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -28968,7 +28968,7 @@ EFGMITEMS["arc9_att_eft_optic_compm4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_deltapoint"] = {
+EFGM.ITEMS["arc9_att_eft_optic_deltapoint"] = {
 	["fullName"] = "Leupold DeltaPoint Reflex Sight",
 	["displayName"] = "Delta",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -28988,7 +28988,7 @@ EFGMITEMS["arc9_att_eft_optic_deltapoint"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_elcan_hco"] = {
+EFGM.ITEMS["arc9_att_eft_optic_elcan_hco"] = {
 	["fullName"] = "ELCAN Specter HCO sight",
 	["displayName"] = "HCO",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29008,7 +29008,7 @@ EFGMITEMS["arc9_att_eft_optic_elcan_hco"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_exps3"] = {
+EFGM.ITEMS["arc9_att_eft_optic_exps3"] = {
 	["fullName"] = "EOTech EXPS3 holographic sight",
 	["displayName"] = "EXPS3",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29028,7 +29028,7 @@ EFGMITEMS["arc9_att_eft_optic_exps3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_exps3_tan"] = {
+EFGM.ITEMS["arc9_att_eft_optic_exps3_tan"] = {
 	["fullName"] = "EOTech EXPS3 holographic sight (TAN)",
 	["displayName"] = "EXPS3 TAN",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29048,7 +29048,7 @@ EFGMITEMS["arc9_att_eft_optic_exps3_tan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_falke"] = {
+EFGM.ITEMS["arc9_att_eft_optic_falke"] = {
 	["fullName"] = "FALKE LE reflex sight",
 	["displayName"] = "FALKE LE",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29068,7 +29068,7 @@ EFGMITEMS["arc9_att_eft_optic_falke"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_ff3"] = {
+EFGM.ITEMS["arc9_att_eft_optic_ff3"] = {
 	["fullName"] = "Burris FastFire 3 reflex sight",
 	["displayName"] = "FF3",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29088,7 +29088,7 @@ EFGMITEMS["arc9_att_eft_optic_ff3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_h2"] = {
+EFGM.ITEMS["arc9_att_eft_optic_h2"] = {
 	["fullName"] = "Aimpoint Micro H-2 reflex sight",
 	["displayName"] = "H-2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29108,7 +29108,7 @@ EFGMITEMS["arc9_att_eft_optic_h2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_hhs1"] = {
+EFGM.ITEMS["arc9_att_eft_optic_hhs1"] = {
 	["fullName"] = "EOTech HHS-1 hybrid sight",
 	["displayName"] = "HHS-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29128,7 +29128,7 @@ EFGMITEMS["arc9_att_eft_optic_hhs1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_hhs1_tan"] = {
+EFGM.ITEMS["arc9_att_eft_optic_hhs1_tan"] = {
 	["fullName"] = "EOTech HHS-1 hybrid sight (Tan)",
 	["displayName"] = "HHS-1 (Tan)",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29148,7 +29148,7 @@ EFGMITEMS["arc9_att_eft_optic_hhs1_tan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_hs401g5"] = {
+EFGM.ITEMS["arc9_att_eft_optic_hs401g5"] = {
 	["fullName"] = "Holosun HS401G5 reflex sight",
 	["displayName"] = "HS401G5",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29168,7 +29168,7 @@ EFGMITEMS["arc9_att_eft_optic_hs401g5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_justice"] = {
+EFGM.ITEMS["arc9_att_eft_optic_justice"] = {
 	["fullName"] = "SwampFox Justice reflex sight",
 	["displayName"] = "Justice",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29188,7 +29188,7 @@ EFGMITEMS["arc9_att_eft_optic_justice"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_kmz_eyecap"] = {
+EFGM.ITEMS["arc9_att_eft_optic_kmz_eyecap"] = {
 	["fullName"] = "KMZ 1P59 scope eyecup",
 	["displayName"] = "Eyecup",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29208,7 +29208,7 @@ EFGMITEMS["arc9_att_eft_optic_kmz_eyecap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_kobra"] = {
+EFGM.ITEMS["arc9_att_eft_optic_kobra"] = {
 	["fullName"] = "Axion Kobra EKP-8-18 reflex sight",
 	["displayName"] = "EKP-8-18",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29228,7 +29228,7 @@ EFGMITEMS["arc9_att_eft_optic_kobra"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_krechet"] = {
+EFGM.ITEMS["arc9_att_eft_optic_krechet"] = {
 	["fullName"] = "Valday Krechet reflex sight",
 	["displayName"] = "Krechet",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29248,7 +29248,7 @@ EFGMITEMS["arc9_att_eft_optic_krechet"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_mepro"] = {
+EFGM.ITEMS["arc9_att_eft_optic_mepro"] = {
 	["fullName"] = "MeproLight Mepro M21 reflex sight",
 	["displayName"] = "Mepro M21",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29268,7 +29268,7 @@ EFGMITEMS["arc9_att_eft_optic_mepro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_mrs"] = {
+EFGM.ITEMS["arc9_att_eft_optic_mrs"] = {
 	["fullName"] = "Walther MRS reflex sight",
 	["displayName"] = "MRS",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29288,7 +29288,7 @@ EFGMITEMS["arc9_att_eft_optic_mrs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_nspu_eyecap"] = {
+EFGM.ITEMS["arc9_att_eft_optic_nspu_eyecap"] = {
 	["fullName"] = "NSPU-M scope eyecup",
 	["displayName"] = "Eyecup",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29308,7 +29308,7 @@ EFGMITEMS["arc9_att_eft_optic_nspu_eyecap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_okp7"] = {
+EFGM.ITEMS["arc9_att_eft_optic_okp7"] = {
 	["fullName"] = "OKP-7 reflex sight",
 	["displayName"] = "OKP-7",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29328,7 +29328,7 @@ EFGMITEMS["arc9_att_eft_optic_okp7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_p1x42"] = {
+EFGM.ITEMS["arc9_att_eft_optic_p1x42"] = {
 	["fullName"] = "VOMZ Pilad P1x42 Weaver reflex sight",
 	["displayName"] = "P1x42",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29348,7 +29348,7 @@ EFGMITEMS["arc9_att_eft_optic_p1x42"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_pk06"] = {
+EFGM.ITEMS["arc9_att_eft_optic_pk06"] = {
 	["fullName"] = "BelOMO PK-06 reflex sight",
 	["displayName"] = "PK-06",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29368,7 +29368,7 @@ EFGMITEMS["arc9_att_eft_optic_pk06"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_pk120"] = {
+EFGM.ITEMS["arc9_att_eft_optic_pk120"] = {
 	["fullName"] = "Valday PK-120 (1P87) holographic sight",
 	["displayName"] = "PK-120",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29388,7 +29388,7 @@ EFGMITEMS["arc9_att_eft_optic_pk120"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_pro"] = {
+EFGM.ITEMS["arc9_att_eft_optic_pro"] = {
 	["fullName"] = "Aimpoint PRO reflex sight",
 	["displayName"] = "PRO",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29408,7 +29408,7 @@ EFGMITEMS["arc9_att_eft_optic_pro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_pso_eyecap"] = {
+EFGM.ITEMS["arc9_att_eft_optic_pso_eyecap"] = {
 	["fullName"] = "PSO scope eyecup",
 	["displayName"] = "Eyecup",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29428,7 +29428,7 @@ EFGMITEMS["arc9_att_eft_optic_pso_eyecap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_reapir_eyecup"] = {
+EFGM.ITEMS["arc9_att_eft_optic_reapir_eyecup"] = {
 	["fullName"] = "Trijicon REAP-IR scope eyecup",
 	["displayName"] = "REAP-IR cup",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29448,7 +29448,7 @@ EFGMITEMS["arc9_att_eft_optic_reapir_eyecup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_rmr"] = {
+EFGM.ITEMS["arc9_att_eft_optic_rmr"] = {
 	["fullName"] = "Trijicon RMR reflex sight",
 	["displayName"] = "RMR",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29468,7 +29468,7 @@ EFGMITEMS["arc9_att_eft_optic_rmr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_romeo4"] = {
+EFGM.ITEMS["arc9_att_eft_optic_romeo4"] = {
 	["fullName"] = "SIG Sauer ROMEO4 reflex sight",
 	["displayName"] = "ROMEO4",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29488,7 +29488,7 @@ EFGMITEMS["arc9_att_eft_optic_romeo4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_romeo8t"] = {
+EFGM.ITEMS["arc9_att_eft_optic_romeo8t"] = {
 	["fullName"] = "SIG Sauer ROMEO8T reflex sight",
 	["displayName"] = "ROMEO8T",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29508,7 +29508,7 @@ EFGMITEMS["arc9_att_eft_optic_romeo8t"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_rusak"] = {
+EFGM.ITEMS["arc9_att_eft_optic_rusak"] = {
 	["fullName"] = "KOMZ Rusak reflex sight",
 	["displayName"] = "Rusak",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29528,7 +29528,7 @@ EFGMITEMS["arc9_att_eft_optic_rusak"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_shakhin_eyecup"] = {
+EFGM.ITEMS["arc9_att_eft_optic_shakhin_eyecup"] = {
 	["fullName"] = "Cyclone Shakhin scope eyecup",
 	["displayName"] = "Shakhin",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29548,7 +29548,7 @@ EFGMITEMS["arc9_att_eft_optic_shakhin_eyecup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_sig_romeo7"] = {
+EFGM.ITEMS["arc9_att_eft_optic_sig_romeo7"] = {
 	["fullName"] = "SIG Sauer ROMEO7 1x30 reflex sight (prototype)",
 	["displayName"] = "ROMEO7",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29568,7 +29568,7 @@ EFGMITEMS["arc9_att_eft_optic_sig_romeo7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_sro"] = {
+EFGM.ITEMS["arc9_att_eft_optic_sro"] = {
 	["fullName"] = "Trijicon SRO reflex sight",
 	["displayName"] = "SRO",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29588,7 +29588,7 @@ EFGMITEMS["arc9_att_eft_optic_sro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_sro_fde"] = {
+EFGM.ITEMS["arc9_att_eft_optic_sro_fde"] = {
 	["fullName"] = "Trijicon SRO reflex sight (FDE)",
 	["displayName"] = "SRO",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29608,7 +29608,7 @@ EFGMITEMS["arc9_att_eft_optic_sro_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_srs02"] = {
+EFGM.ITEMS["arc9_att_eft_optic_srs02"] = {
 	["fullName"] = "Trijicon SRS-02 reflex sight",
 	["displayName"] = "SRS-02",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29628,7 +29628,7 @@ EFGMITEMS["arc9_att_eft_optic_srs02"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_t1"] = {
+EFGM.ITEMS["arc9_att_eft_optic_t1"] = {
 	["fullName"] = "Aimpoint Micro T-1 reflex sight",
 	["displayName"] = "T-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29648,7 +29648,7 @@ EFGMITEMS["arc9_att_eft_optic_t1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_t12w"] = {
+EFGM.ITEMS["arc9_att_eft_optic_t12w"] = {
 	["fullName"] = "Torrey Pines Logic T12W thermal reflex sight",
 	["displayName"] = "T12W",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29668,7 +29668,7 @@ EFGMITEMS["arc9_att_eft_optic_t12w"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_optic_targetring"] = {
+EFGM.ITEMS["arc9_att_eft_optic_targetring"] = {
 	["fullName"] = "VOMZ Pilad TargetRing reflex sight",
 	["displayName"] = "TargetRing",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29688,7 +29688,7 @@ EFGMITEMS["arc9_att_eft_optic_targetring"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_tulpan_eyecap"] = {
+EFGM.ITEMS["arc9_att_eft_optic_tulpan_eyecap"] = {
 	["fullName"] = "NPZ USP-1 scope eyecup",
 	["displayName"] = "Eyecup",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29708,7 +29708,7 @@ EFGMITEMS["arc9_att_eft_optic_tulpan_eyecap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_uh1"] = {
+EFGM.ITEMS["arc9_att_eft_optic_uh1"] = {
 	["fullName"] = "Vortex Razor AMG UH-1 holographic sight",
 	["displayName"] = "UH-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29728,7 +29728,7 @@ EFGMITEMS["arc9_att_eft_optic_uh1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_utg"] = {
+EFGM.ITEMS["arc9_att_eft_optic_utg"] = {
 	["fullName"] = "Leapers UTG reflex sight",
 	["displayName"] = "UTG",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29748,7 +29748,7 @@ EFGMITEMS["arc9_att_eft_optic_utg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_vulcan_eyecup"] = {
+EFGM.ITEMS["arc9_att_eft_optic_vulcan_eyecup"] = {
 	["fullName"] = "Armasight Vulcan MG scope eyecup",
 	["displayName"] = "Vulcan MG",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29768,7 +29768,7 @@ EFGMITEMS["arc9_att_eft_optic_vulcan_eyecup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_xps3_0"] = {
+EFGM.ITEMS["arc9_att_eft_optic_xps3_0"] = {
 	["fullName"] = "EOTech XPS3-0 holographic sight",
 	["displayName"] = "XPS3-0",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29788,7 +29788,7 @@ EFGMITEMS["arc9_att_eft_optic_xps3_0"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_xps3_2"] = {
+EFGM.ITEMS["arc9_att_eft_optic_xps3_2"] = {
 	["fullName"] = "EOTech XPS3-2 holographic sight",
 	["displayName"] = "XPS3-2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -29808,7 +29808,7 @@ EFGMITEMS["arc9_att_eft_optic_xps3_2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_optic_zeus_eyecup"] = {
+EFGM.ITEMS["arc9_att_eft_optic_zeus_eyecup"] = {
 	["fullName"] = "Armasight Zeus Pro scope eyecup",
 	["displayName"] = "ZeusPro",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -29828,7 +29828,7 @@ EFGMITEMS["arc9_att_eft_optic_zeus_eyecup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_barrel_264"] = {
+EFGM.ITEMS["arc9_att_eft_p90_barrel_264"] = {
 	["fullName"] = "FN P90 5.7x28 10.5 inch barrel",
 	["displayName"] = 'P90 10.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -29848,7 +29848,7 @@ EFGMITEMS["arc9_att_eft_p90_barrel_264"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_barrel_407"] = {
+EFGM.ITEMS["arc9_att_eft_p90_barrel_407"] = {
 	["fullName"] = "FN P90 5.7x28 16 inch barrel",
 	["displayName"] = 'P90 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -29868,7 +29868,7 @@ EFGMITEMS["arc9_att_eft_p90_barrel_407"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_butt_di"] = {
+EFGM.ITEMS["arc9_att_eft_p90_butt_di"] = {
 	["fullName"] = "FN P90 Damage Industries buttpad",
 	["displayName"] = "P90 DI",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -29888,7 +29888,7 @@ EFGMITEMS["arc9_att_eft_p90_butt_di"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_butt_std"] = {
+EFGM.ITEMS["arc9_att_eft_p90_butt_std"] = {
 	["fullName"] = "FN P90 buttpad",
 	["displayName"] = "P90 butt",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -29908,7 +29908,7 @@ EFGMITEMS["arc9_att_eft_p90_butt_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_charge_km"] = {
+EFGM.ITEMS["arc9_att_eft_p90_charge_km"] = {
 	["fullName"] = "FN P90 K&M The Handler charging handle",
 	["displayName"] = "TheHandler",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -29928,7 +29928,7 @@ EFGMITEMS["arc9_att_eft_p90_charge_km"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_p90_charge_std"] = {
 	["fullName"] = "FN P90 charging handle",
 	["displayName"] = "P90",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -29948,7 +29948,7 @@ EFGMITEMS["arc9_att_eft_p90_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_effen_rec"] = {
+EFGM.ITEMS["arc9_att_eft_p90_effen_rec"] = {
 	["fullName"] = "FN P90 EFFEN 90 5.7x28 upper receiver",
 	["displayName"] = "EFFEN 90",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -29968,7 +29968,7 @@ EFGMITEMS["arc9_att_eft_p90_effen_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_effen_siderail"] = {
+EFGM.ITEMS["arc9_att_eft_p90_effen_siderail"] = {
 	["fullName"] = "FN P90 EFFEN 90 receiver rail",
 	["displayName"] = "EFFEN 90",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -29988,7 +29988,7 @@ EFGMITEMS["arc9_att_eft_p90_effen_siderail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_mag_std"] = {
+EFGM.ITEMS["arc9_att_eft_p90_mag_std"] = {
 	["fullName"] = "FN P90 5.7x28 50-round magazine",
 	["displayName"] = "P90",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30008,7 +30008,7 @@ EFGMITEMS["arc9_att_eft_p90_mag_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_p90_muzzle_std"] = {
 	["fullName"] = "FN P90 5.7x28 flash hider",
 	["displayName"] = "P90",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -30028,7 +30028,7 @@ EFGMITEMS["arc9_att_eft_p90_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_rec_siderail"] = {
+EFGM.ITEMS["arc9_att_eft_p90_rec_siderail"] = {
 	["fullName"] = "FN P90 upper receiver side rail",
 	["displayName"] = "P90 side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -30048,7 +30048,7 @@ EFGMITEMS["arc9_att_eft_p90_rec_siderail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_p90_rec_std"] = {
 	["fullName"] = "FN P90 5.7x28 upper receiver",
 	["displayName"] = "P90",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -30068,7 +30068,7 @@ EFGMITEMS["arc9_att_eft_p90_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_rec_toprail"] = {
+EFGM.ITEMS["arc9_att_eft_p90_rec_toprail"] = {
 	["fullName"] = "FN P90 upper receiver top rail",
 	["displayName"] = "P90 top",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -30088,7 +30088,7 @@ EFGMITEMS["arc9_att_eft_p90_rec_toprail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_scope"] = {
+EFGM.ITEMS["arc9_att_eft_p90_scope"] = {
 	["fullName"] = "FN P90 Ring Sight reflex sight",
 	["displayName"] = "P90 Ring",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -30108,7 +30108,7 @@ EFGMITEMS["arc9_att_eft_p90_scope"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_p90_silencer"] = {
 	["fullName"] = "FN Attenuator 5.7x28 sound suppressor",
 	["displayName"] = "Attenuator",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -30128,7 +30128,7 @@ EFGMITEMS["arc9_att_eft_p90_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_p90_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_p90_stock_std"] = {
 	["fullName"] = "FN P90 stock",
 	["displayName"] = "P90",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -30148,7 +30148,7 @@ EFGMITEMS["arc9_att_eft_p90_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pb_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_pb_pg_std"] = {
 	["fullName"] = "PB bakelite side grips",
 	["displayName"] = "PB bak.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30168,7 +30168,7 @@ EFGMITEMS["arc9_att_eft_pb_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pb_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_pb_silencer"] = {
 	["fullName"] = "PB 9x18PM sound suppressor",
 	["displayName"] = "PB supp.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -30188,7 +30188,7 @@ EFGMITEMS["arc9_att_eft_pb_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pg_deagle_ergo"] = {
+EFGM.ITEMS["arc9_att_eft_pg_deagle_ergo"] = {
 	["fullName"] = "Desert Eagle Hogue Rubber Grip with finger grooves",
 	["displayName"] = "DE RGFG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30208,7 +30208,7 @@ EFGMITEMS["arc9_att_eft_pg_deagle_ergo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pg_deagle_std"] = {
+EFGM.ITEMS["arc9_att_eft_pg_deagle_std"] = {
 	["fullName"] = "Desert Eagle Hogue Rubber Grip",
 	["displayName"] = "DE RG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30228,7 +30228,7 @@ EFGMITEMS["arc9_att_eft_pg_deagle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pg_pk"] = {
+EFGM.ITEMS["arc9_att_eft_pg_pk"] = {
 	["fullName"] = "PK pistol grip",
 	["displayName"] = "PK",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30248,7 +30248,7 @@ EFGMITEMS["arc9_att_eft_pg_pk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pg_pkb"] = {
+EFGM.ITEMS["arc9_att_eft_pg_pkb"] = {
 	["fullName"] = "PK pistol grip (Black)",
 	["displayName"] = "PK (B)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30268,7 +30268,7 @@ EFGMITEMS["arc9_att_eft_pg_pkb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pgrip_g17_tgg"] = {
+EFGM.ITEMS["arc9_att_eft_pgrip_g17_tgg"] = {
 	["fullName"] = "Glock Pachmayr Tactical Grip Glove",
 	["displayName"] = "G TGG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30288,7 +30288,7 @@ EFGMITEMS["arc9_att_eft_pgrip_g17_tgg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pkm_bipod"] = {
+EFGM.ITEMS["arc9_att_eft_pkm_bipod"] = {
 	["fullName"] = "PK bipod",
 	["displayName"] = "PK bipod",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -30308,7 +30308,7 @@ EFGMITEMS["arc9_att_eft_pkm_bipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pkm_mag_100"] = {
+EFGM.ITEMS["arc9_att_eft_pkm_mag_100"] = {
 	["fullName"] = "PK 7.62x54R 100-round box",
 	["displayName"] = "PK",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30328,7 +30328,7 @@ EFGMITEMS["arc9_att_eft_pkm_mag_100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pkm_mag_100_blk"] = {
+EFGM.ITEMS["arc9_att_eft_pkm_mag_100_blk"] = {
 	["fullName"] = "PK 7.62x54R 100-round box",
 	["displayName"] = "PK",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30348,7 +30348,7 @@ EFGMITEMS["arc9_att_eft_pkm_mag_100_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_mag_8"] = {
+EFGM.ITEMS["arc9_att_eft_pm_mag_8"] = {
 	["fullName"] = "PM 9x18PM 90-93 8-round magazine",
 	["displayName"] = "PM 8",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30368,7 +30368,7 @@ EFGMITEMS["arc9_att_eft_pm_mag_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_mag_84"] = {
+EFGM.ITEMS["arc9_att_eft_pm_mag_84"] = {
 	["fullName"] = "PM 9x18PM 84-round makeshift drum magazine",
 	["displayName"] = "PM drum 84",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30388,7 +30388,7 @@ EFGMITEMS["arc9_att_eft_pm_mag_84"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_pg_fab"] = {
+EFGM.ITEMS["arc9_att_eft_pm_pg_fab"] = {
 	["fullName"] = "PM FAB Defense PM-G pistol grip",
 	["displayName"] = "PM-G",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30408,7 +30408,7 @@ EFGMITEMS["arc9_att_eft_pm_pg_fab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_pg_fab_od"] = {
+EFGM.ITEMS["arc9_att_eft_pm_pg_fab_od"] = {
 	["fullName"] = "PM FAB Defense PM-G pistol grip (Olive Drab)",
 	["displayName"] = "PM-G OD",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30428,7 +30428,7 @@ EFGMITEMS["arc9_att_eft_pm_pg_fab_od"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_pg_laser"] = {
+EFGM.ITEMS["arc9_att_eft_pm_pg_laser"] = {
 	["fullName"] = "PM PM-Laser grip with laser sight",
 	["displayName"] = "PM-L",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30448,7 +30448,7 @@ EFGMITEMS["arc9_att_eft_pm_pg_laser"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_pm_pg_std"] = {
 	["fullName"] = "PM bakelite side grips",
 	["displayName"] = "PM bak.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30468,7 +30468,7 @@ EFGMITEMS["arc9_att_eft_pm_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_pg_tk"] = {
+EFGM.ITEMS["arc9_att_eft_pm_pg_tk"] = {
 	["fullName"] = "PM Tactic Kit pistol grip",
 	["displayName"] = "PM TK",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -30488,7 +30488,7 @@ EFGMITEMS["arc9_att_eft_pm_pg_tk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_pm_rec_std"] = {
 	["fullName"] = "PM pistol slide",
 	["displayName"] = "PM",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -30508,7 +30508,7 @@ EFGMITEMS["arc9_att_eft_pm_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_pm_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_pm_rs_std"] = {
 	["fullName"] = "PM rear sight",
 	["displayName"] = "PM RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30528,7 +30528,7 @@ EFGMITEMS["arc9_att_eft_pm_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ppsh41_barrel_269"] = {
+EFGM.ITEMS["arc9_att_eft_ppsh41_barrel_269"] = {
 	["fullName"] = "PPSh-41 7.62x25 10.6 inch barrel",
 	["displayName"] = 'PPSh41 10.6"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -30548,7 +30548,7 @@ EFGMITEMS["arc9_att_eft_ppsh41_barrel_269"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ppsh41_dust"] = {
+EFGM.ITEMS["arc9_att_eft_ppsh41_dust"] = {
 	["fullName"] = "PPSh-41 dust cover",
 	["displayName"] = "PPSh41",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -30568,7 +30568,7 @@ EFGMITEMS["arc9_att_eft_ppsh41_dust"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ppsh41_mag_35"] = {
+EFGM.ITEMS["arc9_att_eft_ppsh41_mag_35"] = {
 	["fullName"] = "PPSh-41 7.62x25 35-round magazine",
 	["displayName"] = "PPSh 35",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30588,7 +30588,7 @@ EFGMITEMS["arc9_att_eft_ppsh41_mag_35"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ppsh41_mag_71"] = {
+EFGM.ITEMS["arc9_att_eft_ppsh41_mag_71"] = {
 	["fullName"] = "PPSh-41 7.62x25 71-round drum magazine",
 	["displayName"] = "PPSh 71",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -30608,7 +30608,7 @@ EFGMITEMS["arc9_att_eft_ppsh41_mag_71"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ppsh41_stock"] = {
+EFGM.ITEMS["arc9_att_eft_ppsh41_stock"] = {
 	["fullName"] = "PPSh-41 stock",
 	["displayName"] = "PPSh41",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -30628,7 +30628,7 @@ EFGMITEMS["arc9_att_eft_ppsh41_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ps90_rec"] = {
+EFGM.ITEMS["arc9_att_eft_ps90_rec"] = {
 	["fullName"] = "FN PS90 5.7x28 upper receiver",
 	["displayName"] = "PS90",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -30648,7 +30648,7 @@ EFGMITEMS["arc9_att_eft_ps90_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ps90_stock"] = {
+EFGM.ITEMS["arc9_att_eft_ps90_stock"] = {
 	["fullName"] = "FN PS90 stock",
 	["displayName"] = "PS90",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -30668,7 +30668,7 @@ EFGMITEMS["arc9_att_eft_ps90_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_a2"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_a2"] = {
 	["fullName"] = "AR-15 Colt A2 rear sight",
 	["displayName"] = "A2",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30688,7 +30688,7 @@ EFGMITEMS["arc9_att_eft_rearsight_a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_arms40"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_arms40"] = {
 	["fullName"] = "A.R.M.S. #40 Flip-Up Rear Sight",
 	["displayName"] = "ARMS#40",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30708,7 +30708,7 @@ EFGMITEMS["arc9_att_eft_rearsight_arms40"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_hk416"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_hk416"] = {
 	["fullName"] = "HK 416A5 flip-up rear sight",
 	["displayName"] = "416A5 Rear",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30728,7 +30728,7 @@ EFGMITEMS["arc9_att_eft_rearsight_hk416"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_kac"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_kac"] = {
 	["fullName"] = "KAC Folding rear sight",
 	["displayName"] = "KAC",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30748,7 +30748,7 @@ EFGMITEMS["arc9_att_eft_rearsight_kac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_kacmicro"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_kacmicro"] = {
 	["fullName"] = "KAC Folding Micro rear sight",
 	["displayName"] = "KAC Micro",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30768,7 +30768,7 @@ EFGMITEMS["arc9_att_eft_rearsight_kacmicro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_kriss_defiance"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_kriss_defiance"] = {
 	["fullName"] = "KRISS Defiance low profile flip-up rear sight",
 	["displayName"] = "Defiance",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30788,7 +30788,7 @@ EFGMITEMS["arc9_att_eft_rearsight_kriss_defiance"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_m4carry"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_m4carry"] = {
 	["fullName"] = "AR-15 rear sight carry handle",
 	["displayName"] = "CARRY",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30808,7 +30808,7 @@ EFGMITEMS["arc9_att_eft_rearsight_m4carry"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_matech"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_matech"] = {
 	["fullName"] = "MaTech BUIS rear sight",
 	["displayName"] = "MaTech",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30828,7 +30828,7 @@ EFGMITEMS["arc9_att_eft_rearsight_matech"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_mbus"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_mbus"] = {
 	["fullName"] = "Magpul MBUS Gen2 flip-up rear sight",
 	["displayName"] = "MBUS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30848,7 +30848,7 @@ EFGMITEMS["arc9_att_eft_rearsight_mbus"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_mbus_fde"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_mbus_fde"] = {
 	["fullName"] = "Magpul MBUS Gen2 flip-up rear sight FDE",
 	["displayName"] = "MBUS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30868,7 +30868,7 @@ EFGMITEMS["arc9_att_eft_rearsight_mbus_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_mcx"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_mcx"] = {
 	["fullName"] = "MCX flip-up rear sight",
 	["displayName"] = "MCX",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30888,7 +30888,7 @@ EFGMITEMS["arc9_att_eft_rearsight_mcx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_mp7"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_mp7"] = {
 	["fullName"] = "HK MP7 flip-up rear sight",
 	["displayName"] = "MP7",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30908,7 +30908,7 @@ EFGMITEMS["arc9_att_eft_rearsight_mp7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_mpx"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_mpx"] = {
 	["fullName"] = "MPX flip-up rear sight",
 	["displayName"] = "MPX",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30928,7 +30928,7 @@ EFGMITEMS["arc9_att_eft_rearsight_mpx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rearsight_scar"] = {
+EFGM.ITEMS["arc9_att_eft_rearsight_scar"] = {
 	["fullName"] = "FN SCAR flip-up rear sight",
 	["displayName"] = "SCAR RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -30948,7 +30948,7 @@ EFGMITEMS["arc9_att_eft_rearsight_scar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_ak74"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_ak74"] = {
 	["fullName"] = "AK-74 dust cover (6P20 0-1)",
 	["displayName"] = "6P20 0-1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -30968,7 +30968,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_ak74"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_ak74m"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_ak74m"] = {
 	["fullName"] = "AK-74M dust cover (6P34 0-1)",
 	["displayName"] = "6P34 0-1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -30988,7 +30988,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_ak74m"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_akm"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_akm"] = {
 	["fullName"] = "AKM dust cover",
 	["displayName"] = "6P1 0-1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31008,7 +31008,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_akm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_akm_molot"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_akm_molot"] = {
 	["fullName"] = "Molot AKM-type dust cover",
 	["displayName"] = "Molot",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31028,7 +31028,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_akm_molot"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_b33"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_b33"] = {
 	["fullName"] = "AK Zenit B-33 dust cover",
 	["displayName"] = "B-33",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31048,7 +31048,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_b33"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_bastion"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_bastion"] = {
 	["fullName"] = "AK AKademia Bastion dust cover",
 	["displayName"] = "Bastion",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31068,7 +31068,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_bastion"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_dogleg"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_dogleg"] = {
 	["fullName"] = "AK TWS Dog Leg Rail dust cover",
 	["displayName"] = "TWS Dog Leg",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31088,7 +31088,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_dogleg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_fab_pdc"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_fab_pdc"] = {
 	["fullName"] = "AK FAB Defense PDC dust cover",
 	["displayName"] = "FABd PDC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31108,7 +31108,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_fab_pdc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ak_rd704"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ak_rd704"] = {
 	["fullName"] = "RD-704 dust cover",
 	["displayName"] = "RD-704 DC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31128,7 +31128,7 @@ EFGMITEMS["arc9_att_eft_rec_ak_rd704"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_adar"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_adar"] = {
 	["fullName"] = "ADAR 2-15 5.56x45 upper receiver",
 	["displayName"] = "2-15 Upper",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31148,7 +31148,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_adar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_aeronknxo"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_aeronknxo"] = {
 	["fullName"] = "AR-15 Aeroknox AX-15 5.56x45 upper receiver",
 	["displayName"] = "AX-15",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31168,7 +31168,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_aeronknxo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_gen3"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_gen3"] = {
 	["fullName"] = "AR-15 Noveske Gen.3 5.56x45 upper receiver",
 	["displayName"] = "Gen.3",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31188,7 +31188,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_gen3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_m16a1e1"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_m16a1e1"] = {
 	["fullName"] = "M16A1E1 5.56x45 upper receiver",
 	["displayName"] = "M16A1E1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31208,7 +31208,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_m16a1e1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_m16a2"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_m16a2"] = {
 	["fullName"] = "M16A2 5.56x45 upper receiver",
 	["displayName"] = "M16A2",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31228,7 +31228,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_m16a2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_m4a1"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_m4a1"] = {
 	["fullName"] = "M4A1 5.56x45 upper receiver",
 	["displayName"] = "M4A1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31248,7 +31248,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_m4a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_mur"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_mur"] = {
 	["fullName"] = "AR-15 Vltor MUR-1S 5.56x45 upper receiver",
 	["displayName"] = "MUR-1S",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31268,7 +31268,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_mur"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_radian"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_radian"] = {
 	["fullName"] = "AR-15 Radian Weapons Model 1 5.56x45 upper receiver",
 	["displayName"] = "Model 1",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31288,7 +31288,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_radian"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_spr_rail"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_spr_rail"] = {
 	["fullName"] = "AR-15 Precision Reflex GEN III SPR Top Rail",
 	["displayName"] = "SPR Top Rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -31308,7 +31308,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_spr_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_stm9"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_stm9"] = {
 	["fullName"] = "STM-9 9x19 upper receiver",
 	["displayName"] = "STM-9 rec.",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31328,7 +31328,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_stm9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_ar15_tx15"] = {
+EFGM.ITEMS["arc9_att_eft_rec_ar15_tx15"] = {
 	["fullName"] = "TX-15 5.56x45 Lightweight upper receiver",
 	["displayName"] = "TX15 LW",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31348,7 +31348,7 @@ EFGMITEMS["arc9_att_eft_rec_ar15_tx15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_aw"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_aw"] = {
 	["fullName"] = "Glock Alpha Wolf pistol slide",
 	["displayName"] = "G AW",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31368,7 +31368,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_aw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_aw_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_aw_blk"] = {
 	["fullName"] = "Glock Alpha Wolf pistol slide",
 	["displayName"] = "G AW",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31388,7 +31388,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_aw_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_aw_c"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_aw_c"] = {
 	["fullName"] = "Glock 9x19 Alpha Wolf custom pistol slide",
 	["displayName"] = "G AW C",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31408,7 +31408,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_aw_c"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_aw_c_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_aw_c_blk"] = {
 	["fullName"] = "Glock 9x19 Alpha Wolf custom pistol slide",
 	["displayName"] = "G AW C",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31428,7 +31428,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_aw_c_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_mos"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_mos"] = {
 	["fullName"] = "Glock 9x19 MOS slide",
 	["displayName"] = "G MOS",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31448,7 +31448,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_mos"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_motocut"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_motocut"] = {
 	["fullName"] = "Glock 9x19 Moto Cut pistol slide",
 	["displayName"] = "G MotoCut",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31468,7 +31468,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_motocut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_motocut_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_motocut_blk"] = {
 	["fullName"] = "Glock 9x19 Moto Cut pistol slide",
 	["displayName"] = "G MotoCut",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31488,7 +31488,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_motocut_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_ps9"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_ps9"] = {
 	["fullName"] = "Glock Polymer80 PS9 pistol slide",
 	["displayName"] = "G PS9",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31508,7 +31508,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_ps9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_ps9_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_ps9_blk"] = {
 	["fullName"] = "Glock Polymer80 PS9 pistol slide",
 	["displayName"] = "G PS9",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31528,7 +31528,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_ps9_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_std"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_std"] = {
 	["fullName"] = "Glock 9x19 pistol slide",
 	["displayName"] = "Glock",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31548,7 +31548,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_vipercut"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_vipercut"] = {
 	["fullName"] = "Glock 9x19 Viper Cut pistol slide",
 	["displayName"] = "G ViperCut",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31568,7 +31568,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_vipercut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_vipercut_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_vipercut_blk"] = {
 	["fullName"] = "Glock 9x19 Viper Cut pistol slide",
 	["displayName"] = "G ViperCut",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31588,7 +31588,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_vipercut_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_zt_hex"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_zt_hex"] = {
 	["fullName"] = "Glock ZEV Tech HEX Gen3 pistol slide",
 	["displayName"] = "G ZT HEX",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31608,7 +31608,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_zt_hex"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_zt_hex_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_zt_hex_blk"] = {
 	["fullName"] = "Glock ZEV Tech HEX Gen3 pistol slide",
 	["displayName"] = "G ZT HEX",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31628,7 +31628,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_zt_hex_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_zt_spartan"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_zt_spartan"] = {
 	["fullName"] = "Glock ZEV Tech HEX Spartan pistol slide",
 	["displayName"] = "G ZT Spartan",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31648,7 +31648,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_zt_spartan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g17_zt_spartan_blk"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g17_zt_spartan_blk"] = {
 	["fullName"] = "Glock ZEV Tech HEX Spartan pistol slide",
 	["displayName"] = "G ZT Spartan",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31668,7 +31668,7 @@ EFGMITEMS["arc9_att_eft_rec_g17_zt_spartan_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g18c_std"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g18c_std"] = {
 	["fullName"] = "Glock 18C 9x19 pistol slide",
 	["displayName"] = "G18C",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31688,7 +31688,7 @@ EFGMITEMS["arc9_att_eft_rec_g18c_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g19x_black"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g19x_black"] = {
 	["fullName"] = "Glock 19X 9x19 pistol slide (Black)",
 	["displayName"] = "G19X (B)",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31708,7 +31708,7 @@ EFGMITEMS["arc9_att_eft_rec_g19x_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_g19x_std"] = {
+EFGM.ITEMS["arc9_att_eft_rec_g19x_std"] = {
 	["fullName"] = "Glock 19X 9x19 pistol slide",
 	["displayName"] = "G19X",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31728,7 +31728,7 @@ EFGMITEMS["arc9_att_eft_rec_g19x_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_hk416"] = {
+EFGM.ITEMS["arc9_att_eft_rec_hk416"] = {
 	["fullName"] = "HK 416A5 5.56x45 upper receiver",
 	["displayName"] = "416A5 Upper",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -31748,7 +31748,7 @@ EFGMITEMS["arc9_att_eft_rec_hk416"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rec_m16_rail"] = {
+EFGM.ITEMS["arc9_att_eft_rec_m16_rail"] = {
 	["fullName"] = "AR-15 ProMag Delta Style scope mount",
 	["displayName"] = "Delta Style",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -31768,7 +31768,7 @@ EFGMITEMS["arc9_att_eft_rec_m16_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_barrel_18"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_barrel_18"] = {
 	["fullName"] = "RFB 7.62x51 18 inch barrel",
 	["displayName"] = 'RFB 18"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -31788,7 +31788,7 @@ EFGMITEMS["arc9_att_eft_rfb_barrel_18"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_hg_std"] = {
 	["fullName"] = "RFB handguard",
 	["displayName"] = "RFB",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -31808,7 +31808,7 @@ EFGMITEMS["arc9_att_eft_rfb_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_mount_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_mount_bottom"] = {
 	["fullName"] = "RFB handguard rail mount",
 	["displayName"] = "RFB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -31828,7 +31828,7 @@ EFGMITEMS["arc9_att_eft_rfb_mount_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_mount_quad"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_mount_quad"] = {
 	["fullName"] = "RFB Quad Rail 3 inch mount",
 	["displayName"] = 'RFB 3"',
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -31848,7 +31848,7 @@ EFGMITEMS["arc9_att_eft_rfb_mount_quad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_mount_upper"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_mount_upper"] = {
 	["fullName"] = "RFB scope rail mount",
 	["displayName"] = "RFB rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -31868,7 +31868,7 @@ EFGMITEMS["arc9_att_eft_rfb_mount_upper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_muzzle_spacer"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_muzzle_spacer"] = {
 	["fullName"] = "RFB thread spacer",
 	["displayName"] = "RFB spacer",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -31888,7 +31888,7 @@ EFGMITEMS["arc9_att_eft_rfb_muzzle_spacer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rfb_muzzle_thr"] = {
+EFGM.ITEMS["arc9_att_eft_rfb_muzzle_thr"] = {
 	["fullName"] = "RFB thread protector",
 	["displayName"] = "RFB cap",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -31908,7 +31908,7 @@ EFGMITEMS["arc9_att_eft_rfb_muzzle_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_barrel_40ds"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_barrel_40ds"] = {
 	["fullName"] = "Chiappa Rhino 40DS barrel",
 	["displayName"] = "CR 40DS",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -31928,7 +31928,7 @@ EFGMITEMS["arc9_att_eft_rhino_barrel_40ds"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_barrel_60ds"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_barrel_60ds"] = {
 	["fullName"] = "Chiappa Rhino 60DS barrel",
 	["displayName"] = "CR 60DS",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -31948,7 +31948,7 @@ EFGMITEMS["arc9_att_eft_rhino_barrel_60ds"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_fs_red"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_fs_red"] = {
 	["fullName"] = "Chiappa Rhino Red Fiber Optic front sight",
 	["displayName"] = "CR GF",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -31968,7 +31968,7 @@ EFGMITEMS["arc9_att_eft_rhino_fs_red"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_fs_std"] = {
 	["fullName"] = "Chiappa Rhino front sight",
 	["displayName"] = "CR FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -31988,7 +31988,7 @@ EFGMITEMS["arc9_att_eft_rhino_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_mag_std"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_mag_std"] = {
 	["fullName"] = "Chiappa Rhino 6-round cylinder",
 	["displayName"] = "CR cyl.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -32008,7 +32008,7 @@ EFGMITEMS["arc9_att_eft_rhino_mag_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_pgrip_poly"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_pgrip_poly"] = {
 	["fullName"] = "Chiappa Rhino plastic pistol grip",
 	["displayName"] = "CR pl.",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -32028,7 +32028,7 @@ EFGMITEMS["arc9_att_eft_rhino_pgrip_poly"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_pgrip_std"] = {
 	["fullName"] = "Chiappa Rhino wooden pistol grip",
 	["displayName"] = "CR wood",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -32048,7 +32048,7 @@ EFGMITEMS["arc9_att_eft_rhino_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_rs_red"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_rs_red"] = {
 	["fullName"] = "Chiappa Rhino Red Fiber Optic rear sight",
 	["displayName"] = "CR GF",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32068,7 +32068,7 @@ EFGMITEMS["arc9_att_eft_rhino_rs_red"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rhino_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_rhino_rs_std"] = {
 	["fullName"] = "Chiappa Rhino rear sight",
 	["displayName"] = "CR RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32088,7 +32088,7 @@ EFGMITEMS["arc9_att_eft_rhino_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_barrel_350"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_barrel_350"] = {
 	["fullName"] = "RPD 7.62x39 sawed-off 350mm barrel",
 	["displayName"] = "RPD 350mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -32108,7 +32108,7 @@ EFGMITEMS["arc9_att_eft_rpd_barrel_350"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_barrel_520"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_barrel_520"] = {
 	["fullName"] = "RPD 7.62x39 520mm barrel",
 	["displayName"] = "RPD 520mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -32128,7 +32128,7 @@ EFGMITEMS["arc9_att_eft_rpd_barrel_520"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_bipod"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_bipod"] = {
 	["fullName"] = "RPD bipod",
 	["displayName"] = "RPD bipod",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -32148,7 +32148,7 @@ EFGMITEMS["arc9_att_eft_rpd_bipod"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_hg"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_hg"] = {
 	["fullName"] = "RPD wooden handguard",
 	["displayName"] = "RPD wood",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -32168,7 +32168,7 @@ EFGMITEMS["arc9_att_eft_rpd_hg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_mag_100"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_mag_100"] = {
 	["fullName"] = 'RPD 7.62x39 "Buben" 100-round box',
 	["displayName"] = "Buben",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -32188,7 +32188,7 @@ EFGMITEMS["arc9_att_eft_rpd_mag_100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_muzzle"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_muzzle"] = {
 	["fullName"] = "RPD barrel thread protector",
 	["displayName"] = "RPD thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -32208,7 +32208,7 @@ EFGMITEMS["arc9_att_eft_rpd_muzzle"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_n"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_n"] = {
 	["fullName"] = "RPDN",
 	["displayName"] = "RPDN",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32228,7 +32228,7 @@ EFGMITEMS["arc9_att_eft_rpd_n"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_pg"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_pg"] = {
 	["fullName"] = "RPD wooden pistol grip",
 	["displayName"] = "RPD PG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -32248,7 +32248,7 @@ EFGMITEMS["arc9_att_eft_rpd_pg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_rearsight"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_rearsight"] = {
 	["fullName"] = "RPD rear sight",
 	["displayName"] = "RPD RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32268,7 +32268,7 @@ EFGMITEMS["arc9_att_eft_rpd_rearsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpd_stock"] = {
+EFGM.ITEMS["arc9_att_eft_rpd_stock"] = {
 	["fullName"] = "RPD wooden stock",
 	["displayName"] = "RPD wood",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -32288,7 +32288,7 @@ EFGMITEMS["arc9_att_eft_rpd_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_barrel_370"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_barrel_370"] = {
 	["fullName"] = "RPK-16 5.45x39 15 inch barrel",
 	["displayName"] = 'RPK-16 15"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -32308,7 +32308,7 @@ EFGMITEMS["arc9_att_eft_rpk16_barrel_370"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_barrel_550"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_barrel_550"] = {
 	["fullName"] = "RPK-16 5.45x39 22 inch barrel",
 	["displayName"] = 'RPK-16 22"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -32328,7 +32328,7 @@ EFGMITEMS["arc9_att_eft_rpk16_barrel_550"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_hg_std"] = {
 	["fullName"] = "RPK-16 handguard",
 	["displayName"] = "RPK-16",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -32348,7 +32348,7 @@ EFGMITEMS["arc9_att_eft_rpk16_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_mount_side"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_mount_side"] = {
 	["fullName"] = "RPK-16 handguard rail",
 	["displayName"] = "RPK-16 rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32368,7 +32368,7 @@ EFGMITEMS["arc9_att_eft_rpk16_mount_side"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_muzzle_std"] = {
 	["fullName"] = "RPK-16 5.45x39 muzzle brake-compensator",
 	["displayName"] = "RPK-16",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -32388,7 +32388,7 @@ EFGMITEMS["arc9_att_eft_rpk16_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_rec"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_rec"] = {
 	["fullName"] = "RPK-16 dust cover",
 	["displayName"] = "RPK-16",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -32408,7 +32408,7 @@ EFGMITEMS["arc9_att_eft_rpk16_rec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_rs"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_rs"] = {
 	["fullName"] = "RPK-16 rear sight",
 	["displayName"] = "RPK-16 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32428,7 +32428,7 @@ EFGMITEMS["arc9_att_eft_rpk16_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_rs_base"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_rs_base"] = {
 	["fullName"] = "RPK-16 rear sight base",
 	["displayName"] = "RPK16 RS base",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32448,7 +32448,7 @@ EFGMITEMS["arc9_att_eft_rpk16_rs_base"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rpk16_stock_tube"] = {
+EFGM.ITEMS["arc9_att_eft_rpk16_stock_tube"] = {
 	["fullName"] = "RPK-16 buffer tube",
 	["displayName"] = "RPK-16",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -32468,7 +32468,7 @@ EFGMITEMS["arc9_att_eft_rpk16_stock_tube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_1911_m45"] = {
+EFGM.ITEMS["arc9_att_eft_rs_1911_m45"] = {
 	["fullName"] = "M45A1 Novak Lomount rear sight",
 	["displayName"] = "M45 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32488,7 +32488,7 @@ EFGMITEMS["arc9_att_eft_rs_1911_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_1911_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_1911_std"] = {
 	["fullName"] = "M1911A1 rear sight",
 	["displayName"] = "1911 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32508,7 +32508,7 @@ EFGMITEMS["arc9_att_eft_rs_1911_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_ak105"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_ak105"] = {
 	["fullName"] = "AK-105 rear sight (6P44 Sb.1-30)",
 	["displayName"] = "6P44 Sb.1-30",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32528,7 +32528,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_ak105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_ak74"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_ak74"] = {
 	["fullName"] = "AK-74 rear sight (6P20 Sb.2)",
 	["displayName"] = "6P20 Sb.2",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32548,7 +32548,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_ak74"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_ak74m"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_ak74m"] = {
 	["fullName"] = "AK-74M rear sight (6P20 Sb.2)",
 	["displayName"] = "6P20 Sb.2",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32568,7 +32568,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_ak74m"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_akm"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_akm"] = {
 	["fullName"] = "AKM rear sight",
 	["displayName"] = "6P1 Sb.2-1",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32588,7 +32588,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_akm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_akmb"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_akmb"] = {
 	["fullName"] = "AKMB system rear sight",
 	["displayName"] = "AKMB",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32608,7 +32608,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_akmb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_akmp"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_akmp"] = {
 	["fullName"] = "AKMP system rear sight device",
 	["displayName"] = "AKMP RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32628,7 +32628,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_akmp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_rd_ers"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_rd_ers"] = {
 	["fullName"] = "AK RD Enhanced V2 Rear Sight",
 	["displayName"] = "V2 ERS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32648,7 +32648,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_rd_ers"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_tt01"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_tt01"] = {
 	["fullName"] = "AK Taktika Tula TT01 rear sight rail",
 	["displayName"] = "TT01",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32668,7 +32668,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_tt01"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_ak_vpo209"] = {
+EFGM.ITEMS["arc9_att_eft_rs_ak_vpo209"] = {
 	["fullName"] = "VPO-209 rear sight",
 	["displayName"] = "VPO-209",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32688,7 +32688,7 @@ EFGMITEMS["arc9_att_eft_rs_ak_vpo209"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_deagle_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_deagle_std"] = {
 	["fullName"] = "Desert Eagle rear sight",
 	["displayName"] = "DE RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32708,7 +32708,7 @@ EFGMITEMS["arc9_att_eft_rs_deagle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_g17_se"] = {
+EFGM.ITEMS["arc9_att_eft_rs_g17_se"] = {
 	["fullName"] = "Glock Dead Ringer Snake Eye rear sight",
 	["displayName"] = "G SE RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32728,7 +32728,7 @@ EFGMITEMS["arc9_att_eft_rs_g17_se"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_g17_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_g17_std"] = {
 	["fullName"] = "Glock rear sight",
 	["displayName"] = "Glock RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32748,7 +32748,7 @@ EFGMITEMS["arc9_att_eft_rs_g17_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_g17_tfx"] = {
+EFGM.ITEMS["arc9_att_eft_rs_g17_tfx"] = {
 	["fullName"] = "Glock TruGlo TFX rear sight",
 	["displayName"] = "G TFX RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32768,7 +32768,7 @@ EFGMITEMS["arc9_att_eft_rs_g17_tfx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_g17_zt"] = {
+EFGM.ITEMS["arc9_att_eft_rs_g17_zt"] = {
 	["fullName"] = "Glock ZEV Tech rear sight",
 	["displayName"] = "G ZT RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32788,7 +32788,7 @@ EFGMITEMS["arc9_att_eft_rs_g17_zt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_g19x_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_g19x_std"] = {
 	["fullName"] = "Glock 19X rear sight",
 	["displayName"] = "G19X RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32808,7 +32808,7 @@ EFGMITEMS["arc9_att_eft_rs_g19x_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_m9a3_mount"] = {
+EFGM.ITEMS["arc9_att_eft_rs_m9a3_mount"] = {
 	["fullName"] = "M9A3 Sight Mount rear sight rail",
 	["displayName"] = "SM M9",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32828,7 +32828,7 @@ EFGMITEMS["arc9_att_eft_rs_m9a3_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_m9a3_std"] = {
 	["fullName"] = "M9A3 rear sight",
 	["displayName"] = "M9A3 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32848,7 +32848,7 @@ EFGMITEMS["arc9_att_eft_rs_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_p226_merp"] = {
+EFGM.ITEMS["arc9_att_eft_rs_p226_merp"] = {
 	["fullName"] = "P226 Meprolight TRU-DOT Night rear sight",
 	["displayName"] = "P226 TRU-DOT",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32868,7 +32868,7 @@ EFGMITEMS["arc9_att_eft_rs_p226_merp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_p226_mount"] = {
+EFGM.ITEMS["arc9_att_eft_rs_p226_mount"] = {
 	["fullName"] = "P226 Sight Mount 220-239 rear sight bearing",
 	["displayName"] = "SM P226",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32888,7 +32888,7 @@ EFGMITEMS["arc9_att_eft_rs_p226_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_p226_rmr"] = {
+EFGM.ITEMS["arc9_att_eft_rs_p226_rmr"] = {
 	["fullName"] = "P226 Trijicon RMR mount",
 	["displayName"] = "RMR P226",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -32908,7 +32908,7 @@ EFGMITEMS["arc9_att_eft_rs_p226_rmr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_p226_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_p226_std"] = {
 	["fullName"] = "P226 rear sight",
 	["displayName"] = "P226 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32928,7 +32928,7 @@ EFGMITEMS["arc9_att_eft_rs_p226_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_pk"] = {
+EFGM.ITEMS["arc9_att_eft_rs_pk"] = {
 	["fullName"] = "PK rear sight",
 	["displayName"] = "PK RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32948,7 +32948,7 @@ EFGMITEMS["arc9_att_eft_rs_pk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_pl15_long"] = {
+EFGM.ITEMS["arc9_att_eft_rs_pl15_long"] = {
 	["fullName"] = "PL-15 extended rear sight",
 	["displayName"] = "PL-15 RS ext",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32968,7 +32968,7 @@ EFGMITEMS["arc9_att_eft_rs_pl15_long"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_pl15_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_pl15_std"] = {
 	["fullName"] = "PL-15 rear sight",
 	["displayName"] = "PL-15 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -32988,7 +32988,7 @@ EFGMITEMS["arc9_att_eft_rs_pl15_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_usp_mount"] = {
+EFGM.ITEMS["arc9_att_eft_rs_usp_mount"] = {
 	["fullName"] = "HK USP Red Dot sight mount",
 	["displayName"] = "USP RD",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -33008,7 +33008,7 @@ EFGMITEMS["arc9_att_eft_rs_usp_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_usp_std"] = {
+EFGM.ITEMS["arc9_att_eft_rs_usp_std"] = {
 	["fullName"] = "HK USP rear sight",
 	["displayName"] = "USP RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -33028,7 +33028,7 @@ EFGMITEMS["arc9_att_eft_rs_usp_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rs_usp_tac"] = {
+EFGM.ITEMS["arc9_att_eft_rs_usp_tac"] = {
 	["fullName"] = "HK USP Tactical rear sight",
 	["displayName"] = "USPT RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -33048,7 +33048,7 @@ EFGMITEMS["arc9_att_eft_rs_usp_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rsass_barrel_457"] = {
+EFGM.ITEMS["arc9_att_eft_rsass_barrel_457"] = {
 	["fullName"] = "AR-10 7.62x51 18 inch barrel",
 	["displayName"] = 'AR-10 18"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -33068,7 +33068,7 @@ EFGMITEMS["arc9_att_eft_rsass_barrel_457"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rsass_barrel_558"] = {
+EFGM.ITEMS["arc9_att_eft_rsass_barrel_558"] = {
 	["fullName"] = "AR-10 7.62x51 22 inch barrel",
 	["displayName"] = 'AR-10 22"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -33088,7 +33088,7 @@ EFGMITEMS["arc9_att_eft_rsass_barrel_558"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rsh12_mag_std"] = {
+EFGM.ITEMS["arc9_att_eft_rsh12_mag_std"] = {
 	["fullName"] = "RSh-12 12.7x55 5-round cylinder",
 	["displayName"] = "RSh12 cyl.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33108,7 +33108,7 @@ EFGMITEMS["arc9_att_eft_rsh12_mag_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_rsh12_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_rsh12_pgrip_std"] = {
 	["fullName"] = "RSh-12 pistol grip",
 	["displayName"] = "RSh-12",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -33128,7 +33128,7 @@ EFGMITEMS["arc9_att_eft_rsh12_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_barrel_208"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_barrel_208"] = {
 	["fullName"] = "SA-58 7.62x51 11 inch barrel",
 	["displayName"] = 'SA58 11"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -33148,7 +33148,7 @@ EFGMITEMS["arc9_att_eft_sa58_barrel_208"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_barrel_406"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_barrel_406"] = {
 	["fullName"] = "SA-58 7.62x51 16 inch barrel",
 	["displayName"] = 'SA58 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -33168,7 +33168,7 @@ EFGMITEMS["arc9_att_eft_sa58_barrel_406"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_barrel_533"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_barrel_533"] = {
 	["fullName"] = "SA-58 7.62x51 21 inch barrel",
 	["displayName"] = 'SA58 21"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -33188,7 +33188,7 @@ EFGMITEMS["arc9_att_eft_sa58_barrel_533"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_belg"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_belg"] = {
 	["fullName"] = "SA-58/FAL Belgian Style handguard",
 	["displayName"] = "FAL BEL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33208,7 +33208,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_belg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_casvfal"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_casvfal"] = {
 	["fullName"] = "SA-58/FAL Vltor CASV-FAL handguard",
 	["displayName"] = "CASV-FAL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33228,7 +33228,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_casvfal"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_casvfas"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_casvfas"] = {
 	["fullName"] = "SA-58/FAL Vltor CASV-FAS handguard",
 	["displayName"] = "CASV-FAS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33248,7 +33248,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_casvfas"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_fal"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_fal"] = {
 	["fullName"] = "FAL original handguard",
 	["displayName"] = "FAL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33268,7 +33268,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_fal"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_quad"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_quad"] = {
 	["fullName"] = "SA-58 quad rail handguard",
 	["displayName"] = "SA58 4Rail",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33288,7 +33288,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_quad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_quadfull"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_quadfull"] = {
 	["fullName"] = "SA-58 quad rail full length handguard",
 	["displayName"] = "SA58 4Rail full",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33308,7 +33308,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_quadfull"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_sportkm"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_sportkm"] = {
 	["fullName"] = "SA-58/FAL AIM Sports Universal KeyMod handguard",
 	["displayName"] = "SA58 KeyMod",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33328,7 +33328,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_sportkm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_hg_sportmlok"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_hg_sportmlok"] = {
 	["fullName"] = "SA-58/FAL AIM Sports Universal M-LOK handguard",
 	["displayName"] = "SA58 M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33348,7 +33348,7 @@ EFGMITEMS["arc9_att_eft_sa58_hg_sportmlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_10"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 10-round magazine",
 	["displayName"] = "SA58/FAL 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33368,7 +33368,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_20"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 20-round magazine",
 	["displayName"] = "SA58/FAL 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33388,7 +33388,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_20mmw"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_20mmw"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 MMW polymer 20-round magazine",
 	["displayName"] = "SA58 MMW 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33408,7 +33408,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_20mmw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_20mmw_blk"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_20mmw_blk"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 MMW polymer 20-round magazine",
 	["displayName"] = "SA58 MMW 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33428,7 +33428,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_20mmw_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_30"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 30-round magazine",
 	["displayName"] = "SA58/FAL 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33448,7 +33448,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_30l"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_30l"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 30-round magazine (SLR)",
 	["displayName"] = "L1A1 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33468,7 +33468,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_30l"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_mag_50"] = {
 	["fullName"] = "SA-58/FAL 7.62x51 X Products X-FAL 50-round drum magazine",
 	["displayName"] = "X-FAL 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -33488,7 +33488,7 @@ EFGMITEMS["arc9_att_eft_sa58_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_pgrip_fab"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_pgrip_fab"] = {
 	["fullName"] = "SA-58 FAB Defense AG-FAL pistol grip",
 	["displayName"] = "AG-FAL",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -33508,7 +33508,7 @@ EFGMITEMS["arc9_att_eft_sa58_pgrip_fab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_pgrip_saw"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_pgrip_saw"] = {
 	["fullName"] = "SA-58 SAW-style pistol grip (Black)",
 	["displayName"] = "SAW SA58",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -33528,7 +33528,7 @@ EFGMITEMS["arc9_att_eft_sa58_pgrip_saw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_pgrip_std"] = {
 	["fullName"] = "SA-58 pistol grip",
 	["displayName"] = "SA58",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -33548,7 +33548,7 @@ EFGMITEMS["arc9_att_eft_sa58_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_rec_ed"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_rec_ed"] = {
 	["fullName"] = "SA-58 Extreme Duty dust cover",
 	["displayName"] = "SA58 ED",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -33568,7 +33568,7 @@ EFGMITEMS["arc9_att_eft_sa58_rec_ed"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_rec_fal"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_rec_fal"] = {
 	["fullName"] = "FAL standard dust cover",
 	["displayName"] = "FAL",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -33588,7 +33588,7 @@ EFGMITEMS["arc9_att_eft_sa58_rec_fal"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_rs_std"] = {
 	["fullName"] = "SA-58 Holland Type rear sight",
 	["displayName"] = "SA58 Holland",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -33608,7 +33608,7 @@ EFGMITEMS["arc9_att_eft_sa58_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_stock_adap"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_stock_adap"] = {
 	["fullName"] = "SA-58 buffer tube adapter",
 	["displayName"] = "SA58 adpt.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33628,7 +33628,7 @@ EFGMITEMS["arc9_att_eft_sa58_stock_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_stock_brs"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_stock_brs"] = {
 	["fullName"] = "SA-58 BRS stock",
 	["displayName"] = "SA58 BRS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33648,7 +33648,7 @@ EFGMITEMS["arc9_att_eft_sa58_stock_brs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_stock_fold"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_stock_fold"] = {
 	["fullName"] = "SA-58 folding stock",
 	["displayName"] = "SA58 folding",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33668,7 +33668,7 @@ EFGMITEMS["arc9_att_eft_sa58_stock_fold"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_stock_hump"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_stock_hump"] = {
 	["fullName"] = "SA-58 humpback polymer stock",
 	["displayName"] = "SA58 Hump",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33688,7 +33688,7 @@ EFGMITEMS["arc9_att_eft_sa58_stock_hump"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_stock_magpul"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_stock_magpul"] = {
 	["fullName"] = "SA-58/FAL Magpul PRS 2 polymer stock",
 	["displayName"] = "SA58/FAL PRS2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33708,7 +33708,7 @@ EFGMITEMS["arc9_att_eft_sa58_stock_magpul"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sa58_stock_spr"] = {
+EFGM.ITEMS["arc9_att_eft_sa58_stock_spr"] = {
 	["fullName"] = "SA-58 SPR stock",
 	["displayName"] = "SA58 SPR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33728,7 +33728,7 @@ EFGMITEMS["arc9_att_eft_sa58_stock_spr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sag545_buffertube"] = {
+EFGM.ITEMS["arc9_att_eft_sag545_buffertube"] = {
 	["fullName"] = "AK-545 SAG buffer tube",
 	["displayName"] = "SAG tube",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -33748,7 +33748,7 @@ EFGMITEMS["arc9_att_eft_sag545_buffertube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sag545_cover"] = {
+EFGM.ITEMS["arc9_att_eft_sag545_cover"] = {
 	["fullName"] = "AK-545 SAG railed dust cover",
 	["displayName"] = "AK-545 DC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -33768,7 +33768,7 @@ EFGMITEMS["arc9_att_eft_sag545_cover"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sag545_gastube"] = {
+EFGM.ITEMS["arc9_att_eft_sag545_gastube"] = {
 	["fullName"] = "AK-545 SAG Mk. 2.1 gas tube",
 	["displayName"] = "SAG Mk.2.1",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -33788,7 +33788,7 @@ EFGMITEMS["arc9_att_eft_sag545_gastube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sag545_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_sag545_hg_std"] = {
 	["fullName"] = "AK-545 SAG Mk.3 handguard",
 	["displayName"] = "AK-545 HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33808,7 +33808,7 @@ EFGMITEMS["arc9_att_eft_sag545_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sag545_rs"] = {
+EFGM.ITEMS["arc9_att_eft_sag545_rs"] = {
 	["fullName"] = "AK-545 SAG rear sight",
 	["displayName"] = "AK-545 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -33828,7 +33828,7 @@ EFGMITEMS["arc9_att_eft_sag545_rs"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_dustcover_std"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_dustcover_std"] = {
 	["fullName"] = "SOK-12 dust cover",
 	["displayName"] = "Sb.0-2",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -33848,7 +33848,7 @@ EFGMITEMS["arc9_att_eft_saiga12_dustcover_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_fs_chaos"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_fs_chaos"] = {
 	["fullName"] = "Chaos HK Style front sight",
 	["displayName"] = "Chaos FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -33868,7 +33868,7 @@ EFGMITEMS["arc9_att_eft_saiga12_fs_chaos"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_bravo18"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_bravo18"] = {
 	["fullName"] = "SOK-12 Bravo-18 aluminium handguard",
 	["displayName"] = "Bravo-18",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33888,7 +33888,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_bravo18"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_custom340"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_custom340"] = {
 	["fullName"] = "SOK-12 Custom Guns Type-340 handguard",
 	["displayName"] = "Type-340",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33908,7 +33908,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_custom340"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_custom340_mount"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_custom340_mount"] = {
 	["fullName"] = "Custom Guns handguard rail",
 	["displayName"] = "CG",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -33928,7 +33928,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_custom340_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_std"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_std"] = {
 	["fullName"] = "SOK-12 polymer handguard",
 	["displayName"] = "Sb.7-1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33948,7 +33948,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_titan"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_titan"] = {
 	["fullName"] = "SOK-12 Chaos Titan Quad Rail handguard",
 	["displayName"] = "Titan Quad",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -33968,7 +33968,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_titan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_titanrecuver"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_titanrecuver"] = {
 	["fullName"] = "SOK-12 Chaos Titan receiver top rail",
 	["displayName"] = "Titan",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -33988,7 +33988,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_titanrecuver"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_titantop"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_titantop"] = {
 	["fullName"] = "SOK-12 Chaos Titan Quad Rail handguard top cover",
 	["displayName"] = "Titan",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34008,7 +34008,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_titantop"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_utg_pro_long"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_utg_pro_long"] = {
 	["fullName"] = "SOK-12 Leapers UTG PRO MTU002 Long Top aluminum handguard",
 	["displayName"] = "MTU002 L",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34028,7 +34028,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_utg_pro_long"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_handguard_utg_pro_short"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_handguard_utg_pro_short"] = {
 	["fullName"] = "SOK-12 Leapers UTG PRO MTU002 Short Top aluminum handguard",
 	["displayName"] = "MTU002 S",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34048,7 +34048,7 @@ EFGMITEMS["arc9_att_eft_saiga12_handguard_utg_pro_short"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_magazine_md20"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_magazine_md20"] = {
 	["fullName"] = "SOK-12 12ga MD Arms 20-round drum magazine",
 	["displayName"] = "MD Arms",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34068,7 +34068,7 @@ EFGMITEMS["arc9_att_eft_saiga12_magazine_md20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_magazine_powermag"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_magazine_powermag"] = {
 	["fullName"] = "SOK-12 12/76 MaxRounds Powermag 20-round magazine",
 	["displayName"] = "Powermag",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34088,7 +34088,7 @@ EFGMITEMS["arc9_att_eft_saiga12_magazine_powermag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_magazine_promag"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_magazine_promag"] = {
 	["fullName"] = "SOK-12 12/76 SAI-02 10-round magazine",
 	["displayName"] = "SAI-02",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34108,7 +34108,7 @@ EFGMITEMS["arc9_att_eft_saiga12_magazine_promag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_magazine_std"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_magazine_std"] = {
 	["fullName"] = "SOK-12 12/76 sb.5 5-round magazine",
 	["displayName"] = "Sb.5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34128,7 +34128,7 @@ EFGMITEMS["arc9_att_eft_saiga12_magazine_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_muzzle_std"] = {
 	["fullName"] = "SOK-12 thread protection tube",
 	["displayName"] = "SOK-12 thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -34148,7 +34148,7 @@ EFGMITEMS["arc9_att_eft_saiga12_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_rs_chaos"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_rs_chaos"] = {
 	["fullName"] = "Chaos HK Style rear sight",
 	["displayName"] = "Chaos RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -34168,7 +34168,7 @@ EFGMITEMS["arc9_att_eft_saiga12_rs_chaos"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_rs_mount"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_rs_mount"] = {
 	["fullName"] = "SOK-12 CSS rear sight rail mount",
 	["displayName"] = "CSS RSRM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34188,7 +34188,7 @@ EFGMITEMS["arc9_att_eft_saiga12_rs_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_rs_std"] = {
 	["fullName"] = "SOK-12 rear sight",
 	["displayName"] = "SOK12 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -34208,7 +34208,7 @@ EFGMITEMS["arc9_att_eft_saiga12_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_saiga12_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_saiga12_stock_std"] = {
 	["fullName"] = "SOK-12 AK-style stock",
 	["displayName"] = "SOK12 AK",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -34228,7 +34228,7 @@ EFGMITEMS["arc9_att_eft_saiga12_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_barrel_20"] = {
+EFGM.ITEMS["arc9_att_eft_sako_barrel_20"] = {
 	["fullName"] = "Sako TRG M10 .338 LM 20 inch barrel",
 	["displayName"] = 'M10 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34248,7 +34248,7 @@ EFGMITEMS["arc9_att_eft_sako_barrel_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_barrel_235"] = {
+EFGM.ITEMS["arc9_att_eft_sako_barrel_235"] = {
 	["fullName"] = "Sako TRG M10 .338 LM 23.5 inch barrel",
 	["displayName"] = 'M10 23.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34268,7 +34268,7 @@ EFGMITEMS["arc9_att_eft_sako_barrel_235"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_barrel_27"] = {
+EFGM.ITEMS["arc9_att_eft_sako_barrel_27"] = {
 	["fullName"] = "Sako TRG M10 .338 LM 27 inch barrel",
 	["displayName"] = 'M10 27"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34288,7 +34288,7 @@ EFGMITEMS["arc9_att_eft_sako_barrel_27"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_bolt_std"] = {
+EFGM.ITEMS["arc9_att_eft_sako_bolt_std"] = {
 	["fullName"] = "Sako TRG M10 .338 LM bolt assembly",
 	["displayName"] = "M10 .338LM",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -34308,7 +34308,7 @@ EFGMITEMS["arc9_att_eft_sako_bolt_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_chassis"] = {
+EFGM.ITEMS["arc9_att_eft_sako_chassis"] = {
 	["fullName"] = "Sako TRG M10 chassis",
 	["displayName"] = "TRG M10",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -34328,7 +34328,7 @@ EFGMITEMS["arc9_att_eft_sako_chassis"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_hg_11"] = {
+EFGM.ITEMS["arc9_att_eft_sako_hg_11"] = {
 	["fullName"] = "Sako TRG M10 11 inch handguard assembly",
 	["displayName"] = 'M10 11"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34348,7 +34348,7 @@ EFGMITEMS["arc9_att_eft_sako_hg_11"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_hg_15"] = {
+EFGM.ITEMS["arc9_att_eft_sako_hg_15"] = {
 	["fullName"] = "Sako TRG M10 15 inch handguard assembly",
 	["displayName"] = 'M10 15"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34368,7 +34368,7 @@ EFGMITEMS["arc9_att_eft_sako_hg_15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_hg_15mlok"] = {
+EFGM.ITEMS["arc9_att_eft_sako_hg_15mlok"] = {
 	["fullName"] = "Sako TRG M10 M-LOK 15 inch handguard assembly",
 	["displayName"] = 'M10 15" M-LOK',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34388,7 +34388,7 @@ EFGMITEMS["arc9_att_eft_sako_hg_15mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_hook_std"] = {
+EFGM.ITEMS["arc9_att_eft_sako_hook_std"] = {
 	["fullName"] = "Sako TRG M10 rear hook",
 	["displayName"] = "M10 hook",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -34408,7 +34408,7 @@ EFGMITEMS["arc9_att_eft_sako_hook_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_mag338"] = {
+EFGM.ITEMS["arc9_att_eft_sako_mag338"] = {
 	["fullName"] = "Sako TRG M10 .338 LM 8-round magazine",
 	["displayName"] = "M10 .338",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34428,7 +34428,7 @@ EFGMITEMS["arc9_att_eft_sako_mag338"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_pad"] = {
+EFGM.ITEMS["arc9_att_eft_sako_pad"] = {
 	["fullName"] = "Sako TRG M10 grip pad",
 	["displayName"] = "M10 pad",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -34448,7 +34448,7 @@ EFGMITEMS["arc9_att_eft_sako_pad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_railmid"] = {
+EFGM.ITEMS["arc9_att_eft_sako_railmid"] = {
 	["fullName"] = "Sako TRG medium length rail",
 	["displayName"] = "TRG med",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34468,7 +34468,7 @@ EFGMITEMS["arc9_att_eft_sako_railmid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_railshort"] = {
+EFGM.ITEMS["arc9_att_eft_sako_railshort"] = {
 	["fullName"] = "Sako TRG short length rail",
 	["displayName"] = "TRG short",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34488,7 +34488,7 @@ EFGMITEMS["arc9_att_eft_sako_railshort"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_toprail"] = {
+EFGM.ITEMS["arc9_att_eft_sako_toprail"] = {
 	["fullName"] = "Sako TRG M10 scope mount",
 	["displayName"] = "M10 SM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34508,7 +34508,7 @@ EFGMITEMS["arc9_att_eft_sako_toprail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sako_upper"] = {
+EFGM.ITEMS["arc9_att_eft_sako_upper"] = {
 	["fullName"] = "Sako TRG M10 .338 LM receiver",
 	["displayName"] = "M10 .338 LM",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -34528,7 +34528,7 @@ EFGMITEMS["arc9_att_eft_sako_upper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_barrel_h13"] = {
+EFGM.ITEMS["arc9_att_eft_scar_barrel_h13"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 13 inch barrel",
 	["displayName"] = 'SCAR-H 13"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34548,7 +34548,7 @@ EFGMITEMS["arc9_att_eft_scar_barrel_h13"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_barrel_h16"] = {
+EFGM.ITEMS["arc9_att_eft_scar_barrel_h16"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 16 inch barrel",
 	["displayName"] = 'SCAR-H 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34568,7 +34568,7 @@ EFGMITEMS["arc9_att_eft_scar_barrel_h16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_barrel_h20"] = {
+EFGM.ITEMS["arc9_att_eft_scar_barrel_h20"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 20 inch barrel",
 	["displayName"] = 'SCAR-H 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34588,7 +34588,7 @@ EFGMITEMS["arc9_att_eft_scar_barrel_h20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_barrel_l10"] = {
+EFGM.ITEMS["arc9_att_eft_scar_barrel_l10"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 10 inch barrel",
 	["displayName"] = 'SCAR-L 10"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34608,7 +34608,7 @@ EFGMITEMS["arc9_att_eft_scar_barrel_l10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_barrel_l14"] = {
+EFGM.ITEMS["arc9_att_eft_scar_barrel_l14"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 14 inch barrel",
 	["displayName"] = 'SCAR-L 14"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34628,7 +34628,7 @@ EFGMITEMS["arc9_att_eft_scar_barrel_l14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_barrel_l18"] = {
+EFGM.ITEMS["arc9_att_eft_scar_barrel_l18"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 18 inch barrel",
 	["displayName"] = 'SCAR-L 18"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -34648,7 +34648,7 @@ EFGMITEMS["arc9_att_eft_scar_barrel_l18"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_ch"] = {
+EFGM.ITEMS["arc9_att_eft_scar_ch"] = {
 	["fullName"] = "FN SCAR charging handle",
 	["displayName"] = "SCAR CH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -34668,7 +34668,7 @@ EFGMITEMS["arc9_att_eft_scar_ch"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_fss"] = {
+EFGM.ITEMS["arc9_att_eft_scar_fss"] = {
 	["fullName"] = "FN SCAR flip-up front sight",
 	["displayName"] = "SCAR FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -34688,7 +34688,7 @@ EFGMITEMS["arc9_att_eft_scar_fss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_mag_h20"] = {
+EFGM.ITEMS["arc9_att_eft_scar_mag_h20"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 20-round magazine",
 	["displayName"] = "Mk17",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34708,7 +34708,7 @@ EFGMITEMS["arc9_att_eft_scar_mag_h20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_mag_h20_f"] = {
+EFGM.ITEMS["arc9_att_eft_scar_mag_h20_f"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 20-round magazine (FDE)",
 	["displayName"] = "Mk17 (F)",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -34728,7 +34728,7 @@ EFGMITEMS["arc9_att_eft_scar_mag_h20_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_mrexl"] = {
+EFGM.ITEMS["arc9_att_eft_scar_mrexl"] = {
 	["fullName"] = "FN SCAR PMM MRE XL rail extension",
 	["displayName"] = "MRE XL",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34748,7 +34748,7 @@ EFGMITEMS["arc9_att_eft_scar_mrexl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_mrexlf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_mrexlf"] = {
 	["fullName"] = "FN SCAR PMM MRE XL rail extension FDE",
 	["displayName"] = "MRE XL F",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34768,7 +34768,7 @@ EFGMITEMS["arc9_att_eft_scar_mrexlf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_bottom"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_bottom"] = {
 	["fullName"] = "FN SCAR bottom rail",
 	["displayName"] = "SCAR bottom",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34788,7 +34788,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_bottom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_bottom_mlok"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_bottom_mlok"] = {
 	["fullName"] = "FN SCAR PMM M-LOK lower rail",
 	["displayName"] = "PMM Low",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34808,7 +34808,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_bottom_mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_bottom_mlokf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_bottom_mlokf"] = {
 	["fullName"] = "FN SCAR PMM M-LOK lower rail FDE",
 	["displayName"] = "PMM Low F",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34828,7 +34828,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_bottom_mlokf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_casv"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_casv"] = {
 	["fullName"] = "FN SCAR Vltor CASV-SCAR handguard",
 	["displayName"] = "CASV-SCAR",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34848,7 +34848,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_casv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_casv_ext"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_casv_ext"] = {
 	["fullName"] = "FN SCAR Vltor CASV-SCAR Handguard Extender",
 	["displayName"] = "CASV-SCAR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34868,7 +34868,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_casv_ext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_casv_extf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_casv_extf"] = {
 	["fullName"] = "FN SCAR Vltor CASV-SCAR Handguard Extender FDE",
 	["displayName"] = "CASV-SCAR F",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34888,7 +34888,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_casv_extf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_casvf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_casvf"] = {
 	["fullName"] = "FN SCAR Vltor CASV-SCAR handguard FDE",
 	["displayName"] = "CASV-SCAR F",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -34908,7 +34908,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_casvf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_mrex"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_mrex"] = {
 	["fullName"] = "FN SCAR Kinetic MREX 6.5 M-LOK rail",
 	["displayName"] = "MREX 6.5 M-LOK",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34928,7 +34928,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_mrex"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_mrex_fde"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_mrex_fde"] = {
 	["fullName"] = "FN SCAR Kinetic MREX 6.5 M-LOK rail FDE",
 	["displayName"] = "MREX 6.5 M-LOK",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34948,7 +34948,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_mrex_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_side"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_side"] = {
 	["fullName"] = "FN SCAR side rail",
 	["displayName"] = "SCAR side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34968,7 +34968,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_side"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_side_mlok"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_side_mlok"] = {
 	["fullName"] = "FN SCAR PMM M-LOK side rails",
 	["displayName"] = "PMM side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -34988,7 +34988,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_side_mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_side_mlokf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_side_mlokf"] = {
 	["fullName"] = "FN SCAR PMM M-LOK side rails FDE",
 	["displayName"] = "PMM side F",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -35008,7 +35008,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_side_mlokf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_side_nothing"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_side_nothing"] = {
 	["fullName"] = "FN SCAR PMM Rail Elimination Panels",
 	["displayName"] = "PMM REP",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -35028,7 +35028,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_side_nothing"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_rail_side_nothingf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_rail_side_nothingf"] = {
 	["fullName"] = "FN SCAR PMM Rail Elimination Panels FDE",
 	["displayName"] = "PMM REP F",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -35048,7 +35048,7 @@ EFGMITEMS["arc9_att_eft_scar_rail_side_nothingf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_srx"] = {
+EFGM.ITEMS["arc9_att_eft_scar_srx"] = {
 	["fullName"] = "FN SCAR PWS SRX rail extension",
 	["displayName"] = "SRX SCAR",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -35068,7 +35068,7 @@ EFGMITEMS["arc9_att_eft_scar_srx"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_base"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_base"] = {
 	["fullName"] = "FN SCAR folding polymer stock",
 	["displayName"] = "SCAR fold.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35088,7 +35088,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_base"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_base_buff"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_base_buff"] = {
 	["fullName"] = "FN SCAR Vltor RE-SCAR Stock Adapter",
 	["displayName"] = "RE-SCAR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35108,7 +35108,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_base_buff"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_base_bufff"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_base_bufff"] = {
 	["fullName"] = "FN SCAR Vltor RE-SCAR Stock Adapter FDE",
 	["displayName"] = "RE-SCAR F",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35128,7 +35128,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_base_bufff"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_base_f"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_base_f"] = {
 	["fullName"] = "FN SCAR folding polymer stock (FDE)",
 	["displayName"] = "SCAR fold. (F)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35148,7 +35148,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_base_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_base_rail"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_base_rail"] = {
 	["fullName"] = "FN SCAR JMac Customs RSA-SCAR 1913 Adapter",
 	["displayName"] = "RSA-SCAR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35168,7 +35168,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_base_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_cheeck"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_cheeck"] = {
 	["fullName"] = "FN SCAR cheek rest",
 	["displayName"] = "SCAR cheek",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35188,7 +35188,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_cheeck"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_cheeck_f"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_cheeck_f"] = {
 	["fullName"] = "FN SCAR cheek rest (FDE)",
 	["displayName"] = "SCAR cheek (F)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35208,7 +35208,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_cheeck_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_ext"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_ext"] = {
 	["fullName"] = "FN SCAR retractable polymer stock",
 	["displayName"] = "SCAR retr.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35228,7 +35228,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_ext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_ext_f"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_ext_f"] = {
 	["fullName"] = "FN SCAR retractable polymer stock (FDE)",
 	["displayName"] = "SCAR retr. (F)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35248,7 +35248,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_ext_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_ext_vss"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_ext_vss"] = {
 	["fullName"] = "FN SCAR Vltor VSS-11 polymer stock",
 	["displayName"] = "VSS-11",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35268,7 +35268,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_ext_vss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_ext_vssf"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_ext_vssf"] = {
 	["fullName"] = "FN SCAR Vltor VSS-11 polymer stock FDE",
 	["displayName"] = "VSS-11 F",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35288,7 +35288,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_ext_vssf"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_stock_pad"] = {
+EFGM.ITEMS["arc9_att_eft_scar_stock_pad"] = {
 	["fullName"] = "FN SCAR rubber buttpad",
 	["displayName"] = "SCAR pad",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -35308,7 +35308,7 @@ EFGMITEMS["arc9_att_eft_scar_stock_pad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_upper_h"] = {
+EFGM.ITEMS["arc9_att_eft_scar_upper_h"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 upper receiver",
 	["displayName"] = "Mk17",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -35328,7 +35328,7 @@ EFGMITEMS["arc9_att_eft_scar_upper_h"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_upper_h_f"] = {
+EFGM.ITEMS["arc9_att_eft_scar_upper_h_f"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 upper receiver (FDE)",
 	["displayName"] = "Mk17 (F)",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -35348,7 +35348,7 @@ EFGMITEMS["arc9_att_eft_scar_upper_h_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_upper_l"] = {
+EFGM.ITEMS["arc9_att_eft_scar_upper_l"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 upper receiver",
 	["displayName"] = "Mk16",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -35368,7 +35368,7 @@ EFGMITEMS["arc9_att_eft_scar_upper_l"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scar_upper_l_f"] = {
+EFGM.ITEMS["arc9_att_eft_scar_upper_l_f"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 upper receiver (FDE)",
 	["displayName"] = "Mk16 (F)",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -35388,7 +35388,7 @@ EFGMITEMS["arc9_att_eft_scar_upper_l_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_25mm_pilad"] = {
+EFGM.ITEMS["arc9_att_eft_scope_25mm_pilad"] = {
 	["fullName"] = "VOMZ Pilad 4x32 25.4mm riflescope",
 	["displayName"] = "Pilad 4x32",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35408,7 +35408,7 @@ EFGMITEMS["arc9_att_eft_scope_25mm_pilad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_march"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_march"] = {
 	["fullName"] = "March Tactical 2-24x42 FFP 30mm riflescope",
 	["displayName"] = "2-24x42 FFP",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35428,7 +35428,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_march"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_mark4"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_mark4"] = {
 	["fullName"] = "Leupold Mark 4 LR 6.5-20x50 30mm riflescope",
 	["displayName"] = "6.5-20x50",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35448,7 +35448,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_mark4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_mark4mrt"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_mark4mrt"] = {
 	["fullName"] = "Leupold Mark 4 MR/T TS-30A2 2.5-8x36 30mm riflescope",
 	["displayName"] = "TS-30A2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35468,7 +35468,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_mark4mrt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_razor"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_razor"] = {
 	["fullName"] = "Vortex Razor HD Gen.2 1-6x24 30mm riflescope",
 	["displayName"] = "Razor HD Gen.2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35488,7 +35488,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_razor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_razor_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_razor_blk"] = {
 	["fullName"] = "Vortex Razor HD Gen.2 1-6x24 30mm riflescope",
 	["displayName"] = "Razor HD Gen.2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35508,7 +35508,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_razor_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_sb_pmii1"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_sb_pmii1"] = {
 	["fullName"] = "Schmidt & Bender PM II 1-8x24 30mm riflescope",
 	["displayName"] = "PM II 1-8x24",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35528,7 +35528,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_sb_pmii1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_sb_pmii1_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_sb_pmii1_blk"] = {
 	["fullName"] = "Schmidt & Bender PM II 1-8x24 30mm riflescope",
 	["displayName"] = "PM II 1-8x24",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35548,7 +35548,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_sb_pmii1_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_tac30"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_tac30"] = {
 	["fullName"] = "Burris FullField TAC30 1-4x24 30mm riflescope",
 	["displayName"] = "TAC30",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35568,7 +35568,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_tac30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_tango6t"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_tango6t"] = {
 	["fullName"] = "SIG TANGO6T 1-6x24 30mm riflescope",
 	["displayName"] = "TANGO6T",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35588,7 +35588,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_tango6t"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_tango6t_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_tango6t_blk"] = {
 	["fullName"] = "SIG TANGO6T 1-6x24 30mm riflescope",
 	["displayName"] = "TANGO6T",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35608,7 +35608,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_tango6t_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_30mm_vudu"] = {
+EFGM.ITEMS["arc9_att_eft_scope_30mm_vudu"] = {
 	["fullName"] = "EOTech Vudu 1-6x24 30mm riflescope",
 	["displayName"] = "Vudu 1-6x24",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35628,7 +35628,7 @@ EFGMITEMS["arc9_att_eft_scope_30mm_vudu"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_34mm_atacr"] = {
+EFGM.ITEMS["arc9_att_eft_scope_34mm_atacr"] = {
 	["fullName"] = "Nightforce ATACR 5-35x56 34mm riflescope",
 	["displayName"] = "ATACR 5-35x56",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35648,7 +35648,7 @@ EFGMITEMS["arc9_att_eft_scope_34mm_atacr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_34mm_hsff"] = {
+EFGM.ITEMS["arc9_att_eft_scope_34mm_hsff"] = {
 	["fullName"] = "Hensoldt FF 4-16x56 34mm riflescope",
 	["displayName"] = "FF 4-16",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35668,7 +35668,7 @@ EFGMITEMS["arc9_att_eft_scope_34mm_hsff"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii3"] = {
+EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii3"] = {
 	["fullName"] = "Schmidt & Bender PM II 3-20x50 34mm riflescope",
 	["displayName"] = "PM II 3-20x50",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35688,7 +35688,7 @@ EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii3_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii3_blk"] = {
 	["fullName"] = "Schmidt & Bender PM II 3-20x50 34mm riflescope",
 	["displayName"] = "PM II 3-20x50",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35708,7 +35708,7 @@ EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii3_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii5"] = {
+EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii5"] = {
 	["fullName"] = "Schmidt & Bender PM II 5-25x56 34mm riflescope",
 	["displayName"] = "PM II 5-25x56",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35728,7 +35728,7 @@ EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii5_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii5_blk"] = {
 	["fullName"] = "Schmidt & Bender PM II 5-25x56 34mm riflescope",
 	["displayName"] = "PM II 5-25x56",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35748,7 +35748,7 @@ EFGMITEMS["arc9_att_eft_scope_34mm_sb_pmii5_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_35mm_5hd"] = {
+EFGM.ITEMS["arc9_att_eft_scope_35mm_5hd"] = {
 	["fullName"] = "Leupold Mark 5HD 5-25x56mm 35mm riflescope (FDE)",
 	["displayName"] = "5HD 5-25x56",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35768,7 +35768,7 @@ EFGMITEMS["arc9_att_eft_scope_35mm_5hd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_acog_ta01"] = {
+EFGM.ITEMS["arc9_att_eft_scope_acog_ta01"] = {
 	["fullName"] = "Trijicon ACOG TA01NSN 4x32 scope",
 	["displayName"] = "TA01NSN",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35788,7 +35788,7 @@ EFGMITEMS["arc9_att_eft_scope_acog_ta01"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_acog_ta01_tan"] = {
+EFGM.ITEMS["arc9_att_eft_scope_acog_ta01_tan"] = {
 	["fullName"] = "Trijicon ACOG TA01NSN 4x32 scope (TAN)",
 	["displayName"] = "TA01NSN TAN",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35808,7 +35808,7 @@ EFGMITEMS["arc9_att_eft_scope_acog_ta01_tan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_acog_ta11d"] = {
+EFGM.ITEMS["arc9_att_eft_scope_acog_ta11d"] = {
 	["fullName"] = "Trijicon ACOG TA11D 3.5x35 scope",
 	["displayName"] = "TA11D",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35828,7 +35828,7 @@ EFGMITEMS["arc9_att_eft_scope_acog_ta11d"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_adop4"] = {
+EFGM.ITEMS["arc9_att_eft_scope_adop4"] = {
 	["fullName"] = "NcSTAR ADO P4 Sniper 3-9x42 riflescope",
 	["displayName"] = "ADO P4",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35848,7 +35848,7 @@ EFGMITEMS["arc9_att_eft_scope_adop4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_adop4_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_adop4_blk"] = {
 	["fullName"] = "NcSTAR ADO P4 Sniper 3-9x42 riflescope",
 	["displayName"] = "ADO P4",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35868,7 +35868,7 @@ EFGMITEMS["arc9_att_eft_scope_adop4_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_bravo4"] = {
+EFGM.ITEMS["arc9_att_eft_scope_bravo4"] = {
 	["fullName"] = "SIG Sauer BRAVO4 4x30 scope",
 	["displayName"] = "BRAVO4",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35888,7 +35888,7 @@ EFGMITEMS["arc9_att_eft_scope_bravo4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_compactprism"] = {
+EFGM.ITEMS["arc9_att_eft_scope_compactprism"] = {
 	["fullName"] = "Monstrum Tactical Compact Prism Scope 2x32",
 	["displayName"] = "Compact 2x32",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35908,7 +35908,7 @@ EFGMITEMS["arc9_att_eft_scope_compactprism"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_1p78"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_1p78"] = {
 	["fullName"] = "NPZ 1P78-1 2.8x scope",
 	["displayName"] = "1P78-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35928,7 +35928,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_1p78"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_ekp1s03"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_ekp1s03"] = {
 	["fullName"] = "Axion Kobra EKP-1S-03 reflex sight (Dovetail)",
 	["displayName"] = "EKP-1S-03",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35948,7 +35948,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_ekp1s03"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_ekp802"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_ekp802"] = {
 	["fullName"] = "Axion Kobra EKP-8-02 reflex sight (dovetail)",
 	["displayName"] = "EKP-8-02",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35968,7 +35968,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_ekp802"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_nspum"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_nspum"] = {
 	["fullName"] = "NSPU-M night vision scope",
 	["displayName"] = "NSPU-M",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -35988,7 +35988,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_nspum"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_okp7"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_okp7"] = {
 	["fullName"] = "OKP-7 reflex sight (dovetail)",
 	["displayName"] = "OKP-7",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36008,7 +36008,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_okp7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_pk1"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_pk1"] = {
 	["fullName"] = 'NPZ PK1 "Obzor" reflex sight',
 	["displayName"] = "Obzor",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36028,7 +36028,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_pk1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_pkaa"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_pkaa"] = {
 	["fullName"] = "BelOMO PK-AA reflex sight",
 	["displayName"] = "PK-AA",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36048,7 +36048,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_pkaa"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_pso1"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_pso1"] = {
 	["fullName"] = "BelOMO PSO-1 4x24 scope",
 	["displayName"] = "PSO-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36068,7 +36068,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_pso1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_pso1m2"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_pso1m2"] = {
 	["fullName"] = "BelOMO PSO-1M2-1 4x24 scope",
 	["displayName"] = "PSO-1M2-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36088,7 +36088,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_pso1m2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_pso1m2non1"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_pso1m2non1"] = {
 	["fullName"] = "BelOMO PSO-1M2 4x24 scope",
 	["displayName"] = "PSO-1M2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36108,7 +36108,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_pso1m2non1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_dovetail_tulpan"] = {
+EFGM.ITEMS["arc9_att_eft_scope_dovetail_tulpan"] = {
 	["fullName"] = 'NPZ USP-1 "Tyulpan" 4x scope',
 	["displayName"] = "USP-1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36128,7 +36128,7 @@ EFGMITEMS["arc9_att_eft_scope_dovetail_tulpan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_echo1"] = {
+EFGM.ITEMS["arc9_att_eft_scope_echo1"] = {
 	["fullName"] = "SIG Sauer ECHO1 1-2x30mm 30Hz thermal reflex scope",
 	["displayName"] = "ECHO1",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36148,7 +36148,7 @@ EFGMITEMS["arc9_att_eft_scope_echo1"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_scope_elcan"] = {
+EFGM.ITEMS["arc9_att_eft_scope_elcan"] = {
 	["fullName"] = "ELCAN SpecterDR 1x/4x scope",
 	["displayName"] = "SpecterDR",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36168,7 +36168,7 @@ EFGMITEMS["arc9_att_eft_scope_elcan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_elcan_fde"] = {
+EFGM.ITEMS["arc9_att_eft_scope_elcan_fde"] = {
 	["fullName"] = "ELCAN SpecterDR 1x/4x scope (FDE)",
 	["displayName"] = "SpecterDR (F)",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36188,7 +36188,7 @@ EFGMITEMS["arc9_att_eft_scope_elcan_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_elcan_mount"] = {
+EFGM.ITEMS["arc9_att_eft_scope_elcan_mount"] = {
 	["fullName"] = "Elcan SpecterDR Mounting Plate for Trijicon",
 	["displayName"] = "Specter",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -36208,7 +36208,7 @@ EFGMITEMS["arc9_att_eft_scope_elcan_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_flir"] = {
+EFGM.ITEMS["arc9_att_eft_scope_flir"] = {
 	["fullName"] = "FLIR RS-32 2.25-9x 35mm 60Hz thermal riflescope",
 	["displayName"] = "FLIR RS-32",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36228,7 +36228,7 @@ EFGMITEMS["arc9_att_eft_scope_flir"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_scope_hamr"] = {
+EFGM.ITEMS["arc9_att_eft_scope_hamr"] = {
 	["fullName"] = "Leupold Mark 4 HAMR 4x24mm DeltaPoint hybrid assault scope",
 	["displayName"] = "HAMR",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36248,7 +36248,7 @@ EFGMITEMS["arc9_att_eft_scope_hamr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_kmz_1p59"] = {
+EFGM.ITEMS["arc9_att_eft_scope_kmz_1p59"] = {
 	["fullName"] = "KMZ 1P59 3-10x riflescope",
 	["displayName"] = "KMZ 1P59",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36268,7 +36268,7 @@ EFGMITEMS["arc9_att_eft_scope_kmz_1p59"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_kmz_1p69"] = {
+EFGM.ITEMS["arc9_att_eft_scope_kmz_1p69"] = {
 	["fullName"] = "KMZ 1P69 3-10x riflescope",
 	["displayName"] = "KMZ 1P69",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36288,7 +36288,7 @@ EFGMITEMS["arc9_att_eft_scope_kmz_1p69"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_pa_prism"] = {
+EFGM.ITEMS["arc9_att_eft_scope_pa_prism"] = {
 	["fullName"] = "Primary Arms Compact Prism scope 2.5x",
 	["displayName"] = "Prism 2.5x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36308,7 +36308,7 @@ EFGMITEMS["arc9_att_eft_scope_pa_prism"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_reapir"] = {
+EFGM.ITEMS["arc9_att_eft_scope_reapir"] = {
 	["fullName"] = "Trijicon REAP-IR thermal scope",
 	["displayName"] = "REAP-IR",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36328,7 +36328,7 @@ EFGMITEMS["arc9_att_eft_scope_reapir"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_scope_shakhin"] = {
+EFGM.ITEMS["arc9_att_eft_scope_shakhin"] = {
 	["fullName"] = "Cyclone Shakhin 3.7x thermal scope",
 	["displayName"] = "Shakhin 3.7x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36348,7 +36348,7 @@ EFGMITEMS["arc9_att_eft_scope_shakhin"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_scope_shakhin_blk"] = {
+EFGM.ITEMS["arc9_att_eft_scope_shakhin_blk"] = {
 	["fullName"] = "Cyclone Shakhin 3.7x thermal scope",
 	["displayName"] = "Shakhin 3.7x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36368,7 +36368,7 @@ EFGMITEMS["arc9_att_eft_scope_shakhin_blk"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_scope_swampfox"] = {
+EFGM.ITEMS["arc9_att_eft_scope_swampfox"] = {
 	["fullName"] = "SwampFox Trihawk Prism Scope 3x30",
 	["displayName"] = "Trihawk 3x30",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36388,7 +36388,7 @@ EFGMITEMS["arc9_att_eft_scope_swampfox"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_valday_ps320"] = {
+EFGM.ITEMS["arc9_att_eft_scope_valday_ps320"] = {
 	["fullName"] = "Valday PS-320 1/6x scope",
 	["displayName"] = "PS-320",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36408,7 +36408,7 @@ EFGMITEMS["arc9_att_eft_scope_valday_ps320"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_vulcan"] = {
+EFGM.ITEMS["arc9_att_eft_scope_vulcan"] = {
 	["fullName"] = "Armasight Vulcan MG 3.5x Bravo night vision scope",
 	["displayName"] = "Vulcan 3.5x",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36428,7 +36428,7 @@ EFGMITEMS["arc9_att_eft_scope_vulcan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scope_zeuspro"] = {
+EFGM.ITEMS["arc9_att_eft_scope_zeuspro"] = {
 	["fullName"] = "Armasight Zeus-Pro 640 2-16x50 thermal scope",
 	["displayName"] = "ZeusPro 640",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -36448,7 +36448,7 @@ EFGMITEMS["arc9_att_eft_scope_zeuspro"] = {
 	["canPurchase"] = false,
 }
 
-EFGMITEMS["arc9_att_eft_sil_pl15"] = {
+EFGM.ITEMS["arc9_att_eft_sil_pl15"] = {
 	["fullName"] = "PL-15 9x19 sound suppressor",
 	["displayName"] = "PL-15",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36468,7 +36468,7 @@ EFGMITEMS["arc9_att_eft_sil_pl15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_ak74_hexagon"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_ak74_hexagon"] = {
 	["fullName"] = "AK-74 Hexagon 5.45x39 sound suppressor",
 	["displayName"] = "Hexagon AK74",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36488,7 +36488,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_ak74_hexagon"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_akm_hexagon"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_akm_hexagon"] = {
 	["fullName"] = "AKM Hexagon 7.62x39 sound suppressor",
 	["displayName"] = "Hexagon AKM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36508,7 +36508,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_akm_hexagon"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_dtk4m"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_dtk4m"] = {
 	["fullName"] = "Zenit DTK-4M 7.62x39 muzzle brake-compensator",
 	["displayName"] = "DTK-4M",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36528,7 +36528,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_dtk4m"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_hexagon_dtkp"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_hexagon_dtkp"] = {
 	["fullName"] = "AK Hexagon DTKP MK.2 7.62x39 sound suppressor",
 	["displayName"] = "DTKP MK.2",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36548,7 +36548,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_hexagon_dtkp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_pbs1"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_pbs1"] = {
 	["fullName"] = "PBS-1 7.62x39 sound suppressor",
 	["displayName"] = "PBS-1",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36568,7 +36568,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_pbs1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_pbs4"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_pbs4"] = {
 	["fullName"] = "PBS-4 5.45x39 sound suppressor",
 	["displayName"] = "PBS-4",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36588,7 +36588,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_pbs4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_r43_366"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_r43_366"] = {
 	["fullName"] = "Rotor 43 .366 TKM sound suppressor",
 	["displayName"] = "R43 .366TKM",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36608,7 +36608,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_r43_366"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_r43_762"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_r43_762"] = {
 	["fullName"] = "Rotor 43 7.62x39 muzzle brake-compensator",
 	["displayName"] = "R43 7.62x39",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36628,7 +36628,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_r43_762"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_tgpa"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_tgpa"] = {
 	["fullName"] = "AK 5.45x39 TGP-A muzzle device-suppressor",
 	["displayName"] = "TGP-A",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36648,7 +36648,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_tgpa"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ak_wafflemaker"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ak_wafflemaker"] = {
 	["fullName"] = 'AK Hexagon "Wafflemaker" 5.45x39 sound suppressor',
 	["displayName"] = "Wafflemaker",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36668,7 +36668,7 @@ EFGMITEMS["arc9_att_eft_silencer_ak_wafflemaker"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_alpha9"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_alpha9"] = {
 	["fullName"] = "Alpha Dog Alpha 9 9x19 sound suppressor",
 	["displayName"] = "Alpha 9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36688,7 +36688,7 @@ EFGMITEMS["arc9_att_eft_silencer_alpha9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar10_prsqdc"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar10_prsqdc"] = {
 	["fullName"] = "KAC PRS/QDC 7.62x51 sound suppressor",
 	["displayName"] = "PRS QDC",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36708,7 +36708,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar10_prsqdc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar10_srdti"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar10_srdti"] = {
 	["fullName"] = "SIG Sauer SRD762Ti 7.62x51 sound suppressor",
 	["displayName"] = "SRD762",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36728,7 +36728,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar10_srdti"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar10_tlok_srd"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar10_tlok_srd"] = {
 	["fullName"] = "SIG Sauer SRD762-QD 7.62x51 sound suppressor",
 	["displayName"] = "SRD762-QD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36748,7 +36748,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar10_tlok_srd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4"] = {
 	["fullName"] = "KAC QDSS NT-4 5.56x45 sound suppressor (Black)",
 	["displayName"] = "NT-4 BLK",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36768,7 +36768,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4_f"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4_f"] = {
 	["fullName"] = "KAC QDSS NT-4 5.56x45 sound suppressor (FDE)",
 	["displayName"] = "NT-4 FDE",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36788,7 +36788,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4_f"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_m4sdk"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_m4sdk"] = {
 	["fullName"] = "AR-15 Griffin Armament M4SD-K 5.56x45 sound suppressor",
 	["displayName"] = "M4SD-K",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36808,7 +36808,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_m4sdk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_qdc556"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_qdc556"] = {
 	["fullName"] = "KAC QDC 5.56x45 sound suppressor",
 	["displayName"] = "QDC 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36828,7 +36828,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_qdc556"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_qdc556_blk"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_qdc556_blk"] = {
 	["fullName"] = "KAC QDC 5.56x45 sound suppressor",
 	["displayName"] = "QDC 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36848,7 +36848,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_qdc556_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_sakerasr"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_sakerasr"] = {
 	["fullName"] = "SilencerCo Saker ASR 556 5.56x45 sound suppressor",
 	["displayName"] = "SAKER ASR 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36868,7 +36868,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_sakerasr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_socommini"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_socommini"] = {
 	["fullName"] = "SureFire SOCOM556-MINI MONSTER 5.56x45 sound suppressor",
 	["displayName"] = "556-MINI",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36888,7 +36888,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_socommini"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_socommonster"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_socommonster"] = {
 	["fullName"] = "SureFire SOCOM556-MONSTER 5.56x45 sound suppressor",
 	["displayName"] = "556-MONSTER",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36908,7 +36908,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_socommonster"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_socomrc2"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_socomrc2"] = {
 	["fullName"] = "SureFire SOCOM556-RC2 5.56x45 sound suppressor",
 	["displayName"] = "RC2",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36928,7 +36928,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_socomrc2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ar15_socomrc2_blk"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ar15_socomrc2_blk"] = {
 	["fullName"] = "SureFire SOCOM556-RC2 5.56x45 sound suppressor",
 	["displayName"] = "RC2",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36948,7 +36948,7 @@ EFGMITEMS["arc9_att_eft_silencer_ar15_socomrc2_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_dthybrid"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_dthybrid"] = {
 	["fullName"] = "SilencerCo Hybrid 46 multi-caliber silencer",
 	["displayName"] = "Hybrid 46",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36968,7 +36968,7 @@ EFGMITEMS["arc9_att_eft_silencer_dthybrid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_fd917"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_fd917"] = {
 	["fullName"] = "Glock 9x19 Fischer Development FD917 sound suppressor",
 	["displayName"] = "G FD917",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -36988,7 +36988,7 @@ EFGMITEMS["arc9_att_eft_silencer_fd917"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_gemtechone"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_gemtechone"] = {
 	["fullName"] = "Gemtech ONE multi-caliber sound suppressor",
 	["displayName"] = "Gemtech ONE",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37008,7 +37008,7 @@ EFGMITEMS["arc9_att_eft_silencer_gemtechone"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_illusion"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_illusion"] = {
 	["fullName"] = "AAC Illusion 9 9x19 sound suppressor",
 	["displayName"] = "AAC Illusion9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37028,7 +37028,7 @@ EFGMITEMS["arc9_att_eft_silencer_illusion"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_osprey9"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_osprey9"] = {
 	["fullName"] = "SilencerCo Osprey 9 9x19 sound suppressor",
 	["displayName"] = "Osprey 9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37048,7 +37048,7 @@ EFGMITEMS["arc9_att_eft_silencer_osprey9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_r43_556"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_r43_556"] = {
 	["fullName"] = "Rotor 43 5.56x45 muzzle brake-compensator",
 	["displayName"] = "R43 556",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37068,7 +37068,7 @@ EFGMITEMS["arc9_att_eft_silencer_r43_556"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_r43_9x19"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_r43_9x19"] = {
 	["fullName"] = "Rotor 43 9x19 muzzle brake-compensator",
 	["displayName"] = "R43 9x19",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37088,7 +37088,7 @@ EFGMITEMS["arc9_att_eft_silencer_r43_9x19"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_sdn6"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_sdn6"] = {
 	["fullName"] = "AAC 762-SDN-6 multi-caliber sound suppressor",
 	["displayName"] = "SDN-6",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37108,7 +37108,7 @@ EFGMITEMS["arc9_att_eft_silencer_sdn6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_sr1mp"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_sr1mp"] = {
 	["fullName"] = "SR-1MP 9x21 sound suppressor",
 	["displayName"] = "SR-1MP",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37128,7 +37128,7 @@ EFGMITEMS["arc9_att_eft_silencer_sr1mp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_srd9"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_srd9"] = {
 	["fullName"] = "SIG Sauer SRD9 9x19 sound suppressor",
 	["displayName"] = "SRD9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37148,7 +37148,7 @@ EFGMITEMS["arc9_att_eft_silencer_srd9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_thorpsr"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_thorpsr"] = {
 	["fullName"] = "AWC Thor PSR XL multi-caliber sound suppressor",
 	["displayName"] = "Thor PSR",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37168,7 +37168,7 @@ EFGMITEMS["arc9_att_eft_silencer_thorpsr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_ultra5"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_ultra5"] = {
 	["fullName"] = "Thunder Beast Arms Ultra 5 sound suppressor",
 	["displayName"] = "Ultra 5",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37188,7 +37188,7 @@ EFGMITEMS["arc9_att_eft_silencer_ultra5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_silencer_waveqd"] = {
+EFGM.ITEMS["arc9_att_eft_silencer_waveqd"] = {
 	["fullName"] = "Daniel Defense WAVE QD sound suppressor",
 	["displayName"] = "Wave QD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37208,7 +37208,7 @@ EFGMITEMS["arc9_att_eft_silencer_waveqd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_band"] = {
+EFGM.ITEMS["arc9_att_eft_sks_band"] = {
 	["fullName"] = "SKS upper band",
 	["displayName"] = "SKS UB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -37228,7 +37228,7 @@ EFGMITEMS["arc9_att_eft_sks_band"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_band_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_band_op"] = {
 	["fullName"] = "OP-SKS upper band",
 	["displayName"] = "OP-SKS UB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -37248,7 +37248,7 @@ EFGMITEMS["arc9_att_eft_sks_band_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_barrel_520"] = {
+EFGM.ITEMS["arc9_att_eft_sks_barrel_520"] = {
 	["fullName"] = "SKS 7.62x39 520mm barrel",
 	["displayName"] = "SKS 520mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -37268,7 +37268,7 @@ EFGMITEMS["arc9_att_eft_sks_barrel_520"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_barrel_520_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_barrel_520_op"] = {
 	["fullName"] = "OP-SKS 7.62x39 520mm barrel",
 	["displayName"] = "OP-SKS 520mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -37288,7 +37288,7 @@ EFGMITEMS["arc9_att_eft_sks_barrel_520_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_dovetail_choate"] = {
+EFGM.ITEMS["arc9_att_eft_sks_dovetail_choate"] = {
 	["fullName"] = "SKS CHOATE scope mount",
 	["displayName"] = "CHOATE",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -37308,7 +37308,7 @@ EFGMITEMS["arc9_att_eft_sks_dovetail_choate"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_dovetail_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_dovetail_op"] = {
 	["fullName"] = "OP-SKS dovetail mount",
 	["displayName"] = "OPSKS DT",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -37328,7 +37328,7 @@ EFGMITEMS["arc9_att_eft_sks_dovetail_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_dustcover"] = {
+EFGM.ITEMS["arc9_att_eft_sks_dustcover"] = {
 	["fullName"] = "SKS dust cover",
 	["displayName"] = "SKS DC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37348,7 +37348,7 @@ EFGMITEMS["arc9_att_eft_sks_dustcover"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_dustcover_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_dustcover_op"] = {
 	["fullName"] = "OP-SKS dust cover",
 	["displayName"] = "OP-SKS DC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37368,7 +37368,7 @@ EFGMITEMS["arc9_att_eft_sks_dustcover_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_dustcover_utg"] = {
+EFGM.ITEMS["arc9_att_eft_sks_dustcover_utg"] = {
 	["fullName"] = "SKS Leapers UTG PRO MTU017 receiver cover mount",
 	["displayName"] = "MTU017",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37388,7 +37388,7 @@ EFGMITEMS["arc9_att_eft_sks_dustcover_utg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_gastube"] = {
+EFGM.ITEMS["arc9_att_eft_sks_gastube"] = {
 	["fullName"] = "SKS gas tube",
 	["displayName"] = "SKS gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -37408,7 +37408,7 @@ EFGMITEMS["arc9_att_eft_sks_gastube"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_gastube_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_gastube_op"] = {
 	["fullName"] = "OP-SKS gas tube",
 	["displayName"] = "OP-SKS gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -37428,7 +37428,7 @@ EFGMITEMS["arc9_att_eft_sks_gastube_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_hg_fab"] = {
+EFGM.ITEMS["arc9_att_eft_sks_hg_fab"] = {
 	["fullName"] = "SKS FAB Defense UAS gas tube cover",
 	["displayName"] = "SKS UAS",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -37448,7 +37448,7 @@ EFGMITEMS["arc9_att_eft_sks_hg_fab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_hg_mc"] = {
+EFGM.ITEMS["arc9_att_eft_sks_hg_mc"] = {
 	["fullName"] = "SKS ATI Monte Carlo gas tube cover",
 	["displayName"] = "SKS MC",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -37468,7 +37468,7 @@ EFGMITEMS["arc9_att_eft_sks_hg_mc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_hg_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_hg_op"] = {
 	["fullName"] = "OP-SKS gas tube cover",
 	["displayName"] = "OP-SKS cover",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -37488,7 +37488,7 @@ EFGMITEMS["arc9_att_eft_sks_hg_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_sks_hg_std"] = {
 	["fullName"] = "SKS gas tube cover",
 	["displayName"] = "SKS cover",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -37508,7 +37508,7 @@ EFGMITEMS["arc9_att_eft_sks_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_hg_tapco"] = {
+EFGM.ITEMS["arc9_att_eft_sks_hg_tapco"] = {
 	["fullName"] = "SKS TAPCO railed gas tube cover",
 	["displayName"] = "SKS TAPCO",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -37528,7 +37528,7 @@ EFGMITEMS["arc9_att_eft_sks_hg_tapco"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_sks_mag_10"] = {
 	["fullName"] = "SKS 7.62x39 10-round internal box magazine",
 	["displayName"] = "SKS int.",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -37548,7 +37548,7 @@ EFGMITEMS["arc9_att_eft_sks_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_sks_mag_20"] = {
 	["fullName"] = "SKS 7.62x39 TAPCO 6610 20-round magazine",
 	["displayName"] = "6610 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -37568,7 +37568,7 @@ EFGMITEMS["arc9_att_eft_sks_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_mag_35"] = {
+EFGM.ITEMS["arc9_att_eft_sks_mag_35"] = {
 	["fullName"] = "SKS 7.62x39 ProMag AALVX 35-round magazine",
 	["displayName"] = "SKS AALVX 35",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -37588,7 +37588,7 @@ EFGMITEMS["arc9_att_eft_sks_mag_35"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_mag_75"] = {
+EFGM.ITEMS["arc9_att_eft_sks_mag_75"] = {
 	["fullName"] = "SKS 7.62x39 KCI 75-round drum magazine",
 	["displayName"] = "KCI SKS 75",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -37608,7 +37608,7 @@ EFGMITEMS["arc9_att_eft_sks_mag_75"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_mount_socom"] = {
+EFGM.ITEMS["arc9_att_eft_sks_mount_socom"] = {
 	["fullName"] = "SKS Leapers UTG SOCOM rail mount",
 	["displayName"] = "SKS SOCOM",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -37628,7 +37628,7 @@ EFGMITEMS["arc9_att_eft_sks_mount_socom"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_muzzle_hexa"] = {
+EFGM.ITEMS["arc9_att_eft_sks_muzzle_hexa"] = {
 	["fullName"] = "SKS Hexagon 7.62x39 sound suppressor",
 	["displayName"] = "Hexagon SKS",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37648,7 +37648,7 @@ EFGMITEMS["arc9_att_eft_sks_muzzle_hexa"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_muzzle_wt"] = {
+EFGM.ITEMS["arc9_att_eft_sks_muzzle_wt"] = {
 	["fullName"] = "SKS Weapon Tuning 7.62x39 thread adapter",
 	["displayName"] = "WT0032_1",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -37668,7 +37668,7 @@ EFGMITEMS["arc9_att_eft_sks_muzzle_wt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_op"] = {
 	["fullName"] = "Molot Arms Simonov OP-SKS",
 	["displayName"] = "OP-SKS",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37688,7 +37688,7 @@ EFGMITEMS["arc9_att_eft_sks_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_pgrip_fab"] = {
+EFGM.ITEMS["arc9_att_eft_sks_pgrip_fab"] = {
 	["fullName"] = "SKS/VZ-58 FAB Defense AG-58 pistol grip",
 	["displayName"] = "SKS AG-58",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -37708,7 +37708,7 @@ EFGMITEMS["arc9_att_eft_sks_pgrip_fab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_pgrip_tapco"] = {
+EFGM.ITEMS["arc9_att_eft_sks_pgrip_tapco"] = {
 	["fullName"] = "SKS TAPCO Intrafuse SAW-Style pistol grip",
 	["displayName"] = "SAW SKS",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -37728,7 +37728,7 @@ EFGMITEMS["arc9_att_eft_sks_pgrip_tapco"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_rearsight"] = {
+EFGM.ITEMS["arc9_att_eft_sks_rearsight"] = {
 	["fullName"] = "SKS rear sight",
 	["displayName"] = "SKS RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -37748,7 +37748,7 @@ EFGMITEMS["arc9_att_eft_sks_rearsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_fab"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_fab"] = {
 	["fullName"] = "SKS FAB Defense UAS chassis",
 	["displayName"] = "UAS SKS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -37768,7 +37768,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_fab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_fab_stock"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_fab_stock"] = {
 	["fullName"] = "SKS FAB Defense UAS buttstock",
 	["displayName"] = "UAS SKS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -37788,7 +37788,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_fab_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_mc"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_mc"] = {
 	["fullName"] = "SKS ATI Monte Carlo chassis",
 	["displayName"] = "SKS MC",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -37808,7 +37808,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_mc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_op"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_op"] = {
 	["fullName"] = "OP-SKS wooden stock",
 	["displayName"] = "OP-SKS Wood",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -37828,7 +37828,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_op"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_std"] = {
 	["fullName"] = "SKS TOZ wooden stock (56-A-231 Sb.5)",
 	["displayName"] = "56-A-231 Sb.5",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -37848,7 +37848,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_tapco"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_tapco"] = {
 	["fullName"] = "SKS TAPCO Intrafuse chassis",
 	["displayName"] = "TAPCO Intrafuse",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -37868,7 +37868,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_tapco"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_tapco_buffer"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_tapco_buffer"] = {
 	["fullName"] = "SKS TAPCO Intrafuse buffer tube",
 	["displayName"] = "SKS TAPCO",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -37888,7 +37888,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_tapco_buffer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sks_stock_tapco_mount"] = {
+EFGM.ITEMS["arc9_att_eft_sks_stock_tapco_mount"] = {
 	["fullName"] = "SKS TAPCO Intrafuse chassis lower rail",
 	["displayName"] = "TAPCO Intrafuse",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -37908,7 +37908,7 @@ EFGMITEMS["arc9_att_eft_sks_stock_tapco_mount"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_1911_m45"] = {
+EFGM.ITEMS["arc9_att_eft_slide_1911_m45"] = {
 	["fullName"] = "M45A1 pistol slide",
 	["displayName"] = "M45 std",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37928,7 +37928,7 @@ EFGMITEMS["arc9_att_eft_slide_1911_m45"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_1911_m45_blk"] = {
+EFGM.ITEMS["arc9_att_eft_slide_1911_m45_blk"] = {
 	["fullName"] = "M45A1 pistol slide black",
 	["displayName"] = "M45 blk",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37948,7 +37948,7 @@ EFGMITEMS["arc9_att_eft_slide_1911_m45_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_1911_std"] = {
+EFGM.ITEMS["arc9_att_eft_slide_1911_std"] = {
 	["fullName"] = "M1911A1 pistol slide",
 	["displayName"] = "1911 std",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37968,7 +37968,7 @@ EFGMITEMS["arc9_att_eft_slide_1911_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_deagle_l5_357"] = {
+EFGM.ITEMS["arc9_att_eft_slide_deagle_l5_357"] = {
 	["fullName"] = "Desert Eagle L5 .357 pistol slide",
 	["displayName"] = "L5 .357",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -37988,7 +37988,7 @@ EFGMITEMS["arc9_att_eft_slide_deagle_l5_357"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_deagle_l6"] = {
+EFGM.ITEMS["arc9_att_eft_slide_deagle_l6"] = {
 	["fullName"] = "Desert Eagle L6 pistol slide",
 	["displayName"] = "L6",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38008,7 +38008,7 @@ EFGMITEMS["arc9_att_eft_slide_deagle_l6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_deagle_l6_wts"] = {
+EFGM.ITEMS["arc9_att_eft_slide_deagle_l6_wts"] = {
 	["fullName"] = "Desert Eagle L6 pistol slide (WTS)",
 	["displayName"] = "L6 (WTS)",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38028,7 +38028,7 @@ EFGMITEMS["arc9_att_eft_slide_deagle_l6_wts"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_deagle_xix"] = {
+EFGM.ITEMS["arc9_att_eft_slide_deagle_xix"] = {
 	["fullName"] = "Desert Eagle Mk XIX pistol slide",
 	["displayName"] = "Mk XIX",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38048,7 +38048,7 @@ EFGMITEMS["arc9_att_eft_slide_deagle_xix"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_m9a3_std"] = {
+EFGM.ITEMS["arc9_att_eft_slide_m9a3_std"] = {
 	["fullName"] = "M9A3 9x19 pistol slide",
 	["displayName"] = "M9A3",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38068,7 +38068,7 @@ EFGMITEMS["arc9_att_eft_slide_m9a3_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_p226_axel"] = {
+EFGM.ITEMS["arc9_att_eft_slide_p226_axel"] = {
 	["fullName"] = "P226 Axelson Tactical MK25 pistol slide",
 	["displayName"] = "P226 Axelson",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38088,7 +38088,7 @@ EFGMITEMS["arc9_att_eft_slide_p226_axel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_p226_emp"] = {
+EFGM.ITEMS["arc9_att_eft_slide_p226_emp"] = {
 	["fullName"] = "P226 Emperor Scorpion pistol slide",
 	["displayName"] = "P226 Emperor",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38108,7 +38108,7 @@ EFGMITEMS["arc9_att_eft_slide_p226_emp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_p226_leg"] = {
+EFGM.ITEMS["arc9_att_eft_slide_p226_leg"] = {
 	["fullName"] = "P226 Legion full size pistol slide",
 	["displayName"] = "P226 Legion",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38128,7 +38128,7 @@ EFGMITEMS["arc9_att_eft_slide_p226_leg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_p226_stain"] = {
+EFGM.ITEMS["arc9_att_eft_slide_p226_stain"] = {
 	["fullName"] = "P226 Stainless Elite pistol slide",
 	["displayName"] = "P226 Stainless",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38148,7 +38148,7 @@ EFGMITEMS["arc9_att_eft_slide_p226_stain"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_p226_std"] = {
+EFGM.ITEMS["arc9_att_eft_slide_p226_std"] = {
 	["fullName"] = "P226R MK25 pistol slide",
 	["displayName"] = "P226 MK25",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38168,7 +38168,7 @@ EFGMITEMS["arc9_att_eft_slide_p226_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_pl15_std"] = {
+EFGM.ITEMS["arc9_att_eft_slide_pl15_std"] = {
 	["fullName"] = "PL-15 pistol slide",
 	["displayName"] = "PL-15",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38188,7 +38188,7 @@ EFGMITEMS["arc9_att_eft_slide_pl15_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_usp_elite"] = {
+EFGM.ITEMS["arc9_att_eft_slide_usp_elite"] = {
 	["fullName"] = "HK USP Elite .45 ACP pistol slide",
 	["displayName"] = "USP45EL",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38208,7 +38208,7 @@ EFGMITEMS["arc9_att_eft_slide_usp_elite"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_usp_expert"] = {
+EFGM.ITEMS["arc9_att_eft_slide_usp_expert"] = {
 	["fullName"] = "HK USP Expert .45 ACP pistol slide",
 	["displayName"] = "USP45EX",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38228,7 +38228,7 @@ EFGMITEMS["arc9_att_eft_slide_usp_expert"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_usp_match"] = {
+EFGM.ITEMS["arc9_att_eft_slide_usp_match"] = {
 	["fullName"] = "HK USP Match .45 ACP pistol slide",
 	["displayName"] = "USP45M",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38248,7 +38248,7 @@ EFGMITEMS["arc9_att_eft_slide_usp_match"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_usp_std"] = {
+EFGM.ITEMS["arc9_att_eft_slide_usp_std"] = {
 	["fullName"] = "HK USP .45 ACP pistol slide",
 	["displayName"] = "USP45",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38268,7 +38268,7 @@ EFGMITEMS["arc9_att_eft_slide_usp_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_slide_usp_tac"] = {
+EFGM.ITEMS["arc9_att_eft_slide_usp_tac"] = {
 	["fullName"] = "HK USP Match .45 ACP pistol slide",
 	["displayName"] = "USP45T",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38288,7 +38288,7 @@ EFGMITEMS["arc9_att_eft_slide_usp_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_barrel_330"] = {
+EFGM.ITEMS["arc9_att_eft_spear_barrel_330"] = {
 	["fullName"] = "MCX SPEAR 6.8x51 330mm barrel",
 	["displayName"] = "SPEAR 330mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -38308,7 +38308,7 @@ EFGMITEMS["arc9_att_eft_spear_barrel_330"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_buffertube_ct"] = {
+EFGM.ITEMS["arc9_att_eft_spear_buffertube_ct"] = {
 	["fullName"] = "MCX/MPX folding stock adapter buffer tube (Coyote Tan)",
 	["displayName"] = "MCX/MPX",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -38328,7 +38328,7 @@ EFGMITEMS["arc9_att_eft_spear_buffertube_ct"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_buffertube_ct_blk"] = {
+EFGM.ITEMS["arc9_att_eft_spear_buffertube_ct_blk"] = {
 	["fullName"] = "MCX/MPX folding stock adapter buffer tube (Black)",
 	["displayName"] = "MCX/MPX (B)",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -38348,7 +38348,7 @@ EFGMITEMS["arc9_att_eft_spear_buffertube_ct_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_charge_std"] = {
+EFGM.ITEMS["arc9_att_eft_spear_charge_std"] = {
 	["fullName"] = "MCX SPEAR charging handle",
 	["displayName"] = "SPEAR",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -38368,7 +38368,7 @@ EFGMITEMS["arc9_att_eft_spear_charge_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_spear_gas_std"] = {
 	["fullName"] = "MCX SPEAR Adjustable Gas Piston",
 	["displayName"] = "SPEAR gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -38388,7 +38388,7 @@ EFGMITEMS["arc9_att_eft_spear_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_spear_hg_std"] = {
 	["fullName"] = "MCX SPEAR 11 inch M-LOK handguard",
 	["displayName"] = 'SPEAR 11"',
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -38408,7 +38408,7 @@ EFGMITEMS["arc9_att_eft_spear_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_mz_std"] = {
+EFGM.ITEMS["arc9_att_eft_spear_mz_std"] = {
 	["fullName"] = "MCX SPEAR Clutch-Lok QD 6.8x51 Shouldered Flash Hider",
 	["displayName"] = "CLQD",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -38428,7 +38428,7 @@ EFGMITEMS["arc9_att_eft_spear_mz_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_silencer_std"] = {
+EFGM.ITEMS["arc9_att_eft_spear_silencer_std"] = {
 	["fullName"] = "MCX SPEAR SLX68-MG-QD 6.8x51 sound suppressor",
 	["displayName"] = "SLX68",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -38448,7 +38448,7 @@ EFGMITEMS["arc9_att_eft_spear_silencer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_spear_upper_std"] = {
+EFGM.ITEMS["arc9_att_eft_spear_upper_std"] = {
 	["fullName"] = "MCX SPEAR 6.8x51 upper receiver",
 	["displayName"] = "SPEAR 6.8",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38468,7 +38468,7 @@ EFGMITEMS["arc9_att_eft_spear_upper_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr25_barrel_406"] = {
+EFGM.ITEMS["arc9_att_eft_sr25_barrel_406"] = {
 	["fullName"] = "SR-25 7.62x51 16 inch barrel",
 	["displayName"] = 'SR-25 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -38488,7 +38488,7 @@ EFGMITEMS["arc9_att_eft_sr25_barrel_406"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr25_barrel_508"] = {
+EFGM.ITEMS["arc9_att_eft_sr25_barrel_508"] = {
 	["fullName"] = "SR-25 7.62x51 20 inch barrel",
 	["displayName"] = 'SR-25 20"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -38508,7 +38508,7 @@ EFGMITEMS["arc9_att_eft_sr25_barrel_508"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr25_upper_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr25_upper_std"] = {
 	["fullName"] = "SR-25 7.62x51 upper receiver",
 	["displayName"] = "SR-25",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38528,7 +38528,7 @@ EFGMITEMS["arc9_att_eft_sr25_upper_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_b17"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_b17"] = {
 	["fullName"] = "SR-2M Zenit B-17 mount",
 	["displayName"] = "B-17",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -38548,7 +38548,7 @@ EFGMITEMS["arc9_att_eft_sr2m_b17"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_handstop"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_handstop"] = {
 	["fullName"] = "SR-2M 9x21 hand stopper",
 	["displayName"] = "SR-2M",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -38568,7 +38568,7 @@ EFGMITEMS["arc9_att_eft_sr2m_handstop"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_hg_blk"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_hg_blk"] = {
 	["fullName"] = "SR-2M polymer handguard (Black)",
 	["displayName"] = "SR-2M (B)",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -38588,7 +38588,7 @@ EFGMITEMS["arc9_att_eft_sr2m_hg_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_hg_std"] = {
 	["fullName"] = "SR-2M polymer handguard",
 	["displayName"] = "SR-2M",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -38608,7 +38608,7 @@ EFGMITEMS["arc9_att_eft_sr2m_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_mag_20"] = {
 	["fullName"] = "SR-2M 9x21 20-round magazine",
 	["displayName"] = "SR-2M 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -38628,7 +38628,7 @@ EFGMITEMS["arc9_att_eft_sr2m_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_mag_30"] = {
 	["fullName"] = "SR-2M 9x21 30-round magazine",
 	["displayName"] = "SR-2M 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -38648,7 +38648,7 @@ EFGMITEMS["arc9_att_eft_sr2m_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_optic"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_optic"] = {
 	["fullName"] = "SR-2M KP-SR2 reflex sight",
 	["displayName"] = "KP-SR2",
 	["displayType"] = DISPLAYTYPE.OPTIC,
@@ -38668,7 +38668,7 @@ EFGMITEMS["arc9_att_eft_sr2m_optic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_optic_shade"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_optic_shade"] = {
 	["fullName"] = "KP-SR2 sight shade",
 	["displayName"] = "KP-SR2",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -38688,7 +38688,7 @@ EFGMITEMS["arc9_att_eft_sr2m_optic_shade"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_pg_blk"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_pg_blk"] = {
 	["fullName"] = "SR-2M pistol grip (Black)",
 	["displayName"] = "SR-2M (B)",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -38708,7 +38708,7 @@ EFGMITEMS["arc9_att_eft_sr2m_pg_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_pg_std"] = {
 	["fullName"] = "SR-2M pistol grip",
 	["displayName"] = "SR-2M",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -38728,7 +38728,7 @@ EFGMITEMS["arc9_att_eft_sr2m_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_rail_big"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_rail_big"] = {
 	["fullName"] = "SR-2M side rail",
 	["displayName"] = "SR-2M",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -38748,7 +38748,7 @@ EFGMITEMS["arc9_att_eft_sr2m_rail_big"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_rail_short"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_rail_short"] = {
 	["fullName"] = "SR-2M short side rail",
 	["displayName"] = "SR-2M short.",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -38768,7 +38768,7 @@ EFGMITEMS["arc9_att_eft_sr2m_rail_short"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_rec_std"] = {
 	["fullName"] = "SR-2M dust cover",
 	["displayName"] = "SR-2M",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -38788,7 +38788,7 @@ EFGMITEMS["arc9_att_eft_sr2m_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_silencer"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_silencer"] = {
 	["fullName"] = "SR-2M 9x21 sound suppressor (SV-1381)",
 	["displayName"] = "SV-1381",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -38808,7 +38808,7 @@ EFGMITEMS["arc9_att_eft_sr2m_silencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_stock_mp"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_stock_mp"] = {
 	["fullName"] = "SR-2MP folding stock",
 	["displayName"] = "SR-2MP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -38828,7 +38828,7 @@ EFGMITEMS["arc9_att_eft_sr2m_stock_mp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr2m_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr2m_stock_std"] = {
 	["fullName"] = "SR-2M folding stock",
 	["displayName"] = "SR-2M",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -38848,7 +38848,7 @@ EFGMITEMS["arc9_att_eft_sr2m_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_fg_black"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_fg_black"] = {
 	["fullName"] = "SR-3M polymer foregrip (Black)",
 	["displayName"] = "SR-3M",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -38868,7 +38868,7 @@ EFGMITEMS["arc9_att_eft_sr3_fg_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_fg_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_fg_std"] = {
 	["fullName"] = "SR-3M polymer foregrip (Plum)",
 	["displayName"] = "SR-3M",
 	["displayType"] = DISPLAYTYPE.FOREGRIP,
@@ -38888,7 +38888,7 @@ EFGMITEMS["arc9_att_eft_sr3_fg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_hg_black"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_hg_black"] = {
 	["fullName"] = "SR-3M polymer handguard (Black)",
 	["displayName"] = "SR-3M",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -38908,7 +38908,7 @@ EFGMITEMS["arc9_att_eft_sr3_hg_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_hg_rail"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_hg_rail"] = {
 	["fullName"] = "SR-3M railed polymer handguard (Black)",
 	["displayName"] = "SR-3M rail",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -38928,7 +38928,7 @@ EFGMITEMS["arc9_att_eft_sr3_hg_rail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_hg_std"] = {
 	["fullName"] = "SR-3M polymer handguard (Plum)",
 	["displayName"] = "SR-3M",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -38948,7 +38948,7 @@ EFGMITEMS["arc9_att_eft_sr3_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_mount_hg"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_mount_hg"] = {
 	["fullName"] = "SR-3MP side rails (Black)",
 	["displayName"] = "SR-3MP side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -38968,7 +38968,7 @@ EFGMITEMS["arc9_att_eft_sr3_mount_hg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_mount_hgp"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_mount_hgp"] = {
 	["fullName"] = "SR-3MP side rails (Plum)",
 	["displayName"] = "SR-3MP side",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -38988,7 +38988,7 @@ EFGMITEMS["arc9_att_eft_sr3_mount_hgp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sr3_supp"] = {
+EFGM.ITEMS["arc9_att_eft_sr3_supp"] = {
 	["fullName"] = "SR-3M 9x39 sound suppressor",
 	["displayName"] = "SR-3ML",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -39008,7 +39008,7 @@ EFGMITEMS["arc9_att_eft_sr3_supp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stm9_barrel_105"] = {
+EFGM.ITEMS["arc9_att_eft_stm9_barrel_105"] = {
 	["fullName"] = "STM-9 9x19 10.5 inch barrel",
 	["displayName"] = 'STM-9 10.5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -39028,7 +39028,7 @@ EFGMITEMS["arc9_att_eft_stm9_barrel_105"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stm9_barrel_12"] = {
+EFGM.ITEMS["arc9_att_eft_stm9_barrel_12"] = {
 	["fullName"] = "STM-9 9x19 12 inch barrel",
 	["displayName"] = 'STM-9 12"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -39048,7 +39048,7 @@ EFGMITEMS["arc9_att_eft_stm9_barrel_12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stm9_barrel_14"] = {
+EFGM.ITEMS["arc9_att_eft_stm9_barrel_14"] = {
 	["fullName"] = "STM-9 9x19 14 inch barrel",
 	["displayName"] = 'STM-9 14"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -39068,7 +39068,7 @@ EFGMITEMS["arc9_att_eft_stm9_barrel_14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stm9_barrel_16"] = {
+EFGM.ITEMS["arc9_att_eft_stm9_barrel_16"] = {
 	["fullName"] = "STM-9 9x19 16 inch barrel",
 	["displayName"] = 'STM-9 16"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -39088,7 +39088,7 @@ EFGMITEMS["arc9_att_eft_stm9_barrel_16"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stm9_magwel"] = {
+EFGM.ITEMS["arc9_att_eft_stm9_magwel"] = {
 	["fullName"] = "STM-9 magwell",
 	["displayName"] = "STM-9 magwell",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -39108,7 +39108,7 @@ EFGMITEMS["arc9_att_eft_stm9_magwel"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stm9_magwelg"] = {
+EFGM.ITEMS["arc9_att_eft_stm9_magwelg"] = {
 	["fullName"] = "STM-9 magwell (Grey)",
 	["displayName"] = "STM-9 magwell",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -39128,7 +39128,7 @@ EFGMITEMS["arc9_att_eft_stm9_magwelg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak100_skelet"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak100_skelet"] = {
 	["fullName"] = "AK 100-series metal skeletonized stock",
 	["displayName"] = "AK 100",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39148,7 +39148,7 @@ EFGMITEMS["arc9_att_eft_stock_ak100_skelet"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak74_polymer"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak74_polymer"] = {
 	["fullName"] = "AK-74 polymer stock (6P20 Sb.7)",
 	["displayName"] = "6P20 Sb.7",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39168,7 +39168,7 @@ EFGMITEMS["arc9_att_eft_stock_ak74_polymer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak74_polymer_plum"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak74_polymer_plum"] = {
 	["fullName"] = 'AK-74 "Plum" polymer stock (6P20 Sb.7)',
 	["displayName"] = "6P20 Sb.7",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39188,7 +39188,7 @@ EFGMITEMS["arc9_att_eft_stock_ak74_polymer_plum"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak74_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak74_std"] = {
 	["fullName"] = "AK-74 wooden stock (6P20 Sb.5)",
 	["displayName"] = "6P20 Sb.5",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39208,7 +39208,7 @@ EFGMITEMS["arc9_att_eft_stock_ak74_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak74m_caa_akts"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak74m_caa_akts"] = {
 	["fullName"] = "AK-74M CAA AKTS AK74 buffer tube",
 	["displayName"] = "CAA AKTS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39228,7 +39228,7 @@ EFGMITEMS["arc9_att_eft_stock_ak74m_caa_akts"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak74m_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak74m_std"] = {
 	["fullName"] = "AK-74M polymer stock (6P34 Sb.15)",
 	["displayName"] = "6P34 Sb.15",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39248,7 +39248,7 @@ EFGMITEMS["arc9_att_eft_stock_ak74m_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak74m_zenit_lock"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak74m_zenit_lock"] = {
 	["fullName"] = "AK-74M/AK-100 Zenit PT Lock",
 	["displayName"] = "PT Lock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39268,7 +39268,7 @@ EFGMITEMS["arc9_att_eft_stock_ak74m_zenit_lock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak_aktom4"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak_aktom4"] = {
 	["fullName"] = "AKM/AK-74 RD AK to M4 buffer tube adapter",
 	["displayName"] = "AKtoM4",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39288,7 +39288,7 @@ EFGMITEMS["arc9_att_eft_stock_ak_aktom4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak_evo"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak_evo"] = {
 	["fullName"] = "AK AK-EVO stock",
 	["displayName"] = "AK-EVO",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39308,7 +39308,7 @@ EFGMITEMS["arc9_att_eft_stock_ak_evo"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak_pad"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak_pad"] = {
 	["fullName"] = "AK GP-25 accessory kit recoil pad",
 	["displayName"] = "GP-25",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39328,7 +39328,7 @@ EFGMITEMS["arc9_att_eft_stock_ak_pad"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak_pad_stef"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak_pad_stef"] = {
 	["fullName"] = "AK Custom Arms ST-EF 74 skeleton stock extension",
 	["displayName"] = "ST-EF",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39348,7 +39348,7 @@ EFGMITEMS["arc9_att_eft_stock_ak_pad_stef"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ak_skelet_cust"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ak_skelet_cust"] = {
 	["fullName"] = "AK skeletonized stock (Customized)",
 	["displayName"] = "Med Stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39368,7 +39368,7 @@ EFGMITEMS["arc9_att_eft_stock_ak_skelet_cust"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_aa47"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_aa47"] = {
 	["fullName"] = "AKM/AK-74 ProMag Archangel OPFOR AA47 buttstock",
 	["displayName"] = "OPFOR AA47",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39388,7 +39388,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_aa47"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_akts"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_akts"] = {
 	["fullName"] = "AKM/AK-74 CAA AKTS AK buffer tube",
 	["displayName"] = "AKTS AK",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39408,7 +39408,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_akts"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_fabd_uas"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_fabd_uas"] = {
 	["fullName"] = "AKM/AK-74 FAB Defense UAS stock",
 	["displayName"] = "UAS AK",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39428,7 +39428,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_fabd_uas"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_kocherga"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_kocherga"] = {
 	["fullName"] = 'AKM/AK-74 Hexagon "Kocherga" stock (Anodized Red)',
 	["displayName"] = "Kocherga AR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39448,7 +39448,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_kocherga"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_kocherga_blk"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_kocherga_blk"] = {
 	["fullName"] = 'AKM/AK-74 Hexagon "Kocherga" stock (Black)',
 	["displayName"] = "Kocherga BLK",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39468,7 +39468,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_kocherga_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_me4"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_me4"] = {
 	["fullName"] = "AKM/AK-74 ME4 buffer tube adapter",
 	["displayName"] = "ME4",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39488,7 +39488,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_me4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_pt_lock"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_pt_lock"] = {
 	["fullName"] = "AKM/AK-74 Zenit PT Lock",
 	["displayName"] = "PT AKM",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39508,7 +39508,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_pt_lock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_std"] = {
 	["fullName"] = "AKM wooden stock (6P1 Sb.5)",
 	["displayName"] = "6P1 Sb.5",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39528,7 +39528,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akm_zhu_s"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akm_zhu_s"] = {
 	["fullName"] = "AKM/AK-74 Magpul Zhukov-S stock",
 	["displayName"] = "Zhukov-S",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39548,7 +39548,7 @@ EFGMITEMS["arc9_att_eft_stock_akm_zhu_s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akms"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akms"] = {
 	["fullName"] = "AKMS shoulder piece",
 	["displayName"] = "6P4 Sb.1-19",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39568,7 +39568,7 @@ EFGMITEMS["arc9_att_eft_stock_akms"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akms_fab"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akms_fab"] = {
 	["fullName"] = "AKMS FAB Defense M4-AKMS P stock adapter",
 	["displayName"] = "FAB AKMS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39588,7 +39588,7 @@ EFGMITEMS["arc9_att_eft_stock_akms_fab"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_akmsn"] = {
+EFGM.ITEMS["arc9_att_eft_stock_akmsn"] = {
 	["fullName"] = "AKMSN shoulder piece",
 	["displayName"] = "6P4N Sb.1-19",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39608,7 +39608,7 @@ EFGMITEMS["arc9_att_eft_stock_akmsn"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_aks74_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_aks74_std"] = {
 	["fullName"] = "AKS-74 metal skeleton stock",
 	["displayName"] = "6P21 Sb.5",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39628,7 +39628,7 @@ EFGMITEMS["arc9_att_eft_stock_aks74_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_aks_zenit_lock"] = {
+EFGM.ITEMS["arc9_att_eft_stock_aks_zenit_lock"] = {
 	["fullName"] = "AKS-74/AKS-74U Zenit PT Lock",
 	["displayName"] = "PT Lock 74S",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39648,7 +39648,7 @@ EFGMITEMS["arc9_att_eft_stock_aks_zenit_lock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_g17_glr17"] = {
+EFGM.ITEMS["arc9_att_eft_stock_g17_glr17"] = {
 	["fullName"] = "Glock FAB Defense GLR-17 stock",
 	["displayName"] = "GLR-17",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39668,7 +39668,7 @@ EFGMITEMS["arc9_att_eft_stock_g17_glr17"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_pkm_pl"] = {
+EFGM.ITEMS["arc9_att_eft_stock_pkm_pl"] = {
 	["fullName"] = "PKP polymer stock",
 	["displayName"] = "PKP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39688,7 +39688,7 @@ EFGMITEMS["arc9_att_eft_stock_pkm_pl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_pkm_wood"] = {
+EFGM.ITEMS["arc9_att_eft_stock_pkm_wood"] = {
 	["fullName"] = "PKM wooden stock",
 	["displayName"] = "PKM",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39708,7 +39708,7 @@ EFGMITEMS["arc9_att_eft_stock_pkm_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_pkm_zenit"] = {
+EFGM.ITEMS["arc9_att_eft_stock_pkm_zenit"] = {
 	["fullName"] = 'PK Zenit PT-2 "Klassika" stock',
 	["displayName"] = "PT-2",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39728,7 +39728,7 @@ EFGMITEMS["arc9_att_eft_stock_pkm_zenit"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_toz106_full"] = {
+EFGM.ITEMS["arc9_att_eft_stock_toz106_full"] = {
 	["fullName"] = "MTs 20-01 stock",
 	["displayName"] = "MTs 20-01",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39748,7 +39748,7 @@ EFGMITEMS["arc9_att_eft_stock_toz106_full"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_toz106_gpcp"] = {
+EFGM.ITEMS["arc9_att_eft_stock_toz106_gpcp"] = {
 	["fullName"] = "TOZ-106 FAB Defense GPCP cheek rest",
 	["displayName"] = "GPCP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39768,7 +39768,7 @@ EFGMITEMS["arc9_att_eft_stock_toz106_gpcp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_toz106_mosin"] = {
+EFGM.ITEMS["arc9_att_eft_stock_toz106_mosin"] = {
 	["fullName"] = "TOZ-106 custom cut Mosin stock",
 	["displayName"] = "TOZ106 Mosin",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39788,7 +39788,7 @@ EFGMITEMS["arc9_att_eft_stock_toz106_mosin"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_toz106_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_toz106_std"] = {
 	["fullName"] = "TOZ-106 stock",
 	["displayName"] = "TOZ106",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39808,7 +39808,7 @@ EFGMITEMS["arc9_att_eft_stock_toz106_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_ump_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_ump_std"] = {
 	["fullName"] = "HK UMP polymer stock",
 	["displayName"] = "UMP",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39828,7 +39828,7 @@ EFGMITEMS["arc9_att_eft_stock_ump_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_vector_adap"] = {
+EFGM.ITEMS["arc9_att_eft_stock_vector_adap"] = {
 	["fullName"] = "KRISS Vector non-folding stock adapter",
 	["displayName"] = "Vector adap.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39848,7 +39848,7 @@ EFGMITEMS["arc9_att_eft_stock_vector_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_vector_cap"] = {
+EFGM.ITEMS["arc9_att_eft_stock_vector_cap"] = {
 	["fullName"] = "KRISS Vector Pistol Sling adapter",
 	["displayName"] = "Vector Sling",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39868,7 +39868,7 @@ EFGMITEMS["arc9_att_eft_stock_vector_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_vector_std"] = {
+EFGM.ITEMS["arc9_att_eft_stock_vector_std"] = {
 	["fullName"] = "KRISS Vector Gen.2 folding stock",
 	["displayName"] = "Vector stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39888,7 +39888,7 @@ EFGMITEMS["arc9_att_eft_stock_vector_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_vpo136"] = {
+EFGM.ITEMS["arc9_att_eft_stock_vpo136"] = {
 	["fullName"] = 'VPO-136 "Vepr-KM" wooden stock',
 	["displayName"] = "VPO136",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39908,7 +39908,7 @@ EFGMITEMS["arc9_att_eft_stock_vpo136"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_vpo209"] = {
+EFGM.ITEMS["arc9_att_eft_stock_vpo209"] = {
 	["fullName"] = "VPO-209 wooden stock",
 	["displayName"] = "VPO209",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39928,7 +39928,7 @@ EFGMITEMS["arc9_att_eft_stock_vpo209"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_zenit_pt1"] = {
+EFGM.ITEMS["arc9_att_eft_stock_zenit_pt1"] = {
 	["fullName"] = 'AK Zenit PT-1 "Klassika" stock',
 	["displayName"] = "PT-1 Klassika",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39948,7 +39948,7 @@ EFGMITEMS["arc9_att_eft_stock_zenit_pt1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_stock_zenit_pt3"] = {
+EFGM.ITEMS["arc9_att_eft_stock_zenit_pt3"] = {
 	["fullName"] = 'AK Zenit PT-3 "Klassika" stock',
 	["displayName"] = "PT-3 Klassika",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -39968,7 +39968,7 @@ EFGMITEMS["arc9_att_eft_stock_zenit_pt3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_bipodd"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_bipodd"] = {
 	["fullName"] = "SV-98 bipod",
 	["displayName"] = "SV-98 bipod",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -39988,7 +39988,7 @@ EFGMITEMS["arc9_att_eft_sv98_bipodd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_chassis_cnc"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_chassis_cnc"] = {
 	["fullName"] = "SV-98 CNC Guns OV-SV98 chassis",
 	["displayName"] = "OV-SV98",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -40008,7 +40008,7 @@ EFGMITEMS["arc9_att_eft_sv98_chassis_cnc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_chassis_wood"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_chassis_wood"] = {
 	["fullName"] = "SV-98 wooden stock",
 	["displayName"] = "SV-98",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -40028,7 +40028,7 @@ EFGMITEMS["arc9_att_eft_sv98_chassis_wood"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_chassis_wood_blk"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_chassis_wood_blk"] = {
 	["fullName"] = "SV-98 wooden stock",
 	["displayName"] = "SV-98",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -40048,7 +40048,7 @@ EFGMITEMS["arc9_att_eft_sv98_chassis_wood_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_cnc_hg"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_cnc_hg"] = {
 	["fullName"] = "SV-98 CNC Guns OV-SV98 KeyMod handguard",
 	["displayName"] = "OV-SV98",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -40068,7 +40068,7 @@ EFGMITEMS["arc9_att_eft_sv98_cnc_hg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_m12"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_m12"] = {
 	["fullName"] = "CNC Guns OV-SV98 M12B stock",
 	["displayName"] = "M12B",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -40088,7 +40088,7 @@ EFGMITEMS["arc9_att_eft_sv98_m12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_mag_10"] = {
 	["fullName"] = "SV-98 7.62x54R 10-round magazine",
 	["displayName"] = "SV-98 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -40108,7 +40108,7 @@ EFGMITEMS["arc9_att_eft_sv98_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_muzzle_sil"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_muzzle_sil"] = {
 	["fullName"] = "SV-98 7.62x54R sound suppressor",
 	["displayName"] = "SV-98",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -40128,7 +40128,7 @@ EFGMITEMS["arc9_att_eft_sv98_muzzle_sil"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_muzzle_srvv"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_muzzle_srvv"] = {
 	["fullName"] = "SV-98 SRVV Mk.2.0 7.62x54R muzzle brake-compensator",
 	["displayName"] = "SRVV Mk.2.0",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -40148,7 +40148,7 @@ EFGMITEMS["arc9_att_eft_sv98_muzzle_srvv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_muzzle_std"] = {
 	["fullName"] = "SV-98 7.62x54R muzzle device",
 	["displayName"] = "SV-98 Muzzle",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -40168,7 +40168,7 @@ EFGMITEMS["arc9_att_eft_sv98_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_muzzle_thr"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_muzzle_thr"] = {
 	["fullName"] = "SV-98 7.62x54R thread adapter",
 	["displayName"] = "SV-98 thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -40188,7 +40188,7 @@ EFGMITEMS["arc9_att_eft_sv98_muzzle_thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_ribooon"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_ribooon"] = {
 	["fullName"] = "SV-98 anti-heat ribbon",
 	["displayName"] = "SV-98",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -40208,7 +40208,7 @@ EFGMITEMS["arc9_att_eft_sv98_ribooon"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_rss"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_rss"] = {
 	["fullName"] = "SV-98 rear sight",
 	["displayName"] = "SV-98 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -40228,7 +40228,7 @@ EFGMITEMS["arc9_att_eft_sv98_rss"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_sv98_sil_cover"] = {
+EFGM.ITEMS["arc9_att_eft_sv98_sil_cover"] = {
 	["fullName"] = "SV-98 sound suppressor heat shield",
 	["displayName"] = "Heat Shield",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -40248,7 +40248,7 @@ EFGMITEMS["arc9_att_eft_sv98_sil_cover"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_barrel_mount_drg"] = {
+EFGM.ITEMS["arc9_att_eft_svds_barrel_mount_drg"] = {
 	["fullName"] = "SVD CAA DRG L-1 barrel mount rail",
 	["displayName"] = "DRG L-1",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40268,7 +40268,7 @@ EFGMITEMS["arc9_att_eft_svds_barrel_mount_drg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_barrel_std"] = {
 	["fullName"] = "SVDS 7.62x54R 22 inch barrel",
 	["displayName"] = 'SVDS 22"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -40288,7 +40288,7 @@ EFGMITEMS["arc9_att_eft_svds_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_fs_std"] = {
 	["fullName"] = "SVDS front sight",
 	["displayName"] = "SVDS FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -40308,7 +40308,7 @@ EFGMITEMS["arc9_att_eft_svds_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_gas_std"] = {
 	["fullName"] = "SVDS gas tube",
 	["displayName"] = "SVDS gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -40328,7 +40328,7 @@ EFGMITEMS["arc9_att_eft_svds_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_svds_mag_10"] = {
 	["fullName"] = "SVD 7.62x54R 10-round magazine",
 	["displayName"] = "SVD 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -40348,7 +40348,7 @@ EFGMITEMS["arc9_att_eft_svds_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_svds_mag_20"] = {
 	["fullName"] = "SVD 7.62x54R 20-round magazine",
 	["displayName"] = "SVD 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -40368,7 +40368,7 @@ EFGMITEMS["arc9_att_eft_svds_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_pgrip_adap"] = {
+EFGM.ITEMS["arc9_att_eft_svds_pgrip_adap"] = {
 	["fullName"] = "SVDS Lynx Arms AK-series pistol grip adapter",
 	["displayName"] = "Lynx",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -40388,7 +40388,7 @@ EFGMITEMS["arc9_att_eft_svds_pgrip_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_pgrip_std"] = {
 	["fullName"] = "SVDS pistol grip",
 	["displayName"] = "SVDS",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -40408,7 +40408,7 @@ EFGMITEMS["arc9_att_eft_svds_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_rec_cut"] = {
+EFGM.ITEMS["arc9_att_eft_svds_rec_cut"] = {
 	["fullName"] = "SVDS custom cut dust cover",
 	["displayName"] = "SVDS CDC",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -40428,7 +40428,7 @@ EFGMITEMS["arc9_att_eft_svds_rec_cut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_rec_std"] = {
 	["fullName"] = "SVDS dust cover",
 	["displayName"] = "SVDS",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -40448,7 +40448,7 @@ EFGMITEMS["arc9_att_eft_svds_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_rs_std"] = {
 	["fullName"] = "SVDS rear sight",
 	["displayName"] = "SVDS RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -40468,7 +40468,7 @@ EFGMITEMS["arc9_att_eft_svds_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_stock_adap"] = {
+EFGM.ITEMS["arc9_att_eft_svds_stock_adap"] = {
 	["fullName"] = "SVDS Lynx Arms Hinge buffer tube adapter",
 	["displayName"] = "SVDS adpt.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -40488,7 +40488,7 @@ EFGMITEMS["arc9_att_eft_svds_stock_adap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svds_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_svds_stock_std"] = {
 	["fullName"] = "SVDS polymer stock",
 	["displayName"] = "SVDS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -40508,7 +40508,7 @@ EFGMITEMS["arc9_att_eft_svds_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_barrel_625"] = {
+EFGM.ITEMS["arc9_att_eft_svt_barrel_625"] = {
 	["fullName"] = "SVT-40 7.62x54R 625mm barrel",
 	["displayName"] = "SVT 625mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -40528,7 +40528,7 @@ EFGMITEMS["arc9_att_eft_svt_barrel_625"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_dust"] = {
+EFGM.ITEMS["arc9_att_eft_svt_dust"] = {
 	["fullName"] = "SVT dust cover",
 	["displayName"] = "SVT",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -40548,7 +40548,7 @@ EFGMITEMS["arc9_att_eft_svt_dust"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_frontsight"] = {
+EFGM.ITEMS["arc9_att_eft_svt_frontsight"] = {
 	["fullName"] = "SVT-40 front sight",
 	["displayName"] = "SVT RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -40568,7 +40568,7 @@ EFGMITEMS["arc9_att_eft_svt_frontsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_svt_mag_10"] = {
 	["fullName"] = "SVT-40 7.62x54R 10-round magazine",
 	["displayName"] = "SVT 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -40588,7 +40588,7 @@ EFGMITEMS["arc9_att_eft_svt_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_mag_15"] = {
+EFGM.ITEMS["arc9_att_eft_svt_mag_15"] = {
 	["fullName"] = "AVT-40 7.62x54R 15-round magazine",
 	["displayName"] = "AVT 15",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -40608,7 +40608,7 @@ EFGMITEMS["arc9_att_eft_svt_mag_15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_muzzle"] = {
+EFGM.ITEMS["arc9_att_eft_svt_muzzle"] = {
 	["fullName"] = "SVT-40 7.62x54R muzzle brake",
 	["displayName"] = "SVT",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -40628,7 +40628,7 @@ EFGMITEMS["arc9_att_eft_svt_muzzle"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_rearsight"] = {
+EFGM.ITEMS["arc9_att_eft_svt_rearsight"] = {
 	["fullName"] = "SVT-40 rear sight",
 	["displayName"] = "SVT RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -40648,7 +40648,7 @@ EFGMITEMS["arc9_att_eft_svt_rearsight"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_stock_avt"] = {
+EFGM.ITEMS["arc9_att_eft_svt_stock_avt"] = {
 	["fullName"] = "AVT-40 wooden stock",
 	["displayName"] = "AVT wood",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -40668,7 +40668,7 @@ EFGMITEMS["arc9_att_eft_svt_stock_avt"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_svt_tokarev"] = {
+EFGM.ITEMS["arc9_att_eft_svt_tokarev"] = {
 	["fullName"] = "SVT-40 Tokarev PU mount",
 	["displayName"] = "Tokarev",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40688,7 +40688,7 @@ EFGMITEMS["arc9_att_eft_svt_tokarev"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_barrel_std"] = {
 	["fullName"] = "ORSIS T-5000M 7.62x51 660mm barrel",
 	["displayName"] = "T-5000 barrel",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -40708,7 +40708,7 @@ EFGMITEMS["arc9_att_eft_t5000_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_chassis_std"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_chassis_std"] = {
 	["fullName"] = "ORSIS T-5000M aluminium body",
 	["displayName"] = "T-5000 body",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -40728,7 +40728,7 @@ EFGMITEMS["arc9_att_eft_t5000_chassis_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_hg2_std"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_hg2_std"] = {
 	["fullName"] = "ORSIS T-5000M padded handguard grip",
 	["displayName"] = "T-5000 pad",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -40748,7 +40748,7 @@ EFGMITEMS["arc9_att_eft_t5000_hg2_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_hg_std"] = {
 	["fullName"] = "ORSIS T-5000M handguard",
 	["displayName"] = "T-5000 hg",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -40768,7 +40768,7 @@ EFGMITEMS["arc9_att_eft_t5000_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_mag_5"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_mag_5"] = {
 	["fullName"] = "ORSIS T-5000M 7.62x51 5-round magazine",
 	["displayName"] = "T-5000 5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -40788,7 +40788,7 @@ EFGMITEMS["arc9_att_eft_t5000_mag_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_muzzle_brake"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_muzzle_brake"] = {
 	["fullName"] = "ORSIS T-5000M 7.62x51 muzzle brake-compensator",
 	["displayName"] = "T-5000 brake",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -40808,7 +40808,7 @@ EFGMITEMS["arc9_att_eft_t5000_muzzle_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_pg_std"] = {
 	["fullName"] = "ORSIS T-5000M pistol grip",
 	["displayName"] = "T-5000 grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -40828,7 +40828,7 @@ EFGMITEMS["arc9_att_eft_t5000_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_rail_long"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_rail_long"] = {
 	["fullName"] = "ORSIS T-5000M long length rail",
 	["displayName"] = "T-5000 long",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40848,7 +40848,7 @@ EFGMITEMS["arc9_att_eft_t5000_rail_long"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_rail_medium"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_rail_medium"] = {
 	["fullName"] = "ORSIS T-5000M medium length rail",
 	["displayName"] = "T-5000 medium",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40868,7 +40868,7 @@ EFGMITEMS["arc9_att_eft_t5000_rail_medium"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_rail_optic"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_rail_optic"] = {
 	["fullName"] = "ORSIS T-5000M scope mount",
 	["displayName"] = "T-5000 mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40888,7 +40888,7 @@ EFGMITEMS["arc9_att_eft_t5000_rail_optic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_t5000_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_t5000_stock_std"] = {
 	["fullName"] = "ORSIS T-5000M stock",
 	["displayName"] = "T-5000 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -40908,7 +40908,7 @@ EFGMITEMS["arc9_att_eft_t5000_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tac_g17_tangodown"] = {
+EFGM.ITEMS["arc9_att_eft_tac_g17_tangodown"] = {
 	["fullName"] = "Glock TangoDown AAM-01 ACRO mount base",
 	["displayName"] = "G TD",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40928,7 +40928,7 @@ EFGMITEMS["arc9_att_eft_tac_g17_tangodown"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tac_g17_zt_cap"] = {
+EFGM.ITEMS["arc9_att_eft_tac_g17_zt_cap"] = {
 	["fullName"] = "Glock ZEV Tech sight mount cap",
 	["displayName"] = "G ZT cap",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -40948,7 +40948,7 @@ EFGMITEMS["arc9_att_eft_tac_g17_zt_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_2d"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_2d"] = {
 	["fullName"] = "Zenit 2D flashlight",
 	["displayName"] = "2D",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -40968,7 +40968,7 @@ EFGMITEMS["arc9_att_eft_tactical_2d"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_baldrpro"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_baldrpro"] = {
 	["fullName"] = "Olight Baldr Pro tactical flashlight with laser",
 	["displayName"] = "BaldrPro",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -40988,7 +40988,7 @@ EFGMITEMS["arc9_att_eft_tactical_baldrpro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_baldrpro_tan"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_baldrpro_tan"] = {
 	["fullName"] = "Olight Baldr Pro tactical flashlight with laser (Tan)",
 	["displayName"] = "BaldrPro",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41008,7 +41008,7 @@ EFGMITEMS["arc9_att_eft_tactical_baldrpro_tan"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_dbal_pl"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_dbal_pl"] = {
 	["fullName"] = "Steiner DBAL-PL tactical flashlight with laser",
 	["displayName"] = "DBAL-PL",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41028,7 +41028,7 @@ EFGMITEMS["arc9_att_eft_tactical_dbal_pl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_gtl21"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_gtl21"] = {
 	["fullName"] = "Glock GTL 21 tactical flashlight with laser",
 	["displayName"] = "GTL 21",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41048,7 +41048,7 @@ EFGMITEMS["arc9_att_eft_tactical_gtl21"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_k2p"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_k2p"] = {
 	["fullName"] = "Zenit Klesch-2P flashlight with laser",
 	["displayName"] = "Klesch-2P",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41068,7 +41068,7 @@ EFGMITEMS["arc9_att_eft_tactical_k2p"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_k2u"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_k2u"] = {
 	["fullName"] = "Zenit Klesch-2U tactical flashlight",
 	["displayName"] = "Klesch-2U",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41088,7 +41088,7 @@ EFGMITEMS["arc9_att_eft_tactical_k2u"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_la5b"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_la5b"] = {
 	["fullName"] = "LA-5B/PEQ tactical device",
 	["displayName"] = "LA-5B/PEQ",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41108,7 +41108,7 @@ EFGMITEMS["arc9_att_eft_tactical_la5b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_la5b_blk"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_la5b_blk"] = {
 	["fullName"] = "LA-5B/PEQ tactical device",
 	["displayName"] = "LA-5B/PEQ",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41128,7 +41128,7 @@ EFGMITEMS["arc9_att_eft_tactical_la5b_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_la5b_gray"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_la5b_gray"] = {
 	["fullName"] = "LA-5B/PEQ tactical device",
 	["displayName"] = "LA-5B/PEQ",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41148,7 +41148,7 @@ EFGMITEMS["arc9_att_eft_tactical_la5b_gray"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_lastac2"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_lastac2"] = {
 	["fullName"] = "Steiner LAS/TAC 2 tactical flashlight",
 	["displayName"] = "LAS/TAC 2",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41168,7 +41168,7 @@ EFGMITEMS["arc9_att_eft_tactical_lastac2"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_ls321"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_ls321"] = {
 	["fullName"] = "Holosun LS321 Tactical device",
 	["displayName"] = "LS321",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41188,7 +41188,7 @@ EFGMITEMS["arc9_att_eft_tactical_ls321"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_ls321_blk"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_ls321_blk"] = {
 	["fullName"] = "Holosun LS321 Tactical device",
 	["displayName"] = "LS321",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41208,7 +41208,7 @@ EFGMITEMS["arc9_att_eft_tactical_ls321_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_ls321_gray"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_ls321_gray"] = {
 	["fullName"] = "Holosun LS321 Tactical device",
 	["displayName"] = "LS321",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41228,7 +41228,7 @@ EFGMITEMS["arc9_att_eft_tactical_ls321_gray"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_mawlc"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_mawlc"] = {
 	["fullName"] = "MAWL-C1+ tactical device",
 	["displayName"] = "MAWL-C1+",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41248,7 +41248,7 @@ EFGMITEMS["arc9_att_eft_tactical_mawlc"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_nstar_tbl"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_nstar_tbl"] = {
 	["fullName"] = "NcSTAR Tactical blue laser LAM-module",
 	["displayName"] = "TBL",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41268,7 +41268,7 @@ EFGMITEMS["arc9_att_eft_tactical_nstar_tbl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_peq15"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_peq15"] = {
 	["fullName"] = "AN/PEQ-15 tactical device",
 	["displayName"] = "AN/PEQ-15",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41288,7 +41288,7 @@ EFGMITEMS["arc9_att_eft_tactical_peq15"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_peq15_blk"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_peq15_blk"] = {
 	["fullName"] = "AN/PEQ-15 tactical device",
 	["displayName"] = "AN/PEQ-15",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41308,7 +41308,7 @@ EFGMITEMS["arc9_att_eft_tactical_peq15_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_peq15_gray"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_peq15_gray"] = {
 	["fullName"] = "AN/PEQ-15 tactical device",
 	["displayName"] = "AN/PEQ-15",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41328,7 +41328,7 @@ EFGMITEMS["arc9_att_eft_tactical_peq15_gray"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_perst3"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_perst3"] = {
 	["fullName"] = "Zenit Perst-3 tactical device",
 	["displayName"] = "Perst-3",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41348,7 +41348,7 @@ EFGMITEMS["arc9_att_eft_tactical_perst3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_raptar"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_raptar"] = {
 	["fullName"] = "Wilcox RAPTAR ES Tactical Rangefinder",
 	["displayName"] = "RAPTAR",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41368,7 +41368,7 @@ EFGMITEMS["arc9_att_eft_tactical_raptar"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_raptar_blk"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_raptar_blk"] = {
 	["fullName"] = "Wilcox RAPTAR ES Tactical Rangefinder",
 	["displayName"] = "RAPTAR",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41388,7 +41388,7 @@ EFGMITEMS["arc9_att_eft_tactical_raptar_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_scout"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_scout"] = {
 	["fullName"] = "SureFire M600 Ultra Scout Light",
 	["displayName"] = "M600U",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41408,7 +41408,7 @@ EFGMITEMS["arc9_att_eft_tactical_scout"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_ttprec"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_ttprec"] = {
 	["fullName"] = "TT DLP Tactical Precision LAM-module",
 	["displayName"] = "TT Precision",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41428,7 +41428,7 @@ EFGMITEMS["arc9_att_eft_tactical_ttprec"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_wf501b"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_wf501b"] = {
 	["fullName"] = "Ultrafire WF-501B flashlight",
 	["displayName"] = "WF501B",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41448,7 +41448,7 @@ EFGMITEMS["arc9_att_eft_tactical_wf501b"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_wmx200"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_wmx200"] = {
 	["fullName"] = "Insight WMX200 tactical flashlight",
 	["displayName"] = "WMX200",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41468,7 +41468,7 @@ EFGMITEMS["arc9_att_eft_tactical_wmx200"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_wmx200_blk"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_wmx200_blk"] = {
 	["fullName"] = "Insight WMX200 tactical flashlight",
 	["displayName"] = "WMX200",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41488,7 +41488,7 @@ EFGMITEMS["arc9_att_eft_tactical_wmx200_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_x400"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_x400"] = {
 	["fullName"] = "SureFire X400 Ultra tactical flashlight with laser",
 	["displayName"] = "X400",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41508,7 +41508,7 @@ EFGMITEMS["arc9_att_eft_tactical_x400"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_xc1"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_xc1"] = {
 	["fullName"] = "SureFire XC1 tactical flashlight",
 	["displayName"] = "XC1",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41528,7 +41528,7 @@ EFGMITEMS["arc9_att_eft_tactical_xc1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tactical_xhp35"] = {
+EFGM.ITEMS["arc9_att_eft_tactical_xhp35"] = {
 	["fullName"] = "Armytek Predator Pro v3 XHP35 HI flashlight",
 	["displayName"] = "XHP35",
 	["displayType"] = DISPLAYTYPE.TACTICAL,
@@ -41548,7 +41548,7 @@ EFGMITEMS["arc9_att_eft_tactical_xhp35"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tkpd_barrel_570"] = {
+EFGM.ITEMS["arc9_att_eft_tkpd_barrel_570"] = {
 	["fullName"] = "TKPD 9.3x64 570mm barrel",
 	["displayName"] = "TKPD 570mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -41568,7 +41568,7 @@ EFGMITEMS["arc9_att_eft_tkpd_barrel_570"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tkpd_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_tkpd_barrel_std"] = {
 	["fullName"] = "TKPD 9.3x64 457mm barrel",
 	["displayName"] = "TKPD 457mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -41588,7 +41588,7 @@ EFGMITEMS["arc9_att_eft_tkpd_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tkpd_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_tkpd_gas_std"] = {
 	["fullName"] = "TKPD gas tube",
 	["displayName"] = "TKPD gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -41608,7 +41608,7 @@ EFGMITEMS["arc9_att_eft_tkpd_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tkpd_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_tkpd_mag_10"] = {
 	["fullName"] = "TKPD 9.3x64 10-round magazine",
 	["displayName"] = "TKPD 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -41628,7 +41628,7 @@ EFGMITEMS["arc9_att_eft_tkpd_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tkpd_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_tkpd_rec_std"] = {
 	["fullName"] = "TKPD railed dust cover",
 	["displayName"] = "TKPD",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -41648,7 +41648,7 @@ EFGMITEMS["arc9_att_eft_tkpd_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_asilencer"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_asilencer"] = {
 	["fullName"] = "TT 7.62x25 makeshift sound suppressor",
 	["displayName"] = "TT supp.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -41668,7 +41668,7 @@ EFGMITEMS["arc9_att_eft_tt33_asilencer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_barrel_116"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_barrel_116"] = {
 	["fullName"] = "TT 7.62x25 116mm barrel",
 	["displayName"] = "TT 116mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -41688,7 +41688,7 @@ EFGMITEMS["arc9_att_eft_tt33_barrel_116"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_barrel_116g"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_barrel_116g"] = {
 	["fullName"] = "TT 7.62x25 116mm gilded barrel",
 	["displayName"] = "TT 116mm ild",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -41708,7 +41708,7 @@ EFGMITEMS["arc9_att_eft_tt33_barrel_116g"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_barrel_121"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_barrel_121"] = {
 	["fullName"] = "TT 7.62x25 121mm homespun threaded barrel",
 	["displayName"] = "TT 121mm thr.",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -41728,7 +41728,7 @@ EFGMITEMS["arc9_att_eft_tt33_barrel_121"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_dtk"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_dtk"] = {
 	["fullName"] = "TT PM-Laser DTK-TT muzzle brake-compensator",
 	["displayName"] = "DTK-TT",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -41748,7 +41748,7 @@ EFGMITEMS["arc9_att_eft_tt33_dtk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_mag_8"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_mag_8"] = {
 	["fullName"] = "TT 7.62x25 tt-105 8-round magazine",
 	["displayName"] = "tt-105 8",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -41768,7 +41768,7 @@ EFGMITEMS["arc9_att_eft_tt33_mag_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_pg_206"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_pg_206"] = {
 	["fullName"] = "TT PM-Laser TT-206 side grips with laser sight",
 	["displayName"] = "TT-206",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -41788,7 +41788,7 @@ EFGMITEMS["arc9_att_eft_tt33_pg_206"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_pg_hogue"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_pg_hogue"] = {
 	["fullName"] = "TT Hogue-like rubber grip",
 	["displayName"] = "Hogue-like",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -41808,7 +41808,7 @@ EFGMITEMS["arc9_att_eft_tt33_pg_hogue"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_pg_razor"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_pg_razor"] = {
 	["fullName"] = "TT Razor Arms rubber grip",
 	["displayName"] = "TT RazorA",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -41828,7 +41828,7 @@ EFGMITEMS["arc9_att_eft_tt33_pg_razor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_pg_std"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_pg_std"] = {
 	["fullName"] = "TT side grips",
 	["displayName"] = "TT grips",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -41848,7 +41848,7 @@ EFGMITEMS["arc9_att_eft_tt33_pg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_tt33_pg_swag"] = {
+EFGM.ITEMS["arc9_att_eft_tt33_pg_swag"] = {
 	["fullName"] = "TT ornated side grips",
 	["displayName"] = "TT swag",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -41868,7 +41868,7 @@ EFGMITEMS["arc9_att_eft_tt33_pg_swag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ub_svds_sag"] = {
+EFGM.ITEMS["arc9_att_eft_ub_svds_sag"] = {
 	["fullName"] = "SVD SAG MK1 chassis",
 	["displayName"] = "SAG MK1",
 	["displayType"] = DISPLAYTYPE.CHASSIS,
@@ -41888,7 +41888,7 @@ EFGMITEMS["arc9_att_eft_ub_svds_sag"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ub_svds_std"] = {
+EFGM.ITEMS["arc9_att_eft_ub_svds_std"] = {
 	["fullName"] = "SVDS upper band",
 	["displayName"] = "SVDS UB",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -41908,7 +41908,7 @@ EFGMITEMS["arc9_att_eft_ub_svds_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ub_tkpd_std"] = {
+EFGM.ITEMS["arc9_att_eft_ub_tkpd_std"] = {
 	["fullName"] = "TKPD front trunnion",
 	["displayName"] = "TKPD",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -41928,7 +41928,7 @@ EFGMITEMS["arc9_att_eft_ub_tkpd_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_ump_mag_25"] = {
+EFGM.ITEMS["arc9_att_eft_ump_mag_25"] = {
 	["fullName"] = "HK UMP .45 ACP 25-round magazine",
 	["displayName"] = "UMP 25",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -41948,7 +41948,7 @@ EFGMITEMS["arc9_att_eft_ump_mag_25"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxlong"] = {
+EFGM.ITEMS["arc9_att_eft_urxlong"] = {
 	["fullName"] = "KAC URX 3/3.1 long panel",
 	["displayName"] = "URX long",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -41968,7 +41968,7 @@ EFGMITEMS["arc9_att_eft_urxlong"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxlong_fde"] = {
+EFGM.ITEMS["arc9_att_eft_urxlong_fde"] = {
 	["fullName"] = "KAC URX 3/3.1 long panel (Flat dark earth)",
 	["displayName"] = "URX long",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -41988,7 +41988,7 @@ EFGMITEMS["arc9_att_eft_urxlong_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxpanel_3"] = {
+EFGM.ITEMS["arc9_att_eft_urxpanel_3"] = {
 	["fullName"] = "KAC URX 3 3 inch rail",
 	["displayName"] = "3In. URX",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42008,7 +42008,7 @@ EFGMITEMS["arc9_att_eft_urxpanel_3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxshort"] = {
+EFGM.ITEMS["arc9_att_eft_urxshort"] = {
 	["fullName"] = "KAC URX 3/3.1 short panel",
 	["displayName"] = "URX short",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42028,7 +42028,7 @@ EFGMITEMS["arc9_att_eft_urxshort"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxshort_fde"] = {
+EFGM.ITEMS["arc9_att_eft_urxshort_fde"] = {
 	["fullName"] = "KAC URX 3/3.1 short panel (Flat dark earth)",
 	["displayName"] = "URX short",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42048,7 +42048,7 @@ EFGMITEMS["arc9_att_eft_urxshort_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxstoper"] = {
+EFGM.ITEMS["arc9_att_eft_urxstoper"] = {
 	["fullName"] = "KAC URX 3/3.1 stopper panel",
 	["displayName"] = "KAC stoper",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42068,7 +42068,7 @@ EFGMITEMS["arc9_att_eft_urxstoper"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_urxstoper_fde"] = {
+EFGM.ITEMS["arc9_att_eft_urxstoper_fde"] = {
 	["fullName"] = "KAC URX 3/3.1 stopper panel (Flat dark earth)",
 	["displayName"] = "KAC stoper",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42088,7 +42088,7 @@ EFGMITEMS["arc9_att_eft_urxstoper_fde"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_usp_hammer_std"] = {
+EFGM.ITEMS["arc9_att_eft_usp_hammer_std"] = {
 	["fullName"] = "HK USP hammer",
 	["displayName"] = "USP ham.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -42108,7 +42108,7 @@ EFGMITEMS["arc9_att_eft_usp_hammer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_usp_slock_std"] = {
+EFGM.ITEMS["arc9_att_eft_usp_slock_std"] = {
 	["fullName"] = "HK USP slide lock",
 	["displayName"] = "USP SLock",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -42128,7 +42128,7 @@ EFGMITEMS["arc9_att_eft_usp_slock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_usp_trigger_std"] = {
+EFGM.ITEMS["arc9_att_eft_usp_trigger_std"] = {
 	["fullName"] = "HK USP trigger",
 	["displayName"] = "USP trig.",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -42148,7 +42148,7 @@ EFGMITEMS["arc9_att_eft_usp_trigger_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_barrel_238"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_barrel_238"] = {
 	["fullName"] = "UZI 238mm threaded 3-lug barrel",
 	["displayName"] = "UZI 238mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42168,7 +42168,7 @@ EFGMITEMS["arc9_att_eft_uzi_barrel_238"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_barrel_259"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_barrel_259"] = {
 	["fullName"] = "UZI 9x19 259mm barrel",
 	["displayName"] = "UZI 259mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42188,7 +42188,7 @@ EFGMITEMS["arc9_att_eft_uzi_barrel_259"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_barrel_409"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_barrel_409"] = {
 	["fullName"] = "UZI 9x19 409mm barrel",
 	["displayName"] = "UZI 409mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42208,7 +42208,7 @@ EFGMITEMS["arc9_att_eft_uzi_barrel_409"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_grip_std"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_grip_std"] = {
 	["fullName"] = "UZI pistol grip cover",
 	["displayName"] = "UZI grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -42228,7 +42228,7 @@ EFGMITEMS["arc9_att_eft_uzi_grip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_hg2_werkz"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_hg2_werkz"] = {
 	["fullName"] = "UZI StormWerkz lower handguard rail",
 	["displayName"] = "UZI rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42248,7 +42248,7 @@ EFGMITEMS["arc9_att_eft_uzi_hg2_werkz"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_hg_fg"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_hg_fg"] = {
 	["fullName"] = "UZI handguard with foregrip",
 	["displayName"] = "UZI foregrip",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -42268,7 +42268,7 @@ EFGMITEMS["arc9_att_eft_uzi_hg_fg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_hg_k"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_hg_k"] = {
 	["fullName"] = "UZI K-Grip handguard",
 	["displayName"] = "UZI K-Grip",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -42288,7 +42288,7 @@ EFGMITEMS["arc9_att_eft_uzi_hg_k"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_hg_std"] = {
 	["fullName"] = "UZI polymer handguard",
 	["displayName"] = "UZI polymer",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -42308,7 +42308,7 @@ EFGMITEMS["arc9_att_eft_uzi_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_100"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_100"] = {
 	["fullName"] = "UZI 9x19 Beta C-Mag 100-round drum magazine",
 	["displayName"] = "UZI C-Mag 100",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42328,7 +42328,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_100"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_20"] = {
 	["fullName"] = "UZI 9x19 20-round magazine",
 	["displayName"] = "UZI 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42348,7 +42348,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_20pro"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_20pro"] = {
 	["fullName"] = "UZI PRO 9x19 20-round magazine",
 	["displayName"] = "UZI PRO 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42368,7 +42368,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_20pro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_25"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_25"] = {
 	["fullName"] = "UZI 9x19 25-round magazine",
 	["displayName"] = "UZI 25",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42388,7 +42388,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_25"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_25pro"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_25pro"] = {
 	["fullName"] = "UZI PRO 9x19 25-round magazine",
 	["displayName"] = "UZI PRO 25",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42408,7 +42408,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_25pro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_32"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_32"] = {
 	["fullName"] = "UZI 9x19 32-round magazine",
 	["displayName"] = "UZI 32",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42428,7 +42428,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_32"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_32pro"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_32pro"] = {
 	["fullName"] = "UZI PRO 9x19 32-round magazine",
 	["displayName"] = "UZI PRO 32",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42448,7 +42448,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_32pro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_40"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_40"] = {
 	["fullName"] = "UZI 9x19 40-round magazine",
 	["displayName"] = "UZI 40",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42468,7 +42468,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_40"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_mag_50"] = {
 	["fullName"] = "UZI 9x19 50-round magazine",
 	["displayName"] = "UZI 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -42488,7 +42488,7 @@ EFGMITEMS["arc9_att_eft_uzi_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_muzzle_3nut"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_muzzle_3nut"] = {
 	["fullName"] = "UZI 9x19 3-lug barrel retaining nut",
 	["displayName"] = "3-lug nut",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42508,7 +42508,7 @@ EFGMITEMS["arc9_att_eft_uzi_muzzle_3nut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_muzzle_3thr"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_muzzle_3thr"] = {
 	["fullName"] = "UZI 9x19 3-lug barrel thread protector",
 	["displayName"] = "UZI 3-lug thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42528,7 +42528,7 @@ EFGMITEMS["arc9_att_eft_uzi_muzzle_3thr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_muzzle_nut"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_muzzle_nut"] = {
 	["fullName"] = "UZI 9x19 barrel retaining nut",
 	["displayName"] = "UZI nut",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42548,7 +42548,7 @@ EFGMITEMS["arc9_att_eft_uzi_muzzle_nut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_muzzle_shroud"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_muzzle_shroud"] = {
 	["fullName"] = "UZI vented barrel shroud",
 	["displayName"] = "UZI shroud",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42568,7 +42568,7 @@ EFGMITEMS["arc9_att_eft_uzi_muzzle_shroud"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_muzzle_sup"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_muzzle_sup"] = {
 	["fullName"] = "UZI 9x19 sound suppressor",
 	["displayName"] = "UZI sup.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42588,7 +42588,7 @@ EFGMITEMS["arc9_att_eft_uzi_muzzle_sup"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_rail_hg"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_rail_hg"] = {
 	["fullName"] = "UZI handguard rail",
 	["displayName"] = "UZI rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42608,7 +42608,7 @@ EFGMITEMS["arc9_att_eft_uzi_rail_hg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_rail_optic"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_rail_optic"] = {
 	["fullName"] = "UZI StormWerkz Scope Mount",
 	["displayName"] = "UZI Mount",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42628,7 +42628,7 @@ EFGMITEMS["arc9_att_eft_uzi_rail_optic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_stock_t3"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_stock_t3"] = {
 	["fullName"] = "UZI Type 3 buttstock",
 	["displayName"] = "UZI Type 3",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42648,7 +42648,7 @@ EFGMITEMS["arc9_att_eft_uzi_stock_t3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_stock_t5"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_stock_t5"] = {
 	["fullName"] = "UZI Type 5 buttstock",
 	["displayName"] = "UZI Type 5",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42668,7 +42668,7 @@ EFGMITEMS["arc9_att_eft_uzi_stock_t5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_stock_t6"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_stock_t6"] = {
 	["fullName"] = "UZI Type 6 buttstock",
 	["displayName"] = "UZI Type 6",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42688,7 +42688,7 @@ EFGMITEMS["arc9_att_eft_uzi_stock_t6"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_stock_t7"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_stock_t7"] = {
 	["fullName"] = "UZI Type 7 buttstock",
 	["displayName"] = "UZI Type 7",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42708,7 +42708,7 @@ EFGMITEMS["arc9_att_eft_uzi_stock_t7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzi_stock_wekz"] = {
+EFGM.ITEMS["arc9_att_eft_uzi_stock_wekz"] = {
 	["fullName"] = "UZI StormWerkz stock adapter",
 	["displayName"] = "UZI adap.",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42728,7 +42728,7 @@ EFGMITEMS["arc9_att_eft_uzi_stock_wekz"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_barrel_114"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_barrel_114"] = {
 	["fullName"] = "UZI PRO 9x19 114mm barrel",
 	["displayName"] = "UZI 114mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42748,7 +42748,7 @@ EFGMITEMS["arc9_att_eft_uzipro_barrel_114"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_barrel_114pike"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_barrel_114pike"] = {
 	["fullName"] = "UZI PRO 9x19 Pike Arms 114mm threaded barrel",
 	["displayName"] = "PA 114mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42768,7 +42768,7 @@ EFGMITEMS["arc9_att_eft_uzipro_barrel_114pike"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_barrel_170"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_barrel_170"] = {
 	["fullName"] = "UZI PRO 9x19 170mm barrel",
 	["displayName"] = "UZI 170mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42788,7 +42788,7 @@ EFGMITEMS["arc9_att_eft_uzipro_barrel_170"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_barrel_210"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_barrel_210"] = {
 	["fullName"] = "UZI PRO 9x19 210mm barrel",
 	["displayName"] = "UZI 210mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42808,7 +42808,7 @@ EFGMITEMS["arc9_att_eft_uzipro_barrel_210"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_barrel_240"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_barrel_240"] = {
 	["fullName"] = "UZI PRO 9x19 240mm barrel",
 	["displayName"] = "UZI 240mm",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -42828,7 +42828,7 @@ EFGMITEMS["arc9_att_eft_uzipro_barrel_240"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_dust"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_dust"] = {
 	["fullName"] = "UZI PRO dust cover",
 	["displayName"] = "UZI PRO cover",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -42848,7 +42848,7 @@ EFGMITEMS["arc9_att_eft_uzipro_dust"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_hg_mlok"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_hg_mlok"] = {
 	["fullName"] = "UZI PRO A3 Tactical M-LOK handguard",
 	["displayName"] = "UZI PRO M-LOK",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -42868,7 +42868,7 @@ EFGMITEMS["arc9_att_eft_uzipro_hg_mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_hgrail"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_hgrail"] = {
 	["fullName"] = "UZI PRO SMG rail adapter",
 	["displayName"] = "UZI PRO rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -42888,7 +42888,7 @@ EFGMITEMS["arc9_att_eft_uzipro_hgrail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_muzzle_masada"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_muzzle_masada"] = {
 	["fullName"] = "UZI PRO 9x19 Masada thread protector",
 	["displayName"] = "Masada thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42908,7 +42908,7 @@ EFGMITEMS["arc9_att_eft_uzipro_muzzle_masada"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_muzzle_nut"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_muzzle_nut"] = {
 	["fullName"] = "UZI PRO 9x19 barrel retaining nut",
 	["displayName"] = "UZI PRO nut",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -42928,7 +42928,7 @@ EFGMITEMS["arc9_att_eft_uzipro_muzzle_nut"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_smg"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_smg"] = {
 	["fullName"] = "IWI UZI PRO SMG",
 	["displayName"] = "PRO SMG",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -42948,7 +42948,7 @@ EFGMITEMS["arc9_att_eft_uzipro_smg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_stock_a3"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_stock_a3"] = {
 	["fullName"] = "UZI PRO A3 Tactical Rear Stock Adapter",
 	["displayName"] = "A3 RSA",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42968,7 +42968,7 @@ EFGMITEMS["arc9_att_eft_uzipro_stock_a3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_stock_a3brace"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_stock_a3brace"] = {
 	["fullName"] = "UZI PRO A3 Tactical Modular Folding Brace",
 	["displayName"] = "UZI A3 brace",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -42988,7 +42988,7 @@ EFGMITEMS["arc9_att_eft_uzipro_stock_a3brace"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_stock_backplate"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_stock_backplate"] = {
 	["fullName"] = "UZI PRO backplate",
 	["displayName"] = "UZI PRO plate",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43008,7 +43008,7 @@ EFGMITEMS["arc9_att_eft_uzipro_stock_backplate"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_stock_brace"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_stock_brace"] = {
 	["fullName"] = "UZI PRO Stabilizing Brace",
 	["displayName"] = "UZI PRO brace",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43028,7 +43028,7 @@ EFGMITEMS["arc9_att_eft_uzipro_stock_brace"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_stock_csm"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_stock_csm"] = {
 	["fullName"] = "UZI PRO CSM stock adapter",
 	["displayName"] = "UZI CSM",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43048,7 +43048,7 @@ EFGMITEMS["arc9_att_eft_uzipro_stock_csm"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_uzipro_stock_sbr"] = {
+EFGM.ITEMS["arc9_att_eft_uzipro_stock_sbr"] = {
 	["fullName"] = "UZI PRO SBR buttstock",
 	["displayName"] = "UZI PRO SBR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43068,7 +43068,7 @@ EFGMITEMS["arc9_att_eft_uzipro_stock_sbr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_dc_val"] = {
+EFGM.ITEMS["arc9_att_eft_val_dc_val"] = {
 	["fullName"] = "AS VAL dust cover",
 	["displayName"] = "AS VAL",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -43088,7 +43088,7 @@ EFGMITEMS["arc9_att_eft_val_dc_val"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_grip_black"] = {
+EFGM.ITEMS["arc9_att_eft_val_grip_black"] = {
 	["fullName"] = "AS VAL pistol grip (Black)",
 	["displayName"] = "AS VAL",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -43108,7 +43108,7 @@ EFGMITEMS["arc9_att_eft_val_grip_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_grip_rk3"] = {
+EFGM.ITEMS["arc9_att_eft_val_grip_rk3"] = {
 	["fullName"] = "AS VAL Zenit RK-3 pistol grip",
 	["displayName"] = "RK-3k",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -43128,7 +43128,7 @@ EFGMITEMS["arc9_att_eft_val_grip_rk3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_grip_rotor"] = {
+EFGM.ITEMS["arc9_att_eft_val_grip_rotor"] = {
 	["fullName"] = "AS VAL Rotor 43 pistol grip & buffer tube",
 	["displayName"] = "Rotor 43",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -43148,7 +43148,7 @@ EFGMITEMS["arc9_att_eft_val_grip_rotor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_grip_std"] = {
+EFGM.ITEMS["arc9_att_eft_val_grip_std"] = {
 	["fullName"] = "AS VAL pistol grip (Plum)",
 	["displayName"] = "AS VAL",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -43168,7 +43168,7 @@ EFGMITEMS["arc9_att_eft_val_grip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_hg_black"] = {
+EFGM.ITEMS["arc9_att_eft_val_hg_black"] = {
 	["fullName"] = "VSS/VAL polymer handguard (Black)",
 	["displayName"] = "VSS/VAL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -43188,7 +43188,7 @@ EFGMITEMS["arc9_att_eft_val_hg_black"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_hg_std"] = {
+EFGM.ITEMS["arc9_att_eft_val_hg_std"] = {
 	["fullName"] = "VSS/VAL polymer handguard (Plum)",
 	["displayName"] = "VSS/VAL",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -43208,7 +43208,7 @@ EFGMITEMS["arc9_att_eft_val_hg_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_val_mag_10"] = {
 	["fullName"] = "VSS/VAL 9x39 6L24 10-round magazine",
 	["displayName"] = "6L24 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43228,7 +43228,7 @@ EFGMITEMS["arc9_att_eft_val_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_val_mag_20"] = {
 	["fullName"] = "VSS/VAL 9x39 6L25 20-round magazine (Plum)",
 	["displayName"] = "6L25 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43248,7 +43248,7 @@ EFGMITEMS["arc9_att_eft_val_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mag_20_blk"] = {
+EFGM.ITEMS["arc9_att_eft_val_mag_20_blk"] = {
 	["fullName"] = "VSS/VAL 9x39 6L25 20-round magazine",
 	["displayName"] = "6L25 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43268,7 +43268,7 @@ EFGMITEMS["arc9_att_eft_val_mag_20_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_val_mag_30"] = {
 	["fullName"] = "VSS/VAL 9x39 SR3M.130 30-round magazine",
 	["displayName"] = "SR3M 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43288,7 +43288,7 @@ EFGMITEMS["arc9_att_eft_val_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mag_30s"] = {
+EFGM.ITEMS["arc9_att_eft_val_mag_30s"] = {
 	["fullName"] = "VSS/VAL 9x39 30-round magazine",
 	["displayName"] = "VAL 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43308,7 +43308,7 @@ EFGMITEMS["arc9_att_eft_val_mag_30s"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mount_6p"] = {
+EFGM.ITEMS["arc9_att_eft_val_mount_6p"] = {
 	["fullName"] = "VSS/VAL TOZ 6P29M mount",
 	["displayName"] = "6P29M",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -43328,7 +43328,7 @@ EFGMITEMS["arc9_att_eft_val_mount_6p"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mount_b3"] = {
+EFGM.ITEMS["arc9_att_eft_val_mount_b3"] = {
 	["fullName"] = "VSS/VAL Zenit B-3 ring mount",
 	["displayName"] = "B-3",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -43348,7 +43348,7 @@ EFGMITEMS["arc9_att_eft_val_mount_b3"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_mount_b3c"] = {
+EFGM.ITEMS["arc9_att_eft_val_mount_b3c"] = {
 	["fullName"] = "VSS/VAL Zenit B-3 mount combo",
 	["displayName"] = "B-3 combo",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -43368,7 +43368,7 @@ EFGMITEMS["arc9_att_eft_val_mount_b3c"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_rs_val"] = {
+EFGM.ITEMS["arc9_att_eft_val_rs_val"] = {
 	["fullName"] = "AS VAL rear sight",
 	["displayName"] = "AS VAL",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -43388,7 +43388,7 @@ EFGMITEMS["arc9_att_eft_val_rs_val"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_stock_nb"] = {
+EFGM.ITEMS["arc9_att_eft_val_stock_nb"] = {
 	["fullName"] = "AS VAL NB stock adapter tube",
 	["displayName"] = "VAL tube",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43408,7 +43408,7 @@ EFGMITEMS["arc9_att_eft_val_stock_nb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_stockk"] = {
+EFGM.ITEMS["arc9_att_eft_val_stockk"] = {
 	["fullName"] = "AS VAL skeleton stock",
 	["displayName"] = "AS VAL",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43428,7 +43428,7 @@ EFGMITEMS["arc9_att_eft_val_stockk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_supp_val"] = {
+EFGM.ITEMS["arc9_att_eft_val_supp_val"] = {
 	["fullName"] = "AS VAL 9x39 integral barrel-suppressor",
 	["displayName"] = "AS VAL",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43448,7 +43448,7 @@ EFGMITEMS["arc9_att_eft_val_supp_val"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_vss_stock"] = {
+EFGM.ITEMS["arc9_att_eft_val_vss_stock"] = {
 	["fullName"] = "VSS wooden stock",
 	["displayName"] = "VSS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43468,7 +43468,7 @@ EFGMITEMS["arc9_att_eft_val_vss_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_val_vss_stock_dark"] = {
+EFGM.ITEMS["arc9_att_eft_val_vss_stock_dark"] = {
 	["fullName"] = "VSS wooden stock",
 	["displayName"] = "VSS",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -43488,7 +43488,7 @@ EFGMITEMS["arc9_att_eft_val_vss_stock_dark"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_brake"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_brake"] = {
 	["fullName"] = "AS VAL 9x39 NB MOD.4 muzzle brake",
 	["displayName"] = "MOD.4",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43508,7 +43508,7 @@ EFGMITEMS["arc9_att_eft_valmod4_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_hgg"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_hgg"] = {
 	["fullName"] = "AS VAL NB MOD.4 Kit handguard",
 	["displayName"] = "MOD.4 Kit",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -43528,7 +43528,7 @@ EFGMITEMS["arc9_att_eft_valmod4_hgg"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_jailbrake"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_jailbrake"] = {
 	["fullName"] = "AS VAL 9x39 NB MOD.4 JailBrake muzzle device",
 	["displayName"] = "MOD.4 JB",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43548,7 +43548,7 @@ EFGMITEMS["arc9_att_eft_valmod4_jailbrake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_magwell"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_magwell"] = {
 	["fullName"] = "AS VAL MOD.4 magwell",
 	["displayName"] = "MOD.4",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -43568,7 +43568,7 @@ EFGMITEMS["arc9_att_eft_valmod4_magwell"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_siderail"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_siderail"] = {
 	["fullName"] = "NB MOD.4 Kit 3.5 inch rail",
 	["displayName"] = "MOD.4",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -43588,7 +43588,7 @@ EFGMITEMS["arc9_att_eft_valmod4_siderail"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_supcap"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_supcap"] = {
 	["fullName"] = "AS VAL MOD.4 9x39 suppressor cap",
 	["displayName"] = "MOD.4",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43608,7 +43608,7 @@ EFGMITEMS["arc9_att_eft_valmod4_supcap"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_suppressor"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_suppressor"] = {
 	["fullName"] = "AS VAL MOD.4 9x39 integral barrel-suppressor",
 	["displayName"] = "MOD.4",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43628,7 +43628,7 @@ EFGMITEMS["arc9_att_eft_valmod4_suppressor"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_valmod4_topcover"] = {
+EFGM.ITEMS["arc9_att_eft_valmod4_topcover"] = {
 	["fullName"] = "AS VAL NB MOD.4 Kit top cover",
 	["displayName"] = "MOD.4",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -43648,7 +43648,7 @@ EFGMITEMS["arc9_att_eft_valmod4_topcover"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vector_mag_13"] = {
+EFGM.ITEMS["arc9_att_eft_vector_mag_13"] = {
 	["fullName"] = "Glock .45 ACP 13-round magazine",
 	["displayName"] = "Glock .45 13",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43668,7 +43668,7 @@ EFGMITEMS["arc9_att_eft_vector_mag_13"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vector_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_vector_mag_30"] = {
 	["fullName"] = "Glock .45 ACP KRISS G30 MagEx 30-round magazine",
 	["displayName"] = "G30 MagEx",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43688,7 +43688,7 @@ EFGMITEMS["arc9_att_eft_vector_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_gas_sagmk1"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_gas_sagmk1"] = {
 	["fullName"] = "PP-19-01 Vityaz SAG MK1 M-LOK handguard with gas tube",
 	["displayName"] = "SAG MK1",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -43708,7 +43708,7 @@ EFGMITEMS["arc9_att_eft_vityaz_gas_sagmk1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_gas_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" gas tube',
 	["displayName"] = "19-01 gas",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -43728,7 +43728,7 @@ EFGMITEMS["arc9_att_eft_vityaz_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_gas_vrlps"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_gas_vrlps"] = {
 	["fullName"] = "PP-19-01 Vityaz Vector VR-LPS left-side charging handle",
 	["displayName"] = "VR-LPS",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -43748,7 +43748,7 @@ EFGMITEMS["arc9_att_eft_vityaz_gas_vrlps"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_50"] = {
 	["fullName"] = "PP-19-01 9x19 F5 MFG 50-round drum magazine",
 	["displayName"] = "PP19 F5 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43768,7 +43768,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_sb7"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_sb7"] = {
 	["fullName"] = "Saiga-9 9x19 sb.7 10-round magazine",
 	["displayName"] = "Sb.7",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43788,7 +43788,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_sb7"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_20"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_20"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 PUFGUN SG-919 20 20-round magazine',
 	["displayName"] = "SG-919 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43808,7 +43808,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_20_blk"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_20_blk"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 PUFGUN SG-919 20 20-round magazine',
 	["displayName"] = "SG-919 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43828,7 +43828,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_20_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_30"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_30"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 PUFGUN SG-919 30 30-round magazine',
 	["displayName"] = "SG-919 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43848,7 +43848,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_30_blk"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_30_blk"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 PUFGUN SG-919 30 30-round magazine',
 	["displayName"] = "SG-919 30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43868,7 +43868,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_sg919_30_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_mag_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_mag_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 30-round magazine',
 	["displayName"] = "PP-19-01",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -43888,7 +43888,7 @@ EFGMITEMS["arc9_att_eft_vityaz_mag_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_muzzle_saiga9"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_muzzle_saiga9"] = {
 	["fullName"] = "Saiga-9 9x19 muzzle brake-compensator",
 	["displayName"] = "Saiga-9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43908,7 +43908,7 @@ EFGMITEMS["arc9_att_eft_vityaz_muzzle_saiga9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_muzzle_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_muzzle_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 muzzle brake-compensator',
 	["displayName"] = "PP-19-01",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -43928,7 +43928,7 @@ EFGMITEMS["arc9_att_eft_vityaz_muzzle_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_rec_sn"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_rec_sn"] = {
 	["fullName"] = 'PP-19-01 "Vityaz-SN" dust cover',
 	["displayName"] = "Vityaz-SN",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -43948,7 +43948,7 @@ EFGMITEMS["arc9_att_eft_vityaz_rec_sn"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_rec_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_rec_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" dust cover',
 	["displayName"] = "Vityaz",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -43968,7 +43968,7 @@ EFGMITEMS["arc9_att_eft_vityaz_rec_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_rs_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" rear sight',
 	["displayName"] = "PP-19-01",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -43988,7 +43988,7 @@ EFGMITEMS["arc9_att_eft_vityaz_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_silencer_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_silencer_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" 9x19 sound suppressor',
 	["displayName"] = "Vityaz supp.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -44008,7 +44008,7 @@ EFGMITEMS["arc9_att_eft_vityaz_silencer_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vityaz_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_vityaz_stock_std"] = {
 	["fullName"] = 'PP-19-01 "Vityaz" metal skeleton stock',
 	["displayName"] = "PP-19-01",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -44028,7 +44028,7 @@ EFGMITEMS["arc9_att_eft_vityaz_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_dc_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_dc_std"] = {
 	["fullName"] = "VPO-101 dust cover",
 	["displayName"] = "VPO-101",
 	["displayType"] = DISPLAYTYPE.RECEIVER,
@@ -44048,7 +44048,7 @@ EFGMITEMS["arc9_att_eft_vpo101_dc_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_gas_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_gas_std"] = {
 	["fullName"] = "VPO-101 gas tube",
 	["displayName"] = "VPO-101",
 	["displayType"] = DISPLAYTYPE.GASBLOCK,
@@ -44068,7 +44068,7 @@ EFGMITEMS["arc9_att_eft_vpo101_gas_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_mag_10"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_mag_10"] = {
 	["fullName"] = "VPO-101 7.62x51 10-round magazine",
 	["displayName"] = "VPO-101 10",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44088,7 +44088,7 @@ EFGMITEMS["arc9_att_eft_vpo101_mag_10"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_mag_5"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_mag_5"] = {
 	["fullName"] = "VPO-101 7.62x51 5-round magazine",
 	["displayName"] = "VPO-101 5",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44108,7 +44108,7 @@ EFGMITEMS["arc9_att_eft_vpo101_mag_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_rs_std"] = {
 	["fullName"] = "VPO-101 rear sight",
 	["displayName"] = "VPO-101",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -44128,7 +44128,7 @@ EFGMITEMS["arc9_att_eft_vpo101_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_stock_std"] = {
 	["fullName"] = "VPO-101 wooden stock",
 	["displayName"] = "VPO-101 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -44148,7 +44148,7 @@ EFGMITEMS["arc9_att_eft_vpo101_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_stock_svd"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_stock_svd"] = {
 	["fullName"] = "VPO-101 SVD-style walnut stock",
 	["displayName"] = "VPO-101 SVD stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -44168,7 +44168,7 @@ EFGMITEMS["arc9_att_eft_vpo101_stock_svd"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo101_sup_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo101_sup_std"] = {
 	["fullName"] = "VPO-101 Rotor 43 7.62x51 sound suppressor",
 	["displayName"] = "Rotor 43",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -44188,7 +44188,7 @@ EFGMITEMS["arc9_att_eft_vpo101_sup_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo215_barrel_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo215_barrel_std"] = {
 	["fullName"] = "VPO-215-02 .366TKM 600mm barrel",
 	["displayName"] = "VPO-215 barrel",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44208,7 +44208,7 @@ EFGMITEMS["arc9_att_eft_vpo215_barrel_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo215_mag_4"] = {
+EFGM.ITEMS["arc9_att_eft_vpo215_mag_4"] = {
 	["fullName"] = "VPO-215 .366 TKM 4-round magazine",
 	["displayName"] = "VPO-215 4",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44228,7 +44228,7 @@ EFGMITEMS["arc9_att_eft_vpo215_mag_4"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo215_muzzle_brake"] = {
+EFGM.ITEMS["arc9_att_eft_vpo215_muzzle_brake"] = {
 	["fullName"] = "VPO-215 thread protector",
 	["displayName"] = "VPO-215 thr.",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -44248,7 +44248,7 @@ EFGMITEMS["arc9_att_eft_vpo215_muzzle_brake"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo215_rail_optic"] = {
+EFGM.ITEMS["arc9_att_eft_vpo215_rail_optic"] = {
 	["fullName"] = "VPO-215 scope rail mount",
 	["displayName"] = "VPO-215 rail",
 	["displayType"] = DISPLAYTYPE.MOUNT,
@@ -44268,7 +44268,7 @@ EFGMITEMS["arc9_att_eft_vpo215_rail_optic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vpo215_stock_std"] = {
+EFGM.ITEMS["arc9_att_eft_vpo215_stock_std"] = {
 	["fullName"] = "VPO-215 wooden stock",
 	["displayName"] = "VPO-215 stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -44288,7 +44288,7 @@ EFGMITEMS["arc9_att_eft_vpo215_stock_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_brl"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_brl"] = {
 	["fullName"] = "VSK-94 9x39 barrel",
 	["displayName"] = "VSK-94",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44308,7 +44308,7 @@ EFGMITEMS["arc9_att_eft_vsk_brl"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_brl9"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_brl9"] = {
 	["fullName"] = "9A-91 9x39 barrel",
 	["displayName"] = "9A-91",
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44328,7 +44328,7 @@ EFGMITEMS["arc9_att_eft_vsk_brl9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_grip_std"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_grip_std"] = {
 	["fullName"] = "9A-91 pistol grip",
 	["displayName"] = "9A-91 PG",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -44348,7 +44348,7 @@ EFGMITEMS["arc9_att_eft_vsk_grip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_hg_9a"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_hg_9a"] = {
 	["fullName"] = "9A-91 handguard",
 	["displayName"] = "9A-91",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44368,7 +44368,7 @@ EFGMITEMS["arc9_att_eft_vsk_hg_9a"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_hg_vsk"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_hg_vsk"] = {
 	["fullName"] = "VSK-94 handguard",
 	["displayName"] = "VSK-94",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44388,7 +44388,7 @@ EFGMITEMS["arc9_att_eft_vsk_hg_vsk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_mag_20"] = {
 	["fullName"] = "9A-91 9x39 20-round magazine",
 	["displayName"] = "9A-91 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44408,7 +44408,7 @@ EFGMITEMS["arc9_att_eft_vsk_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_retainer"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_retainer"] = {
 	["fullName"] = "9A-91 handguard retainer",
 	["displayName"] = "VSS",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -44428,7 +44428,7 @@ EFGMITEMS["arc9_att_eft_vsk_retainer"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_stockk"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_stockk"] = {
 	["fullName"] = "VSK-94 stock",
 	["displayName"] = "VSK-94",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -44448,7 +44448,7 @@ EFGMITEMS["arc9_att_eft_vsk_stockk"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_supp"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_supp"] = {
 	["fullName"] = "9A-91 9x39 sound suppressor",
 	["displayName"] = "9A-91",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -44468,7 +44468,7 @@ EFGMITEMS["arc9_att_eft_vsk_supp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_vsk_top_stock"] = {
+EFGM.ITEMS["arc9_att_eft_vsk_top_stock"] = {
 	["fullName"] = "9A-91 top-folding stock",
 	["displayName"] = "9A-91",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -44488,7 +44488,7 @@ EFGMITEMS["arc9_att_eft_vsk_top_stock"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_barrel_12"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_barrel_12"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 carbine length 12 inch barrel",
 	["displayName"] = 'EVO 3 12"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44508,7 +44508,7 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_12"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_barrel_14"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_barrel_14"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 carbine length 14 inch barrel",
 	["displayName"] = 'EVO 3 14"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44528,7 +44528,7 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_14"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_barrel_5"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_barrel_5"] = {
 	["fullName"] = "CZ Scorpion EVO 3 PDW 5 inch barrel",
 	["displayName"] = 'EVO 3 5"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44548,7 +44548,7 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_5"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_barrel_8"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_barrel_8"] = {
 	["fullName"] = "CZ Scorpion EVO 3 8 inch barrel",
 	["displayName"] = 'EVO 3 8"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44568,7 +44568,7 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_8"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_barrel_int"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_barrel_int"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 5 inch integral barrel",
 	["displayName"] = 'EVO 3 5" Int',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44588,7 +44588,7 @@ EFGMITEMS["arc9_att_eft_scorpion_barrel_int"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_ch_deltared"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_ch_deltared"] = {
 	["fullName"] = "HB Industries CZ Scorpion EVO 3 DELTA extended charging handle (Red)",
 	["displayName"] = "Delta-R",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -44608,7 +44608,7 @@ EFGMITEMS["arc9_att_eft_scorpion_ch_deltared"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_ch_pro"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_ch_pro"] = {
 	["fullName"] = "HB Industries CZ Scorpion EVO 3 ProStock charging handle",
 	["displayName"] = "Pro",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -44628,7 +44628,7 @@ EFGMITEMS["arc9_att_eft_scorpion_ch_pro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_ch_std"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_ch_std"] = {
 	["fullName"] = "CZ Scorpion EVO 3 charging handle",
 	["displayName"] = "EVO 3 CH",
 	["displayType"] = DISPLAYTYPE.CHARGINGHANDLE,
@@ -44648,7 +44648,7 @@ EFGMITEMS["arc9_att_eft_scorpion_ch_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_fs_std"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_fs_std"] = {
 	["fullName"] = "CZ Scorpion EVO 3 front sight",
 	["displayName"] = "EVO 3 FS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -44668,7 +44668,7 @@ EFGMITEMS["arc9_att_eft_scorpion_fs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_a1"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_a1"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 polymer handguard",
 	["displayName"] = "EVO 3 HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44688,7 +44688,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_ang"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_ang"] = {
 	["fullName"] = "HB Industries CZ Scorpion EVO 3 A1 angled M-LOK handguard",
 	["displayName"] = "HB ANGLED",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44708,7 +44708,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_ang"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_carb"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_carb"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 carbine handguard",
 	["displayName"] = "Carbine HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44728,7 +44728,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_carb"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_ext"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_ext"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 extended tactical handguard",
 	["displayName"] = "EVO EXT",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44748,7 +44748,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_ext"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_hbmid"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_hbmid"] = {
 	["fullName"] = "HB Industries CZ Scorpion EVO 3 A1 mid-length M-LOK handguard",
 	["displayName"] = "HB MID",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44768,7 +44768,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_hbmid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_micro"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_micro"] = {
 	["fullName"] = "HB Industries CZ Scorpion EVO 3 A1 micro M-LOK handguard",
 	["displayName"] = "HB MICRO",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44788,7 +44788,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_micro"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_mid"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_mid"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 tactical mid-length railed handguard",
 	["displayName"] = "EVO MID",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44808,7 +44808,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_mid"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hg_pdw"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hg_pdw"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 railed PDW handguard",
 	["displayName"] = "PDW HG",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,
@@ -44828,7 +44828,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hg_pdw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hs_mlok"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hs_mlok"] = {
 	["fullName"] = "Magpul M-LOK hand stop",
 	["displayName"] = "HS M-LOK",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -44848,7 +44848,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hs_mlok"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_hs_pic"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_hs_pic"] = {
 	["fullName"] = "CZ Scorpion EVO 3 picatinny hand stop",
 	["displayName"] = "HS",
 	["displayType"] = DISPLAYTYPE.AUXILIARY,
@@ -44868,7 +44868,7 @@ EFGMITEMS["arc9_att_eft_scorpion_hs_pic"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_mag_20"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_mag_20"] = {
 	["fullName"] = "CZ Scorpion EVO 3 Plus 9x19 20-round polymer magazine",
 	["displayName"] = "3 Plus-20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44888,7 +44888,7 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_20"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_mag_20tr"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_mag_20tr"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 9x19 20-round polymer transparent magazine",
 	["displayName"] = "EVO 20",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44908,7 +44908,7 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_20tr"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_mag_30"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_mag_30"] = {
 	["fullName"] = "CZ Scorpion EVO 3 Plus 9x19 30-round polymer magazine",
 	["displayName"] = "3 Plus-30",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44928,7 +44928,7 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_30"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_mag_35"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_mag_35"] = {
 	["fullName"] = "CZ Scorpion EVO 9x19 Magpul PMAG EV9 35-round magazine",
 	["displayName"] = "EV9",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44948,7 +44948,7 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_35"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_mag_35t"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_mag_35t"] = {
 	["fullName"] = "CZ Scorpion EVO 9x19 Magpul PMAG EV9 35-round magazine (Taped)",
 	["displayName"] = "EV9-T",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44968,7 +44968,7 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_35t"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_mag_50"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_mag_50"] = {
 	["fullName"] = "CZ Scorpion EVO 9x19 50-round drum magazine",
 	["displayName"] = "EVO Drum 50",
 	["displayType"] = DISPLAYTYPE.MAGAZINE,
@@ -44988,7 +44988,7 @@ EFGMITEMS["arc9_att_eft_scorpion_mag_50"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_muzzle_comp"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_muzzle_comp"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 carbine compensator",
 	["displayName"] = "Carbine Comp",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -45008,7 +45008,7 @@ EFGMITEMS["arc9_att_eft_scorpion_muzzle_comp"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_muzzle_fh"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_muzzle_fh"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 flash hider",
 	["displayName"] = "EVO 3 FH",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -45028,7 +45028,7 @@ EFGMITEMS["arc9_att_eft_scorpion_muzzle_fh"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_pgrip_moe"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_pgrip_moe"] = {
 	["fullName"] = "Magpul MOE-EVO CZ Scorpion EVO 3 pistol grip",
 	["displayName"] = "MOE",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -45048,7 +45048,7 @@ EFGMITEMS["arc9_att_eft_scorpion_pgrip_moe"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_pgrip_std"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_pgrip_std"] = {
 	["fullName"] = "CZ Scorpion EVO 3 pistol grip",
 	["displayName"] = "EVO 3 Grip",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -45068,7 +45068,7 @@ EFGMITEMS["arc9_att_eft_scorpion_pgrip_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_pgrip_ye"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_pgrip_ye"] = {
 	["fullName"] = "Yeti Wurks Switchback CZ Scorpion EVO 3 pistol grip",
 	["displayName"] = "Switchback",
 	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
@@ -45088,7 +45088,7 @@ EFGMITEMS["arc9_att_eft_scorpion_pgrip_ye"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_rs_std"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_rs_std"] = {
 	["fullName"] = "CZ Scorpion EVO 3 rear sight",
 	["displayName"] = "EVO 3 RS",
 	["displayType"] = DISPLAYTYPE.SIGHT,
@@ -45108,7 +45108,7 @@ EFGMITEMS["arc9_att_eft_scorpion_rs_std"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_sc9"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_sc9"] = {
 	["fullName"] = "Innovative Arms IA-SC9 integral suppressor",
 	["displayName"] = "IA-SC9",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -45128,7 +45128,7 @@ EFGMITEMS["arc9_att_eft_scorpion_sc9"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_shroud"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_shroud"] = {
 	["fullName"] = "CZ Scorpion EVO 3 barrel shroud",
 	["displayName"] = "Shroud",
 	["displayType"] = DISPLAYTYPE.MUZZLE,
@@ -45148,7 +45148,7 @@ EFGMITEMS["arc9_att_eft_scorpion_shroud"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_a1"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_a1"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 polymer stock",
 	["displayName"] = "EVO 3 Stock",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45168,7 +45168,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_a1"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_adv"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_adv"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 Advanced Combat stock",
 	["displayName"] = "EVO ACR",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45188,7 +45188,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_adv"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_buff"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_buff"] = {
 	["fullName"] = "CZ Scorpion EVO 3 folding buffer tube adapter",
 	["displayName"] = "EVO BUFFER",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45208,7 +45208,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_buff"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_pdw"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_pdw"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 PDW collapsible stock",
 	["displayName"] = "PDW",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45228,7 +45228,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_pdw"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_slider"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_slider"] = {
 	["fullName"] = "Manticore Arms CZ Scorpion EVO 3 A1 Slider stock",
 	["displayName"] = "Manticore",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45248,7 +45248,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_slider"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_tac"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_tac"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 tactical stock",
 	["displayName"] = "EVO TAC",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45268,7 +45268,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_tac"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_scorpion_stock_zhu"] = {
+EFGM.ITEMS["arc9_att_eft_scorpion_stock_zhu"] = {
 	["fullName"] = "CZ Scorpion EVO 3 A1 Magpul Zhukov stock adapter",
 	["displayName"] = "EVO ZHUKOV",
 	["displayType"] = DISPLAYTYPE.STOCK,
@@ -45288,7 +45288,7 @@ EFGMITEMS["arc9_att_eft_scorpion_stock_zhu"] = {
 	["canPurchase"] = true,
 }
 
-EFGMITEMS["arc9_att_eft_hg_svd_std"] = {
+EFGM.ITEMS["arc9_att_eft_hg_svd_std"] = {
 	["fullName"] = "Wooden SVD handguard",
 	["displayName"] = "SVD",
 	["displayType"] = DISPLAYTYPE.HANDGUARD,

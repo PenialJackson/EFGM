@@ -11,9 +11,9 @@ end
 -- is it great, iterating over dozens of objectives every frame? no. do i care? also no
 -- PORTY DO NOT FUCKING DO THIS EVER AGAIN
 -- function ENT:Draw()
-	-- if table.IsEmpty(playerTasks) then return end
+	-- if table.IsEmpty(EFGM.CLIENT.TASKS) then return end
 
-	-- for taskName, taskInstance in pairs(playerTasks) do
+	-- for taskName, taskInstance in pairs(EFGM.CLIENT.TASKS) do
 		-- if taskInstance.status == TASKSTATUS.InProgress then
 			-- local taskInfo = EFGMTASKS[taskName]
 

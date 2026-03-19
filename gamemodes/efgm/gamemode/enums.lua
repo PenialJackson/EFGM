@@ -32,7 +32,7 @@ STATUS.DUEL = {
 }
 
 -- invite types
-inviteTypes = {
+INVITETYPES = {
 	DUEL = 1,
 	SQUAD = 2
 }

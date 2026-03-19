@@ -89,8 +89,6 @@ if GetConVar("efgm_derivesbox"):GetInt() == 0 then
 	concommand.Remove("arc9_settings_open")
 end
 
-EFGM.SteamNameCache = {}
-
 -- override ear animation
 function GM:GrabEarAnimation()
 end

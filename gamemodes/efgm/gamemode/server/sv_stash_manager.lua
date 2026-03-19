@@ -9,7 +9,7 @@ function ReloadStash(ply)
 end
 
 function AddItemToStash(ply, name, type, data)
-	local def = EFGMITEMS[name]
+	local def = EFGM.ITEMS[name]
 	local stackSize = def.stashStackSize or def.stackSize
 
 	data.count = math.Clamp(tonumber(data.count) or 1, 1, stackSize)
@@ -64,7 +64,7 @@ function DeleteItemFromStash(ply, index)
 end
 
 function FlowItemToStash(ply, name, type, data)
-	local def = EFGMITEMS[name]
+	local def = EFGM.ITEMS[name]
 	local stackSize = def.stashStackSize or def.stackSize
 	local amount = tonumber(data.count) or 1
 
@@ -172,7 +172,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 	ply.weaponSlots[equipID][equipSlot] = {}
 
 	local wep = ply:GetWeapon(item.name)
-	local def = EFGMITEMS[item.name]
+	local def = EFGM.ITEMS[item.name]
 
 	if wep != NULL and def.displayType != "Grenade" then
 		wep:Unload()
@@ -189,7 +189,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			RemoveWeightFromPlayer(ply, a, 1)
@@ -235,7 +235,7 @@ net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
 	local item = ply.stash[itemIndex]
 	if item == nil then return end
 
-	local itemDef = EFGMITEMS[item.name]
+	local itemDef = EFGM.ITEMS[item.name]
 
 	if item.data.count <= itemDef.stackSize then
 		item = DeleteItemFromStash(ply, itemIndex)
@@ -279,7 +279,7 @@ net.Receive("PlayerStashEquipItem", function(len, ply)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				AddWeightToPlayer(ply, a, 1)
@@ -316,7 +316,7 @@ function CalculateStashValue(ply)
 	local value = 0
 
 	for k, v in ipairs(ply.stash) do
-		local def = EFGMITEMS[v.name]
+		local def = EFGM.ITEMS[v.name]
 		local count = math.Clamp(v.data.count, 1, def.stashStackSize or def.stackSize) or 1
 
 		if def.consumableType != "heal" and def.consumableType != "key" then
@@ -330,7 +330,7 @@ function CalculateStashValue(ply)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				value = value + att.value

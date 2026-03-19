@@ -46,15 +46,15 @@ end
 
 function ENT:SelectItems()
 	if self.SpawnChance < math.random(0, 100) then return nil end
-	if table.IsEmpty(LOOT[self.LootType]) then print("loot table " .. self.LootType .. " is empty you fucking idiot") return nil end
+	if table.IsEmpty(EFGM.LOOT[self.LootType]) then print("loot table " .. self.LootType .. " is empty you fucking idiot") return nil end
 
 	local containerLoot = {}
 	local chance = 100
 	local chanceRand = math.random(0, 100)
 
 	while chance >= chanceRand do
-		local _, itemKey = table.Random(LOOT[self.LootType])
-		local def = EFGMITEMS[itemKey]
+		local _, itemKey = table.Random(EFGM.LOOT[self.LootType])
+		local def = EFGM.ITEMS[itemKey]
 
 		local itemChance = def.lootWeight or 100
 		if itemChance < 100 and itemChance < math.random(0, 100) then continue end -- bad roll, replace with new item
@@ -82,7 +82,7 @@ function ENT:SelectItems()
 		table.insert(containerLoot, item)
 
 		if def.ammoID then
-			local ammoDef = EFGMITEMS[def.ammoID]
+			local ammoDef = EFGM.ITEMS[def.ammoID]
 
 			local ammoData = {}
 			ammoData.count = math.Clamp(math.random(math.Round(ammoDef.stackSize / 6), ammoDef.stackSize / 2), 1, ammoDef.stackSize / 2)

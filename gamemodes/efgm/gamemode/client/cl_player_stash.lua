@@ -1,3 +1,5 @@
+EFGM.CLIENT.STASH = EFGM.CLIENT.STASH or {}
+
 local chunkedStash = {}
 
 local table = table
@@ -14,8 +16,8 @@ hook.Add("OnStashChunked", "NetworkStash", function(str, uID)
 
 	local stashTbl = util.JSONToTable(stashStr)
 
-	playerStash = stashTbl
-	if playerStash == nil then playerStash = {} end
+	EFGM.CLIENT.STASH = stashTbl
+	if EFGM.CLIENT.STASH == nil then EFGM.CLIENT.STASH = {} end
 end)
 
 net.Receive("PlayerNetworkStash", function(len)
@@ -59,7 +61,7 @@ net.Receive("PlayerStashAddItem", function(len)
 	data = net.ReadTable()
 	index = net.ReadUInt(16)
 
-	table.insert(playerStash, index, ITEM.Instantiate(name, type, data))
+	table.insert(EFGM.CLIENT.STASH, index, ITEM.Instantiate(name, type, data))
 end)
 
 net.Receive("PlayerStashUpdateItem", function(len)
@@ -68,7 +70,7 @@ net.Receive("PlayerStashUpdateItem", function(len)
 	newData = net.ReadTable()
 	index = net.ReadUInt(16)
 
-	playerStash[index].data = newData
+	EFGM.CLIENT.STASH[index].data = newData
 end)
 
 net.Receive("PlayerStashDeleteItem", function(len)
@@ -76,13 +78,13 @@ net.Receive("PlayerStashDeleteItem", function(len)
 
 	index = net.ReadUInt(16)
 
-	table.remove(playerStash, index)
+	table.remove(EFGM.CLIENT.STASH, index)
 end)
 
 function StashItemFromInventory(itemIndex)
 	if !LocalPlayer():IsInHideout() then return end
 
-	local item = playerInventory[itemIndex]
+	local item = EFGM.CLIENT.INVENTORY[itemIndex]
 	if item == nil then return end
 
 	net.Start("PlayerStashAddItemFromInventory", false)
@@ -94,10 +96,10 @@ function StashItemFromEquipped(equipID, equipSlot)
 	if !LocalPlayer():IsInHideout() then return end
 	if equipID != WEAPONSLOTS.MELEE.ID and LocalPlayer():CompareFaction(false) then return end
 
-	local item = playerWeaponSlots[equipID][equipSlot]
+	local item = EFGM.CLIENT.EQUIPPED[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
 
-	playerWeaponSlots[equipID][equipSlot] = {}
+	EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = {}
 
 	net.Start("PlayerStashAddItemFromEquipped", false)
 		net.WriteUInt(equipID, 4)
@@ -114,7 +116,7 @@ function TakeFromStashToInventory(itemIndex)
 	if !LocalPlayer():IsInHideout() then return end
 	if LocalPlayer():CompareFaction(false) then return end
 
-	local item = playerStash[itemIndex]
+	local item = EFGM.CLIENT.STASH[itemIndex]
 	if item == nil then return end
 
 	net.Start("PlayerStashTakeItemToInventory", false)
@@ -126,15 +128,15 @@ function EquipItemFromStash(itemIndex, equipSlot, primaryPref)
 	if !LocalPlayer():IsInHideout() then return end
 	if equipSlot != WEAPONSLOTS.MELEE.ID and LocalPlayer():CompareFaction(false) then return end
 
-	local item = playerStash[itemIndex]
+	local item = EFGM.CLIENT.STASH[itemIndex]
 	if item == nil then return end
 
-	if AmountInInventory(playerWeaponSlots[equipSlot], item.name) != 0 then return end
+	if AmountInInventory(EFGM.CLIENT.EQUIPPED[equipSlot], item.name) != 0 then return end
 
 	-- checking item equip slots
 	if equipSlot == 1 and primaryPref != nil then
 		if primaryPref == 1 then
-			playerWeaponSlots[equipSlot][1] = item
+			EFGM.CLIENT.EQUIPPED[equipSlot][1] = item
 
 			net.Start("PlayerStashEquipItem", false)
 				net.WriteUInt(itemIndex, 16)
@@ -144,7 +146,7 @@ function EquipItemFromStash(itemIndex, equipSlot, primaryPref)
 
 			return true
 		else
-			playerWeaponSlots[equipSlot][2] = item
+			EFGM.CLIENT.EQUIPPED[equipSlot][2] = item
 
 			net.Start("PlayerStashEquipItem", false)
 				net.WriteUInt(itemIndex, 16)
@@ -155,9 +157,9 @@ function EquipItemFromStash(itemIndex, equipSlot, primaryPref)
 			return true
 		end
 	else
-		for k, v in ipairs(playerWeaponSlots[equipSlot]) do
+		for k, v in ipairs(EFGM.CLIENT.EQUIPPED[equipSlot]) do
 			if table.IsEmpty(v) then
-				playerWeaponSlots[equipSlot][k] = item
+				EFGM.CLIENT.EQUIPPED[equipSlot][k] = item
 
 				net.Start("PlayerStashEquipItem", false)
 					net.WriteUInt(itemIndex, 16)
@@ -176,7 +178,7 @@ end
 function PinItemFromStash(itemIndex)
 	if !LocalPlayer():IsInHideout() then return end
 
-	local item = playerStash[itemIndex]
+	local item = EFGM.CLIENT.STASH[itemIndex]
 	if item == nil then return end
 
 	net.Start("PlayerStashPinItem", false)

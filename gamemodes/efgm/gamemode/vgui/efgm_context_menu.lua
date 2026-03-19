@@ -5,10 +5,10 @@ PANEL.ctxHeight = 0
 function PANEL:Paint(w, h)
 	BlurPanel(self, 2, 2)
 
-	surface.SetDrawColor(Colors.contextBackgroundColor)
+	surface.SetDrawColor(COLORS.contextBackgroundColor)
 	surface.DrawRect(0, 0, w, h)
 
-	surface.SetDrawColor(Colors.contextBorder)
+	surface.SetDrawColor(COLORS.contextBorder)
 	surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 	surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 	surface.DrawRect(0, 0, EFGM.MenuScale(1), h)

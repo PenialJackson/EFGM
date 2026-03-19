@@ -29,7 +29,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 
 	if !ply:IsInHideout() then return end
 
-	local def = EFGMITEMS[item]
+	local def = EFGM.ITEMS[item]
 
 	if def.canPurchase == false then return end
 	if ply:GetNWInt("StashCount", 0) + math.floor(count / def.stackSize) >= ply:GetNWInt("StashMax", 150) then return end
@@ -45,7 +45,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			cost = cost + att.value
@@ -88,7 +88,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	if !ply:IsInHideout() then return end
 	if ply:CompareFaction(false) then return end
 
-	local def = EFGMITEMS[item]
+	local def = EFGM.ITEMS[item]
 
 	if def.canPurchase == false then return end
 	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] and count > EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then return end
@@ -103,7 +103,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			cost = cost + att.value
@@ -152,7 +152,7 @@ net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 	local highestLvl = 0
 
 	for att, attcount in pairs(presetAtts) do
-		local i = EFGMITEMS[att]
+		local i = EFGM.ITEMS[att]
 		if i == nil then return end
 
 		cost = cost + (i.value * attcount)
@@ -187,7 +187,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 	if AmountInInventory(ply.stash, item) < count then return end
 	if ply.stash[key] == nil then return end
 
-	local def = EFGMITEMS[item]
+	local def = EFGM.ITEMS[item]
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 
@@ -200,7 +200,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
-				local att = EFGMITEMS[a]
+				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
 				cost = cost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)

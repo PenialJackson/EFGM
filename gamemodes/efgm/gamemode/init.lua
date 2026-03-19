@@ -471,11 +471,11 @@ end)
 hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then return false end
 
-	local def = EFGMITEMS[class]
+	local def = EFGM.ITEMS[class]
 	if !def then return true end -- if sm1 wants a camera or something
 
 	local data = {}
-	data.att = EFGMITEMS[class].defAtts
+	data.att = EFGM.ITEMS[class].defAtts
 	data.count = 1
 	data.owner = ply:SteamID64()
 	data.timestamp = os.time()

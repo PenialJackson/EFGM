@@ -1,5 +1,5 @@
 -- assault carbines
-EFGMITEMS["arc9_eft_adar15"] = {
+EFGM.ITEMS["arc9_eft_adar15"] = {
 	["fullName"] = "ADAR 2-15 5.56x45 carbine",
 	["displayName"] = "ADAR 2-15",
 	["displayType"] = "Assault Carbine",
@@ -26,7 +26,7 @@ EFGMITEMS["arc9_eft_adar15"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vsk94"] = {
+EFGM.ITEMS["arc9_eft_vsk94"] = {
 	["fullName"] = "KBP VSK-94 9x39 rifle",
 	["displayName"] = "VSK-94",
 	["displayType"] = "Assault Carbine",
@@ -53,7 +53,7 @@ EFGMITEMS["arc9_eft_vsk94"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_rfb"] = {
+EFGM.ITEMS["arc9_eft_rfb"] = {
 	["fullName"] = "Kel-Tec RFB 7.62x51 rifle",
 	["displayName"] = "Kal-Tec RFB",
 	["displayType"] = "Assault Carbine",
@@ -80,7 +80,7 @@ EFGMITEMS["arc9_eft_rfb"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_tx15"] = {
+EFGM.ITEMS["arc9_eft_tx15"] = {
 	["fullName"] = "Lone Star TX-15 DML 5.56x45 carbine",
 	["displayName"] = "TX-15 DML",
 	["displayType"] = "Assault Carbine",
@@ -107,7 +107,7 @@ EFGMITEMS["arc9_eft_tx15"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sag_ak545"] = {
+EFGM.ITEMS["arc9_eft_sag_ak545"] = {
 	["fullName"] = "SAG AK-545 5.45x39 carbine",
 	["displayName"] = "AK-545",
 	["displayType"] = "Assault Carbine",
@@ -134,7 +134,7 @@ EFGMITEMS["arc9_eft_sag_ak545"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sag_ak545short"] = {
+EFGM.ITEMS["arc9_eft_sag_ak545short"] = {
 	["fullName"] = "SAG AK-545 Short 5.45x39 carbine",
 	["displayName"] = "AK-545 Short",
 	["displayType"] = "Assault Carbine",
@@ -161,7 +161,7 @@ EFGMITEMS["arc9_eft_sag_ak545short"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sr3"] = {
+EFGM.ITEMS["arc9_eft_sr3"] = {
 	["fullName"] = "SR-3M 9x39 compact assault rifle",
 	["displayName"] = "SR-3M",
 	["displayType"] = "Assault Carbine",
@@ -191,7 +191,7 @@ EFGMITEMS["arc9_eft_sr3"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_svt"] = {
+EFGM.ITEMS["arc9_eft_svt"] = {
 	["fullName"] = "Tokarev SVT-40 7.62x54R rifle",
 	["displayName"] = "SVT-40",
 	["displayType"] = "Assault Carbine",
@@ -216,7 +216,7 @@ EFGMITEMS["arc9_eft_svt"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sks"] = {
+EFGM.ITEMS["arc9_eft_sks"] = {
 	["fullName"] = "TOZ Simonov SKS 7.62x39 carbine",
 	["displayName"] = "SKS",
 	["displayType"] = "Assault Carbine",
@@ -243,7 +243,7 @@ EFGMITEMS["arc9_eft_sks"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vpo101"] = {
+EFGM.ITEMS["arc9_eft_vpo101"] = {
 	["fullName"] = "Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine",
 	["displayName"] = "VPO-101 Vepr-Hunter",
 	["displayType"] = "Assault Carbine",
@@ -269,7 +269,7 @@ EFGMITEMS["arc9_eft_vpo101"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vpo136"] = {
+EFGM.ITEMS["arc9_eft_vpo136"] = {
 	["fullName"] = "Molot Arms VPO-136 Vepr-KM 7.62x39 carbine",
 	["displayName"] = "VPO-136 Vepr-KM",
 	["displayType"] = "Assault Carbine",
@@ -296,7 +296,7 @@ EFGMITEMS["arc9_eft_vpo136"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vpo209"] = {
+EFGM.ITEMS["arc9_eft_vpo209"] = {
 	["fullName"] = "Molot Arms VPO-209 .366 TKM carbine",
 	["displayName"] = "VPO-209",
 	["displayType"] = "Assault Carbine",
@@ -324,7 +324,7 @@ EFGMITEMS["arc9_eft_vpo209"] = {
 }
 
 -- assault rifles
-EFGMITEMS["arc9_eft_velociraptor"] = {
+EFGM.ITEMS["arc9_eft_velociraptor"] = {
 	["fullName"] = "Aklys Defense Velociraptor .300 Blackout assault rifle",
 	["displayName"] = "Velociraptor .300 BLK",
 	["displayType"] = "Assault Rifle",
@@ -350,7 +350,7 @@ EFGMITEMS["arc9_eft_velociraptor"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_aek971"] = {
+EFGM.ITEMS["arc9_eft_aek971"] = {
 	["fullName"] = "AEK-971 5.45x45 assault rifle",
 	["displayName"] = "AEK-971",
 	["displayType"] = "Assault Rifle",
@@ -378,7 +378,7 @@ EFGMITEMS["arc9_eft_aek971"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak101"] = {
+EFGM.ITEMS["arc9_eft_ak101"] = {
 	["fullName"] = "Kalashnikov AK-101 5.56x45 assault rifle",
 	["displayName"] = "AK-101",
 	["displayType"] = "Assault Rifle",
@@ -404,7 +404,7 @@ EFGMITEMS["arc9_eft_ak101"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak102"] = {
+EFGM.ITEMS["arc9_eft_ak102"] = {
 	["fullName"] = "Kalashnikov AK-102 5.56x45 assault rifle",
 	["displayName"] = "AK-102",
 	["displayType"] = "Assault Rifle",
@@ -430,7 +430,7 @@ EFGMITEMS["arc9_eft_ak102"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak103"] = {
+EFGM.ITEMS["arc9_eft_ak103"] = {
 	["fullName"] = "Kalashnikov AK-103 7.62x39 assault rifle",
 	["displayName"] = "AK-103",
 	["displayType"] = "Assault Rifle",
@@ -456,7 +456,7 @@ EFGMITEMS["arc9_eft_ak103"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak104"] = {
+EFGM.ITEMS["arc9_eft_ak104"] = {
 	["fullName"] = "Kalashnikov AK-104 7.62x39 assault rifle",
 	["displayName"] = "AK-104",
 	["displayType"] = "Assault Rifle",
@@ -482,7 +482,7 @@ EFGMITEMS["arc9_eft_ak104"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak105"] = {
+EFGM.ITEMS["arc9_eft_ak105"] = {
 	["fullName"] = "Kalashnikov AK-105 5.45x39 assault rifle",
 	["displayName"] = "AK-105",
 	["displayType"] = "Assault Rifle",
@@ -508,7 +508,7 @@ EFGMITEMS["arc9_eft_ak105"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak12"] = {
+EFGM.ITEMS["arc9_eft_ak12"] = {
 	["fullName"] = "Kalashnikov AK-12 5.45x39 assault rifle",
 	["displayName"] = "AK-12",
 	["displayType"] = "Assault Rifle",
@@ -534,7 +534,7 @@ EFGMITEMS["arc9_eft_ak12"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak74"] = {
+EFGM.ITEMS["arc9_eft_ak74"] = {
 	["fullName"] = "Kalashnikov AK-74 5.45x39 assault rifle",
 	["displayName"] = "AK-74",
 	["displayType"] = "Assault Rifle",
@@ -560,7 +560,7 @@ EFGMITEMS["arc9_eft_ak74"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ak74m"] = {
+EFGM.ITEMS["arc9_eft_ak74m"] = {
 	["fullName"] = "Kalashnikov AK-74M 5.45x39 assault rifle",
 	["displayName"] = "AK-74M",
 	["displayType"] = "Assault Rifle",
@@ -586,7 +586,7 @@ EFGMITEMS["arc9_eft_ak74m"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_akm"] = {
+EFGM.ITEMS["arc9_eft_akm"] = {
 	["fullName"] = "Kalashnikov AKM 7.62x39 assault rifle",
 	["displayName"] = "AKM",
 	["displayType"] = "Assault Rifle",
@@ -612,7 +612,7 @@ EFGMITEMS["arc9_eft_akm"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_akms"] = {
+EFGM.ITEMS["arc9_eft_akms"] = {
 	["fullName"] = "Kalashnikov AKMS 7.62x39 assault rifle",
 	["displayName"] = "AKMS",
 	["displayType"] = "Assault Rifle",
@@ -638,7 +638,7 @@ EFGMITEMS["arc9_eft_akms"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_aks74"] = {
+EFGM.ITEMS["arc9_eft_aks74"] = {
 	["fullName"] = "Kalashnikov AKS-74 5.45x39 assault rifle",
 	["displayName"] = "AKS-74",
 	["displayType"] = "Assault Rifle",
@@ -664,7 +664,7 @@ EFGMITEMS["arc9_eft_aks74"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_aks74u"] = {
+EFGM.ITEMS["arc9_eft_aks74u"] = {
 	["fullName"] = "Kalashnikov AKS-74U 5.45x39 assault rifle",
 	["displayName"] = "AKS-74U",
 	["displayType"] = "Assault Rifle",
@@ -690,7 +690,7 @@ EFGMITEMS["arc9_eft_aks74u"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_an94"] = {
+EFGM.ITEMS["arc9_eft_an94"] = {
 	["fullName"] = "AN-94 5.45x45 assault rifle",
 	["displayName"] = "AN-94",
 	["displayType"] = "Assault Rifle",
@@ -716,7 +716,7 @@ EFGMITEMS["arc9_eft_an94"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_asval"] = {
+EFGM.ITEMS["arc9_eft_asval"] = {
 	["fullName"] = "AS VAL 9x39 special assault rifle",
 	["displayName"] = "AS VAL",
 	["displayType"] = "Assault Rifle",
@@ -744,7 +744,7 @@ EFGMITEMS["arc9_eft_asval"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_asval_mod4"] = {
+EFGM.ITEMS["arc9_eft_asval_mod4"] = {
 	["fullName"] = "AS VAL MOD.4 9x39 special assault rifle",
 	["displayName"] = "AS VAL MOD.4",
 	["displayType"] = "Assault Rifle",
@@ -773,7 +773,7 @@ EFGMITEMS["arc9_eft_asval_mod4"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ash12"] = {
+EFGM.ITEMS["arc9_eft_ash12"] = {
 	["fullName"] = "ASh-12 12.7x55 assault rifle",
 	["displayName"] = "ASh-12",
 	["displayType"] = "Assault Rifle",
@@ -801,7 +801,7 @@ EFGMITEMS["arc9_eft_ash12"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m16a1"] = {
+EFGM.ITEMS["arc9_eft_m16a1"] = {
 	["fullName"] = "Colt M16A1 5.56x45 assault rifle",
 	["displayName"] = "M16A1",
 	["displayType"] = "Assault Rifle",
@@ -827,7 +827,7 @@ EFGMITEMS["arc9_eft_m16a1"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m16a2"] = {
+EFGM.ITEMS["arc9_eft_m16a2"] = {
 	["fullName"] = "Colt M16A2 5.56x45 assault rifle",
 	["displayName"] = "M16A2",
 	["displayType"] = "Assault Rifle",
@@ -853,7 +853,7 @@ EFGMITEMS["arc9_eft_m16a2"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m4a1"] = {
+EFGM.ITEMS["arc9_eft_m4a1"] = {
 	["fullName"] = "Colt M4A1 5.56x45 assault rifle",
 	["displayName"] = "M4A1",
 	["displayType"] = "Assault Rifle",
@@ -884,7 +884,7 @@ EFGMITEMS["arc9_eft_m4a1"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sa58"] = {
+EFGM.ITEMS["arc9_eft_sa58"] = {
 	["fullName"] = "DS Arms SA58 7.62x51 assault rifle",
 	["displayName"] = "DSA SA58",
 	["displayType"] = "Assault Rifle",
@@ -910,7 +910,7 @@ EFGMITEMS["arc9_eft_sa58"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mdr"] = {
+EFGM.ITEMS["arc9_eft_mdr"] = {
 	["fullName"] = "Desert Tech MDR 7.62x51 assault rifle",
 	["displayName"] = "DT MDR 7.62",
 	["displayType"] = "Assault Rifle",
@@ -938,7 +938,7 @@ EFGMITEMS["arc9_eft_mdr"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mdr556"] = {
+EFGM.ITEMS["arc9_eft_mdr556"] = {
 	["fullName"] = "Desert Tech MDR 5.56x45 assault rifle",
 	["displayName"] = "DT MDR 5.56",
 	["displayType"] = "Assault Rifle",
@@ -964,7 +964,7 @@ EFGMITEMS["arc9_eft_mdr556"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_scarh"] = {
+EFGM.ITEMS["arc9_eft_scarh"] = {
 	["fullName"] = "FN SCAR-H 7.62x51 assault rifle",
 	["displayName"] = "SCAR-H",
 	["displayType"] = "Assault Rifle",
@@ -990,7 +990,7 @@ EFGMITEMS["arc9_eft_scarh"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_scarl"] = {
+EFGM.ITEMS["arc9_eft_scarl"] = {
 	["fullName"] = "FN SCAR-L 5.56x45 assault rifle",
 	["displayName"] = "SCAR-L",
 	["displayType"] = "Assault Rifle",
@@ -1017,7 +1017,7 @@ EFGMITEMS["arc9_eft_scarl"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_hk416"] = {
+EFGM.ITEMS["arc9_eft_hk416"] = {
 	["fullName"] = "HK 416A5 5.56x45 assault rifle",
 	["displayName"] = "HK 416A5",
 	["displayType"] = "Assault Rifle",
@@ -1046,7 +1046,7 @@ EFGMITEMS["arc9_eft_hk416"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_g36"] = {
+EFGM.ITEMS["arc9_eft_g36"] = {
 	["fullName"] = "HK G36 5.56x45 assault rifle",
 	["displayName"] = "G36",
 	["displayType"] = "Assault Rifle",
@@ -1072,7 +1072,7 @@ EFGMITEMS["arc9_eft_g36"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_9a91"] = {
+EFGM.ITEMS["arc9_eft_9a91"] = {
 	["fullName"] = "KBP 9A-91 9x39 compact assault rifle",
 	["displayName"] = "9A-91",
 	["displayType"] = "Assault Rifle",
@@ -1098,7 +1098,7 @@ EFGMITEMS["arc9_eft_9a91"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mk47_mutant"] = {
+EFGM.ITEMS["arc9_eft_mk47_mutant"] = {
 	["fullName"] = "CMMG Mk47 Mutant 7.62x39 assault rifle",
 	["displayName"] = "Mk47",
 	["displayType"] = "Assault Rifle",
@@ -1126,7 +1126,7 @@ EFGMITEMS["arc9_eft_mk47_mutant"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_nl545_di"] = {
+EFGM.ITEMS["arc9_eft_nl545_di"] = {
 	["fullName"] = "Custom Guns NL545 (DI) 5.45x39 assault rifle",
 	["displayName"] = "NL545 DI",
 	["displayType"] = "Assault Rifle",
@@ -1154,7 +1154,7 @@ EFGMITEMS["arc9_eft_nl545_di"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_nl545_gp"] = {
+EFGM.ITEMS["arc9_eft_nl545_gp"] = {
 	["fullName"] = "Custom Guns NL545 (GP) 5.45x39 assault rifle",
 	["displayName"] = "NL545 GP",
 	["displayType"] = "Assault Rifle",
@@ -1182,7 +1182,7 @@ EFGMITEMS["arc9_eft_nl545_gp"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_radian"] = {
+EFGM.ITEMS["arc9_eft_radian"] = {
 	["fullName"] = "Radian Weapons Model 1 FA 5.56x45 assault rifle",
 	["displayName"] = "Radian Model 1",
 	["displayType"] = "Assault Rifle",
@@ -1210,7 +1210,7 @@ EFGMITEMS["arc9_eft_radian"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_rd704"] = {
+EFGM.ITEMS["arc9_eft_rd704"] = {
 	["fullName"] = "Rifle Dynamics RD-704 7.62x39 assault rifle",
 	["displayName"] = "RD-704",
 	["displayType"] = "Assault Rifle",
@@ -1236,7 +1236,7 @@ EFGMITEMS["arc9_eft_rd704"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_scarx17"] = {
+EFGM.ITEMS["arc9_eft_scarx17"] = {
 	["fullName"] = "FN SCAR-H X-17 7.62x51 assault rifle",
 	["displayName"] = "SCAR-H X-17",
 	["displayType"] = "Assault Rifle",
@@ -1264,7 +1264,7 @@ EFGMITEMS["arc9_eft_scarx17"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mcx"] = {
+EFGM.ITEMS["arc9_eft_mcx"] = {
 	["fullName"] = "SIG MCX .300 Blackout assault rifle",
 	["displayName"] = "MCX .300 BLK",
 	["displayType"] = "Assault Rifle",
@@ -1290,7 +1290,7 @@ EFGMITEMS["arc9_eft_mcx"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_spear"] = {
+EFGM.ITEMS["arc9_eft_spear"] = {
 	["fullName"] = "SIG MCX-SPEAR 6.8x51 assault rifle",
 	["displayName"] = "MCX-SPEAR 6.8",
 	["displayType"] = "Assault Rifle",
@@ -1319,7 +1319,7 @@ EFGMITEMS["arc9_eft_spear"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_auga1"] = {
+EFGM.ITEMS["arc9_eft_auga1"] = {
 	["fullName"] = "Steyr AUG A1 5.56x45 assault rifle",
 	["displayName"] = "AUG A1",
 	["displayType"] = "Assault Rifle",
@@ -1345,7 +1345,7 @@ EFGMITEMS["arc9_eft_auga1"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_aug"] = {
+EFGM.ITEMS["arc9_eft_aug"] = {
 	["fullName"] = "Steyr AUG A3 5.56x45 assault rifle",
 	["displayName"] = "AUG A3",
 	["displayType"] = "Assault Rifle",
@@ -1371,7 +1371,7 @@ EFGMITEMS["arc9_eft_aug"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_avt"] = {
+EFGM.ITEMS["arc9_eft_avt"] = {
 	["fullName"] = "Tokarev AVT-40 7.62x54R automatic rifle",
 	["displayName"] = "AVT-40",
 	["displayType"] = "Assault Rifle",
@@ -1397,7 +1397,7 @@ EFGMITEMS["arc9_eft_avt"] = {
 }
 
 -- light machine guns
-EFGMITEMS["arc9_eft_m249"] = {
+EFGM.ITEMS["arc9_eft_m249"] = {
 	["fullName"] = "M249 SAW 5.56x45 light machine gun",
 	["displayName"] = "M249 SAW",
 	["displayType"] = "Light Machine Gun",
@@ -1426,7 +1426,7 @@ EFGMITEMS["arc9_eft_m249"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m60e4"] = {
+EFGM.ITEMS["arc9_eft_m60e4"] = {
 	["fullName"] = "U.S. Ordnance M60E4 7.62x51 light machine gun",
 	["displayName"] = "M60E4",
 	["displayType"] = "Light Machine Gun",
@@ -1452,7 +1452,7 @@ EFGMITEMS["arc9_eft_m60e4"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m60e6"] = {
+EFGM.ITEMS["arc9_eft_m60e6"] = {
 	["fullName"] = "U.S. Ordnance M60E6 7.62x51 light machine gun",
 	["displayName"] = "M60E6",
 	["displayType"] = "Light Machine Gun",
@@ -1478,7 +1478,7 @@ EFGMITEMS["arc9_eft_m60e6"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pkm"] = {
+EFGM.ITEMS["arc9_eft_pkm"] = {
 	["fullName"] = "Kalashnikov PKM 7.62x54R machine gun",
 	["displayName"] = "PKM",
 	["displayType"] = "Light Machine Gun",
@@ -1506,7 +1506,7 @@ EFGMITEMS["arc9_eft_pkm"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pkp"] = {
+EFGM.ITEMS["arc9_eft_pkp"] = {
 	["fullName"] = "Kalashnikov PKP 7.62x54R infantry machine gun",
 	["displayName"] = 'PKP "Pecheneg"',
 	["displayType"] = "Light Machine Gun",
@@ -1534,7 +1534,7 @@ EFGMITEMS["arc9_eft_pkp"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_rpd"] = {
+EFGM.ITEMS["arc9_eft_rpd"] = {
 	["fullName"] = "Degtyarev RPD 7.62x39 machine gun",
 	["displayName"] = "RPD",
 	["displayType"] = "Light Machine Gun",
@@ -1560,7 +1560,7 @@ EFGMITEMS["arc9_eft_rpd"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_rpk16"] = {
+EFGM.ITEMS["arc9_eft_rpk16"] = {
 	["fullName"] = "RPK-16 5.45x39 light machine gun",
 	["displayName"] = "RPK-16",
 	["displayType"] = "Light Machine Gun",
@@ -1588,7 +1588,7 @@ EFGMITEMS["arc9_eft_rpk16"] = {
 }
 
 -- pistols
-EFGMITEMS["arc9_eft_m9a3"] = {
+EFGM.ITEMS["arc9_eft_m9a3"] = {
 	["fullName"] = "Beretta M9A3 9x19 pistol",
 	["displayName"] = "M9A3",
 	["displayType"] = "Pistol",
@@ -1614,7 +1614,7 @@ EFGMITEMS["arc9_eft_m9a3"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pd20"] = {
+EFGM.ITEMS["arc9_eft_pd20"] = {
 	["fullName"] = "20x1mm toy gun",
 	["displayName"] = "Blicky",
 	["displayType"] = "Pistol",
@@ -1638,7 +1638,7 @@ EFGMITEMS["arc9_eft_pd20"] = {
 	["defAtts"] = "XQAAAQAXAAAAAAAAAAA9iIIiM7hMNz0dkAd2RJ793J7f29M/CuuhAA=="
 }
 
-EFGMITEMS["arc9_eft_m1911"] = {
+EFGM.ITEMS["arc9_eft_m1911"] = {
 	["fullName"] = "Colt M1911A1 .45 ACP pistol",
 	["displayName"] = "M1911A1",
 	["displayType"] = "Pistol",
@@ -1665,7 +1665,7 @@ EFGMITEMS["arc9_eft_m1911"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m45"] = {
+EFGM.ITEMS["arc9_eft_m45"] = {
 	["fullName"] = "Colt M45A1 .45 ACP pistol",
 	["displayName"] = "M45A1",
 	["displayType"] = "Pistol",
@@ -1691,7 +1691,7 @@ EFGMITEMS["arc9_eft_m45"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_deagle_l5"] = {
+EFGM.ITEMS["arc9_eft_deagle_l5"] = {
 	["fullName"] = "Magnum Research Desert Eagle L5 .357 pistol",
 	["displayName"] = "Desert Eagle L5",
 	["displayType"] = "Pistol",
@@ -1718,7 +1718,7 @@ EFGMITEMS["arc9_eft_deagle_l5"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_deagle_l6"] = {
+EFGM.ITEMS["arc9_eft_deagle_l6"] = {
 	["fullName"] = "Magnum Research Desert Eagle L6 .50 AE pistol",
 	["displayName"] = "Desert Eagle L6",
 	["displayType"] = "Pistol",
@@ -1744,7 +1744,7 @@ EFGMITEMS["arc9_eft_deagle_l6"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_deagle_xix"] = {
+EFGM.ITEMS["arc9_eft_deagle_xix"] = {
 	["fullName"] = "Magnum Research Desert Eagle Mk XIX .50 AE pistol",
 	["displayName"] = "Desert Eagle Mk XIX",
 	["displayType"] = "Pistol",
@@ -1770,7 +1770,7 @@ EFGMITEMS["arc9_eft_deagle_xix"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_fn57"] = {
+EFGM.ITEMS["arc9_eft_fn57"] = {
 	["fullName"] = "FN Five-seveN MK2 5.7x28 pistol",
 	["displayName"] = "FN 5-7",
 	["displayType"] = "Pistol",
@@ -1797,7 +1797,7 @@ EFGMITEMS["arc9_eft_fn57"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_glock17"] = {
+EFGM.ITEMS["arc9_eft_glock17"] = {
 	["fullName"] = "Glock 17 9x19 pistol",
 	["displayName"] = "Glock 17",
 	["displayType"] = "Pistol",
@@ -1826,7 +1826,7 @@ EFGMITEMS["arc9_eft_glock17"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_glock18c"] = {
+EFGM.ITEMS["arc9_eft_glock18c"] = {
 	["fullName"] = "Glock 18C 9x19 machine pistol",
 	["displayName"] = "Glock 18C",
 	["displayType"] = "Pistol",
@@ -1853,7 +1853,7 @@ EFGMITEMS["arc9_eft_glock18c"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_glock19x"] = {
+EFGM.ITEMS["arc9_eft_glock19x"] = {
 	["fullName"] = "Glock 19X 9x19 pistol",
 	["displayName"] = "Glock 19X",
 	["displayType"] = "Pistol",
@@ -1879,7 +1879,7 @@ EFGMITEMS["arc9_eft_glock19x"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_usp"] = {
+EFGM.ITEMS["arc9_eft_usp"] = {
 	["fullName"] = "HK USP .45 ACP pistol",
 	["displayName"] = "USP .45",
 	["displayType"] = "Pistol",
@@ -1905,7 +1905,7 @@ EFGMITEMS["arc9_eft_usp"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pl15"] = {
+EFGM.ITEMS["arc9_eft_pl15"] = {
 	["fullName"] = "Lebedev PL-15 9x19 pistol",
 	["displayName"] = "PL-15",
 	["displayType"] = "Pistol",
@@ -1930,7 +1930,7 @@ EFGMITEMS["arc9_eft_pl15"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pm"] = {
+EFGM.ITEMS["arc9_eft_pm"] = {
 	["fullName"] = "Makarov PM 9x18PM pistol",
 	["displayName"] = "PM",
 	["displayType"] = "Pistol",
@@ -1955,7 +1955,7 @@ EFGMITEMS["arc9_eft_pm"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp443"] = {
+EFGM.ITEMS["arc9_eft_mp443"] = {
 	["fullName"] = "Yarygin MP-443 Grach 9x19 pistol",
 	["displayName"] = "MP-443 Grach",
 	["displayType"] = "Pistol",
@@ -1981,7 +1981,7 @@ EFGMITEMS["arc9_eft_mp443"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pb"] = {
+EFGM.ITEMS["arc9_eft_pb"] = {
 	["fullName"] = "PB 9x18PM silenced pistol",
 	["displayName"] = "PB",
 	["displayType"] = "Pistol",
@@ -2006,7 +2006,7 @@ EFGMITEMS["arc9_eft_pb"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_rsh12"] = {
+EFGM.ITEMS["arc9_eft_rsh12"] = {
 	["fullName"] = "RSh-12 12.7x55 revolver",
 	["displayName"] = "RSh-12",
 	["displayType"] = "Pistol",
@@ -2032,7 +2032,7 @@ EFGMITEMS["arc9_eft_rsh12"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_p226r"] = {
+EFGM.ITEMS["arc9_eft_p226r"] = {
 	["fullName"] = "SIG P226R 9x19 pistol",
 	["displayName"] = "P226R",
 	["displayType"] = "Pistol",
@@ -2058,7 +2058,7 @@ EFGMITEMS["arc9_eft_p226r"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sr1mp"] = {
+EFGM.ITEMS["arc9_eft_sr1mp"] = {
 	["fullName"] = "Serdyukov SR-1MP Gyurza 9x21 pistol",
 	["displayName"] = "SR-1MP",
 	["displayType"] = "Pistol",
@@ -2084,7 +2084,7 @@ EFGMITEMS["arc9_eft_sr1mp"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_apb"] = {
+EFGM.ITEMS["arc9_eft_apb"] = {
 	["fullName"] = "Stechkin APB 9x18PM silenced machine pistol",
 	["displayName"] = "APB",
 	["displayType"] = "Pistol",
@@ -2105,7 +2105,7 @@ EFGMITEMS["arc9_eft_apb"] = {
 	["defAtts"] = "XQAAAQBBAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LceiiH+OYU8CKsAUrAdr/tENAyThefN6cDVAvNEE2F5mDkS3Rk1uREfnqeAx7q76URnhkxW9ezdHaZGJlkZD9FmCgkjjCQDJ1B0mOn3eT4vC72j3iq1TLR4PqnlLWvjo9JegVAA==",
 }
 
-EFGMITEMS["arc9_eft_aps"] = {
+EFGM.ITEMS["arc9_eft_aps"] = {
 	["fullName"] = "Stechkin APS 9x18PM machine pistol",
 	["displayName"] = "APS",
 	["displayType"] = "Pistol",
@@ -2126,7 +2126,7 @@ EFGMITEMS["arc9_eft_aps"] = {
 	["defAtts"] = "XQAAAQDoAAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LceiiH+X7VuJllh2JgrygyhJzeJeRAUMgmKPwWdZCzRqYZexKUns3rzBSsK2Hj+avMZYkJ4b9wJXw3J+GnkWctfYm9Dgy6D19uNPzAA=="
 }
 
-EFGMITEMS["arc9_eft_tt33"] = {
+EFGM.ITEMS["arc9_eft_tt33"] = {
 	["fullName"] = "TT-33 7.62x25 TT pistol",
 	["displayName"] = "TT",
 	["displayType"] = "Pistol",
@@ -2151,7 +2151,7 @@ EFGMITEMS["arc9_eft_tt33"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_cr200ds"] = {
+EFGM.ITEMS["arc9_eft_cr200ds"] = {
 	["fullName"] = "Chiappa Rhino 200DS 9x19 revolver",
 	["displayName"] = "CR 200DS",
 	["displayType"] = "Pistol",
@@ -2172,7 +2172,7 @@ EFGMITEMS["arc9_eft_cr200ds"] = {
 	["defAtts"] = "XQAAAQC1AAAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iMxyb1USyArYDmk731f5dmwXd1V2F4KB2PoMgWnJCTwClBVT2CAhNumNQnOhBgvFvtbRGRj8/vmD9myG6J5DmZhnZIA"
 }
 
-EFGMITEMS["arc9_eft_cr50ds"] = {
+EFGM.ITEMS["arc9_eft_cr50ds"] = {
 	["fullName"] = "Chiappa Rhino 50DS .357 revolver",
 	["displayName"] = "CR 50DS",
 	["displayType"] = "Pistol",
@@ -2198,7 +2198,7 @@ EFGMITEMS["arc9_eft_cr50ds"] = {
 }
 
 -- shotguns
-EFGMITEMS["arc9_eft_m3super90"] = {
+EFGM.ITEMS["arc9_eft_m3super90"] = {
 	["fullName"] = "Benelli M3 Super 90 12ga dual-mode shotgun",
 	["displayName"] = "M3 Super 90",
 	["displayType"] = "Shotgun",
@@ -2224,7 +2224,7 @@ EFGMITEMS["arc9_eft_m3super90"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m590"] = {
+EFGM.ITEMS["arc9_eft_m590"] = {
 	["fullName"] = "Mossberg 590A1 12ga pump-action shotgun",
 	["displayName"] = "590A1",
 	["displayType"] = "Shotgun",
@@ -2250,7 +2250,7 @@ EFGMITEMS["arc9_eft_m590"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mr133"] = {
+EFGM.ITEMS["arc9_eft_mr133"] = {
 	["fullName"] = "MP-133 12ga pump-action shotgun",
 	["displayName"] = "MP-133",
 	["displayType"] = "Shotgun",
@@ -2276,7 +2276,7 @@ EFGMITEMS["arc9_eft_mr133"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mr153"] = {
+EFGM.ITEMS["arc9_eft_mr153"] = {
 	["fullName"] = "MP-153 12ga semi-automatic shotgun",
 	["displayName"] = "MP-153",
 	["displayType"] = "Shotgun",
@@ -2302,7 +2302,7 @@ EFGMITEMS["arc9_eft_mr153"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mr155"] = {
+EFGM.ITEMS["arc9_eft_mr155"] = {
 	["fullName"] = "MP-155 12ga semi-automatic shotgun",
 	["displayName"] = "MP-155",
 	["displayType"] = "Shotgun",
@@ -2328,7 +2328,7 @@ EFGMITEMS["arc9_eft_mr155"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mr43_sawedoff"] = {
+EFGM.ITEMS["arc9_eft_mr43_sawedoff"] = {
 	["fullName"] = "MP-43 12ga sawed-off double-barrel shotgun",
 	["displayName"] = "MP-43 Sawed-off",
 	["displayType"] = "Shotgun",
@@ -2354,7 +2354,7 @@ EFGMITEMS["arc9_eft_mr43_sawedoff"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mr43"] = {
+EFGM.ITEMS["arc9_eft_mr43"] = {
 	["fullName"] = "MP-43-1C 12ga double-barrel shotgun",
 	["displayName"] = "MP-43-1C",
 	["displayType"] = "Shotgun",
@@ -2380,7 +2380,7 @@ EFGMITEMS["arc9_eft_mr43"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_aa12"] = {
+EFGM.ITEMS["arc9_eft_aa12"] = {
 	["fullName"] = "MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
 	["displayName"] = "AA-12",
 	["displayType"] = "Shotgun",
@@ -2408,7 +2408,7 @@ EFGMITEMS["arc9_eft_aa12"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mts255"] = {
+EFGM.ITEMS["arc9_eft_mts255"] = {
 	["fullName"] = "MTs-255-12 12ga shotgun",
 	["displayName"] = "MTs-255-12",
 	["displayType"] = "Shotgun",
@@ -2434,7 +2434,7 @@ EFGMITEMS["arc9_eft_mts255"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m870"] = {
+EFGM.ITEMS["arc9_eft_m870"] = {
 	["fullName"] = "Remington Model 870 12ga pump-action shotgun",
 	["displayName"] = "M870",
 	["displayType"] = "Shotgun",
@@ -2460,7 +2460,7 @@ EFGMITEMS["arc9_eft_m870"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_saiga12fa"] = {
+EFGM.ITEMS["arc9_eft_saiga12fa"] = {
 	["fullName"] = "Saiga-12K 12ga automatic shotgun",
 	["displayName"] = "Saiga-12K FA",
 	["displayType"] = "Shotgun",
@@ -2488,7 +2488,7 @@ EFGMITEMS["arc9_eft_saiga12fa"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_saiga12k"] = {
+EFGM.ITEMS["arc9_eft_saiga12k"] = {
 	["fullName"] = "Saiga-12K ver.10 12ga semi-automatic shotgun",
 	["displayName"] = "Saiga-12K",
 	["displayType"] = "Shotgun",
@@ -2514,7 +2514,7 @@ EFGMITEMS["arc9_eft_saiga12k"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ks23"] = {
+EFGM.ITEMS["arc9_eft_ks23"] = {
 	["fullName"] = "TOZ KS-23M 23x75mm pump-action shotgun",
 	["displayName"] = "KS-23M",
 	["displayType"] = "Shotgun",
@@ -2543,7 +2543,7 @@ EFGMITEMS["arc9_eft_ks23"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_toz106"] = {
+EFGM.ITEMS["arc9_eft_toz106"] = {
 	["fullName"] = "TOZ-106 20ga bolt-action shotgun",
 	["displayName"] = "TOZ-106",
 	["displayType"] = "Shotgun",
@@ -2570,7 +2570,7 @@ EFGMITEMS["arc9_eft_toz106"] = {
 }
 
 -- sniper rifles/marksman rifles
-EFGMITEMS["arc9_eft_ai_axmc"] = {
+EFGM.ITEMS["arc9_eft_ai_axmc"] = {
 	["fullName"] = "Accuracy International AXMC .338 LM bolt-action sniper rifle",
 	["displayName"] = "AI AXMC",
 	["displayType"] = "Sniper Rifle",
@@ -2599,7 +2599,7 @@ EFGMITEMS["arc9_eft_ai_axmc"] = {
 	}
 }
 
-	EFGMITEMS["arc9_eft_ak50"] = {
+	EFGM.ITEMS["arc9_eft_ak50"] = {
 	["fullName"] = "AK-50 .50 BMG sniper rifle",
 	["displayName"] = "AK-50",
 	["displayType"] = "Sniper Rifle",
@@ -2628,7 +2628,7 @@ EFGMITEMS["arc9_eft_ai_axmc"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_g28"] = {
+EFGM.ITEMS["arc9_eft_g28"] = {
 	["fullName"] = "HK G28 7.62x51 marksman rifle",
 	["displayName"] = "G28",
 	["displayType"] = "Marksman Rifle",
@@ -2656,7 +2656,7 @@ EFGMITEMS["arc9_eft_g28"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sr25"] = {
+EFGM.ITEMS["arc9_eft_sr25"] = {
 	["fullName"] = "Knight's Armament Company SR-25 7.62x51 marksman rifle",
 	["displayName"] = "SR-25",
 	["displayType"] = "Marksman Rifle",
@@ -2682,7 +2682,7 @@ EFGMITEMS["arc9_eft_sr25"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_dvl10"] = {
+EFGM.ITEMS["arc9_eft_dvl10"] = {
 	["fullName"] = "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
 	["displayName"] = "DVL-10",
 	["displayType"] = "Sniper Rifle",
@@ -2710,7 +2710,7 @@ EFGMITEMS["arc9_eft_dvl10"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mk18_mjolnir"] = {
+EFGM.ITEMS["arc9_eft_mk18_mjolnir"] = {
 	["fullName"] = "SWORD International Mk-18 .338 LM marksman rifle",
 	["displayName"] = "Mk-18 Mjölnir",
 	["displayType"] = "Marksman Rifle",
@@ -2740,7 +2740,7 @@ EFGMITEMS["arc9_eft_mk18_mjolnir"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mosin_infantry"] = {
+EFGM.ITEMS["arc9_eft_mosin_infantry"] = {
 	["fullName"] = "Mosin 7.62x54R bolt-action rifle (Infantry)",
 	["displayName"] = "Mosin Infantry",
 	["displayType"] = "Sniper Rifle",
@@ -2766,7 +2766,7 @@ EFGMITEMS["arc9_eft_mosin_infantry"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mosin_sniper"] = {
+EFGM.ITEMS["arc9_eft_mosin_sniper"] = {
 	["fullName"] = "Mosin 7.62x54R bolt-action rifle (Sniper)",
 	["displayName"] = "Mosin Sniper",
 	["displayType"] = "Sniper Rifle",
@@ -2792,7 +2792,7 @@ EFGMITEMS["arc9_eft_mosin_sniper"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp18"] = {
+EFGM.ITEMS["arc9_eft_mp18"] = {
 	["fullName"] = "MP-18 7.62x54R single-shot rifle",
 	["displayName"] = "MP-18",
 	["displayType"] = "Sniper Rifle",
@@ -2818,7 +2818,7 @@ EFGMITEMS["arc9_eft_mp18"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_t5000"] = {
+EFGM.ITEMS["arc9_eft_t5000"] = {
 	["fullName"] = "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
 	["displayName"] = "T-5000M",
 	["displayType"] = "Sniper Rifle",
@@ -2844,7 +2844,7 @@ EFGMITEMS["arc9_eft_t5000"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_tkpd"] = {
+EFGM.ITEMS["arc9_eft_tkpd"] = {
 	["fullName"] = "TKPD 9.3x64 carbine",
 	["displayName"] = "TKPD",
 	["displayType"] = "Marksman Rifle",
@@ -2873,7 +2873,7 @@ EFGMITEMS["arc9_eft_tkpd"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m700"] = {
+EFGM.ITEMS["arc9_eft_m700"] = {
 	["fullName"] = "Remington Model 700 7.62x51 bolt-action sniper rifle",
 	["displayName"] = "M700",
 	["displayType"] = "Sniper Rifle",
@@ -2899,7 +2899,7 @@ EFGMITEMS["arc9_eft_m700"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mxlr"] = {
+EFGM.ITEMS["arc9_eft_mxlr"] = {
 	["fullName"] = "Marlin MXLR .308 ME lever-action rifle",
 	["displayName"] = "Marlin MXLR",
 	["displayType"] = "Sniper Rifle",
@@ -2926,7 +2926,7 @@ EFGMITEMS["arc9_eft_mxlr"] = {
 
 }
 
-EFGMITEMS["arc9_eft_rsass"] = {
+EFGM.ITEMS["arc9_eft_rsass"] = {
 	["fullName"] = "Remington R11 RSASS 7.62x51 marksman rifle",
 	["displayName"] = "RSASS",
 	["displayType"] = "Marksman Rifle",
@@ -2954,7 +2954,7 @@ EFGMITEMS["arc9_eft_rsass"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_m1a"] = {
+EFGM.ITEMS["arc9_eft_m1a"] = {
 	["fullName"] = "Springfield Armory M1A 7.62x51 rifle",
 	["displayName"] = "M1A",
 	["displayType"] = "Marksman Rifle",
@@ -2980,7 +2980,7 @@ EFGMITEMS["arc9_eft_m1a"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sv98"] = {
+EFGM.ITEMS["arc9_eft_sv98"] = {
 	["fullName"] = "SV-98 7.62x54R bolt-action sniper rifle",
 	["displayName"] = "SV-98",
 	["displayType"] = "Sniper Rifle",
@@ -3006,7 +3006,7 @@ EFGMITEMS["arc9_eft_sv98"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_svds"] = {
+EFGM.ITEMS["arc9_eft_svds"] = {
 	["fullName"] = "SVDS 7.62x54R sniper rifle",
 	["displayName"] = "SVDS",
 	["displayType"] = "Marksman Rifle",
@@ -3033,7 +3033,7 @@ EFGMITEMS["arc9_eft_svds"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vpo215"] = {
+EFGM.ITEMS["arc9_eft_vpo215"] = {
 	["fullName"] = "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
 	["displayName"] = "VPO-215 Gornostay",
 	["displayType"] = "Sniper Rifle",
@@ -3059,7 +3059,7 @@ EFGMITEMS["arc9_eft_vpo215"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vss"] = {
+EFGM.ITEMS["arc9_eft_vss"] = {
 	["fullName"] = "VSS Vintorez 9x39 special sniper rifle",
 	["displayName"] = "VSS Vintorez",
 	["displayType"] = "Marksman Rifle",
@@ -3087,7 +3087,7 @@ EFGMITEMS["arc9_eft_vss"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sako_trg"] = {
+EFGM.ITEMS["arc9_eft_sako_trg"] = {
 	["fullName"] = "Sako TRG M10 .338 LM bolt-action sniper rifle",
 	["displayName"] = "Sako TRG M10",
 	["displayType"] = "Sniper Rifle",
@@ -3117,7 +3117,7 @@ EFGMITEMS["arc9_eft_sako_trg"] = {
 }
 
 -- submachine guns
-EFGMITEMS["arc9_eft_mp9"] = {
+EFGM.ITEMS["arc9_eft_mp9"] = {
 	["fullName"] = "B&T MP9 9x19 submachine gun",
 	["displayName"] = "MP9",
 	["displayType"] = "Submachine Gun",
@@ -3143,7 +3143,7 @@ EFGMITEMS["arc9_eft_mp9"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp9n"] = {
+EFGM.ITEMS["arc9_eft_mp9n"] = {
 	["fullName"] = "B&T MP9-N 9x19 submachine gun",
 	["displayName"] = "MP9-N",
 	["displayType"] = "Submachine Gun",
@@ -3169,7 +3169,7 @@ EFGMITEMS["arc9_eft_mp9n"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_fn_p90"] = {
+EFGM.ITEMS["arc9_eft_fn_p90"] = {
 	["fullName"] = "FN P90 5.7x28 submachine gun",
 	["displayName"] = "P90",
 	["displayType"] = "Submachine Gun",
@@ -3197,7 +3197,7 @@ EFGMITEMS["arc9_eft_fn_p90"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp5"] = {
+EFGM.ITEMS["arc9_eft_mp5"] = {
 	["fullName"] = "HK MP5 9x19 submachine gun",
 	["displayName"] = "MP5",
 	["displayType"] = "Submachine Gun",
@@ -3223,7 +3223,7 @@ EFGMITEMS["arc9_eft_mp5"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp5k"] = {
+EFGM.ITEMS["arc9_eft_mp5k"] = {
 	["fullName"] = "HK MP5K 9x19 submachine gun",
 	["displayName"] = "MP5K-N",
 	["displayType"] = "Submachine Gun",
@@ -3249,7 +3249,7 @@ EFGMITEMS["arc9_eft_mp5k"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp7a1"] = {
+EFGM.ITEMS["arc9_eft_mp7a1"] = {
 	["fullName"] = "HK MP7A1 4.6x30 submachine gun",
 	["displayName"] = "MP7A1",
 	["displayType"] = "Submachine Gun",
@@ -3276,7 +3276,7 @@ EFGMITEMS["arc9_eft_mp7a1"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mp7a2"] = {
+EFGM.ITEMS["arc9_eft_mp7a2"] = {
 	["fullName"] = "HK MP7A2 4.6x30 submachine gun",
 	["displayName"] = "MP7A2",
 	["displayType"] = "Submachine Gun",
@@ -3304,7 +3304,7 @@ EFGMITEMS["arc9_eft_mp7a2"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_scorpion"] = {
+EFGM.ITEMS["arc9_eft_scorpion"] = {
 	["fullName"] = "CZ Scorpion EVO 3 9x19 submachine gun",
 	["displayName"] = "Scorpion EVO",
 	["displayType"] = "Submachine Gun",
@@ -3333,7 +3333,7 @@ EFGMITEMS["arc9_eft_scorpion"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ump"] = {
+EFGM.ITEMS["arc9_eft_ump"] = {
 	["fullName"] = "HK UMP .45 ACP submachine gun",
 	["displayName"] = "UMP .45",
 	["displayType"] = "Submachine Gun",
@@ -3359,7 +3359,7 @@ EFGMITEMS["arc9_eft_ump"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_uzi"] = {
+EFGM.ITEMS["arc9_eft_uzi"] = {
 	["fullName"] = "IWI UZI 9x19 submachine gun",
 	["displayName"] = "UZI",
 	["displayType"] = "Submachine Gun",
@@ -3385,7 +3385,7 @@ EFGMITEMS["arc9_eft_uzi"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_uzi_pro"] = {
+EFGM.ITEMS["arc9_eft_uzi_pro"] = {
 	["fullName"] = "IWI UZI PRO Pistol 9x19 submachine gun",
 	["displayName"] = "UZI PRO Pistol",
 	["displayType"] = "Submachine Gun",
@@ -3411,7 +3411,7 @@ EFGMITEMS["arc9_eft_uzi_pro"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vector45"] = {
+EFGM.ITEMS["arc9_eft_vector45"] = {
 	["fullName"] = "TDI KRISS Vector Gen.2 .45 ACP submachine gun",
 	["displayName"] = "Vector .45",
 	["displayType"] = "Submachine Gun",
@@ -3439,7 +3439,7 @@ EFGMITEMS["arc9_eft_vector45"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_vector9"] = {
+EFGM.ITEMS["arc9_eft_vector9"] = {
 	["fullName"] = "TDI KRISS Vector Gen.2 9x19 submachine gun",
 	["displayName"] = "Vector 9x19",
 	["displayType"] = "Submachine Gun",
@@ -3467,7 +3467,7 @@ EFGMITEMS["arc9_eft_vector9"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_pp1901"] = {
+EFGM.ITEMS["arc9_eft_pp1901"] = {
 	["fullName"] = "PP-19-01 Vityaz 9x19 submachine gun",
 	["displayName"] = "PP-19-01",
 	["displayType"] = "Submachine Gun",
@@ -3493,7 +3493,7 @@ EFGMITEMS["arc9_eft_pp1901"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_kedr"] = {
+EFGM.ITEMS["arc9_eft_kedr"] = {
 	["fullName"] = "PP-91 Kedr 9x18PM submachine gun",
 	["displayName"] = "PP-91 Kedr",
 	["displayType"] = "Submachine Gun",
@@ -3519,7 +3519,7 @@ EFGMITEMS["arc9_eft_kedr"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_ppsh41"] = {
+EFGM.ITEMS["arc9_eft_ppsh41"] = {
 	["fullName"] = "PPSh-41 7.62x25 submachine gun",
 	["displayName"] = "PPSh-41",
 	["displayType"] = "Submachine Gun",
@@ -3544,7 +3544,7 @@ EFGMITEMS["arc9_eft_ppsh41"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_saiga9"] = {
+EFGM.ITEMS["arc9_eft_saiga9"] = {
 	["fullName"] = "Saiga-9 9x19 carbine",
 	["displayName"] = "Saiga-9",
 	["displayType"] = "Submachine Gun",
@@ -3570,7 +3570,7 @@ EFGMITEMS["arc9_eft_saiga9"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_mpx"] = {
+EFGM.ITEMS["arc9_eft_mpx"] = {
 	["fullName"] = "SIG MPX 9x19 submachine gun",
 	["displayName"] = "MPX",
 	["displayType"] = "Submachine Gun",
@@ -3597,7 +3597,7 @@ EFGMITEMS["arc9_eft_mpx"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_stm9"] = {
+EFGM.ITEMS["arc9_eft_stm9"] = {
 	["fullName"] = "Soyuz-TM STM-9 Gen.2 9x19 carbine",
 	["displayName"] = "STM-9",
 	["displayType"] = "Submachine Gun",
@@ -3623,7 +3623,7 @@ EFGMITEMS["arc9_eft_stm9"] = {
 	}
 }
 
-EFGMITEMS["arc9_eft_sr2m"] = {
+EFGM.ITEMS["arc9_eft_sr2m"] = {
 	["fullName"] = "SR-2M Veresk 9x21 submachine gun",
 	["displayName"] = "SR-2M",
 	["displayType"] = "Submachine Gun",
@@ -3650,7 +3650,7 @@ EFGMITEMS["arc9_eft_sr2m"] = {
 }
 
 -- launchers
-EFGMITEMS["arc9_eft_fn40gl"] = {
+EFGM.ITEMS["arc9_eft_fn40gl"] = {
 	["fullName"] = "FN40GL Mk2 40mm grenade launcher",
 	["displayName"] = "FN40GL",
 	["displayType"] = "Launcher",
@@ -3674,7 +3674,7 @@ EFGMITEMS["arc9_eft_fn40gl"] = {
 	["defAtts"] = "XQAAAQCrAAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LcZnpdAq+1HxvVFYM8yMuG3QVvnwhP32P3T9+b6yx6EtZbue8c+rXbC1/wisVwiACA9z7RE6ODiOAXKohmGfZ731lBAX2dwTm+1X5GW6w0B97mkHiGQA="
 }
 
-EFGMITEMS["arc9_eft_m32a1"] = {
+EFGM.ITEMS["arc9_eft_m32a1"] = {
 	["fullName"] = "Milkor M32A1 MSGL 40mm grenade launcher",
 	["displayName"] = "Milkor M32A1",
 	["displayType"] = "Launcher",
@@ -3698,7 +3698,7 @@ EFGMITEMS["arc9_eft_m32a1"] = {
 	["defAtts"] = "XQAAAQAJAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LcZnpdAq+1HxvVFYM8yMuG3QVvnwhP32P3T9+b6yx6EtZbue8dF7Fsj37UUn+7mk9v/HrNRAFGg6nQkIwWTKSU5Ht4euLD+2nV9cVQ5QTQEhTXHfBai51DvzIw0ZoLBPUIiwYXsBVck0Y40MSrORhD3wFxwGQfgA="
 }
 
-EFGMITEMS["arc9_eft_rshg2"] = {
+EFGM.ITEMS["arc9_eft_rshg2"] = {
 	["fullName"] = "RShG-2 72.5mm rocket launcher",
 	["displayName"] = "RShG-2",
 	["displayType"] = "Launcher",
@@ -3722,7 +3722,7 @@ EFGMITEMS["arc9_eft_rshg2"] = {
 }
 
 -- melee
-EFGMITEMS["arc9_eft_melee_taran"] = {
+EFGM.ITEMS["arc9_eft_melee_taran"] = {
 	["fullName"] = "PR-Taran Police Baton",
 	["displayName"] = "PR-Taran",
 	["displayType"] = "Melee",
@@ -3741,7 +3741,7 @@ EFGMITEMS["arc9_eft_melee_taran"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_6x5"] = {
+EFGM.ITEMS["arc9_eft_melee_6x5"] = {
 	["fullName"] = "6Kh5 Bayonet",
 	["displayName"] = "6Kh5",
 	["displayType"] = "Melee",
@@ -3760,7 +3760,7 @@ EFGMITEMS["arc9_eft_melee_6x5"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_akula"] = {
+EFGM.ITEMS["arc9_eft_melee_akula"] = {
 	["fullName"] = "Akula Push Dagger",
 	["displayName"] = "Akula",
 	["displayType"] = "Melee",
@@ -3781,7 +3781,7 @@ EFGMITEMS["arc9_eft_melee_akula"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_wycc"] = {
+EFGM.ITEMS["arc9_eft_melee_wycc"] = {
 	["fullName"] = "Antique Axe",
 	["displayName"] = "Axe",
 	["displayType"] = "Melee",
@@ -3800,7 +3800,7 @@ EFGMITEMS["arc9_eft_melee_wycc"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_gladius"] = {
+EFGM.ITEMS["arc9_eft_melee_gladius"] = {
 	["fullName"] = "APOK Tactical Wasteland Gladius",
 	["displayName"] = "TWG",
 	["displayType"] = "Melee",
@@ -3821,7 +3821,7 @@ EFGMITEMS["arc9_eft_melee_gladius"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_a2607"] = {
+EFGM.ITEMS["arc9_eft_melee_a2607"] = {
 	["fullName"] = "Bars A-2607 95Kh18 knife",
 	["displayName"] = "A-2607",
 	["displayType"] = "Melee",
@@ -3840,7 +3840,7 @@ EFGMITEMS["arc9_eft_melee_a2607"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_a2607d"] = {
+EFGM.ITEMS["arc9_eft_melee_a2607d"] = {
 	["fullName"] = "Bars A-2607 Damascus knife",
 	["displayName"] = "A-2607",
 	["displayType"] = "Melee",
@@ -3859,7 +3859,7 @@ EFGMITEMS["arc9_eft_melee_a2607d"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_camper"] = {
+EFGM.ITEMS["arc9_eft_melee_camper"] = {
 	["fullName"] = "Camper Axe",
 	["displayName"] = "Camper",
 	["displayType"] = "Melee",
@@ -3878,7 +3878,7 @@ EFGMITEMS["arc9_eft_melee_camper"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_labris"] = {
+EFGM.ITEMS["arc9_eft_melee_labris"] = {
 	["fullName"] = "Chained Labrys",
 	["displayName"] = "Chained Labrys",
 	["displayType"] = "Melee",
@@ -3899,7 +3899,7 @@ EFGMITEMS["arc9_eft_melee_labris"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_crash"] = {
+EFGM.ITEMS["arc9_eft_melee_crash"] = {
 	["fullName"] = "Crash Axe",
 	["displayName"] = "SCA",
 	["displayType"] = "Melee",
@@ -3920,7 +3920,7 @@ EFGMITEMS["arc9_eft_melee_crash"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_cultist"] = {
+EFGM.ITEMS["arc9_eft_melee_cultist"] = {
 	["fullName"] = "Cultist Knife",
 	["displayName"] = "C. Knife",
 	["displayType"] = "Melee",
@@ -3941,7 +3941,7 @@ EFGMITEMS["arc9_eft_melee_cultist"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_hultafors"] = {
+EFGM.ITEMS["arc9_eft_melee_hultafors"] = {
 	["fullName"] = "Superfors DB 2020 Dead Blow Hammer",
 	["displayName"] = "Dead Blow",
 	["displayType"] = "Melee",
@@ -3962,7 +3962,7 @@ EFGMITEMS["arc9_eft_melee_hultafors"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_fulcrum"] = {
+EFGM.ITEMS["arc9_eft_melee_fulcrum"] = {
 	["fullName"] = "ER FULCRUM BAYONET",
 	["displayName"] = "ER BAYONET",
 	["displayType"] = "Melee",
@@ -3981,7 +3981,7 @@ EFGMITEMS["arc9_eft_melee_fulcrum"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_crowbar"] = {
+EFGM.ITEMS["arc9_eft_melee_crowbar"] = {
 	["fullName"] = "Freeman Crowbar",
 	["displayName"] = "Crowbar",
 	["displayType"] = "Melee",
@@ -4000,7 +4000,7 @@ EFGMITEMS["arc9_eft_melee_crowbar"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_kiba"] = {
+EFGM.ITEMS["arc9_eft_melee_kiba"] = {
 	["fullName"] = "Kiba Arms Tactical Tomahawk",
 	["displayName"] = "KATT",
 	["displayType"] = "Melee",
@@ -4019,7 +4019,7 @@ EFGMITEMS["arc9_eft_melee_kiba"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_kukri"] = {
+EFGM.ITEMS["arc9_eft_melee_kukri"] = {
 	["fullName"] = "United Cutlery M48 Tactical Kukri",
 	["displayName"] = "M48 Kukri",
 	["displayType"] = "Melee",
@@ -4040,7 +4040,7 @@ EFGMITEMS["arc9_eft_melee_kukri"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_m2"] = {
+EFGM.ITEMS["arc9_eft_melee_m2"] = {
 	["fullName"] = "Miller Bros. Blades M-2 Tactical Sword",
 	["displayName"] = "M-2",
 	["displayType"] = "Melee",
@@ -4061,7 +4061,7 @@ EFGMITEMS["arc9_eft_melee_m2"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_mpl50"] = {
+EFGM.ITEMS["arc9_eft_melee_mpl50"] = {
 	["fullName"] = "MPL-50 entrenching tool",
 	["displayName"] = "MPL-50",
 	["displayType"] = "Melee",
@@ -4080,7 +4080,7 @@ EFGMITEMS["arc9_eft_melee_mpl50"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_scythe"] = {
+EFGM.ITEMS["arc9_eft_melee_scythe"] = {
 	["fullName"] = "Old Hand Scythe",
 	["displayName"] = "Scythe",
 	["displayType"] = "Melee",
@@ -4101,7 +4101,7 @@ EFGMITEMS["arc9_eft_melee_scythe"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_rebel"] = {
+EFGM.ITEMS["arc9_eft_melee_rebel"] = {
 	["fullName"] = "Red Rebel Ice Pick",
 	["displayName"] = "RedRebel",
 	["displayType"] = "Melee",
@@ -4122,7 +4122,7 @@ EFGMITEMS["arc9_eft_melee_rebel"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_voodoo"] = {
+EFGM.ITEMS["arc9_eft_melee_voodoo"] = {
 	["fullName"] = "SOG Voodoo Hawk Tactical Tomahawk",
 	["displayName"] = "Hawk",
 	["displayType"] = "Melee",
@@ -4143,7 +4143,7 @@ EFGMITEMS["arc9_eft_melee_voodoo"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_melee_sp8"] = {
+EFGM.ITEMS["arc9_eft_melee_sp8"] = {
 	["fullName"] = "SP-8 Survival Machete",
 	["displayName"] = "SP-8",
 	["displayType"] = "Melee",
@@ -4160,7 +4160,7 @@ EFGMITEMS["arc9_eft_melee_sp8"] = {
 	["sizeY"] = 3,
 }
 
-EFGMITEMS["arc9_eft_melee_taiga"] = {
+EFGM.ITEMS["arc9_eft_melee_taiga"] = {
 	["fullName"] = "UVSR Taiga-1 Survival Machete",
 	["displayName"] = "Taiga-1",
 	["displayType"] = "Melee",
@@ -4182,7 +4182,7 @@ EFGMITEMS["arc9_eft_melee_taiga"] = {
 }
 
 -- grenades
-EFGMITEMS["arc9_eft_f1"] = {
+EFGM.ITEMS["arc9_eft_f1"] = {
 	["fullName"] = "F-1 hand grenade",
 	["displayName"] = "F-1",
 	["displayType"] = "Frag Grenade",
@@ -4200,7 +4200,7 @@ EFGMITEMS["arc9_eft_f1"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_m18"] = {
+EFGM.ITEMS["arc9_eft_m18"] = {
 	["fullName"] = "M18 smoke grenade (Green)",
 	["displayName"] = "M18 (g)",
 	["displayType"] = "Smoke Grenade",
@@ -4218,7 +4218,7 @@ EFGMITEMS["arc9_eft_m18"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_m18y"] = {
+EFGM.ITEMS["arc9_eft_m18y"] = {
 	["fullName"] = "M18 smoke grenade (Yellow)",
 	["displayName"] = "M18 (y)",
 	["displayType"] = "Smoke Grenade",
@@ -4236,7 +4236,7 @@ EFGMITEMS["arc9_eft_m18y"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_m67"] = {
+EFGM.ITEMS["arc9_eft_m67"] = {
 	["fullName"] = "M67 hand grenade",
 	["displayName"] = "M67",
 	["displayType"] = "Frag Grenade",
@@ -4254,7 +4254,7 @@ EFGMITEMS["arc9_eft_m67"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_m7290"] = {
+EFGM.ITEMS["arc9_eft_m7290"] = {
 	["fullName"] = "Model 7290 Flash Bang grenade",
 	["displayName"] = "M7290",
 	["displayType"] = "Flashbang",
@@ -4272,7 +4272,7 @@ EFGMITEMS["arc9_eft_m7290"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_rdg2b"] = {
+EFGM.ITEMS["arc9_eft_rdg2b"] = {
 	["fullName"] = "RDG-2B smoke grenade",
 	["displayName"] = "RDG-2B",
 	["displayType"] = "Smoke Grenade",
@@ -4290,7 +4290,7 @@ EFGMITEMS["arc9_eft_rdg2b"] = {
 	["sizeY"] = 2
 }
 
-EFGMITEMS["arc9_eft_rgd5"] = {
+EFGM.ITEMS["arc9_eft_rgd5"] = {
 	["fullName"] = "RGD-5 hand grenade",
 	["displayName"] = "RGD-5",
 	["displayType"] = "Frag Grenade",
@@ -4308,7 +4308,7 @@ EFGMITEMS["arc9_eft_rgd5"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_rgn"] = {
+EFGM.ITEMS["arc9_eft_rgn"] = {
 	["fullName"] = "RGN hand grenade",
 	["displayName"] = "RGN",
 	["displayType"] = "Impact Grenade",
@@ -4328,7 +4328,7 @@ EFGMITEMS["arc9_eft_rgn"] = {
 	["lootWeight"] = 50
 }
 
-EFGMITEMS["arc9_eft_rgo"] = {
+EFGM.ITEMS["arc9_eft_rgo"] = {
 	["fullName"] = "RGO hand grenade",
 	["displayName"] = "RGO",
 	["displayType"] = "Impact Grenade",
@@ -4348,7 +4348,7 @@ EFGMITEMS["arc9_eft_rgo"] = {
 	["lootWeight"] = 50
 }
 
-EFGMITEMS["arc9_eft_v40"] = {
+EFGM.ITEMS["arc9_eft_v40"] = {
 	["fullName"] = "V40 Mini-Grenade",
 	["displayName"] = "V40",
 	["displayType"] = "Frag Grenade",
@@ -4366,7 +4366,7 @@ EFGMITEMS["arc9_eft_v40"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_vog17"] = {
+EFGM.ITEMS["arc9_eft_vog17"] = {
 	["fullName"] = "VOG-17 Khattabka improvised hand grenade",
 	["displayName"] = "VOG-17",
 	["displayType"] = "Frag Grenade",
@@ -4384,7 +4384,7 @@ EFGMITEMS["arc9_eft_vog17"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_vog25"] = {
+EFGM.ITEMS["arc9_eft_vog25"] = {
 	["fullName"] = "VOG-25 Khattabka improvised hand grenade",
 	["displayName"] = "VOG-25",
 	["displayType"] = "Frag Grenade",
@@ -4402,7 +4402,7 @@ EFGMITEMS["arc9_eft_vog25"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_zarya"] = {
+EFGM.ITEMS["arc9_eft_zarya"] = {
 	["fullName"] = "Zarya stun grenade",
 	["displayName"] = "Zarya",
 	["displayType"] = "Flashbang",
@@ -4420,7 +4420,7 @@ EFGMITEMS["arc9_eft_zarya"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_anm14"] = {
+EFGM.ITEMS["arc9_eft_anm14"] = {
 	["fullName"] = "AN-M14 Incendiary",
 	["displayName"] = "AN-M14",
 	["displayType"] = "Incendiary Grenade",
@@ -4441,7 +4441,7 @@ EFGMITEMS["arc9_eft_anm14"] = {
 }
 
 -- specials
-EFGMITEMS["arc9_eft_sp81"] = {
+EFGM.ITEMS["arc9_eft_sp81"] = {
 	["fullName"] = "ZiD SP-81 26x75 signal pistol",
 	["displayName"] = "SP-81",
 	["displayType"] = "Pistol",
@@ -4462,7 +4462,7 @@ EFGMITEMS["arc9_eft_sp81"] = {
 	["defAtts"] = "XQAAAQBMAAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LcZnpdAm+MHx7QSWYVQ05R018qLGy4Ql10Wh0xRhQUdUgz8wGuxkTc1+wcUVnUX80pBNBJA=="
 }
 
-EFGMITEMS["arc9_eft_rangefinder"] = {
+EFGM.ITEMS["arc9_eft_rangefinder"] = {
 	["fullName"] = "Vortex Ranger 1500 rangefinder",
 	["displayName"] = "R1500",
 	["displayType"] = "Special",
@@ -4479,7 +4479,7 @@ EFGMITEMS["arc9_eft_rangefinder"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["arc9_eft_rsp30_white"] = {
+EFGM.ITEMS["arc9_eft_rsp30_white"] = {
 	["fullName"] = "ROP-30 (White)",
 	["displayName"] = "White",
 	["displayType"] = "Flare",
@@ -4500,7 +4500,7 @@ EFGMITEMS["arc9_eft_rsp30_white"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_rsp30_blue"] = {
+EFGM.ITEMS["arc9_eft_rsp30_blue"] = {
 	["fullName"] = "RSP-30 (Blue)",
 	["displayName"] = "Blue",
 	["displayType"] = "Flare",
@@ -4521,7 +4521,7 @@ EFGMITEMS["arc9_eft_rsp30_blue"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_rsp30_firework"] = {
+EFGM.ITEMS["arc9_eft_rsp30_firework"] = {
 	["fullName"] = "RSP-30 (Firework)",
 	["displayName"] = "Firework",
 	["displayType"] = "Flare",
@@ -4542,7 +4542,7 @@ EFGMITEMS["arc9_eft_rsp30_firework"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_rsp30_green"] = {
+EFGM.ITEMS["arc9_eft_rsp30_green"] = {
 	["fullName"] = "RSP-30 (Green)",
 	["displayName"] = "Green",
 	["displayType"] = "Flare",
@@ -4563,7 +4563,7 @@ EFGMITEMS["arc9_eft_rsp30_green"] = {
 	["lootWeight"] = 75
 }
 
-EFGMITEMS["arc9_eft_rsp30_red"] = {
+EFGM.ITEMS["arc9_eft_rsp30_red"] = {
 	["fullName"] = "RSP-30 (Red)",
 	["displayName"] = "Red",
 	["displayType"] = "Flare",
@@ -4584,7 +4584,7 @@ EFGMITEMS["arc9_eft_rsp30_red"] = {
 	["canPurchase"] = false
 }
 
-EFGMITEMS["arc9_eft_rsp30_yellow"] = {
+EFGM.ITEMS["arc9_eft_rsp30_yellow"] = {
 	["fullName"] = "RSP-30 (Yellow)",
 	["displayName"] = "Yellow",
 	["displayType"] = "Flare",

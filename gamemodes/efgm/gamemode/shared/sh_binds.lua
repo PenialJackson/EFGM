@@ -130,7 +130,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 			if !ent:IsPlayer() then return end
 			if ent:IsInRaid() then return end
 
-			CreateNotification("I do not work yet LOL!", Mats.dontEvenAsk, "ui/boo.wav")
+			CreateNotification("I do not work yet LOL!", MATS.dontEvenAsk, "ui/boo.wav")
 		end
 
 		-- accept invite

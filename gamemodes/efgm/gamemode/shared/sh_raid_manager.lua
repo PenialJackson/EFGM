@@ -326,7 +326,7 @@ if SERVER then
 
 	function RAID:GenerateScavLoadout(ply)
 		local _, weapon = table.Random(SCAV_WEAPONS)
-		local weaponDef = EFGMITEMS[weapon]
+		local weaponDef = EFGM.ITEMS[weapon]
 
 		local weaponData = {}
 		weaponData.att = SCAV_WEAPONS[weapon].scavAtts[math.random(#SCAV_WEAPONS[weapon].scavAtts)]
@@ -345,7 +345,7 @@ if SERVER then
 		net.Send(ply)
 
 		local _, med = table.Random(SCAV_MEDS)
-		local medDef = EFGMITEMS[med]
+		local medDef = EFGM.ITEMS[med]
 
 		local medData = {}
 		medData.count = 1
@@ -362,7 +362,7 @@ if SERVER then
 		net.Send(ply)
 
 		local nade = SCAV_NADES[math.random(#SCAV_NADES)]
-		local nadeDef = EFGMITEMS[nade]
+		local nadeDef = EFGM.ITEMS[nade]
 
 		local nadeData = {}
 		nadeData.count = 1
@@ -380,7 +380,7 @@ if SERVER then
 		net.Send(ply)
 
 		local ammo = SCAV_WEAPONS[weapon].ammoID
-		local ammoDef = EFGMITEMS[ammo]
+		local ammoDef = EFGM.ITEMS[ammo]
 
 		local ammoData = {}
 		ammoData.count = math.random(SCAV_WEAPONS[weapon].ammoMin, SCAV_WEAPONS[weapon].ammoMax)

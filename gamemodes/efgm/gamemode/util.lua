@@ -52,7 +52,7 @@ function table.SeqRandom(tbl)
 end
 
 -- ipairs but reverse
-function reverseipairs(tbl)
+function Reverseipairs(tbl)
 	local i = #tbl + 1
 
 	return function()

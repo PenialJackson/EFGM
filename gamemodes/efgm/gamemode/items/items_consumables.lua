@@ -1,5 +1,5 @@
 -- medkits
-EFGMITEMS["efgm_meds_ai2"] = {
+EFGM.ITEMS["efgm_meds_ai2"] = {
 	["fullName"] = "AI-2 medkit",
 	["displayName"] = "AI-2",
 	["displayType"] = "Medical",
@@ -19,7 +19,7 @@ EFGMITEMS["efgm_meds_ai2"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_meds_car"] = {
+EFGM.ITEMS["efgm_meds_car"] = {
 	["fullName"] = "Car first aid kit",
 	["displayName"] = "Car",
 	["displayType"] = "Medical",
@@ -39,7 +39,7 @@ EFGMITEMS["efgm_meds_car"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_meds_ifak"] = {
+EFGM.ITEMS["efgm_meds_ifak"] = {
 	["fullName"] = "IFAK individual first aid kit",
 	["displayName"] = "IFAK",
 	["displayType"] = "Medical",
@@ -60,7 +60,7 @@ EFGMITEMS["efgm_meds_ifak"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_meds_salewa"] = {
+EFGM.ITEMS["efgm_meds_salewa"] = {
 	["fullName"] = "Salewa first aid kit",
 	["displayName"] = "Salewa",
 	["displayType"] = "Medical",
@@ -81,7 +81,7 @@ EFGMITEMS["efgm_meds_salewa"] = {
 	["sizeY"] = 2
 }
 
-EFGMITEMS["efgm_meds_afak"] = {
+EFGM.ITEMS["efgm_meds_afak"] = {
 	["fullName"] = "AFAK tactical individual first aid kit",
 	["displayName"] = "AFAK",
 	["displayType"] = "Medical",
@@ -102,7 +102,7 @@ EFGMITEMS["efgm_meds_afak"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_meds_grizzly"] = {
+EFGM.ITEMS["efgm_meds_grizzly"] = {
 	["fullName"] = "Grizzly medical kit",
 	["displayName"] = "Grizzly",
 	["displayType"] = "Medical",

@@ -24,7 +24,7 @@ end
 function PANEL:PerformLayout()
 end
 
-local name, data, i, nameSize, nameFont, tagFont, tagH, wep, clip, clipMax, mag, magFont, magSizeY,
+local name, data, i, borderColor, nameSize, nameFont, tagFont, tagH, wep, clip, clipMax, mag, magFont, magSizeY,
 	hasAmmo, value, weight
 
 function PANEL:CreateVar(argName, argData, argI)
@@ -32,7 +32,7 @@ function PANEL:CreateVar(argName, argData, argI)
 	data = argData
 	i = argI
 
-	borderColor = Colors.itemBackgroundColor
+	borderColor = COLORS.itemBackgroundColor
 
 	surface.SetFont("PuristaBold14")
 	nameSize = surface.GetTextSize(i.displayName)
@@ -80,7 +80,7 @@ function PANEL:CreateVar(argName, argData, argI)
 		if !atts then return end
 
 		for _, a in ipairs(atts) do
-			local att = EFGMITEMS[a]
+			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
 			value = value + att.value
@@ -96,32 +96,32 @@ function PANEL:Paint(w, h)
 	surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 	surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-	surface.SetDrawColor(i.iconColor or Colors.itemColor)
+	surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 	surface.DrawRect(0, 0, w, h)
 
-	surface.SetDrawColor(Colors.pureWhiteColor)
+	surface.SetDrawColor(COLORS.pureWhiteColor)
 	surface.SetMaterial(i.icon)
 	surface.DrawTexturedRect(0, 0, w, h)
 
 	if self.PaintingDragging then return end
 
-	draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+	draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 	if i.caliber then
-		draw.SimpleTextOutlined(i.caliber, magFont, EFGM.MenuScale(3), h - magSizeY, Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(i.caliber, magFont, EFGM.MenuScale(3), h - magSizeY, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if data.tag then
-		draw.SimpleTextOutlined(data.tag, tagFont, w - EFGM.MenuScale(3), tagH, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if hasAmmo then
-		draw.SimpleTextOutlined(string.upper(mag), magFont, w - EFGM.MenuScale(3), h - magSizeY, Colors.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(string.upper(mag), magFont, w - EFGM.MenuScale(3), h - magSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	if data.fir then
-		surface.SetDrawColor(Colors.pureWhiteColor)
-		surface.SetMaterial(Mats.firIcon)
+		surface.SetDrawColor(COLORS.pureWhiteColor)
+		surface.SetMaterial(MATS.firIcon)
 
 		if hasAmmo then
 			surface.DrawTexturedRect(w - EFGM.MenuScale(16), h - EFGM.MenuScale(30), EFGM.MenuScale(14), EFGM.MenuScale(14))
@@ -134,7 +134,7 @@ end
 function PANEL:OnCursorEntered()
 	surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
-	borderColor = Colors.itemBackgroundColorHovered
+	borderColor = COLORS.itemBackgroundColorHovered
 
 	surface.SetFont("PuristaBold18")
 	local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
@@ -148,30 +148,30 @@ function PANEL:OnCursorEntered()
 	local paint = function()
 		local w, h = EFGM.MENU.Tooltip:GetSize()
 
-		surface.SetDrawColor(Colors.tooltipBackgroundColor)
+		surface.SetDrawColor(COLORS.tooltipBackgroundColor)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.tooltipBackgroundColorTransparent)
+		surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(Colors.tooltipHeaderColor)
+		surface.SetDrawColor(COLORS.tooltipHeaderColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
-		surface.SetDrawColor(Colors.transparentWhiteColor)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-		draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
-		draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), Colors.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), Colors.blackColor)
+		draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 end
 
 function PANEL:OnCursorExited()
-	borderColor = Colors.itemBackgroundColor
+	borderColor = COLORS.itemBackgroundColor
 	EFGM.MENU.Tooltip:RemoveTip()
 end
 
@@ -197,13 +197,14 @@ function PANEL:DoRightClick()
 	if x <= (self.CTXParent:GetWide() / 2) then sideH = true else sideH = false end
 	if y <= (self.CTXParent:GetTall() / 2) then sideV = true else sideV = false end
 
-	if IsValid(contextMenu) then contextMenu:Remove() end
-	contextMenu = vgui.Create("EContextMenu", self.CTXParent)
+	if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then EFGM.MENU.ELEMENTS.ContextMenu:Remove() end
+	local contextMenu = vgui.Create("EContextMenu", self.CTXParent)
 	contextMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(10))
 	contextMenu:DockPadding(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 	contextMenu:SetAlpha(0)
 	contextMenu:AlphaTo(255, 0.1, 0, nil)
 	contextMenu:RequestFocus()
+	EFGM.MENU.ELEMENTS.ContextMenu = contextMenu
 
 	local inspectButton = vgui.Create("EContextButton", contextMenu)
 	inspectButton:SetText("INSPECT")

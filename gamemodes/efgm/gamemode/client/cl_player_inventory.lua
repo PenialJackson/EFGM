@@ -1,3 +1,6 @@
+EFGM.CLIENT.INVENTORY = EFGM.CLIENT.INVENTORY or {}
+EFGM.CLIENT.EQUIPPED = EFGM.CLIENT.EQUIPPED or {}
+
 local chunkedInv = {}
 local chunkedEqu = {}
 
@@ -14,8 +17,8 @@ hook.Add("OnInventoryChunked", "NetworkInventory", function(str, uID)
 
 	local inventoryTbl = util.JSONToTable(inventoryStr)
 
-	playerInventory = inventoryTbl
-	if playerInventory == nil then playerInventory = {} end
+	EFGM.CLIENT.INVENTORY = inventoryTbl
+	if EFGM.CLIENT.INVENTORY == nil then EFGM.CLIENT.INVENTORY = {} end
 end)
 
 hook.Add("OnEquippedChunked", "NetworkEquipped", function(str, uID)
@@ -27,15 +30,15 @@ hook.Add("OnEquippedChunked", "NetworkEquipped", function(str, uID)
 	if !equippedStr then return end
 
 	local equippedTbl = util.JSONToTable(equippedStr)
-	playerWeaponSlots = equippedTbl
+	EFGM.CLIENT.EQUIPPED = equippedTbl
 
-	if playerWeaponSlots == nil then
-		playerWeaponSlots = {}
+	if EFGM.CLIENT.EQUIPPED == nil then
+		EFGM.CLIENT.EQUIPPED = {}
 		for k, v in pairs(WEAPONSLOTS) do
-			playerWeaponSlots[v.ID] = {}
+			EFGM.CLIENT.EQUIPPED[v.ID] = {}
 
 			for i = 1, v.COUNT, 1 do
-				playerWeaponSlots[v.ID][i] = {}
+				EFGM.CLIENT.EQUIPPED[v.ID][i] = {}
 			end
 		end
 	end
@@ -100,20 +103,20 @@ net.Receive("PlayerNetworkEquipped", function(len)
 end)
 
 function ReinstantiateInventory()
-	playerInventory = {}
+	EFGM.CLIENT.INVENTORY = {}
 
-	local equMelee = table.Copy(playerWeaponSlots[WEAPONSLOTS.MELEE.ID])
-	playerWeaponSlots = {}
+	local equMelee = table.Copy(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID])
+	EFGM.CLIENT.EQUIPPED = {}
 
 	for k, v in pairs(WEAPONSLOTS) do
-		playerWeaponSlots[v.ID] = {}
+		EFGM.CLIENT.EQUIPPED[v.ID] = {}
 
 		for i = 1, v.COUNT, 1 do
-			playerWeaponSlots[v.ID][i] = {}
+			EFGM.CLIENT.EQUIPPED[v.ID][i] = {}
 		end
 	end
 
-	if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
+	if equMelee != nil then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID] = equMelee end
 end
 
 net.Receive("PlayerReinstantiateInventory", function(len)
@@ -138,7 +141,7 @@ net.Receive("PlayerInventoryAddItem", function(len)
 	data = net.ReadTable()
 	index = net.ReadUInt(16)
 
-	table.insert(playerInventory, index, ITEM.Instantiate(name, type, data))
+	table.insert(EFGM.CLIENT.INVENTORY, index, ITEM.Instantiate(name, type, data))
 end)
 
 net.Receive("PlayerInventoryUpdateItem", function(len)
@@ -147,31 +150,31 @@ net.Receive("PlayerInventoryUpdateItem", function(len)
 	newData = net.ReadTable()
 	index = net.ReadUInt(16)
 
-	playerInventory[index].data = newData
+	EFGM.CLIENT.INVENTORY[index].data = newData
 end)
 
 net.Receive("PlayerInventoryDeleteItem", function(len)
 	local index
 	index = net.ReadUInt(16)
 
-	table.remove(playerInventory, index)
+	table.remove(EFGM.CLIENT.INVENTORY, index)
 end)
 
 net.Receive("PlayerInventoryUnEquipAll", function(len)
-	local equMelee = table.Copy(playerWeaponSlots[WEAPONSLOTS.MELEE.ID])
-	playerWeaponSlots = {}
+	local equMelee = table.Copy(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID])
+	EFGM.CLIENT.EQUIPPED = {}
 
 	for k, v in pairs(WEAPONSLOTS) do
 		if v.ID == WEAPONSLOTS.MELEE.ID then continue end
 
-		playerWeaponSlots[v.ID] = {}
+		EFGM.CLIENT.EQUIPPED[v.ID] = {}
 
 		for i = 1, v.COUNT, 1 do
-			playerWeaponSlots[v.ID][i] = {}
+			EFGM.CLIENT.EQUIPPED[v.ID][i] = {}
 		end
 	end
 
-	if equMelee != nil then playerWeaponSlots[WEAPONSLOTS.MELEE.ID] = equMelee end
+	if equMelee != nil then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID] = equMelee end
 
 	EFGM.MENU:ReloadSlots()
 end)
@@ -188,7 +191,7 @@ net.Receive("PlayerInventoryUpdateEquipped", function(len)
 	index = net.ReadUInt(4)
 	key = net.ReadUInt(4)
 
-	playerWeaponSlots[index][key].data = newData
+	EFGM.CLIENT.EQUIPPED[index][key].data = newData
 	EFGM.MENU:ReloadSlots()
 end )
 
@@ -198,7 +201,7 @@ net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
 	equipID = net.ReadUInt(4)
 	equipSlot = net.ReadUInt(4)
 
-	playerWeaponSlots[equipID][equipSlot] = {}
+	EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = {}
 
 	EFGM.MENU:ReloadSlots()
 end )
@@ -210,21 +213,21 @@ function DropItemFromInventory(itemIndex)
 		net.WriteUInt(itemIndex, 16)
 	net.SendToServer()
 
-	table.remove(playerInventory, itemIndex)
+	table.remove(EFGM.CLIENT.INVENTORY, itemIndex)
 	EFGM.MENU:ReloadInventory()
 end
 
 -- returns bool whether or not it could equip an item clientside (desync may be an issue since server could disagree and neither side would know)
 function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
-	local item = playerInventory[itemIndex]
+	local item = EFGM.CLIENT.INVENTORY[itemIndex]
 	if item == nil then return end
 
-	if AmountInInventory(playerWeaponSlots[equipSlot], item.name) != 0 then return end -- can't have multiple of the same item
+	if AmountInInventory(EFGM.CLIENT.EQUIPPED[equipSlot], item.name) != 0 then return end -- can't have multiple of the same item
 
 	-- checking item equip slots
 	if equipSlot == 1 and primaryPref != nil then
 		if primaryPref == 1 then
-			playerWeaponSlots[equipSlot][1] = item
+			EFGM.CLIENT.EQUIPPED[equipSlot][1] = item
 
 			net.Start("PlayerInventoryEquipItem", false)
 				net.WriteUInt(itemIndex, 16)
@@ -234,7 +237,7 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 
 			return true
 		else
-			playerWeaponSlots[equipSlot][2] = item
+			EFGM.CLIENT.EQUIPPED[equipSlot][2] = item
 
 			net.Start("PlayerInventoryEquipItem", false)
 				net.WriteUInt(itemIndex, 16)
@@ -245,9 +248,9 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 			return true
 		end
 	else
-		for k, v in ipairs(playerWeaponSlots[equipSlot]) do
+		for k, v in ipairs(EFGM.CLIENT.EQUIPPED[equipSlot]) do
 			if table.IsEmpty(v) then
-				playerWeaponSlots[equipSlot][k] = item
+				EFGM.CLIENT.EQUIPPED[equipSlot][k] = item
 
 				net.Start("PlayerInventoryEquipItem", false)
 					net.WriteUInt(itemIndex, 16)
@@ -266,20 +269,20 @@ end
 function EquipItemFromEquipped(equipID, equipSlot, toEquipID, toEquipSlot)
 	if (LocalPlayer():CompareFaction(false) and LocalPlayer():IsInHideout()) then return end
 
-	local item = playerWeaponSlots[equipID][equipSlot]
+	local item = EFGM.CLIENT.EQUIPPED[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
 
 	local isSwitch = false
 
-	if table.IsEmpty(playerWeaponSlots[toEquipID][toEquipSlot]) then
-		playerWeaponSlots[toEquipID][toEquipSlot] = item
-		playerWeaponSlots[equipID][equipSlot] = {}
+	if table.IsEmpty(EFGM.CLIENT.EQUIPPED[toEquipID][toEquipSlot]) then
+		EFGM.CLIENT.EQUIPPED[toEquipID][toEquipSlot] = item
+		EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = {}
 	else
 		isSwitch = true
 
-		local itemToSwitch = table.Copy(playerWeaponSlots[toEquipID][toEquipSlot])
-		playerWeaponSlots[toEquipID][toEquipSlot] = item
-		playerWeaponSlots[equipID][equipSlot] = itemToSwitch
+		local itemToSwitch = table.Copy(EFGM.CLIENT.EQUIPPED[toEquipID][toEquipSlot])
+		EFGM.CLIENT.EQUIPPED[toEquipID][toEquipSlot] = item
+		EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = itemToSwitch
 	end
 
 	net.Start("PlayerInventoryEquipItemFromEquipped", false)
@@ -299,10 +302,10 @@ function UnEquipItemFromInventory(equipID, equipSlot, reloadInv, reloadSlots)
 	if reloadInv == nil then reloadInv = true end
 	if reloadSlots == nil then reloadSlots = true end
 
-	local item = table.Copy(playerWeaponSlots[equipID][equipSlot])
+	local item = table.Copy(EFGM.CLIENT.EQUIPPED[equipID][equipSlot])
 	if table.IsEmpty(item) then return end
 
-	playerWeaponSlots[equipID][equipSlot] = {}
+	EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = {}
 
 	net.Start("PlayerInventoryUnEquipItem", false)
 		net.WriteUInt(equipID, 4)
@@ -315,10 +318,10 @@ end
 function DropEquippedItem(equipID, equipSlot)
 	if LocalPlayer():IsInDuel() then return end
 
-	local item = playerWeaponSlots[equipID][equipSlot]
+	local item = EFGM.CLIENT.EQUIPPED[equipID][equipSlot]
 	if table.IsEmpty(item) then return end
 
-	playerWeaponSlots[equipID][equipSlot] = {}
+	EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = {}
 
 	net.Start("PlayerInventoryDropEquippedItem", false)
 		net.WriteUInt(equipID, 4)
@@ -329,13 +332,13 @@ function DropEquippedItem(equipID, equipSlot)
 end
 
 net.Receive("PlayerInventoryConsumeGrenade", function(len)
-	playerWeaponSlots[4][1] = {}
+	EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1] = {}
 	EFGM.MENU:ReloadSlots()
 
 	local weapon = NULL
-	local primary = playerWeaponSlots[1][1].name
-	local secondary = playerWeaponSlots[1][2].name
-	local holster = playerWeaponSlots[2][1].name
+	local primary = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1].name
+	local secondary = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2].name
+	local holster = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1].name
 
 	if primary then
 		weapon = LocalPlayer():GetWeapon(primary)
@@ -350,28 +353,28 @@ net.Receive("PlayerInventoryConsumeGrenade", function(len)
 end)
 
 net.Receive("PlayerInventoryRemoveConsumable", function(len)
-	playerWeaponSlots[5][1] = {}
+	EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1] = {}
 	EFGM.MENU:ReloadSlots()
 
-	if !table.IsEmpty(playerWeaponSlots[1][1]) then
-		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][1].name)
+	if !table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]) then
+		local weapon = LocalPlayer():GetWeapon(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1].name)
 		if weapon != nil then input.SelectWeapon(weapon) end
-	elseif !table.IsEmpty(playerWeaponSlots[1][2]) then
-		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[1][2].name)
+	elseif !table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]) then
+		local weapon = LocalPlayer():GetWeapon(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2].name)
 		if weapon != nil then input.SelectWeapon(weapon) end
-	elseif !table.IsEmpty(playerWeaponSlots[2][1]) then
-		local weapon = LocalPlayer():GetWeapon(playerWeaponSlots[2][1].name)
+	elseif !table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1]) then
+		local weapon = LocalPlayer():GetWeapon(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1].name)
 		if weapon != nil then input.SelectWeapon(weapon) end
 	end
 end)
 
 net.Receive("PlayerInventoryClearFIR", function(len)
-	for k, v in ipairs(playerInventory) do
+	for k, v in ipairs(EFGM.CLIENT.INVENTORY) do
 		v.data.fir = nil
 	end
 
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
-		for k, v in ipairs(playerWeaponSlots[i]) do
+		for k, v in ipairs(EFGM.CLIENT.EQUIPPED[i]) do
 			if table.IsEmpty(v) then continue end
 			v.data.fir = nil
 		end
@@ -399,17 +402,17 @@ concommand.Add("efgm_inventory_equip", function(ply, cmd, args)
 	local weapon = nil
 
 	if equipSubSlot == nil then
-		local subSlotCount = #playerWeaponSlots[equipSlot]
+		local subSlotCount = #EFGM.CLIENT.EQUIPPED[equipSlot]
 
 		if subSlotCount == 1 then -- selecting first subslot
-			local item = playerWeaponSlots[equipSlot][1]
+			local item = EFGM.CLIENT.EQUIPPED[equipSlot][1]
 			if !istable(item) or item.name == nil then return end
 
 			weapon = LocalPlayer():GetWeapon(item.name)
 			if weapon != NULL then input.SelectWeapon(weapon) end
 		else -- cycling to next subslot
 			for i = 1, subSlotCount do
-				local item = playerWeaponSlots[equipSlot][i]
+				local item = EFGM.CLIENT.EQUIPPED[equipSlot][i]
 				if !istable(item) or item.name == nil then return end
 
 				weapon = LocalPlayer():GetWeapon(item.name)
@@ -417,7 +420,7 @@ concommand.Add("efgm_inventory_equip", function(ply, cmd, args)
 			end
 		end
 	else -- selecting from subslot
-		local item = playerWeaponSlots[equipSlot][equipSubSlot]
+		local item = EFGM.CLIENT.EQUIPPED[equipSlot][equipSubSlot]
 		if !istable(item) or item.name == nil then return end
 
 		weapon = LocalPlayer():GetWeapon(item.name)

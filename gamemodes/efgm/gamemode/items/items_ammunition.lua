@@ -1,5 +1,5 @@
 -- pistol cartirdges
-EFGMITEMS["efgm_ammo_762x25"] = {
+EFGM.ITEMS["efgm_ammo_762x25"] = {
 	["fullName"] = "7.62x25mm Tokarev",
 	["displayName"] = "7.62x25",
 	["displayType"] = "Ammunition",
@@ -17,7 +17,7 @@ EFGMITEMS["efgm_ammo_762x25"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_9x18"] = {
+EFGM.ITEMS["efgm_ammo_9x18"] = {
 	["fullName"] = "9x18mm Makarov",
 	["displayName"] = "9x18",
 	["displayType"] = "Ammunition",
@@ -35,7 +35,7 @@ EFGMITEMS["efgm_ammo_9x18"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_9x19"] = {
+EFGM.ITEMS["efgm_ammo_9x19"] = {
 	["fullName"] = "9x19mm Parabellum",
 	["displayName"] = "9x19",
 	["displayType"] = "Ammunition",
@@ -53,7 +53,7 @@ EFGMITEMS["efgm_ammo_9x19"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_9x21"] = {
+EFGM.ITEMS["efgm_ammo_9x21"] = {
 	["fullName"] = "9x21mm Gyurza",
 	["displayName"] = "9x21",
 	["displayType"] = "Ammunition",
@@ -72,7 +72,7 @@ EFGMITEMS["efgm_ammo_9x21"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_357"] = {
+EFGM.ITEMS["efgm_ammo_357"] = {
 	["fullName"] = ".357 Magnum",
 	["displayName"] = ".357",
 	["displayType"] = "Ammunition",
@@ -90,7 +90,7 @@ EFGMITEMS["efgm_ammo_357"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_45"] = {
+EFGM.ITEMS["efgm_ammo_45"] = {
 	["fullName"] = ".45 ACP",
 	["displayName"] = ".45",
 	["displayType"] = "Ammunition",
@@ -108,7 +108,7 @@ EFGMITEMS["efgm_ammo_45"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_50ae"] = {
+EFGM.ITEMS["efgm_ammo_50ae"] = {
 	["fullName"] = ".50 Action Express",
 	["displayName"] = ".50 AE",
 	["displayType"] = "Ammunition",
@@ -126,7 +126,7 @@ EFGMITEMS["efgm_ammo_50ae"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_20x1"] = {
+EFGM.ITEMS["efgm_ammo_20x1"] = {
 	["fullName"] = "20x1mm",
 	["displayName"] = "Disk",
 	["displayType"] = "Ammunition",
@@ -145,7 +145,7 @@ EFGMITEMS["efgm_ammo_20x1"] = {
 }
 
 -- pdw cartirdges
-EFGMITEMS["efgm_ammo_46x30"] = {
+EFGM.ITEMS["efgm_ammo_46x30"] = {
 	["fullName"] = "4.6x30mm HK",
 	["displayName"] = "4.6x30",
 	["displayType"] = "Ammunition",
@@ -164,7 +164,7 @@ EFGMITEMS["efgm_ammo_46x30"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_57x28"] = {
+EFGM.ITEMS["efgm_ammo_57x28"] = {
 	["fullName"] = "5.7x28mm FN",
 	["displayName"] = "5.7x28",
 	["displayType"] = "Ammunition",
@@ -184,7 +184,7 @@ EFGMITEMS["efgm_ammo_57x28"] = {
 }
 
 -- rifle cartirdges
-EFGMITEMS["efgm_ammo_545x39"] = {
+EFGM.ITEMS["efgm_ammo_545x39"] = {
 	["fullName"] = "5.45x39mm",
 	["displayName"] = "5.45x39",
 	["displayType"] = "Ammunition",
@@ -203,7 +203,7 @@ EFGMITEMS["efgm_ammo_545x39"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_556x45"] = {
+EFGM.ITEMS["efgm_ammo_556x45"] = {
 	["fullName"] = "5.56x45mm NATO",
 	["displayName"] = "5.56x45",
 	["displayType"] = "Ammunition",
@@ -222,7 +222,7 @@ EFGMITEMS["efgm_ammo_556x45"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_68x51"] = {
+EFGM.ITEMS["efgm_ammo_68x51"] = {
 	["fullName"] = "6.8x51mm",
 	["displayName"] = "6.8x51",
 	["displayType"] = "Ammunition",
@@ -241,7 +241,7 @@ EFGMITEMS["efgm_ammo_68x51"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_300"] = {
+EFGM.ITEMS["efgm_ammo_300"] = {
 	["fullName"] = ".300 Blackout",
 	["displayName"] = ".300",
 	["displayType"] = "Ammunition",
@@ -260,7 +260,7 @@ EFGMITEMS["efgm_ammo_300"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_762x39"] = {
+EFGM.ITEMS["efgm_ammo_762x39"] = {
 	["fullName"] = "7.62x39mm",
 	["displayName"] = "7.62x39",
 	["displayType"] = "Ammunition",
@@ -279,7 +279,7 @@ EFGMITEMS["efgm_ammo_762x39"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_762x51"] = {
+EFGM.ITEMS["efgm_ammo_762x51"] = {
 	["fullName"] = "7.62x51mm NATO",
 	["displayName"] = "7.62x51",
 	["displayType"] = "Ammunition",
@@ -298,7 +298,7 @@ EFGMITEMS["efgm_ammo_762x51"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_308"] = {
+EFGM.ITEMS["efgm_ammo_308"] = {
 	["fullName"] = ".308 Marlin Express",
 	["displayName"] = ".308 ME",
 	["displayType"] = "Ammunition",
@@ -317,7 +317,7 @@ EFGMITEMS["efgm_ammo_308"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_762x54"] = {
+EFGM.ITEMS["efgm_ammo_762x54"] = {
 	["fullName"] = "7.62x54mmR",
 	["displayName"] = "7.62x54",
 	["displayType"] = "Ammunition",
@@ -336,7 +336,7 @@ EFGMITEMS["efgm_ammo_762x54"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_338"] = {
+EFGM.ITEMS["efgm_ammo_338"] = {
 	["fullName"] = ".338 Lapua Magnum",
 	["displayName"] = ".338",
 	["displayType"] = "Ammunition",
@@ -355,7 +355,7 @@ EFGMITEMS["efgm_ammo_338"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_9x39"] = {
+EFGM.ITEMS["efgm_ammo_9x39"] = {
 	["fullName"] = "9x39mm",
 	["displayName"] = "9x39",
 	["displayType"] = "Ammunition",
@@ -374,7 +374,7 @@ EFGMITEMS["efgm_ammo_9x39"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_93x64"] = {
+EFGM.ITEMS["efgm_ammo_93x64"] = {
 	["fullName"] = "9.3x64mm",
 	["displayName"] = "9.3x64",
 	["displayType"] = "Ammunition",
@@ -393,7 +393,7 @@ EFGMITEMS["efgm_ammo_93x64"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_366"] = {
+EFGM.ITEMS["efgm_ammo_366"] = {
 	["fullName"] = ".366 TKM",
 	["displayName"] = ".366",
 	["displayType"] = "Ammunition",
@@ -412,7 +412,7 @@ EFGMITEMS["efgm_ammo_366"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_127x55"] = {
+EFGM.ITEMS["efgm_ammo_127x55"] = {
 	["fullName"] = "12.7x55mm",
 	["displayName"] = "12.7x55",
 	["displayType"] = "Ammunition",
@@ -431,7 +431,7 @@ EFGMITEMS["efgm_ammo_127x55"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_50bmg"] = {
+EFGM.ITEMS["efgm_ammo_50bmg"] = {
 	["fullName"] = ".50 BMG",
 	["displayName"] = ".50 BMG",
 	["displayType"] = "Ammunition",
@@ -451,7 +451,7 @@ EFGMITEMS["efgm_ammo_50bmg"] = {
 }
 
 -- shotgun cartirdges
-EFGMITEMS["efgm_ammo_12gauge"] = {
+EFGM.ITEMS["efgm_ammo_12gauge"] = {
 	["fullName"] = "12 gauge",
 	["displayName"] = "12/70",
 	["displayType"] = "Ammunition",
@@ -469,7 +469,7 @@ EFGMITEMS["efgm_ammo_12gauge"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_20gauge"] = {
+EFGM.ITEMS["efgm_ammo_20gauge"] = {
 	["fullName"] = "20 gauge",
 	["displayName"] = "20/70",
 	["displayType"] = "Ammunition",
@@ -487,7 +487,7 @@ EFGMITEMS["efgm_ammo_20gauge"] = {
 	["sizeY"] = 1
 }
 
-EFGMITEMS["efgm_ammo_4gauge"] = {
+EFGM.ITEMS["efgm_ammo_4gauge"] = {
 	["fullName"] = "23x75mmR",
 	["displayName"] = "23x75",
 	["displayType"] = "Ammunition",
@@ -507,7 +507,7 @@ EFGMITEMS["efgm_ammo_4gauge"] = {
 }
 
 -- launcher cartirdges
-EFGMITEMS["efgm_ammo_40x46"] = {
+EFGM.ITEMS["efgm_ammo_40x46"] = {
 	["fullName"] = "40x46mm",
 	["displayName"] = "40x46",
 	["displayType"] = "Ammunition",
@@ -526,7 +526,7 @@ EFGMITEMS["efgm_ammo_40x46"] = {
 	["sizeY"] = 1,
 }
 
-EFGMITEMS["efgm_ammo_40x53"] = {
+EFGM.ITEMS["efgm_ammo_40x53"] = {
 	["fullName"] = "40x53mm",
 	["displayName"] = "40x53",
 	["displayType"] = "Ammunition",
@@ -545,7 +545,7 @@ EFGMITEMS["efgm_ammo_40x53"] = {
 	["sizeY"] = 1,
 }
 
-EFGMITEMS["efgm_ammo_725"] = {
+EFGM.ITEMS["efgm_ammo_725"] = {
 	["fullName"] = "72.5mm Warhead",
 	["displayName"] = "72.5",
 	["displayType"] = "Ammunition",
@@ -565,7 +565,7 @@ EFGMITEMS["efgm_ammo_725"] = {
 }
 
 -- flare cartirdges
-EFGMITEMS["efgm_ammo_26x75"] = {
+EFGM.ITEMS["efgm_ammo_26x75"] = {
 	["fullName"] = "26x75mm",
 	["displayName"] = "26x75",
 	["displayType"] = "Ammunition",

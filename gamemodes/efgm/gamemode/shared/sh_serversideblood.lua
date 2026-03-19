@@ -67,21 +67,16 @@ if CLIENT then
 			noise, count = 0.3, 4
 		end
 
-		::loop::
+		for count_iter = 1, count do
+			for i = 1, 3 do
+				vec[i] = hitpos[i] + (dir[i] + math.Rand(-noise, noise)) * dist
+			end
 
-		for i = 1, 3 do
-			vec[i] = hitpos[i] + (dir[i] + math.Rand(-noise, noise)) * dist
-		end
+			util.TraceLine(tracedata)
 
-		util.TraceLine(tracedata)
-
-		if traceres.Hit then
-			util.Decal(decal, hitpos, vec, victim)
-		end
-
-		if count > 1 then
-			count = count - 1
-			goto loop
+			if traceres.Hit then
+				util.Decal(decal, hitpos, vec, victim)
+			end
 		end
 	end)
 

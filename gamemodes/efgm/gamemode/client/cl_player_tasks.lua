@@ -1,4 +1,4 @@
-playerTasks = playerTasks or {}
+EFGM.CLIENT.TASKS = EFGM.CLIENT.TASKS or {}
 
 concommand.Add("efgm_task_pay", function(ply, cmd, args)
 	local task, amount = args[1], tonumber(args[2])
@@ -46,5 +46,5 @@ concommand.Add("efgm_task_requestall", function(ply, cmd, args)
 end)
 
 net.Receive("TaskSendAll", function(len)
-	playerTasks = net.ReadTable()
+	EFGM.CLIENT.TASKS = net.ReadTable()
 end)
