@@ -2,12 +2,19 @@ include("shared.lua")
 include("util.lua")
 include("enums.lua")
 include("config.lua")
+include("codex/codex_init.lua")
 include("items/items_init.lua")
 
 EFGM.CLIENT = EFGM.CLIENT or {}
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	include("shared/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/codex/*.lua", "GAME", "nameasc")) do
+	if f == "codex_init.lua" then continue end
+
+	include("codex/" .. f)
 end
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nameasc")) do

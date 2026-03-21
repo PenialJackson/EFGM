@@ -19,8 +19,8 @@
 		"BaseClass"
 	],
 	"runtime.special": {
-	"include": "require",
-	"IncludeCS": "require"
+		"include": "require",
+		"IncludeCS": "require"
 	},
 	"runtime.nonstandardSymbol": [
 		"continue",
@@ -30,5 +30,7 @@
 		"!",
 		"//"
 	],
-	"workspace.library": ["https://github.com/luttje/glua-api-snippets/releases, download and extract .json zip and set this to the absolute path."]
+	"workspace.library": [
+		"https://github.com/luttje/glua-api-snippets/releases, download and extract .json zip and set this to the absolute path."
+	]
 }

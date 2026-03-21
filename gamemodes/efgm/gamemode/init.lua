@@ -2,12 +2,14 @@ AddCSLuaFile("shared.lua")
 AddCSLuaFile("util.lua")
 AddCSLuaFile("enums.lua")
 AddCSLuaFile("config.lua")
+AddCSLuaFile("codex/codex_init.lua")
 AddCSLuaFile("items/items_init.lua")
 
 include("shared.lua")
 include("util.lua")
 include("enums.lua")
 include("config.lua")
+include("codex/codex_init.lua")
 include("items/items_init.lua")
 
 EFGM.SERVER = EFGM.SERVER or {}
@@ -29,6 +31,13 @@ end
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "nameasc")) do
 	AddCSLuaFile("vgui/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/codex/*.lua", "GAME", "nameasc")) do
+	if f == "codex_init.lua" then continue end
+
+	AddCSLuaFile("codex/" .. f)
+	include("codex/" .. f)
 end
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nameasc")) do
