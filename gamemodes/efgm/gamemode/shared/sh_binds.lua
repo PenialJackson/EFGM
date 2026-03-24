@@ -69,6 +69,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 		-- show raid information
 		if button == ply:GetInfoNum("efgm_bind_raidinfo", KEY_O) then
+			if SERVER then return end
 			RenderExtracts()
 		end
 

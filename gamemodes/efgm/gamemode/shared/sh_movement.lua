@@ -76,7 +76,7 @@ local jumpFatigueReset = 1.1
 local jumpFatigueMult = 0.825
 
 -- jump viewpunch and fatigue
-hook.Add("OnPlayerJump", "PlayerJump", function(ply, speed)
+hook.Add("OnPlayerJump", "PlayerJump", function(ply)
 	local ct = CurTime()
 	local jumpCount = ply:GetNW2Int("jump_count", 1)
 

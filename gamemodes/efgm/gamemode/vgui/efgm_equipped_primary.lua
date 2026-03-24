@@ -24,8 +24,8 @@ end
 function PANEL:PerformLayout()
 end
 
-local name, data, i, nameSize, nameFont, tagFont, tagH, wep, clip, clipMax, mag, magFont, magSizeY,
-	hasAmmo, value, weight, borderColor
+local name, data, i, borderColor, nameSize, nameFont, tagFont, tagH, wep, clip, clipMax, mag, magFont, magSizeY,
+	hasAmmo, value, weight
 
 function PANEL:CreateVar(argName, argData, argI)
 	name = argName

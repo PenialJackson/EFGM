@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "9710"
+	"mapversion" "9711"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "9710"
+	"mapversion" "9711"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -551226,7 +551226,7 @@ entity
 	"classname" "efgm_team_spawn"
 	"angles" "0 0 0"
 	"main_spawn" "spawn_scav_6"
-	"origin" "-2720 528 -128"
+	"origin" "-2724 176 -128"
 	editor
 	{
 		"color" "220 30 220"
@@ -551241,7 +551241,7 @@ entity
 	"classname" "efgm_team_spawn"
 	"angles" "0 0 0"
 	"main_spawn" "spawn_scav_6"
-	"origin" "-2720 576 -128"
+	"origin" "-2724 288 -128"
 	editor
 	{
 		"color" "220 30 220"
@@ -551258,7 +551258,7 @@ entity
 	"spawn_group" "North"
 	"spawn_type" "2"
 	"targetname" "spawn_scav_6"
-	"origin" "-2720 624 -128"
+	"origin" "-2724 336 -128"
 	editor
 	{
 		"color" "220 30 220"
@@ -551273,7 +551273,7 @@ entity
 	"classname" "efgm_team_spawn"
 	"angles" "0 0 0"
 	"main_spawn" "spawn_scav_6"
-	"origin" "-2720 712 -128"
+	"origin" "-2724 424 -128"
 	editor
 	{
 		"color" "220 30 220"
@@ -551288,7 +551288,7 @@ entity
 	"classname" "efgm_team_spawn"
 	"angles" "0 0 0"
 	"main_spawn" "spawn_scav_6"
-	"origin" "-2720 672 -128"
+	"origin" "-2724 384 -128"
 	editor
 	{
 		"color" "220 30 220"
@@ -915675,8 +915675,8 @@ cameras
 	}
 	camera
 	{
-		"position" "[951.451 1150.19 -1547.92]"
-		"look" "[272.134 2252.76 -1798.74]"
+		"position" "[-1987.53 88.1141 877.556]"
+		"look" "[-2719.29 531.317 -126.499]"
 	}
 	camera
 	{

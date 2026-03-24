@@ -259,7 +259,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		victim:EmitSound(Sound("deathsounds/head" .. math.random(1, 3) .. ".wav"), math.random(66, 76), math.random(90, 110))
 	end
 
-	local deathSound = Sound("deathsounds/head" .. math.random(1, 3) .. ".wav")
+	local deathSound = Sound("deathsounds/death" .. math.random(1, 116) .. ".wav")
 
 	victim:EmitSound(deathSound, math.random(80, 90), math.random(90, 110))
 	victim.LastDeathSound = deathSound

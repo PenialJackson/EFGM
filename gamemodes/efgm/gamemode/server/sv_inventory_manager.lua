@@ -814,8 +814,8 @@ net.Receive("PlayerInventoryTag", function(len, ply)
 
 		net.Start("PlayerInventoryUpdateEquipped", false)
 			net.WriteTable(ply.weaponSlots[equipID][equipSlot].data)
-			net.WriteUInt(equipID, 16)
-			net.WriteUInt(equipSlot, 16)
+			net.WriteUInt(equipID, 4)
+			net.WriteUInt(equipSlot, 4)
 		net.Send(ply)
 
 		return
