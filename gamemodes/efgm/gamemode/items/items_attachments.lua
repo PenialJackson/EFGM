@@ -9172,7 +9172,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_vdmcs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "vdmcs", "smooth"),
+	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "vdmcs.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
@@ -9313,7 +9313,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_mk12g1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mk12gen1", "smooth"),
+	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mk12gen1.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,

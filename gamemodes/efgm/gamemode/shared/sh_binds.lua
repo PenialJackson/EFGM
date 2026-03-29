@@ -25,6 +25,11 @@ if CLIENT then
 	CreateClientConVar("efgm_bind_equip_utility", KEY_5, true, true, "Determines the keybind that equips your grenade")
 	CreateClientConVar("efgm_bind_equip_consumable", KEY_H, true, true, "Determines the keybind that equips your consumable item")
 
+	CreateClientConVar("efgm_bind_menu_tab_previous", KEY_Q, true, true, "Determines the keybind that brings you to the previous tab in the menu")
+	CreateClientConVar("efgm_bind_menu_tab_next", KEY_E, true, true, "Determines the keybind that brings you to the next tab in the menu")
+	CreateClientConVar("efgm_bind_menu_page_previous", KEY_A, true, true, "Determines the keybind that brings you to the previous page in the menu")
+	CreateClientConVar("efgm_bind_menu_page_next", KEY_D, true, true, "Determines the keybind that brings you to the next page in the menu")
+
 	-- toggle crouch
 	local toggleDuckCvar = GetConVar("efgm_controls_toggleduck")
 

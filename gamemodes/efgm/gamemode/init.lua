@@ -299,7 +299,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 	net.Start("CreateDeathInformation")
 		net.WriteFloat(xpMult)
-		if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.TIMER.HIDEOUTRESPAWN, 8) else net.WriteUInt(EFGM.CONFIG.TIMER.RESPAWN, 8) end
+		if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN, 8) else net.WriteUInt(EFGM.CONFIG.TIMERS.RESPAWN, 8) end
 		net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 		net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 		net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -336,7 +336,7 @@ hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
 end)
 
 hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
-	local time = ply:IsInRaid() and EFGM.CONFIG.TIMER.RESPAWN or EFGM.CONFIG.TIMER.HIDEOUTRESPAWN
+	local time = ply:IsInRaid() and EFGM.CONFIG.TIMERS.RESPAWN or EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN
 
 	timer.Create(ply:SteamID() .. "respawnTime", time, 1, function() end)
 end)

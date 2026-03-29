@@ -49,17 +49,77 @@ local holdtypes = {
 }
 
 local tabList = {
-	["profile"] = 1,
-	["map"] = 2,
-	["inventory"] = 3,
-	["market"] = 4,
-	["tasks"] = 5,
-	["skills"] = 6,
-	["codex"] = 7,
-	["locker"] = 8,
-	["settings"] = 9
+	["profile"] = {
+		id = 1,
+		inRaid = false
+	},
+
+	["map"] = {
+		id = 2,
+		inRaid = true
+	},
+
+	["inventory"] = {
+		id = 3,
+		inRaid = true
+	},
+
+	["market"] = {
+		id = 4,
+		inRaid = false
+	},
+
+	["tasks"] = {
+		id = 5,
+		inRaid = true
+	},
+
+	["skills"] = {
+		id = 6,
+		inRaid = false
+	},
+
+	["codex"] = {
+		id = 7,
+		inRaid = false
+	},
+
+	["locker"] = {
+		id = 8,
+		inRaid = false
+	},
+
+	["settings"] = {
+		id = 9,
+		inRaid = true
+	}
 }
 EFGM.MENU.OpenTab = {}
+local tabListCount = table.Count(tabList)
+
+function EFGM.MENU:OpenTabFromActive()
+	local active = EFGM.MENU.ActiveTab
+
+	if active == "profile" then
+		EFGM.MENU.OpenTab.Profile()
+	elseif active == "map" then
+		EFGM.MENU.OpenTab.Map()
+	elseif active == "inventory" then
+		EFGM.MENU.OpenTab.Inventory(EFGM.MENU.Container)
+	elseif active == "market" then
+		EFGM.MENU.OpenTab.Market()
+	elseif active == "tasks" then
+		EFGM.MENU.OpenTab.Tasks()
+	elseif active == "skills" then
+		EFGM.MENU.OpenTab.Skills()
+	elseif active == "codex" then
+		EFGM.MENU.OpenTab.Codex()
+	elseif active == "locker" then
+		EFGM.MENU.OpenTab.Locker()
+	elseif active == "settings" then
+		EFGM.MENU.OpenTab.Settings()
+	end
+end
 
 function EFGM.MENU:ReloadSlots()
 end
@@ -171,6 +231,9 @@ hook.Add("OnReloaded", "MenuReload", function()
 end)
 
 local menuBind = GetConVar("efgm_bind_menu")
+local previousTabBind = GetConVar("efgm_bind_menu_tab_previous")
+local nextTabBind = GetConVar("efgm_bind_menu_tab_next")
+
 local parallaxCVar = GetConVar("efgm_menu_parallax")
 local scalingCVar = GetConVar("efgm_menu_scalingmethod")
 local sboxCVar = GetConVar("efgm_derivesbox")
@@ -242,7 +305,88 @@ function EFGM.MENU:Initialize(openTo, container)
 		BlurPanel(self, 2, 2)
 	end
 
-	-- close menu with the game menu keybind
+	function menuFrame:OnKeyCodePressed(key)
+		if key == previousTabBind:GetInt() then
+			if tabList[EFGM.MENU.ActiveTab].id == 1 then return end
+
+			local prevTab = EFGM.MENU.ActiveTab
+			local prevID = tabList[prevTab].id
+			local breakTab = false
+
+			for tab = prevID - 1, 1, -1 do
+				for k, v in pairs(tabList) do
+					if tab != v.id then continue end
+					if !EFGM.MENU.Player:IsInHideout() and v.inRaid == false then continue end
+
+					EFGM.MENU.ActiveTab = k
+					breakTab = true
+					break
+				end
+
+				if breakTab then break end
+			end
+
+			if prevTab == EFGM.MENU.ActiveTab then return end
+
+			surface.PlaySound("ui/element_select.wav")
+
+			if EFGM.MENU.ActiveTab == "map" then
+				net.Start("RemovePlayerSquadRF")
+				net.SendToServer()
+			end
+
+			EFGM.MENU.SwitchingTab = true
+
+			EFGM.MENU.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
+				EFGM.MENU.MenuFrame.LowerPanel.Contents:Remove()
+				EFGM.MENU:OpenTabFromActive()
+				EFGM.MENU.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+					EFGM.MENU.SwitchingTab = false
+				end)
+			end)
+		end
+
+		if key == nextTabBind:GetInt() then
+			if tabList[EFGM.MENU.ActiveTab].id == tabListCount then return end
+
+			local prevTab = EFGM.MENU.ActiveTab
+			local prevID = tabList[prevTab].id
+			local breakTab = false
+
+			for tab = prevID + 1, tabListCount do
+				for k, v in pairs(tabList) do
+					if tab != v.id then continue end
+					if !EFGM.MENU.Player:IsInHideout() and v.inRaid == false then continue end
+
+					EFGM.MENU.ActiveTab = k
+					breakTab = true
+					break
+				end
+
+				if breakTab then break end
+			end
+
+			if prevTab == EFGM.MENU.ActiveTab then return end
+
+			surface.PlaySound("ui/element_select.wav")
+
+			if EFGM.MENU.ActiveTab == "map" then
+				net.Start("RemovePlayerSquadRF")
+				net.SendToServer()
+			end
+
+			EFGM.MENU.SwitchingTab = true
+
+			EFGM.MENU.MenuFrame.LowerPanel.Contents:AlphaTo(0, 0.05, 0, function()
+				EFGM.MENU.MenuFrame.LowerPanel.Contents:Remove()
+				EFGM.MENU:OpenTabFromActive()
+				EFGM.MENU.MenuFrame.LowerPanel.Contents:AlphaTo(255, 0.05, 0, function()
+					EFGM.MENU.SwitchingTab = false
+				end)
+			end)
+		end
+	end
+
 	function menuFrame:OnKeyCodeReleased(key)
 		if key == menuBind:GetInt() then
 			EFGM.MENU:RunOnClose()
@@ -406,9 +550,9 @@ function EFGM.MENU:Initialize(openTo, container)
 
 		raidStatus = GetGlobalInt("RaidStatus", 0)
 
-		draw.SimpleTextOutlined(roubles, "PuristaBold32", w - EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(roubles, "PuristaBold32", w, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		draw.SimpleTextOutlined(time, "PuristaBold32", w - roublesTextSize - EFGM.MenuScale(65), EFGM.MenuScale(2), raidStatusTbl[raidStatus], TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-		draw.SimpleTextOutlined(plyCount, "PuristaBold32", w - roublesTextSize - timeTextSize - EFGM.MenuScale(125), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		draw.SimpleTextOutlined(plyCount, "PuristaBold32", w - roublesTextSize - timeTextSize - EFGM.MenuScale(130), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	self.MenuFrame.TabParentPanel = tabParentPanel
@@ -459,11 +603,11 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	local timeIcon = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
-	timeIcon:SetPos(self.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(105) - roublesTextSize - timeTextSize, EFGM.MenuScale(2))
+	timeIcon:SetPos(self.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(110) - roublesTextSize - timeTextSize, EFGM.MenuScale(2))
 	timeIcon:SetSize(EFGM.MenuScale(36), EFGM.MenuScale(36))
 
 	function timeIcon:Paint(w, h)
-		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(105) - roublesTextSize - timeTextSize)
+		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(110) - roublesTextSize - timeTextSize)
 
 		surface.SetDrawColor(COLORS.pureWhiteColor)
 		surface.SetMaterial(MATS.timeIcon)
@@ -471,11 +615,11 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	local plyCountIcon = vgui.Create("DPanel", self.MenuFrame.TabParentPanel)
-	plyCountIcon:SetPos(self.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(165) - roublesTextSize - timeTextSize - plyCountTextSize, EFGM.MenuScale(2))
+	plyCountIcon:SetPos(self.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(175) - roublesTextSize - timeTextSize - plyCountTextSize, EFGM.MenuScale(2))
 	plyCountIcon:SetSize(EFGM.MenuScale(36), EFGM.MenuScale(36))
 
 	function plyCountIcon:Paint(w, h)
-		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(165) - roublesTextSize - timeTextSize - plyCountTextSize)
+		self:SetX(EFGM.MENU.MenuFrame.TabParentPanel:GetWide() - EFGM.MenuScale(175) - roublesTextSize - timeTextSize - plyCountTextSize)
 
 		surface.SetDrawColor(COLORS.pureWhiteColor)
 		surface.SetMaterial(MATS.populationIcon)
@@ -793,12 +937,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	function marketTab:DoClick()
+		if EFGM.MENU.ActiveTab == "market" then return end
+
 		if !EFGM.MENU.Player:IsInHideout() then
 			surface.PlaySound("common/wpn_denyselect.wav")
 			return
 		end
-
-		if EFGM.MENU.ActiveTab == "market" then return end
 
 		if EFGM.MENU.ActiveTab == "map" then
 			net.Start("RemovePlayerSquadRF")
@@ -881,6 +1025,10 @@ function EFGM.MENU:Initialize(openTo, container)
 	skillsTab:SetText("")
 	skillsTab:DockMargin(0, 0, EFGM.MenuScale(10), 0)
 
+	if !EFGM.MENU.Player:IsInHideout() then
+		skillsTab:Hide()
+	end
+
 	function skillsTab:Paint(w, h)
 		surface.SetDrawColor(skillsBGColor)
 		surface.DrawRect(0, 0, w, h)
@@ -899,6 +1047,11 @@ function EFGM.MENU:Initialize(openTo, container)
 
 	function skillsTab:DoClick()
 		if EFGM.MENU.ActiveTab == "skills" then return end
+
+		if !EFGM.MENU.Player:IsInHideout() then
+			surface.PlaySound("common/wpn_denyselect.wav")
+			return
+		end
 
 		if EFGM.MENU.ActiveTab == "map" then
 			net.Start("RemovePlayerSquadRF")
@@ -951,12 +1104,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	function codexTab:DoClick()
+		if EFGM.MENU.ActiveTab == "codex" then return end
+
 		if !EFGM.MENU.Player:IsInHideout() then
 			surface.PlaySound("common/wpn_denyselect.wav")
 			return
 		end
-
-		if EFGM.MENU.ActiveTab == "codex" then return end
 
 		if EFGM.MENU.ActiveTab == "map" then
 			net.Start("RemovePlayerSquadRF")
@@ -1009,12 +1162,12 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	function lockerTab:DoClick()
+		if EFGM.MENU.ActiveTab == "locker" then return end
+
 		if !EFGM.MENU.Player:IsInHideout() then
 			surface.PlaySound("common/wpn_denyselect.wav")
 			return
 		end
-
-		if EFGM.MENU.ActiveTab == "locker" then return end
 
 		if EFGM.MENU.ActiveTab == "map" then
 			net.Start("RemovePlayerSquadRF")
@@ -9500,7 +9653,7 @@ function EFGM.MENU.OpenTab.Settings()
 	gameMenu:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	gameMenu:SetSelectedNumber(GetConVar("efgm_bind_menu"):GetInt())
 
-	function gameMenu:OnChange(num)
+	function gameMenu:OnChange()
 		RunConsoleCommand("efgm_bind_menu", gameMenu:GetSelectedNumber())
 	end
 
@@ -9516,7 +9669,7 @@ function EFGM.MENU.OpenTab.Settings()
 	showMap:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	showMap:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	showMap:SetSelectedNumber(GetConVar("efgm_bind_map"):GetInt())
-	function showMap:OnChange(num)
+	function showMap:OnChange()
 		RunConsoleCommand("efgm_bind_map", showMap:GetSelectedNumber())
 	end
 
@@ -9533,7 +9686,7 @@ function EFGM.MENU.OpenTab.Settings()
 	showRaidInfo:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	showRaidInfo:SetSelectedNumber(GetConVar("efgm_bind_raidinfo"):GetInt())
 
-	function showRaidInfo:OnChange(num)
+	function showRaidInfo:OnChange()
 		RunConsoleCommand("efgm_bind_raidinfo", showRaidInfo:GetSelectedNumber())
 	end
 
@@ -9550,7 +9703,7 @@ function EFGM.MENU.OpenTab.Settings()
 	leanLeft:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	leanLeft:SetSelectedNumber(GetConVar("efgm_bind_leanleft"):GetInt())
 
-	function leanLeft:OnChange(num)
+	function leanLeft:OnChange()
 		RunConsoleCommand("efgm_bind_leanleft", leanLeft:GetSelectedNumber())
 	end
 
@@ -9567,7 +9720,7 @@ function EFGM.MENU.OpenTab.Settings()
 	leanRight:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	leanRight:SetSelectedNumber(GetConVar("efgm_bind_leanright"):GetInt())
 
-	function leanRight:OnChange(num)
+	function leanRight:OnChange()
 		RunConsoleCommand("efgm_bind_leanright", leanRight:GetSelectedNumber())
 	end
 
@@ -9584,7 +9737,7 @@ function EFGM.MENU.OpenTab.Settings()
 	freeLook:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	freeLook:SetSelectedNumber(GetConVar("efgm_bind_freelook"):GetInt())
 
-	function freeLook:OnChange(num)
+	function freeLook:OnChange()
 		RunConsoleCommand("efgm_bind_freelook", freeLook:GetSelectedNumber())
 	end
 
@@ -9601,7 +9754,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleFireMode:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	toggleFireMode:SetSelectedNumber(GetConVar("efgm_bind_changefiremode"):GetInt())
 
-	function toggleFireMode:OnChange(num)
+	function toggleFireMode:OnChange()
 		RunConsoleCommand("efgm_bind_changefiremode", toggleFireMode:GetSelectedNumber())
 	end
 
@@ -9618,7 +9771,7 @@ function EFGM.MENU.OpenTab.Settings()
 	changeSight:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	changeSight:SetSelectedNumber(GetConVar("efgm_bind_changesight"):GetInt())
 
-	function changeSight:OnChange(num)
+	function changeSight:OnChange()
 		RunConsoleCommand("efgm_bind_changesight", changeSight:GetSelectedNumber())
 	end
 
@@ -9635,7 +9788,7 @@ function EFGM.MENU.OpenTab.Settings()
 	toggleUBGL:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	toggleUBGL:SetSelectedNumber(GetConVar("efgm_bind_toggleubgl"):GetInt())
 
-	function toggleUBGL:OnChange(num)
+	function toggleUBGL:OnChange()
 		RunConsoleCommand("efgm_bind_toggleubgl", toggleUBGL:GetSelectedNumber())
 	end
 
@@ -9652,7 +9805,7 @@ function EFGM.MENU.OpenTab.Settings()
 	inspectWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	inspectWeapon:SetSelectedNumber(GetConVar("efgm_bind_inspectweapon"):GetInt())
 
-	function inspectWeapon:OnChange(num)
+	function inspectWeapon:OnChange()
 		RunConsoleCommand("efgm_bind_inspectweapon", inspectWeapon:GetSelectedNumber())
 	end
 
@@ -9669,7 +9822,7 @@ function EFGM.MENU.OpenTab.Settings()
 	teamInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	teamInvite:SetSelectedNumber(GetConVar("efgm_bind_teaminvite"):GetInt())
 
-	function teamInvite:OnChange(num)
+	function teamInvite:OnChange()
 		RunConsoleCommand("efgm_bind_teaminvite", teamInvite:GetSelectedNumber())
 	end
 
@@ -9686,7 +9839,7 @@ function EFGM.MENU.OpenTab.Settings()
 	duelInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	duelInvite:SetSelectedNumber(GetConVar("efgm_bind_duelinvite"):GetInt())
 
-	function duelInvite:OnChange(num)
+	function duelInvite:OnChange()
 		RunConsoleCommand("efgm_bind_duelinvite", duelInvite:GetSelectedNumber())
 	end
 
@@ -9703,7 +9856,7 @@ function EFGM.MENU.OpenTab.Settings()
 	acceptInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	acceptInvite:SetSelectedNumber(GetConVar("efgm_bind_invites_accept"):GetInt())
 
-	function acceptInvite:OnChange(num)
+	function acceptInvite:OnChange()
 		RunConsoleCommand("efgm_bind_invites_accept", acceptInvite:GetSelectedNumber())
 	end
 
@@ -9720,7 +9873,7 @@ function EFGM.MENU.OpenTab.Settings()
 	declineInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	declineInvite:SetSelectedNumber(GetConVar("efgm_bind_invites_decline"):GetInt())
 
-	function declineInvite:OnChange(num)
+	function declineInvite:OnChange()
 		RunConsoleCommand("efgm_bind_invites_decline", declineInvite:GetSelectedNumber())
 	end
 
@@ -9737,7 +9890,7 @@ function EFGM.MENU.OpenTab.Settings()
 	primaryWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	primaryWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_primary1"):GetInt())
 
-	function primaryWeapon:OnChange(num)
+	function primaryWeapon:OnChange()
 		RunConsoleCommand("efgm_bind_equip_primary1", primaryWeapon:GetSelectedNumber())
 	end
 
@@ -9754,7 +9907,7 @@ function EFGM.MENU.OpenTab.Settings()
 	primaryWeaponTwo:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	primaryWeaponTwo:SetSelectedNumber(GetConVar("efgm_bind_equip_primary2"):GetInt())
 
-	function primaryWeaponTwo:OnChange(num)
+	function primaryWeaponTwo:OnChange()
 		RunConsoleCommand("efgm_bind_equip_primary2", primaryWeaponTwo:GetSelectedNumber())
 	end
 
@@ -9771,7 +9924,7 @@ function EFGM.MENU.OpenTab.Settings()
 	secondaryWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	secondaryWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_secondary"):GetInt())
 
-	function secondaryWeapon:OnChange(num)
+	function secondaryWeapon:OnChange()
 		RunConsoleCommand("efgm_bind_equip_secondary", secondaryWeapon:GetSelectedNumber())
 	end
 
@@ -9788,7 +9941,7 @@ function EFGM.MENU.OpenTab.Settings()
 	meleeWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	meleeWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_melee"):GetInt())
 
-	function meleeWeapon:OnChange(num)
+	function meleeWeapon:OnChange()
 		RunConsoleCommand("efgm_bind_equip_melee", meleeWeapon:GetSelectedNumber())
 	end
 
@@ -9805,7 +9958,7 @@ function EFGM.MENU.OpenTab.Settings()
 	utilityThrowable:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	utilityThrowable:SetSelectedNumber(GetConVar("efgm_bind_equip_utility"):GetInt())
 
-	function utilityThrowable:OnChange(num)
+	function utilityThrowable:OnChange()
 		RunConsoleCommand("efgm_bind_equip_utility", utilityThrowable:GetSelectedNumber())
 	end
 
@@ -9822,8 +9975,76 @@ function EFGM.MENU.OpenTab.Settings()
 	consumableItemBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
 	consumableItemBind:SetSelectedNumber(GetConVar("efgm_bind_equip_consumable"):GetInt())
 
-	function consumableItemBind:OnChange(num)
+	function consumableItemBind:OnChange()
 		RunConsoleCommand("efgm_bind_equip_consumable", consumableItemBind:GetSelectedNumber())
+	end
+
+	local menuPreviousTabBindPanel = vgui.Create("DPanel", controls)
+	menuPreviousTabBindPanel:Dock(TOP)
+	menuPreviousTabBindPanel:SetSize(0, EFGM.MenuScale(55))
+
+	function menuPreviousTabBindPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Menu: Previous Tab", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local menuPreviousTabBind = vgui.Create("DBinder", menuPreviousTabBindPanel)
+	menuPreviousTabBind:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
+	menuPreviousTabBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
+	menuPreviousTabBind:SetSelectedNumber(GetConVar("efgm_bind_menu_tab_previous"):GetInt())
+
+	function menuPreviousTabBind:OnChange()
+		RunConsoleCommand("efgm_bind_menu_tab_previous", menuPreviousTabBind:GetSelectedNumber())
+	end
+
+	local menuNextTabBindPanel = vgui.Create("DPanel", controls)
+	menuNextTabBindPanel:Dock(TOP)
+	menuNextTabBindPanel:SetSize(0, EFGM.MenuScale(55))
+
+	function menuNextTabBindPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Menu: Next Tab", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local menuNextTabBind = vgui.Create("DBinder", menuNextTabBindPanel)
+	menuNextTabBind:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
+	menuNextTabBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
+	menuNextTabBind:SetSelectedNumber(GetConVar("efgm_bind_menu_tab_next"):GetInt())
+
+	function menuNextTabBind:OnChange()
+		RunConsoleCommand("efgm_bind_menu_tab_next", menuNextTabBind:GetSelectedNumber())
+	end
+
+	local menuPreviousPageBindPanel = vgui.Create("DPanel", controls)
+	menuPreviousPageBindPanel:Dock(TOP)
+	menuPreviousPageBindPanel:SetSize(0, EFGM.MenuScale(55))
+
+	function menuPreviousPageBindPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Menu: Previous Page", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local menuPreviousPageBind = vgui.Create("DBinder", menuPreviousPageBindPanel)
+	menuPreviousPageBind:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
+	menuPreviousPageBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
+	menuPreviousPageBind:SetSelectedNumber(GetConVar("efgm_bind_menu_page_previous"):GetInt())
+
+	function menuPreviousPageBind:OnChange()
+		RunConsoleCommand("efgm_bind_menu_page_previous", menuPreviousPageBind:GetSelectedNumber())
+	end
+
+	local menuNextPageBindPanel = vgui.Create("DPanel", controls)
+	menuNextPageBindPanel:Dock(TOP)
+	menuNextPageBindPanel:SetSize(0, EFGM.MenuScale(55))
+
+	function menuNextPageBindPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Menu: Next Page", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local menuNextPageBind = vgui.Create("DBinder", menuNextPageBindPanel)
+	menuNextPageBind:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
+	menuNextPageBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
+	menuNextPageBind:SetSelectedNumber(GetConVar("efgm_bind_menu_page_next"):GetInt())
+
+	function menuNextPageBind:OnChange()
+		RunConsoleCommand("efgm_bind_menu_page_next", menuNextPageBind:GetSelectedNumber())
 	end
 
 	local gmodControlsTitle = vgui.Create("DPanel", controls)
