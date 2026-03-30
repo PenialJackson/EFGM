@@ -368,22 +368,6 @@ net.Receive("PlayerInventoryRemoveConsumable", function(len)
 	end
 end)
 
-net.Receive("PlayerInventoryClearFIR", function(len)
-	for k, v in ipairs(EFGM.CLIENT.INVENTORY) do
-		v.data.fir = nil
-	end
-
-	for i = 1, #table.GetKeys(WEAPONSLOTS) do
-		for k, v in ipairs(EFGM.CLIENT.EQUIPPED[i]) do
-			if table.IsEmpty(v) then continue end
-			v.data.fir = nil
-		end
-	end
-
-	EFGM.MENU:ReloadInventory()
-	EFGM.MENU:ReloadSlots()
-end)
-
 net.Receive("PlayerInventorySendWeaponPreset", function(len)
 	local wpn = net.ReadEntity()
 	local preset = net.ReadString()

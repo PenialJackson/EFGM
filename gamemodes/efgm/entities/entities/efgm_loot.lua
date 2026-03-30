@@ -76,8 +76,6 @@ function ENT:SelectItems()
 			data.att = def.defAtts
 		end
 
-		if def.equipType != EQUIPTYPE.Ammunition then data.fir = true end
-
 		local item = ITEM.Instantiate(itemKey, def.equipType, data)
 		table.insert(containerLoot, item)
 

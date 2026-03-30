@@ -129,7 +129,6 @@ function FlowItemToInventory(ply, name, type, data)
 	local stackSize = def.stackSize
 	local amount = tonumber(data.count) or 1
 	local durability = data.durability
-	local fir = data.fir
 
 	if stackSize == 1 then -- items that can't stack do not need to flow (but they do need to be created multiple times lol!)
 		for i = 1, amount do
@@ -141,7 +140,7 @@ function FlowItemToInventory(ply, name, type, data)
 
 	local indices = {}
 	for k, v in ipairs(ply.inventory) do
-		if v.name == name and v.data.durability == durability and v.data.fir == fir then
+		if v.name == name and v.data.durability == durability then
 			table.insert(indices, k)
 		end
 	end
@@ -957,22 +956,6 @@ function CalculateInventoryWeight(ply)
 	return newWeight
 end
 
-function RemoveFIRFromInventory(ply)
-	for k, v in ipairs(ply.inventory) do
-		v.data.fir = nil
-	end
-
-	for i = 1, #table.GetKeys(WEAPONSLOTS) do
-		for k, v in ipairs(ply.weaponSlots[i]) do
-			if table.IsEmpty(v) then continue end
-			v.data.fir = nil
-		end
-	end
-
-	net.Start("PlayerInventoryClearFIR", false)
-	net.Send(ply)
-end
-
 local function DecompressTableRecursive(tbl)
 	local result = {}
 
@@ -1164,8 +1147,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		local cleanTbl = {}
 		cleanTbl = table.Copy(ply.inventory)
 
-		for k, v in ipairs(ply.inventory) do
-			v.data.fir = nil
+		for k, v in ipairs(cleanTbl) do
 			v.data.owner = nil
 			v.data.timestamp = nil
 		end
@@ -1185,7 +1167,6 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 			for k, v in ipairs(cleanTbl[i]) do
 				if table.IsEmpty(v) then continue end
 
-				v.data.fir = nil
 				v.data.owner = nil
 				v.data.timestamp = nil
 			end

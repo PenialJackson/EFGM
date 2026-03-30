@@ -1405,51 +1405,6 @@ function EFGM.MENU.InspectItem(item, data)
 		surface.DrawTexturedRect(x, y, newPanelWidth, newPanelHeight)
 	end
 
-	if data.fir then
-		local firIcon = vgui.Create("DButton", inspectPanel)
-		firIcon:SetPos(itemDescSize + EFGM.MenuScale(7), EFGM.MenuScale(29))
-		firIcon:SetSize(EFGM.MenuScale(12), EFGM.MenuScale(12))
-		firIcon:SetText("")
-
-		function firIcon:Paint(w, h)
-			surface.SetDrawColor(COLORS.pureWhiteColor)
-			surface.SetMaterial(MATS.firIcon)
-			surface.DrawTexturedRect(0, 0, EFGM.MenuScale(12), EFGM.MenuScale(12))
-		end
-
-		function firIcon:OnCursorEntered()
-			surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-
-			local paint = function()
-				local w, h = EFGM.MENU.Tooltip:GetSize()
-
-				surface.SetDrawColor(COLORS.tooltipBackgroundColor)
-				surface.DrawRect(0, 0, w, h)
-
-				surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
-				surface.DrawRect(0, 0, w, h)
-
-				surface.SetDrawColor(COLORS.tooltipHeaderColor)
-				surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
-
-				surface.SetDrawColor(COLORS.transparentWhiteColor)
-				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
-				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
-				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
-				surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
-
-				draw.SimpleTextOutlined("FOUND IN RAID", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined("This item will lose its 'found in raid' status if brought into another raid.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			end
-
-			EFGM.MENU.Tooltip:DisplayTip(self, paint, EFGM.MenuScale(455), EFGM.MenuScale(50))
-		end
-
-		function firIcon:OnCursorExited()
-			EFGM.MENU.Tooltip:RemoveTip()
-		end
-	end
-
 	local itemPullOutPanel = vgui.Create("DPanel", inspectPanel)
 	itemPullOutPanel:SetSize(inspectPanel:GetWide(), inspectPanel:GetTall() - EFGM.MenuScale(85))
 	itemPullOutPanel:SetPos(0, inspectPanel:GetTall() - 1)
@@ -5414,14 +5369,6 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local b_value = b.value or 0
 			if a_value != b_value then return a_value > b_value end
 
-			local a_atts = a.atts or 0
-			local b_atts = b.atts or 0
-			if a_atts != b_atts then return a_atts > b_atts end
-
-			local a_fir = (a.data.fir == true and 1) or 0
-			local b_fir = (b.data.fir == true and 1) or 0
-			if a_fir and b_fir then return a_fir > b_fir end
-
 			return false
 		end)
 
@@ -5515,17 +5462,6 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 					if v.data.tag then
 						draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-					end
-
-					if v.data.fir then
-						surface.SetDrawColor(COLORS.pureWhiteColor)
-						surface.SetMaterial(MATS.firIcon)
-
-						if isConsumable or isAmmo then
-							surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(29) or EFGM.MenuScale(33)), EFGM.MenuScale(14), EFGM.MenuScale(14))
-						else
-							surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - EFGM.MenuScale(17), EFGM.MenuScale(14), EFGM.MenuScale(14))
-						end
 					end
 				end
 
@@ -5917,14 +5853,6 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local b_value = b.value or 0
 				if a_value != b_value then return a_value > b_value end
 
-				local a_atts = a.atts or 0
-				local b_atts = b.atts or 0
-				if a_atts != b_atts then return a_atts > b_atts end
-
-				local a_fir = (a.data.fir == true and 1) or 0
-				local b_fir = (b.data.fir == true and 1) or 0
-				if a_fir and b_fir then return a_fir > b_fir end
-
 				return false
 			end)
 
@@ -6014,17 +5942,6 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 						if v.data.tag then
 							draw.SimpleTextOutlined(v.data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-						end
-
-						if v.data.fir then
-							surface.SetDrawColor(COLORS.pureWhiteColor)
-							surface.SetMaterial(MATS.firIcon)
-
-							if isConsumable or isAmmo then
-								surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(29) or EFGM.MenuScale(33)), EFGM.MenuScale(14), EFGM.MenuScale(14))
-							else
-								surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - EFGM.MenuScale(17), EFGM.MenuScale(14), EFGM.MenuScale(14))
-							end
 						end
 					end
 
@@ -6805,14 +6722,6 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			local b_value = b.value or 0
 			if a_value != b_value then return a_value > b_value end
 
-			local a_atts = a.atts or 0
-			local b_atts = b.atts or 0
-			if a_atts != b_atts then return a_atts > b_atts end
-
-			local a_fir = (a.data.fir == true and 1) or 0
-			local b_fir = (b.data.fir == true and 1) or 0
-			if a_fir and b_fir then return a_fir > b_fir end
-
 			return false
 		end)
 
@@ -6966,17 +6875,6 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(MATS.pinIcon)
 						surface.DrawTexturedRect(w - EFGM.MenuScale(14), h - iconHeight - EFGM.MenuScale(1), EFGM.MenuScale(15), EFGM.MenuScale(15))
-					end
-
-					if v.data.fir == true then
-						surface.SetDrawColor(COLORS.pureWhiteColor)
-						surface.SetMaterial(MATS.firIcon)
-
-						local width, height = EFGM.MenuScale(17), iconHeight
-
-						if isPinned then width = width + EFGM.MenuScale(10) end
-
-						surface.DrawTexturedRect(w - width, h - height, EFGM.MenuScale(14), EFGM.MenuScale(14))
 					end
 				end
 
@@ -7740,14 +7638,6 @@ function EFGM.MENU.OpenTab.Market()
 			local b_value = b.value or 0
 			if a_value != b_value then return a_value > b_value end
 
-			local a_atts = a.atts or 0
-			local b_atts = b.atts or 0
-			if a_atts != b_atts then return a_atts > b_atts end
-
-			local a_fir = (a.data.fir == true and 1) or 0
-			local b_fir = (b.data.fir == true and 1) or 0
-			if a_fir and b_fir then return a_fir > b_fir end
-
 			return false
 		end)
 
@@ -7884,17 +7774,6 @@ function EFGM.MENU.OpenTab.Market()
 						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(MATS.pinIcon)
 						surface.DrawTexturedRect(w - EFGM.MenuScale(14), h - iconHeight - EFGM.MenuScale(1), EFGM.MenuScale(15), EFGM.MenuScale(15))
-					end
-
-					if v.data.fir == true then
-						surface.SetDrawColor(COLORS.pureWhiteColor)
-						surface.SetMaterial(MATS.firIcon)
-
-						local width, height = EFGM.MenuScale(17), iconHeight
-
-						if isPinned then width = width + EFGM.MenuScale(10) end
-
-						surface.DrawTexturedRect(w - width, h - height, EFGM.MenuScale(14), EFGM.MenuScale(14))
 					end
 
 					if i.sizeX > 1 then
@@ -10777,11 +10656,7 @@ function GetObjectiveText(obj)
 	end
 
 	if obj.type == OBJECTIVE.GiveItem then
-		if obj.isFIR != nil then
-			return "Hand over found in raid " .. EFGM.ITEMS[obj.itemName].fullName
-		else
-			return "Hand over " .. EFGM.ITEMS[obj.itemName].fullName
-		end
+		return "Hand over " .. EFGM.ITEMS[obj.itemName].fullName
 	end
 
 	if obj.type == OBJECTIVE.Pay then

@@ -118,17 +118,6 @@ function PANEL:Paint(w, h)
 	if hasAmmo then
 		draw.SimpleTextOutlined(string.upper(mag), magFont, w - EFGM.MenuScale(3), h - magSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
-
-	if data.fir then
-		surface.SetDrawColor(COLORS.pureWhiteColor)
-		surface.SetMaterial(MATS.firIcon)
-
-		if hasAmmo then
-			surface.DrawTexturedRect(w - EFGM.MenuScale(16), h - EFGM.MenuScale(28), EFGM.MenuScale(14), EFGM.MenuScale(14))
-		else
-			surface.DrawTexturedRect(w - EFGM.MenuScale(16), h - EFGM.MenuScale(16), EFGM.MenuScale(14), EFGM.MenuScale(14))
-		end
-	end
 end
 
 function PANEL:OnCursorEntered()

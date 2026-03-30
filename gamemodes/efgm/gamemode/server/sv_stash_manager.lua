@@ -70,7 +70,6 @@ function FlowItemToStash(ply, name, type, data)
 	local stackSize = def.stashStackSize or def.stackSize
 	local amount = tonumber(data.count) or 1
 	local durability = data.durability
-	local fir = data.fir
 
 	if stackSize == 1 then -- items that can't stack do not need to flow
 		for i = 1, amount do
@@ -82,7 +81,7 @@ function FlowItemToStash(ply, name, type, data)
 
 	local indices = {}
 	for k, v in ipairs(ply.stash) do
-		if v.name == name and v.data.durability == durability and v.data.fir == fir then
+		if v.name == name and v.data.durability == durability then
 			table.insert(indices, k)
 		end
 	end
@@ -396,8 +395,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		local cleanTbl = {}
 		cleanTbl = table.Copy(ply.stash)
 
-		for k, v in ipairs(ply.stash) do
-			v.data.fir = nil
+		for k, v in ipairs(cleanTbl) do
 			v.data.owner = nil
 			v.data.timestamp = nil
 		end

@@ -84,13 +84,12 @@ function NewObjective.Extract(count, mapName, extractName, extractDisplayName, w
 	return obj
 end
 
-function NewObjective.GiveItem(count, itemName, isFIR, customObjectiveText)
+function NewObjective.GiveItem(count, itemName, customObjectiveText)
 	local obj = {}
 
 	obj.type = OBJECTIVE.GiveItem
 	obj.count = count or 1
 	obj.itemName = itemName
-	obj.isFIR = isFIR
 	obj.whenToSave = SAVEON.Progress
 	obj.customObjectiveText = customObjectiveText
 

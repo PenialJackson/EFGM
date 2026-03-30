@@ -83,12 +83,6 @@ function PANEL:Paint(w, h)
 	if data.tag then
 		draw.SimpleTextOutlined(data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
-
-	if data.fir then
-		surface.SetDrawColor(COLORS.pureWhiteColor)
-		surface.SetMaterial(MATS.firIcon)
-		surface.DrawTexturedRect(w - EFGM.MenuScale(16), h - EFGM.MenuScale(16), EFGM.MenuScale(14), EFGM.MenuScale(14))
-	end
 end
 
 function PANEL:OnCursorEntered()

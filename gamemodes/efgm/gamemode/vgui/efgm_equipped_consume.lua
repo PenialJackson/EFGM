@@ -74,12 +74,6 @@ function PANEL:Paint(w, h)
 	draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 	draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-
-	if data.fir then
-		surface.SetDrawColor(COLORS.pureWhiteColor)
-		surface.SetMaterial(MATS.firIcon)
-		surface.DrawTexturedRect(w - EFGM.MenuScale(17), h - (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(29) or EFGM.MenuScale(33)), EFGM.MenuScale(14), EFGM.MenuScale(14))
-	end
 end
 
 function PANEL:OnCursorEntered()

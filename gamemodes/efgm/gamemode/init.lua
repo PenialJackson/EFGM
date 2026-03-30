@@ -223,7 +223,6 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		tagData.timestamp = os.time()
 		tagData.tag = tostring(victim:GetNWInt("Level", 0))
 		tagData.tagLevel = victim:GetNWInt("Level", 0)
-		tagData.fir = true
 
 		if !IsValid(attacker) or victim == attacker or !attacker:IsPlayer() then
 			tagData.tagCauseOfDeath = "Suicide"

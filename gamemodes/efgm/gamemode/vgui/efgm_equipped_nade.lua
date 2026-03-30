@@ -87,12 +87,6 @@ function PANEL:Paint(w, h)
 	if i.caliber then -- flares i guess?
 		draw.SimpleTextOutlined(i.caliber, "PuristaBold14", EFGM.MenuScale(3), h - EFGM.MenuScale(15), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
-
-	if data.fir then
-		surface.SetDrawColor(COLORS.pureWhiteColor)
-		surface.SetMaterial(MATS.firIcon)
-		surface.DrawTexturedRect(w - EFGM.MenuScale(16), h - EFGM.MenuScale(16), EFGM.MenuScale(14), EFGM.MenuScale(14))
-	end
 end
 
 function PANEL:OnCursorEntered()
