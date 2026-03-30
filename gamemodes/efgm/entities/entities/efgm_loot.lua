@@ -76,7 +76,7 @@ function ENT:SelectItems()
 			data.att = def.defAtts
 		end
 
-		if data.count <= 1 then data.fir = true end
+		if def.equipType != EQUIPTYPE.Ammunition then data.fir = true end
 
 		local item = ITEM.Instantiate(itemKey, def.equipType, data)
 		table.insert(containerLoot, item)
@@ -86,7 +86,6 @@ function ENT:SelectItems()
 
 			local ammoData = {}
 			ammoData.count = math.Clamp(math.random(math.Round(ammoDef.stackSize / 6), ammoDef.stackSize / 2), 1, ammoDef.stackSize / 2)
-			if ammoData.count > 1 then ammoData.fir = true end
 
 			local ammoItem = ITEM.Instantiate(def.ammoID, ammoDef.equipType, ammoData)
 			table.insert(containerLoot, ammoItem)

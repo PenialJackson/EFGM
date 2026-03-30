@@ -148,13 +148,20 @@ function PANEL:OnCursorEntered()
 	local paint = function()
 		local w, h = EFGM.MENU.Tooltip:GetSize()
 
-		surface.SetDrawColor(COLORS.tooltipBackgroundColor)
+		surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 		surface.DrawRect(0, 0, w, h)
 
 		surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 		surface.DrawRect(0, 0, w, h)
 
-		surface.SetDrawColor(COLORS.tooltipHeaderColor)
+		local headerColor = i.iconColor and i.iconColor:Copy() or COLORS.tooltipHeaderColor
+		if i.iconColor then
+			headerColor.r = headerColor.r + 30
+			headerColor.g = headerColor.g + 30
+			headerColor.b = headerColor.b + 30
+		end
+
+		surface.SetDrawColor(headerColor)
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 		surface.SetDrawColor(COLORS.transparentWhiteColor)

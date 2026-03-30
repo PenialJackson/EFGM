@@ -2481,8 +2481,6 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 	amountSlider:SetDefaultValue(math.Round(data.count / 2))
 	amountSlider:SetDecimals(0)
 
-	local splitCount
-
 	function amountSlider:OnValueChanged(val)
 		splitCount = math.Round(val)
 	end
@@ -4959,16 +4957,22 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		draw.SimpleTextOutlined("HEALTH", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
+	local playerButtonPanel = vgui.Create("DPanel", playerPanel)
+	playerButtonPanel:SetSize(playerPanel:GetWide() - EFGM.MenuScale(20), EFGM.MenuScale(28))
+	playerButtonPanel:SetPos(EFGM.MenuScale(10), EFGM.MenuScale(46))
+	playerButtonPanel:SetPaintBackground(false)
+
 	if EFGM.MENU.Player:IsInHideout() then
 		surface.SetFont("PuristaBold24")
 		local unloadText = "UNEQUIP ALL"
 		local unloadTextSize = surface.GetTextSize(unloadText)
 		local unloadButtonSize = unloadTextSize + EFGM.MenuScale(10)
 
-		local unloadButton = vgui.Create("DButton", playerPanel)
-		unloadButton:SetPos(playerPanel:GetWide() - unloadTextSize - EFGM.MenuScale(20), EFGM.MenuScale(46))
+		local unloadButton = vgui.Create("DButton", playerButtonPanel)
+		unloadButton:Dock(RIGHT)
 		unloadButton:SetSize(unloadButtonSize, EFGM.MenuScale(28))
 		unloadButton:SetText("")
+		unloadButton:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
 
 		function unloadButton:Paint(w, h)
 			surface.SetDrawColor(COLORS.containerBackgroundColor)
@@ -4978,6 +4982,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			surface.DrawRect(0, 0, unloadTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
 			draw.SimpleTextOutlined(unloadText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		end
+
+		function unloadButton:Think()
+			if EFGM.CLIENT.EQUIPPED == {} then self:SetWide(0) else self:SetWide(unloadButtonSize) end
 		end
 
 		function unloadButton:OnCursorEntered()
@@ -4996,8 +5004,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		local factionTextSize = surface.GetTextSize(factionText)
 		local factionButtonSize = factionTextSize + EFGM.MenuScale(10)
 
-		local factionButton = vgui.Create("DButton", playerPanel)
-		factionButton:SetPos(playerPanel:GetWide() - unloadButtonSize - factionTextSize - EFGM.MenuScale(25), EFGM.MenuScale(46))
+		local factionButton = vgui.Create("DButton", playerButtonPanel)
+		factionButton:Dock(RIGHT)
 		factionButton:SetSize(factionButtonSize, EFGM.MenuScale(28))
 		factionButton:SetText("")
 
@@ -5219,6 +5227,10 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			surface.DrawRect(0, 0, unloadTextSize + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
 			draw.SimpleTextOutlined(unloadText, "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		end
+
+		function unloadButton:Think()
+			if #EFGM.CLIENT.INVENTORY == 0 then self:SetWidth(0) else self:SetWidth(unloadButtonSize) end
 		end
 
 		function unloadButton:OnCursorEntered()
@@ -5539,13 +5551,20 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					local paint = function()
 						local w, h = EFGM.MENU.Tooltip:GetSize()
 
-						surface.SetDrawColor(COLORS.tooltipBackgroundColor)
+						surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 						surface.DrawRect(0, 0, w, h)
 
 						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(COLORS.tooltipHeaderColor)
+						local headerColor = i.iconColor and i.iconColor:Copy() or COLORS.tooltipHeaderColor
+						if i.iconColor then
+							headerColor.r = headerColor.r + 30
+							headerColor.g = headerColor.g + 30
+							headerColor.b = headerColor.b + 30
+						end
+
+						surface.SetDrawColor(headerColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 						surface.SetDrawColor(COLORS.transparentWhiteColor)
@@ -5627,7 +5646,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					actions.consumable = !EFGM.MENU.Player:IsInHideout() and i.equipType == EQUIPTYPE.Consumable
 					actions.deletable = EFGM.MENU.Player:IsInHideout()
 					actions.ammoBuyable = EFGM.MENU.Player:IsInHideout() and i.ammoID
-					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
+					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID) and count <= 1
 
 					if actions.stashable then
 						local stashButton = vgui.Create("EContextButton", contextMenu)
@@ -6031,13 +6050,20 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						local paint = function()
 							local w, h = EFGM.MENU.Tooltip:GetSize()
 
-							surface.SetDrawColor(COLORS.tooltipBackgroundColor)
+							surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 							surface.DrawRect(0, 0, w, h)
 
 							surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 							surface.DrawRect(0, 0, w, h)
 
-							surface.SetDrawColor(COLORS.tooltipHeaderColor)
+							local headerColor = i.iconColor and i.iconColor:Copy() or COLORS.tooltipHeaderColor
+							if i.iconColor then
+								headerColor.r = headerColor.r + 30
+								headerColor.g = headerColor.g + 30
+								headerColor.b = headerColor.b + 30
+							end
+
+							surface.SetDrawColor(headerColor)
 							surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 							surface.SetDrawColor(COLORS.transparentWhiteColor)
@@ -6609,7 +6635,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if !isConsumable then
 				value = baseValue * count
 			else
-				value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+				value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
 			end
 
 			plyStashItems[k] = {
@@ -6646,11 +6672,11 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			end
 		end
 
-		if plyStashItems[1] == nil then return end
-
 		StashValueChanged(EFGM.MENU.StashValue)
 
 		filters[1].count = #plyStashItems
+
+		if plyStashItems[1] == nil then return end
 
 		local order = EFGM.MENU.StashSortOrder
 		table.sort(plyStashItems, function(a, b)
@@ -6820,8 +6846,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				end
 
 				local count = v.data.count
-				local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
-				local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
+				local isConsumable = (i.consumableType == "heal" or i.consumableType == "key")
 				local isPinned = v.data.pin == 1
 
 				local item = stashItems:Add("EItemStash")
@@ -6857,20 +6882,50 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					tagH = EFGM.MenuScale(12)
 				end
 
-				local countText = isAmmo and count or isConsumable and v.data.durability .. "/" .. i.consumableValue or nil
+				local countText = count .. "x"
 				local countSize = nil
-				local countSizeY = nil
+				local countSizeY = 0
 				local countFont = nil
 
-				if isConsumable or isAmmo then
-					countSize = surface.GetTextSize(isAmmo and count or isConsumable and i.consumableValue .. "/" .. i.consumableValue)
-					countSizeY = EFGM.MenuScale(16)
+				local duraText = ""
+				local duraSize = nil
+				local duraSizeY = 0
+				local duraFont = nil
+
+				if count > 1 then
+					countSize = surface.GetTextSize(countText)
+
+					local padding = 0
+					if isConsumable then padding = EFGM.MenuScale(10) end
+
+					countSizeY = EFGM.MenuScale(16) + padding
 					countFont = "PuristaBold14"
 
 					if countSize < item:GetWide() - EFGM.MenuScale(17) then
-						countSizeY = EFGM.MenuScale(20)
+						countSizeY = EFGM.MenuScale(20) + padding
 						countFont = "PuristaBold18"
 					end
+				end
+
+				if isConsumable then
+					duraText = v.data.durability .. "/" .. i.consumableValue
+					duraSize = surface.GetTextSize(duraText)
+					duraSizeY = EFGM.MenuScale(16)
+					duraFont = "PuristaBold14"
+
+					if duraSize < item:GetWide() - EFGM.MenuScale(17) then
+						if count > 1 then countSizeY = countSizeY + EFGM.MenuScale(4) end
+						duraSizeY = EFGM.MenuScale(20)
+						duraFont = "PuristaBold18"
+					end
+				end
+
+				local iconHeight = EFGM.MenuScale(17)
+
+				if (count > 1 and !isConsumable) or (isConsumable and count > 1) then
+					iconHeight = iconHeight + countSizeY - EFGM.MenuScale(5)
+				elseif isConsumable and count <= 1 then
+					iconHeight = iconHeight + duraSizeY - EFGM.MenuScale(5)
 				end
 
 				function item:Paint(w, h)
@@ -6891,8 +6946,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-					if isConsumable or isAmmo then
+					if count > 1 then
 						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					end
+
+					if isConsumable then
+						draw.SimpleTextOutlined(duraText, duraFont, w - EFGM.MenuScale(3), h - duraSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if i.caliber then
@@ -6906,22 +6965,16 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					if isPinned then
 						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(MATS.pinIcon)
-
-						if isConsumable or isAmmo then
-							surface.DrawTexturedRect(w - EFGM.MenuScale(15), h - EFGM.MenuScale(32), EFGM.MenuScale(16), EFGM.MenuScale(16))
-						else
-							surface.DrawTexturedRect(w - EFGM.MenuScale(15), h - EFGM.MenuScale(18), EFGM.MenuScale(16), EFGM.MenuScale(16))
-						end
+						surface.DrawTexturedRect(w - EFGM.MenuScale(14), h - iconHeight - EFGM.MenuScale(1), EFGM.MenuScale(15), EFGM.MenuScale(15))
 					end
 
 					if v.data.fir == true then
 						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(MATS.firIcon)
 
-						local width, height = EFGM.MenuScale(17), EFGM.MenuScale(17)
+						local width, height = EFGM.MenuScale(17), iconHeight
 
 						if isPinned then width = width + EFGM.MenuScale(10) end
-						if isConsumable or isAmmo then height = height + (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(12) or EFGM.MenuScale(16)) end
 
 						surface.DrawTexturedRect(w - width, h - height, EFGM.MenuScale(14), EFGM.MenuScale(14))
 					end
@@ -6933,12 +6986,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					borderColor = COLORS.itemBackgroundColorHovered
 
 					surface.SetFont("PuristaBold18")
-					local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
-					if count > 1 and isAmmo then
-						tipItemName = count .. "x " .. tipItemName
-					elseif isConsumable then
-						tipItemName = tipItemName .. " [" .. countText .. "]"
+					local tipItemName = ""
+					if count > 1 then
+						tipItemName = tipItemName .. count .. "x "
 					end
+					if isConsumable then
+						tipItemName = tipItemName .. "[" .. duraText .. "] "
+					end
+					tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 					local tipItemNameSize = surface.GetTextSize(tipItemName)
 					surface.SetFont("Purista14")
 					local canPurchase = i.canPurchase == true or i.canPurchase == nil
@@ -6949,13 +7004,20 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					local paint = function()
 						local w, h = EFGM.MENU.Tooltip:GetSize()
 
-						surface.SetDrawColor(COLORS.tooltipBackgroundColor)
+						surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 						surface.DrawRect(0, 0, w, h)
 
 						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(COLORS.tooltipHeaderColor)
+						local headerColor = i.iconColor and i.iconColor:Copy() or COLORS.tooltipHeaderColor
+						if i.iconColor then
+							headerColor.r = headerColor.r + 30
+							headerColor.g = headerColor.g + 30
+							headerColor.b = headerColor.b + 30
+						end
+
+						surface.SetDrawColor(headerColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 						surface.SetDrawColor(COLORS.transparentWhiteColor)
@@ -7039,7 +7101,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					actions.splittable = (i.stashStackSize or i.stackSize) > 1 and count > 1
 					actions.consumable = i.equipType == EQUIPTYPE.Consumable
 					actions.ammoBuyable = EFGM.MENU.Player:IsInHideout() and i.ammoID
-					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID)
+					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID) and count <= 1
 
 					if actions.equipable then
 						local equipButton = vgui.Create("EContextButton", contextMenu)
@@ -7504,11 +7566,11 @@ function EFGM.MENU.OpenTab.Market()
 
 			local value, rawValue
 			if !isConsumable then
-				value = math.floor(baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER * count)
+				value = math.floor(baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * count
 				rawValue = baseValue * count
 			else
-				value = math.floor((baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * ((v.data.durability or def.consumableValue) / def.consumableValue))
-				rawValue = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+				value = math.floor((baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
+				rawValue = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
 			end
 
 			marketPlyStashItems[k] = {
@@ -7545,11 +7607,11 @@ function EFGM.MENU.OpenTab.Market()
 			end
 		end
 
-		if marketPlyStashItems[1] == nil then return end
-
 		MarketStashValueChanged(EFGM.MENU.StashValue)
 
 		filters[1].count = #marketPlyStashItems
+
+		if marketPlyStashItems[1] == nil then return end
 
 		local order = EFGM.MENU.MarketStashSortOrder
 		table.sort(marketPlyStashItems, function(a, b)
@@ -7720,7 +7782,6 @@ function EFGM.MENU.OpenTab.Market()
 
 				local count = v.data.count
 				local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
-				local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 				local isPinned = v.data.pin == 1
 
 				local item = marketStashItems:Add("EItemMarketStash")
@@ -7741,20 +7802,50 @@ function EFGM.MENU.OpenTab.Market()
 					tagH = EFGM.MenuScale(12)
 				end
 
-				local countText = isAmmo and count or isConsumable and v.data.durability .. "/" .. i.consumableValue or nil
+				local countText = count .. "x"
 				local countSize = nil
-				local countSizeY = nil
+				local countSizeY = 0
 				local countFont = nil
 
-				if isConsumable or isAmmo then
-					countSize = surface.GetTextSize(isAmmo and count or isConsumable and i.consumableValue .. "/" .. i.consumableValue)
-					countSizeY = EFGM.MenuScale(16)
+				local duraText = ""
+				local duraSize = nil
+				local duraSizeY = 0
+				local duraFont = nil
+
+				if count > 1 then
+					countSize = surface.GetTextSize(countText)
+
+					local padding = 0
+					if isConsumable then padding = EFGM.MenuScale(10) end
+
+					countSizeY = EFGM.MenuScale(16) + padding
 					countFont = "PuristaBold14"
 
 					if countSize < item:GetWide() - EFGM.MenuScale(17) then
-						countSizeY = EFGM.MenuScale(20)
+						countSizeY = EFGM.MenuScale(20) + padding
 						countFont = "PuristaBold18"
 					end
+				end
+
+				if isConsumable then
+					duraText = v.data.durability .. "/" .. i.consumableValue
+					duraSize = surface.GetTextSize(duraText)
+					duraSizeY = EFGM.MenuScale(16)
+					duraFont = "PuristaBold14"
+
+					if duraSize < item:GetWide() - EFGM.MenuScale(17) then
+						if count > 1 then countSizeY = countSizeY + EFGM.MenuScale(4) end
+						duraSizeY = EFGM.MenuScale(20)
+						duraFont = "PuristaBold18"
+					end
+				end
+
+				local iconHeight = EFGM.MenuScale(17)
+
+				if (count > 1 and !isConsumable) or (isConsumable and count > 1) then
+					iconHeight = iconHeight + countSizeY - EFGM.MenuScale(5)
+				elseif isConsumable and count <= 1 then
+					iconHeight = iconHeight + duraSizeY - EFGM.MenuScale(5)
 				end
 
 				function item:Paint(w, h)
@@ -7773,8 +7864,12 @@ function EFGM.MENU.OpenTab.Market()
 
 					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-					if isConsumable or isAmmo then
+					if count > 1 then
 						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					end
+
+					if isConsumable then
+						draw.SimpleTextOutlined(duraText, duraFont, w - EFGM.MenuScale(3), h - duraSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if i.caliber then
@@ -7788,22 +7883,16 @@ function EFGM.MENU.OpenTab.Market()
 					if isPinned then
 						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(MATS.pinIcon)
-
-						if isConsumable or isAmmo then
-							surface.DrawTexturedRect(w - EFGM.MenuScale(15), h - EFGM.MenuScale(32), EFGM.MenuScale(16), EFGM.MenuScale(16))
-						else
-							surface.DrawTexturedRect(w - EFGM.MenuScale(15), h - EFGM.MenuScale(18), EFGM.MenuScale(16), EFGM.MenuScale(16))
-						end
+						surface.DrawTexturedRect(w - EFGM.MenuScale(14), h - iconHeight - EFGM.MenuScale(1), EFGM.MenuScale(15), EFGM.MenuScale(15))
 					end
 
-					if v.data.fir then
+					if v.data.fir == true then
 						surface.SetDrawColor(COLORS.pureWhiteColor)
 						surface.SetMaterial(MATS.firIcon)
 
-						local width, height = EFGM.MenuScale(17), EFGM.MenuScale(17)
+						local width, height = EFGM.MenuScale(17), iconHeight
 
 						if isPinned then width = width + EFGM.MenuScale(10) end
-						if isConsumable or isAmmo then height = height + (countSize >= self:GetWide() - EFGM.MenuScale(17) and EFGM.MenuScale(12) or EFGM.MenuScale(16)) end
 
 						surface.DrawTexturedRect(w - width, h - height, EFGM.MenuScale(14), EFGM.MenuScale(14))
 					end
@@ -7821,12 +7910,14 @@ function EFGM.MENU.OpenTab.Market()
 					borderColor = COLORS.itemBackgroundColorHovered
 
 					surface.SetFont("PuristaBold18")
-					local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
-					if count > 1 and isAmmo then
-						tipItemName = count .. "x " .. tipItemName
-					elseif isConsumable then
-						tipItemName = tipItemName .. " [" .. countText .. "]"
+					local tipItemName = ""
+					if count > 1 then
+						tipItemName = tipItemName .. count .. "x "
 					end
+					if isConsumable then
+						tipItemName = tipItemName .. "[" .. duraText .. "] "
+					end
+					tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 					local tipItemNameSize = surface.GetTextSize(tipItemName)
 					surface.SetFont("Purista14")
 					local canPurchase = i.canPurchase == true or i.canPurchase == nil
@@ -7837,13 +7928,20 @@ function EFGM.MENU.OpenTab.Market()
 					local paint = function()
 						local w, h = EFGM.MENU.Tooltip:GetSize()
 
-						surface.SetDrawColor(COLORS.tooltipBackgroundColor)
+						surface.SetDrawColor(i.iconColor or COLORS.itemColor)
 						surface.DrawRect(0, 0, w, h)
 
 						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
 						surface.DrawRect(0, 0, w, h)
 
-						surface.SetDrawColor(COLORS.tooltipHeaderColor)
+						local headerColor = i.iconColor and i.iconColor:Copy() or COLORS.tooltipHeaderColor
+						if i.iconColor then
+							headerColor.r = headerColor.r + 30
+							headerColor.g = headerColor.g + 30
+							headerColor.b = headerColor.b + 30
+						end
+
+						surface.SetDrawColor(headerColor)
 						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
 
 						surface.SetDrawColor(COLORS.transparentWhiteColor)

@@ -128,6 +128,8 @@ function FlowItemToInventory(ply, name, type, data)
 
 	local stackSize = def.stackSize
 	local amount = tonumber(data.count) or 1
+	local durability = data.durability
+	local fir = data.fir
 
 	if stackSize == 1 then -- items that can't stack do not need to flow (but they do need to be created multiple times lol!)
 		for i = 1, amount do
@@ -139,7 +141,7 @@ function FlowItemToInventory(ply, name, type, data)
 
 	local indices = {}
 	for k, v in ipairs(ply.inventory) do
-		if v.name == name then
+		if v.name == name and v.data.durability == durability and v.data.fir == fir then
 			table.insert(indices, k)
 		end
 	end
@@ -155,7 +157,10 @@ function FlowItemToInventory(ply, name, type, data)
 			local countToMax = stackSize - v.data.count
 			local addAmount = math.min(amount, countToMax)
 
-			UpdateItemFromInventory(ply, idx, {count = v.data.count + addAmount})
+			local newData = table.Copy(data)
+			newData.count = v.data.count + addAmount
+
+			UpdateItemFromInventory(ply, idx, newData)
 			amount = amount - addAmount
 		end
 	end
@@ -163,7 +168,11 @@ function FlowItemToInventory(ply, name, type, data)
 	-- create new stacks
 	while amount > 0 do
 		local stackAmount = math.min(amount, stackSize)
-		AddItemToInventory(ply, name, type, {count = stackAmount})
+
+		local newData = table.Copy(data)
+		newData.count = stackAmount
+
+		AddItemToInventory(ply, name, type, newData)
 		amount = amount - stackAmount
 	end
 end
@@ -191,7 +200,10 @@ function DeflowItemsFromInventory(ply, name, count)
 				amount = amount - v.data.count
 				DeleteItemFromInventory(ply, idx, false)
 			else
-				UpdateItemFromInventory(ply, idx, {count = v.data.count - amount})
+				local newData = table.Copy(v.data)
+				newData.count = v.data.count - amount
+
+				UpdateItemFromInventory(ply, idx, newData)
 				amount = 0
 
 				break
@@ -252,15 +264,9 @@ net.Receive("PlayerInventoryEquipItem", function(len, ply)
 
 	local item = ply.inventory[itemIndex]
 	if item == nil then return end
-
-	if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end -- can't have multiple of the same item
+	if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end
 
 	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
-		if !item.data.owner or !item.data.timestamp then
-			item.data.owner = ply:SteamID64()
-			item.data.timestamp = os.time()
-		end
-
 		DeleteItemFromInventory(ply, itemIndex, true)
 		ply.weaponSlots[equipSlot][equipSubSlot] = item
 

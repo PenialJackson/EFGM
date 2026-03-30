@@ -326,7 +326,7 @@ local haloCVar = GetConVar("efgm_visuals_interactableglow")
 hook.Add("PreDrawHalos", "InteractableHalos", function()
 	if !LocalPlayer():IsValid() or !LocalPlayer():Alive() or !haloCVar:GetBool() then return end
 
-	local tr = util.QuickTrace(LocalPlayer():EyePos(), LocalPlayer():GetAimVector() * 96, LocalPlayer())
+	local tr = util.QuickTrace(LocalPlayer():EyePos(), LocalPlayer():GetAimVector() * 90, LocalPlayer())
 	if !tr.Hit then return end
 
 	local ent = tr.Entity
