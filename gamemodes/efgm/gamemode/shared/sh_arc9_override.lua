@@ -224,7 +224,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 						if (self.LastUBGLAmmo != self:GetValue("UBGLAmmo") or self.LastUBGLClipSize != self:GetValue("UBGLClipSize")) then
 							local data = {}
 							data.count = self:Clip2()
-							FlowItemToInventory(self:GetOwner(), self.LastUBGLAmmo, EQUIPTYPE.Ammunition, data)
+							FlowItemToInventory(self:GetOwner(), self.LastUBGLAmmo, data)
 							-- client:GiveAmmo(self:Clip2(), self.LastUBGLAmmo)
 							self:SetClip2(0)
 							self:SetRequestReload(true)
@@ -238,7 +238,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 					if capacity > 0 and self:Clip2() > capacity then
 						local data = {}
 						data.count = self:Clip2() - capacity
-						FlowItemToInventory(self:GetOwner(), self.LastUBGLAmmo, EQUIPTYPE.Ammunition, data)
+						FlowItemToInventory(self:GetOwner(), self.LastUBGLAmmo, data)
 						-- client:GiveAmmo(self:Clip2() - capacity, self.LastUBGLAmmo)
 						self:SetClip2(capacity)
 					end
@@ -248,7 +248,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				if capacity > 0 and self:Clip1() > capacity then
 					local data = {}
 					data.count = self:Clip1() - capacity
-					FlowItemToInventory(self:GetOwner(), self.LastAmmo, EQUIPTYPE.Ammunition, data)
+					FlowItemToInventory(self:GetOwner(), self.LastAmmo, data)
 					-- client:GiveAmmo(self:Clip1() - capacity, self.LastAmmo)
 					self:SetClip1(capacity)
 				end
@@ -402,7 +402,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			if self:GetOwner():GetNWBool("InRange", false) == false then
 				local data = {}
 				data.count = self:Clip1()
-				FlowItemToInventory(self:GetOwner(), self.Ammo, EQUIPTYPE.Ammunition, data)
+				FlowItemToInventory(self:GetOwner(), self.Ammo, data)
 				ReloadInventory(self:GetOwner())
 				-- self:GetOwner():GiveAmmo(self:Clip1(), self.Ammo, true)
 			end
@@ -2822,7 +2822,7 @@ hook.Add("ARC9_PlayerGiveAtt", "ARC9GiveAtt", function(ply, att, amt)
 	data.count = amt
 
 	if SERVER then
-		FlowItemToInventory(ply, "arc9_att_" .. att, EQUIPTYPE.Attachment, data)
+		FlowItemToInventory(ply, "arc9_att_" .. att, data)
 		-- ReloadInventory(ply)
 
 		return

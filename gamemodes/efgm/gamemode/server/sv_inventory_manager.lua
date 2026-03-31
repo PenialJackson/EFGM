@@ -32,7 +32,7 @@ function ReloadSlots(ply)
 	net.Send(ply)
 end
 
-function AddItemToInventory(ply, name, type, data)
+function AddItemToInventory(ply, name, data)
 	if !ply:Alive() then return end
 	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
@@ -46,12 +46,11 @@ function AddItemToInventory(ply, name, type, data)
 		data.timestamp = os.time()
 	end
 
-	local item = ITEM.Instantiate(name, type, data)
+	local item = ITEM.Instantiate(name, data)
 	local index = table.insert(ply.inventory, item)
 
 	net.Start("PlayerInventoryAddItem", false)
 		net.WriteString(name)
-		net.WriteUInt(type, 4)
 		net.WriteTable(data)
 		net.WriteUInt(index, 16)
 	net.Send(ply)
@@ -119,7 +118,7 @@ function DeleteItemFromInventory(ply, index, isEquipped)
 	return item
 end
 
-function FlowItemToInventory(ply, name, type, data)
+function FlowItemToInventory(ply, name, data)
 	if !ply:Alive() then return end
 	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
 
@@ -132,7 +131,7 @@ function FlowItemToInventory(ply, name, type, data)
 
 	if stackSize == 1 then -- items that can't stack do not need to flow (but they do need to be created multiple times lol!)
 		for i = 1, amount do
-			AddItemToInventory(ply, name, type, data)
+			AddItemToInventory(ply, name, data)
 		end
 
 		return
@@ -171,7 +170,7 @@ function FlowItemToInventory(ply, name, type, data)
 		local newData = table.Copy(data)
 		newData.count = stackAmount
 
-		AddItemToInventory(ply, name, type, newData)
+		AddItemToInventory(ply, name, newData)
 		amount = amount - stackAmount
 	end
 end
@@ -222,7 +221,7 @@ net.Receive("PlayerInventoryDropItem", function(len, ply)
 	if item == nil then return end
 
 	local entity = ents.Create("efgm_dropped_item")
-	entity:SetItem(item.name, item.type, item.data)
+	entity:SetItem(item.name, item.data)
 
 	local pos, ang = ply:GetShootPos(), ply:EyeAngles()
 	local dir = (ang:Forward() * 32) + (ang:Right() * 6) + (ang:Up() * -5)
@@ -323,7 +322,7 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 		if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
 			local data = {}
 			data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-			FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+			FlowItemToInventory(ply, wep.Ammo, data)
 		end
 
 		local clip2 = wep:Clip2()
@@ -332,18 +331,17 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 		if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
 			local data = {}
 			data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-			FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+			FlowItemToInventory(ply, wep.UBGLAmmo, data)
 		end
 	end
 
 	ply:StripWeapon(item.name)
 
-	local newItem = ITEM.Instantiate(item.name, item.type, item.data)
+	local newItem = ITEM.Instantiate(item.name, item.data)
 	local index = table.insert(ply.inventory, newItem)
 
 	net.Start("PlayerInventoryAddItem", false)
 		net.WriteString(item.name)
-		net.WriteUInt(item.type, 4)
 		net.WriteTable(item.data)
 		net.WriteUInt(index, 16)
 	net.Send(ply)
@@ -375,7 +373,7 @@ function UnequipAll(ply)
 					if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
 						local data = {}
 						data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-						FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+						FlowItemToInventory(ply, wep.Ammo, data)
 					end
 
 					local clip2 = wep:Clip2()
@@ -384,16 +382,15 @@ function UnequipAll(ply)
 					if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
 						local data = {}
 						data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-						FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+						FlowItemToInventory(ply, wep.UBGLAmmo, data)
 					end
 				end
 
-				local newItem = ITEM.Instantiate(item.name, item.type, item.data)
+				local newItem = ITEM.Instantiate(item.name, item.data)
 				local index = table.insert(ply.inventory, newItem)
 
 				net.Start("PlayerInventoryAddItem", false)
 					net.WriteString(item.name)
-					net.WriteUInt(item.type, 4)
 					net.WriteTable(item.data)
 					net.WriteUInt(index, 16)
 				net.Send(ply)
@@ -436,7 +433,7 @@ function UnequipAllFirearms(ply)
 					if clip1 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef then
 						local data = {}
 						data.count = math.Clamp(wep:Clip1(), 1, ammoDef.stackSize)
-						FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, data)
+						FlowItemToInventory(ply, wep.Ammo, data)
 					end
 
 					local clip2 = wep:Clip2()
@@ -445,16 +442,15 @@ function UnequipAllFirearms(ply)
 					if clip2 > 0 and ply:GetNWBool("InRange", false) == false and ammoDef2 then
 						local data = {}
 						data.count = math.Clamp(wep:Clip2(), 1, ammoDef2.stackSize)
-						FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, data)
+						FlowItemToInventory(ply, wep.UBGLAmmo, data)
 					end
 				end
 
-				local newItem = ITEM.Instantiate(item.name, item.type, item.data)
+				local newItem = ITEM.Instantiate(item.name, item.data)
 				local index = table.insert(ply.inventory, newItem)
 
 				net.Start("PlayerInventoryAddItem", false)
 					net.WriteString(item.name)
-					net.WriteUInt(item.type, 4)
 					net.WriteTable(item.data)
 					net.WriteUInt(index, 16)
 				net.Send(ply)
@@ -551,7 +547,7 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 	ply:StripWeapon(item.name)
 
 	local entity = ents.Create("efgm_dropped_item")
-	entity:SetItem(item.name, item.type, item.data)
+	entity:SetItem(item.name, item.data)
 
 	local pos, ang = ply:GetShootPos(), ply:EyeAngles()
 	local dir = (ang:Forward() * 32) + (ang:Right() * 6) + (ang:Up() * -5)
@@ -599,7 +595,7 @@ net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
 		newItem.timestamp = os.time()
 	end
 
-	FlowItemToInventory(ply, newItem.name, newItem.type, newItem.data)
+	FlowItemToInventory(ply, newItem.name, newItem.data)
 
 	ReloadInventory(ply)
 
@@ -666,7 +662,7 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 
 		local newNewData = table.Copy(data) -- fuck
 		newNewData.count = count
-		AddItemToInventory(ply, item, def.equipType, newNewData)
+		AddItemToInventory(ply, item, newNewData)
 
 		ReloadInventory(ply)
 
@@ -682,7 +678,7 @@ net.Receive("PlayerInventorySplit", function(len, ply)
 
 		local newNewData = table.Copy(data) -- fuckkkk
 		newNewData.count = count
-		AddItemToStash(ply, item, def.equipType, newNewData)
+		AddItemToStash(ply, item, newNewData)
 
 		ReloadStash(ply)
 
@@ -1101,7 +1097,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 
 		data.count = count or 1
 
-		FlowItemToInventory(ply, name, def.equipType, data)
+		FlowItemToInventory(ply, name, data)
 		ReloadInventory(ply)
 	end
 	concommand.Add("efgm_debug_giveitem", function(ply, cmd, args) GiveItem(ply, args[1], args[2]) end)

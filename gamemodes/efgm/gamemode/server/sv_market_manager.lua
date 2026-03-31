@@ -71,7 +71,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 		data.timestamp = os.time()
 	end
 
-	FlowItemToStash(ply, item, def.equipType, data)
+	FlowItemToStash(ply, item, data)
 	ReloadStash(ply)
 
 	ply:SetNWInt("Money", plyMoney - cost)
@@ -129,7 +129,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 		data.timestamp = os.time()
 	end
 
-	FlowItemToInventory(ply, item, def.equipType, data)
+	FlowItemToInventory(ply, item, data)
 	ReloadInventory(ply)
 
 	ply:SetNWInt("Money", plyMoney - cost)
@@ -166,7 +166,7 @@ net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 	for att, attcount in pairs(presetAtts) do
 		local data = {}
 		data.count = attcount
-		FlowItemToInventory(ply, att, EQUIPTYPE.Attachment, data)
+		FlowItemToInventory(ply, att, data)
 	end
 
 	ReloadInventory(ply)

@@ -8,7 +8,7 @@ function ReloadStash(ply)
 	net.Send(ply)
 end
 
-function AddItemToStash(ply, name, type, data)
+function AddItemToStash(ply, name, data)
 	local def = EFGM.ITEMS[name]
 	local stackSize = def.stashStackSize or def.stackSize
 
@@ -19,12 +19,11 @@ function AddItemToStash(ply, name, type, data)
 		data.timestamp = os.time()
 	end
 
-	local item = ITEM.Instantiate(name, type, data)
+	local item = ITEM.Instantiate(name, data)
 	local index = table.insert(ply.stash, item)
 
 	net.Start("PlayerStashAddItem", false)
 		net.WriteString(name)
-		net.WriteUInt(type, 4)
 		net.WriteTable(data)
 		net.WriteUInt(index, 16)
 	net.Send(ply)
@@ -63,7 +62,7 @@ function DeleteItemFromStash(ply, index)
 	return item
 end
 
-function FlowItemToStash(ply, name, type, data)
+function FlowItemToStash(ply, name, data)
 	local def = EFGM.ITEMS[name]
 	if def == nil then return end
 
@@ -73,7 +72,7 @@ function FlowItemToStash(ply, name, type, data)
 
 	if stackSize == 1 then -- items that can't stack do not need to flow
 		for i = 1, amount do
-			AddItemToStash(ply, name, type, data)
+			AddItemToStash(ply, name, data)
 		end
 
 		return
@@ -112,7 +111,7 @@ function FlowItemToStash(ply, name, type, data)
 		local newData = table.Copy(data)
 		newData.count = stackAmount
 
-		AddItemToStash(ply, name, type, newData)
+		AddItemToStash(ply, name, newData)
 		amount = amount - stackAmount
 	end
 end
@@ -162,7 +161,7 @@ net.Receive("PlayerStashAddItemFromInventory", function(len, ply)
 	local item = DeleteItemFromInventory(ply, itemIndex, false)
 	if item == nil then return end
 
-	FlowItemToStash(ply, item.name, item.type, item.data)
+	FlowItemToStash(ply, item.name, item.data)
 
 	ReloadInventory(ply)
 	ReloadStash(ply)
@@ -208,7 +207,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 		end
 	end
 
-	AddItemToStash(ply, item.name, item.type, item.data)
+	AddItemToStash(ply, item.name, item.data)
 	ReloadStash(ply)
 end)
 
@@ -227,7 +226,7 @@ function StashAllFromInventory(ply)
 
 		if item == nil then return end
 
-		FlowItemToStash(ply, item.name, item.type, item.data)
+		FlowItemToStash(ply, item.name, item.data)
 	end
 
 	ReloadInventory(ply)
@@ -251,13 +250,15 @@ net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
 
 	if item.data.count <= itemDef.stackSize then
 		item = DeleteItemFromStash(ply, itemIndex)
+		if item == nil then return end
+
 		item.data.pin = nil
-		FlowItemToInventory(ply, item.name, item.type, item.data)
+		FlowItemToInventory(ply, item.name, item.data)
 	else
 		item.data.count = item.data.count - itemDef.stackSize
 		local newData = table.Copy(item.data)
 		newData.count = itemDef.stackSize
-		FlowItemToInventory(ply, item.name, item.type, newData)
+		FlowItemToInventory(ply, item.name, newData)
 		UpdateItemFromStash(ply, itemIndex, item.data)
 	end
 

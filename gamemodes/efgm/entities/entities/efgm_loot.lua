@@ -76,7 +76,7 @@ function ENT:SelectItems()
 			data.att = def.defAtts
 		end
 
-		local item = ITEM.Instantiate(itemKey, def.equipType, data)
+		local item = ITEM.Instantiate(itemKey, data)
 		table.insert(containerLoot, item)
 
 		if def.ammoID then
@@ -85,7 +85,7 @@ function ENT:SelectItems()
 			local ammoData = {}
 			ammoData.count = math.Clamp(math.random(math.Round(ammoDef.stackSize / 6), ammoDef.stackSize / 2), 1, ammoDef.stackSize / 2)
 
-			local ammoItem = ITEM.Instantiate(def.ammoID, ammoDef.equipType, ammoData)
+			local ammoItem = ITEM.Instantiate(def.ammoID, ammoData)
 			table.insert(containerLoot, ammoItem)
 		end
 	end

@@ -134,14 +134,13 @@ net.Receive("PlayerSlotsReload", function(len)
 end)
 
 net.Receive("PlayerInventoryAddItem", function(len)
-	local name, type, data, index
+	local name, data, index
 
 	name = net.ReadString()
-	type = net.ReadUInt(4)
 	data = net.ReadTable()
 	index = net.ReadUInt(16)
 
-	table.insert(EFGM.CLIENT.INVENTORY, index, ITEM.Instantiate(name, type, data))
+	table.insert(EFGM.CLIENT.INVENTORY, index, ITEM.Instantiate(name, data))
 end)
 
 net.Receive("PlayerInventoryUpdateItem", function(len)

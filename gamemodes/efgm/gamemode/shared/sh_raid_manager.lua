@@ -334,12 +334,11 @@ if SERVER then
 		weaponData.owner = ply:SteamID64()
 		weaponData.timestamp = os.time()
 
-		local weaponItem = ITEM.Instantiate(weapon, weaponDef.equipType, weaponData)
+		local weaponItem = ITEM.Instantiate(weapon, weaponData)
 		local weaponIndex = table.insert(ply.inventory, weaponItem)
 
 		net.Start("PlayerInventoryAddItem", false)
 			net.WriteString(weapon)
-			net.WriteUInt(weaponDef.equipType, 4)
 			net.WriteTable(weaponData)
 			net.WriteUInt(weaponIndex, 16)
 		net.Send(ply)
@@ -351,12 +350,11 @@ if SERVER then
 		medData.count = 1
 		medData.durability = math.random(SCAV_MEDS[med].duraMin, SCAV_MEDS[med].duraMax)
 
-		local medItem = ITEM.Instantiate(med, medDef.equipType, medData)
+		local medItem = ITEM.Instantiate(med, medData)
 		local medIndex = table.insert(ply.inventory, medItem)
 
 		net.Start("PlayerInventoryAddItem", false)
 			net.WriteString(med)
-			net.WriteUInt(medDef.equipType, 4)
 			net.WriteTable(medData)
 			net.WriteUInt(medIndex, 16)
 		net.Send(ply)
@@ -369,12 +367,11 @@ if SERVER then
 		nadeData.owner = ply:SteamID64()
 		nadeData.timestamp = os.time()
 
-		local nadeItem = ITEM.Instantiate(nade, nadeDef.equipType, nadeData)
+		local nadeItem = ITEM.Instantiate(nade, nadeData)
 		local nadeIndex = table.insert(ply.inventory, nadeItem)
 
 		net.Start("PlayerInventoryAddItem", false)
 			net.WriteString(nade)
-			net.WriteUInt(nadeDef.equipType, 4)
 			net.WriteTable(nadeData)
 			net.WriteUInt(nadeIndex, 16)
 		net.Send(ply)
@@ -422,12 +419,11 @@ if SERVER then
 				local newData = {}
 				newData.count = ammoStackSize
 
-				local ammoItem = ITEM.Instantiate(ammo, ammoDef.equipType, newData)
+				local ammoItem = ITEM.Instantiate(ammo, newData)
 				local ammoIndex = table.insert(ply.inventory, ammoItem)
 
 				net.Start("PlayerInventoryAddItem", false)
 					net.WriteString(ammo)
-					net.WriteUInt(ammoDef.equipType, 4)
 					net.WriteTable(newData)
 					net.WriteUInt(ammoIndex, 16)
 				net.Send(ply)
@@ -437,12 +433,11 @@ if SERVER then
 				local newData = {}
 				newData.count = amount
 
-				local ammoItem = ITEM.Instantiate(ammo, ammoDef.equipType, newData)
+				local ammoItem = ITEM.Instantiate(ammo, newData)
 				local ammoIndex = table.insert(ply.inventory, ammoItem)
 
 				net.Start("PlayerInventoryAddItem", false)
 					net.WriteString(ammo)
-					net.WriteUInt(ammoDef.equipType, 4)
 					net.WriteTable(newData)
 					net.WriteUInt(ammoIndex, 16)
 				net.Send(ply)

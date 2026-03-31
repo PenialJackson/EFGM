@@ -4,7 +4,6 @@ AddCSLuaFile("shared.lua")
 include("shared.lua")
 
 ENT.ItemName = ""
-ENT.ItemType = ""
 ENT.ItemData = {}
 
 function ENT:Initialize()
@@ -28,9 +27,8 @@ function ENT:Initialize()
 	self:SetHealth(self.BaseHealth)
 end
 
-function ENT:SetItem(name, type, data)
+function ENT:SetItem(name, data)
 	self.ItemName = name
-	self.ItemType = type
 	self.ItemData = data
 end
 
@@ -38,10 +36,10 @@ function ENT:Use(activator)
 	self:Remove()
 
 	if !activator:IsScav() and !activator:IsInRaid() then
-		FlowItemToInventory(activator, self.ItemName, self.ItemType, self.ItemData)
+		FlowItemToInventory(activator, self.ItemName, self.ItemData)
 		ReloadInventory(activator)
 	else
-		FlowItemToStash(activator, self.ItemName, self.ItemType, self.ItemData)
+		FlowItemToStash(activator, self.ItemName, self.ItemData)
 		ReloadStash(activator)
 	end
 end

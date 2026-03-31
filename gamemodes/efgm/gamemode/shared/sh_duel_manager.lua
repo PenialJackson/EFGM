@@ -169,7 +169,7 @@ if SERVER then
 
 			local nadeData = {}
 			nadeData.count = 1
-			nadeItem = ITEM.Instantiate(nadeItemKey, nadeDef.equipType, nadeData)
+			nadeItem = ITEM.Instantiate(nadeItemKey, nadeData)
 		end
 
 		if num < 8 then
@@ -180,7 +180,7 @@ if SERVER then
 			primaryData.count = 1
 			if primaryDef.defAtts then primaryData.att = primaryDef.defAtts end
 			if primaryDef.duelAtts then primaryData.att = primaryDef.duelAtts[math.random(#primaryDef.duelAtts)] end
-			local primaryItem = ITEM.Instantiate(primaryItemKey, primaryDef.equipType, primaryData)
+			local primaryItem = ITEM.Instantiate(primaryItemKey, primaryData)
 
 			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
 			local secondaryDef = EFGM.ITEMS[secondaryItemKey]
@@ -189,7 +189,7 @@ if SERVER then
 			secondaryData.count = 1
 			if secondaryDef.defAtts then secondaryData.att = secondaryDef.defAtts end
 			if secondaryDef.duelAtts then secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)] end
-			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryDef.equipType, secondaryData)
+			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryData)
 
 			return primaryItem, secondaryItem, nadeItem
 		elseif num == 8 then
@@ -200,7 +200,7 @@ if SERVER then
 			secondaryData.count = 1
 			if secondaryDef.defAtts then secondaryData.att = secondaryDef.defAtts end
 			if secondaryDef.duelAtts then secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)] end
-			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryDef.equipType, secondaryData)
+			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryData)
 
 			return nil, secondaryItem, nadeItem
 		end

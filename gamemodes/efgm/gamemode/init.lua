@@ -232,7 +232,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 			tagData.tagKiller = attacker:GetName()
 		end
 
-		local item = ITEM.Instantiate("efgm_tag_default", EQUIPTYPE.None, tagData)
+		local item = ITEM.Instantiate("efgm_tag_default", tagData)
 		table.insert(victim.inventory, item)
 
 		if victim.inventory[1] != nil then
@@ -492,7 +492,7 @@ hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
 		data.durability = def.consumableValue
 	end
 
-	AddItemToInventory(ply, class, EQUIPTYPE.Weapon, data)
+	AddItemToInventory(ply, class, data)
 	ReloadInventory(ply)
 
 	return false

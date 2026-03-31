@@ -23,13 +23,13 @@ function ENT:AcceptInput(name, ply, caller, data)
 				if clip1 > 0 and maxClip1 > 0 then
 					local itemData = {}
 					itemData.count = wep:Clip1()
-					FlowItemToInventory(ply, wep.Ammo, EQUIPTYPE.Ammunition, itemData)
+					FlowItemToInventory(ply, wep.Ammo, itemData)
 				end
 
 				if clip2 > 0 and maxClip2 > 0 then
 					local itemData = {}
 					itemData.count = wep:Clip2()
-					FlowItemToInventory(ply, wep.UBGLAmmo, EQUIPTYPE.Ammunition, itemData)
+					FlowItemToInventory(ply, wep.UBGLAmmo, itemData)
 				end
 
 				if maxClip1 > 0 then wep:SetClip1(wep:GetMaxClip1()) end
