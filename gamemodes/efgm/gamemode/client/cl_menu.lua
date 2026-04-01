@@ -4277,12 +4277,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		consumableItemHolder:SetSize(EFGM.MenuScale(57), EFGM.MenuScale(57))
 		if ispanel(consumableItem) then consumableItem:Remove() end
 
-		local secondaryTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]
-		local primaryTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]
-		local holsterTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1]
-		local meleeTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1]
-		local nadeTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1]
-		local consumableTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1]
+		local secondaryTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2] or {}
+		local primaryTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1] or {}
+		local holsterTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1] or {}
+		local meleeTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID][1] or {}
+		local nadeTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1] or {}
+		local consumableTbl = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.CONSUMABLE.ID][1] or {}
 
 		-- secondary
 		if secondaryTbl.name then

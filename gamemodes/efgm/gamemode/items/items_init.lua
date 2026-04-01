@@ -19,7 +19,8 @@ EQUIPTYPE.Consumable = 5
 EQUIPTYPE.Attachment = 6
 EQUIPTYPE.Key = 7
 EQUIPTYPE.Barter = 8
-EQUIPTYPE.None = 9
+EQUIPTYPE.Valuable = 9
+EQUIPTYPE.None = 10
 
 -- item array
 EFGM.ITEMS = {}

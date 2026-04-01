@@ -127,9 +127,7 @@ function FlowItemToStash(ply, name, data)
 	end
 end
 
-function DeflowItemsFromStash(ply, name, count)
-	local amount = count
-
+function DeflowItemsFromStash(ply, name, amount)
 	local indices = {}
 	for k, v in ipairs(ply.stash) do
 		if v.name == name then
@@ -143,15 +141,16 @@ function DeflowItemsFromStash(ply, name, count)
 		if amount <= 0 then break end
 
 		local idx = indices[i]
-		local v = ply.stash[idx]
+		local item = ply.stash[idx]
+		if item == nil then continue end
 
-		if v and v.data.count > 0 then
-			if amount >= v.data.count then
-				amount = amount - v.data.count
+		if item.data.count > 0 then
+			if amount >= item.data.count then
+				amount = amount - item.data.count
 				DeleteItemFromStash(ply, idx)
 			else
-				local newData = table.Copy(v.data)
-				newData.count = v.data.count - amount
+				local newData = table.Copy(item.data)
+				newData.count = item.data.count - amount
 				UpdateItemFromStash(ply, idx, newData)
 				amount = 0
 
@@ -169,13 +168,32 @@ net.Receive("PlayerStashAddItemFromInventory", function(len, ply)
 	if !ply:IsInHideout() then return end
 	if ply:GetNWInt("StashCount", 0) >= ply:GetNWInt("StashMax", 150) then return end
 
-	local item = DeleteItemFromInventory(ply, itemIndex, false)
+	local item = ply.inventory[itemIndex]
 	if item == nil then return end
 
-	FlowItemToStash(ply, item.name, item.data)
+	local itemDef = EFGM.ITEMS[item.name]
+	if itemDef == nil then return end
 
-	ReloadInventory(ply)
+	if item.data.count <= itemDef.stackSize then
+		FlowItemToStash(ply, item.name, item.data)
+		DeleteItemFromInventory(ply, itemIndex)
+	else
+		if item.data.count and table.Count(item.data) == 1 then
+			local newData = table.Copy(item.data)
+			newData.count = itemDef.stackSize
+			FlowItemToStash(ply, item.name, newData)
+			DeflowItemsFromInventory(ply, item.name, newData.count)
+		else
+			item.data.count = item.data.count - itemDef.stackSize
+			local newData = table.Copy(item.data)
+			newData.count = itemDef.stackSize
+			FlowItemToStash(ply, item.name, newData)
+			UpdateItemFromInventory(ply, itemIndex, item.data)
+		end
+	end
+
 	ReloadStash(ply)
+	ReloadInventory(ply)
 
 	ply:SetNWInt("StashCount", #ply.stash)
 end)
@@ -259,21 +277,28 @@ net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
 	if item == nil then return end
 
 	local itemDef = EFGM.ITEMS[item.name]
+	if itemDef == nil then return end
 
 	if item.data.count <= itemDef.stackSize then
-		item = DeleteItemFromStash(ply, itemIndex)
-		if item == nil then return end
 		FlowItemToInventory(ply, item.name, item.data)
+		DeleteItemFromStash(ply, itemIndex)
 	else
-		item.data.count = item.data.count - itemDef.stackSize
-		local newData = table.Copy(item.data)
-		newData.count = itemDef.stackSize
-		FlowItemToInventory(ply, item.name, newData)
-		UpdateItemFromStash(ply, itemIndex, item.data)
+		if item.data.count and table.Count(item.data) == 1 then
+			local newData = table.Copy(item.data)
+			newData.count = itemDef.stackSize
+			FlowItemToInventory(ply, item.name, newData)
+			DeflowItemsFromStash(ply, item.name, newData.count)
+		else
+			item.data.count = item.data.count - itemDef.stackSize
+			local newData = table.Copy(item.data)
+			newData.count = itemDef.stackSize
+			FlowItemToInventory(ply, item.name, newData)
+			UpdateItemFromStash(ply, itemIndex, item.data)
+		end
 	end
 
-	ReloadStash(ply)
 	ReloadInventory(ply)
+	ReloadStash(ply)
 end)
 
 net.Receive("PlayerStashEquipItem", function(len, ply)
@@ -402,6 +427,12 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	concommand.Add("efgm_debug_wipestash", function(ply, cmd, args)
 		WipeStash(ply)
 	end)
+
+	function PrintStash(ply)
+		UpdateStashString(ply)
+		PrintTable(ply.stash)
+	end
+	concommand.Add("efgm_debug_printstash", function(ply, cmd, args) PrintStash(ply) end)
 
 	function PrintStashString(ply)
 		UpdateStashString(ply)

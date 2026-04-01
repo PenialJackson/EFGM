@@ -74,7 +74,7 @@ function UpdateItemFromInventory(ply, index, data)
 	local item = ply.inventory[index]
 	if item == nil then return end
 
-	local def = EFGM.ITEMS[name]
+	local def = EFGM.ITEMS[item.name]
 	if def == nil then return end
 
 	if (def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID) and (!data.owner or !data.timestamp) then
@@ -1137,11 +1137,23 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	end
 	concommand.Add("efgm_debug_wipeequipped", function(ply, cmd, args) WipeEquipped(ply) end)
 
+	function PrintInventory(ply)
+		UpdateInventoryString(ply)
+		PrintTable(ply.inventory)
+	end
+	concommand.Add("efgm_debug_printinventory", function(ply, cmd, args) PrintInventory(ply) end)
+
 	function PrintInventoryString(ply)
 		UpdateInventoryString(ply)
 		print(ply.invStr)
 	end
 	concommand.Add("efgm_debug_printinventorystring", function(ply, cmd, args) PrintInventoryString(ply) end)
+
+	function PrintEquipped(ply)
+		UpdateEquippedString(ply)
+		PrintTable(ply.weaponSlots)
+	end
+	concommand.Add("efgm_debug_printequipped", function(ply, cmd, args) PrintEquipped(ply) end)
 
 	function PrintEquippedString(ply)
 		UpdateEquippedString(ply)
