@@ -24,12 +24,13 @@ end
 function PANEL:PerformLayout()
 end
 
-local name, data, i, borderColor, nameSize, nameFont, tagFont, tagH, value, weight
+local name, data, i, count, borderColor, nameSize, nameFont, tagFont, tagH, value, weight
 
 function PANEL:CreateVar(argName, argData, argI)
 	name = argName
 	data = argData
 	i = argI
+	count = data.count
 
 	borderColor = COLORS.itemBackgroundColor
 
@@ -79,14 +80,6 @@ function PANEL:Paint(w, h)
 	if self.PaintingDragging then return end
 
 	draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-
-	if data.tag then
-		draw.SimpleTextOutlined(data.tag, tagFont, w - EFGM.MenuScale(3), tagH, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-	end
-
-	if i.caliber then -- flares i guess?
-		draw.SimpleTextOutlined(i.caliber, "PuristaBold14", EFGM.MenuScale(3), h - EFGM.MenuScale(15), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-	end
 end
 
 function PANEL:OnCursorEntered()
@@ -204,7 +197,7 @@ function PANEL:DoRightClick()
 			end
 		end
 
-		if data.tag == nil then
+		if data.tag == nil and (i.equipType == EQUIPTYPE.Weapon and i.equipSlot != WEAPONSLOTS.GRENADE.ID) and count <= 1 then
 			local tagButton = vgui.Create("EContextButton", contextMenu)
 			tagButton:SetText("SET TAG")
 			tagButton.OnClickEvent = function()

@@ -11,8 +11,8 @@ function ENT:AcceptInput(name, ply, caller, data)
 		if enteredRange then
 			for _, wep in ipairs(ply:GetWeapons()) do
 				local def = EFGM.ITEMS[wep:GetClass()]
+				if def == nil then continue end
 
-				if !def then continue end
 				if def.equipType != EQUIPTYPE.Weapon then continue end
 
 				local clip1 = wep:Clip1()
@@ -49,8 +49,8 @@ function ENT:AcceptInput(name, ply, caller, data)
 
 			for _, wep in ipairs(ply:GetWeapons()) do
 				local def = EFGM.ITEMS[wep:GetClass()]
+				if def == nil then continue end
 
-				if !def then continue end
 				if def.equipType != EQUIPTYPE.Weapon then continue end
 
 				local maxClip1 = wep:GetMaxClip1()

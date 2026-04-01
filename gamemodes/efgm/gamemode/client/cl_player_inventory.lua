@@ -221,12 +221,13 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 	local item = EFGM.CLIENT.INVENTORY[itemIndex]
 	if item == nil then return end
 
-	if AmountInInventory(EFGM.CLIENT.EQUIPPED[equipSlot], item.name) != 0 then return end -- can't have multiple of the same item
+	if HasInInventory(EFGM.CLIENT.EQUIPPED[equipSlot], item.name) then return end
 
 	-- checking item equip slots
 	if equipSlot == 1 and primaryPref != nil then
 		if primaryPref == 1 then
-			EFGM.CLIENT.EQUIPPED[equipSlot][1] = item
+			EFGM.CLIENT.EQUIPPED[equipSlot][1] = table.Copy(item)
+			EFGM.CLIENT.EQUIPPED[equipSlot][1].data.count = 1
 
 			net.Start("PlayerInventoryEquipItem", false)
 				net.WriteUInt(itemIndex, 16)
@@ -236,7 +237,8 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 
 			return true
 		else
-			EFGM.CLIENT.EQUIPPED[equipSlot][2] = item
+			EFGM.CLIENT.EQUIPPED[equipSlot][2] = table.Copy(item)
+			EFGM.CLIENT.EQUIPPED[equipSlot][2].data.count = 1
 
 			net.Start("PlayerInventoryEquipItem", false)
 				net.WriteUInt(itemIndex, 16)
@@ -249,7 +251,8 @@ function EquipItemFromInventory(itemIndex, equipSlot, primaryPref)
 	else
 		for k, v in ipairs(EFGM.CLIENT.EQUIPPED[equipSlot]) do
 			if table.IsEmpty(v) then
-				EFGM.CLIENT.EQUIPPED[equipSlot][k] = item
+				EFGM.CLIENT.EQUIPPED[equipSlot][k] = table.Copy(item)
+				EFGM.CLIENT.EQUIPPED[equipSlot][k].data.count = 1
 
 				net.Start("PlayerInventoryEquipItem", false)
 					net.WriteUInt(itemIndex, 16)

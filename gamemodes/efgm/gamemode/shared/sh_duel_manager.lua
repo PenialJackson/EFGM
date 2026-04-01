@@ -178,8 +178,11 @@ if SERVER then
 
 			local primaryData = {}
 			primaryData.count = 1
-			if primaryDef.defAtts then primaryData.att = primaryDef.defAtts end
-			if primaryDef.duelAtts then primaryData.att = primaryDef.duelAtts[math.random(#primaryDef.duelAtts)] end
+			if primaryDef.duelAtts then
+				primaryData.att = primaryDef.duelAtts[math.random(#primaryDef.duelAtts)]
+			elseif primaryDef.defAtts then
+				primaryData.att = primaryDef.defAtts
+			end
 			local primaryItem = ITEM.Instantiate(primaryItemKey, primaryData)
 
 			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
@@ -187,8 +190,11 @@ if SERVER then
 
 			local secondaryData = {}
 			secondaryData.count = 1
-			if secondaryDef.defAtts then secondaryData.att = secondaryDef.defAtts end
-			if secondaryDef.duelAtts then secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)] end
+			if secondaryDef.duelAtts then
+				secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)]
+			elseif secondaryDef.defAtts then
+				secondaryData.att = secondaryDef.defAtts
+			end
 			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryData)
 
 			return primaryItem, secondaryItem, nadeItem
@@ -198,8 +204,11 @@ if SERVER then
 
 			local secondaryData = {}
 			secondaryData.count = 1
-			if secondaryDef.defAtts then secondaryData.att = secondaryDef.defAtts end
-			if secondaryDef.duelAtts then secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)] end
+			if secondaryDef.duelAtts then
+				secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)]
+			elseif secondaryDef.defAtts then
+				secondaryData.att = secondaryDef.defAtts
+			end
 			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryData)
 
 			return nil, secondaryItem, nadeItem
@@ -212,7 +221,7 @@ if SERVER then
 
 		for k, v in ipairs(ply:GetWeapons()) do
 			local def = EFGM.ITEMS[v:GetClass()]
-			if !def then continue end
+			if def == nil then continue end
 			if def.equipType != EQUIPTYPE.Weapon then continue end
 
 			v:SetClip1(v:GetMaxClip1())
@@ -243,8 +252,9 @@ if SERVER then
 
 					local wep = ply:GetWeapon(item.name)
 					local def = EFGM.ITEMS[item.name]
+					if def == nil then return end
 
-					if wep != NULL and def.displayType != "Grenade" then
+					if wep != NULL and def.equipType == EQUIPTYPE.Weapon and def.displayType != "Grenade" then
 						wep:Unload()
 					end
 

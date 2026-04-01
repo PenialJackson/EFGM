@@ -10,6 +10,7 @@ EFGM.ITEMS["efgm_key_workshop_office"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/civil.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -32,6 +33,7 @@ EFGM.ITEMS["efgm_key_workshop_armory"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/industrial.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -54,6 +56,7 @@ EFGM.ITEMS["efgm_key_hotel_marked"] = {
 	["consumableValue"] = 1,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/industrial_marked.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -76,6 +79,7 @@ EFGM.ITEMS["efgm_key_bigred_meeting"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/dorm.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -98,6 +102,7 @@ EFGM.ITEMS["efgm_key_ow_admin"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/industrial.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -120,6 +125,7 @@ EFGM.ITEMS["efgm_key_ow_admin"] = {
 --     ["consumableValue"] = 5,
 --     ["appearInInventory"] = true,
 --     ["stackSize"] = 1,
+--	   ["stashStackSize"] = 10,
 --     ["icon"] = Material("items/keys/keycard_green.png", "smooth"),
 --     ["iconColor"] = ICONCOLORS.Green,
 
@@ -142,6 +148,7 @@ EFGM.ITEMS["efgm_key_ow_admin"] = {
 --     ["consumableValue"] = 5,
 --     ["appearInInventory"] = true,
 --     ["stackSize"] = 1,
+--	   ["stashStackSize"] = 10,
 --     ["icon"] = Material("items/keys/keycard_dark_red.png", "smooth"),
 --     ["iconColor"] = ICONCOLORS.Green,
 
@@ -164,6 +171,7 @@ EFGM.ITEMS["efgm_keycard_storage_entrance"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/keycard_pink.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -186,6 +194,7 @@ EFGM.ITEMS["efgm_keycard_tunnels"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/keycard_brown.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -208,6 +217,7 @@ EFGM.ITEMS["efgm_key_hotel_maintenance"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/checkpoint.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -230,6 +240,7 @@ EFGM.ITEMS["efgn_key_railway_checkpoint"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/checkpoint.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -252,6 +263,7 @@ EFGM.ITEMS["efgm_keycard_bunker_exec"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/keycard_green.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -276,6 +288,7 @@ EFGM.ITEMS["efgm_key_breakroom"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/industrial.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -298,6 +311,7 @@ EFGM.ITEMS["efgm_key_kitchen"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/civil_belmont.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -320,6 +334,7 @@ EFGM.ITEMS["efgm_key_fencedoff"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/civil_belmont.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -342,6 +357,7 @@ EFGM.ITEMS["efgm_key_classroom"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/slim.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -364,6 +380,7 @@ EFGM.ITEMS["efgm_key_parking_marked"] = {
 	["consumableValue"] = 1,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/bloody_marked.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -387,6 +404,7 @@ EFGM.ITEMS["efgm_key_office_marked"] = {
 	["consumableValue"] = 1,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/bloody_marked.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -409,6 +427,7 @@ EFGM.ITEMS["efgm_key_servers"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/pumping.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -431,6 +450,7 @@ EFGM.ITEMS["efgm_key_cellars"] = {
 	["consumableValue"] = 5,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/keys/pumping.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 

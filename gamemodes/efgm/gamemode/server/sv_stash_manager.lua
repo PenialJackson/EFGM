@@ -10,11 +10,14 @@ end
 
 function AddItemToStash(ply, name, data)
 	local def = EFGM.ITEMS[name]
+	if def == nil then return end
+
 	local stackSize = def.stashStackSize or def.stackSize
 
 	data.count = math.Clamp(tonumber(data.count) or 1, 1, stackSize)
+	data.pin = nil
 
-	if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
+	if (def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID) and (!data.owner or !data.timestamp) then
 		data.owner = ply:SteamID64()
 		data.timestamp = os.time()
 	end
@@ -34,6 +37,14 @@ end
 function UpdateItemFromStash(ply, index, data)
 	local item = ply.stash[index]
 	if item == nil then return end
+
+	local def = EFGM.ITEMS[item.name]
+	if def == nil then return end
+
+	if (def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID) and (!data.owner or !data.timestamp) then
+		data.owner = ply:SteamID64()
+		data.timestamp = os.time()
+	end
 
 	ply.stash[index].data = data
 
@@ -184,8 +195,9 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 
 	local wep = ply:GetWeapon(item.name)
 	local def = EFGM.ITEMS[item.name]
+	if def == nil then return end
 
-	if wep != NULL and def.displayType != "Grenade" then
+	if wep != NULL and def.equipType == EQUIPTYPE.Weapon and def.displayType != "Grenade" then
 		wep:Unload()
 	end
 
@@ -207,7 +219,7 @@ net.Receive("PlayerStashAddItemFromEquipped", function(len, ply)
 		end
 	end
 
-	AddItemToStash(ply, item.name, item.data)
+	FlowItemToStash(ply, item.name, item.data)
 	ReloadStash(ply)
 end)
 
@@ -251,8 +263,6 @@ net.Receive("PlayerStashTakeItemToInventory", function(len, ply)
 	if item.data.count <= itemDef.stackSize then
 		item = DeleteItemFromStash(ply, itemIndex)
 		if item == nil then return end
-
-		item.data.pin = nil
 		FlowItemToInventory(ply, item.name, item.data)
 	else
 		item.data.count = item.data.count - itemDef.stackSize
@@ -276,19 +286,25 @@ net.Receive("PlayerStashEquipItem", function(len, ply)
 	if !ply:IsInHideout() then return end
 	if equipSlot != WEAPONSLOTS.MELEE.ID and ply:CompareFaction(false) then return end
 
-	local item = ply.stash[itemIndex]
+	local item = table.Copy(ply.stash[itemIndex])
 	if item == nil then return end
-	if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end
+
+	if HasInInventory(ply.weaponSlots[equipSlot], item.name) then return end
 
 	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
-		item.data.pin = nil
+		if item.data.count > 1 then
+			DeflowItemsFromStash(ply, item.name, 1)
+		else
+			DeleteItemFromStash(ply, itemIndex)
+		end
 
-		DeleteItemFromStash(ply, itemIndex)
 		ply.weaponSlots[equipSlot][equipSubSlot] = item
-		AddWeightToPlayer(ply, item.name, item.data.count)
+		ply.weaponSlots[equipSlot][equipSubSlot].data.count = 1
 
-		if item.data.att then
-			local atts = GetPrefixedAttachmentListFromCode(item.data.att)
+		AddWeightToPlayer(ply, ply.weaponSlots[equipSlot][equipSubSlot].name, ply.weaponSlots[equipSlot][equipSubSlot].data.count)
+
+		if ply.weaponSlots[equipSlot][equipSubSlot].data.att then
+			local atts = GetPrefixedAttachmentListFromCode(ply.weaponSlots[equipSlot][equipSubSlot].data.att)
 			if !atts then return end
 
 			for _, a in ipairs(atts) do
@@ -299,7 +315,7 @@ net.Receive("PlayerStashEquipItem", function(len, ply)
 			end
 		end
 
-		GiveWepWithPresetFromCode(ply, item.name, item.data)
+		GiveWepWithPresetFromCode(ply, ply.weaponSlots[equipSlot][equipSubSlot].name, ply.weaponSlots[equipSlot][equipSubSlot].data)
 
 		ReloadStash(ply)
 		ReloadSlots(ply)
@@ -330,6 +346,8 @@ function CalculateStashValue(ply)
 
 	for k, v in ipairs(ply.stash) do
 		local def = EFGM.ITEMS[v.name]
+		if def == nil then continue end
+
 		local count = math.Clamp(v.data.count, 1, def.stashStackSize or def.stackSize) or 1
 
 		if def.consumableType != "heal" and def.consumableType != "key" then

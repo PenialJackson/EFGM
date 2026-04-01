@@ -30,6 +30,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	if !ply:IsInHideout() then return end
 
 	local def = EFGM.ITEMS[item]
+	if def == nil then return end
 
 	if def.canPurchase == false then return end
 	if ply:GetNWInt("StashCount", 0) + math.floor(count / def.stackSize) >= ply:GetNWInt("StashMax", 150) then return end
@@ -58,17 +59,12 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	local data = {}
 	data.count = count
 
-	if def.equipType == EQUIPTYPE.Weapon and def.defAtts then
+	if def.defAtts then
 		data.att = def.defAtts
 	end
 
 	if (def.consumableType == "heal" or def.consumableType == "key") and def.consumableValue then
 		data.durability = def.consumableValue
-	end
-
-	if def.equipType == EQUIPTYPE.Weapon then
-		data.owner = ply:SteamID64()
-		data.timestamp = os.time()
 	end
 
 	FlowItemToStash(ply, item, data)
@@ -89,6 +85,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	if ply:CompareFaction(false) then return end
 
 	local def = EFGM.ITEMS[item]
+	if def == nil then return end
 
 	if def.canPurchase == false then return end
 	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] and count > EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then return end
@@ -116,17 +113,12 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	local data = {}
 	data.count = count
 
-	if def.equipType == EQUIPTYPE.Weapon and def.defAtts then
+	if def.defAtts then
 		data.att = def.defAtts
 	end
 
 	if (def.consumableType == "heal" or def.consumableType == "key") and def.consumableValue then
 		data.durability = def.consumableValue
-	end
-
-	if def.equipType == EQUIPTYPE.Weapon then
-		data.owner = ply:SteamID64()
-		data.timestamp = os.time()
 	end
 
 	FlowItemToInventory(ply, item, data)
@@ -188,6 +180,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 	if ply.stash[key] == nil then return end
 
 	local def = EFGM.ITEMS[item]
+	if def == nil then return end
 
 	local plyMoney = ply:GetNWInt("Money", 0)
 

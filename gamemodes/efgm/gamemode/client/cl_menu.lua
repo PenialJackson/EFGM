@@ -4299,6 +4299,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			secondaryItem:Droppable("slot_primary")
 			secondaryItem.SlotID = 1
 			secondaryItem.Slot = 2
+			secondaryItem.ItemName = name
 			secondaryItem.Origin = "equipped"
 			secondaryItem.CTXParent = equipmentHolder
 			secondaryItem:CreateVar(name, data, i)
@@ -4319,6 +4320,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			primaryItem:Droppable("slot_primary")
 			primaryItem.SlotID = 1
 			primaryItem.Slot = 1
+			primaryItem.ItemName = name
 			primaryItem.Origin = "equipped"
 			primaryItem.CTXParent = equipmentHolder
 			primaryItem:CreateVar(name, data, i)
@@ -4339,6 +4341,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			holsterItem:Droppable("slot_holster")
 			holsterItem.SlotID = 2
 			holsterItem.Slot = 1
+			holsterItem.ItemName = name
 			holsterItem.Origin = "equipped"
 			holsterItem.CTXParent = equipmentHolder
 			holsterItem:CreateVar(name, data, i)
@@ -4359,6 +4362,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			meleeItem:Droppable("slot_melee")
 			meleeItem.SlotID = 3
 			meleeItem.Slot = 1
+			meleeItem.ItemName = name
 			meleeItem.Origin = "equipped"
 			meleeItem.CTXParent = equipmentHolder
 			meleeItem:CreateVar(name, data, i)
@@ -4379,6 +4383,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			nadeItem:Droppable("slot_grenade")
 			nadeItem.SlotID = 4
 			nadeItem.Slot = 1
+			nadeItem.ItemName = name
 			nadeItem.Origin = "equipped"
 			nadeItem.CTXParent = equipmentHolder
 			nadeItem:CreateVar(name, data, i)
@@ -4399,6 +4404,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			consumableItem:Droppable("slot_consumable")
 			consumableItem.SlotID = 5
 			consumableItem.Slot = 1
+			consumableItem.ItemName = name
 			consumableItem.Origin = "equipped"
 			consumableItem.CTXParent = equipmentHolder
 			consumableItem:CreateVar(name, data, i)
@@ -4441,7 +4447,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
-			else
+			elseif EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1].name != panels[1].ItemName then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				UnEquipItemFromInventory(1, 2, false, false)
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 2)
@@ -4452,7 +4458,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
-			else
+			elseif EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1].name != panels[1].ItemName then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				UnEquipItemFromInventory(1, 2, true, false)
 				EquipItemFromStash(panels[1].ID, panels[1].Slot, 2)
@@ -4471,7 +4477,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][2] = conItem
 
@@ -4485,14 +4491,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				net.SendToServer()
 
 				EFGM.MENU:ReloadContainer()
-			else
+			elseif EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1].name != panels[1].ItemName then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-				UnEquipItemFromInventory(1, 2, false, false)
+				UnEquipItemFromInventory(1, 2, true, false)
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][2] = conItem
 
@@ -4518,7 +4524,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
-			else
+			elseif EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2].name != panels[1].ItemName then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				UnEquipItemFromInventory(1, 1, false, false)
 				EquipItemFromInventory(panels[1].ID, panels[1].Slot, 1)
@@ -4529,7 +4535,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if table.IsEmpty(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1]) then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
-			else
+			elseif EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2].name != panels[1].ItemName then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
 				UnEquipItemFromInventory(1, 1, true, false)
 				EquipItemFromStash(panels[1].ID, panels[1].Slot, 1)
@@ -4548,7 +4554,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4562,14 +4568,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				net.SendToServer()
 
 				EFGM.MENU:ReloadContainer()
-			else
+			elseif EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][2].name != panels[1].ItemName then
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-				UnEquipItemFromInventory(1, 1, false, false)
+				UnEquipItemFromInventory(1, 1, true, false)
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4620,7 +4626,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4636,12 +4642,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				EFGM.MENU:ReloadContainer()
 			else
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-				UnEquipItemFromInventory(2, 1, false, false)
+				UnEquipItemFromInventory(2, 1, true, false)
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4692,7 +4698,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4708,12 +4714,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				EFGM.MENU:ReloadContainer()
 			else
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-				UnEquipItemFromInventory(3, 1, false, false)
+				UnEquipItemFromInventory(3, 1, true, false)
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4764,7 +4770,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4780,12 +4786,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				EFGM.MENU:ReloadContainer()
 			else
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-				UnEquipItemFromInventory(4, 1, false, false)
+				UnEquipItemFromInventory(4, 1, true, false)
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4836,7 +4842,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -4852,12 +4858,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				EFGM.MENU:ReloadContainer()
 			else
 				surface.PlaySound("ui/equip_" .. math.random(1, 6) .. ".wav")
-				UnEquipItemFromInventory(5, 1, false, false)
+				UnEquipItemFromInventory(5, 1, true, false)
 
 				local conItem = container.items[panels[1].ID]
 				if conItem == nil then return end
 
-				if AmountInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) != 0 then return end
+				if HasInInventory(EFGM.CLIENT.EQUIPPED[panels[1].Slot], conItem.name) then return end
 
 				EFGM.CLIENT.EQUIPPED[panels[1].Slot][1] = conItem
 
@@ -5291,7 +5297,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			if !isConsumable then
 				value = baseValue * count
 			else
-				value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+				value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
 			end
 
 			plyItems[k] = {
@@ -5381,13 +5387,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 				local count = v.data.count
 				local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
-				local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 
 				local item = playerItems:Add("EItemInventory")
 				item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
 				item:Droppable("items")
 				item.ID = v.id
 				item.Slot = i.equipSlot
+				item.ItemName = v.name
 				item.Origin = "inventory"
 
 				if i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable then
@@ -5418,19 +5424,41 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					tagH = EFGM.MenuScale(12)
 				end
 
-				local countText = isAmmo and count or isConsumable and v.data.durability .. "/" .. i.consumableValue or nil
+				local countText = count .. "x"
 				local countSize = nil
-				local countSizeY = nil
+				local countSizeY = 0
 				local countFont = nil
 
-				if isConsumable or isAmmo then
-					countSize = surface.GetTextSize(isAmmo and count or isConsumable and i.consumableValue .. "/" .. i.consumableValue)
-					countSizeY = EFGM.MenuScale(16)
+				local duraText = ""
+				local duraSize = nil
+				local duraSizeY = 0
+				local duraFont = nil
+
+				if count > 1 then
+					countSize = surface.GetTextSize(countText)
+
+					local padding = 0
+					if isConsumable then padding = EFGM.MenuScale(10) end
+
+					countSizeY = EFGM.MenuScale(16) + padding
 					countFont = "PuristaBold14"
 
 					if countSize < item:GetWide() - EFGM.MenuScale(17) then
-						countSizeY = EFGM.MenuScale(20)
+						countSizeY = EFGM.MenuScale(20) + padding
 						countFont = "PuristaBold18"
+					end
+				end
+
+				if isConsumable then
+					duraText = v.data.durability .. "/" .. i.consumableValue
+					duraSize = surface.GetTextSize(duraText)
+					duraSizeY = EFGM.MenuScale(16)
+					duraFont = "PuristaBold14"
+
+					if duraSize < item:GetWide() - EFGM.MenuScale(17) then
+						if count > 1 then countSizeY = countSizeY + EFGM.MenuScale(4) end
+						duraSizeY = EFGM.MenuScale(20)
+						duraFont = "PuristaBold18"
 					end
 				end
 
@@ -5452,8 +5480,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 					draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-					if isConsumable or isAmmo then
+					if count > 1 then
 						draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					end
+
+					if isConsumable then
+						draw.SimpleTextOutlined(duraText, duraFont, w - EFGM.MenuScale(3), h - duraSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 					end
 
 					if i.caliber then
@@ -5471,12 +5503,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					borderColor = COLORS.itemBackgroundColorHovered
 
 					surface.SetFont("PuristaBold18")
-					local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
-					if count > 1 and isAmmo then
-						tipItemName = count .. "x " .. tipItemName
-					elseif isConsumable then
-						tipItemName = tipItemName .. " [" .. countText .. "]"
+					local tipItemName = ""
+					if count > 1 then
+						tipItemName = tipItemName .. count .. "x "
 					end
+					if isConsumable then
+						tipItemName = tipItemName .. "[" .. duraText .. "] "
+					end
+					tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 					local tipItemNameSize = surface.GetTextSize(tipItemName)
 					surface.SetFont("Purista14")
 					local canPurchase = i.canPurchase == true or i.canPurchase == nil
@@ -5577,12 +5611,24 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					}
 
 					actions.stashable = canStash
-					actions.equipable = i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable
+					actions.equipable = false
 					actions.splittable = i.stackSize > 1 and count > 1
-					actions.consumable = !EFGM.MENU.Player:IsInHideout() and i.equipType == EQUIPTYPE.Consumable
 					actions.deletable = EFGM.MENU.Player:IsInHideout()
 					actions.ammoBuyable = EFGM.MENU.Player:IsInHideout() and i.ammoID
-					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID) and count <= 1
+					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (i.equipType == EQUIPTYPE.Weapon and i.equipSlot != WEAPONSLOTS.GRENADE.ID) and count <= 1
+
+					if i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable then
+						for slot, subSlot in ipairs(EFGM.CLIENT.EQUIPPED[i.equipSlot]) do
+							if table.IsEmpty(subSlot) then
+								actions.equipable = true
+							end
+
+							if subSlot.name == v.name then
+								actions.equipable = false
+								break
+							end
+						end
+					end
 
 					if actions.stashable then
 						local stashButton = vgui.Create("EContextButton", contextMenu)
@@ -5775,7 +5821,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				if !isConsumable then
 					value = baseValue * count
 				else
-					value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue))
+					value = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
 				end
 
 				conItems[k] = {
@@ -5863,13 +5909,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 					local count = v.data.count
 					local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
-					local isAmmo = i.equipType == EQUIPTYPE.Ammunition and count > 1
 
 					local item = containerItems:Add("EItemContainer")
 					item:SetSize(EFGM.MenuScale(57 * i.sizeX), EFGM.MenuScale(57 * i.sizeY))
 					item:Droppable("items")
 					item.ID = v.id
 					item.Slot = i.equipSlot
+					item.ItemName = v.name
 					item.Origin = "container"
 
 					if i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable then
@@ -5898,19 +5944,41 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						tagH = EFGM.MenuScale(12)
 					end
 
-					local countText = isAmmo and count or isConsumable and v.data.durability .. "/" .. i.consumableValue or nil
+					local countText = count .. "x"
 					local countSize = nil
-					local countSizeY = nil
+					local countSizeY = 0
 					local countFont = nil
 
-					if isConsumable or isAmmo then
-						countSize = surface.GetTextSize(isAmmo and count or isConsumable and i.consumableValue .. "/" .. i.consumableValue)
-						countSizeY = EFGM.MenuScale(16)
+					local duraText = ""
+					local duraSize = nil
+					local duraSizeY = 0
+					local duraFont = nil
+
+					if count > 1 then
+						countSize = surface.GetTextSize(countText)
+
+						local padding = 0
+						if isConsumable then padding = EFGM.MenuScale(10) end
+
+						countSizeY = EFGM.MenuScale(16) + padding
 						countFont = "PuristaBold14"
 
 						if countSize < item:GetWide() - EFGM.MenuScale(17) then
-							countSizeY = EFGM.MenuScale(20)
+							countSizeY = EFGM.MenuScale(20) + padding
 							countFont = "PuristaBold18"
+						end
+					end
+
+					if isConsumable then
+						duraText = v.data.durability .. "/" .. i.consumableValue
+						duraSize = surface.GetTextSize(duraText)
+						duraSizeY = EFGM.MenuScale(16)
+						duraFont = "PuristaBold14"
+
+						if duraSize < item:GetWide() - EFGM.MenuScale(17) then
+							if count > 1 then countSizeY = countSizeY + EFGM.MenuScale(4) end
+							duraSizeY = EFGM.MenuScale(20)
+							duraFont = "PuristaBold18"
 						end
 					end
 
@@ -5932,8 +6000,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 						draw.SimpleTextOutlined(i.displayName, nameFont, w - EFGM.MenuScale(3), EFGM.MenuScale(-1), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-						if isConsumable or isAmmo then
+						if count > 1 then
 							draw.SimpleTextOutlined(countText, countFont, w - EFGM.MenuScale(3), h - countSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+						end
+
+						if isConsumable then
+							draw.SimpleTextOutlined(duraText, duraFont, w - EFGM.MenuScale(3), h - duraSizeY, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 						end
 
 						if i.caliber then
@@ -5951,12 +6023,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						borderColor = COLORS.itemBackgroundColorHovered
 
 						surface.SetFont("PuristaBold18")
-						local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
-						if count > 1 and isAmmo then
-							tipItemName = count .. "x " .. tipItemName
-						elseif isConsumable then
-							tipItemName = tipItemName .. " [" .. countText .. "]"
+						local tipItemName = ""
+						if count > 1 then
+							tipItemName = tipItemName .. count .. "x "
 						end
+						if isConsumable then
+							tipItemName = tipItemName .. "[" .. duraText .. "] "
+						end
+						tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 						local tipItemNameSize = surface.GetTextSize(tipItemName)
 						surface.SetFont("Purista14")
 						local canPurchase = i.canPurchase == true or i.canPurchase == nil
@@ -6024,7 +6098,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 							local conItem = container.items[v.id]
 							if conItem == nil then return end
 
-							if AmountInInventory(EFGM.CLIENT.EQUIPPED[item.Slot], conItem.name) != 0 then return end
+							if HasInInventory(EFGM.CLIENT.EQUIPPED[item.Slot], conItem.name) then return end
 
 							for slotKey, slotItem in ipairs(EFGM.CLIENT.EQUIPPED[item.Slot]) do
 								if table.IsEmpty(slotItem) then
@@ -6082,7 +6156,20 @@ function EFGM.MENU.OpenTab.Inventory(container)
 							equipable = false
 						}
 
-						actions.equipable = i.equipType == EQUIPTYPE.Weapon
+						actions.equipable = false
+
+						if i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable then
+							for slot, subSlot in ipairs(EFGM.CLIENT.EQUIPPED[i.equipSlot]) do
+								if table.IsEmpty(subSlot) then
+									actions.equipable = true
+								end
+
+								if subSlot.name == v.name then
+									actions.equipable = false
+									break
+								end
+							end
+						end
 
 						if actions.lootable then
 							local lootButton = vgui.Create("EContextButton", contextMenu)
@@ -6111,7 +6198,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 								local conItem = container.items[v.id]
 								if conItem == nil then return end
 
-								if AmountInInventory(EFGM.CLIENT.EQUIPPED[item.Slot], conItem.name) != 0 then return end
+								if HasInInventory(EFGM.CLIENT.EQUIPPED[item.Slot], conItem.name) then return end
 
 								for slotKey, slotItem in ipairs(EFGM.CLIENT.EQUIPPED[item.Slot]) do
 									if table.IsEmpty(slotItem) then
@@ -6763,6 +6850,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				item:Droppable("items")
 				item.ID = v.id
 				item.Slot = i.equipSlot
+				item.ItemName = v.name
 				item.Origin = "stash"
 
 				if i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable then
@@ -6995,11 +7083,23 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						deletable = true
 					}
 
-					actions.equipable = i.equipType == EQUIPTYPE.Weapon
+					actions.equipable = false
 					actions.splittable = (i.stashStackSize or i.stackSize) > 1 and count > 1
-					actions.consumable = i.equipType == EQUIPTYPE.Consumable
 					actions.ammoBuyable = EFGM.MENU.Player:IsInHideout() and i.ammoID
-					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (actions.ammoBuyable or i.equipSlot == WEAPONSLOTS.MELEE.ID) and count <= 1
+					actions.taggable = EFGM.MENU.Player:IsInHideout() and v.data.tag == nil and (i.equipType == EQUIPTYPE.Weapon and i.equipSlot != WEAPONSLOTS.GRENADE.ID) and count <= 1
+
+					if i.equipType == EQUIPTYPE.Weapon or i.equipType == EQUIPTYPE.Consumable then
+						for slot, subSlot in ipairs(EFGM.CLIENT.EQUIPPED[i.equipSlot]) do
+							if table.IsEmpty(subSlot) then
+								actions.equipable = true
+							end
+
+							if subSlot.name == v.name then
+								actions.equipable = false
+								break
+							end
+						end
+					end
 
 					if actions.equipable then
 						local equipButton = vgui.Create("EContextButton", contextMenu)

@@ -163,7 +163,6 @@ if SERVER then
 			v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
 			v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
 			v.RaidReady = false
-			RemoveFIRFromInventory(v)
 			ResetRaidStats(v)
 
 			if status == STATUS.PLAYER.SCAV then
@@ -364,8 +363,6 @@ if SERVER then
 
 		local nadeData = {}
 		nadeData.count = 1
-		nadeData.owner = ply:SteamID64()
-		nadeData.timestamp = os.time()
 
 		local nadeItem = ITEM.Instantiate(nade, nadeData)
 		local nadeIndex = table.insert(ply.inventory, nadeItem)

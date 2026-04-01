@@ -35,7 +35,7 @@ end
 
 function ENT:AcceptInput(name, ply, caller, data)
 	if name == "CheckKey" then
-		if AmountInInventory(ply.inventory, self.KeyName) == 0 and self.PlayersUsed[ply:SteamID64()] == nil then
+		if !HasInInventory(ply.inventory, self.KeyName) and self.PlayersUsed[ply:SteamID64()] == nil then
 			self:TriggerOutput("OnNotHasKey", ply, data)
 
 			net.Start("SendNotification", false)

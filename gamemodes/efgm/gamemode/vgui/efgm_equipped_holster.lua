@@ -24,13 +24,14 @@ end
 function PANEL:PerformLayout()
 end
 
-local name, data, i, borderColor, nameSize, nameFont, tagFont, tagH, wep, clip, clipMax, mag, magFont, magSizeY,
+local name, data, i, count, borderColor, nameSize, nameFont, tagFont, tagH, wep, clip, clipMax, mag, magFont, magSizeY,
 	hasAmmo, value, weight
 
 function PANEL:CreateVar(argName, argData, argI)
 	name = argName
 	data = argData
 	i = argI
+	count = data.count
 
 	borderColor = COLORS.itemBackgroundColor
 
@@ -235,7 +236,7 @@ function PANEL:DoRightClick()
 			end
 		end
 
-		if data.tag == nil then
+		if data.tag == nil and (i.equipType == EQUIPTYPE.Weapon and i.equipSlot != WEAPONSLOTS.GRENADE.ID) and count <= 1 then
 			local tagButton = vgui.Create("EContextButton", contextMenu)
 			tagButton:SetText("SET TAG")
 			tagButton.OnClickEvent = function()

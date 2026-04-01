@@ -41,7 +41,7 @@ function AddItemToInventory(ply, name, data)
 
 	data.count = math.Clamp(tonumber(data.count) or 1, 1, def.stackSize)
 
-	if def.equipType == EQUIPTYPE.Weapon and (!data.owner or !data.timestamp) then
+	if (def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID) and (!data.owner or !data.timestamp) then
 		data.owner = ply:SteamID64()
 		data.timestamp = os.time()
 	end
@@ -72,12 +72,20 @@ end
 
 function UpdateItemFromInventory(ply, index, data)
 	local item = ply.inventory[index]
-	local oldData = ply.inventory[index].data
+	if item == nil then return end
 
-	if oldData.count < data.count then
-		AddWeightToPlayer(ply, item.name, data.count - oldData.count)
-	elseif oldData.count > data.count then
-		RemoveWeightFromPlayer(ply, item.name, oldData.count - data.count)
+	local def = EFGM.ITEMS[name]
+	if def == nil then return end
+
+	if (def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID) and (!data.owner or !data.timestamp) then
+		data.owner = ply:SteamID64()
+		data.timestamp = os.time()
+	end
+
+	if item.data.count < data.count then
+		AddWeightToPlayer(ply, item.name, data.count - item.data.count)
+	elseif item.data.count > data.count then
+		RemoveWeightFromPlayer(ply, item.name, item.data.count - data.count)
 	end
 
 	ply.inventory[index].data = data
@@ -214,10 +222,10 @@ end
 
 net.Receive("PlayerInventoryDropItem", function(len, ply)
 	local itemIndex = net.ReadUInt(16)
-	local item = ply.inventory[itemIndex]
 
 	if ply:IsInDuel() then return end
 
+	local item = ply.inventory[itemIndex]
 	if item == nil then return end
 
 	local entity = ents.Create("efgm_dropped_item")
@@ -260,19 +268,26 @@ net.Receive("PlayerInventoryEquipItem", function(len, ply)
 	equipSlot = net.ReadUInt(4)
 	equipSubSlot = net.ReadUInt(4)
 
-	local item = ply.inventory[itemIndex]
+	local item = table.Copy(ply.inventory[itemIndex])
 	if item == nil then return end
-	if AmountInInventory(ply.weaponSlots[equipSlot], item.name) > 0 then return end
+
+	if HasInInventory(ply.weaponSlots[equipSlot], item.name) then return end
 
 	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
-		DeleteItemFromInventory(ply, itemIndex, true)
+		if item.data.count > 1 then
+			DeflowItemsFromInventory(ply, item.name, 1)
+		else
+			DeleteItemFromInventory(ply, itemIndex, true)
+		end
+
 		ply.weaponSlots[equipSlot][equipSubSlot] = item
+		ply.weaponSlots[equipSlot][equipSubSlot].data.count = 1
 
-		GiveWepWithPresetFromCode(ply, item.name, item.data)
+		GiveWepWithPresetFromCode(ply, ply.weaponSlots[equipSlot][equipSubSlot].name, ply.weaponSlots[equipSlot][equipSubSlot].data)
+
+		ReloadSlots(ply)
+		ReloadInventory(ply)
 	end
-
-	ReloadSlots(ply)
-	ReloadInventory(ply)
 end)
 
 net.Receive("PlayerInventoryEquipItemFromEquipped", function(len, ply)
@@ -314,6 +329,7 @@ net.Receive("PlayerInventoryUnEquipItem", function(len, ply)
 
 	local wep = ply:GetWeapon(item.name)
 	local def = EFGM.ITEMS[item.name]
+	if def == nil then return end
 
 	if wep != NULL and def.displayType != "Grenade" then
 		local clip1 = wep:Clip1()
@@ -365,6 +381,7 @@ function UnequipAll(ply)
 
 				local wep = ply:GetWeapon(item.name)
 				local def = EFGM.ITEMS[item.name]
+				if def == nil then return end
 
 				if wep != NULL and def.displayType != "Grenade" then
 					local clip1 = wep:Clip1()
@@ -425,6 +442,7 @@ function UnequipAllFirearms(ply)
 
 				local wep = ply:GetWeapon(item.name)
 				local def = EFGM.ITEMS[item.name]
+				if def == nil then return end
 
 				if wep != NULL and def.displayType != "Grenade" then
 					local clip1 = wep:Clip1()
@@ -465,6 +483,10 @@ function UnequipAllFirearms(ply)
 end
 
 function MatchWithEquippedAndUpdate(ply, itemName, attsTbl)
+	local def = EFGM.ITEMS[itemName]
+	if def == nil then return end
+	if def.defAtts == nil then return end
+
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
 		for k, v in ipairs(ply.weaponSlots[i]) do
 			if !v.name then continue end
@@ -539,8 +561,9 @@ net.Receive("PlayerInventoryDropEquippedItem", function(len, ply)
 
 	local wep = ply:GetWeapon(item.name)
 	local def = EFGM.ITEMS[item.name]
+	if def == nil then return end
 
-	if wep != NULL and def.displayType != "Grenade" then
+	if wep != NULL and def.equipType == EQUIPTYPE.Weapon and def.displayType != "Grenade" then
 		wep:Unload()
 	end
 
@@ -585,17 +608,10 @@ net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
 	if !ply:Alive() then return end
 	if container == nil then return end
 
-	local newItem = table.Copy(container.Inventory[index])
-	if table.IsEmpty(newItem) then return end
+	local item = container.Inventory[index]
+	if item == nil then return end
 
-	local def = EFGM.ITEMS[newItem.name]
-
-	if def.equipType == EQUIPTYPE.Weapon and (!newItem.data.owner or !newItem.data.timestamp) then
-		newItem.data.owner = ply:SteamID64()
-		newItem.timestamp = os.time()
-	end
-
-	FlowItemToInventory(ply, newItem.name, newItem.data)
+	FlowItemToInventory(ply, item.name, item.data)
 
 	ReloadInventory(ply)
 
@@ -618,24 +634,27 @@ net.Receive("PlayerInventoryEquipItemFromContainer", function(len, ply)
 	if !ply:Alive() then return end
 	if container == nil then return end
 
-	local newItem = table.Copy(container.Inventory[index])
-	if table.IsEmpty(newItem) then return end
+	local item = container.Inventory[index]
+	if item == nil then return end
 
-	if AmountInInventory(ply.weaponSlots[equipSlot], newItem.name) > 0 then return end -- can't have multiple of the same item
+	local def = EFGM.ITEMS[item.name]
+	if def == nil then return end
+
+	if HasInInventory(ply.weaponSlots[equipSlot], item.name) then return end
 
 	if table.IsEmpty(ply.weaponSlots[equipSlot][equipSubSlot]) then
-		if !newItem.data.owner or !newItem.data.timestamp then
-			newItem.data.owner = ply:SteamID64()
-			newItem.data.timestamp = os.time()
+		if (def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID) and (!item.data.owner or !item.data.timestamp) then
+			item.data.owner = ply:SteamID64()
+			item.data.timestamp = os.time()
 		end
 
+		ply.weaponSlots[equipSlot][equipSubSlot] = item
 		table.remove(container.Inventory, index)
-		ply.weaponSlots[equipSlot][equipSubSlot] = newItem
 
-		GiveWepWithPresetFromCode(ply, newItem.name, newItem.data)
+		GiveWepWithPresetFromCode(ply, ply.weaponSlots[equipSlot][equipSubSlot].name, ply.weaponSlots[equipSlot][equipSubSlot].data)
+
+		ReloadSlots(ply)
 	end
-
-	ReloadSlots(ply)
 
 	if table.IsEmpty(container.Inventory) then container:Remove() end
 end)
@@ -742,8 +761,9 @@ net.Receive("PlayerInventoryDelete", function(len, ply)
 
 		local wep = ply:GetWeapon(item.name)
 		local def = EFGM.ITEMS[item.name]
+		if def == nil then return end
 
-		if wep != NULL and def.displayType != "Grenade" then
+		if wep != NULL and def.equipType == EQUIPTYPE.Weapon and def.displayType != "Grenade" then
 			wep:Unload()
 		end
 
@@ -869,6 +889,7 @@ end
 
 function AddWeightToPlayer(ply, item, count)
 	local def = EFGM.ITEMS[item]
+	if def == nil then return end
 
 	if count == 0 then count = 1 end
 	if def.weight == nil then return false end
@@ -884,6 +905,7 @@ end
 
 function RemoveWeightFromPlayer(ply, item, count)
 	local def = EFGM.ITEMS[item]
+	if def == nil then return end
 
 	if count == 0 then count = 1 end
 	if def.weight == nil then return false end
@@ -902,6 +924,7 @@ function CalculateInventoryWeight(ply)
 
 	for k, v in ipairs(ply.inventory) do
 		local def = EFGM.ITEMS[v.name]
+		if def == nil then continue end
 
 		local count = v.data.count or 1
 		if def.weight == nil then continue end
@@ -927,6 +950,7 @@ function CalculateInventoryWeight(ply)
 			if table.IsEmpty(v) then continue end
 
 			local def = EFGM.ITEMS[v.name]
+			if def == nil then continue end
 
 			local count = v.data.count or 1
 			if def.weight == nil then continue end
@@ -981,17 +1005,6 @@ local function GetAttsFromPreset(str)
 	return DecompressTableRecursive(tbl)
 end
 
-local function GiveAttsFromList(ply, tbl)
-	-- local take = false
-
-	-- for i, k in pairs(tbl) do
-		-- ARC9:PlayerGiveAtt(ply, k, 1)
-		-- take = true
-	-- end
-
-	-- if take then ARC9:PlayerSendAttInv(ply) end
-end
-
 function GiveWepWithPresetFromCode(ply, classname, data)
 	if !ply:IsPlayer() then return end
 
@@ -1007,8 +1020,7 @@ function GiveWepWithPresetFromCode(ply, classname, data)
 	elseif dataType == "consumable" then
 		local item = ply:Give(classname)
 		local def = EFGM.ITEMS[classname]
-
-		if !def then return end
+		if def == nil then return end
 
 		if def.equipType == EQUIPTYPE.Consumable then
 			item:SetDurability(data.durability)
@@ -1024,8 +1036,6 @@ function GiveWepWithPresetFromCode(ply, classname, data)
 				ply:Give(classname)
 				return
 			end
-
-			GiveAttsFromList(ply, atts)
 		end
 
 		if ply:HasWeapon(classname) then
@@ -1090,6 +1100,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	function GiveItem(ply, name, count)
 		local data = {}
 		local def = EFGM.ITEMS[name]
+		if def == nil then return end
 
 		if def.consumableType == "key" then
 			data.durability = def.consumableValue

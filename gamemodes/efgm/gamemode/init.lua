@@ -90,7 +90,6 @@ local msgs = {
 	"PlayerInventoryTag",
 	"PlayerInventoryConsumeGrenade",
 	"PlayerInventoryRemoveConsumable",
-	"PlayerInventoryClearFIR",
 	"PlayerInventoryFixDesyncCL",
 	"PlayerInventorySendWeaponPreset",
 
@@ -480,13 +479,19 @@ hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
 	if GetConVar("efgm_derivesbox"):GetInt() == 0 then return false end
 
 	local def = EFGM.ITEMS[class]
-	if !def then return true end -- if sm1 wants a camera or something
+	if def == nil then return true end -- if sm1 wants a camera or something
 
 	local data = {}
-	data.att = EFGM.ITEMS[class].defAtts
 	data.count = 1
-	data.owner = ply:SteamID64()
-	data.timestamp = os.time()
+
+	if def.defAtts then
+		data.att = EFGM.ITEMS[class].defAtts
+	end
+
+	if def.equipType == EQUIPTYPE.Weapon and def.equipSlot != WEAPONSLOTS.GRENADE.ID then
+		data.owner = ply:SteamID64()
+		data.timestamp = os.time()
+	end
 
 	if def.equipType == EQUIPTYPE.Consumable then
 		data.durability = def.consumableValue

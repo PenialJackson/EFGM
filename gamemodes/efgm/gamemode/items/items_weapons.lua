@@ -4193,7 +4193,7 @@ EFGM.ITEMS["arc9_eft_f1"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 7,
 	["icon"] = Material("items/grenades/f1.png", "smooth"),
 
@@ -4212,7 +4212,7 @@ EFGM.ITEMS["arc9_eft_m18"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 5,
 	["icon"] = Material("items/grenades/m18.png", "smooth"),
 
@@ -4231,7 +4231,7 @@ EFGM.ITEMS["arc9_eft_m18y"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 5,
 	["icon"] = Material("items/grenades/m18y.png", "smooth"),
 
@@ -4250,7 +4250,7 @@ EFGM.ITEMS["arc9_eft_m67"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 7,
 	["icon"] = Material("items/grenades/m67.png", "smooth"),
 
@@ -4269,7 +4269,7 @@ EFGM.ITEMS["arc9_eft_m7290"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 3,
 	["icon"] = Material("items/grenades/m7290.png", "smooth"),
 
@@ -4288,7 +4288,7 @@ EFGM.ITEMS["arc9_eft_rdg2b"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 5,
 	["icon"] = Material("items/grenades/rdg2b.png", "smooth"),
 
@@ -4307,7 +4307,7 @@ EFGM.ITEMS["arc9_eft_rgd5"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 7,
 	["icon"] = Material("items/grenades/rgd5.png", "smooth"),
 
@@ -4326,7 +4326,7 @@ EFGM.ITEMS["arc9_eft_rgn"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/grenades/rgn.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4347,7 +4347,7 @@ EFGM.ITEMS["arc9_eft_rgo"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/grenades/rgo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4368,7 +4368,7 @@ EFGM.ITEMS["arc9_eft_v40"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 7,
 	["icon"] = Material("items/grenades/v40.png", "smooth"),
 
@@ -4387,7 +4387,7 @@ EFGM.ITEMS["arc9_eft_vog17"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 7,
 	["icon"] = Material("items/grenades/vog17.png", "smooth"),
 
@@ -4406,7 +4406,7 @@ EFGM.ITEMS["arc9_eft_vog25"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 7,
 	["icon"] = Material("items/grenades/vog25.png", "smooth"),
 
@@ -4425,7 +4425,7 @@ EFGM.ITEMS["arc9_eft_zarya"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 3,
 	["icon"] = Material("items/grenades/zarya.png", "smooth"),
 
@@ -4444,7 +4444,7 @@ EFGM.ITEMS["arc9_eft_anm14"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["marketResetLimit"] = 2,
 	["icon"] = Material("items/grenades/anm14.png", "smooth"),
 
@@ -4504,7 +4504,7 @@ EFGM.ITEMS["arc9_eft_rsp30_white"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/special/rop_white.png", "smooth"),
 	["iconColor"] = ICONCOLORS.White,
 
@@ -4526,7 +4526,7 @@ EFGM.ITEMS["arc9_eft_rsp30_blue"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/special/rsp_blue.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -4548,7 +4548,7 @@ EFGM.ITEMS["arc9_eft_rsp30_firework"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/special/rsp_firework.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -4570,7 +4570,7 @@ EFGM.ITEMS["arc9_eft_rsp30_green"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/special/rsp_green.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -4592,7 +4592,7 @@ EFGM.ITEMS["arc9_eft_rsp30_red"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/special/rsp_red.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Red,
 
@@ -4614,7 +4614,7 @@ EFGM.ITEMS["arc9_eft_rsp30_yellow"] = {
 	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
-	["stashStackSize"] = 20,
+	["stashStackSize"] = 10,
 	["icon"] = Material("items/special/rsp_red.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Yellow,
 

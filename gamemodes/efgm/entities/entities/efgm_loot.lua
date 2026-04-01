@@ -55,6 +55,7 @@ function ENT:SelectItems()
 	while chance >= chanceRand do
 		local _, itemKey = table.Random(EFGM.LOOT[self.LootType])
 		local def = EFGM.ITEMS[itemKey]
+		if def == nil then continue end
 
 		local itemChance = def.lootWeight or 100
 		if itemChance < 100 and itemChance < math.random(0, 100) then continue end -- bad roll, replace with new item
@@ -72,7 +73,7 @@ function ENT:SelectItems()
 			data.durability = def.consumableValue
 		end
 
-		if def.equipType == EQUIPTYPE.Weapon and def.defAtts then
+		if def.defAtts then
 			data.att = def.defAtts
 		end
 
