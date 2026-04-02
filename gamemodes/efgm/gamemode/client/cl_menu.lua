@@ -153,44 +153,51 @@ local filters = {
 		name = "Weapons",
 		icon = MATS.filterWeaponsIcon,
 		def = "equipType",
-		value = 1,
+		value = EQUIPTYPE.Weapon,
 		count = 0
 	},
 	[3] = {
 		name = "Ammunition",
 		icon = MATS.filterAmmunitionIcon,
 		def = "equipType",
-		value = 2,
+		value = EQUIPTYPE.Ammunition,
 		count = 0
 	},
 	[4] = {
 		name = "Consumables",
 		icon = MATS.filterConsumablesIcon,
 		def = "equipType",
-		value = 5,
+		value = EQUIPTYPE.Consumable,
 		count = 0
 	},
 	[5] = {
 		name = "Attachments",
 		icon = MATS.filterAttachmentsIcon,
 		def = "equipType",
-		value = 6,
+		value = EQUIPTYPE.Attachment,
 		count = 0
 	},
 	[6] = {
 		name = "Keys",
 		icon = MATS.filterKeysIcon,
 		def = "equipType",
-		value = 7,
+		value = EQUIPTYPE.Key,
 		count = 0
 	},
 	[7] = {
 		name = "Barter",
 		icon = MATS.filterBarterIcon,
 		def = "equipType",
-		value = 8,
+		value = EQUIPTYPE.Barter,
 		count = 0
-	}
+	},
+	[8] = {
+		name = "Valuables",
+		icon = MATS.filterValuablesIcon,
+		def = "equipType",
+		value = EQUIPTYPE.Valuable,
+		count = 0
+	},
 }
 
 -- sort name, sort icon for inventory sorting
@@ -8366,7 +8373,7 @@ function EFGM.MENU.OpenTab.Market()
 
 	MarketCat[8] = {
 		name = "Barter",
-		items = {"Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool", "Valuable"},
+		items = {"Barter", "Building", "Electronic", "Energy", "Flammable", "Household", "Information", "Medicine", "Other", "Tool"},
 		children = {
 			[1] = {
 				name = "Building",
@@ -8401,14 +8408,16 @@ function EFGM.MENU.OpenTab.Market()
 				items = {"Tool"}
 			},
 			[9] = {
-				name = "Valuables",
-				items = {"Valuable"}
-			},
-			[10] = {
 				name = "Others",
 				items = {"Other"}
 			}
 		}
+	}
+
+	MarketCat[9] = {
+		name = "Valuables",
+		items = {"Valuable"},
+		children = {}
 	}
 
 	local marketTbl = {}

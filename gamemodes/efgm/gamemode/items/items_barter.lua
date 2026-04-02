@@ -1,4 +1,3 @@
--- assorted barter items
 EFGM.ITEMS["efgm_barter_fireklean"] = {
 	["fullName"] = "#FireKlean gun lube",
 	["displayName"] = "#FireKlean",
@@ -88,42 +87,6 @@ EFGM.ITEMS["efgm_barter_thermometer"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_teapot"] = {
-	["fullName"] = "Antique Teapot",
-	["displayName"] = "Teapot",
-	["displayType"] = "Valuable",
-	["weight"] = 1.1,
-	["value"] = 29200,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/teapot.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_vase"] = {
-	["fullName"] = "Antique Vase",
-	["displayName"] = "Vase",
-	["displayType"] = "Valuable",
-	["weight"] = 2,
-	["value"] = 40000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/vase.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 2,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_apollo"] = {
 	["fullName"] = "Apollo Soyuz Cigarettes",
 	["displayName"] = "Apollo",
@@ -196,60 +159,6 @@ EFGM.ITEMS["efgm_barter_awl"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_axel"] = {
-	["fullName"] = "Axel Parrot Figurine",
-	["displayName"] = "Axel",
-	["displayType"] = "Valuable",
-	["weight"] = 0.35,
-	["value"] = 26500,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/axel.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_bearbuddy"] = {
-	["fullName"] = "BEAR Buddy Plush Toy",
-	["displayName"] = "BEAR Buddy",
-	["displayType"] = "Other",
-	["weight"] = 0.35,
-	["value"] = 52050,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/bearbuddy.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 2,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_bearfigurine"] = {
-	["fullName"] = "BEAR Operative Figurine",
-	["displayName"] = "BEAR",
-	["displayType"] = "Valuable",
-	["weight"] = 0.2,
-	["value"] = 38900,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/bearfigurine.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_bakeezy"] = {
 	["fullName"] = "BakeEzy Cook Book",
 	["displayName"] = "BakeEzy",
@@ -260,24 +169,6 @@ EFGM.ITEMS["efgm_barter_bakeezy"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["icon"] = Material("items/barter/bakeezy.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_book"] = {
-	["fullName"] = "Battered Antique Book",
-	["displayName"] = "Book",
-	["displayType"] = "Valuable",
-	["weight"] = 0.4,
-	["value"] = 30885,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/book.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
 	["sizeX"] = 1,
@@ -407,24 +298,6 @@ EFGM.ITEMS["efgm_barter_brokenlcd"] = {
 	["iconColor"] = ICONCOLORS.Blue,
 
 	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_lion"] = {
-	["fullName"] = "Bronze Lion Figurine",
-	["displayName"] = "Lion",
-	["displayType"] = "Valuable",
-	["weight"] = 7.2,
-	["value"] = 142010,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/lion.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 3,
 	["sizeY"] = 2,
 
 	["canPurchase"] = false
@@ -627,78 +500,6 @@ EFGM.ITEMS["efgm_barter_carbattery"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_cat"] = {
-	["fullName"] = "Cat Figurine",
-	["displayName"] = "Cat",
-	["displayType"] = "Valuable",
-	["weight"] = 3.1,
-	["value"] = 39200,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/cat.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 3,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_prokill"] = {
-	["fullName"] = "Chain With Prokill Medallion",
-	["displayName"] = "Prokill",
-	["displayType"] = "Valuable",
-	["weight"] = 0.1,
-	["value"] = 53550,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/prokill.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_chainlet"] = {
-	["fullName"] = "Chainlet",
-	["displayName"] = "Chainlet",
-	["displayType"] = "Valuable",
-	["weight"] = 0.1,
-	["value"] = 5000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/chainlet.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_ornament"] = {
-	["fullName"] = "Christmas Tree Ornament",
-	["displayName"] = "Ornament",
-	["displayType"] = "Valuable",
-	["weight"] = 0.05,
-	["value"] = 9450,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/ornament.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_matches"] = {
 	["fullName"] = "Classic Matches",
 	["displayName"] = "Matches",
@@ -806,24 +607,6 @@ EFGM.ITEMS["efgm_barter_crickent"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_cultistfigurine"] = {
-	["fullName"] = "Cultist Figurine",
-	["displayName"] = "Cultist",
-	["displayType"] = "Valuable",
-	["weight"] = 0.2,
-	["value"] = 63000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/cultistfigurine.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_cyclon"] = {
 	["fullName"] = "Cyclon Rechargeable Battery",
 	["displayName"] = "Cyclon",
@@ -910,24 +693,6 @@ EFGM.ITEMS["efgm_barter_beardoil"] = {
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_dedmorozfigurine"] = {
-	["fullName"] = "Ded Moroz Figurine",
-	["displayName"] = "Ded Moroz",
-	["displayType"] = "Valuable",
-	["weight"] = 0.2,
-	["value"] = 49000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/dedmorozfigurine.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
 
 	["canPurchase"] = false
 }
@@ -1274,96 +1039,6 @@ EFGM.ITEMS["efgm_barter_gmcount"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_skull"] = {
-	["fullName"] = "Gold Skull Ring",
-	["displayName"] = "Skull",
-	["displayType"] = "Valuable",
-	["weight"] = 0.05,
-	["value"] = 41000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/skull.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_1gphone"] = {
-	["fullName"] = "Golden 1GPhone Smartphone",
-	["displayName"] = "1GPhone",
-	["displayType"] = "Electronic",
-	["weight"] = 0.3,
-	["value"] = 28105,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/1gphone.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_egg"] = {
-	["fullName"] = "Golden Egg",
-	["displayName"] = "Egg",
-	["displayType"] = "Valuable",
-	["weight"] = 0.2,
-	["value"] = 42840,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/egg.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_goldchain"] = {
-	["fullName"] = "Golden Neck Chain",
-	["displayName"] = "GoldChain",
-	["displayType"] = "Valuable",
-	["weight"] = 0.1,
-	["value"] = 24000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/goldchain.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_rooster"] = {
-	["fullName"] = "Golden Rooster Figurine",
-	["displayName"] = "Rooster",
-	["displayType"] = "Valuable",
-	["weight"] = 3.8,
-	["value"] = 57000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/rooster.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 2,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_gpu"] = {
 	["fullName"] = "Graphics Card",
 	["displayName"] = "GPU",
@@ -1377,24 +1052,6 @@ EFGM.ITEMS["efgm_barter_gpu"] = {
 	["iconColor"] = ICONCOLORS.Blue,
 
 	["sizeX"] = 2,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_greenbat"] = {
-	["fullName"] = "GreenBat Lithium Battery",
-	["displayName"] = "GreenBat",
-	["displayType"] = "Energy",
-	["weight"] = 0.05,
-	["value"] = 210900,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/greenbat.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
 	["sizeY"] = 1,
 
 	["canPurchase"] = false
@@ -1472,24 +1129,6 @@ EFGM.ITEMS["efgm_barter_handdrill"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_horse"] = {
-	["fullName"] = "Horse Figurine",
-	["displayName"] = "Horse",
-	["displayType"] = "Valuable",
-	["weight"] = 0.5,
-	["value"] = 7200,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/horse.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_hmatches"] = {
 	["fullName"] = "Hunting Matches",
 	["displayName"] = "HMatches",
@@ -1544,60 +1183,6 @@ EFGM.ITEMS["efgm_barter_tape"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_intelligence"] = {
-	["fullName"] = "Intelligence Folder",
-	["displayName"] = "Intelligence",
-	["displayType"] = "Information",
-	["weight"] = 0.2,
-	["value"] = 159995,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/intelligence.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 2,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_iridium"] = {
-	["fullName"] = "Iridium Military Thermal Vision Module",
-	["displayName"] = "Iridium",
-	["displayType"] = "Electronic",
-	["weight"] = 0.2,
-	["value"] = 90280,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/iridium.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_pickles"] = {
-	["fullName"] = "Jar Of Pickles",
-	["displayName"] = "Pickles",
-	["displayType"] = "Other",
-	["weight"] = 1,
-	["value"] = 76765,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/pickles.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_kek"] = {
 	["fullName"] = "KEKTAPE Duct Tape",
 	["displayName"] = "KEK",
@@ -1630,24 +1215,6 @@ EFGM.ITEMS["efgm_barter_kosa"] = {
 
 	["sizeX"] = 3,
 	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_ledx"] = {
-	["fullName"] = "LEDX Skin Transilluminator",
-	["displayName"] = "LEDX",
-	["displayType"] = "Medicine",
-	["weight"] = 0.05,
-	["value"] = 1433220,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/ledx.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
 
 	["canPurchase"] = false
 }
@@ -1702,24 +1269,6 @@ EFGM.ITEMS["efgm_barter_bulb"] = {
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_lootlord"] = {
-	["fullName"] = "Loot Lord Plushie",
-	["displayName"] = "Loot Lord",
-	["displayType"] = "Valuable",
-	["weight"] = 0.3,
-	["value"] = 50000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/lootlord.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 2,
-	["sizeY"] = 2,
 
 	["canPurchase"] = false
 }
@@ -2048,24 +1597,6 @@ EFGM.ITEMS["efgm_barter_ofz"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_firesteel"] = {
-	["fullName"] = "Old Firesteel",
-	["displayName"] = "Firesteel",
-	["displayType"] = "Valuable",
-	["weight"] = 0.5,
-	["value"] = 39930,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/firesteel.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_oscope"] = {
 	["fullName"] = "Ophthalmoscope",
 	["displayName"] = "OScope",
@@ -2291,24 +1822,6 @@ EFGM.ITEMS["efgm_barter_aesa"] = {
 
 	["sizeX"] = 2,
 	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_btc"] = {
-	["fullName"] = "Physical Bitcoin",
-	["displayName"] = "0.2BTC",
-	["displayType"] = "Valuable",
-	["weight"] = 0.05,
-	["value"] = 888888,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/btc.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
 
 	["canPurchase"] = false
 }
@@ -2582,6 +2095,24 @@ EFGM.ITEMS["efgm_barter_ram"] = {
 	["canPurchase"] = false
 }
 
+EFGM.ITEMS["efgm_barter_radarparts"] = {
+	["fullName"] = "Radar Station Spare Parts",
+	["displayName"] = "Radar",
+	["displayType"] = "Electronic",
+	["weight"] = 8,
+	["value"] = 102995,
+	["equipType"] = EQUIPTYPE.Barter,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/barter/radarparts.png", "smooth"),
+	["iconColor"] = ICONCOLORS.Purple,
+
+	["sizeX"] = 3,
+	["sizeY"] = 3,
+
+	["canPurchase"] = false
+}
+
 EFGM.ITEMS["efgm_barter_helix"] = {
 	["fullName"] = "Radiator Helix",
 	["displayName"] = "Helix",
@@ -2611,24 +2142,6 @@ EFGM.ITEMS["efgm_barter_ratchet"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("items/barter/ratchet.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_raven"] = {
-	["fullName"] = "Raven Figurine",
-	["displayName"] = "Raven",
-	["displayType"] = "Valuable",
-	["weight"] = 0.4,
-	["value"] = 34000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/raven.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
 
 	["sizeX"] = 1,
 	["sizeY"] = 2,
@@ -2684,24 +2197,6 @@ EFGM.ITEMS["efgm_barter_ripstop"] = {
 	["iconColor"] = ICONCOLORS.Blue,
 
 	["sizeX"] = 2,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_roler"] = {
-	["fullName"] = "Roler Submariner Gold Wrist Watch",
-	["displayName"] = "Roler",
-	["displayType"] = "Valuable",
-	["weight"] = 0.1,
-	["value"] = 56600,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/roler.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
 	["sizeY"] = 1,
 
 	["canPurchase"] = false
@@ -2904,6 +2399,24 @@ EFGM.ITEMS["efgm_barter_shus"] = {
 	["canPurchase"] = false
 }
 
+EFGM.ITEMS["efgm_barter_shyshka"] = {
+	["fullName"] = "SHYSHKA Christmas Tree Life Extender",
+	["displayName"] = "SHYSHKA",
+	["displayType"] = "Household",
+	["weight"] = 0.3,
+	["value"] = 48380,
+	["equipType"] = EQUIPTYPE.Barter,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/barter/shyshka.png", "smooth"),
+	["iconColor"] = ICONCOLORS.Purple,
+
+	["sizeX"] = 1,
+	["sizeY"] = 2,
+
+	["canPurchase"] = false
+}
+
 EFGM.ITEMS["efgm_barter_tube"] = {
 	["fullName"] = "Silicone Tube",
 	["displayName"] = "Tube",
@@ -2915,24 +2428,6 @@ EFGM.ITEMS["efgm_barter_tube"] = {
 	["stackSize"] = 1,
 	["icon"] = Material("items/barter/tube.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_badge"] = {
-	["fullName"] = "Silver Badge",
-	["displayName"] = "Badge",
-	["displayType"] = "Valuable",
-	["weight"] = 0.05,
-	["value"] = 40000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/badge.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
@@ -3100,24 +2595,6 @@ EFGM.ITEMS["efgm_barter_tp200"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_tamatthi"] = {
-	["fullName"] = "Tamatthi Kunai Knife Replica",
-	["displayName"] = "Tamatthi",
-	["displayType"] = "Valuable",
-	["weight"] = 0.4,
-	["value"] = 98000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/tamatthi.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_manual"] = {
 	["fullName"] = "Tech Manual",
 	["displayName"] = "Manual",
@@ -3146,24 +2623,6 @@ EFGM.ITEMS["efgm_barter_folders"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["icon"] = Material("items/barter/folders.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_tetriz"] = {
-	["fullName"] = "Tetriz Portable Game Console",
-	["displayName"] = "Tetriz",
-	["displayType"] = "Electronic",
-	["weight"] = 0.1,
-	["value"] = 171000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/tetriz.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
 	["sizeX"] = 1,
@@ -3203,24 +2662,6 @@ EFGM.ITEMS["efgm_barter_toolset"] = {
 
 	["sizeX"] = 2,
 	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_maps"] = {
-	["fullName"] = "Topographic Survey Maps",
-	["displayName"] = "Maps",
-	["displayType"] = "Information",
-	["weight"] = 0.2,
-	["value"] = 162200,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/maps.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 2,
-	["sizeY"] = 1,
 
 	["canPurchase"] = false
 }
@@ -3297,24 +2738,6 @@ EFGM.ITEMS["efgm_barter_usb"] = {
 	["canPurchase"] = false
 }
 
-EFGM.ITEMS["efgm_barter_usecfigurine"] = {
-	["fullName"] = "USEC Operative Figurine",
-	["displayName"] = "USEC",
-	["displayType"] = "Valuable",
-	["weight"] = 0.2,
-	["value"] = 38900,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/usecfigurine.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 2,
-
-	["canPurchase"] = false
-}
-
 EFGM.ITEMS["efgm_barter_fuze"] = {
 	["fullName"] = "UZRGM Grenade Fuze",
 	["displayName"] = "Fuze",
@@ -3361,60 +2784,6 @@ EFGM.ITEMS["efgm_barter_vpx"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["icon"] = Material("items/barter/vpx.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_veritas"] = {
-	["fullName"] = "Veritas Guitar Pick",
-	["displayName"] = "Veritas",
-	["displayType"] = "Valuable",
-	["weight"] = 0.05,
-	["value"] = 34600,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/veritas.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_viibiin"] = {
-	["fullName"] = "Viibiin Sneaker",
-	["displayName"] = "Viibiin",
-	["displayType"] = "Valuable",
-	["weight"] = 0.4,
-	["value"] = 35740,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/viibiin.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Purple,
-
-	["sizeX"] = 2,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_virtex"] = {
-	["fullName"] = "Virtex Programmable Processor",
-	["displayName"] = "Virtex",
-	["displayType"] = "Electronic",
-	["weight"] = 0.3,
-	["value"] = 289980,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/virtex.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
 	["sizeX"] = 1,
@@ -3509,24 +2878,6 @@ EFGM.ITEMS["efgm_barter_wilston"] = {
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
-
-	["canPurchase"] = false
-}
-
-EFGM.ITEMS["efgm_barter_clock"] = {
-	["fullName"] = "Wooden Clock",
-	["displayName"] = "Clock",
-	["displayType"] = "Valuable",
-	["weight"] = 0.05,
-	["value"] = 52480,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/barter/clock.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 2,
-	["sizeY"] = 2,
 
 	["canPurchase"] = false
 }
@@ -3637,24 +2988,4 @@ EFGM.ITEMS["efgm_barter_tea"] = {
 	["sizeY"] = 1,
 
 	["canPurchase"] = false
-}
-
--- dog tags
-EFGM.ITEMS["efgm_tag_default"] = {
-	["fullName"] = "Dogtag",
-	["displayName"] = "Dogtag",
-	["displayType"] = "Tag",
-	["weight"] = 0.05,
-	["value"] = 1000,
-	["equipType"] = EQUIPTYPE.Barter,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["icon"] = Material("items/tags/default.png", "smooth"),
-	["iconColor"] = ICONCOLORS.Blue,
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["canPurchase"] = false,
-	["canSpawn"] = false
 }

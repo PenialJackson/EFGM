@@ -26,7 +26,7 @@ EQUIPTYPE.None = 10
 EFGM.ITEMS = {}
 
 -- types:
--- 1 == any item (barring keys and attachments)
+-- 1 == any item (barring keys)
 -- 2 == military box (weapons, attachments, ammunition)
 -- 3 == ammunition box (ammunition, grenades)
 -- 4 == medical box (medical items)
@@ -72,14 +72,14 @@ function GenerateLootTables()
 			EFGM.LOOT[5][k] = v
 		end
 
-		if v.displayType == "Auxiliary" or v.displayType == "Barrel" or v.displayType == "Charging Handle" or v.displayType == "Chassis" or v.displayType == "Foregrip" or v.displayType == "Gas Block" or v.displayType == "Handguard" or v.displayType == "Magazine" or v.displayType == "Mount" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Pistol Grip" or v.displayType == "Receiver" or v.displayType == "Sight" or v.displayType == "Stock" or v.displayType == "Tactical" then
+		if (v.displayType == "Auxiliary" or v.displayType == "Barrel" or v.displayType == "Charging Handle" or v.displayType == "Chassis" or v.displayType == "Foregrip" or v.displayType == "Gas Block" or v.displayType == "Handguard" or v.displayType == "Magazine" or v.displayType == "Mount" or v.displayType == "Muzzle" or v.displayType == "Optic" or v.displayType == "Pistol Grip" or v.displayType == "Receiver" or v.displayType == "Sight" or v.displayType == "Stock" or v.displayType == "Tactical") and v.value >= 3000 then
 			EFGM.LOOT[6][k] = v
 		end
 
 		-- specific loot pools
 
 		-- safe loot pool
-		if (v.displayType == "Building" or v.displayType == "Electronic" or v.displayType == "Energy" or v.displayType == "Flammable" or v.displayType == "Household" or v.displayType == "Information" or v.displayType == "Medicine" or v.displayType == "Other" or v.displayType == "Tool" or v.displayType == "Valuable") and v.value >= 12000 then
+		if (v.displayType == "Building" or v.displayType == "Electronic" or v.displayType == "Energy" or v.displayType == "Flammable" or v.displayType == "Household" or v.displayType == "Information" or v.displayType == "Medicine" or v.displayType == "Other" or v.displayType == "Tool" or v.displayType == "Valuable") and v.value >= 10000 then
 			EFGM.LOOT[7][k] = v
 		end
 
@@ -434,7 +434,6 @@ function RespawnAllLoot()
 	end
 end
 
--- add attachment item definitions
 hook.Add("InitPostEntity", "GenerateLootTables", function()
 	GenerateLootTables()
 	GenerateDuelLoadouts()
