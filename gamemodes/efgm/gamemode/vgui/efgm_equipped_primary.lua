@@ -127,7 +127,14 @@ function PANEL:OnCursorEntered()
 	borderColor = COLORS.itemBackgroundColorHovered
 
 	surface.SetFont("PuristaBold18")
-	local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+	local tipItemName = ""
+	if data.tag then
+		tipItemName = tipItemName .. '"' .. data.tag .. '" '
+	end
+	if count > 1 then
+		tipItemName = tipItemName .. count .. "x "
+	end
+	tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 	local tipItemNameSize = surface.GetTextSize(tipItemName)
 	surface.SetFont("Purista14")
 	local canPurchase = i.canPurchase == true or i.canPurchase == nil

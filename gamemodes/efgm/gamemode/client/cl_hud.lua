@@ -2327,14 +2327,14 @@ function HUDInspectItem(item, data, panel)
 	end
 
 	local closeButton = vgui.Create("DButton", inspectPanel)
-	closeButton:SetSize(EFGM.MenuScale(32), EFGM.MenuScale(32))
-	closeButton:SetPos(inspectPanel:GetWide() - EFGM.MenuScale(32), EFGM.MenuScale(5))
+	closeButton:SetSize(EFGM.MenuScale(24), EFGM.MenuScale(24))
+	closeButton:SetPos(inspectPanel:GetWide() - EFGM.MenuScale(24), EFGM.MenuScale(5))
 	closeButton:SetText("")
 
 	function closeButton:Paint(w, h)
 		surface.SetDrawColor(COLORS.pureWhiteColor)
 		surface.SetMaterial(MATS.closeButtonIcon)
-		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(32), EFGM.MenuScale(32))
+		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(24), EFGM.MenuScale(24))
 	end
 
 	function closeButton:OnCursorEntered()

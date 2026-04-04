@@ -24,7 +24,7 @@ end
 function PANEL:PerformLayout()
 end
 
-local name, data, i, count, borderColor, nameSize, nameFont, tagFont, tagH, value, weight
+local name, data, i, count, borderColor, nameSize, nameFont, value, weight
 
 function PANEL:CreateVar(argName, argData, argI)
 	name = argName
@@ -88,7 +88,11 @@ function PANEL:OnCursorEntered()
 	borderColor = COLORS.itemBackgroundColorHovered
 
 	surface.SetFont("PuristaBold18")
-	local tipItemName = i.fullName .. " (" .. i.displayName .. ")"
+	local tipItemName = ""
+	if count > 1 then
+		tipItemName = tipItemName .. count .. "x "
+	end
+	tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 	local tipItemNameSize = surface.GetTextSize(tipItemName)
 	surface.SetFont("Purista14")
 	local canPurchase = i.canPurchase == true or i.canPurchase == nil

@@ -240,6 +240,8 @@ end)
 local menuBind = GetConVar("efgm_bind_menu")
 local previousTabBind = GetConVar("efgm_bind_menu_tab_previous")
 local nextTabBind = GetConVar("efgm_bind_menu_tab_next")
+local dropItemBind = GetConVar("efgm_bind_menu_item_drop")
+local deleteItemBind = GetConVar("efgm_bind_menu_item_delete")
 
 local parallaxCVar = GetConVar("efgm_menu_parallax")
 local scalingCVar = GetConVar("efgm_menu_scalingmethod")
@@ -313,6 +315,34 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	function menuFrame:OnKeyCodePressed(key)
+		if key == deleteItemBind:GetInt() and EFGM.MENU.Player:IsInHideout() then
+			local pnl = vgui.GetHoveredPanel()
+			if !IsValid(pnl) then return end
+
+			if pnl.Origin == "inventory" then
+				EFGM.MENU.ConfirmDelete(pnl.ItemName, pnl.ID, "inv", 0, 0)
+			elseif pnl.Origin == "stash" then
+				EFGM.MENU.ConfirmDelete(pnl.ItemName, pnl.ID, "stash", 0, 0)
+			elseif pnl.Origin == "equipped" then
+				EFGM.MENU.ConfirmDelete(pnl.ItemName, 0, "equipped", pnl.SlotID, pnl.Slot)
+			end
+
+			return
+		end
+
+		if key == dropItemBind:GetInt() then
+			local pnl = vgui.GetHoveredPanel()
+			if !IsValid(pnl) then return end
+
+			if pnl.Origin == "inventory" then
+				DropItemFromInventory(pnl.ID)
+			elseif pnl.Origin == "equipped" then
+				DropEquippedItem(pnl.SlotID, pnl.Slot)
+			end
+
+			return
+		end
+
 		if key == previousTabBind:GetInt() then
 			if tabList[EFGM.MENU.ActiveTab].id == 1 then return end
 
@@ -1841,14 +1871,14 @@ function EFGM.MENU.InspectItem(item, data)
 	end
 
 	local closeButton = vgui.Create("DButton", inspectPanel)
-	closeButton:SetSize(EFGM.MenuScale(32), EFGM.MenuScale(32))
-	closeButton:SetPos(inspectPanel:GetWide() - EFGM.MenuScale(32), EFGM.MenuScale(5))
+	closeButton:SetSize(EFGM.MenuScale(24), EFGM.MenuScale(24))
+	closeButton:SetPos(inspectPanel:GetWide() - EFGM.MenuScale(24), EFGM.MenuScale(5))
 	closeButton:SetText("")
 
 	function closeButton:Paint(w, h)
 		surface.SetDrawColor(COLORS.pureWhiteColor)
 		surface.SetMaterial(MATS.closeButtonIcon)
-		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(32), EFGM.MenuScale(32))
+		surface.DrawTexturedRect(0, 0, EFGM.MenuScale(24), EFGM.MenuScale(24))
 	end
 
 	function closeButton:OnCursorEntered()
@@ -1916,11 +1946,19 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 
 	local maxTransactionCountMult = math.min(10, EFGM.MENU.Player:GetNWInt("StashMax", 150) - EFGM.MENU.Player:GetNWInt("StashCount", 0))
 	local maxTransactionCount = math.Clamp(math.floor(plyMoney / i.value), 1, marketLimit and math.min(marketLimit, i.stackSize * maxTransactionCountMult) or (i.stackSize * maxTransactionCountMult))
+	local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
 
 	if i.equipSlot == WEAPONSLOTS.PRIMARY.ID or i.equipSlot == WEAPONSLOTS.HOLSTER.ID or i.equipSlot == WEAPONSLOTS.MELEE.ID or i.equipType == EQUIPTYPE.Attachment then maxTransactionCount = 1 end
 
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Purchase " .. math.Clamp(transactionCount, 1, maxTransactionCount) .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
+	local confirmText = "Purchase "
+	if transactionCount > 1 then
+		confirmText = confirmText .. math.Clamp(transactionCount, 1, maxTransactionCount) .. "x "
+	end
+	if isConsumable then
+		confirmText = confirmText .. "[" .. i.consumableValue .. "/" .. i.consumableValue .. "] "
+	end
+	confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelHeight = EFGM.MenuScale(110)
@@ -2097,7 +2135,14 @@ function EFGM.MENU.ConfirmPurchase(item, sendTo, closeMenu)
 			transactionCost = i.value * num
 
 			surface.SetFont("PuristaBold24")
-			confirmText = "Purchase " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
+			confirmText = "Purchase "
+			if transactionCount > 1 then
+				confirmText = confirmText .. math.Clamp(transactionCount, 1, maxTransactionCount) .. "x "
+			end
+			if isConsumable then
+				confirmText = confirmText .. "[" .. i.consumableValue .. "/" .. i.consumableValue .. "] "
+			end
+			confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 			confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 			confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
@@ -2156,20 +2201,6 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 	local i = EFGM.ITEMS[item]
 	if i == nil then return end
 
-	local transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
-
-	if data.att then
-		local atts = GetPrefixedAttachmentListFromCode(data.att)
-		if !atts then return end
-
-		for _, a in ipairs(atts) do
-			local att = EFGM.ITEMS[a]
-			if att == nil then continue end
-
-			transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
-		end
-	end
-
 	local maxTransactionCount = math.Clamp(data.count or 1, 1, i.stashStackSize or i.stackSize)
 	if maxTransactionCount <= 1 and GetConVar("efgm_menu_sellprompt_single"):GetInt() == 0 then
 		surface.PlaySound("ui/success.wav")
@@ -2184,9 +2215,30 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 	end
 
 	local transactionCount = maxTransactionCount
+	local transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * transactionCount
+	local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
+
+	if data.att then
+		local atts = GetPrefixedAttachmentListFromCode(data.att)
+		if !atts then return end
+
+		for _, a in ipairs(atts) do
+			local att = EFGM.ITEMS[a]
+			if att == nil then continue end
+
+			transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+		end
+	end
 
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Sell " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
+	local confirmText = "Sell "
+	if transactionCount > 1 then
+		confirmText = confirmText .. transactionCount .. "x "
+	end
+	if isConsumable then
+		confirmText = confirmText .. "[" .. data.durability .. "/" .. i.consumableValue .. "] "
+	end
+	confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelHeight = EFGM.MenuScale(70)
@@ -2303,7 +2355,14 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 			end
 
 			surface.SetFont("PuristaBold24")
-			confirmText = "Sell " .. transactionCount .. "x " .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
+			confirmText = "Sell "
+			if transactionCount > 1 then
+				confirmText = confirmText .. transactionCount .. "x "
+			end
+			if isConsumable then
+				confirmText = confirmText .. "[" .. data.durability .. "/" .. i.consumableValue .. "] "
+			end
+			confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ") for ₽" .. string.FormatComma(transactionCost) .. "?"
 			confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 			confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
@@ -2348,12 +2407,20 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 	local i = EFGM.ITEMS[item]
 	if i == nil then return end
 
-	surface.SetFont("PuristaBold24")
-	local confirmText = "Split " .. i.fullName .. " (" .. i.displayName .. ")?"
-	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
-
 	local splitCount = math.Round(data.count / 2)
 	local maxSplitCount = data.count - 1
+	local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
+
+	surface.SetFont("PuristaBold24")
+	local confirmText = "Split "
+	if splitCount > 1 then
+		confirmText = confirmText .. splitCount .. "x "
+	end
+	if isConsumable then
+		confirmText = confirmText .. "[" .. data.durability .. "/" .. i.consumableValue .. "] "
+	end
+	confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ")?"
+	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelHeight = EFGM.MenuScale(100)
 
@@ -2445,6 +2512,23 @@ function EFGM.MENU.ConfirmSplit(item, data, key, inv)
 
 	function amountSlider:OnValueChanged(val)
 		splitCount = math.Round(val)
+
+		surface.SetFont("PuristaBold24")
+		confirmText = "Split "
+		if splitCount > 1 then
+			confirmText = confirmText .. splitCount .. "x "
+		end
+		if isConsumable then
+			confirmText = confirmText .. "[" .. data.durability .. "/" .. i.consumableValue .. "] "
+		end
+		confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ")?"
+		confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
+
+		confirmPanel:SetWide(confirmTextSize + EFGM.MenuScale(10))
+		confirmPanel:SetX(EFGM.MENU.MenuFrame:GetWide() / 2 - confirmPanel:GetWide() / 2)
+		self:SetX(confirmPanel:GetWide() / 2 - EFGM.MenuScale(160))
+		yesButton:SetX(confirmPanel:GetWide() / 2 - (yesButtonSize / 2) - EFGM.MenuScale(25))
+		noButton:SetX(confirmPanel:GetWide() / 2 - (noButtonSize / 2) + yesButton:GetWide() / 2 + EFGM.MenuScale(5))
 	end
 
 	function yesButton:OnCursorEntered()
@@ -2488,8 +2572,28 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 		return
 	end
 
+	local data
+	if inv == "inv" then
+		data = EFGM.CLIENT.INVENTORY[key].data
+	elseif inv == "stash" then
+		data = EFGM.CLIENT.STASH[key].data
+	elseif inv == "equipped" then
+		data = EFGM.CLIENT.EQUIPPED[eID][eSlot].data
+	end
+
+	local maxDeleteCount = math.Clamp(data.count or 1, 1, i.stashStackSize or i.stackSize)
+	local deleteCount = maxDeleteCount
+	local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
+
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Delete " .. i.fullName .. " (" .. i.displayName .. ")?"
+	local confirmText = "Delete "
+	if deleteCount > 1 then
+		confirmText = confirmText .. deleteCount .. "x "
+	end
+	if isConsumable then
+		confirmText = confirmText .. "[" .. data.durability .. "/" .. i.consumableValue .. "] "
+	end
+	confirmText = confirmText .. i.fullName .. " (" .. i.displayName .. ")?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelHeight = EFGM.MenuScale(70)
@@ -2780,7 +2884,7 @@ function EFGM.MENU.ConfirmPreset(atts, presetName, presetID, closeMenu)
 	end
 
 	surface.SetFont("PuristaBold24")
-	local confirmText = "Buy attachments for the " .. string.upper(presetName) .. " preset for ₽" .. string.FormatComma(transactionCost) .. "?"
+	local confirmText = "Buy attachments from the " .. string.upper(presetName) .. " preset for ₽" .. string.FormatComma(transactionCost) .. "?"
 	local confirmTextSize = math.max(EFGM.MenuScale(300), surface.GetTextSize(confirmText))
 
 	local confirmPanelSize = confirmTextSize + EFGM.MenuScale(10)
@@ -4413,7 +4517,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			consumableItem.Slot = 1
 			consumableItem.ItemName = name
 			consumableItem.Origin = "equipped"
-			consumableItem.CTXParent = equipmentHolder
+			consumableItem.CTXParent = consumableHolder
 			consumableItem:CreateVar(name, data, i)
 		end
 
@@ -5511,6 +5615,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 					surface.SetFont("PuristaBold18")
 					local tipItemName = ""
+					if v.data.tag then
+						tipItemName = tipItemName .. '"' .. v.data.tag .. '" '
+					end
 					if count > 1 then
 						tipItemName = tipItemName .. count .. "x "
 					end
@@ -6031,6 +6138,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 						surface.SetFont("PuristaBold18")
 						local tipItemName = ""
+						if v.data.tag then
+							tipItemName = tipItemName .. '"' .. v.data.tag .. '" '
+						end
 						if count > 1 then
 							tipItemName = tipItemName .. count .. "x "
 						end
@@ -6980,6 +7090,9 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 					surface.SetFont("PuristaBold18")
 					local tipItemName = ""
+					if v.data.tag then
+						tipItemName = tipItemName .. '"' .. v.data.tag .. '" '
+					end
 					if count > 1 then
 						tipItemName = tipItemName .. count .. "x "
 					end
@@ -7897,6 +8010,9 @@ function EFGM.MENU.OpenTab.Market()
 
 					surface.SetFont("PuristaBold18")
 					local tipItemName = ""
+					if v.data.tag then
+						tipItemName = tipItemName .. '"' .. v.data.tag .. '" '
+					end
 					if count > 1 then
 						tipItemName = tipItemName .. count .. "x "
 					end
@@ -10131,6 +10247,40 @@ function EFGM.MENU.OpenTab.Settings()
 
 	function menuNextPageBind:OnChange()
 		RunConsoleCommand("efgm_bind_menu_page_next", menuNextPageBind:GetSelectedNumber())
+	end
+
+	local menuItemDropBindPanel = vgui.Create("DPanel", controls)
+	menuItemDropBindPanel:Dock(TOP)
+	menuItemDropBindPanel:SetSize(0, EFGM.MenuScale(55))
+
+	function menuItemDropBindPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Menu: Drop Hovered Item", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local menuItemDropBind = vgui.Create("DBinder", menuItemDropBindPanel)
+	menuItemDropBind:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
+	menuItemDropBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
+	menuItemDropBind:SetSelectedNumber(GetConVar("efgm_bind_menu_item_drop"):GetInt())
+
+	function menuItemDropBind:OnChange()
+		RunConsoleCommand("efgm_bind_menu_item_drop", menuItemDropBind:GetSelectedNumber())
+	end
+
+	local menuItemDeleteBindPanel = vgui.Create("DPanel", controls)
+	menuItemDeleteBindPanel:Dock(TOP)
+	menuItemDeleteBindPanel:SetSize(0, EFGM.MenuScale(55))
+
+	function menuItemDeleteBindPanel:Paint(w, h)
+		draw.SimpleTextOutlined("Menu: Delete Hovered Item", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local menuItemDeleteBind = vgui.Create("DBinder", menuItemDeleteBindPanel)
+	menuItemDeleteBind:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
+	menuItemDeleteBind:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
+	menuItemDeleteBind:SetSelectedNumber(GetConVar("efgm_bind_menu_item_delete"):GetInt())
+
+	function menuItemDeleteBind:OnChange()
+		RunConsoleCommand("efgm_bind_menu_item_delete", menuItemDeleteBind:GetSelectedNumber())
 	end
 
 	local gmodControlsTitle = vgui.Create("DPanel", controls)

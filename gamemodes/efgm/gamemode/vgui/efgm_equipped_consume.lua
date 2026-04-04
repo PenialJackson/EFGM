@@ -37,7 +37,7 @@ function PANEL:CreateVar(argName, argData, argI)
 	nameSize = surface.GetTextSize(i.displayName)
 	nameFont = "PuristaBold14"
 
-	if nameSize < (i.sizeX * EFGM.MenuScale(57)) - EFGM.MenuScale(17) then
+	if nameSize < self:GetWide() - EFGM.MenuScale(17) then
 		nameFont = "PuristaBold18"
 	end
 
@@ -82,7 +82,8 @@ function PANEL:OnCursorEntered()
 	borderColor = COLORS.itemBackgroundColorHovered
 
 	surface.SetFont("PuristaBold18")
-	local tipItemName = i.fullName .. " (" .. i.displayName .. ")" .. " [" .. countText .. "]"
+	local tipItemName = "[" .. countText .. "] "
+	tipItemName = tipItemName ..  i.fullName .. " (" .. i.displayName .. ")"
 	local tipItemNameSize = surface.GetTextSize(tipItemName)
 	surface.SetFont("Purista14")
 	local canPurchase = i.canPurchase == true or i.canPurchase == nil

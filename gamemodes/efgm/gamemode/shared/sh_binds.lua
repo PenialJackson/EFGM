@@ -15,8 +15,6 @@ if CLIENT then
 	CreateClientConVar("efgm_bind_viewprofile", KEY_P, true, true, "Determines the keybind that opens another players profile while looking at them")
 	CreateClientConVar("efgm_bind_invites_accept", KEY_F1, true, true, "Determines the keybind that accepts an invite")
 	CreateClientConVar("efgm_bind_invites_decline", KEY_F2, true, true, "Determines the keybind that declines an invite")
-	CreateClientConVar("efgm_bind_dropitem", KEY_DELETE, true, true, "Determines the keybind that drops the hovered item in the menu")
-	CreateClientConVar("efgm_bind_deleteitem", KEY_DELETE, true, true, "Determines the keybind that deletes the hovered item in the menu")
 
 	CreateClientConVar("efgm_bind_equip_primary1", KEY_1, true, true, "Determines the keybind that equips your first primary")
 	CreateClientConVar("efgm_bind_equip_primary2", KEY_2, true, true, "Determines the keybind that equips your second primary")
@@ -29,6 +27,8 @@ if CLIENT then
 	CreateClientConVar("efgm_bind_menu_tab_next", KEY_E, true, true, "Determines the keybind that brings you to the next tab in the menu")
 	CreateClientConVar("efgm_bind_menu_page_previous", KEY_A, true, true, "Determines the keybind that brings you to the previous page in the menu")
 	CreateClientConVar("efgm_bind_menu_page_next", KEY_D, true, true, "Determines the keybind that brings you to the next page in the menu")
+	CreateClientConVar("efgm_bind_menu_item_drop", KEY_DELETE, true, true, "Determines the keybind that drops the hovered item in the menu")
+	CreateClientConVar("efgm_bind_menu_item_delete", KEY_DELETE, true, true, "Determines the keybind that deletes the hovered item in the menu")
 
 	-- toggle crouch
 	local toggleDuckCvar = GetConVar("efgm_controls_toggleduck")
