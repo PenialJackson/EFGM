@@ -8,6 +8,10 @@ EFGM.HUD.VotedMap = nil
 local paddingCVar = GetConVar("efgm_hud_padding")
 EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 
+cvars.AddChangeCallback("efgm_hud_padding", function(convar_name, value_old, value_new)
+	EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
+end)
+
 EFGM.HUD.ELEMENTS = EFGM.HUD.ELEMENTS or {}
 
 local math = math

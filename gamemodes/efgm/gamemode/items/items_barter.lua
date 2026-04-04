@@ -7,6 +7,7 @@ EFGM.ITEMS["efgm_barter_fireklean"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fireklean.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -25,6 +26,7 @@ EFGM.ITEMS["efgm_barter_aabattery"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/aabattery.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -43,6 +45,7 @@ EFGM.ITEMS["efgm_barter_mcc"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mcc.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -61,6 +64,7 @@ EFGM.ITEMS["efgm_barter_alkaline"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/alkali.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -78,6 +82,7 @@ EFGM.ITEMS["efgm_barter_thermometer"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/thermometer.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -96,6 +101,7 @@ EFGM.ITEMS["efgm_barter_apollo"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/apollo.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -114,6 +120,7 @@ EFGM.ITEMS["efgm_barter_aquapeps"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/aquapeps.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -132,6 +139,7 @@ EFGM.ITEMS["efgm_barter_aramid"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/aramid.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -150,6 +158,7 @@ EFGM.ITEMS["efgm_barter_awl"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/awl.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -168,6 +177,7 @@ EFGM.ITEMS["efgm_barter_bakeezy"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bakeezy.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -186,6 +196,7 @@ EFGM.ITEMS["efgm_barter_bolts"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bolts.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -204,6 +215,7 @@ EFGM.ITEMS["efgm_barter_vitamins"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/vitamins.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -222,6 +234,7 @@ EFGM.ITEMS["efgm_barter_h2o2"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/h2o2.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -240,6 +253,7 @@ EFGM.ITEMS["efgm_barter_nacl"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/nacl.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -258,6 +272,7 @@ EFGM.ITEMS["efgm_barter_brokengpx"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/brokengpx.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -276,6 +291,7 @@ EFGM.ITEMS["efgm_barter_brokengphone"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/brokengphone.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -294,6 +310,7 @@ EFGM.ITEMS["efgm_barter_brokenlcd"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/brokenlcd.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -312,6 +329,7 @@ EFGM.ITEMS["efgm_barter_bulbex"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bulbex.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -330,6 +348,7 @@ EFGM.ITEMS["efgm_barter_wires"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/wires.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -348,6 +367,7 @@ EFGM.ITEMS["efgm_barter_cpufan"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/cpufan.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -366,6 +386,7 @@ EFGM.ITEMS["efgm_barter_drlupos"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/drlupos.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -384,6 +405,7 @@ EFGM.ITEMS["efgm_barter_majaica"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/majaica.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -402,6 +424,7 @@ EFGM.ITEMS["efgm_barter_ratcola"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ratcola.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -420,6 +443,7 @@ EFGM.ITEMS["efgm_barter_thermite"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/thermite.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -438,6 +462,7 @@ EFGM.ITEMS["efgm_barter_salt"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/salt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -455,6 +480,7 @@ EFGM.ITEMS["efgm_barter_superwater"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/superwater.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -473,6 +499,7 @@ EFGM.ITEMS["efgm_barter_caps"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/caps.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -491,6 +518,7 @@ EFGM.ITEMS["efgm_barter_carbattery"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/carbattery.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -509,6 +537,7 @@ EFGM.ITEMS["efgm_barter_matches"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/matches.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -527,6 +556,7 @@ EFGM.ITEMS["efgm_barter_clin"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/clin.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -544,6 +574,7 @@ EFGM.ITEMS["efgm_barter_mtape"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mtape.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -562,6 +593,7 @@ EFGM.ITEMS["efgm_barter_cordura"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/cordura.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -580,6 +612,7 @@ EFGM.ITEMS["efgm_barter_hose"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/hose.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -598,6 +631,7 @@ EFGM.ITEMS["efgm_barter_crickent"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/crickent.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -616,6 +650,7 @@ EFGM.ITEMS["efgm_barter_cyclon"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/cyclon.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -634,6 +669,7 @@ EFGM.ITEMS["efgm_barter_dbattery"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/dbattery.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -652,6 +688,7 @@ EFGM.ITEMS["efgm_barter_dvd"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/dvd.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -670,6 +707,7 @@ EFGM.ITEMS["efgm_barter_hdd"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/hdd.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -688,6 +726,7 @@ EFGM.ITEMS["efgm_barter_beardoil"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/beardoil.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -706,6 +745,7 @@ EFGM.ITEMS["efgm_barter_diary"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/diary.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -724,6 +764,7 @@ EFGM.ITEMS["efgm_barter_syringe"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/syringe.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -742,6 +783,7 @@ EFGM.ITEMS["efgm_barter_dfuel"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/dfuel.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -760,6 +802,7 @@ EFGM.ITEMS["efgm_barter_ducttape"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ducttape.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -778,6 +821,7 @@ EFGM.ITEMS["efgm_barter_drill"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/drill.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -796,6 +840,7 @@ EFGM.ITEMS["efgm_barter_motor"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/motor.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -814,6 +859,7 @@ EFGM.ITEMS["efgm_barter_ec"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ec.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -832,6 +878,7 @@ EFGM.ITEMS["efgm_barter_eslamp"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/eslamp.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -850,6 +897,7 @@ EFGM.ITEMS["efgm_barter_fuel"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fuel.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -868,6 +916,7 @@ EFGM.ITEMS["efgm_barter_fp100"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fp100.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -886,6 +935,7 @@ EFGM.ITEMS["efgm_barter_gpsa"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/gpsa.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -904,6 +954,7 @@ EFGM.ITEMS["efgm_barter_fscdr"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fscdr.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -922,6 +973,7 @@ EFGM.ITEMS["efgm_barter_landfscdr"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/landfscdr.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -940,6 +992,7 @@ EFGM.ITEMS["efgm_barter_fleece"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fleece.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -958,6 +1011,7 @@ EFGM.ITEMS["efgm_barter_fcond"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fcond.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -976,6 +1030,7 @@ EFGM.ITEMS["efgm_barter_ewunit"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ewunit.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -994,6 +1049,7 @@ EFGM.ITEMS["efgm_barter_gasan"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/gasan.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1012,6 +1068,7 @@ EFGM.ITEMS["efgm_barter_filter"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/filter.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1030,6 +1087,7 @@ EFGM.ITEMS["efgm_barter_gmcount"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/gmcount.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1048,6 +1106,7 @@ EFGM.ITEMS["efgm_barter_gpu"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/gpu.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1066,6 +1125,7 @@ EFGM.ITEMS["efgm_barter_eagle"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/eagle.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Green,
 
@@ -1084,6 +1144,7 @@ EFGM.ITEMS["efgm_barter_hawk"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/hawk.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Brown,
 
@@ -1102,6 +1163,7 @@ EFGM.ITEMS["efgm_barter_kite"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/kite.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1120,6 +1182,7 @@ EFGM.ITEMS["efgm_barter_handdrill"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/handdrill.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1138,6 +1201,7 @@ EFGM.ITEMS["efgm_barter_hmatches"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/hmatches.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1156,6 +1220,7 @@ EFGM.ITEMS["efgm_barter_inseq"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/inseq.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1174,6 +1239,7 @@ EFGM.ITEMS["efgm_barter_tape"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tape.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1192,6 +1258,7 @@ EFGM.ITEMS["efgm_barter_kek"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/kek.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1210,6 +1277,7 @@ EFGM.ITEMS["efgm_barter_kosa"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/kosa.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1228,6 +1296,7 @@ EFGM.ITEMS["efgm_barter_multitool"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/multitool.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Brown,
 
@@ -1246,6 +1315,7 @@ EFGM.ITEMS["efgm_barter_bulb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bulb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1264,6 +1334,7 @@ EFGM.ITEMS["efgm_barter_bulb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bulb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1282,6 +1353,7 @@ EFGM.ITEMS["efgm_barter_magnet"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/magnet.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1300,6 +1372,7 @@ EFGM.ITEMS["efgm_barter_malboro"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/malboro.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1318,6 +1391,7 @@ EFGM.ITEMS["efgm_barter_bloodset"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bloodset.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1336,6 +1410,7 @@ EFGM.ITEMS["efgm_barter_medtools"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/medtools.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1354,6 +1429,7 @@ EFGM.ITEMS["efgm_barter_mscissors"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mscissors.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1372,6 +1448,7 @@ EFGM.ITEMS["efgm_barter_metalfuel"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/metalfuel.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1390,6 +1467,7 @@ EFGM.ITEMS["efgm_barter_mparts"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mparts.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1408,6 +1486,7 @@ EFGM.ITEMS["efgm_barter_mb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1426,6 +1505,7 @@ EFGM.ITEMS["efgm_barter_sgc10"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/sgc10.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1444,6 +1524,7 @@ EFGM.ITEMS["efgm_barter_mcable"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mcable.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1462,6 +1543,7 @@ EFGM.ITEMS["efgm_barter_mcb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mcb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1480,6 +1562,7 @@ EFGM.ITEMS["efgm_barter_mtube"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mtube.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1498,6 +1581,7 @@ EFGM.ITEMS["efgm_barter_mfd"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mfd.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1516,6 +1600,7 @@ EFGM.ITEMS["efgm_barter_mgt"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/mgt.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1534,6 +1619,7 @@ EFGM.ITEMS["efgm_barter_pfilter"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/pfilter.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1552,6 +1638,7 @@ EFGM.ITEMS["efgm_barter_nixxor"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/nixxor.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1570,6 +1657,7 @@ EFGM.ITEMS["efgm_barter_nippers"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/nippers.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1588,6 +1676,7 @@ EFGM.ITEMS["efgm_barter_ofz"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ofz.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1606,6 +1695,7 @@ EFGM.ITEMS["efgm_barter_oscope"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/oscope.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1624,6 +1714,7 @@ EFGM.ITEMS["efgm_barter_toothpaste"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/toothpaste.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1641,6 +1732,7 @@ EFGM.ITEMS["efgm_barter_bleach"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/bleach.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1658,6 +1750,7 @@ EFGM.ITEMS["efgm_barter_paid"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/paid.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1675,6 +1768,7 @@ EFGM.ITEMS["efgm_barter_cpu"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/cpu.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1693,6 +1787,7 @@ EFGM.ITEMS["efgm_barter_buckwheat"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/buckwheat.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1710,6 +1805,7 @@ EFGM.ITEMS["efgm_barter_chlorine"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/chlorine.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1727,6 +1823,7 @@ EFGM.ITEMS["efgm_barter_nails"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/nails.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1745,6 +1842,7 @@ EFGM.ITEMS["efgm_barter_screws"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/screws.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1763,6 +1861,7 @@ EFGM.ITEMS["efgm_barter_sodium"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/sodium.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1781,6 +1880,7 @@ EFGM.ITEMS["efgm_barter_paracord"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/paracord.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1799,6 +1899,7 @@ EFGM.ITEMS["efgm_barter_relay"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/relay.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1817,6 +1918,7 @@ EFGM.ITEMS["efgm_barter_aesa"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/aesa.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1835,6 +1937,7 @@ EFGM.ITEMS["efgm_barter_plexiglass"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/plexiglass.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1853,6 +1956,7 @@ EFGM.ITEMS["efgm_barter_meds"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/meds.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1871,6 +1975,7 @@ EFGM.ITEMS["efgm_barter_pgw"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/pgw.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -1889,6 +1994,7 @@ EFGM.ITEMS["efgm_barter_pliers"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/pliers.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1907,6 +2013,7 @@ EFGM.ITEMS["efgm_barter_elite"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/elite.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1925,6 +2032,7 @@ EFGM.ITEMS["efgm_barter_powerbank"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/powerbank.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1943,6 +2051,7 @@ EFGM.ITEMS["efgm_barter_defib"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/defib.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1961,6 +2070,7 @@ EFGM.ITEMS["efgm_barter_cord"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/cord.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1979,6 +2089,7 @@ EFGM.ITEMS["efgm_barter_psu"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/psu.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -1997,6 +2108,7 @@ EFGM.ITEMS["efgm_barter_pass"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/pass.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2015,6 +2127,7 @@ EFGM.ITEMS["efgm_barter_pgauge"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/pgauge.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2033,6 +2146,7 @@ EFGM.ITEMS["efgm_barter_pcb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/pcb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2051,6 +2165,7 @@ EFGM.ITEMS["efgm_barter_paper"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/paper.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2068,6 +2183,7 @@ EFGM.ITEMS["efgm_barter_propane"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/propane.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2086,6 +2202,7 @@ EFGM.ITEMS["efgm_barter_ram"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ram.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2104,6 +2221,7 @@ EFGM.ITEMS["efgm_barter_radarparts"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/radarparts.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2122,6 +2240,7 @@ EFGM.ITEMS["efgm_barter_helix"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/helix.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2140,6 +2259,7 @@ EFGM.ITEMS["efgm_barter_ratchet"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ratchet.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2158,6 +2278,7 @@ EFGM.ITEMS["efgm_barter_rbatt"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/rbatt.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2176,6 +2297,7 @@ EFGM.ITEMS["efgm_barter_repellent"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/repellent.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2193,6 +2315,7 @@ EFGM.ITEMS["efgm_barter_ripstop"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ripstop.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2211,6 +2334,7 @@ EFGM.ITEMS["efgm_barter_rpliers"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/rpliers.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2229,6 +2353,7 @@ EFGM.ITEMS["efgm_barter_sas"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/sas.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2247,6 +2372,7 @@ EFGM.ITEMS["efgm_barter_ssd"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/ssd.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2265,6 +2391,7 @@ EFGM.ITEMS["efgm_barter_shampoo"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/shampoo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2282,6 +2409,7 @@ EFGM.ITEMS["efgm_barter_nuts"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/nuts.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2300,6 +2428,7 @@ EFGM.ITEMS["efgm_barter_screwdriver"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/screwdriver.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2318,6 +2447,7 @@ EFGM.ITEMS["efgm_barter_flashdrive"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/flashdrive.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2336,6 +2466,7 @@ EFGM.ITEMS["efgm_barter_smt"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/smt.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2354,6 +2485,7 @@ EFGM.ITEMS["efgm_barter_master"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/master.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2372,6 +2504,7 @@ EFGM.ITEMS["efgm_barter_sewingkit"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/sewingkit.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2390,6 +2523,7 @@ EFGM.ITEMS["efgm_barter_shus"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/shus.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2408,6 +2542,7 @@ EFGM.ITEMS["efgm_barter_shyshka"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/shyshka.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2426,6 +2561,7 @@ EFGM.ITEMS["efgm_barter_tube"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tube.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2444,6 +2580,7 @@ EFGM.ITEMS["efgm_barter_slimdiary"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/slimdiary.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2462,6 +2599,7 @@ EFGM.ITEMS["efgm_barter_dcleaner"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/dcleaner.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2479,6 +2617,7 @@ EFGM.ITEMS["efgm_barter_soap"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/soap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2496,6 +2635,7 @@ EFGM.ITEMS["efgm_barter_splug"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/splug.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2514,6 +2654,7 @@ EFGM.ITEMS["efgm_barter_strike"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/strike.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2532,6 +2673,7 @@ EFGM.ITEMS["efgm_barter_survl"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/survl.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2550,6 +2692,7 @@ EFGM.ITEMS["efgm_barter_tplug"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tplug.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2568,6 +2711,7 @@ EFGM.ITEMS["efgm_barter_tp200"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tp200.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2586,6 +2730,7 @@ EFGM.ITEMS["efgm_barter_tp200"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tp200.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2604,6 +2749,7 @@ EFGM.ITEMS["efgm_barter_manual"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/manual.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2622,6 +2768,7 @@ EFGM.ITEMS["efgm_barter_folders"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/folders.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2640,6 +2787,7 @@ EFGM.ITEMS["efgm_barter_tp"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2657,6 +2805,7 @@ EFGM.ITEMS["efgm_barter_toolset"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/toolset.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2675,6 +2824,7 @@ EFGM.ITEMS["efgm_barter_poxeram"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/poxeram.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2693,6 +2843,7 @@ EFGM.ITEMS["efgm_barter_rfidr"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/rfidr.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2711,6 +2862,7 @@ EFGM.ITEMS["efgm_barter_usb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/usb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2729,6 +2881,7 @@ EFGM.ITEMS["efgm_barter_usb"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/usb.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2747,6 +2900,7 @@ EFGM.ITEMS["efgm_barter_fuze"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/fuze.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2765,6 +2919,7 @@ EFGM.ITEMS["efgm_barter_uvlamp"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/uvlamp.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2783,6 +2938,7 @@ EFGM.ITEMS["efgm_barter_vpx"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/vpx.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2801,6 +2957,7 @@ EFGM.ITEMS["efgm_barter_wd40100"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/wd40100.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2819,6 +2976,7 @@ EFGM.ITEMS["efgm_barter_wd40400"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/wd40400.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2837,6 +2995,7 @@ EFGM.ITEMS["efgm_barter_waterfilter"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/waterfilter.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2855,6 +3014,7 @@ EFGM.ITEMS["efgm_barter_weaponparts"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/weaponparts.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2873,6 +3033,7 @@ EFGM.ITEMS["efgm_barter_wilston"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/wilston.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2891,6 +3052,7 @@ EFGM.ITEMS["efgm_barter_lcd"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/lcd.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2909,6 +3071,7 @@ EFGM.ITEMS["efgm_barter_wrench"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/wrench.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2927,6 +3090,7 @@ EFGM.ITEMS["efgm_barter_xeno"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/xeno.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2945,6 +3109,7 @@ EFGM.ITEMS["efgm_barter_zibbo"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/zibbo.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -2963,6 +3128,7 @@ EFGM.ITEMS["efgm_barter_tankbattery"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tankbattery.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -2981,6 +3147,7 @@ EFGM.ITEMS["efgm_barter_tea"] = {
 	["equipType"] = EQUIPTYPE.Barter,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/barter/tea.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 

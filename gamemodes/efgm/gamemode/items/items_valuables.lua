@@ -7,6 +7,7 @@ EFGM.ITEMS["efgm_barter_teapot"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/teapot.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -25,6 +26,7 @@ EFGM.ITEMS["efgm_barter_vase"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/vase.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -43,6 +45,7 @@ EFGM.ITEMS["efgm_barter_axel"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/axel.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -61,6 +64,7 @@ EFGM.ITEMS["efgm_barter_bearfigurine"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/bearfigurine.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -79,6 +83,7 @@ EFGM.ITEMS["efgm_barter_bearbuddy"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/bearbuddy.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -97,6 +102,7 @@ EFGM.ITEMS["efgm_barter_btrfigurine"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/btrfigurine.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -115,6 +121,7 @@ EFGM.ITEMS["efgm_barter_book"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/book.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -133,6 +140,7 @@ EFGM.ITEMS["efgm_barter_lion"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/lion.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -151,6 +159,7 @@ EFGM.ITEMS["efgm_barter_cat"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/cat.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -169,6 +178,7 @@ EFGM.ITEMS["efgm_barter_prokill"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/prokill.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -187,6 +197,7 @@ EFGM.ITEMS["efgm_barter_chainlet"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/chainlet.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -205,6 +216,7 @@ EFGM.ITEMS["efgm_barter_ornament"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/ornament.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -223,6 +235,7 @@ EFGM.ITEMS["efgm_barter_cultistfigurine"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/cultistfigurine.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -241,6 +254,7 @@ EFGM.ITEMS["efgm_barter_dedmorozfigurine"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/dedmorozfigurine.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -259,6 +273,7 @@ EFGM.ITEMS["efgm_barter_greenbat"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/greenbat.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -277,6 +292,7 @@ EFGM.ITEMS["efgm_barter_skull"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/skull.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -295,6 +311,7 @@ EFGM.ITEMS["efgm_barter_1gphone"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/1gphone.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -313,6 +330,7 @@ EFGM.ITEMS["efgm_barter_egg"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/egg.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -331,6 +349,7 @@ EFGM.ITEMS["efgm_barter_goldchain"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/goldchain.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -349,6 +368,7 @@ EFGM.ITEMS["efgm_barter_rooster"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/rooster.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -367,6 +387,7 @@ EFGM.ITEMS["efgm_barter_hideoutcatfigurine"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/hideoutcatfigurine.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -385,6 +406,7 @@ EFGM.ITEMS["efgm_barter_horse"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/horse.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -403,6 +425,7 @@ EFGM.ITEMS["efgm_barter_intelligence"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/intelligence.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -421,6 +444,7 @@ EFGM.ITEMS["efgm_barter_iridium"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/iridium.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -439,6 +463,7 @@ EFGM.ITEMS["efgm_barter_pickles"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/pickles.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -457,6 +482,7 @@ EFGM.ITEMS["efgm_barter_ledx"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/ledx.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -475,6 +501,7 @@ EFGM.ITEMS["efgm_barter_lootlord"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/lootlord.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -493,6 +520,7 @@ EFGM.ITEMS["efgm_barter_mazoni"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/mazoni.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -511,6 +539,7 @@ EFGM.ITEMS["efgm_barter_firesteel"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/firesteel.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -529,6 +558,7 @@ EFGM.ITEMS["efgm_barter_salad"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/salad.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -547,6 +577,7 @@ EFGM.ITEMS["efgm_barter_btc"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/btc.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -565,6 +596,7 @@ EFGM.ITEMS["efgm_barter_ram"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/ram.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -583,6 +615,7 @@ EFGM.ITEMS["efgm_barter_raven"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/raven.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -601,6 +634,7 @@ EFGM.ITEMS["efgm_barter_roler"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/roler.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -619,6 +653,7 @@ EFGM.ITEMS["efgm_barter_badge"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/badge.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -637,6 +672,7 @@ EFGM.ITEMS["efgm_barter_tamatthi"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/tamatthi.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -655,6 +691,7 @@ EFGM.ITEMS["efgm_barter_folders"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/folders.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -673,6 +710,7 @@ EFGM.ITEMS["efgm_barter_tetriz"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/tetriz.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -691,6 +729,7 @@ EFGM.ITEMS["efgm_barter_maps"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/maps.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -709,6 +748,7 @@ EFGM.ITEMS["efgm_barter_usecfigurine"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/usecfigurine.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -727,6 +767,7 @@ EFGM.ITEMS["efgm_barter_veritas"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/veritas.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -745,6 +786,7 @@ EFGM.ITEMS["efgm_barter_viibiin"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/viibiin.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Purple,
 
@@ -763,6 +805,7 @@ EFGM.ITEMS["efgm_barter_virtex"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/virtex.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
@@ -781,6 +824,7 @@ EFGM.ITEMS["efgm_barter_clock"] = {
 	["equipType"] = EQUIPTYPE.Valuable,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("items/valuables/clock.png", "smooth"),
 	["iconColor"] = ICONCOLORS.Blue,
 
