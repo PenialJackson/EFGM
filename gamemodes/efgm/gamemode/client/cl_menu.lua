@@ -211,22 +211,26 @@ local sorts = {
 		icon = MATS.sortAlphaIcon
 	},
 	[3] = {
+		name = "Sort By Amount",
+		icon = MATS.sortAmountIcon
+	},
+	[4] = {
 		name = "Sort By Value",
 		icon = MATS.sortValueIcon
 	},
-	[4] = {
+	[5] = {
 		name = "Sort By Level",
 		icon = MATS.sortLevelIcon
 	},
-	[5] = {
+	[6] = {
 		name = "Sort By Date Acquired",
 		icon = MATS.sortTimeIcon
 	},
-	[6] = {
+	[7] = {
 		name = "Sort By Attachment Count",
 		icon = MATS.sortAttachIcon
 	},
-	[7] = {
+	[8] = {
 		name = "Sort By Name Tag",
 		icon = MATS.sortTagIcon
 	}
@@ -6833,6 +6837,16 @@ function EFGM.MENU.OpenTab.Inventory(container)
 					end
 				end
 			elseif EFGM.MENU.StashSort == 3 then
+				local a_count = a.data.count or 1
+				local b_count = b.data.count or 1
+				if a_count != b_count then
+					if order then
+						return a_count < b_count
+					else
+						return a_count > b_count
+					end
+				end
+			elseif EFGM.MENU.StashSort == 4 then
 				local a_value = a.value or 0
 				local b_value = b.value or 0
 				if a_value != b_value then
@@ -6842,7 +6856,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						return a_value > b_value
 					end
 				end
-			elseif EFGM.MENU.StashSort == 4 then
+			elseif EFGM.MENU.StashSort == 5 then
 				local a_lvl = a_def.levelReq or 1
 				local b_lvl = b_def.levelReq or 1
 				if a_lvl != b_lvl then
@@ -6852,7 +6866,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						return a_lvl > b_lvl
 					end
 				end
-			elseif EFGM.MENU.StashSort == 5 then
+			elseif EFGM.MENU.StashSort == 6 then
 				local a_time = a.data.timestamp or 0
 				local b_time = b.data.timestamp or 0
 				if a_time > 0 and b_time > 0 and a_time != b_time then
@@ -6862,7 +6876,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						return a_time > b_time
 					end
 				end
-			elseif EFGM.MENU.StashSort == 6 then
+			elseif EFGM.MENU.StashSort == 7 then
 				local a_atts = a.atts or 0
 				local b_atts = b.atts or 0
 				if a_atts > 0 and b_atts > 0 and a_atts != b_atts then
@@ -6872,7 +6886,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 						return a_atts > b_atts
 					end
 				end
-			elseif EFGM.MENU.StashSort == 7 then
+			elseif EFGM.MENU.StashSort == 8 then
 				local a_tag = a.data.tag
 				local b_tag = b.data.tag
 				if a_tag != b_tag then
@@ -7765,6 +7779,16 @@ function EFGM.MENU.OpenTab.Market()
 					end
 				end
 			elseif EFGM.MENU.MarketStashSort == 3 then
+				local a_count = a.data.count or 1
+				local b_count = b.data.count or 1
+				if a_count != b_count then
+					if order then
+						return a_count < b_count
+					else
+						return a_count > b_count
+					end
+				end
+			elseif EFGM.MENU.MarketStashSort == 4 then
 				local a_value = a.value or 0
 				local b_value = b.value or 0
 				if a_value != b_value then
@@ -7774,7 +7798,7 @@ function EFGM.MENU.OpenTab.Market()
 						return a_value > b_value
 					end
 				end
-			elseif EFGM.MENU.MarketStashSort == 4 then
+			elseif EFGM.MENU.MarketStashSort == 5 then
 				local a_lvl = a_def.levelReq or 1
 				local b_lvl = b_def.levelReq or 1
 				if a_lvl != b_lvl then
@@ -7784,7 +7808,7 @@ function EFGM.MENU.OpenTab.Market()
 						return a_lvl > b_lvl
 					end
 				end
-			elseif EFGM.MENU.MarketStashSort == 5 then
+			elseif EFGM.MENU.MarketStashSort == 6 then
 				local a_time = a.data.timestamp or 0
 				local b_time = b.data.timestamp or 0
 				if a_time > 0 and b_time > 0 and a_time != b_time then
@@ -7794,7 +7818,7 @@ function EFGM.MENU.OpenTab.Market()
 						return a_time > b_time
 					end
 				end
-			elseif EFGM.MENU.MarketStashSort == 6 then
+			elseif EFGM.MENU.MarketStashSort == 7 then
 				local a_atts = a.atts or 0
 				local b_atts = b.atts or 0
 				if a_atts > 0 and b_atts > 0 and a_atts != b_atts then
@@ -7804,7 +7828,7 @@ function EFGM.MENU.OpenTab.Market()
 						return a_atts > b_atts
 					end
 				end
-			elseif EFGM.MENU.MarketStashSort == 7 then
+			elseif EFGM.MENU.MarketStashSort == 8 then
 				local a_tag = a.data.tag
 				local b_tag = b.data.tag
 				if a_tag != b_tag then

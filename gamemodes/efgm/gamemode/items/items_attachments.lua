@@ -52,6 +52,7 @@ EFGM.ITEMS["arc9_att_eft_1911_hammer_hex"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "stihexhammer.png"),
 
 	["sizeX"] = 1,
@@ -72,6 +73,7 @@ EFGM.ITEMS["arc9_att_eft_1911_hammer_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m45a1_hammer.png"),
 
 	["sizeX"] = 1,
@@ -92,6 +94,7 @@ EFGM.ITEMS["arc9_att_eft_1911_hammer_m45_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m45a1_hammer_blk.png"),
 
 	["sizeX"] = 1,
@@ -112,6 +115,7 @@ EFGM.ITEMS["arc9_att_eft_1911_hammer_retro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "wilsonretrohammer.png"),
 
 	["sizeX"] = 1,
@@ -132,6 +136,7 @@ EFGM.ITEMS["arc9_att_eft_1911_hammer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m1911_hammer.png"),
 
 	["sizeX"] = 1,
@@ -152,6 +157,7 @@ EFGM.ITEMS["arc9_att_eft_1911_hammer_ultra"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "wilsonlighthammer.png"),
 
 	["sizeX"] = 1,
@@ -172,6 +178,7 @@ EFGM.ITEMS["arc9_att_eft_1911_pgrip_gene"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "m1911_geneburn.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -192,6 +199,7 @@ EFGM.ITEMS["arc9_att_eft_1911_pgrip_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "m45a1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -212,6 +220,7 @@ EFGM.ITEMS["arc9_att_eft_1911_pgrip_m45_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "m45a1_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -232,6 +241,7 @@ EFGM.ITEMS["arc9_att_eft_1911_pgrip_pach"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "legend423.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -252,6 +262,7 @@ EFGM.ITEMS["arc9_att_eft_1911_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "m1911.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -272,6 +283,7 @@ EFGM.ITEMS["arc9_att_eft_1911_slock_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m45a1_stop.png"),
 
 	["sizeX"] = 1,
@@ -292,6 +304,7 @@ EFGM.ITEMS["arc9_att_eft_1911_slock_m45_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m45a1_stop_blk.png"),
 
 	["sizeX"] = 1,
@@ -312,6 +325,7 @@ EFGM.ITEMS["arc9_att_eft_1911_slock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m1911_stop.png"),
 
 	["sizeX"] = 1,
@@ -332,6 +346,7 @@ EFGM.ITEMS["arc9_att_eft_1911_slock_wils"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "wilsonstop.png"),
 
 	["sizeX"] = 1,
@@ -352,6 +367,7 @@ EFGM.ITEMS["arc9_att_eft_1911_trigger_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m45a1_trigger.png"),
 
 	["sizeX"] = 1,
@@ -372,6 +388,7 @@ EFGM.ITEMS["arc9_att_eft_1911_trigger_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m1911_trigger.png"),
 
 	["sizeX"] = 1,
@@ -392,6 +409,7 @@ EFGM.ITEMS["arc9_att_eft_1911_trigger_trik"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "caspiantrigger.png"),
 
 	["sizeX"] = 1,
@@ -412,6 +430,7 @@ EFGM.ITEMS["arc9_att_eft_57_barrel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "fiveseven.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -432,6 +451,7 @@ EFGM.ITEMS["arc9_att_eft_57_barrel_threaded"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "fiveseven_threaded.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -452,6 +472,7 @@ EFGM.ITEMS["arc9_att_eft_57_fs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "fiveseven_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -472,6 +493,7 @@ EFGM.ITEMS["arc9_att_eft_57_mag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "fiveseven.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -492,6 +514,7 @@ EFGM.ITEMS["arc9_att_eft_57_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "fiveseven.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -512,6 +535,7 @@ EFGM.ITEMS["arc9_att_eft_57_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "fiveseven_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -532,6 +556,7 @@ EFGM.ITEMS["arc9_att_eft_57_rs_rmr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rs_rmr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -552,6 +577,7 @@ EFGM.ITEMS["arc9_att_eft_57_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "57silencer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -572,6 +598,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_barrel_330"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "aa12_330.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -592,6 +619,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_barrel_342"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "aa12_342.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -612,6 +640,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_barrel_417"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "aa12_417.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -632,6 +661,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_barrel_457"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "aa12_457.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -652,6 +682,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_chok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "aa12_choke.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -672,6 +703,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_gen2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "aa12_gen2.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -692,6 +724,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aa12_20.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -712,6 +745,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_mag_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aa12_8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -732,6 +766,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_mount_utg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "leapers_sg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -752,6 +787,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_stock_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "aa12_fde.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -772,6 +808,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_stock_labs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "aa12_labs.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -792,6 +829,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "aa12.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -812,6 +850,7 @@ EFGM.ITEMS["arc9_att_eft_aa12_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "aa12_thread.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -832,6 +871,7 @@ EFGM.ITEMS["arc9_att_eft_aek_grip_ergo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_pistolgrip_ergonomic.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -852,6 +892,7 @@ EFGM.ITEMS["arc9_att_eft_aek_grip_grooved"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_pistolgrip_grooved.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -872,6 +913,7 @@ EFGM.ITEMS["arc9_att_eft_aek_grip_plum"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_pistolgrip_plum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -892,6 +934,7 @@ EFGM.ITEMS["arc9_att_eft_aek_grip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_pistolgrip_std.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -912,6 +955,7 @@ EFGM.ITEMS["arc9_att_eft_aek_hg_boss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_frontassembly_boss.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -932,6 +976,7 @@ EFGM.ITEMS["arc9_att_eft_aek_hg_experimental"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_frontassembly_bakelite.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -952,6 +997,7 @@ EFGM.ITEMS["arc9_att_eft_aek_hg_plum"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_frontassembly_plum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -972,6 +1018,7 @@ EFGM.ITEMS["arc9_att_eft_aek_hg_prototype"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_frontassembly_proto.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -992,6 +1039,7 @@ EFGM.ITEMS["arc9_att_eft_aek_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_frontassembly_std.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1012,6 +1060,7 @@ EFGM.ITEMS["arc9_att_eft_aek_hg_tactical"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_frontassembly_tactical.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1032,6 +1081,7 @@ EFGM.ITEMS["arc9_att_eft_aek_lightmount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_lightmount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1052,6 +1102,7 @@ EFGM.ITEMS["arc9_att_eft_aek_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_muzzle_std.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1072,6 +1123,7 @@ EFGM.ITEMS["arc9_att_eft_aek_rearsight_cqb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_rear_sight_cqb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1092,6 +1144,7 @@ EFGM.ITEMS["arc9_att_eft_aek_stock_marksman"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_stock_marksman.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1112,6 +1165,7 @@ EFGM.ITEMS["arc9_att_eft_aek_stock_pkm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_stock_pkm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1132,6 +1186,7 @@ EFGM.ITEMS["arc9_att_eft_aek_stock_proto"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_stock_proto.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1152,6 +1207,7 @@ EFGM.ITEMS["arc9_att_eft_aek_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/aek/aek_stock_std.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1172,6 +1228,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "ak12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1192,6 +1249,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ak12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1212,6 +1270,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ak12_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1232,6 +1291,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ak12.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1252,6 +1312,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ak12_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1272,6 +1333,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_rs_base"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "ak12_sight.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1292,6 +1354,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_silencer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ak12silencer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1312,6 +1375,7 @@ EFGM.ITEMS["arc9_att_eft_ak12_stock_tube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ak12buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1332,6 +1396,7 @@ EFGM.ITEMS["arc9_att_eft_ak50_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ak50.png"),
 
 	["sizeX"] = 4,
@@ -1352,6 +1417,7 @@ EFGM.ITEMS["arc9_att_eft_ak50_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "ak50.png"),
 
 	["sizeX"] = 1,
@@ -1372,6 +1438,7 @@ EFGM.ITEMS["arc9_att_eft_ak50_mz_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ak50.png"),
 
 	["sizeX"] = 1,
@@ -1392,6 +1459,7 @@ EFGM.ITEMS["arc9_att_eft_ak50_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ak50.png"),
 
 	["sizeX"] = 3,
@@ -1412,6 +1480,7 @@ EFGM.ITEMS["arc9_att_eft_akn"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "nmount.png"),
 
 	["sizeX"] = 1,
@@ -1432,6 +1501,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_gas_ak"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "aks74u.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1452,6 +1522,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_hg_ak_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "aks74uwooden.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1472,6 +1543,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_mount_b18"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "aks74u_b18.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1492,6 +1564,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_muzzle_ak_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "aks74u_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1512,6 +1585,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_rec_ak_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "aks74ub.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1532,6 +1606,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_rec_ak_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "aks74u.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1552,6 +1627,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_rec_piligrim"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "pili.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1572,6 +1648,7 @@ EFGM.ITEMS["arc9_att_eft_aksu_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "aks74u_std.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1592,6 +1669,7 @@ EFGM.ITEMS["arc9_att_eft_an94_handguard_kirov"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/an94/an94_receiver_camo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1612,6 +1690,7 @@ EFGM.ITEMS["arc9_att_eft_an94_stock_buffertube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/an94/an94_stock_buffertube.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1632,6 +1711,7 @@ EFGM.ITEMS["arc9_att_eft_an94_stock_kirov"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/an94/an94_stock_skeleton.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1652,6 +1732,7 @@ EFGM.ITEMS["arc9_att_eft_an94_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/an94/an94_stock_std.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1672,6 +1753,7 @@ EFGM.ITEMS["arc9_att_eft_apb_silencer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "apb.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1692,6 +1774,7 @@ EFGM.ITEMS["arc9_att_eft_aps_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "aps_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1712,6 +1795,7 @@ EFGM.ITEMS["arc9_att_eft_aps_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aps_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1732,6 +1816,7 @@ EFGM.ITEMS["arc9_att_eft_aps_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "aps_bak.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1752,6 +1837,7 @@ EFGM.ITEMS["arc9_att_eft_aps_rs_apb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "apb_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1772,6 +1858,7 @@ EFGM.ITEMS["arc9_att_eft_aps_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "aps_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1792,6 +1879,7 @@ EFGM.ITEMS["arc9_att_eft_aps_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "apb_wire.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1812,6 +1900,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_charge_ambi"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "ar10.png"),
 
 	["sizeX"] = 1,
@@ -1832,6 +1921,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_charge_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "ar10_kac.png"),
 
 	["sizeX"] = 1,
@@ -1852,6 +1942,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_gas_cmmg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "cmmg.png"),
 
 	["sizeX"] = 1,
@@ -1872,6 +1963,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_gas_jp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "gs_6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1892,6 +1984,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_gas_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "kac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -1912,6 +2005,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_lch7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "lch7.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -1932,6 +2026,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_rml15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "mk3_15.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -1952,6 +2047,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_rml9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "mk3_9.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1972,6 +2068,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_rsass"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "rsass_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -1992,6 +2089,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_rsass_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "rsass_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2012,6 +2110,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_sws105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "sws105.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2032,6 +2131,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_swssplit"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "sws6.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2052,6 +2152,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_hg_urx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "urx4.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -2072,6 +2173,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_drum50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "x25_50.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2092,6 +2194,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_kac10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "kac10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2112,6 +2215,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_kac20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "kac20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2132,6 +2236,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "l7_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2152,6 +2257,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_20_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "l7_20_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2172,6 +2278,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_25"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "l7_25.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2192,6 +2299,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_l7_25_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "l7_25_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2212,6 +2320,7 @@ EFGM.ITEMS["arc9_att_eft_ar10_mag_pmag20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pmag_sr_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2232,6 +2341,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "colta2.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2252,6 +2362,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_adar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "adar_buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2272,6 +2383,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_arfx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "arfx.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2292,6 +2404,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_baskak"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "baskak.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2312,6 +2425,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_cgnl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "cgnl_buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2332,6 +2446,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_cgnl_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "cgnl_buffer_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2352,6 +2467,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_cmmg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "cmmg_buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2372,6 +2488,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_f93pro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "f93.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2392,6 +2509,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_hkenh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "hke_buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2412,6 +2530,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_m7a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m7a1_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2432,6 +2551,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_m7a1f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m7a1_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2452,6 +2572,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_rtm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "atp_buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2472,6 +2593,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_siadv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "strike_buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2492,6 +2614,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_siadvred"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "strike_buffer_red.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2512,6 +2635,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_socom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "acesocom.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2532,6 +2656,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "coltcarbine.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2552,6 +2677,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_ubrgen2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ubr_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2572,6 +2698,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_ubrgen2f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ubr_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2592,6 +2719,7 @@ EFGM.ITEMS["arc9_att_eft_ar_buffertube_viperpdw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "viper.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -2612,6 +2740,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "colta1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2632,6 +2761,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_colta2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "colta2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2652,6 +2782,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_diecsfde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "diecs_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2672,6 +2803,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_dlg123"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "dlg123.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2692,6 +2824,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_dlg138"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "dlg138.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2712,6 +2845,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_dlg138_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "dlg138_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2732,6 +2866,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2752,6 +2887,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2772,6 +2908,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2pc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2792,6 +2929,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2pc_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2812,6 +2950,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_camo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2pc_wht.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2832,6 +2971,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_red"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2pc_red.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2852,6 +2992,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_wht"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2pc_wht.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2872,6 +3013,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_grals"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "gral5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2892,6 +3034,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hexgrip"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hexgrip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2912,6 +3055,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hg15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hexgrip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2932,6 +3076,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkbg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hkbg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2952,6 +3097,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkbgbeav"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "beaver.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2972,6 +3118,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkbgbeavral"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "beaverral.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -2992,6 +3139,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkv2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hkv2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3012,6 +3160,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hkv2_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hkv2_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3032,6 +3181,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hog"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hog_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3052,6 +3202,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hogfde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hog_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3072,6 +3223,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hogge"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hog_ge.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3092,6 +3244,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hoggg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hog_gg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3112,6 +3265,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_hogod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "hog_od.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3132,6 +3286,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_mcx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "mcx.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3152,6 +3307,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_miad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "miad_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3172,6 +3328,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_miad_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "miad_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3192,6 +3349,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "moe_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3212,6 +3370,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_moefde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "moe_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3232,6 +3391,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_orion"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "orion.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3252,6 +3412,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_psg1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "psg1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3272,6 +3433,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_sig"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "sig.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3292,6 +3454,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_sig_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "sig_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3312,6 +3475,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_spr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "spspr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3332,6 +3496,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_stark"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "stark_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3352,6 +3517,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_starkfde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "stark_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3372,6 +3538,7 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_tdskelet"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "tdskele.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -3392,6 +3559,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m16_type7.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3412,6 +3580,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "colta2_stock.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3432,6 +3601,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_adar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "adar_wood.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3452,6 +3622,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ak12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ak12.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3472,6 +3643,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_b5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "systemsb5.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3492,6 +3664,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_buttpad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "moe_buttpad.png"),
 
 	["sizeX"] = 1,
@@ -3512,6 +3685,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ctr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ctr_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3532,6 +3706,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ctrf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ctr_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3552,6 +3727,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ddecb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ddecb_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3572,6 +3748,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ddecb_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ddecb_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3592,6 +3769,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ds150"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ds150_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3612,6 +3790,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ds150f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ds150_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3632,6 +3811,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_e1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "hke1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3652,6 +3832,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_emod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "emod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3672,6 +3853,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_glcore"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "fabdefense.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3692,6 +3874,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_glr16s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "glr16s.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3712,6 +3895,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_glshock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "glshock.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3732,6 +3916,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_heracqr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "heracqr.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3752,6 +3937,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_m4ss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m4ss.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3772,6 +3958,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_acs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "acs.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3792,6 +3979,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_acs_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "acs_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3812,6 +4000,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_slk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "slk_ct.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3832,6 +4021,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpul_slk_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "slk_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3852,6 +4042,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "mpmoe_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3872,6 +4063,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "mpmoe_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3892,6 +4084,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_fg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "mpmoe_fg.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3912,6 +4105,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_od"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "mpmoe_od.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3932,6 +4126,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_magpulmoe_sg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "mpmoe_sg.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3952,6 +4147,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_mftbus"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "mftbus.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3972,6 +4168,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_n1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "coltn1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -3992,6 +4189,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_n1_buttpad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "johnmasen.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4012,6 +4210,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen2f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "prsgen2_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4032,6 +4231,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen2f_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "prsgen2_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4052,6 +4252,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "gen3_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4072,6 +4273,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_prsgen3g"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "gen3_g.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4092,6 +4294,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_ripstop"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ripstop.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4112,6 +4315,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_sba3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "sba3.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4132,6 +4336,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_slim"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "slim.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4152,6 +4357,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_sopmod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "sopmod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4172,6 +4378,7 @@ EFGM.ITEMS["arc9_att_eft_ar_stock_vipermod1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "vmod1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4192,6 +4399,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ash12_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4212,6 +4420,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ash12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4232,6 +4441,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "ash12_10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4252,6 +4462,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "ash12_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4272,6 +4483,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_muzzle_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ash12_silencer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4292,6 +4504,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ash12_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4312,6 +4525,7 @@ EFGM.ITEMS["arc9_att_eft_ash12_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ash12_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4332,6 +4546,7 @@ EFGM.ITEMS["arc9_att_eft_aug_barrel_16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "auga3_16.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -4352,6 +4567,7 @@ EFGM.ITEMS["arc9_att_eft_aug_barrel_16a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "auga1_16.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -4372,6 +4588,7 @@ EFGM.ITEMS["arc9_att_eft_aug_barrel_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "auga1_20.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -4392,6 +4609,7 @@ EFGM.ITEMS["arc9_att_eft_aug_ch_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "auga1.png"),
 
 	["sizeX"] = 1,
@@ -4412,6 +4630,7 @@ EFGM.ITEMS["arc9_att_eft_aug_ch_a3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "auga3.png"),
 
 	["sizeX"] = 1,
@@ -4432,6 +4651,7 @@ EFGM.ITEMS["arc9_att_eft_aug_grip"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "aug.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4452,6 +4672,7 @@ EFGM.ITEMS["arc9_att_eft_aug_grip_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "augcorvus.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4472,6 +4693,7 @@ EFGM.ITEMS["arc9_att_eft_aug_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aug10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4492,6 +4714,7 @@ EFGM.ITEMS["arc9_att_eft_aug_mag_10_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aug10_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4512,6 +4735,7 @@ EFGM.ITEMS["arc9_att_eft_aug_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aug30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4532,6 +4756,7 @@ EFGM.ITEMS["arc9_att_eft_aug_mag_30_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aug30_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4552,6 +4777,7 @@ EFGM.ITEMS["arc9_att_eft_aug_mag_42"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aug42.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4572,6 +4798,7 @@ EFGM.ITEMS["arc9_att_eft_aug_mag_42_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "aug42_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4592,6 +4819,7 @@ EFGM.ITEMS["arc9_att_eft_aug_scope_m1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "augm1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4612,6 +4840,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "auga3.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4632,6 +4861,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper_rail_high"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "a3m1_high.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4652,6 +4882,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper_rail_low"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "a3m1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4672,6 +4903,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper_rail_vltor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "a3cd.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4692,6 +4924,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper_stg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "auga1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4712,6 +4945,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper_vltor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "auga3_vltor.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4732,6 +4966,7 @@ EFGM.ITEMS["arc9_att_eft_aux_ekp_shade"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "kobrashade.png"),
 
 	["sizeX"] = 1,
@@ -4752,6 +4987,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_barrel338_28"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "axmc_28.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -4772,6 +5008,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_bolt338"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "axmc.png"),
 
 	["sizeX"] = 1,
@@ -4792,6 +5029,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_chassis"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "axmc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -4812,6 +5050,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_grip"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "axmc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4832,6 +5071,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_gripar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "gtac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4852,6 +5092,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_hg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "keyslot.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -4872,6 +5113,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_mag338"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "axmc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4892,6 +5134,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_pad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "axmc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4912,6 +5155,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_railbipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "axmc_bipod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4932,6 +5176,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_railmid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "axmc_rail_med.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4952,6 +5197,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_railmid_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "axmc_rail_med_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4972,6 +5218,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_railshort"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "axmc_rail_short.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -4992,6 +5239,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_railshort_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "axmc_rail_short_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5012,6 +5260,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "axmc_ax.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -5032,6 +5281,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_toprail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "axmc_top.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5052,6 +5302,7 @@ EFGM.ITEMS["arc9_att_eft_axmc_upper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "axmc_receiver.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -5072,6 +5323,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_1911_nat"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "m1911_nation.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5092,6 +5344,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_1911_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "m1911_127.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5112,6 +5365,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_1911_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "m1911_threaded.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5132,6 +5386,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_16i_mk12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_centurion_16.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5152,6 +5407,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_18i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_18.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5172,6 +5428,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_18i_mk12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_centurion_18.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5192,6 +5449,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_20i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_20.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5212,6 +5470,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_260mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_260.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -5232,6 +5491,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_292mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_292.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -5252,6 +5512,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_370mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_370.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5272,6 +5533,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_406mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar15_406.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5292,6 +5554,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_hanson_137"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "hanson_13.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5312,6 +5575,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_hanson_16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "hanson_16.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -5332,6 +5596,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ar15_m16_20i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "m16_20.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -5352,6 +5617,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_deagle_l5_357"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "deagle50_127.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5372,6 +5638,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_deagle_l6_50ae"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "deagle50_152.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5392,6 +5659,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_deagle_l6_wts"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "deaglewts_152.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5412,6 +5680,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_deagle_xix"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "deaglexix_152.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5432,6 +5701,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g17_aw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "glock_lw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5452,6 +5722,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g17_comp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "glock_comp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5472,6 +5743,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g17_dd_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "glock_dd_thread.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5492,6 +5764,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g17_sai"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "glock_sai.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5512,6 +5785,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g17_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "glock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5532,6 +5806,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g18c_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/barrel_18c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5552,6 +5827,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_g19x_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/g19xbarrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5572,6 +5848,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_hk416_106i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_556x45_106_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5592,6 +5869,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_hk416_11i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_556x45_11_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5612,6 +5890,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_hk416_145i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_556x45_145_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5632,6 +5911,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_hk416_165i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_556x45_165_inch_barrel_with_flipup_front_sight.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5652,6 +5932,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_hk416_20i"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_556x45_20_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5672,6 +5953,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m9a3_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5692,6 +5974,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_p226_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/112.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5712,6 +5995,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_p226_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5732,6 +6016,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_pkm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/658.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5752,6 +6037,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_pkp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/658p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5772,6 +6058,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_pl15_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pl15_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5792,6 +6079,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_pl15_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pl15_attachments/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5812,6 +6100,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ump_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5832,6 +6121,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_ump_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/bt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5852,6 +6142,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_usp_elite"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/bel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5872,6 +6163,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_usp_expert"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/bex.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5892,6 +6184,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_usp_match"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/bm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5912,6 +6205,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_usp_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/bstd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5932,6 +6226,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_usp_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/bt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5952,6 +6247,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_vector45_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/455.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5972,6 +6268,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_vector45_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/456.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -5992,6 +6289,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_vector9_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/95.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6012,6 +6310,7 @@ EFGM.ITEMS["arc9_att_eft_barrel_vector9_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/96.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6032,6 +6331,7 @@ EFGM.ITEMS["arc9_att_eft_barret_mag10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak50_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6052,6 +6352,7 @@ EFGM.ITEMS["arc9_att_eft_bipod_atlas_v8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "bt10.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -6072,6 +6373,7 @@ EFGM.ITEMS["arc9_att_eft_bipod_harris"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "sbrm.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -6092,6 +6394,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ak_css"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "css.png"),
 
 	["sizeX"] = 1,
@@ -6112,6 +6415,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ak_rp1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "rp1.png"),
 
 	["sizeX"] = 1,
@@ -6132,6 +6436,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_ach"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "ach.png"),
 
 	["sizeX"] = 1,
@@ -6152,6 +6457,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_ach_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "ach_blk.png"),
 
 	["sizeX"] = 1,
@@ -6172,6 +6478,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_adar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "adar.png"),
 
 	["sizeX"] = 1,
@@ -6192,6 +6499,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_badlever"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "badlever.png"),
 
 	["sizeX"] = 1,
@@ -6212,6 +6520,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_botl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "ordnance.png"),
 
 	["sizeX"] = 1,
@@ -6232,6 +6541,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_colt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "colt.png"),
 
 	["sizeX"] = 1,
@@ -6252,6 +6562,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_early"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "colt_tape.png"),
 
 	["sizeX"] = 1,
@@ -6272,6 +6583,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_gnr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "gripnrip.png"),
 
 	["sizeX"] = 1,
@@ -6292,6 +6604,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_hkext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "latch.png"),
 
 	["sizeX"] = 1,
@@ -6312,6 +6625,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_m84"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "m84.png"),
 
 	["sizeX"] = 1,
@@ -6332,6 +6646,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_masp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "masp.png"),
 
 	["sizeX"] = 1,
@@ -6352,6 +6667,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_mod2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mod2.png"),
 
 	["sizeX"] = 1,
@@ -6372,6 +6688,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_raptor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "raptor.png"),
 
 	["sizeX"] = 1,
@@ -6392,6 +6709,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_raptor_g"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "raptor_gray.png"),
 
 	["sizeX"] = 1,
@@ -6412,6 +6730,7 @@ EFGM.ITEMS["arc9_att_eft_charge_ar15_raptor_sd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "raptor_sd.png"),
 
 	["sizeX"] = 1,
@@ -6432,6 +6751,7 @@ EFGM.ITEMS["arc9_att_eft_dd_buttpad_14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "dd_buttpad_12.png"),
 
 	["sizeX"] = 1,
@@ -6452,6 +6772,7 @@ EFGM.ITEMS["arc9_att_eft_dd_buttpad_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "dd_buttpad_20.png"),
 
 	["sizeX"] = 1,
@@ -6472,6 +6793,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "dvl_660.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -6492,6 +6814,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_barrel_sup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "dvl_500.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -6512,6 +6835,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "dvl.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -6532,6 +6856,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "dvl_10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6552,6 +6877,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_muzzle_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "dvl_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6572,6 +6898,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_muzzle_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "dvl_device.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6592,6 +6919,7 @@ EFGM.ITEMS["arc9_att_eft_dvl10_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "dvl.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -6612,6 +6940,7 @@ EFGM.ITEMS["arc9_att_eft_etmi019"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/etmi019_shotgun_rail_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6632,6 +6961,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_afg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afg_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6652,6 +6982,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_afg_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afg_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6672,6 +7003,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_afg_fg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afg_fg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6692,6 +7024,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_afg_od"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afg_od.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6712,6 +7045,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_ash12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "ash12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6732,6 +7066,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_b25u"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "b25rk1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6752,6 +7087,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bcm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "mod3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6772,6 +7108,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "tangostubby_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6792,6 +7129,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "tangostubby_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6812,6 +7150,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qditi"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "bgvqditi_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6832,6 +7171,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qditi_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "bgvqditi_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6852,6 +7192,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qdk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "bgvqdk_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6872,6 +7213,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv_qdk_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "bgvqdk_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6892,6 +7234,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_bgv_sg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "tangostubby_g.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6912,6 +7255,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_cobra"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "cobra_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6932,6 +7276,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_cqr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "heracqr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6952,6 +7297,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_fortis"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "shift.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6972,6 +7318,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "kac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -6992,6 +7339,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_keymod_monstrum"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "monstrum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7012,6 +7360,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_keymod_mvf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "mvf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7032,6 +7381,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_keymod_sig"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "ssvfk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7052,6 +7402,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afgm_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7072,6 +7423,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afgm_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7092,6 +7444,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg_od"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afgm_od.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7112,6 +7465,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_afg_sg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "afgm_sg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7132,6 +7486,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_dd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "ddmlok_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7152,6 +7507,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_dd_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "ddmlok_cb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7172,6 +7528,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_mod3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "mod3mlok_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7192,6 +7549,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_mlok_mod3f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "mod3mlok_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7212,6 +7570,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rk0"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rk0.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7232,6 +7591,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rk1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rk1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7252,6 +7612,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rk2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rk2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7272,6 +7633,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rk4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rk4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7292,6 +7654,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rk5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rk5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7312,6 +7675,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rk6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rk6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7332,6 +7696,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rtm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "pillau_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7352,6 +7717,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rtm_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "pillau_s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7372,6 +7738,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rtm_oso"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "osovets.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7392,6 +7759,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rtm_oso_khaki"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "osovets_k.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7412,6 +7780,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rtm_p2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "pillaup2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7432,6 +7801,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rtm_p2_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "pillaup2_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7452,6 +7822,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rvg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rvg_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7472,6 +7843,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_rvg_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "rvg_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7492,6 +7864,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_se5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "se5_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7512,6 +7885,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_se5_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "se5_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7532,6 +7906,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_sturm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "sturmgriff.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7552,6 +7927,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_sturm_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "sturmgriff_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7572,6 +7948,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_td"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "sfg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7592,6 +7969,7 @@ EFGM.ITEMS["arc9_att_eft_foregrip_uvg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "uvg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7612,6 +7990,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "lpa2_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7632,6 +8011,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "kacfolding_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7652,6 +8032,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_kacmicro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "kacfoldingmicro_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7672,6 +8053,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_kriss_defiance"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "defiance_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7692,6 +8074,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_mbus"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mbus_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7712,6 +8095,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_mbus_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mbus_fde_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7732,6 +8116,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_mcx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mcx_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7752,6 +8137,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_mp7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mp7_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7772,6 +8158,7 @@ EFGM.ITEMS["arc9_att_eft_frontsight_mpx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mpx_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7792,6 +8179,7 @@ EFGM.ITEMS["arc9_att_eft_fs_1911_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m45a1_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7812,6 +8200,7 @@ EFGM.ITEMS["arc9_att_eft_fs_1911_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m1911_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7832,6 +8221,7 @@ EFGM.ITEMS["arc9_att_eft_fs_ak_akmp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "akmp_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7852,6 +8242,7 @@ EFGM.ITEMS["arc9_att_eft_fs_deagle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "deagle_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7872,6 +8263,7 @@ EFGM.ITEMS["arc9_att_eft_fs_g17_se"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_ringer_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7892,6 +8284,7 @@ EFGM.ITEMS["arc9_att_eft_fs_g17_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7912,6 +8305,7 @@ EFGM.ITEMS["arc9_att_eft_fs_g17_tfx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_tfx_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7932,6 +8326,7 @@ EFGM.ITEMS["arc9_att_eft_fs_g17_zt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_zev_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7952,6 +8347,7 @@ EFGM.ITEMS["arc9_att_eft_fs_g19x_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock19x_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7972,6 +8368,7 @@ EFGM.ITEMS["arc9_att_eft_fs_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m9a3_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -7992,6 +8389,7 @@ EFGM.ITEMS["arc9_att_eft_fs_p226_merp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "p226_tru_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8012,6 +8410,7 @@ EFGM.ITEMS["arc9_att_eft_fs_p226_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "p226_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8032,6 +8431,7 @@ EFGM.ITEMS["arc9_att_eft_fs_pl15_long"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pl15_ext_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8052,6 +8452,7 @@ EFGM.ITEMS["arc9_att_eft_fs_pl15_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pl15_ext_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8072,6 +8473,7 @@ EFGM.ITEMS["arc9_att_eft_fs_usp_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "usp_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8092,6 +8494,7 @@ EFGM.ITEMS["arc9_att_eft_fs_usp_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "usp_tac_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8112,6 +8515,7 @@ EFGM.ITEMS["arc9_att_eft_g28_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "hk417_16.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -8132,6 +8536,7 @@ EFGM.ITEMS["arc9_att_eft_g28_buffer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "g28buffer.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8152,6 +8557,7 @@ EFGM.ITEMS["arc9_att_eft_g28_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "e1.png"),
 
 	["sizeX"] = 1,
@@ -8172,6 +8578,7 @@ EFGM.ITEMS["arc9_att_eft_g28_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "hk417.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8192,6 +8599,7 @@ EFGM.ITEMS["arc9_att_eft_g28_hg_ext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "freefloat.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -8212,6 +8620,7 @@ EFGM.ITEMS["arc9_att_eft_g28_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "patrol.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8232,6 +8641,7 @@ EFGM.ITEMS["arc9_att_eft_g28_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "g28_10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8252,6 +8662,7 @@ EFGM.ITEMS["arc9_att_eft_g28_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "g28_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8272,6 +8683,7 @@ EFGM.ITEMS["arc9_att_eft_g28_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_556x45_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8292,6 +8704,7 @@ EFGM.ITEMS["arc9_att_eft_g28_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "prolonged.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8312,6 +8725,7 @@ EFGM.ITEMS["arc9_att_eft_g28_silencer_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "btqd_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8332,6 +8746,7 @@ EFGM.ITEMS["arc9_att_eft_g28_silencer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "btqd.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8352,6 +8767,7 @@ EFGM.ITEMS["arc9_att_eft_g28_stock_adj"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "417adjustable.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8372,6 +8788,7 @@ EFGM.ITEMS["arc9_att_eft_g28_stock_cheek"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "417_rest.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8392,6 +8809,7 @@ EFGM.ITEMS["arc9_att_eft_g28_stock_e2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "e2buttstock.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8412,6 +8830,7 @@ EFGM.ITEMS["arc9_att_eft_g28_upper_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "g28.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8432,6 +8851,7 @@ EFGM.ITEMS["arc9_att_eft_g36_barrel_228"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_556x45_228mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8452,6 +8872,7 @@ EFGM.ITEMS["arc9_att_eft_g36_barrel_318"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_556x45_318mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8472,6 +8893,7 @@ EFGM.ITEMS["arc9_att_eft_g36_barrel_480"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_556x45_480mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8492,6 +8914,7 @@ EFGM.ITEMS["arc9_att_eft_g36_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "g36_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8512,6 +8935,7 @@ EFGM.ITEMS["arc9_att_eft_g36_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "g36.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8532,6 +8956,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hensoldt_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hensoldt_ris_top_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8552,6 +8977,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hensoldt_sight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "rvrd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8572,6 +8998,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_2vent_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8592,6 +9019,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_4vent_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8612,6 +9040,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_6vent_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8632,6 +9061,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_bipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "g36bipod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -8652,6 +9082,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_handstop"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "g36stop.png"),
 
 	["sizeX"] = 1,
@@ -8672,6 +9103,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_mount_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_bottom_handguard_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8692,6 +9124,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_mount_side"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_side_handguard_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8712,6 +9145,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_quad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/g36hgidk3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8732,6 +9166,7 @@ EFGM.ITEMS["arc9_att_eft_g36_hg_slim"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/g36hgidk3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8752,6 +9187,7 @@ EFGM.ITEMS["arc9_att_eft_g36_magwell_stanag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "g36nato.png"),
 
 	["sizeX"] = 1,
@@ -8772,6 +9208,7 @@ EFGM.ITEMS["arc9_att_eft_g36_magwell_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "g36std.png"),
 
 	["sizeX"] = 1,
@@ -8792,6 +9229,7 @@ EFGM.ITEMS["arc9_att_eft_g36_muzzle_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_556x45_4prong_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8812,6 +9250,7 @@ EFGM.ITEMS["arc9_att_eft_g36_muzzle_c"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36c_556x45_4prong_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8832,6 +9271,7 @@ EFGM.ITEMS["arc9_att_eft_g36_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8852,6 +9292,7 @@ EFGM.ITEMS["arc9_att_eft_g36_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "g36_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8872,6 +9313,7 @@ EFGM.ITEMS["arc9_att_eft_g36_stock_buffer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/g36buff.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8892,6 +9334,7 @@ EFGM.ITEMS["arc9_att_eft_g36_stock_idz"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/newstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8912,6 +9355,7 @@ EFGM.ITEMS["arc9_att_eft_g36_stock_idz_butt_cave"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/g36pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8932,6 +9376,7 @@ EFGM.ITEMS["arc9_att_eft_g36_stock_idz_butt_vex"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/g36padbig.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8952,6 +9397,7 @@ EFGM.ITEMS["arc9_att_eft_g36_stock_kv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_kv_adjustable_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8972,6 +9418,7 @@ EFGM.ITEMS["arc9_att_eft_g36_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_polymer_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -8992,6 +9439,7 @@ EFGM.ITEMS["arc9_att_eft_g36_top_15x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hkvzf1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -9012,6 +9460,7 @@ EFGM.ITEMS["arc9_att_eft_g36_top_3x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hkvzf3.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -9032,6 +9481,7 @@ EFGM.ITEMS["arc9_att_eft_g36_top_flip"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_optic_rail_with_flipup_sights.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9052,6 +9502,7 @@ EFGM.ITEMS["arc9_att_eft_g36_top_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_g36_attachments/hk_g36_sight_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9072,6 +9523,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_6p1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "akm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9092,6 +9544,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_6p20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "ak74.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9112,6 +9565,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_m1b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/m1b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9132,6 +9586,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_molot"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "molot.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9152,6 +9607,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_troy"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/troyflr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9172,6 +9628,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_vdmcs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "vdmcs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9192,6 +9649,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_vs24vs33"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vscw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9213,6 +9671,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ak_vs24vs33_w"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vsc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9233,6 +9692,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_jp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "gs5b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9253,6 +9713,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_lopro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "lopro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9273,6 +9734,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_m4fs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "m4fs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9293,6 +9755,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_mk12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mk12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9313,6 +9776,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_mk12g1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mk12gen1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9333,6 +9797,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_rg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "windham.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9353,6 +9818,7 @@ EFGM.ITEMS["arc9_att_eft_gas_ar15_sentry7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "sentry.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9373,6 +9839,7 @@ EFGM.ITEMS["arc9_att_eft_gas_hk416_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "hk416.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9393,6 +9860,7 @@ EFGM.ITEMS["arc9_att_eft_gas_rd704_ionlite"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/ionlite.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9413,6 +9881,7 @@ EFGM.ITEMS["arc9_att_eft_gp25"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "gp25.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -9433,6 +9902,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_6p1sb8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "6p1sb8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9453,6 +9923,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_6p1sb8v"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/sb8v.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9473,6 +9944,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_6p4sb9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/sb9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9493,6 +9965,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_aeroknox"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/scorp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9513,6 +9986,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_agr47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "agr47.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9533,6 +10007,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_agr47_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "agr47_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9553,6 +10028,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_ags74"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/ags.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9573,6 +10049,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_ak12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9593,6 +10070,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_ak_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/molot.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9613,6 +10091,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_akepg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/epg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9633,6 +10112,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_akepg_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/epgf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9653,6 +10133,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_akm_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/akmbak.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9673,6 +10154,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_akm_w"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/akmwood.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9693,6 +10175,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_cg101"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/ak2m4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9713,6 +10196,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_cqr47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/cqr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9733,6 +10217,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_mft"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/mft.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9753,6 +10238,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_mg47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "mg47_y.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9773,6 +10259,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_mg47_ar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "mg47_red.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9793,6 +10280,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_mg47_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "mg47_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9813,6 +10301,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/moe.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9833,6 +10322,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_pp19"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/vityaz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9853,6 +10343,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_puf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "pufgun.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9873,6 +10364,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_rk3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/rk3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9893,6 +10385,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_tangodown"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/tango.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9913,6 +10406,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_tangodown_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/tangof.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9933,6 +10427,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_tapco_saw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/tapco.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9953,6 +10448,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_tapco_saw_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/tapcof.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9973,6 +10469,7 @@ EFGM.ITEMS["arc9_att_eft_grip_ak_us_palm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/uspalm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -9993,6 +10490,7 @@ EFGM.ITEMS["arc9_att_eft_grip_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m9a3_attachments/p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10013,6 +10511,7 @@ EFGM.ITEMS["arc9_att_eft_grip_mp443_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp443_attachments/g.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10033,6 +10532,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_axel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/mk25.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10053,6 +10553,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_emp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/sk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10073,6 +10574,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10093,6 +10595,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_g10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/g10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10113,6 +10616,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_hog"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/hog.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10133,6 +10637,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_stain"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/wood.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10153,6 +10658,7 @@ EFGM.ITEMS["arc9_att_eft_grip_p226_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/poly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10173,6 +10679,7 @@ EFGM.ITEMS["arc9_att_eft_grip_toz106"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10193,6 +10700,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_6p1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/akm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10213,6 +10721,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_6p20sb6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/74.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10233,6 +10742,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_6p20sb9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "6p20sb9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10253,6 +10763,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_6p20sb9p"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/74p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10273,6 +10784,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_agressor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/agressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10293,6 +10805,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_ak100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/100.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10313,6 +10826,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_akm_l"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/akml.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10334,6 +10848,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_akm_l_ab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/akmlo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10355,6 +10870,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_akm_l_ar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/akmlr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10375,6 +10891,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_aspid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/aspid.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10395,6 +10912,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_b10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "b10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10415,6 +10933,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_b10mb19"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/b10m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10435,6 +10954,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_b11"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "zenitb11.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10455,6 +10975,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_b11_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "zenitb11_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10475,6 +10996,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_b30b31s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/b30b31s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10495,6 +11017,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_cmrd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/cmrd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10515,6 +11038,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_cncguns"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ak_cnc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -10535,6 +11059,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_cncguns_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ak_cnc_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -10555,6 +11080,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_dominat"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/dom.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10575,6 +11101,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "goliaf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10595,6 +11122,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "goliaf_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10615,6 +11143,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf_mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "goliafmlok.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10635,6 +11164,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_goliaf_mlok_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "goliafmlok_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10655,6 +11185,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_hartman"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hartman.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10675,6 +11206,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_hexagon"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hexa.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10696,6 +11228,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_hexagon_r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hexar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10717,6 +11250,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/moe.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10738,6 +11272,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_moe_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/moef.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10758,6 +11293,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_moe_olv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/moeg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10778,6 +11314,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_moe_plm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/moep.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10798,6 +11335,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_moe_sg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/moew.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10818,6 +11356,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_rs47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/rs47.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10838,6 +11377,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_trax1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/trax.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10858,6 +11398,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_trax2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/trax2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10878,6 +11419,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_trax_bridge"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/traxbridge.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10898,6 +11440,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_ufm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/ufm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10918,6 +11461,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_vpo136"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/136.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10938,6 +11482,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_vpo209"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/209.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10958,6 +11503,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_wasr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/wasr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10978,6 +11524,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_x47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/x47.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -10998,6 +11545,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_xrsu47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "xrsu47su_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -11018,6 +11566,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_xrsu47_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "xrsu47su_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -11038,6 +11587,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_zhu"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/zhu.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11058,6 +11608,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_zhu_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/zhuf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11078,6 +11629,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ak_zhu_plm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/zhup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11098,6 +11650,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_abamod1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/647de824196bf69818044c93.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11118,6 +11671,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_abamod1_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/647def638295ebcb5b02f05b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11138,6 +11692,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_adar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_adar_215_wooden_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11158,6 +11713,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ax15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_aeroknox_ax15_105_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11178,6 +11734,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ax15_158"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ax15long.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11198,6 +11755,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ax15_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ax15.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11218,6 +11776,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_cgnl_105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68c1707983e2d814b0093f7e.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11238,6 +11797,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_cgnl_14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68c170e383e2d814b0093f87.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11258,6 +11818,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddfsp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_fsp_95_handguard_(coyote_brown).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11278,6 +11839,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddfsp_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ris_fsp_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -11298,6 +11860,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_1225_handguard_(coyote_brown).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11318,6 +11881,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ris_12_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -11338,6 +11902,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_1225_lower_handguard_(coyote_brown).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11358,6 +11923,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii1225_lower_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ris_12_lower_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -11378,6 +11944,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_95_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11398,6 +11965,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_95_handguard_(coyote_brown).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11418,6 +11986,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_95_lower_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11438,6 +12007,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ddrisii95_lower_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_daniel_defense_ris_ii_95_lower_handguard_(coyote_brown).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11458,6 +12028,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_11"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6f3b27279296357007cd7.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11478,6 +12049,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6fbb07279296357007ce2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11498,6 +12070,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_17"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6fbfdd31595bb360c73bd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11518,6 +12091,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_85"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a5dc4eed35a7eac1048ff6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11538,6 +12112,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_base_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a5dc0c2cd64a8b58023b87.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11558,6 +12133,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_base_red"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a7000d7708ac5120060527.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11578,6 +12154,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_base_yellow"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6fff085a17dc1cb008066.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11598,6 +12175,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_ext_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6e8fd4ac5b037cb0e9b86.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11618,6 +12196,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_ext_red"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6ff952885e0bbd30bb6fd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11638,6 +12217,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_gridlok_ext_yellow"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6ff732885e0bbd30bb6f9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11658,6 +12238,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_ionlite"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_lone_star_ion_lite_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11678,6 +12259,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kac_ff"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caac360bfe742288085e16.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11698,6 +12280,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kac_m5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63cdac92ee33ffa01bf5f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11718,6 +12301,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kac_m5_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63ce2e1fb670852024667.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11738,6 +12322,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kacris"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_kac_ris_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11758,6 +12343,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kacris_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_kac_ris_lower_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11778,6 +12364,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx31"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_kac_urx_31_1075_inch_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11798,6 +12385,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx31_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_kac_urx_31_1075_inch_lower_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11818,6 +12406,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx38"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_kac_urx_3_8_inch_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11838,6 +12427,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_kacurx38_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_kac_urx_3_8_inch_lower_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11858,6 +12448,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoac_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_war_sport_lvoac_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11878,6 +12469,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoac_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_war_sport_lvoac_handguard_f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11898,6 +12490,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoac_g"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_war_sport_lvoac_handguard_g.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11918,6 +12511,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoas_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_war_sport_lvoas_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11938,6 +12532,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoas_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_war_sport_lvoas_handguard_f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11958,6 +12553,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_lvoas_g"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_war_sport_lvoas_handguard_g.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11978,6 +12574,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_m16a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63cb3e1fb670852024664.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -11998,6 +12595,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_m16a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63cc0c92ee33ffa01bf5c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12018,6 +12616,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_m16a2_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a6413b54ef229c4d089238.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12038,6 +12637,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_m4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_colt_m4_carbine_length_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12058,6 +12658,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_m4_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_colt_m4_carbine_length_lower_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12078,6 +12679,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_mk10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_alexander_arms_mk10_rifle_length_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12098,6 +12700,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_mk16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_geissele_smr_mk16_95_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12118,6 +12721,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_mk1695"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_geissele_smr_mk16_135_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12138,6 +12742,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_mk1695_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "mk16_9_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -12158,6 +12763,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_mk16_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "mk16_blk.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -12178,6 +12784,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_moesl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_magpul_moe_sl_carbine_length_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12198,6 +12805,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_moeslmid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_magpul_moe_sl_medium_length_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12218,6 +12826,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_precision"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_precision_reflex_gen_iii_delta_carbon_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12238,6 +12847,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_precision_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "geniii_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -12258,6 +12868,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_precision_round"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caac28f42a4476cf0be2ac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12278,6 +12889,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_precision_round_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68cc2ae66e59cb54f4054f47.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12298,6 +12910,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_radian_14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/6895bd19d55f0ebf6a0c0306.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12318,6 +12931,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_saiqd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_sai_145_inch_qd_rail_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12338,6 +12952,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_saiqd10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_sai_10_inch_qd_rail_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12358,6 +12973,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_skinny"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63ccc8a85019a82087956.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12378,6 +12994,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_skinny_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a641452258a88280055616.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12398,6 +13015,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_stm12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_soyuztm_12_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12418,6 +13036,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_stm15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_soyuztm_15_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12438,6 +13057,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_stm9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_soyuztm_9_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12458,6 +13078,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_viper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_strike_industries_viper_carbine_length_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12478,6 +13099,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_viper_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_strike_industries_viper_carbine_length_mlok_handguard_(fde).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12498,6 +13120,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_viper_lower"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_strike_industries_viper_carbine_length_mlok_lower_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12518,6 +13141,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_viper_lower_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_strike_industries_viper_carbine_length_mlok_lower_handguard_(fde).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12538,6 +13162,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_vypr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_stngr_vypr_10_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12558,6 +13183,7 @@ EFGM.ITEMS["arc9_att_eft_hg_ar15_wing"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hg/ar15_uniquears_wing_&_skull_12_inch_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12578,6 +13204,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_cgnl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_nl545_attachments/68c2989dc9061bb2f50478f6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12598,6 +13225,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_cgnl_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_nl545_attachments/68c2989dc9061bb2f50478f6_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12618,6 +13246,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_crux"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_strike_industries_crux_15_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12638,6 +13267,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_midwest135"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_midwest_industries_135_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12658,6 +13288,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_midwest9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_midwest_industries_9_inch_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12678,6 +13309,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_mrs14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_mrs_keymod_14_inch_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12698,6 +13330,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_quad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_quad_rail_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12718,6 +13351,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_quadext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_quad_rail_extended_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12738,6 +13372,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_quadsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_quad_rail_handguard_with_flipup_front_sight.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12758,6 +13393,7 @@ EFGM.ITEMS["arc9_att_eft_hg_hk416_troy"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/hk416/hk_416a5_troy_mlok_13_inch_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12778,6 +13414,7 @@ EFGM.ITEMS["arc9_att_eft_hg_pk_zenit"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/hgz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12798,6 +13435,7 @@ EFGM.ITEMS["arc9_att_eft_hg_svds_mod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/mod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12818,6 +13456,7 @@ EFGM.ITEMS["arc9_att_eft_hg_svds_mod2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/mod2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12838,6 +13477,7 @@ EFGM.ITEMS["arc9_att_eft_hg_svds_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12858,6 +13498,7 @@ EFGM.ITEMS["arc9_att_eft_hg_svds_xrs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/xrs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12878,6 +13519,7 @@ EFGM.ITEMS["arc9_att_eft_hg_tkpd_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/mod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12898,6 +13540,7 @@ EFGM.ITEMS["arc9_att_eft_hg_tkpd_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/mod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12918,6 +13561,7 @@ EFGM.ITEMS["arc9_att_eft_hg_velociraptor_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/veloc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12938,6 +13582,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_conv_b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "kedr_b.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -12958,6 +13603,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_conv_klin"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "klin.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -12978,6 +13624,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -12998,6 +13645,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13018,6 +13666,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_pg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13038,6 +13687,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/sup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13058,6 +13708,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_silmount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/adap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13078,6 +13729,7 @@ EFGM.ITEMS["arc9_att_eft_kedr_stockk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13098,6 +13750,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_barrel_510"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/510.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13118,6 +13771,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_barrel_700"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/700.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13138,6 +13792,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13158,6 +13813,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_mag_3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13178,6 +13834,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_stock_pistol"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13198,6 +13855,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_stock_steel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/st.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13218,6 +13876,7 @@ EFGM.ITEMS["arc9_att_eft_ks23_stock_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ks23_attachments/w.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13238,6 +13897,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_barrel_16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_762x51_16_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13258,6 +13918,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_barrel_22"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_762x51_22_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13278,6 +13939,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_fs_062"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m1a_national_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13298,6 +13960,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_fs_xs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m1a_blade_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13318,6 +13981,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_762x51_10round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13338,6 +14002,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_762x51_20round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13358,6 +14023,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_762x51_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13378,6 +14044,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_762x51_x_products_x14_50round_drum_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13398,6 +14065,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_brakecomp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_socom_16_762x51_muzzle_brakecompensator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13418,6 +14086,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_fsup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_national_match_762x51_flash_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13438,6 +14107,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_gas"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_smith_enterprise_socom_16_762x51_threaded_muzzle_brake_&_gas_block.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13458,6 +14128,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_good"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_smith_enterprise_good_iron_762x51_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13478,6 +14149,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_jp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_jp_enterprises_762x51_tactical_compensator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13498,6 +14170,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_vortex"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_smith_enterprise_vortex_762x51_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13518,6 +14191,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_muzzle_yan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_yankee_hill_phantom_762x51_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13538,6 +14212,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_pgrip_sage"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_sage_international_m14alcs_mod0_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13558,6 +14233,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_rearsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m1a_military_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13578,6 +14254,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_side_arms"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_arms_#18_scope_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13598,6 +14275,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_side_dcsb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_sage_international_dcsb_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13618,6 +14296,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_side_deluxe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_leapers_utg_4point_locking_deluxe_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13638,6 +14317,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_arch"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "archangel_m1a.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -13658,6 +14338,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_arch_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "archangel_m1a_blk.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -13678,6 +14359,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_sage"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m14_sage.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -13698,6 +14380,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_sage_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_sage_international_m14alcs_mod0_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13718,6 +14401,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_sass"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "miatroy.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -13738,6 +14422,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_sass_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "miatroy_blk.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -13758,6 +14443,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_socom_16_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13778,6 +14464,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_upper_amega"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_amega_mini_scout_mount_system.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13798,6 +14485,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_upper_m8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_ultimak_m8_forward_optic_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13818,6 +14506,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_upper_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m1a_socom_16_upper_part.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13838,6 +14527,7 @@ EFGM.ITEMS["arc9_att_eft_m1a_upper_vltor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m1a_attachments/m14_vltor_casv14_rail_system.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13858,6 +14548,7 @@ EFGM.ITEMS["arc9_att_eft_m203"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "m203.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -13878,6 +14569,7 @@ EFGM.ITEMS["arc9_att_eft_m249_barrel_370mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_barrel_para.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13898,6 +14590,7 @@ EFGM.ITEMS["arc9_att_eft_m249_barrel_457mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_barrel_standard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13918,6 +14611,7 @@ EFGM.ITEMS["arc9_att_eft_m249_bipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_bipod_standard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13938,6 +14632,7 @@ EFGM.ITEMS["arc9_att_eft_m249_grip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_pgrip_saw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13958,6 +14653,7 @@ EFGM.ITEMS["arc9_att_eft_m249_hg_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_hg_kac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13978,6 +14674,7 @@ EFGM.ITEMS["arc9_att_eft_m249_hg_minimal"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_hg_mini.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -13998,6 +14695,7 @@ EFGM.ITEMS["arc9_att_eft_m249_hg_od"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_hg_sleek.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14018,6 +14716,7 @@ EFGM.ITEMS["arc9_att_eft_m249_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_hg_standard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14038,6 +14737,7 @@ EFGM.ITEMS["arc9_att_eft_m249_hg_tactical"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_hg_slim.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14058,6 +14758,7 @@ EFGM.ITEMS["arc9_att_eft_m249_mag_100rnd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_mag_100rnd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14078,6 +14779,7 @@ EFGM.ITEMS["arc9_att_eft_m249_mag_200rnd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_mag_200rnd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14098,6 +14800,7 @@ EFGM.ITEMS["arc9_att_eft_m249_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14118,6 +14821,7 @@ EFGM.ITEMS["arc9_att_eft_m249_stock_buffer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_stock_buffer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14138,6 +14842,7 @@ EFGM.ITEMS["arc9_att_eft_m249_stock_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_stock_moe_cheekrest.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14158,6 +14863,7 @@ EFGM.ITEMS["arc9_att_eft_m249_stock_para"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_stock_para.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14178,6 +14884,7 @@ EFGM.ITEMS["arc9_att_eft_m249_stock_solid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_stock_standard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14198,6 +14905,7 @@ EFGM.ITEMS["arc9_att_eft_m249_uhg_heatshield"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_uhg_heatshield.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14218,6 +14926,7 @@ EFGM.ITEMS["arc9_att_eft_m249_uhg_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/attachments/m249_hg_kac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14238,6 +14947,7 @@ EFGM.ITEMS["arc9_att_eft_m32a1_mag_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "m32a1_cylinder.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -14258,6 +14968,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/bar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14278,6 +14989,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "benelli.png"),
 
 	["sizeX"] = 1,
@@ -14298,6 +15010,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14318,6 +15031,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_mag_11"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/11.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14338,6 +15052,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_mag_13"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/13.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14358,6 +15073,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_mag_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14378,6 +15094,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_mag_7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/7.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14398,6 +15115,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_mag_9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14418,6 +15136,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_mount_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14438,6 +15157,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14458,6 +15178,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m3_ghost_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14478,6 +15199,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/stcok.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14498,6 +15220,7 @@ EFGM.ITEMS["arc9_att_eft_m3s90_stock_urba"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m3s90_attachments/urbandecay.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14518,6 +15241,7 @@ EFGM.ITEMS["arc9_att_eft_m590_barrel_508"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_12ga_20_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14538,6 +15262,7 @@ EFGM.ITEMS["arc9_att_eft_m590_fs_ghost"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "590_ghost_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14558,6 +15283,7 @@ EFGM.ITEMS["arc9_att_eft_m590_hg_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_magpul_moe_forestock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14578,6 +15304,7 @@ EFGM.ITEMS["arc9_att_eft_m590_hg_speed"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_speedfeed_short_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14598,6 +15325,7 @@ EFGM.ITEMS["arc9_att_eft_m590_mag_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_12ga_8shell_magazine_cap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14618,6 +15346,7 @@ EFGM.ITEMS["arc9_att_eft_m590_mount_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_tactical_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14638,6 +15367,7 @@ EFGM.ITEMS["arc9_att_eft_m590_rs_ghost"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "590_ghost_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14658,6 +15388,7 @@ EFGM.ITEMS["arc9_att_eft_m590_stock_leo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_mesa_tactical_leo_gen1_stock_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14678,6 +15409,7 @@ EFGM.ITEMS["arc9_att_eft_m590_stock_sga"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_magpul_sga_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14698,6 +15430,7 @@ EFGM.ITEMS["arc9_att_eft_m590_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m590_attachments/mossberg_590a1_polymer_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14718,6 +15451,7 @@ EFGM.ITEMS["arc9_att_eft_m60_barrel_e3_584"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e3_762x51_584mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14738,6 +15472,7 @@ EFGM.ITEMS["arc9_att_eft_m60_barrel_e4_458"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_762x51_458mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14758,6 +15493,7 @@ EFGM.ITEMS["arc9_att_eft_m60_barrel_e4_475"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_762x51_475mm_heavy_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14778,6 +15514,7 @@ EFGM.ITEMS["arc9_att_eft_m60_barrel_e6_458"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_762x51_458mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14798,6 +15535,7 @@ EFGM.ITEMS["arc9_att_eft_m60_bipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "m60bipod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -14818,6 +15556,7 @@ EFGM.ITEMS["arc9_att_eft_m60_fs_e4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m60e4_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14838,6 +15577,7 @@ EFGM.ITEMS["arc9_att_eft_m60_fs_e6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_front_sight_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14858,6 +15598,7 @@ EFGM.ITEMS["arc9_att_eft_m60_hg_e4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_mod_1_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14878,6 +15619,7 @@ EFGM.ITEMS["arc9_att_eft_m60_hg_e4_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_mod_1_handguard_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14898,6 +15640,7 @@ EFGM.ITEMS["arc9_att_eft_m60_hg_e6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14918,6 +15661,7 @@ EFGM.ITEMS["arc9_att_eft_m60_mag_100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60_762x51_capco_100round_assault_box.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14938,6 +15682,7 @@ EFGM.ITEMS["arc9_att_eft_m60_muzzle_e3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e3_762x51_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14958,6 +15703,7 @@ EFGM.ITEMS["arc9_att_eft_m60_muzzle_e6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_762x51_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14978,6 +15724,7 @@ EFGM.ITEMS["arc9_att_eft_m60_pg_e4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -14998,6 +15745,7 @@ EFGM.ITEMS["arc9_att_eft_m60_pg_e6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15018,6 +15766,7 @@ EFGM.ITEMS["arc9_att_eft_m60_pg_e6_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_pistol_grip_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15038,6 +15787,7 @@ EFGM.ITEMS["arc9_att_eft_m60_rearsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m60_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15058,6 +15808,7 @@ EFGM.ITEMS["arc9_att_eft_m60_stock_e4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15078,6 +15829,7 @@ EFGM.ITEMS["arc9_att_eft_m60_stock_e6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15098,6 +15850,7 @@ EFGM.ITEMS["arc9_att_eft_m60_stock_e6_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_buttstock_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15118,6 +15871,7 @@ EFGM.ITEMS["arc9_att_eft_m60_trigger_e4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e4_trigger_group.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15138,6 +15892,7 @@ EFGM.ITEMS["arc9_att_eft_m60_trigger_e6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_trigger_group.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15158,6 +15913,7 @@ EFGM.ITEMS["arc9_att_eft_m60_trigger_e6_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m60_attachments/m60e6_trigger_group_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15178,6 +15934,7 @@ EFGM.ITEMS["arc9_att_eft_m700_barrel_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_20_inch_threaded_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15198,6 +15955,7 @@ EFGM.ITEMS["arc9_att_eft_m700_barrel_20s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_20_inch_stainless_steel_threaded_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15218,6 +15976,7 @@ EFGM.ITEMS["arc9_att_eft_m700_barrel_26"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_26_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15238,6 +15997,7 @@ EFGM.ITEMS["arc9_att_eft_m700_barrel_26s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_26_inch_stainless_steel_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15258,6 +16018,7 @@ EFGM.ITEMS["arc9_att_eft_m700_buffer_adap_gen3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m700modxfolder.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15278,6 +16039,7 @@ EFGM.ITEMS["arc9_att_eft_m700_buffer_adap_gen3_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m700modxfolder_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15298,6 +16060,7 @@ EFGM.ITEMS["arc9_att_eft_m700_hg_gen3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "modxkey.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15318,6 +16081,7 @@ EFGM.ITEMS["arc9_att_eft_m700_hg_gen3_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "modxkey_blk.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15338,6 +16102,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_a10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_ai_aics_10round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15358,6 +16123,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_a12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_mdt_aics_12round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15378,6 +16144,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_a5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_ai_aics_5round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15398,6 +16165,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_p10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_magpul_pmag_ac_10round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15418,6 +16186,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_p5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_magpul_pmag_ac_5round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15438,6 +16207,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_pro10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_promag_aa70_10round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15458,6 +16228,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_pro20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_promag_aa70_20round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15478,6 +16249,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_w10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_wyatts_outdoor_10round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15498,6 +16270,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mag_w5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_762x51_wyatts_outdoor_5round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15518,6 +16291,7 @@ EFGM.ITEMS["arc9_att_eft_m700_mount_pro700"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_magpul_pro_700_chassis_inline_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15538,6 +16312,7 @@ EFGM.ITEMS["arc9_att_eft_m700_muzzle_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_thread_protection_cap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15558,6 +16333,7 @@ EFGM.ITEMS["arc9_att_eft_m700_muzzle_thrs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_thread_protection_cap_stainless_steel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15578,6 +16354,7 @@ EFGM.ITEMS["arc9_att_eft_m700_pro700_folding"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_magpul_pro_700_folding_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15598,6 +16375,7 @@ EFGM.ITEMS["arc9_att_eft_m700_pro700_pistol_grip"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_magpul_pro_700_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15618,6 +16396,7 @@ EFGM.ITEMS["arc9_att_eft_m700_rail_badger"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_badger_ordnance_scope_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15638,6 +16417,7 @@ EFGM.ITEMS["arc9_att_eft_m700_rail_ext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_extended_multislot_weaver_rail_base.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15658,6 +16438,7 @@ EFGM.ITEMS["arc9_att_eft_m700_rail_modx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "modxrail.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -15678,6 +16459,7 @@ EFGM.ITEMS["arc9_att_eft_m700_rail_modx_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "modxrail_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -15698,6 +16480,7 @@ EFGM.ITEMS["arc9_att_eft_m700_rail_ring"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m700_attachments/m700_30mm_integral_ring_scope_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15718,6 +16501,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_aics"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m700_ai.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -15738,6 +16522,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_archangel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m700_promag.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15758,6 +16543,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_gen3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m700modx.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -15778,6 +16564,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_gen3_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m700modx_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -15798,6 +16585,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_hogue"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m700hogue.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15818,6 +16606,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_hogue_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m700hogue_blk.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15838,6 +16627,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_hogue_green"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m700hogue_g.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15858,6 +16648,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_hogue_wht"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "m700hogue_w.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15878,6 +16669,7 @@ EFGM.ITEMS["arc9_att_eft_m700_stock_pro700"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m700_magpul.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -15898,6 +16690,7 @@ EFGM.ITEMS["arc9_att_eft_m870_barrel_325"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/325.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15918,6 +16711,7 @@ EFGM.ITEMS["arc9_att_eft_m870_barrel_355"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/355.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15938,6 +16732,7 @@ EFGM.ITEMS["arc9_att_eft_m870_barrel_508"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/508.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15958,6 +16753,7 @@ EFGM.ITEMS["arc9_att_eft_m870_barrel_508fs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/508fs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15978,6 +16774,7 @@ EFGM.ITEMS["arc9_att_eft_m870_barrel_660"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/660.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -15998,6 +16795,7 @@ EFGM.ITEMS["arc9_att_eft_m870_hg_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/moe.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16018,6 +16816,7 @@ EFGM.ITEMS["arc9_att_eft_m870_hg_pr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/pr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16038,6 +16837,7 @@ EFGM.ITEMS["arc9_att_eft_m870_hg_speed"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/sfeed.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16058,6 +16858,7 @@ EFGM.ITEMS["arc9_att_eft_m870_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16078,6 +16879,7 @@ EFGM.ITEMS["arc9_att_eft_m870_mag_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16098,6 +16900,7 @@ EFGM.ITEMS["arc9_att_eft_m870_mag_7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/7.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16118,6 +16921,7 @@ EFGM.ITEMS["arc9_att_eft_m870_mount_clamp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/clamp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16138,6 +16942,7 @@ EFGM.ITEMS["arc9_att_eft_m870_mount_utg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/utg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16158,6 +16963,7 @@ EFGM.ITEMS["arc9_att_eft_m870_mount_xs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/xs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16178,6 +16984,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_agr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/agr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16198,6 +17005,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_agr_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m870cap.png"),
 
 	["sizeX"] = 1,
@@ -16218,6 +17026,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_agr_tube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/tube.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16238,6 +17047,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_leo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/leo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16258,6 +17068,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_raptor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/r.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16278,6 +17089,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_sga"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/sga.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16298,6 +17110,7 @@ EFGM.ITEMS["arc9_att_eft_m870_stock_sps"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m870_attachments/sps.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16318,6 +17131,7 @@ EFGM.ITEMS["arc9_att_eft_mag_1911_11"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "mecgar11.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16338,6 +17152,7 @@ EFGM.ITEMS["arc9_att_eft_mag_1911_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "m1911.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16358,6 +17173,7 @@ EFGM.ITEMS["arc9_att_eft_mag_1911_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "m45a1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16378,6 +17194,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_545_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/saiga20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16398,6 +17215,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_55_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/76255.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16418,6 +17236,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l10_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/7626l10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16438,6 +17257,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l18_545_45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/5456l18.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16458,6 +17278,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l20_545_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/5456l20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16478,6 +17299,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l23_545_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/5456l23.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16498,6 +17320,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l23p_545_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/5456l23p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16518,6 +17341,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l26_545_45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/5456l26.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16538,6 +17362,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l29_556_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/556.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16558,6 +17383,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6l31_545_60"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/5456l31.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16578,6 +17404,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6p2bak_762_40"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "bakelite_40.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16598,6 +17425,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6p2bak_762_40_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "bakelite_40_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16618,6 +17446,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_6p2sb11_762_40"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762molot40.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16638,6 +17467,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ak103_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762103.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16658,6 +17488,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ak12_545_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/545ak12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16678,6 +17509,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ak12_545_30_old"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/545ak12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16698,6 +17530,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ak30_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/76230.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16718,6 +17551,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ak30fde_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/76230f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16738,6 +17572,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_akms_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762al30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16758,6 +17593,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_alum_762_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762al10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16778,6 +17614,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_molot_556_45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/55645.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16798,6 +17635,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_molot_762_75"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762molot75.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16818,6 +17656,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_545_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/545pmag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16838,6 +17677,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_545_30_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/76230f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16858,6 +17698,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_762_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/pmag20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16878,6 +17719,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762pmag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16898,6 +17740,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_762_30_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762pmagb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16918,6 +17761,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_pmag_banana_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762pmagb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16938,6 +17782,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_promag_762_73"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762a16.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16958,6 +17803,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ribbed_762_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/76210rnd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16978,6 +17824,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_rpk16_545_95"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/545drum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -16998,6 +17845,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_slr106_556_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "slr106_30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17018,6 +17866,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_slr106_556_30_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "slr106_30_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17038,6 +17887,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_std_545_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/545saiga.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17058,6 +17908,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_ultimag_762_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762ultimag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17078,6 +17929,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ak_x47_762_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/mag/762x47.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17098,6 +17950,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_battlemag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/troy_battlemag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17118,6 +17971,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_beta_100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/balls.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17138,6 +17992,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_hkpmgen2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_hk_pm_gen2_stanag_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17158,6 +18013,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_hkstanag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "hkpoly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17178,6 +18034,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_hkstanag_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "hkpoly_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17198,6 +18055,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_hksteel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_hk_steel_maritime_stanag_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17218,6 +18076,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_mk16_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/fn_scarl_556x45_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17238,6 +18097,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_mk16_30_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/fn_scarl_556x45_30round_magazine_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17258,6 +18118,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_10_gen_m3_stanag_10round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17278,6 +18139,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_20_gen_m3_stanag_20round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17298,6 +18160,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_30_gen_m3_stanag_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17318,6 +18181,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_30_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_30_gen_m3_stanag_30round_magazine_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17338,6 +18202,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_30_w_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_30_gen_m3_w_stanag_30round_magazine_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17358,6 +18223,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_40"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_40_gen_m3_stanag_40round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17378,6 +18244,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_40_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_40_gen_m3_stanag_40round_magazine_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17398,6 +18265,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_60"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_d60_stanag_60round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17418,6 +18286,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_pmag_w_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_magpul_pmag_30_gen_m3_w_stanag_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17438,6 +18307,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_stanag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63b73c92ee33ffa01bf57.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17458,6 +18328,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_stanag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_colt_ar15_stanag_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17478,6 +18349,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_surefire_100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_surefire_mag5100_stanag_100round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17498,6 +18370,7 @@ EFGM.ITEMS["arc9_att_eft_mag_ar15_surefire_60"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mag/556x45_surefire_mag560_stanag_60round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17518,6 +18391,7 @@ EFGM.ITEMS["arc9_att_eft_mag_bigstick24"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/bs24.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17538,6 +18412,7 @@ EFGM.ITEMS["arc9_att_eft_mag_bigstick31"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/bs31.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17558,6 +18433,7 @@ EFGM.ITEMS["arc9_att_eft_mag_deagle_7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "deagle50_7.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17578,6 +18454,7 @@ EFGM.ITEMS["arc9_att_eft_mag_deagle_9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "deagle357_9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17598,6 +18475,7 @@ EFGM.ITEMS["arc9_att_eft_mag_g17_bigstick_33"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/stick.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17618,6 +18496,7 @@ EFGM.ITEMS["arc9_att_eft_mag_g17_gl9_21"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/gl9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17638,6 +18517,7 @@ EFGM.ITEMS["arc9_att_eft_mag_g17_sgmt_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/drum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17658,6 +18538,7 @@ EFGM.ITEMS["arc9_att_eft_mag_g17_std_17"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17678,6 +18559,7 @@ EFGM.ITEMS["arc9_att_eft_mag_g19x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/g19xmag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17698,6 +18580,7 @@ EFGM.ITEMS["arc9_att_eft_mag_m9a3_ext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m9a3_attachments/cx4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17718,6 +18601,7 @@ EFGM.ITEMS["arc9_att_eft_mag_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m9a3_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17738,6 +18622,7 @@ EFGM.ITEMS["arc9_att_eft_mag_mp443_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp443_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17758,6 +18643,7 @@ EFGM.ITEMS["arc9_att_eft_mag_p226_15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/15.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17778,6 +18664,7 @@ EFGM.ITEMS["arc9_att_eft_mag_p226_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17798,6 +18685,7 @@ EFGM.ITEMS["arc9_att_eft_mag_pl15_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pl15_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17818,6 +18706,7 @@ EFGM.ITEMS["arc9_att_eft_mag_sr1mp_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/18.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17838,6 +18727,7 @@ EFGM.ITEMS["arc9_att_eft_mag_toz106_2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/mag2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17858,6 +18748,7 @@ EFGM.ITEMS["arc9_att_eft_mag_toz106_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/mag4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17878,6 +18769,7 @@ EFGM.ITEMS["arc9_att_eft_mag_toz106_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/mag5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17898,6 +18790,7 @@ EFGM.ITEMS["arc9_att_eft_mag_usp_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17918,6 +18811,7 @@ EFGM.ITEMS["arc9_att_eft_mag_usp_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/12t.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17938,6 +18832,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_barrel171"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/171.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17958,6 +18853,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_barrel229"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/229.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17978,6 +18874,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_barrel406"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/681245a31eb182c02f0d7f09.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -17998,6 +18895,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_ch"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mcx.png"),
 
 	["sizeX"] = 1,
@@ -18018,6 +18916,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_gb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mcx.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18038,6 +18937,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_gbcalx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mcx_piston.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18058,6 +18958,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_hg_12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mcx12hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18078,6 +18979,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_hg_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mcx8hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18098,6 +19000,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_hg_gen1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/6811f4854922782caa087440.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18118,6 +19021,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_hg_lancer_105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/68120dcbb90552f01004e5ca.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18138,6 +19042,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_hg_lancer_12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/6812180dc20f5c52bc04d6cc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18158,6 +19063,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_hg_lancer_18"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/681236df5cbf0518e00557a0.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18178,6 +19084,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mcx_gen1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -18198,6 +19105,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/adap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18218,6 +19126,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_brace"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/brace.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18238,6 +19147,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_colap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/tele.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18258,6 +19168,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_cqb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/cqb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18278,6 +19189,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_hinge"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/hing.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18298,6 +19210,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_light"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/light.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18318,6 +19231,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_tele"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/tele2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18338,6 +19252,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_ucs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/68badb6458dbe419740b1520.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18358,6 +19273,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_ucs_cheek"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "magpulriser.png"),
 
 	["sizeX"] = 1,
@@ -18378,6 +19294,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_ucs_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/68d566f3f3d7cd248f0a06db.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18398,6 +19315,7 @@ EFGM.ITEMS["arc9_att_eft_mcx_stock_ulss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/ulss.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18418,6 +19336,7 @@ EFGM.ITEMS["arc9_att_eft_mdr_barrel_556"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mdr_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18438,6 +19357,7 @@ EFGM.ITEMS["arc9_att_eft_mdr_barrel_762"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mdr_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18458,6 +19378,7 @@ EFGM.ITEMS["arc9_att_eft_mdr_hg_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mdr_attachments/hgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18478,6 +19399,7 @@ EFGM.ITEMS["arc9_att_eft_mdr_hg_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mdr_attachments/hgf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18498,6 +19420,7 @@ EFGM.ITEMS["arc9_att_eft_mdr_pg_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mdr_attachments/pgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18518,6 +19441,7 @@ EFGM.ITEMS["arc9_att_eft_mdr_pg_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mdr_attachments/pgf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18538,6 +19462,7 @@ EFGM.ITEMS["arc9_att_eft_mk18_barrel_24"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mk18_attachments/bar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18558,6 +19483,7 @@ EFGM.ITEMS["arc9_att_eft_mk18_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mk18.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18578,6 +19504,7 @@ EFGM.ITEMS["arc9_att_eft_mk18_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mk18_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18598,6 +19525,7 @@ EFGM.ITEMS["arc9_att_eft_mk18_mag10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mk18_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18618,6 +19546,7 @@ EFGM.ITEMS["arc9_att_eft_mk18_upper_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mk18.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -18638,6 +19567,7 @@ EFGM.ITEMS["arc9_att_eft_mk47_barrel_254"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/47sh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18658,6 +19588,7 @@ EFGM.ITEMS["arc9_att_eft_mk47_barrel_409"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/47long.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18678,6 +19609,7 @@ EFGM.ITEMS["arc9_att_eft_mk47_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mk47.png"),
 
 	["sizeX"] = 1,
@@ -18698,6 +19630,7 @@ EFGM.ITEMS["arc9_att_eft_mk47_upper_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mk47.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -18718,6 +19651,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_barrel_200"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/200.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18738,6 +19672,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_barrel_220"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/220.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18758,6 +19693,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_barrel_514"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/514.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18778,6 +19714,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_barrel_730"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/730.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18798,6 +19735,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_butt_aim"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/butt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18818,6 +19756,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_carb_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mosin_carbine_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18838,6 +19777,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18858,6 +19798,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mag_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18878,6 +19819,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mount_kochetov"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/k.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18898,6 +19840,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mount_mng"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/mng.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18918,6 +19861,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mount_patriot"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/pkw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18938,6 +19882,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mount_rings"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/pur.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18958,6 +19903,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_mount_trirail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/3r.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18978,6 +19924,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_bramit"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/bram.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -18998,6 +19945,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_kiba"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/kiba.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19018,6 +19966,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_tanker"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/tank.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19038,6 +19987,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_tpp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/tpp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19058,6 +20008,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_tr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/tr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19078,6 +20029,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_wm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/wm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19098,6 +20050,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_muzzle_wt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/wt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19118,6 +20071,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_pgrip_tacfire"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/gr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19138,6 +20092,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_scope_pu"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pu.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19158,6 +20113,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_std_fs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mosin_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19178,6 +20134,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_std_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mosin_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19198,6 +20155,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_ati"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "mosin_monte.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -19218,6 +20176,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_carbine"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/carb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19238,6 +20197,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_inf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/inf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19258,6 +20218,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_opfor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "archangel_mosin.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -19278,6 +20239,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_opfor_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "archangel_mosin_blk.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -19298,6 +20260,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_sawnoff"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/sawn.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19318,6 +20281,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_sawnoff_sniper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/sawnsnip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19338,6 +20302,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_sniper_carbine"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/snipcarb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19358,6 +20323,7 @@ EFGM.ITEMS["arc9_att_eft_mosin_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mosin_attachments/std.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19378,6 +20344,7 @@ EFGM.ITEMS["arc9_att_eft_mount_1911_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "1911_ncstar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19398,6 +20365,7 @@ EFGM.ITEMS["arc9_att_eft_mount_1911_top"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "weigatinny.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19418,6 +20386,7 @@ EFGM.ITEMS["arc9_att_eft_mount_25mm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/tactical/25mm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19438,6 +20407,7 @@ EFGM.ITEMS["arc9_att_eft_mount_25mm_dd_offset"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/tactical/ddoffset.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19458,6 +20428,7 @@ EFGM.ITEMS["arc9_att_eft_mount_25mm_utg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "25mm_utg.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19478,6 +20449,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_alpha4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_alpha.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19498,6 +20470,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_alpha4_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_alpha_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19518,6 +20491,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_arms"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/68caacc7933990601c07f479.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19538,6 +20512,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_geis"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_geis.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19558,6 +20533,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_geis_tan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_geis_ddc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19578,6 +20554,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_jp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_jp.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19598,6 +20575,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_lobaev"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_lobaev.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19618,6 +20596,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_nf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_nf.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19638,6 +20617,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_pepr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_pepr.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19658,6 +20638,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_rn"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_rn.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19678,6 +20659,7 @@ EFGM.ITEMS["arc9_att_eft_mount_30mm_rn_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "30mm_rn_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19698,6 +20680,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_ax50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_ax50.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19718,6 +20701,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_ax50_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_ax50_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19738,6 +20722,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_nf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_nf.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19758,6 +20743,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_nfris"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_nf_rugged.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19778,6 +20764,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_one_piece_is_real"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_khf.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19798,6 +20785,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_rn"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_rn.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19818,6 +20806,7 @@ EFGM.ITEMS["arc9_att_eft_mount_34mm_rn_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "34mm_rn_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19838,6 +20827,7 @@ EFGM.ITEMS["arc9_att_eft_mount_35mm_ims"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "35mm_ims.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19858,6 +20848,7 @@ EFGM.ITEMS["arc9_att_eft_mount_ac32062"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rmrhigh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19878,6 +20869,7 @@ EFGM.ITEMS["arc9_att_eft_mount_acogrs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "acogbackup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19898,6 +20890,7 @@ EFGM.ITEMS["arc9_att_eft_mount_alexander_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/alexander_arms_10_inch_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19918,6 +20911,7 @@ EFGM.ITEMS["arc9_att_eft_mount_alexander_3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/alexander_arms_3_inch_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19938,6 +20932,7 @@ EFGM.ITEMS["arc9_att_eft_mount_all_kmz_1p69"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "1p69_weaver.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -19958,6 +20953,7 @@ EFGM.ITEMS["arc9_att_eft_mount_amm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "amm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19978,6 +20974,7 @@ EFGM.ITEMS["arc9_att_eft_mount_amsh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "amsh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -19998,6 +20995,7 @@ EFGM.ITEMS["arc9_att_eft_mount_arms_22_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/68caace5f42a4476cf0be2b4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20018,6 +21016,7 @@ EFGM.ITEMS["arc9_att_eft_mount_arms_22_tr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/68caacf7c8ac87b10507c5a9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20038,6 +21037,7 @@ EFGM.ITEMS["arc9_att_eft_mount_b12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/b12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20058,6 +21058,7 @@ EFGM.ITEMS["arc9_att_eft_mount_b50_16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/16.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20078,6 +21079,7 @@ EFGM.ITEMS["arc9_att_eft_mount_b50_66"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/66.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20098,6 +21100,7 @@ EFGM.ITEMS["arc9_att_eft_mount_compact"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "short.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20118,6 +21121,7 @@ EFGM.ITEMS["arc9_att_eft_mount_deltapoint"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "dpcsm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20138,6 +21142,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_aksion_kobra"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "kobramount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20158,6 +21163,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_b13"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "b13.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20178,6 +21184,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_b13v"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "b13v.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20198,6 +21205,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_caaxdrgl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/mount/dt_sagsvd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20218,6 +21226,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_kmz_1p59"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "1p59.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20238,6 +21247,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_npz"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "1p78.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20258,6 +21268,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_pilad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "pilad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20278,6 +21289,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_rsr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "ak303m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20298,6 +21310,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_sag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "sagak.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20318,6 +21331,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_sagbit"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "sagbit.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20338,6 +21352,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_sagsvd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/mount/dt_sagsvd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20358,6 +21373,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_sr3mp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/dt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20378,6 +21394,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_sr3mpp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/dtp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20398,6 +21415,7 @@ EFGM.ITEMS["arc9_att_eft_mount_dovetail_vpo102"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo101_attachments/dt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20418,6 +21436,7 @@ EFGM.ITEMS["arc9_att_eft_mount_ffwb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "ffwb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20438,6 +21457,7 @@ EFGM.ITEMS["arc9_att_eft_mount_g17_at_base"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/atbase.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20458,6 +21478,7 @@ EFGM.ITEMS["arc9_att_eft_mount_g17_tshark"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/tshark.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20478,6 +21499,7 @@ EFGM.ITEMS["arc9_att_eft_mount_geis_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "geis_top.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20498,6 +21520,7 @@ EFGM.ITEMS["arc9_att_eft_mount_geis_cap_ddc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "geis_top_ddc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20518,6 +21541,7 @@ EFGM.ITEMS["arc9_att_eft_mount_geis_rmr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rof90.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20538,6 +21562,7 @@ EFGM.ITEMS["arc9_att_eft_mount_geis_rmr_ddc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rof90_ddc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20558,6 +21583,7 @@ EFGM.ITEMS["arc9_att_eft_mount_h2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "h2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20578,6 +21604,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hexagon_m"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hexrailm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20598,6 +21625,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hexagon_m_ar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hexrailmr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20618,6 +21646,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hexagon_s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hexrail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20638,6 +21667,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hexagon_s_ar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/hg/hexrailr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20658,6 +21688,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hkey_3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/mount/casvkm6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20678,6 +21709,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hydra"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "hydra.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -20698,6 +21730,7 @@ EFGM.ITEMS["arc9_att_eft_mount_hydra_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "hydra_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -20718,6 +21751,7 @@ EFGM.ITEMS["arc9_att_eft_mount_kac_bipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/mount/mlokbipod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20738,6 +21772,7 @@ EFGM.ITEMS["arc9_att_eft_mount_kedr_ris"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_kedr_attachments/ris.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20758,6 +21793,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_bipodd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "kpod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20778,6 +21814,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_cnc2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "cnc2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20798,6 +21835,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_cnc4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "cnc4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20818,6 +21856,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_corvus18"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "cd1.8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20838,6 +21877,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_corvus68"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "cd6.8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20858,6 +21898,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_si4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "strike4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20878,6 +21919,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_si6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "strike6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20898,6 +21940,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_vltor2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "casv2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20918,6 +21961,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_vltor4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "casv4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20938,6 +21982,7 @@ EFGM.ITEMS["arc9_att_eft_mount_keymod_vltor6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "casv6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20958,6 +22003,7 @@ EFGM.ITEMS["arc9_att_eft_mount_lenok_70"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/mount/lenokrail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20978,6 +22024,7 @@ EFGM.ITEMS["arc9_att_eft_mount_lrp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "lrp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -20998,6 +22045,7 @@ EFGM.ITEMS["arc9_att_eft_mount_lrp_spacer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "ss.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21018,6 +22066,7 @@ EFGM.ITEMS["arc9_att_eft_mount_lt101"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "lt101.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21038,6 +22087,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mepro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mepro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21058,6 +22108,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mlok093"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mlok0.93.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21078,6 +22129,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mlok25"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mlok2.5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21098,6 +22150,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mlok41"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mlok4.1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21118,6 +22171,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mlok_bipodd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mlokbipod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21138,6 +22192,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mlokcanti"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mlokcant.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21158,6 +22213,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mlokoffset"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mlokoffset.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21178,6 +22234,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mp443_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp443_attachments/b8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21198,6 +22255,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mpx_2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/m2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21218,6 +22276,7 @@ EFGM.ITEMS["arc9_att_eft_mount_mpx_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/m4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21238,6 +22297,7 @@ EFGM.ITEMS["arc9_att_eft_mount_nar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "nar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21258,6 +22318,7 @@ EFGM.ITEMS["arc9_att_eft_mount_ncstar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "mpr45.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21278,6 +22339,7 @@ EFGM.ITEMS["arc9_att_eft_mount_p226_bridge"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/bridge.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21298,6 +22360,7 @@ EFGM.ITEMS["arc9_att_eft_mount_precision_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/precision_reflex_handguard_bottom_rail_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21318,6 +22381,7 @@ EFGM.ITEMS["arc9_att_eft_mount_precision_side"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/precision_reflex_handguard_short_side_rail_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21338,6 +22402,7 @@ EFGM.ITEMS["arc9_att_eft_mount_precision_top"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/precision_reflex_handguard_long_top_rail_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21358,6 +22423,7 @@ EFGM.ITEMS["arc9_att_eft_mount_qars32"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "qars3.2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21378,6 +22444,7 @@ EFGM.ITEMS["arc9_att_eft_mount_qars42"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "qars4.2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21398,6 +22465,7 @@ EFGM.ITEMS["arc9_att_eft_mount_qrp2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "qrp2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21418,6 +22486,7 @@ EFGM.ITEMS["arc9_att_eft_mount_rahg2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rahg2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21438,6 +22507,7 @@ EFGM.ITEMS["arc9_att_eft_mount_rahg41"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rahg4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21458,6 +22528,7 @@ EFGM.ITEMS["arc9_att_eft_mount_reapir"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "dloc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21478,6 +22549,7 @@ EFGM.ITEMS["arc9_att_eft_mount_rm33"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rmrlow.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21498,6 +22570,7 @@ EFGM.ITEMS["arc9_att_eft_mount_rm35"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "rm35.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21518,6 +22591,7 @@ EFGM.ITEMS["arc9_att_eft_mount_romeo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "romeo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21538,6 +22612,7 @@ EFGM.ITEMS["arc9_att_eft_mount_scout_keymod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/689c8a2b4b91399db3085f27.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21558,6 +22633,7 @@ EFGM.ITEMS["arc9_att_eft_mount_scout_mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/689c8b454b91399db3085f2a.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21578,6 +22654,7 @@ EFGM.ITEMS["arc9_att_eft_mount_scout_pic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/689c8981bce76ccfbf01862f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21598,6 +22675,7 @@ EFGM.ITEMS["arc9_att_eft_mount_shakhin"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "shakhin.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21618,6 +22696,7 @@ EFGM.ITEMS["arc9_att_eft_mount_sr1mp_1x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/1x.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21638,6 +22717,7 @@ EFGM.ITEMS["arc9_att_eft_mount_sr1mp_4x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/4x.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21658,6 +22738,7 @@ EFGM.ITEMS["arc9_att_eft_mount_sr1mp_sil"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/sm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21678,6 +22759,7 @@ EFGM.ITEMS["arc9_att_eft_mount_t1sun"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "t1sun.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21698,6 +22780,7 @@ EFGM.ITEMS["arc9_att_eft_mount_t1sun_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "t1sun_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21718,6 +22801,7 @@ EFGM.ITEMS["arc9_att_eft_mount_toz106_mountdove"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/dove.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21738,6 +22822,7 @@ EFGM.ITEMS["arc9_att_eft_mount_toz106_mountrail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21758,6 +22843,7 @@ EFGM.ITEMS["arc9_att_eft_mount_trijicon"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "ta51.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21778,6 +22864,7 @@ EFGM.ITEMS["arc9_att_eft_mount_um3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "um3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21798,6 +22885,7 @@ EFGM.ITEMS["arc9_att_eft_mount_ump_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21818,6 +22906,7 @@ EFGM.ITEMS["arc9_att_eft_mount_ump_side"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21838,6 +22927,7 @@ EFGM.ITEMS["arc9_att_eft_mount_usp_elite"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/elcomp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21858,6 +22948,7 @@ EFGM.ITEMS["arc9_att_eft_mount_usp_match"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/matchcomp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21878,6 +22969,7 @@ EFGM.ITEMS["arc9_att_eft_mount_usp_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21898,6 +22990,7 @@ EFGM.ITEMS["arc9_att_eft_mount_vector_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/bot.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21918,6 +23011,7 @@ EFGM.ITEMS["arc9_att_eft_mount_vector_modular"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/mod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21938,6 +23032,7 @@ EFGM.ITEMS["arc9_att_eft_mount_vector_side"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/side.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21958,6 +23053,7 @@ EFGM.ITEMS["arc9_att_eft_mount_vulcan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "vulcan.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21978,6 +23074,7 @@ EFGM.ITEMS["arc9_att_eft_mount_zeus"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MOUNT, "zeus.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -21998,6 +23095,7 @@ EFGM.ITEMS["arc9_att_eft_mp18_barrel_762x54r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp18_attachments/barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22018,6 +23116,7 @@ EFGM.ITEMS["arc9_att_eft_mp18_hg_poly"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp18_attachments/hg_poly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22038,6 +23137,7 @@ EFGM.ITEMS["arc9_att_eft_mp18_hg_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp18_attachments/hg_wood.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22058,6 +23158,7 @@ EFGM.ITEMS["arc9_att_eft_mp18_mount_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp18_attachments/mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22078,6 +23179,7 @@ EFGM.ITEMS["arc9_att_eft_mp18_stock_poly"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp18_attachments/stock_poly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22098,6 +23200,7 @@ EFGM.ITEMS["arc9_att_eft_mp18_stock_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp18_attachments/stock_wood.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22118,6 +23221,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_charge_k"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mp5k.png"),
 
 	["sizeX"] = 1,
@@ -22138,6 +23242,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mp5.png"),
 
 	["sizeX"] = 1,
@@ -22158,6 +23263,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_hg_caa"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_caa_hx5_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22178,6 +23284,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_hg_k"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5k_polymer_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22198,6 +23305,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_hg_ptr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_ptr_trirail_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22218,6 +23326,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_hg_sd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5sd_polymer_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22238,6 +23347,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_wide_tropical_polymer_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22258,6 +23368,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_hg_tl99"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_b&t_tl99_aluminum_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22278,6 +23389,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_9x19_20round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22298,6 +23410,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_9x19_30round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22318,6 +23431,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_9x19_x_products_x5_50round_drum_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22338,6 +23452,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_mount_sil"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5sd_b&t_trirail_ring_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22358,6 +23473,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_mount_top"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_mfi_hk_universal_low_profile_scope_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22378,6 +23494,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_mount_top_tri"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_b&t_trirail_receiver_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22398,6 +23515,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_muzzle_3lug"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_3lug_thread_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22418,6 +23536,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_muzzle_navy"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_navy_style_3lug_suppressor_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22438,6 +23557,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_muzzle_noveske"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_noveskestyle_9x19_muzzle_brakecompensator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22458,6 +23578,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_muzzle_qd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_b&t_qd_9x19_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22478,6 +23599,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_muzzle_sd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5sd_9x19_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22498,6 +23620,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_rec_k"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mp5k.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -22518,6 +23641,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_rec_sd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mp5sd.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -22538,6 +23662,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mp5.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -22558,6 +23683,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mp5_drum_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22578,6 +23704,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_stock_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_a2_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22598,6 +23725,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_stock_a3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_a3_old_model_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22618,6 +23746,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_stock_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5_end_cap_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22638,6 +23767,7 @@ EFGM.ITEMS["arc9_att_eft_mp5_stock_capk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp5_attachments/hk_mp5k_end_cap_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22658,6 +23788,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22678,6 +23809,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22698,6 +23830,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22718,6 +23851,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_mag_40"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/40.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22738,6 +23872,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/sil.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22758,6 +23893,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_stock_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/sta1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22778,6 +23914,7 @@ EFGM.ITEMS["arc9_att_eft_mp7_stock_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp7_attachments/sta2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22798,6 +23935,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_bottomrail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22818,6 +23956,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_charge"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mp9.png"),
 
 	["sizeX"] = 1,
@@ -22838,6 +23977,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_fg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "mp9n.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22858,6 +23998,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_mag_15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/15.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22878,6 +24019,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22898,6 +24040,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_mag_25"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/25.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22918,6 +24061,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22938,6 +24082,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_rec_n"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mp9n.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -22958,6 +24103,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mp9.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -22978,6 +24124,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mp9_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -22998,6 +24145,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_siderail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/side.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23018,6 +24166,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23038,6 +24187,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_silmount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/sm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23058,6 +24208,7 @@ EFGM.ITEMS["arc9_att_eft_mp9_stockk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mp9_attachments/st.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23078,6 +24229,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/105.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23098,6 +24250,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel114"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpx45.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23118,6 +24271,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel121ronin"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/br8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23138,6 +24292,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel165"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpx65.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23158,6 +24313,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel165sd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxsd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23178,6 +24334,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel171ronin"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/br12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23198,6 +24355,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel203"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpx203.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23218,6 +24376,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_barrel355"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpx14.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23238,6 +24397,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_ch_1x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mpx_latch.png"),
 
 	["sizeX"] = 1,
@@ -23258,6 +24418,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_ch_2x"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mpx_latch2.png"),
 
 	["sizeX"] = 1,
@@ -23278,6 +24439,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_ch_2x2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mpx_gen2.png"),
 
 	["sizeX"] = 1,
@@ -23298,6 +24460,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_ch_sch"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mpx_sch.png"),
 
 	["sizeX"] = 1,
@@ -23318,6 +24481,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxhg105.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23338,6 +24502,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxhg14.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23358,6 +24523,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_14oem"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxhg14oem.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23378,6 +24544,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxhg45.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23398,6 +24565,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_65"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxhg65.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23418,6 +24586,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_gen1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxhg1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23438,6 +24607,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_gen1_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/g14.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23458,6 +24628,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_gen1_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/g18.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23478,6 +24649,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_gen2_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/g24.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23498,6 +24670,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_gen2_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/g26.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23518,6 +24691,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_hg_gen2_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/g28.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23538,6 +24712,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23558,6 +24733,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23578,6 +24754,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_mag_41"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/41.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23598,6 +24775,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/50.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23618,6 +24796,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_muzzle_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxmuz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23638,6 +24817,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23658,6 +24838,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mpx_gen1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -23678,6 +24859,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_sd_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/mpxsup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23698,6 +24880,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_sd_silencer_ronin12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/r12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23718,6 +24901,7 @@ EFGM.ITEMS["arc9_att_eft_mpx_sd_silencer_ronin8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/r8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23738,6 +24922,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_510"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_510mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23758,6 +24943,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_510r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_510mm_barrel_with_rib.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23778,6 +24964,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_540"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_540mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23798,6 +24985,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_540r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_540mm_barrel_with_rib.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23818,6 +25006,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_610"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_610mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23838,6 +25027,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_610r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_610mm_barrel_with_rib.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23858,6 +25048,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_660"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_660mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23878,6 +25069,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_660r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_660mm_barrel_with_rib.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23898,6 +25090,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_710"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_710mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23918,6 +25111,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_710r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_710mm_barrel_with_rib.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23938,6 +25132,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_750"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_750mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23958,6 +25153,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_barrel_750r"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_750mm_barrel_with_rib.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23978,6 +25174,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_hg_custom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_custom_plastic_forestock_with_rails.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -23998,6 +25195,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_hg_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_beechwood_forestock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24018,6 +25216,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_mag_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_6shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24038,6 +25237,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_mag_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133_12ga_8shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24058,6 +25258,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_mount_sprm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/kiba_arms_sprm_rail_mount_for_pumpaction_shotguns.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24078,6 +25279,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_sprut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/deltatek_sprut_mount_for_pumpaction_shotguns.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24098,6 +25300,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_stock_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133153_taktika_tula_12003_stock_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24118,6 +25321,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_stock_pistol"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133153_plastic_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24138,6 +25342,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_stock_plastic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133153_plastic_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24158,6 +25363,7 @@ EFGM.ITEMS["arc9_att_eft_mr133_stock_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp133153_wooden_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24178,6 +25384,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_barrel_610"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_610mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24198,6 +25405,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_barrel_660"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_660mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24218,6 +25426,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_barrel_710"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_710mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24238,6 +25447,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_barrel_750"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_750mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24258,6 +25468,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_polymer_forestock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24278,6 +25489,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_mag_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_4shell_magazine_cap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24298,6 +25510,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_mag_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_5shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24318,6 +25531,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_mag_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_6shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24338,6 +25552,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_mag_7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_7shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24358,6 +25573,7 @@ EFGM.ITEMS["arc9_att_eft_mr153_mag_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp153_12ga_8shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24378,6 +25594,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_barrel_510"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_12ga_510mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24398,6 +25615,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_walnut_forestock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24418,6 +25636,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_hg_ultima"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_polymer_forestock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24438,6 +25657,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_mag_6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_12ga_6shell_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24458,6 +25678,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_walnut_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24478,6 +25699,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24498,6 +25720,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_pistol_grip_rubber_pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24518,6 +25741,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_padl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_large_recoil_pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24538,6 +25762,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_padm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_medium_recoil_pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24558,6 +25783,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_pads"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_thin_recoil_pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24578,6 +25804,7 @@ EFGM.ITEMS["arc9_att_eft_mr155_stock_ultima_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_polymer_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24598,6 +25825,7 @@ EFGM.ITEMS["arc9_att_eft_mr155u_mount_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_short_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24618,6 +25846,7 @@ EFGM.ITEMS["arc9_att_eft_mr155u_mount_bottombig"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_underbarrel_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24638,6 +25867,7 @@ EFGM.ITEMS["arc9_att_eft_mr155u_mount_top"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr133_attachments/mp155_ultima_top_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24658,6 +25888,7 @@ EFGM.ITEMS["arc9_att_eft_mr155u_thermal"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "ultimacamera.png"),
 
 	["sizeX"] = 1,
@@ -24678,6 +25909,7 @@ EFGM.ITEMS["arc9_att_eft_mr43_barrel_310"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr43_attachments/310.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24698,6 +25930,7 @@ EFGM.ITEMS["arc9_att_eft_mr43_barrel_510"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr43_attachments/510.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24718,6 +25951,7 @@ EFGM.ITEMS["arc9_att_eft_mr43_barrel_725"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr43_attachments/725.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24738,6 +25972,7 @@ EFGM.ITEMS["arc9_att_eft_mr43_barrel_750"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr43_attachments/750.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24758,6 +25993,7 @@ EFGM.ITEMS["arc9_att_eft_mr43_butt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mr43_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24778,6 +26014,7 @@ EFGM.ITEMS["arc9_att_eft_mts255_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mts255_attachments/barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24798,6 +26035,7 @@ EFGM.ITEMS["arc9_att_eft_mts255_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mts255_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24818,6 +26056,7 @@ EFGM.ITEMS["arc9_att_eft_mts255_mag_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mts255_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24838,6 +26077,7 @@ EFGM.ITEMS["arc9_att_eft_mts255_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mts255_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24858,6 +26098,7 @@ EFGM.ITEMS["arc9_att_eft_mts255_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mts255_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24878,6 +26119,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_chokeapadter"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/salvochoke.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24898,6 +26140,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_claw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/monsterclaw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24918,6 +26161,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_gk02"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/gk02.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24938,6 +26182,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_hexasup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/hexa12k.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24958,6 +26203,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_mecyl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/mecyl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24978,6 +26224,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_rtc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/rtc12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -24998,6 +26245,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_salvo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/salvo12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25018,6 +26266,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_12g_threadapadter"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/savlo12thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25038,6 +26287,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_1911_anarcj"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "1911_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25058,6 +26308,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak101_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/74m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25078,6 +26329,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak102_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/102.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25098,6 +26350,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak103_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/74m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25118,6 +26371,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak104_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/102.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25138,6 +26392,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak105_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/102.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25158,6 +26413,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74_pws_cqb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/pwscqb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25178,6 +26434,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74_srvv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/srvv.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25198,6 +26455,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/74.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25218,6 +26476,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_ak74m_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/74m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25238,6 +26497,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_akm_srvv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/srvvakm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25258,6 +26518,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_akm_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/akm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25278,6 +26539,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_akml"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/akml.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25298,6 +26560,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_antidote"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/antidote.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25318,6 +26581,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_cncwar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/cncwar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25338,6 +26602,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_dgnak47b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/dgnak.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25358,6 +26623,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_dtk1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/dtk1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25378,6 +26644,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_dynacomp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/dynacomp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25398,6 +26665,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_kibaarms_308"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/akm308.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25418,6 +26686,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_reactor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/reactor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25438,6 +26707,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_rrd4c"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/rrd4c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25458,6 +26728,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_rrd4c74"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/rrd4c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25478,6 +26749,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_tt_ak"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/ttak.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25498,6 +26770,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_vpo136_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/vpo136.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25518,6 +26791,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_vpo209"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/209thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25538,6 +26812,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ak_vr05"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/vr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25558,6 +26833,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_30cb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/30cb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25578,6 +26854,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_aac51t"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/51t.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25598,6 +26875,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_atlas"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/atlas.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25618,6 +26896,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_bmda3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/bmd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25638,6 +26917,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_cmmgsv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/cmmgbrake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25658,6 +26938,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_keymount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/keymount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25678,6 +26959,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_lantac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/dgn762b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25698,6 +26980,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_m11"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/m11.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25718,6 +27001,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_mdr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/mdr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25738,6 +27022,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_procomp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/procomp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25758,6 +27043,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_qdc_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/qdc762.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25778,6 +27064,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_qdc_sup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/kacqdc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25798,6 +27085,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_red"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/fortis.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25818,6 +27106,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_scarsd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/scarsd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25838,6 +27127,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_shrewed"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/shrewd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25858,6 +27148,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_sig_taperlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/tlok.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25878,6 +27169,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_vette"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/vette.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25898,6 +27190,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_warden"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/war.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25918,6 +27211,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_wave"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/wave762.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25938,6 +27232,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_x3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/x3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25958,6 +27253,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar10_zk38"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/zk38.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25978,6 +27274,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_223cb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_thunder_beast_arms_223cb_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -25998,6 +27295,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_aac51t"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_aac_blackout_51t_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26018,6 +27316,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_adar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_colt_usgi_a2_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26038,6 +27337,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_alien"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/alien.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26058,6 +27358,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_annih"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/yankee_hill_annihilator_multicaliber_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26078,6 +27379,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_asr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_silencerco_asr_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26098,6 +27400,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_blitz"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_hk_blitz_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26118,6 +27421,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_butter"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/aeroknox.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26138,6 +27442,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_claymore"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_troy_claymore_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26158,6 +27463,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_corvette"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_nordic_components_corvette_556x45_compensator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26178,6 +27484,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_crd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ferfrans_crd_556x45_concussion_reduction_device.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26198,6 +27505,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_ferfrans"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_ferfrans_cqb_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26218,6 +27526,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_fh556rc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_surefire_sf4p_fh556rc_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26238,6 +27547,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_glok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_griffin_armament_gatelok_hammer_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26258,6 +27568,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_jailbreak"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_sai_jailbrake_556x45_muzzle_device.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26278,6 +27589,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_kacqdc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_kac_qdc_556x45_flash_suppressor_kit.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26298,6 +27610,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_kx3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_noveske_kx3_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26318,6 +27631,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_lantac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/dgn762b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26338,6 +27652,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_mdr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/desert_tech_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26358,6 +27673,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_nero"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/nero.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26378,6 +27694,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_onemount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/gemtech_one_direct_thread_mount_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26398,6 +27715,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_phantom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_yankee_hill_phantom_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26418,6 +27736,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_psr556"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_awc_psr_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26438,6 +27757,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_qdc3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/kac_qdc_556x45_3prong_flash_eliminator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26458,6 +27778,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_sf3p"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_surefire_sf3p_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26478,6 +27799,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_st6012"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_bulletec_st6012_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26498,6 +27820,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_usgia2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_colt_usgi_a2_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26518,6 +27841,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_vp09"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_vendetta_precision_vp09_interceptor_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26538,6 +27862,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_warcomp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_surefire_warcomp_556x45_flash_hider.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26558,6 +27883,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_warden"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_surefire_warden_556x45_blast_regulator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26578,6 +27904,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_wave"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_daniel_defense_wave_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26598,6 +27925,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ar15_zk23"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_taa_zk23_556x45_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26618,6 +27946,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_asr338ac858"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/ac858asr338.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26638,6 +27967,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_aug_ase"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "augsl71.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -26658,6 +27988,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_aug_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "auga3_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26678,6 +28009,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_aug_fh_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "auga1_flash.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26698,6 +28030,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_aug_fh_a3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "auga3_flash.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26718,6 +28051,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_aug_rat"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "worx.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26738,6 +28072,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_aug_t4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "t4aug.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -26758,6 +28093,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_axmccap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/axmcthr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26778,6 +28114,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_bmd_bmd762"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/bmd762.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26798,6 +28135,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_borelock338"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/ase_utra_borelock_338_lm_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26818,6 +28156,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_borelock338_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/ase_utra_borelock_thread_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26838,6 +28177,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_borelock338_sup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/ase_utra_sl7ibl_borelock_338_lm_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26858,6 +28198,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_carlson_ar15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/carlson.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26878,6 +28219,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/dtk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26898,6 +28240,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_deltatek_dtk_ar15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/dtk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26918,6 +28261,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_dthybrid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/dthybrid.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26938,6 +28282,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_3port"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "carvercustom.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26958,6 +28303,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_3port_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "carvercustom_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26978,6 +28324,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_aw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/bullnose.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -26998,6 +28345,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_aw_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/thr_aw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27018,6 +28366,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_cc4p"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "carvercustom4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27038,6 +28387,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_cc4p_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "carvercustom4_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27058,6 +28408,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_dd_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ddflash.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27078,6 +28429,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_dd_fh_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ddflash_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27098,6 +28450,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_dd_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/thr_dd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27118,6 +28471,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_g4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/g4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27138,6 +28492,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_lwd_comp9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/lwdcomp4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27158,6 +28513,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_g17_sai_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/thr_sai.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27178,6 +28534,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_m9a3_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "m9a3cap_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27198,6 +28555,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "m9a3cap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27218,6 +28576,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_omegaadapter"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/omegamount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27238,6 +28597,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_omegasilencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/omegasil.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27258,6 +28618,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_p226_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/prot.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27278,6 +28639,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_p226_tjs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/tj.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27298,6 +28660,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_pkm_dtk1p"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/ze.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27318,6 +28681,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_pkm_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/fh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27338,6 +28702,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_pkm_mb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/mb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27358,6 +28723,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_psr338"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/psr338.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27378,6 +28744,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_psr_protector"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/awc_psr_muzzle_brake_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27398,6 +28765,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_pws_cqb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/pwscqb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27418,6 +28786,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_rfb_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27438,6 +28807,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_sa58_3pr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27458,6 +28828,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_sa58_aut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/autmz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27478,6 +28849,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_scar_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/fh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27498,6 +28870,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_spr_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caac500bfe742288085e1e.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27518,6 +28891,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_spr_collar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caac96933990601c07f476.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27538,6 +28912,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_spr_sup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caad12269e10396503acfe.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27558,6 +28933,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_spr_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caac63269e10396503acfc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27578,6 +28954,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_stm9_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_stm9_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27598,6 +28975,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_svds_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27618,6 +28996,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_svds_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27638,6 +29017,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_svds_suppressor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27658,6 +29038,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_taccom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mcx_attachments/taccom.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27678,6 +29059,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_tkpd_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27698,6 +29080,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_tlok_3prong"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/tlok3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27718,6 +29101,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_tlok_mirco"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/tlokmicro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27738,6 +29122,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_tlok_tpb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/tlok2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27758,6 +29143,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_tmb338lm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/tmb338.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27778,6 +29164,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_trg_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/sako_trg_338_lm_thread_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27798,6 +29185,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_trg_cgs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/cgs_hekate_dt_338_lm_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27818,6 +29206,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_trg_coretac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/sako_trg_coretac_corebrake_338_lm_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27838,6 +29227,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_trg_pgm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/sako_trg_pgm_precision_338_lm_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27858,6 +29248,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_trg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/sako_trg_2242m10_338_lm_muzzle_brake.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27878,6 +29269,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_tsm338lm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_axmc_attachments/tsm338lm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27898,6 +29290,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_ump_oem"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/siloem.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27918,6 +29311,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_usgi_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63b03e1fb670852024656.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27938,6 +29332,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_usp_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27958,6 +29353,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_vector9_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/vectorthr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27978,6 +29374,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_vector9_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/vectorfh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -27998,6 +29395,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_vector_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/vectorthr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28018,6 +29416,7 @@ EFGM.ITEMS["arc9_att_eft_muzzle_vector_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/vectorfh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28038,6 +29437,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c5425e26265106dd0697a7.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28058,6 +29458,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mxlr_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28078,6 +29479,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_fs_xs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mxlr_ghost_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28098,6 +29500,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hammer_ext_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "hammerspur.png"),
 
 	["sizeX"] = 1,
@@ -28118,6 +29521,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hammer_ext_gold"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "hammerspur_blk.png"),
 
 	["sizeX"] = 1,
@@ -28138,6 +29542,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hammer_ext_spur"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "spurextension.png"),
 
 	["sizeX"] = 1,
@@ -28158,6 +29563,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hammer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mxlrhammer.png"),
 
 	["sizeX"] = 1,
@@ -28178,6 +29584,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c542baac40c36449066500.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28198,6 +29605,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff2792ea587611b0080956.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28218,6 +29626,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa_green"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff279dea587611b008095d.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28238,6 +29647,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_costa_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c542ecac40c36449066508.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28258,6 +29668,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_magpul"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c542aeb032bbdb530201c6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28278,6 +29689,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_magpul_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff26a2abb53266190dfc6c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28298,6 +29710,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_rpp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c5429fac40c364490664f8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28318,6 +29731,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_rpp_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff24b9079850d544096ea6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28338,6 +29752,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_rpp_green"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff24c0abb53266190dfc66.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28358,6 +29773,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c542c126265106dd0697ab.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28378,6 +29794,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_loop_rpp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mediumlooplever.png"),
 
 	["sizeX"] = 1,
@@ -28398,6 +29815,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_loop_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "looplever.png"),
 
 	["sizeX"] = 1,
@@ -28418,6 +29836,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_mag_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c5424826265106dd0697a4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28438,6 +29857,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_rail_rhino"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c541fcb032bbdb530201be.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28458,6 +29878,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_rail_xs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c54210d0538d12ec036c0e.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28478,6 +29899,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mxlr_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28498,6 +29920,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_rs_xs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mxlr_ghost_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28518,6 +29941,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_stock_magpul"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c541d45b84f7f36c03e557.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28538,6 +29962,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_stock_magpul_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff2c16c593c7b94a095e56.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28558,6 +29983,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_stock_rpp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c541ca26265106dd0697a0.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28578,6 +30004,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_stock_rpp_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff1f9f32abb9a4280b5178.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28598,6 +30025,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_stock_rpp_green"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67ff1fa88e8db1dcb80ccada.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28618,6 +30046,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_mxlr_attachments/67c541ba5b84f7f36c03e555.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28638,6 +30067,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_trig_rpp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mxlrtrigger.png"),
 
 	["sizeX"] = 1,
@@ -28658,6 +30088,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_trig_rpp_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mxlrtrigger_blk.png"),
 
 	["sizeX"] = 1,
@@ -28678,6 +30109,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_trig_rpp_gold"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mxlrtrigger_gold.png"),
 
 	["sizeX"] = 1,
@@ -28698,6 +30130,7 @@ EFGM.ITEMS["arc9_att_eft_mxlr_trig_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mxlrtrig.png"),
 
 	["sizeX"] = 1,
@@ -28718,6 +30151,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_barrel_115"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_nl545_attachments/68c294800f5ebd68290d6c20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28738,6 +30172,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_barrel_163_di"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_nl545_attachments/68c16edf83e2d814b0093f76.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28758,6 +30193,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_barrel_165"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_nl545_attachments/68c294750f5ebd68290d6c1c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28778,6 +30214,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "nl545.png"),
 
 	["sizeX"] = 1,
@@ -28798,6 +30235,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_gass"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "nl545.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28818,6 +30256,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_upperr_di"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "nl545_di.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -28838,6 +30277,7 @@ EFGM.ITEMS["arc9_att_eft_nl545_upperr_gp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "nl545_gp.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -28858,6 +30298,7 @@ EFGM.ITEMS["arc9_att_eft_optic_1p78_eyecap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "1p78_cup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28878,6 +30319,7 @@ EFGM.ITEMS["arc9_att_eft_optic_553"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "eotech553.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28898,6 +30340,7 @@ EFGM.ITEMS["arc9_att_eft_optic_553_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "eotech553_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28918,6 +30361,7 @@ EFGM.ITEMS["arc9_att_eft_optic_acrop1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "acrop1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28938,6 +30382,7 @@ EFGM.ITEMS["arc9_att_eft_optic_boss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "boss.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28958,6 +30403,7 @@ EFGM.ITEMS["arc9_att_eft_optic_compm4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "compm4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28978,6 +30424,7 @@ EFGM.ITEMS["arc9_att_eft_optic_deltapoint"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "deltapoint.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -28998,6 +30445,7 @@ EFGM.ITEMS["arc9_att_eft_optic_elcan_hco"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hco.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29018,6 +30466,7 @@ EFGM.ITEMS["arc9_att_eft_optic_exps3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "exps3_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29038,6 +30487,7 @@ EFGM.ITEMS["arc9_att_eft_optic_exps3_tan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "exps3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29058,6 +30508,7 @@ EFGM.ITEMS["arc9_att_eft_optic_falke"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "falke.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29078,6 +30529,7 @@ EFGM.ITEMS["arc9_att_eft_optic_ff3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "fastfire3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29098,6 +30550,7 @@ EFGM.ITEMS["arc9_att_eft_optic_h2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "aimpointh2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29118,6 +30571,7 @@ EFGM.ITEMS["arc9_att_eft_optic_hhs1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hhs1_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -29138,6 +30592,7 @@ EFGM.ITEMS["arc9_att_eft_optic_hhs1_tan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hhs1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -29158,6 +30613,7 @@ EFGM.ITEMS["arc9_att_eft_optic_hs401g5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hs401g5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29178,6 +30634,7 @@ EFGM.ITEMS["arc9_att_eft_optic_justice"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "justice.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29198,6 +30655,7 @@ EFGM.ITEMS["arc9_att_eft_optic_kmz_eyecap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "1p59_cup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29218,6 +30676,7 @@ EFGM.ITEMS["arc9_att_eft_optic_kobra"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "kobra.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29238,6 +30697,7 @@ EFGM.ITEMS["arc9_att_eft_optic_krechet"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "krechet.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29258,6 +30718,7 @@ EFGM.ITEMS["arc9_att_eft_optic_mepro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "mepro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29278,6 +30739,7 @@ EFGM.ITEMS["arc9_att_eft_optic_mrs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "mrs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29298,6 +30760,7 @@ EFGM.ITEMS["arc9_att_eft_optic_nspu_eyecap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "nspum_cup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29318,6 +30781,7 @@ EFGM.ITEMS["arc9_att_eft_optic_okp7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "okp7.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29338,6 +30802,7 @@ EFGM.ITEMS["arc9_att_eft_optic_p1x42"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pilad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29358,6 +30823,7 @@ EFGM.ITEMS["arc9_att_eft_optic_pk06"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pk06.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29378,6 +30844,7 @@ EFGM.ITEMS["arc9_att_eft_optic_pk120"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pk120.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29398,6 +30865,7 @@ EFGM.ITEMS["arc9_att_eft_optic_pro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29418,6 +30886,7 @@ EFGM.ITEMS["arc9_att_eft_optic_pso_eyecap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "pso_cup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29438,6 +30907,7 @@ EFGM.ITEMS["arc9_att_eft_optic_reapir_eyecup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "reapircup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29458,6 +30928,7 @@ EFGM.ITEMS["arc9_att_eft_optic_rmr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "rmr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29478,6 +30949,7 @@ EFGM.ITEMS["arc9_att_eft_optic_romeo4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "romeo4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29498,6 +30970,7 @@ EFGM.ITEMS["arc9_att_eft_optic_romeo8t"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "romeo8t.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29518,6 +30991,7 @@ EFGM.ITEMS["arc9_att_eft_optic_rusak"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "rusak.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29538,6 +31012,7 @@ EFGM.ITEMS["arc9_att_eft_optic_shakhin_eyecup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "shakhin_cup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29558,6 +31033,7 @@ EFGM.ITEMS["arc9_att_eft_optic_sig_romeo7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "romeo7.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -29578,6 +31054,7 @@ EFGM.ITEMS["arc9_att_eft_optic_sro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "sro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29598,6 +31075,7 @@ EFGM.ITEMS["arc9_att_eft_optic_sro_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "sro_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29618,6 +31096,7 @@ EFGM.ITEMS["arc9_att_eft_optic_srs02"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "srs02.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29638,6 +31117,7 @@ EFGM.ITEMS["arc9_att_eft_optic_t1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "t1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29658,6 +31138,7 @@ EFGM.ITEMS["arc9_att_eft_optic_t12w"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "t12w.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29678,6 +31159,7 @@ EFGM.ITEMS["arc9_att_eft_optic_targetring"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "targetring.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29698,6 +31180,7 @@ EFGM.ITEMS["arc9_att_eft_optic_tulpan_eyecap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "usp1_cup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29718,6 +31201,7 @@ EFGM.ITEMS["arc9_att_eft_optic_uh1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "uh1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29738,6 +31222,7 @@ EFGM.ITEMS["arc9_att_eft_optic_utg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "utg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29758,6 +31243,7 @@ EFGM.ITEMS["arc9_att_eft_optic_vulcan_eyecup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "vulcancup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29778,6 +31264,7 @@ EFGM.ITEMS["arc9_att_eft_optic_xps3_0"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "xpse.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29798,6 +31285,7 @@ EFGM.ITEMS["arc9_att_eft_optic_xps3_2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "xpse2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29818,6 +31306,7 @@ EFGM.ITEMS["arc9_att_eft_optic_zeus_eyecup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "zeuscup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29838,6 +31327,7 @@ EFGM.ITEMS["arc9_att_eft_p90_barrel_264"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29858,6 +31348,7 @@ EFGM.ITEMS["arc9_att_eft_p90_barrel_407"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/barrel_long.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29878,6 +31369,7 @@ EFGM.ITEMS["arc9_att_eft_p90_butt_di"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/butt_big.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29898,6 +31390,7 @@ EFGM.ITEMS["arc9_att_eft_p90_butt_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/butt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29918,6 +31411,7 @@ EFGM.ITEMS["arc9_att_eft_p90_charge_km"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "p90_handler.png"),
 
 	["sizeX"] = 1,
@@ -29938,6 +31432,7 @@ EFGM.ITEMS["arc9_att_eft_p90_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "p90.png"),
 
 	["sizeX"] = 1,
@@ -29958,6 +31453,7 @@ EFGM.ITEMS["arc9_att_eft_p90_effen_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "effen.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -29978,6 +31474,7 @@ EFGM.ITEMS["arc9_att_eft_p90_effen_siderail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/mount_side.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -29998,6 +31495,7 @@ EFGM.ITEMS["arc9_att_eft_p90_mag_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30018,6 +31516,7 @@ EFGM.ITEMS["arc9_att_eft_p90_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/muzzle.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30038,6 +31537,7 @@ EFGM.ITEMS["arc9_att_eft_p90_rec_siderail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/mount_side.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30058,6 +31558,7 @@ EFGM.ITEMS["arc9_att_eft_p90_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "p90.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30078,6 +31579,7 @@ EFGM.ITEMS["arc9_att_eft_p90_rec_toprail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/top_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30098,6 +31600,7 @@ EFGM.ITEMS["arc9_att_eft_p90_scope"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "p90.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30118,6 +31621,7 @@ EFGM.ITEMS["arc9_att_eft_p90_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/silencer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30138,6 +31642,7 @@ EFGM.ITEMS["arc9_att_eft_p90_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30158,6 +31663,7 @@ EFGM.ITEMS["arc9_att_eft_pb_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/gpb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30178,6 +31684,7 @@ EFGM.ITEMS["arc9_att_eft_pb_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30198,6 +31705,7 @@ EFGM.ITEMS["arc9_att_eft_pg_deagle_ergo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "deagle_groove.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30218,6 +31726,7 @@ EFGM.ITEMS["arc9_att_eft_pg_deagle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "deagle.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30238,6 +31747,7 @@ EFGM.ITEMS["arc9_att_eft_pg_pk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30258,6 +31768,7 @@ EFGM.ITEMS["arc9_att_eft_pg_pkb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/pgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30278,6 +31789,7 @@ EFGM.ITEMS["arc9_att_eft_pgrip_g17_tgg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30298,6 +31810,7 @@ EFGM.ITEMS["arc9_att_eft_pkm_bipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "pkbipod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30318,6 +31831,7 @@ EFGM.ITEMS["arc9_att_eft_pkm_mag_100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pkm_100.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30338,6 +31852,7 @@ EFGM.ITEMS["arc9_att_eft_pkm_mag_100_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pkm_100_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30358,6 +31873,7 @@ EFGM.ITEMS["arc9_att_eft_pm_mag_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30378,6 +31894,7 @@ EFGM.ITEMS["arc9_att_eft_pm_mag_84"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/84.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30398,6 +31915,7 @@ EFGM.ITEMS["arc9_att_eft_pm_pg_fab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/gfab.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30418,6 +31936,7 @@ EFGM.ITEMS["arc9_att_eft_pm_pg_fab_od"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/gfabod.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30438,6 +31957,7 @@ EFGM.ITEMS["arc9_att_eft_pm_pg_laser"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/glaser.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30458,6 +31978,7 @@ EFGM.ITEMS["arc9_att_eft_pm_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/g.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30478,6 +31999,7 @@ EFGM.ITEMS["arc9_att_eft_pm_pg_tk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pm_attachments/gtk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30498,6 +32020,7 @@ EFGM.ITEMS["arc9_att_eft_pm_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "pm.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30518,6 +32041,7 @@ EFGM.ITEMS["arc9_att_eft_pm_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pm_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30538,6 +32062,7 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_barrel_269"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ppsh41_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30558,6 +32083,7 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_dust"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ppsh.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30578,6 +32104,7 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_mag_35"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ppsh41_attachments/35.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30598,6 +32125,7 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_mag_71"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ppsh41_attachments/71.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30618,6 +32146,7 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ppsh41_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30638,6 +32167,7 @@ EFGM.ITEMS["arc9_att_eft_ps90_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ps90.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30658,6 +32188,7 @@ EFGM.ITEMS["arc9_att_eft_ps90_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p90_attachments/stock_ps.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30678,6 +32209,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "a2_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30698,6 +32230,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_arms40"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "arms40_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30718,6 +32251,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_hk416"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "hk416_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30738,6 +32272,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_kac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "kacfolding_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30758,6 +32293,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_kacmicro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "kacfoldingmicro_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30778,6 +32314,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_kriss_defiance"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "defiance_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30798,6 +32335,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_m4carry"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m4carry_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30818,6 +32356,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_matech"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "matech_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30838,6 +32377,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_mbus"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mbus_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30858,6 +32398,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_mbus_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mbus_fde_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30878,6 +32419,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_mcx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mcx_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30898,6 +32440,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_mp7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mp7_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30918,6 +32461,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_mpx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "mpx_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30938,6 +32482,7 @@ EFGM.ITEMS["arc9_att_eft_rearsight_scar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "scar_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -30958,6 +32503,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_ak74"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ak74.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30978,6 +32524,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_ak74m"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ak74m.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -30998,6 +32545,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_akm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "akm.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31018,6 +32566,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_akm_molot"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "molot.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31038,6 +32587,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_b33"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "b33.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31058,6 +32608,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_bastion"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "bastion.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31078,6 +32629,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_dogleg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "dogleg.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31098,6 +32650,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_fab_pdc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "pdc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31118,6 +32671,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ak_rd704"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "rd704.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31138,6 +32692,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_adar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "adar.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31158,6 +32713,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_aeronknxo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ax15.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31178,6 +32734,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_gen3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "noveske.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31198,6 +32755,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_m16a1e1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m16a1e1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31218,6 +32776,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_m16a2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m16a2.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31238,6 +32797,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_m4a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m4a1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31258,6 +32818,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_mur"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mur1s.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31278,6 +32839,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_radian"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "model1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31298,6 +32860,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_spr_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68caacb4c8ac87b10507c5a6.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31318,6 +32881,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_stm9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "stm9.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31338,6 +32902,7 @@ EFGM.ITEMS["arc9_att_eft_rec_ar15_tx15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "tx15lw.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31358,6 +32923,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_aw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "alphawolf.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31378,6 +32944,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_aw_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "alphawolf_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31398,6 +32965,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_aw_c"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "alphawolfc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31418,6 +32986,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_aw_c_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "alphawolfc_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31438,6 +33007,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_mos"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "gmos.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31458,6 +33028,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_motocut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "motocut.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31478,6 +33049,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_motocut_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "motocut_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31498,6 +33070,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_ps9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ps9.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31518,6 +33091,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_ps9_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ps9_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31538,6 +33112,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "glock.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31558,6 +33133,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_vipercut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "vipercut.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31578,6 +33154,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_vipercut_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "vipercut_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31598,6 +33175,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_zt_hex"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "zevgen.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31618,6 +33196,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_zt_hex_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "zevgen_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31638,6 +33217,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_zt_spartan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "zevhex.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31658,6 +33238,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g17_zt_spartan_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "zevhex_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31678,6 +33259,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g18c_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "glock18c.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31698,6 +33280,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g19x_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "glock19x_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31718,6 +33301,7 @@ EFGM.ITEMS["arc9_att_eft_rec_g19x_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "glock19x.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31738,6 +33322,7 @@ EFGM.ITEMS["arc9_att_eft_rec_hk416"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "hk416.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -31758,6 +33343,7 @@ EFGM.ITEMS["arc9_att_eft_rec_m16_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/68a63d1522b1e0bd360afe67.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31778,6 +33364,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_barrel_18"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31798,6 +33385,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31818,6 +33406,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_mount_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/hgm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31838,6 +33427,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_mount_quad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/q.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31858,6 +33448,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_mount_upper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/tm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31878,6 +33469,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_muzzle_spacer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/spacer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31898,6 +33490,7 @@ EFGM.ITEMS["arc9_att_eft_rfb_muzzle_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rfb_attachments/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31918,6 +33511,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_barrel_40ds"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rhino_attachments/40ds.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31938,6 +33532,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_barrel_60ds"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rhino_attachments/60ds.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31958,6 +33553,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_fs_red"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "rhino_red_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31978,6 +33574,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "rhino_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -31998,6 +33595,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_mag_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rhino_attachments/chiappa_rhino_9x19_6round_cylinder.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32018,6 +33616,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_pgrip_poly"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rhino_attachments/chiappa_rhino_plastic_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32038,6 +33637,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rhino_attachments/chiappa_rhino_wooden_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32058,6 +33658,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_rs_red"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "rhino_red_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32078,6 +33679,7 @@ EFGM.ITEMS["arc9_att_eft_rhino_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "rhino_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32098,6 +33700,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_barrel_350"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/350.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32118,6 +33721,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_barrel_520"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/520.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32138,6 +33742,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_bipod"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "rpdbipod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -32158,6 +33763,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_hg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32178,6 +33784,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_mag_100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32198,6 +33805,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_muzzle"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32218,6 +33826,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_n"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/rpdn.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32238,6 +33847,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_pg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32258,6 +33868,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_rearsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "rpd_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32278,6 +33889,7 @@ EFGM.ITEMS["arc9_att_eft_rpd_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_rpd_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32298,6 +33910,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_barrel_370"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32318,6 +33931,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_barrel_550"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/barrellong.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32338,6 +33952,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32358,6 +33973,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_mount_side"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32378,6 +33994,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/muzzle.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32398,6 +34015,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_rec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "rpk16.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -32418,6 +34036,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "rpk16_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32438,6 +34057,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_rs_base"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/rsbase.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32458,6 +34078,7 @@ EFGM.ITEMS["arc9_att_eft_rpk16_stock_tube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rpk/tube.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32478,6 +34099,7 @@ EFGM.ITEMS["arc9_att_eft_rs_1911_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m45a1_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32498,6 +34120,7 @@ EFGM.ITEMS["arc9_att_eft_rs_1911_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m1911_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32518,6 +34141,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_ak105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ak105_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32538,6 +34162,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_ak74"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ak74_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32558,6 +34183,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_ak74m"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ak74m_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32578,6 +34204,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_akm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "akm_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32598,6 +34225,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_akmb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "akmb_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32618,6 +34246,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_akmp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "akmp_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32638,6 +34267,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_rd_ers"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "akrd_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32658,6 +34288,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_tt01"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/rs_tt01.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32678,6 +34309,7 @@ EFGM.ITEMS["arc9_att_eft_rs_ak_vpo209"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "vpo209_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32698,6 +34330,7 @@ EFGM.ITEMS["arc9_att_eft_rs_deagle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "deagle_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32718,6 +34351,7 @@ EFGM.ITEMS["arc9_att_eft_rs_g17_se"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_ringer_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32738,6 +34372,7 @@ EFGM.ITEMS["arc9_att_eft_rs_g17_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32758,6 +34393,7 @@ EFGM.ITEMS["arc9_att_eft_rs_g17_tfx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_tfx_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32778,6 +34414,7 @@ EFGM.ITEMS["arc9_att_eft_rs_g17_zt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock_zev_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32798,6 +34435,7 @@ EFGM.ITEMS["arc9_att_eft_rs_g19x_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "glock19x_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32818,6 +34456,7 @@ EFGM.ITEMS["arc9_att_eft_rs_m9a3_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_m9a3_attachments/rsm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32838,6 +34477,7 @@ EFGM.ITEMS["arc9_att_eft_rs_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "m9a3_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32858,6 +34498,7 @@ EFGM.ITEMS["arc9_att_eft_rs_p226_merp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "p226_tru_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32878,6 +34519,7 @@ EFGM.ITEMS["arc9_att_eft_rs_p226_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/rsm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32898,6 +34540,7 @@ EFGM.ITEMS["arc9_att_eft_rs_p226_rmr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_p226_attachments/rmr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32918,6 +34561,7 @@ EFGM.ITEMS["arc9_att_eft_rs_p226_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "p226_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32938,6 +34582,7 @@ EFGM.ITEMS["arc9_att_eft_rs_pk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pk_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32958,6 +34603,7 @@ EFGM.ITEMS["arc9_att_eft_rs_pl15_long"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pl15_ext_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32978,6 +34624,7 @@ EFGM.ITEMS["arc9_att_eft_rs_pl15_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pl15_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -32998,6 +34645,7 @@ EFGM.ITEMS["arc9_att_eft_rs_usp_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_usp_attachments/rsrd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33018,6 +34666,7 @@ EFGM.ITEMS["arc9_att_eft_rs_usp_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "usp_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33038,6 +34687,7 @@ EFGM.ITEMS["arc9_att_eft_rs_usp_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "usp_tac_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33058,6 +34708,7 @@ EFGM.ITEMS["arc9_att_eft_rsass_barrel_457"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar10_18.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -33078,6 +34729,7 @@ EFGM.ITEMS["arc9_att_eft_rsass_barrel_558"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ar10_22.png", "smooth"),
 
 	["sizeX"] = 5,
@@ -33098,6 +34750,7 @@ EFGM.ITEMS["arc9_att_eft_rsh12_mag_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ash12_attachments/cyl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33118,6 +34771,7 @@ EFGM.ITEMS["arc9_att_eft_rsh12_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ash12_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33138,6 +34792,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_barrel_208"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/11.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33158,6 +34813,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_barrel_406"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/16.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33178,6 +34834,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_barrel_533"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/21.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33198,6 +34855,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_belg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/belg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33218,6 +34876,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_casvfal"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/casvfal.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33238,6 +34897,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_casvfas"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/casvfas.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33258,6 +34918,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_fal"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/fal.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33278,6 +34939,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_quad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/quad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33298,6 +34960,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_quadfull"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/quadfull.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33318,6 +34981,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_sportkm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/sportkm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33338,6 +35002,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_hg_sportmlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/sportmlok.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33358,6 +35023,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33378,6 +35044,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33398,6 +35065,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_20mmw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "mmw_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33418,6 +35086,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_20mmw_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "mmw_20_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33438,6 +35107,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33458,6 +35128,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_30l"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/30l.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33478,6 +35149,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/50.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33498,6 +35170,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_pgrip_fab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/agfal.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33518,6 +35191,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_pgrip_saw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/saw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33538,6 +35212,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33558,6 +35233,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_rec_ed"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "sa58_ed.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -33578,6 +35254,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_rec_fal"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "fal.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -33598,6 +35275,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "sa58_holland_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33618,6 +35296,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_stock_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/adap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33638,6 +35317,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_stock_brs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/brs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33658,6 +35338,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_stock_fold"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/fold.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33678,6 +35359,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_stock_hump"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/hump.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33698,6 +35380,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_stock_magpul"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/magpul.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33718,6 +35401,7 @@ EFGM.ITEMS["arc9_att_eft_sa58_stock_spr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sa58_attachments/spr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33738,6 +35422,7 @@ EFGM.ITEMS["arc9_att_eft_sag545_buffertube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/sag/tube.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33758,6 +35443,7 @@ EFGM.ITEMS["arc9_att_eft_sag545_cover"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "ak545.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33778,6 +35464,7 @@ EFGM.ITEMS["arc9_att_eft_sag545_gastube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "ak545.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33798,6 +35485,7 @@ EFGM.ITEMS["arc9_att_eft_sag545_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/sag/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33818,6 +35506,7 @@ EFGM.ITEMS["arc9_att_eft_sag545_rs"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "ak545_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33838,6 +35527,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_dustcover_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "sok12.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -33858,6 +35548,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_fs_chaos"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "chaos_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33878,6 +35569,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_bravo18"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/bravo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33898,6 +35590,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_custom340"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/340.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33918,6 +35611,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_custom340_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/cgrail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33938,6 +35632,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33958,6 +35653,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_titan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/chaos.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33978,6 +35674,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_titanrecuver"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/chaosback.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -33998,6 +35695,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_titantop"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/chaostop.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34018,6 +35716,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_utg_pro_long"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/utg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34038,6 +35737,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_handguard_utg_pro_short"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/utgs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34058,6 +35758,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_magazine_md20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/md20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34078,6 +35779,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_magazine_powermag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/drum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34098,6 +35800,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_magazine_promag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/magbig.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34118,6 +35821,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_magazine_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34138,6 +35842,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34158,6 +35863,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_rs_chaos"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "chaos_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34178,6 +35884,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_rs_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/saiga12/mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34198,6 +35905,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "sok_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34218,6 +35926,7 @@ EFGM.ITEMS["arc9_att_eft_saiga12_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/74m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34238,6 +35947,7 @@ EFGM.ITEMS["arc9_att_eft_sako_barrel_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_338_lm_20_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34258,6 +35968,7 @@ EFGM.ITEMS["arc9_att_eft_sako_barrel_235"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_338_lm_235_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34278,6 +35989,7 @@ EFGM.ITEMS["arc9_att_eft_sako_barrel_27"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_338_lm_27_inch_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34298,6 +36010,7 @@ EFGM.ITEMS["arc9_att_eft_sako_bolt_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "m10.png"),
 
 	["sizeX"] = 1,
@@ -34318,6 +36031,7 @@ EFGM.ITEMS["arc9_att_eft_sako_chassis"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "m10.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -34338,6 +36052,7 @@ EFGM.ITEMS["arc9_att_eft_sako_hg_11"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_11_inch_handguard_assembly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34358,6 +36073,7 @@ EFGM.ITEMS["arc9_att_eft_sako_hg_15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_15_inch_handguard_assembly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34378,6 +36094,7 @@ EFGM.ITEMS["arc9_att_eft_sako_hg_15mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_mlok_15_inch_handguard_assembly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34398,6 +36115,7 @@ EFGM.ITEMS["arc9_att_eft_sako_hook_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "m10_hook.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34418,6 +36136,7 @@ EFGM.ITEMS["arc9_att_eft_sako_mag338"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_338_lm_8round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34438,6 +36157,7 @@ EFGM.ITEMS["arc9_att_eft_sako_pad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "m10_pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34458,6 +36178,7 @@ EFGM.ITEMS["arc9_att_eft_sako_railmid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_medium_length_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34478,6 +36199,7 @@ EFGM.ITEMS["arc9_att_eft_sako_railshort"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_short_length_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34498,6 +36220,7 @@ EFGM.ITEMS["arc9_att_eft_sako_toprail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sako_attachments/sako_trg_m10_scope_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34518,6 +36241,7 @@ EFGM.ITEMS["arc9_att_eft_sako_upper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m10.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -34538,6 +36262,7 @@ EFGM.ITEMS["arc9_att_eft_scar_barrel_h13"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/h13.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34558,6 +36283,7 @@ EFGM.ITEMS["arc9_att_eft_scar_barrel_h16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/h16.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34578,6 +36304,7 @@ EFGM.ITEMS["arc9_att_eft_scar_barrel_h20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/h20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34598,6 +36325,7 @@ EFGM.ITEMS["arc9_att_eft_scar_barrel_l10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/l10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34618,6 +36346,7 @@ EFGM.ITEMS["arc9_att_eft_scar_barrel_l14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/l14.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34638,6 +36367,7 @@ EFGM.ITEMS["arc9_att_eft_scar_barrel_l18"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/l18.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34658,6 +36388,7 @@ EFGM.ITEMS["arc9_att_eft_scar_ch"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "scar.png"),
 
 	["sizeX"] = 1,
@@ -34678,6 +36409,7 @@ EFGM.ITEMS["arc9_att_eft_scar_fss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "scar_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34698,6 +36430,7 @@ EFGM.ITEMS["arc9_att_eft_scar_mag_h20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34718,6 +36451,7 @@ EFGM.ITEMS["arc9_att_eft_scar_mag_h20_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/20f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34738,6 +36472,7 @@ EFGM.ITEMS["arc9_att_eft_scar_mrexl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/pmm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34758,6 +36493,7 @@ EFGM.ITEMS["arc9_att_eft_scar_mrexlf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/pmmf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34778,6 +36514,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_bottom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/bottom.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34798,6 +36535,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_bottom_mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/pmmlower.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34818,6 +36556,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_bottom_mlokf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/pmmlowerf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34838,6 +36577,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_casv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/hgcasv.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34858,6 +36598,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_casv_ext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/casv.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34878,6 +36619,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_casv_extf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/casvf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34898,6 +36640,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_casvf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/hgcasvf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34918,6 +36661,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_mrex"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/mrex.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34938,6 +36682,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_mrex_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/mrex2f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34958,6 +36703,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_side"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/side.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34978,6 +36724,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_side_mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/sidemlok.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -34998,6 +36745,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_side_mlokf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/sidemlokf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35018,6 +36766,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_side_nothing"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/elim.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35038,6 +36787,7 @@ EFGM.ITEMS["arc9_att_eft_scar_rail_side_nothingf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/elimf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35058,6 +36808,7 @@ EFGM.ITEMS["arc9_att_eft_scar_srx"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/srx.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35078,6 +36829,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_base"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/sbase.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35098,6 +36850,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_base_buff"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/buff.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35118,6 +36871,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_base_bufff"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/bufff.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35138,6 +36892,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_base_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/sbasef.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35158,6 +36913,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_base_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/jmac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35178,6 +36934,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_cheeck"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/che.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35198,6 +36955,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_cheeck_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/chef.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35218,6 +36976,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_ext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/sex.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35238,6 +36997,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_ext_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/sexf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35258,6 +37018,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_ext_vss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/scarnewstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35278,6 +37039,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_ext_vssf"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/scarnewstockf.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35298,6 +37060,7 @@ EFGM.ITEMS["arc9_att_eft_scar_stock_pad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_scar_attachments/pad.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35318,6 +37081,7 @@ EFGM.ITEMS["arc9_att_eft_scar_upper_h"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mk17.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -35338,6 +37102,7 @@ EFGM.ITEMS["arc9_att_eft_scar_upper_h_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mk17_fde.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -35358,6 +37123,7 @@ EFGM.ITEMS["arc9_att_eft_scar_upper_l"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mk16.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -35378,6 +37144,7 @@ EFGM.ITEMS["arc9_att_eft_scar_upper_l_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mk16_fde.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -35398,6 +37165,7 @@ EFGM.ITEMS["arc9_att_eft_scope_25mm_pilad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "vomz.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35418,6 +37186,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_march"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "ffp.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35438,6 +37207,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_mark4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "mark4lr.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35458,6 +37228,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_mark4mrt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "mrt.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35478,6 +37249,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_razor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "razorhd.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35498,6 +37270,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_razor_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "razorhd_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35518,6 +37291,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_sb_pmii1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pmii_18.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35538,6 +37312,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_sb_pmii1_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pmii_18_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35558,6 +37333,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_tac30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "tac30.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35578,6 +37354,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_tango6t"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "tango6.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35598,6 +37375,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_tango6t_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "tango6_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35618,6 +37396,7 @@ EFGM.ITEMS["arc9_att_eft_scope_30mm_vudu"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "vudu.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35638,6 +37417,7 @@ EFGM.ITEMS["arc9_att_eft_scope_34mm_atacr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "atacr.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35658,6 +37438,7 @@ EFGM.ITEMS["arc9_att_eft_scope_34mm_hsff"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hensoldt.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35678,6 +37459,7 @@ EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pmii_320.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35698,6 +37480,7 @@ EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii3_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pmii_320_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35718,6 +37501,7 @@ EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pmii_525.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35738,6 +37522,7 @@ EFGM.ITEMS["arc9_att_eft_scope_34mm_sb_pmii5_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pmii_525_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35758,6 +37543,7 @@ EFGM.ITEMS["arc9_att_eft_scope_35mm_5hd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "5hd.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35778,6 +37564,7 @@ EFGM.ITEMS["arc9_att_eft_scope_acog_ta01"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "ta01nsn.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35798,6 +37585,7 @@ EFGM.ITEMS["arc9_att_eft_scope_acog_ta01_tan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "ta01nsn_tan.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35818,6 +37606,7 @@ EFGM.ITEMS["arc9_att_eft_scope_acog_ta11d"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "ta11d.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35838,6 +37627,7 @@ EFGM.ITEMS["arc9_att_eft_scope_adop4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "adop4.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35858,6 +37648,7 @@ EFGM.ITEMS["arc9_att_eft_scope_adop4_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "adop4_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35878,6 +37669,7 @@ EFGM.ITEMS["arc9_att_eft_scope_bravo4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "bravo4.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35898,6 +37690,7 @@ EFGM.ITEMS["arc9_att_eft_scope_compactprism"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "compactprism.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35918,6 +37711,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_1p78"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "npz1p78.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35938,6 +37732,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_ekp1s03"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "ekp1s03.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35958,6 +37753,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_ekp802"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "kobradovetail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -35978,6 +37774,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_nspum"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "nspum.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -35998,6 +37795,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_okp7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "okp7dovetail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36018,6 +37816,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_pk1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "npzpk1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36038,6 +37837,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_pkaa"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pkaa.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36058,6 +37858,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_pso1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pso1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36078,6 +37879,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_pso1m2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pso1m21.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36098,6 +37900,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_pso1m2non1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "pso1m2.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36118,6 +37921,7 @@ EFGM.ITEMS["arc9_att_eft_scope_dovetail_tulpan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "usp1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36138,6 +37942,7 @@ EFGM.ITEMS["arc9_att_eft_scope_echo1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "echo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36158,6 +37963,7 @@ EFGM.ITEMS["arc9_att_eft_scope_elcan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "elcan.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36178,6 +37984,7 @@ EFGM.ITEMS["arc9_att_eft_scope_elcan_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "elcan_fde.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36198,6 +38005,7 @@ EFGM.ITEMS["arc9_att_eft_scope_elcan_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/688b54a11cef2a61d005273b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36218,6 +38026,7 @@ EFGM.ITEMS["arc9_att_eft_scope_flir"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "flir.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36238,6 +38047,7 @@ EFGM.ITEMS["arc9_att_eft_scope_hamr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "hamr.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36258,6 +38068,7 @@ EFGM.ITEMS["arc9_att_eft_scope_kmz_1p59"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "1p59.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36278,6 +38089,7 @@ EFGM.ITEMS["arc9_att_eft_scope_kmz_1p69"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "1p69.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36298,6 +38110,7 @@ EFGM.ITEMS["arc9_att_eft_scope_pa_prism"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "prism.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36318,6 +38131,7 @@ EFGM.ITEMS["arc9_att_eft_scope_reapir"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "reapir.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36338,6 +38152,7 @@ EFGM.ITEMS["arc9_att_eft_scope_shakhin"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "shakhin.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36358,6 +38173,7 @@ EFGM.ITEMS["arc9_att_eft_scope_shakhin_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "shakhin_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36378,6 +38194,7 @@ EFGM.ITEMS["arc9_att_eft_scope_swampfox"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "trihawk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36398,6 +38215,7 @@ EFGM.ITEMS["arc9_att_eft_scope_valday_ps320"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "valday.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36418,6 +38236,7 @@ EFGM.ITEMS["arc9_att_eft_scope_vulcan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "vulcan.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36438,6 +38257,7 @@ EFGM.ITEMS["arc9_att_eft_scope_zeuspro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "zeus.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36458,6 +38278,7 @@ EFGM.ITEMS["arc9_att_eft_sil_pl15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pl15_attachments/sil.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36478,6 +38299,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_ak74_hexagon"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/hexa.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36498,6 +38320,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_akm_hexagon"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/hexa.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36518,6 +38341,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_dtk4m"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/dtk4m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36538,6 +38362,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_hexagon_dtkp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/hexa.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36558,6 +38383,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_pbs1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/pbs1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36578,6 +38404,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_pbs4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/pbs4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36598,6 +38425,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_r43_366"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/rotor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36618,6 +38446,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_r43_762"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/rotor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36638,6 +38467,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_tgpa"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/tgpa.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36658,6 +38488,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ak_wafflemaker"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/muzzle/waffle.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36678,6 +38509,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_alpha9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/alpha9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36698,6 +38530,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar10_prsqdc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/prsqdc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36718,6 +38551,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar10_srdti"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/srd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36738,6 +38572,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar10_tlok_srd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar10_attachments/srdqd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36758,6 +38593,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/kac_qdss_nt4_556x45_sound_suppressor_(black).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36778,6 +38614,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_kacqdssnt4_f"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/kac_qdss_nt4_556x45_sound_suppressor_(fde).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36798,6 +38635,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_m4sdk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/ar15_griffin_armament_m4sdk_556x45_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36818,6 +38656,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_qdc556"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "kacqdc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36838,6 +38677,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_qdc556_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "kacqdc_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36858,6 +38698,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_sakerasr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/silencerco_saker_asr_556_556x45_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36878,6 +38719,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_socommini"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/surefire_socom556mini_monster_556x45_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36898,6 +38740,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_socommonster"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/surefire_socom556monster_556x45_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36918,6 +38761,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_socomrc2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "socomrc2.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36938,6 +38782,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar15_socomrc2_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "socomrc2_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -36958,6 +38803,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_dthybrid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/hybridslinecer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36978,6 +38824,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_fd917"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/silencer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -36998,6 +38845,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_gemtechone"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/gemtech_one_multicaliber_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37018,6 +38866,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_illusion"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/illusion.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37038,6 +38887,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_osprey9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/osprey9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37058,6 +38908,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_r43_556"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/rotor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37078,6 +38929,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_r43_9x19"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/rotor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37098,6 +38950,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_sdn6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/aac_762sdn6_multicaliber_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37118,6 +38971,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_sr1mp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/sil.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37138,6 +38992,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_srd9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/srd9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37158,6 +39013,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_thorpsr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/muzzle/awc_thor_psr_xl_multicaliber_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37178,6 +39034,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_ultra5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/thunder_beast_arms_ultra_5_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37198,6 +39055,7 @@ EFGM.ITEMS["arc9_att_eft_silencer_waveqd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_attachments/muzzles/daniel_defense_wave_qd_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37218,6 +39076,7 @@ EFGM.ITEMS["arc9_att_eft_sks_band"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/ub.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37238,6 +39097,7 @@ EFGM.ITEMS["arc9_att_eft_sks_band_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/ubop.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37258,6 +39118,7 @@ EFGM.ITEMS["arc9_att_eft_sks_barrel_520"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37278,6 +39139,7 @@ EFGM.ITEMS["arc9_att_eft_sks_barrel_520_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/bop.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37298,6 +39160,7 @@ EFGM.ITEMS["arc9_att_eft_sks_dovetail_choate"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/ch.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37318,6 +39181,7 @@ EFGM.ITEMS["arc9_att_eft_sks_dovetail_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/dove.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37338,6 +39202,7 @@ EFGM.ITEMS["arc9_att_eft_sks_dustcover"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "sks.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37358,6 +39223,7 @@ EFGM.ITEMS["arc9_att_eft_sks_dustcover_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "opsks.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37378,6 +39244,7 @@ EFGM.ITEMS["arc9_att_eft_sks_dustcover_utg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mtu017.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -37398,6 +39265,7 @@ EFGM.ITEMS["arc9_att_eft_sks_gastube"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "sks.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37418,6 +39286,7 @@ EFGM.ITEMS["arc9_att_eft_sks_gastube_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "opsks.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37438,6 +39307,7 @@ EFGM.ITEMS["arc9_att_eft_sks_hg_fab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/cuas.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37458,6 +39328,7 @@ EFGM.ITEMS["arc9_att_eft_sks_hg_mc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/cmc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37478,6 +39349,7 @@ EFGM.ITEMS["arc9_att_eft_sks_hg_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/cop.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37498,6 +39370,7 @@ EFGM.ITEMS["arc9_att_eft_sks_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37518,6 +39391,7 @@ EFGM.ITEMS["arc9_att_eft_sks_hg_tapco"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/ctapco.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37538,6 +39412,7 @@ EFGM.ITEMS["arc9_att_eft_sks_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37558,6 +39433,7 @@ EFGM.ITEMS["arc9_att_eft_sks_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37578,6 +39454,7 @@ EFGM.ITEMS["arc9_att_eft_sks_mag_35"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/35.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37598,6 +39475,7 @@ EFGM.ITEMS["arc9_att_eft_sks_mag_75"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/75.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37618,6 +39496,7 @@ EFGM.ITEMS["arc9_att_eft_sks_mount_socom"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/utg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37638,6 +39517,7 @@ EFGM.ITEMS["arc9_att_eft_sks_muzzle_hexa"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/sup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37658,6 +39538,7 @@ EFGM.ITEMS["arc9_att_eft_sks_muzzle_wt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37678,6 +39559,7 @@ EFGM.ITEMS["arc9_att_eft_sks_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "molot_opsks.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -37698,6 +39580,7 @@ EFGM.ITEMS["arc9_att_eft_sks_pgrip_fab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/pgag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37718,6 +39601,7 @@ EFGM.ITEMS["arc9_att_eft_sks_pgrip_tapco"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37738,6 +39622,7 @@ EFGM.ITEMS["arc9_att_eft_sks_rearsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "sks_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37758,6 +39643,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_fab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/suas.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37778,6 +39664,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_fab_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/buttuas.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37798,6 +39685,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_mc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "sks_monte.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -37818,6 +39706,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_op"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/sop.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37838,6 +39727,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37858,6 +39748,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_tapco"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "sks_tapco.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -37878,6 +39769,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_tapco_buffer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/buff.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37898,6 +39790,7 @@ EFGM.ITEMS["arc9_att_eft_sks_stock_tapco_mount"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sks_attachments/tapcorail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -37918,6 +39811,7 @@ EFGM.ITEMS["arc9_att_eft_slide_1911_m45"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m45a1.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -37938,6 +39832,7 @@ EFGM.ITEMS["arc9_att_eft_slide_1911_m45_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m45a1_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -37958,6 +39853,7 @@ EFGM.ITEMS["arc9_att_eft_slide_1911_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m1911.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -37978,6 +39874,7 @@ EFGM.ITEMS["arc9_att_eft_slide_deagle_l5_357"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "deagle357.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -37998,6 +39895,7 @@ EFGM.ITEMS["arc9_att_eft_slide_deagle_l6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "deaglel6.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38018,6 +39916,7 @@ EFGM.ITEMS["arc9_att_eft_slide_deagle_l6_wts"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "deaglel6_wts.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38038,6 +39937,7 @@ EFGM.ITEMS["arc9_att_eft_slide_deagle_xix"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "deaglexix.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38058,6 +39958,7 @@ EFGM.ITEMS["arc9_att_eft_slide_m9a3_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "m9a3.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38078,6 +39979,7 @@ EFGM.ITEMS["arc9_att_eft_slide_p226_axel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "p226_axelson.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38098,6 +40000,7 @@ EFGM.ITEMS["arc9_att_eft_slide_p226_emp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "p226_emperor.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38118,6 +40021,7 @@ EFGM.ITEMS["arc9_att_eft_slide_p226_leg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "p226_legion.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38138,6 +40042,7 @@ EFGM.ITEMS["arc9_att_eft_slide_p226_stain"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "p226_elite.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38158,6 +40063,7 @@ EFGM.ITEMS["arc9_att_eft_slide_p226_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "p226_mk25.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38178,6 +40084,7 @@ EFGM.ITEMS["arc9_att_eft_slide_pl15_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "pl15.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38198,6 +40105,7 @@ EFGM.ITEMS["arc9_att_eft_slide_usp_elite"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "usp_elite.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38218,6 +40126,7 @@ EFGM.ITEMS["arc9_att_eft_slide_usp_expert"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "usp_expert.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38238,6 +40147,7 @@ EFGM.ITEMS["arc9_att_eft_slide_usp_match"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "usp_match.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38258,6 +40168,7 @@ EFGM.ITEMS["arc9_att_eft_slide_usp_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "usp.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38278,6 +40189,7 @@ EFGM.ITEMS["arc9_att_eft_slide_usp_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "usp_tactical.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38298,6 +40210,7 @@ EFGM.ITEMS["arc9_att_eft_spear_barrel_330"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/br.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38318,6 +40231,7 @@ EFGM.ITEMS["arc9_att_eft_spear_buffertube_ct"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/tub.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38338,6 +40252,7 @@ EFGM.ITEMS["arc9_att_eft_spear_buffertube_ct_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/tubb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38358,6 +40273,7 @@ EFGM.ITEMS["arc9_att_eft_spear_charge_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "mcx_spear.png"),
 
 	["sizeX"] = 1,
@@ -38378,6 +40294,7 @@ EFGM.ITEMS["arc9_att_eft_spear_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "mcxspear.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38398,6 +40315,7 @@ EFGM.ITEMS["arc9_att_eft_spear_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38418,6 +40336,7 @@ EFGM.ITEMS["arc9_att_eft_spear_mz_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38438,6 +40357,7 @@ EFGM.ITEMS["arc9_att_eft_spear_silencer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_spear_attachments/sil.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38458,6 +40378,7 @@ EFGM.ITEMS["arc9_att_eft_spear_upper_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "mcx_spear.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38478,6 +40399,7 @@ EFGM.ITEMS["arc9_att_eft_sr25_barrel_406"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "sr25_16.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -38498,6 +40420,7 @@ EFGM.ITEMS["arc9_att_eft_sr25_barrel_508"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "sr25_20.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -38518,6 +40441,7 @@ EFGM.ITEMS["arc9_att_eft_sr25_upper_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "sr25.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38538,6 +40462,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_b17"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/b17.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38558,6 +40483,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_handstop"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/hs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38578,6 +40504,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_hg_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/hgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38598,6 +40525,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38618,6 +40546,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38638,6 +40567,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38658,6 +40588,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_optic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.OPTIC, "kpsr2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38678,6 +40609,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_optic_shade"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "sr2_shade.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38698,6 +40630,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_pg_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/pgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38718,6 +40651,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38738,6 +40672,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_rail_big"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/side.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38758,6 +40693,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_rail_short"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/sides.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38778,6 +40714,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "sr2m.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -38798,6 +40735,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_silencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38818,6 +40756,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_stock_mp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/st2.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38838,6 +40777,7 @@ EFGM.ITEMS["arc9_att_eft_sr2m_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sr2m_attachments/st.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38858,6 +40798,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_fg_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "sr3m_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38878,6 +40819,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_fg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.FOREGRIP, "sr3m_plum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38898,6 +40840,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_hg_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/srhgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38918,6 +40861,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_hg_rail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/srhgr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38938,6 +40882,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/srhg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38958,6 +40903,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_mount_hg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/dt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38978,6 +40924,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_mount_hgp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/dtp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -38998,6 +40945,7 @@ EFGM.ITEMS["arc9_att_eft_sr3_supp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/srs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39018,6 +40966,7 @@ EFGM.ITEMS["arc9_att_eft_stm9_barrel_105"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_stm9_attachments/105.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39038,6 +40987,7 @@ EFGM.ITEMS["arc9_att_eft_stm9_barrel_12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_stm9_attachments/12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39058,6 +41008,7 @@ EFGM.ITEMS["arc9_att_eft_stm9_barrel_14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_stm9_attachments/14.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39078,6 +41029,7 @@ EFGM.ITEMS["arc9_att_eft_stm9_barrel_16"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_stm9_attachments/16.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39098,6 +41050,7 @@ EFGM.ITEMS["arc9_att_eft_stm9_magwel"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "stmstd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39118,6 +41071,7 @@ EFGM.ITEMS["arc9_att_eft_stm9_magwelg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "stmgrey.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39138,6 +41092,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak100_skelet"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/aks.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39158,6 +41113,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak74_polymer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/74poly.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39178,6 +41134,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak74_polymer_plum"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/74plum.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39198,6 +41155,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak74_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/74.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39218,6 +41176,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak74m_caa_akts"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "akts.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -39238,6 +41197,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak74m_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "6p34sb15.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -39258,6 +41218,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak74m_zenit_lock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/pt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39278,6 +41239,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak_aktom4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/ak2m4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39298,6 +41260,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak_evo"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/evo.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39318,6 +41281,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak_pad"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/gp25.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39338,6 +41302,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak_pad_stef"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stef.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39358,6 +41323,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ak_skelet_cust"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/aksc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39378,6 +41344,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_aa47"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/aa47.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39398,6 +41365,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_akts"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/aktsakm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39418,6 +41386,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_fabd_uas"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/fab.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39438,6 +41407,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_kocherga"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "kocherga.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -39458,6 +41428,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_kocherga_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "kocherga_blk.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -39478,6 +41449,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_me4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/me4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39498,6 +41470,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_pt_lock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/pt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39518,6 +41491,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/akm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39538,6 +41512,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akm_zhu_s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/zhu.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39558,6 +41533,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akms"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/akms_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39578,6 +41554,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akms_fab"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/akmstube.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39598,6 +41575,7 @@ EFGM.ITEMS["arc9_att_eft_stock_akmsn"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/akmsn_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39618,6 +41596,7 @@ EFGM.ITEMS["arc9_att_eft_stock_aks74_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/aks.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39638,6 +41617,7 @@ EFGM.ITEMS["arc9_att_eft_stock_aks_zenit_lock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/pt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39658,6 +41638,7 @@ EFGM.ITEMS["arc9_att_eft_stock_g17_glr17"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39678,6 +41659,7 @@ EFGM.ITEMS["arc9_att_eft_stock_pkm_pl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39698,6 +41680,7 @@ EFGM.ITEMS["arc9_att_eft_stock_pkm_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/w.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39718,6 +41701,7 @@ EFGM.ITEMS["arc9_att_eft_stock_pkm_zenit"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_pkm_attachments/z.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39738,6 +41722,7 @@ EFGM.ITEMS["arc9_att_eft_stock_toz106_full"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/mts.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39758,6 +41743,7 @@ EFGM.ITEMS["arc9_att_eft_stock_toz106_gpcp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/gpcp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39778,6 +41764,7 @@ EFGM.ITEMS["arc9_att_eft_stock_toz106_mosin"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/mosin.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39798,6 +41785,7 @@ EFGM.ITEMS["arc9_att_eft_stock_toz106_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_toz106_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39818,6 +41806,7 @@ EFGM.ITEMS["arc9_att_eft_stock_ump_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/st.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39838,6 +41827,7 @@ EFGM.ITEMS["arc9_att_eft_stock_vector_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/adap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39858,6 +41848,7 @@ EFGM.ITEMS["arc9_att_eft_stock_vector_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/cap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39878,6 +41869,7 @@ EFGM.ITEMS["arc9_att_eft_stock_vector_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39898,6 +41890,7 @@ EFGM.ITEMS["arc9_att_eft_stock_vpo136"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/136.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39918,6 +41911,7 @@ EFGM.ITEMS["arc9_att_eft_stock_vpo209"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/209.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39938,6 +41932,7 @@ EFGM.ITEMS["arc9_att_eft_stock_zenit_pt1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/pt1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39958,6 +41953,7 @@ EFGM.ITEMS["arc9_att_eft_stock_zenit_pt3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/stock/pt3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -39978,6 +41974,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_bipodd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "sv98bipod.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -39998,6 +41995,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_chassis_cnc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "sv98_cnc.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -40018,6 +42016,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_chassis_wood"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "sv98_wood.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -40038,6 +42037,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_chassis_wood_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "sv98_wood_blk.png", "smooth"),
 
 	["sizeX"] = 4,
@@ -40058,6 +42058,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_cnc_hg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40078,6 +42079,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_m12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40098,6 +42100,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40118,6 +42121,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_muzzle_sil"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/sil.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40138,6 +42142,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_muzzle_srvv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/srvv.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40158,6 +42163,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/mz.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40178,6 +42184,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_muzzle_thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_sv98_attachments/thr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40198,6 +42205,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_ribooon"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "sv98ribbon.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40218,6 +42226,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_rss"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "sv98_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40238,6 +42247,7 @@ EFGM.ITEMS["arc9_att_eft_sv98_sil_cover"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "sv98shield.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40258,6 +42268,7 @@ EFGM.ITEMS["arc9_att_eft_svds_barrel_mount_drg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/drg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40278,6 +42289,7 @@ EFGM.ITEMS["arc9_att_eft_svds_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/22.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40298,6 +42310,7 @@ EFGM.ITEMS["arc9_att_eft_svds_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "svds_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40318,6 +42331,7 @@ EFGM.ITEMS["arc9_att_eft_svds_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "svds.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40338,6 +42352,7 @@ EFGM.ITEMS["arc9_att_eft_svds_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40358,6 +42373,7 @@ EFGM.ITEMS["arc9_att_eft_svds_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40378,6 +42394,7 @@ EFGM.ITEMS["arc9_att_eft_svds_pgrip_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/grip/ak2m4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40398,6 +42415,7 @@ EFGM.ITEMS["arc9_att_eft_svds_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40418,6 +42436,7 @@ EFGM.ITEMS["arc9_att_eft_svds_rec_cut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "svds_cdc.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -40438,6 +42457,7 @@ EFGM.ITEMS["arc9_att_eft_svds_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "svds.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -40458,6 +42478,7 @@ EFGM.ITEMS["arc9_att_eft_svds_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "svds_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40478,6 +42499,7 @@ EFGM.ITEMS["arc9_att_eft_svds_stock_adap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/adap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40498,6 +42520,7 @@ EFGM.ITEMS["arc9_att_eft_svds_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/st.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40518,6 +42541,7 @@ EFGM.ITEMS["arc9_att_eft_svt_barrel_625"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svt_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40538,6 +42562,7 @@ EFGM.ITEMS["arc9_att_eft_svt_dust"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "svt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40558,6 +42583,7 @@ EFGM.ITEMS["arc9_att_eft_svt_frontsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "svt_front.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40578,6 +42604,7 @@ EFGM.ITEMS["arc9_att_eft_svt_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svt_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40598,6 +42625,7 @@ EFGM.ITEMS["arc9_att_eft_svt_mag_15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svt_attachments/15.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40618,6 +42646,7 @@ EFGM.ITEMS["arc9_att_eft_svt_muzzle"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svt_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40638,6 +42667,7 @@ EFGM.ITEMS["arc9_att_eft_svt_rearsight"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "svt_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40658,6 +42688,7 @@ EFGM.ITEMS["arc9_att_eft_svt_stock_avt"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svt_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40678,6 +42709,7 @@ EFGM.ITEMS["arc9_att_eft_svt_tokarev"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svt_attachments/t.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40698,6 +42730,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_762x51_660mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40718,6 +42751,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_chassis_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "t5000.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -40738,6 +42772,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_hg2_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_padded_handguard_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40758,6 +42793,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40778,6 +42814,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_mag_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_762x51_5round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40798,6 +42835,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_muzzle_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_762x51_muzzle_brakecompensator.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40818,6 +42856,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_pistol_grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40838,6 +42877,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_rail_long"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_long_length_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40858,6 +42898,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_rail_medium"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_medium_length_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40878,6 +42919,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_rail_optic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_scope_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40898,6 +42940,7 @@ EFGM.ITEMS["arc9_att_eft_t5000_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_t5000_attachments/orsis_t5000m_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40918,6 +42961,7 @@ EFGM.ITEMS["arc9_att_eft_tac_g17_tangodown"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/mount_td.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40938,6 +42982,7 @@ EFGM.ITEMS["arc9_att_eft_tac_g17_zt_cap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_glock_attachments/ztcap.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40958,6 +43003,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_2d"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "2d.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40978,6 +43024,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_baldrpro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "baldr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -40998,6 +43045,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_baldrpro_tan"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "baldr_tan.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41018,6 +43066,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_dbal_pl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "dbal.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41038,6 +43087,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_gtl21"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "gtl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41058,6 +43108,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_k2p"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "klesch2p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41078,6 +43129,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_k2u"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "klesch2u.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41098,6 +43150,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_la5b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq5b_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41118,6 +43171,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_la5b_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq5b_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41138,6 +43192,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_la5b_gray"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq5b_grey.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41158,6 +43213,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_lastac2"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "lastac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41178,6 +43234,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_ls321"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "ls321_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41198,6 +43255,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_ls321_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "ls321_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41218,6 +43276,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_ls321_gray"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "ls321_grey.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41238,6 +43297,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_mawlc"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "mawl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41258,6 +43318,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_nstar_tbl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "tbl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41278,6 +43339,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_peq15"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq15_fde.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41298,6 +43360,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_peq15_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq15_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41318,6 +43381,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_peq15_gray"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq15_grey.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41338,6 +43402,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_perst3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "perst.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41358,6 +43423,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_raptar"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "raptar.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41378,6 +43444,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_raptar_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "raptar_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41398,6 +43465,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_scout"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "m600.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41418,6 +43486,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_ttprec"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "dlp.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41438,6 +43507,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_wf501b"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "wf50.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41458,6 +43528,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_wmx200"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "wmx200.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41478,6 +43549,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_wmx200_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "wmx200_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41498,6 +43570,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_x400"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "x400.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41518,6 +43591,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_xc1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "xc1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41538,6 +43612,7 @@ EFGM.ITEMS["arc9_att_eft_tactical_xhp35"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "xhp35.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41558,6 +43633,7 @@ EFGM.ITEMS["arc9_att_eft_tkpd_barrel_570"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/22.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41578,6 +43654,7 @@ EFGM.ITEMS["arc9_att_eft_tkpd_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/22.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41598,6 +43675,7 @@ EFGM.ITEMS["arc9_att_eft_tkpd_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "tkpd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41618,6 +43696,7 @@ EFGM.ITEMS["arc9_att_eft_tkpd_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41638,6 +43717,7 @@ EFGM.ITEMS["arc9_att_eft_tkpd_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "tkpd.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -41658,6 +43738,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_asilencer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41678,6 +43759,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_barrel_116"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/b.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41698,6 +43780,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_barrel_116g"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/bg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41718,6 +43801,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_barrel_121"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/bt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41738,6 +43822,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_dtk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41758,6 +43843,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_mag_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41778,6 +43864,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_pg_206"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/gl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41798,6 +43885,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_pg_hogue"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/h.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41818,6 +43906,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_pg_razor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/r.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41838,6 +43927,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_pg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/g.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41858,6 +43948,7 @@ EFGM.ITEMS["arc9_att_eft_tt33_pg_swag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_tt33_attachments/swag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41878,6 +43969,7 @@ EFGM.ITEMS["arc9_att_eft_ub_svds_sag"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHASSIS, "svd_sag.png", "smooth"),
 
 	["sizeX"] = 3,
@@ -41898,6 +43990,7 @@ EFGM.ITEMS["arc9_att_eft_ub_svds_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/ub.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41918,6 +44011,7 @@ EFGM.ITEMS["arc9_att_eft_ub_tkpd_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svds_attachments/ub.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41938,6 +44032,7 @@ EFGM.ITEMS["arc9_att_eft_ump_mag_25"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ump_attachments/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41958,6 +44053,7 @@ EFGM.ITEMS["arc9_att_eft_urxlong"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_331_long_panel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41978,6 +44074,7 @@ EFGM.ITEMS["arc9_att_eft_urxlong_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_331_long_panel_(fde).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -41998,6 +44095,7 @@ EFGM.ITEMS["arc9_att_eft_urxpanel_3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_3_3_inch_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42018,6 +44116,7 @@ EFGM.ITEMS["arc9_att_eft_urxshort"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_331_short_panel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42038,6 +44137,7 @@ EFGM.ITEMS["arc9_att_eft_urxshort_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_331_short_panel_(fde).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42058,6 +44158,7 @@ EFGM.ITEMS["arc9_att_eft_urxstoper"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_331_stopper_panel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42078,6 +44179,7 @@ EFGM.ITEMS["arc9_att_eft_urxstoper_fde"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ar15_attachments/mounts/kac_urx_331_stopper_panel_(fde).png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42098,6 +44200,7 @@ EFGM.ITEMS["arc9_att_eft_usp_hammer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "usp_hammer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42118,6 +44221,7 @@ EFGM.ITEMS["arc9_att_eft_usp_slock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "usp_lock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42138,6 +44242,7 @@ EFGM.ITEMS["arc9_att_eft_usp_trigger_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "usp_trigger.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42158,6 +44263,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_barrel_238"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_238mm_threaded_3lug_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42178,6 +44284,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_barrel_259"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_259mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42198,6 +44305,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_barrel_409"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_409mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42218,6 +44326,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_grip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pistol_grip_cover.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42238,6 +44347,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_hg2_werkz"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_stormwerkz_lower_handguard_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42258,6 +44368,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_hg_fg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_handguard_with_foregrip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42278,6 +44389,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_hg_k"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_kgrip_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42298,6 +44410,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_polymer_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42318,6 +44431,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_100"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/balls.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42338,6 +44452,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_20round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42358,6 +44473,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_20pro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_20round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42378,6 +44494,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_25"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_25round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42398,6 +44515,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_25pro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_25round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42418,6 +44536,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_32"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_32round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42438,6 +44557,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_32pro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_32round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42458,6 +44578,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_40"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_40round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42478,6 +44599,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_50round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42498,6 +44620,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_muzzle_3nut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_3lug_barrel_retaining_nut.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42518,6 +44641,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_muzzle_3thr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_3lug_barrel_thread_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42538,6 +44662,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_muzzle_nut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_barrel_retaining_nut.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42558,6 +44683,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_muzzle_shroud"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_vented_barrel_shroud.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42578,6 +44704,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_muzzle_sup"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_9x19_sound_suppressor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42598,6 +44725,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_rail_hg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_handguard_rail.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42618,6 +44746,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_rail_optic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_stormwerkz_scope_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42638,6 +44767,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_stock_t3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_type_3_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42658,6 +44788,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_stock_t5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_type_5_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42678,6 +44809,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_stock_t6"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_type_6_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42698,6 +44830,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_stock_t7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_type_7_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42718,6 +44851,7 @@ EFGM.ITEMS["arc9_att_eft_uzi_stock_wekz"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_stormwerkz_stock_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42738,6 +44872,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_barrel_114"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_114mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42758,6 +44893,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_barrel_114pike"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_pike_arms_114mm_threaded_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42778,6 +44914,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_barrel_170"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_170mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42798,6 +44935,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_barrel_210"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_210mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42818,6 +44956,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_barrel_240"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_240mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42838,6 +44977,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_dust"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "uzi_pro.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -42858,6 +44998,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_hg_mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_a3_tactical_mlok_handguard.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42878,6 +45019,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_hgrail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_smg_rail_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42898,6 +45040,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_muzzle_masada"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_masada_thread_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42918,6 +45061,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_muzzle_nut"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_9x19_barrel_retaining_nut.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42938,6 +45082,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_smg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "uzi_pro_conv.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -42958,6 +45103,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_stock_a3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_a3_tactical_rear_stock_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42978,6 +45124,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_stock_a3brace"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_a3_tactical_modular_folding_brace.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -42998,6 +45145,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_stock_backplate"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_backplate.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43018,6 +45166,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_stock_brace"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_stabilizing_brace.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43038,6 +45187,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_stock_csm"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_csm_stock_adapter.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43058,6 +45208,7 @@ EFGM.ITEMS["arc9_att_eft_uzipro_stock_sbr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_uzi_attachments/uzi_pro_sbr_buttstock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43078,6 +45229,7 @@ EFGM.ITEMS["arc9_att_eft_val_dc_val"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "asval.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -43098,6 +45250,7 @@ EFGM.ITEMS["arc9_att_eft_val_grip_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/gripb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43118,6 +45271,7 @@ EFGM.ITEMS["arc9_att_eft_val_grip_rk3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/6878cc5bd0c26d57bf0aa37a.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43138,6 +45292,7 @@ EFGM.ITEMS["arc9_att_eft_val_grip_rotor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/rotor.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43158,6 +45313,7 @@ EFGM.ITEMS["arc9_att_eft_val_grip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43178,6 +45334,7 @@ EFGM.ITEMS["arc9_att_eft_val_hg_black"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/hgb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43198,6 +45355,7 @@ EFGM.ITEMS["arc9_att_eft_val_hg_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43218,6 +45376,7 @@ EFGM.ITEMS["arc9_att_eft_val_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43238,6 +45397,7 @@ EFGM.ITEMS["arc9_att_eft_val_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "6l25_20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43258,6 +45418,7 @@ EFGM.ITEMS["arc9_att_eft_val_mag_20_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "6l25_20_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43278,6 +45439,7 @@ EFGM.ITEMS["arc9_att_eft_val_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43298,6 +45460,7 @@ EFGM.ITEMS["arc9_att_eft_val_mag_30s"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/30s.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43318,6 +45481,7 @@ EFGM.ITEMS["arc9_att_eft_val_mount_6p"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/6p.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43338,6 +45502,7 @@ EFGM.ITEMS["arc9_att_eft_val_mount_b3"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/b3.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43358,6 +45523,7 @@ EFGM.ITEMS["arc9_att_eft_val_mount_b3c"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/b3sparka.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43378,6 +45544,7 @@ EFGM.ITEMS["arc9_att_eft_val_rs_val"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "asval_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43398,6 +45565,7 @@ EFGM.ITEMS["arc9_att_eft_val_stock_nb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/6878ccf4181ac8a5b5077236.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43418,6 +45586,7 @@ EFGM.ITEMS["arc9_att_eft_val_stockk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43438,6 +45607,7 @@ EFGM.ITEMS["arc9_att_eft_val_supp_val"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/sup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43458,6 +45628,7 @@ EFGM.ITEMS["arc9_att_eft_val_vss_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "vsswood.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -43478,6 +45649,7 @@ EFGM.ITEMS["arc9_att_eft_val_vss_stock_dark"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "vsswood_dark.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -43498,6 +45670,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/6878c143254146e6fd043756.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43518,6 +45691,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_hgg"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/687128c4505fed5f370b1625.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43538,6 +45712,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_jailbrake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/6878c1c723c3173d7f06d926.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43558,6 +45733,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_magwell"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.AUXILIARY, "mod4_magwell.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43578,6 +45754,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_siderail"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/68712b57a1be89347f0d8179.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43598,6 +45775,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_supcap"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/68712cafa1be89347f0d817c.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43618,6 +45796,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_suppressor"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/68712ce2251b8d4c6c04ec1f.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43638,6 +45817,7 @@ EFGM.ITEMS["arc9_att_eft_valmod4_topcover"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_val_attachments/68712bd4251b8d4c6c04ec19.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43658,6 +45838,7 @@ EFGM.ITEMS["arc9_att_eft_vector_mag_13"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/13.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43678,6 +45859,7 @@ EFGM.ITEMS["arc9_att_eft_vector_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vector_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43698,6 +45880,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_gas_sagmk1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/mk1.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43718,6 +45901,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "pp19.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43738,6 +45922,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_gas_vrlps"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.CHARGINGHANDLE, "pp19_vector.png"),
 
 	["sizeX"] = 1,
@@ -43758,6 +45943,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/50.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43778,6 +45964,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_sb7"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/mag_10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43798,6 +45985,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pufgun20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43818,6 +46006,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_20_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pufgun20_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43838,6 +46027,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pufgun30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43858,6 +46048,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_sg919_30_blk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.MAGAZINE, "pufgun30_blk.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43878,6 +46069,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_mag_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/mag.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43898,6 +46090,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_muzzle_saiga9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/muzzle_9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43918,6 +46111,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_muzzle_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/muzzle.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43938,6 +46132,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_rec_sn"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "pp19_sn.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -43958,6 +46153,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_rec_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "pp19.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -43978,6 +46174,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "pp19_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -43998,6 +46195,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_silencer_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/silencer.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44018,6 +46216,7 @@ EFGM.ITEMS["arc9_att_eft_vityaz_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_ak_attachments/vityaz/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44038,6 +46237,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_dc_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.RECEIVER, "vpo101.png", "smooth"),
 
 	["sizeX"] = 2,
@@ -44058,6 +46258,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_gas_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "vpo101.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44078,6 +46279,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_mag_10"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo101_attachments/10.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44098,6 +46300,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_mag_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo101_attachments/5.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44118,6 +46321,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.SIGHT, "vpo101_back.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44138,6 +46342,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo101_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44158,6 +46363,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_stock_svd"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo101_attachments/svd.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44178,6 +46384,7 @@ EFGM.ITEMS["arc9_att_eft_vpo101_sup_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo101_attachments/sup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44198,6 +46405,7 @@ EFGM.ITEMS["arc9_att_eft_vpo215_barrel_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo215_attachments/vpo21502_366tkm_600mm_barrel.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44218,6 +46426,7 @@ EFGM.ITEMS["arc9_att_eft_vpo215_mag_4"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo215_attachments/vpo215_366_tkm_4round_magazine.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44238,6 +46447,7 @@ EFGM.ITEMS["arc9_att_eft_vpo215_muzzle_brake"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo215_attachments/vpo215_thread_protector.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44258,6 +46468,7 @@ EFGM.ITEMS["arc9_att_eft_vpo215_rail_optic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo215_attachments/vpo215_scope_rail_mount.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44278,6 +46489,7 @@ EFGM.ITEMS["arc9_att_eft_vpo215_stock_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vpo215_attachments/vpo215_wooden_stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44298,6 +46510,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_brl"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/brl.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44318,6 +46531,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_brl9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/brl9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44338,6 +46552,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_grip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/pg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44358,6 +46573,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_hg_9a"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/hg9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44378,6 +46594,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_hg_vsk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44398,6 +46615,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44418,6 +46636,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_retainer"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/ret.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44438,6 +46657,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_stockk"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44458,6 +46678,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_supp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/sup.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44478,6 +46699,7 @@ EFGM.ITEMS["arc9_att_eft_vsk_top_stock"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_vsk_attachments/top.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44498,6 +46720,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_barrel_12"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/b12.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44518,6 +46741,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_barrel_14"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/b14.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44538,6 +46762,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_barrel_5"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/4.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44558,6 +46783,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_barrel_8"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/b8.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44578,6 +46804,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_barrel_int"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/bt.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44598,6 +46825,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_ch_deltared"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/delta.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44618,6 +46846,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_ch_pro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/pro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44638,6 +46867,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_ch_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/ch.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44658,6 +46888,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_fs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/fs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44678,6 +46909,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/h.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44698,6 +46930,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_ang"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hang.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44718,6 +46951,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_carb"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hcarb.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44738,6 +46972,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_ext"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hlong.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44758,6 +46993,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_hbmid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hmid.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44778,6 +47014,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_micro"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hmicro.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44798,6 +47035,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_mid"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/htac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44818,6 +47056,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hg_pdw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hpdw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44838,6 +47077,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hs_mlok"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hsm.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44858,6 +47098,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_hs_pic"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/hs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44878,6 +47119,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_mag_20"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/20.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44898,6 +47140,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_mag_20tr"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/20tr.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44918,6 +47161,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_mag_30"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/30.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44938,6 +47182,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_mag_35"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/35.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44958,6 +47203,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_mag_35t"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/35t.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44978,6 +47224,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_mag_50"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/50.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -44998,6 +47245,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_muzzle_comp"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/mc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45018,6 +47266,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_muzzle_fh"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/m.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45038,6 +47287,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_pgrip_moe"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/moe.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45058,6 +47308,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_pgrip_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/grip.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45078,6 +47329,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_pgrip_ye"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/y.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45098,6 +47350,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_rs_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/rs.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45118,6 +47371,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_sc9"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/sh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45138,6 +47392,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_shroud"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/sc9.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45158,6 +47413,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_a1"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/stock.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45178,6 +47434,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_adv"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/arc.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45198,6 +47455,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_buff"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/buff.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45218,6 +47476,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_pdw"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/pdw.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45238,6 +47497,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_slider"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/manti.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45258,6 +47518,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_tac"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/tac.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45278,6 +47539,7 @@ EFGM.ITEMS["arc9_att_eft_scorpion_stock_zhu"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/wtt_scorpion_attachments/zh.png", "smooth"),
 
 	["sizeX"] = 1,
@@ -45298,6 +47560,7 @@ EFGM.ITEMS["arc9_att_eft_hg_svd_std"] = {
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
+	["stashStackSize"] = 100,
 	["icon"] = Material("entities/eft_svd_attachments/hg.png", "smooth"),
 
 	["sizeX"] = 1,
