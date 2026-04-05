@@ -697,12 +697,12 @@ function EFGM.MENU:Initialize(openTo, container)
 			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + EFGM.MENU.ParallaxX, EFGM.MenuScale(1060) / 2 - (920 / 2) + EFGM.MENU.ParallaxY)
 		end
 
-		if IsValid(contextMenu) and !EFGM.MENU.Tooltip.Closing then EFGM.MENU.Tooltip:RemoveTip() end
+		if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) and !EFGM.MENU.Tooltip.Closing then EFGM.MENU.Tooltip:RemoveTip() end
 	end
 
 	function lowerPanel:OnMouseWheeled(delta)
-		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
+		if !IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then return end
+		EFGM.MENU.ELEMENTS.ContextMenu:AlphaTo(0, 0.05, 0, function() EFGM.MENU.ELEMENTS.ContextMenu:Remove() end)
 	end
 
 	self.MenuFrame.LowerPanel = lowerPanel
@@ -5334,8 +5334,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	function playerItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
-		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
+		if !IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then return end
+		EFGM.MENU.ELEMENTS.ContextMenu:AlphaTo(0, 0.05, 0, function() EFGM.MENU.ELEMENTS.ContextMenu:Remove() end)
 	end
 
 	function playerItemsHolder:PaintOver(w, h)
@@ -5885,8 +5885,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 		function containerItemsHolder:OnVScroll(offset)
 			self.pnlCanvas:SetPos(0, offset)
-			if !IsValid(contextMenu) then return end
-			contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
+			if !IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then return end
+			EFGM.MENU.ELEMENTS.ContextMenu:AlphaTo(0, 0.05, 0, function() EFGM.MENU.ELEMENTS.ContextMenu:Remove() end)
 		end
 
 		local containerItems = vgui.Create("DIconLayout", containerItemsHolder)
@@ -6544,8 +6544,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	function stashItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
-		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
+		if !IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then return end
+		EFGM.MENU.ELEMENTS.ContextMenu:AlphaTo(0, 0.05, 0, function() EFGM.MENU.ELEMENTS.ContextMenu:Remove() end)
 	end
 
 	stashItemsHolder:Receiver("items", function(self, panels, dropped, _, x, y)
@@ -7488,8 +7488,8 @@ function EFGM.MENU.OpenTab.Market()
 
 	function marketStashItemsHolder:OnVScroll(offset)
 		self.pnlCanvas:SetPos(0, offset)
-		if !IsValid(contextMenu) then return end
-		contextMenu:AlphaTo(0, 0.05, 0, function() contextMenu:Remove() end)
+		if !IsValid(EFGM.MENU.ELEMENTS.ContextMenu) then return end
+		EFGM.MENU.ELEMENTS.ContextMenu:AlphaTo(0, 0.05, 0, function() EFGM.MENU.ELEMENTS.ContextMenu:Remove() end)
 	end
 
 	local marketStashItems = vgui.Create("DIconLayout", marketStashItemsHolder)
@@ -8671,10 +8671,56 @@ function EFGM.MENU.OpenTab.Market()
 					surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
 
 					borderColor = COLORS.itemBackgroundColorHovered
+
+					surface.SetFont("PuristaBold18")
+					local tipItemName = ""
+					if v.consumableValue then
+						tipItemName = tipItemName .. "[" .. v.consumableValue .. "/" .. v.consumableValue .. "] "
+					end
+					tipItemName = tipItemName ..  v.fullName .. " (" .. v.name .. ")"
+					local tipItemNameSize = surface.GetTextSize(tipItemName)
+					surface.SetFont("Purista14")
+					local canPurchase = v.canPurchase == true or v.canPurchase == nil
+					local tipDesc = v.displayType .. " / " .. v.weight .. "kg / ₽" .. string.FormatComma(v.value)
+					if canPurchase then tipDesc = tipDesc .. " / LVL " .. v.level else tipDesc = tipDesc .. " / FIR only" end
+					local tipDescSize = surface.GetTextSize(tipDesc)
+
+					local paint = function()
+						local w, h = EFGM.MENU.Tooltip:GetSize()
+
+						surface.SetDrawColor(v.iconColor or COLORS.itemColor)
+						surface.DrawRect(0, 0, w, h)
+
+						surface.SetDrawColor(COLORS.tooltipBackgroundColorTransparent)
+						surface.DrawRect(0, 0, w, h)
+
+						local headerColor = v.iconColor and v.iconColor:Copy() or COLORS.tooltipHeaderColor
+						if v.iconColor then
+							headerColor.r = headerColor.r + 30
+							headerColor.g = headerColor.g + 30
+							headerColor.b = headerColor.b + 30
+						end
+
+						surface.SetDrawColor(headerColor)
+						surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+
+						surface.SetDrawColor(COLORS.transparentWhiteColor)
+						surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+						surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+						surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+						surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+
+						draw.SimpleTextOutlined(tipItemName, "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+						draw.SimpleTextOutlined(tipDesc, "Purista14", EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					end
+
+					EFGM.MENU.Tooltip:DisplayTip(self, paint, math.max(tipItemNameSize, tipDescSize) + EFGM.MenuScale(10), EFGM.MenuScale(40), 0.4)
 				end
 
 				function item:OnCursorExited()
 					borderColor = COLORS.itemBackgroundColor
+
+					EFGM.MENU.Tooltip:RemoveTip()
 				end
 
 				function item:DoClick()
@@ -8788,6 +8834,7 @@ function EFGM.MENU.OpenTab.Market()
 					entry.defAtts = v2.defAtts
 					entry.caliber = v2.caliber
 					entry.canPurchase = purchasable
+					entry.iconColor = v2.iconColor
 
 					if EFGM.CLIENT.MARKETFAVORITES[k2] then entry.sortWeight = 9999 else entry.sortWeight = 0 end
 

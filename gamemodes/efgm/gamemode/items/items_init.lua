@@ -443,9 +443,17 @@ hook.Add("InitPostEntity", "GenerateLootTables", function()
 	local arc9atts = ARC9.Attachments
 
 	-- make base arc9 camos free
-	for k, v in SortedPairs(arc9atts) do
+	for k, v in pairs(arc9atts) do
 		if string.find(v.ShortName, "camo_arc9") then
 			v.Free = true
+		end
+
+		if string.find(v.ShortName, "sticker") then
+			k = nil
+		end
+
+		if string.find(v.ShortName, "charm") then
+			k = nil
 		end
 	end
 end)
