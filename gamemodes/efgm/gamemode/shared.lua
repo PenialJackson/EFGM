@@ -6,7 +6,6 @@ GM.Email = "kind programmer spreads christmas cheer through phone calls :blush:"
 GM.Website = "https://github.com/PenialJackson/EFGM"
 
 if !ConVarExists("efgm_derivesbox") then CreateConVar("efgm_derivesbox", "0", FCVAR_REPLICATED + FCVAR_NOTIFY, "Hooks the sandbox gamemode into EFGM, allowing for things like the spawn menu to be accessed. Used for development purposes", 0, 1) end
-if !ConVarExists("efgm_oneshotheadshot") then CreateConVar("efgm_oneshotheadshot", "1", FCVAR_REPLICATED + FCVAR_NOTIFY, "Self explanitory", 0, 1) end
 
 if CLIENT then
 	CreateClientConVar("efgm_music", 1, true, false, "Enable/disable the music", 0, 1)
@@ -40,4 +39,5 @@ if CLIENT then
 	CreateClientConVar("efgm_infil_nearend_limit", 60, true, true, "Determines the seconds remaining in the raid where you will no longer be able to enter said raid if near end infils are disabled", 30, 180)
 end
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then DeriveGamemode("sandbox") end -- this will enable the spawn menu as well as countless other things that you do not want users to have access too, please leave this off unless you know what you are doing
+-- this will enable the spawn menu as well as countless other things that you do not want users to have access too, please leave this off unless you know what you are doing
+if GetConVar("efgm_derivesbox"):GetInt() == 1 then DeriveGamemode("sandbox") end
