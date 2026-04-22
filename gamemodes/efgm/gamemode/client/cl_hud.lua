@@ -2088,7 +2088,11 @@ function HUDInspectItem(item, data, panel)
 		if i.canPurchase == true or i.canPurchase == nil then
 			if i.levelReq then
 				wikiContentText:AppendText("CAN PURCHASE FROM MARKET: TRUE" .. "\n")
-				wikiContentText:AppendText("UNLOCKS AT: LEVEL " .. i.levelReq .. "\n")
+				wikiContentText:AppendText("PURCHASE UNLOCKS AT: LEVEL " .. i.levelReq .. "\n")
+
+				if i.marketResetLimit then
+					wikiContentText:AppendText("MARKET RESET LIMIT: " .. i.marketResetLimit .. "\n")
+				end
 			end
 		else
 			wikiContentText:AppendText("CAN PURCHASE FROM MARKET: " .. string.upper(tostring(i.canPurchase)) .. "\n")
@@ -2102,15 +2106,22 @@ function HUDInspectItem(item, data, panel)
 			wikiContentText:AppendText("STACK SIZE: " .. i.stackSize  .. "\n")
 		end
 
+		if i.stashStackSize then
+			wikiContentText:AppendText("STASH STACK SIZE: " .. i.stashStackSize  .. "\n")
+		end
+
 		if i.equipType == EQUIPTYPE.Weapon and wep != nil then
 			wikiContentText:AppendText("\n")
 
+			local cal = i.caliber or nil
 			local firemodes = wep["Firemodes"] or nil
 			local damageMax = math.Round(wep["DamageMax"] or 0) or nil
 			local damageMin = math.Round(wep["DamageMin"] or 0) or nil
 			local rpm = math.Round(wep["RPM"] or 0) or nil
 			local range = math.Round((wep["RangeMax"] or 0) * 0.0254) or nil
 			local velocity = math.Round(((wep["PhysBulletMuzzleVelocity"] or 0) * 0.0254) * 1.2) or nil
+			local penetration = math.Round(wep["Penetration"] or 0, 2) or nil
+			local penetrationDelta = math.Round((wep["PenetrationDelta"] or 0) * 100) or nil
 			local tracerSize = math.Round(wep["TracerSize"] or 0, 2) or nil
 
 			local recoilMult = math.Round(wep["Recoil"] or 1, 2) or 1
@@ -2121,14 +2132,29 @@ function HUDInspectItem(item, data, panel)
 			local recoilSideRand = math.Round((wep["RecoilRandomSide"] or 0) * recoilMult, 2) or nil
 			local visualRecoilUp = math.Round((wep["VisualRecoilUp"] or 0) * visualRecoilMult, 2) or nil
 			local visualRecoilSide = math.Round((wep["VisualRecoilSide"] or 0) * visualRecoilMult, 2) or nil
+			local visualRecoilRoll = math.Round(wep["VisualRecoilRoll"] or 0, 2) or nil
 			local visualRecoilDamping = math.Round(wep["VisualRecoilDampingConst"] or 0, 2) or nil
-			local recoilRecovery = math.Round(wep["RecoilAutoControl"], 2) or nil
-			local accuracy = math.Round((wep["Spread"] or 0) * 360 * 60 / 10, 2)
+			local recoilPunch = math.Round(wep["VisualRecoilPunch"] or 0, 2) or nil
+			local recoilPunchSighted = math.Round(wep["VisualRecoilPunchSights"] or 0, 2) or nil
+			local recoilKick = math.Round(wep["RecoilKick"] or 0, 2) or nil
+			local recoilKickPitch = math.Round(wep["RecoilKickPitchMult"] or 0, 2) or nil
+			local recoilRecovery = math.Round(wep["RecoilAutoControl"] or 0, 2) or nil
+
+			local accuracy = math.Round((wep["Spread"] or 0) * 360 * 60 / 10, 2) or nil
 			local ergo = wep["EFTErgo"] or nil
+			local length = math.Round(wep["BarrelLength"] or 0, 2) or nil
+
+			local heatCapacity = math.Round(wep["HeatCapacity"] or 0, 2) or nil
+			local heatDissipation = math.Round(wep["HeatDissipation"] or 0, 2) or nil
+			local meanShots = math.Round(wep["MalfunctionMeanShotsToFail"] or 0, 2) or nil
 
 			local manufacturer = ARC9:GetPhrase(wep["Trivia"]["eft_trivia_manuf1"]) or nil
 			local country = ARC9:GetPhrase(wep["Trivia"]["eft_trivia_country4"]) or nil
 			local year = wep["Trivia"]["eft_trivia_year5"] or nil
+
+			if cal then
+				wikiContentText:AppendText("CALIBER: " ..  cal .. "\n")
+			end
 
 			if firemodes then
 				local str = ""
@@ -2171,6 +2197,14 @@ function HUDInspectItem(item, data, panel)
 				wikiContentText:AppendText("MUZZLE VELOCITY: " ..  velocity .. "m/s" .. "\n")
 			end
 
+			if penetration then
+				if penetrationDelta then
+					wikiContentText:AppendText("PENETRATION: " .. penetration .. "u (" .. penetrationDelta .. "% DELTA)" .. "\n")
+				else
+					wikiContentText:AppendText("PENETRATION: " .. penetration .. "u" .. "\n")
+				end
+			end
+
 			if tracerSize then
 				wikiContentText:AppendText("TRACER SIZE: " ..  tracerSize .. "\n")
 			end
@@ -2191,20 +2225,56 @@ function HUDInspectItem(item, data, panel)
 				wikiContentText:AppendText("VISUAL HORIZONTAL RECOIL: " .. visualRecoilSide .. "\n")
 			end
 
+			if visualRecoilRoll then
+				wikiContentText:AppendText("VISUAL RECOIL ROLL: " .. visualRecoilRoll .. "\n")
+			end
+
 			if visualRecoilDamping then
 				wikiContentText:AppendText("VISUAL RECOIL DAMPING: " .. visualRecoilDamping .. "\n")
+			end
+
+			if recoilPunch then
+				if recoilPunchSighted then
+					wikiContentText:AppendText("RECOIL PUNCH: " .. recoilPunch .. " (" .. recoilPunchSighted .. " SIGHTED)" .. "\n")
+				else
+					wikiContentText:AppendText("RECOIL PUNCH: " .. recoilPunch .. "\n")
+				end
+			end
+
+			if recoilKick then
+				if recoilKickPitch then
+					wikiContentText:AppendText("RECOIL KICK: " .. recoilKick .. " (" .. recoilKickPitch .. " PITCH)" .. "\n")
+				else
+					wikiContentText:AppendText("RECOIL KICK: " .. recoilKick .. "\n")
+				end
 			end
 
 			if recoilRecovery then
 				wikiContentText:AppendText("RECOIL RECOVERY: " .. recoilRecovery .. "\n")
 			end
 
-			if accuracy and accuracy != 0 then
+			if accuracy then
 				wikiContentText:AppendText("ACCURACY: " .. accuracy .. " MOA" .. "\n")
 			end
 
-			if ergo and ergo != 0 then
+			if ergo then
 				wikiContentText:AppendText("ERGONOMICS: " .. ergo .. "\n")
+			end
+
+			if length then
+				wikiContentText:AppendText("BARREL LENGTH: " .. length .. "\n")
+			end
+
+			if heatCapacity then
+				wikiContentText:AppendText("HEAT CAPACITY: " .. heatCapacity .. "\n")
+			end
+
+			if heatDissipation then
+				wikiContentText:AppendText("HEAT CAPACITY: " .. heatDissipation .. "/s" .. "\n")
+			end
+
+			if meanShots then
+				wikiContentText:AppendText("MEAN SHOTS TO FAILURE: " .. meanShots .. "\n")
 			end
 
 			wikiContentText:AppendText("\n")
