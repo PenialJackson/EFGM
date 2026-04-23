@@ -378,6 +378,32 @@ EFGM.ITEMS["arc9_eft_aek971"] = {
 	}
 }
 
+EFGM.ITEMS["arc9_eft_af53"] = {
+	["fullName"] = "Avtomat Falaschnikowa 1953",
+	["displayName"] = "AF-53",
+	["displayType"] = "Assault Rifle",
+	["weight"] = 1.4,
+	["value"] = 64050,
+	["levelReq"] = 11,
+	["equipType"] = EQUIPTYPE.Weapon,
+	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/weapons/af53.png", "smooth"),
+
+	["sizeX"] = 5,
+	["sizeY"] = 2,
+
+	["caliber"] = "7.62x39",
+	["ammoID"] = "efgm_ammo_762x39",
+	["defAtts"] = "XQAAAQBHAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8MZPzvHDqVc+1kFg+0i8+Ga+Hsnn3bmm7qCZsxNPO4+o+UENtCQiNLRP3nnGa/W2PqBkIVh2pOEweZTxinVZWTyKDrtCnCi5VbhU5g8oq+6OoXDhOjrSd7rG6w8/mTbmoPeRP38al/p6f8glaWH7RPJZZfUuezxrceWWGFHpmypMh2zzqg3g7Rgwm9PRCm7yE/DPgLYOuTbYv6TP1ohODxrUjHV2xfyxVaaC1yPyIMHPlSAA==",
+	["duelAtts"] = {
+		"XQAAAQBHAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8MZPzvHDqVc+1kFg+0i8+Ga+Hsnn3bmm7qCZsxNPO4+o+UENtCQiNLRP3nnGa/W2PqBkIVh2pOEweZTxinVZWTyKDrtCnCi5VbhU5g8oq+6OoXDhOjrSd7rG6w8/mTbmoPeRP38al/p6f8glaWH7RPJZZfUuezxrceWWGFHpmypMh2zzqg3g7Rgwm9PRCm7yE/DPgLYOuTbYv6TP1ohODxrUjHV2xfyxVaaC1yPyIMHPlSAA==",
+		"XQAAAQA0AwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8MZPzvHDqVW90G/E7D6X0q02Tnr0CAGD0XhlK6yWt2Ut+7VCHe5yMd/ivevVpwkoVniBAdIjQrQ9fnuC2aK7TQSHLP4cTepLtVzhl2ztGGccOkhaWmtOf1LrZqo/uapySvqlNVibN8KzHzSG0codLP4oEhCQkR/EEO/DWZGSuceu7tIVaHrwjmquYAgnPH9MF7MOThDmgCiYU7fHOdjPsJSq9a06FmH+Zp3Thv2H/c2HH/I+a+flyWfEryuYQOF4n2u2NqCAGBKReCa12b2W64hZ28eSW9lmeCHNrl790ynAsDFX5lEgrRMF36YWk2iNJ1vaOQAsWk2ZlJLsYreET+uvAweQwA",
+		"XQAAAQC0AwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8MZPzvHDqVW90H9f5zIKU57TJtI6X2kY+xRkbsM3/V840jnAG6XBAfQ3JegLjImNrfxeNW72BgyBaAGCjYDF0ebJeRLFg66Nj2I/WrnBANygBPY2jtc9WORgHnCwCTq7HRhDS1RWOYAdph2+1JqXKhLEdUblBDBGzF6a+6FhXxfLJ5aqyc4u6bntcAD+E0Xm6zPzSN4nEh8q3s7DiSzWWDmk34ajH7y6ashGPg6q47wMSV7JrRpXGXzaP/CRQ3txTe/piC/mnBlDrEWc5zyelRwJKrt6az6gtgFtG8dd9PG2gPZ6Cn2SS+jDR+qJmh4mXLSDKuGw7oGv2ifaQjxMlaB7R7ltXLm/cd0yLquG4G7S5p053MxrV21izt26wGThNRwG4KsduLj6/A82YZgA=="
+	}
+}
+
 EFGM.ITEMS["arc9_eft_ak101"] = {
 	["fullName"] = "Kalashnikov AK-101 5.56x45 assault rifle",
 	["displayName"] = "AK-101",
@@ -3356,6 +3382,32 @@ EFGM.ITEMS["arc9_eft_ump"] = {
 		"XQAAAQDEAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNlrd254f2zsoAbSMkGc7K6jqT3wmPoeiLRGobkYLeRB+RlYSNPlrjogENZ5LAajivJRLfrO+7bb9wBK9R2qy+ZF9p6RJySe79wzSD62bV4CmCHDKZ54raGVc8AzqsobkJW01xMjAkg/ILIRZwXI1TAI=",
 		"XQAAAQBKAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNlriDPa3WXSCzu8WoBVQiIJPTxqbEnuzIE3oLAlWrAYi0wBuCnS2Ro/2no6lvPETKcw6PQSd7POJIwy5Dhxw2FV13GT1KJD6MY/uJ0qri85EGp3IzxvcMN1Cuojtb8Vf5ukN10GZCUVdlT++RMNGUa/ClTk/wqt2jKSt7vPpVk3CyKi3bz+5zL1K+GgOXQcpGFf7ajiflzUw3BDtSIbRqFeT7Nxpx4OL+w==",
 		"XQAAAQBNAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNlriDPa3WXSCzu8WoBVQiIJPTxqbEnuzIE3oLAlWrqudsBL1LLHfyt+TBCwd+99fBJN3nb4AkqX6T2WBPmj2BTsz2RmejNBNf1jjeUmiv0c2qQSqhDrFCqm2lH9sWldVFVzxKgggqOI5seycWrkX0lrVWCxH2TlCP/BbtrZ0Wy7c1J7qUouebB15NQY4aAKE7+800tw162UeoXLz6sJbjgJVULACSvpaKVDt"
+	}
+}
+
+EFGM.ITEMS["arc9_eft_ump9"] = {
+	["fullName"] = "HK UMP9 9x19 submachine gun",
+	["displayName"] = "UMP9",
+	["displayType"] = "Submachine Gun",
+	["weight"] = 2.2,
+	["value"] = 28000,
+	["levelReq"] = 3,
+	["equipType"] = EQUIPTYPE.Weapon,
+	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/weapons/ump9.png", "smooth"),
+
+	["sizeX"] = 3,
+	["sizeY"] = 2,
+
+	["caliber"] = "9x19",
+	["ammoID"] = "efgm_ammo_9x19",
+	["defAtts"] = "XQAAAQCpAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNbbCt4FKvOeGo44B79oOxHFTHqyamoRIkqnwQaJOxT+6KtQkBYVBLS7H7d1kmwTEmwVgUHPjhtL3Zf0rn0Q6qLBTsHOnMPOe/SWgp1ybm2jjaHbKetPqfneB+1uM3q7G3Mq8OOw8PmvbFatFSe2FxrWtZAMA",
+	["duelAtts"] = {
+		"XQAAAQCpAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNbbCt4FKvOeGo44B79oOxHFTHqyamoRIkqnwQaJOxT+6KtQkBYVBLS7H7d1kmwTEmwVgUHPjhtL3Zf0rn0Q6qLBTsHOnMPOe/SWgp1ybm2jjaHbKetPqfneB+1uM3q7G3Mq8OOw8PmvbFatFSe2FxrWtZAMA",
+		"XQAAAQBQAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNbbCzFjHZulbfxglDaQTLdu8GicEZe1cBfH9KKnYbVC9syo2E6ccM5iQzbb0D8zfPiluatYXV8L8yOoeXlQ9v9Iw+3r051Qh3g8+KL0tTcdcfIMIYXBslBe+i4AeWQFMm22f1hgcTewXxFM2ekZyo814ZZ9M+EB5",
+		"XQAAAQBPAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8LmM+VxqdivzAkNbbCzFjHZulbfxglDaQTLdu8GicEZe1cBhxFLjZ4MlzYP8I4gFnwlZBVREn6dIy1OKeSIPcRE6J6VG9J/sSGEGHRPeeFeGrWxE4yBOKH8KtsdiuSEtJb9m97nIyx5GpOdPIWz4RFlOKnSLFSpQLQQMG1E1JA6L8jlnQFifCqQtdHkX3vk+y9M2ncoRPPr12x6diDMstXns7cGz8uSD4MI03xYrJ3IQ=="
 	}
 }
 

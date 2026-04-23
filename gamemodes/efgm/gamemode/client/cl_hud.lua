@@ -2270,7 +2270,7 @@ function HUDInspectItem(item, data, panel)
 			end
 
 			if heatDissipation then
-				wikiContentText:AppendText("HEAT CAPACITY: " .. heatDissipation .. "/s" .. "\n")
+				wikiContentText:AppendText("HEAT DISSIPATION: " .. heatDissipation .. "/s" .. "\n")
 			end
 
 			if meanShots then

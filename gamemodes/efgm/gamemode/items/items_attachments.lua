@@ -6110,6 +6110,48 @@ EFGM.ITEMS["arc9_att_eft_barrel_ump_thr"] = {
 	["canPurchase"] = true,
 }
 
+EFGM.ITEMS["arc9_att_eft_barrel_ump9_std"] = {
+	["fullName"] = "HK UMP 9x19mm 8 inch barrel",
+	["displayName"] = 'UMP9 8"',
+	["displayType"] = DISPLAYTYPE.BARREL,
+	["description"] = "A barrel for the HK UMP submachine gun, chambered in 9x19mm ammo, 8 inch (200mm) long.",
+	["weight"] = 0.4,
+	["value"] = 6500,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ump_200.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_barrel_ump9_thr"] = {
+	["fullName"] = "HK UMP 9x19mm 8 inch threaded barrel",
+	["displayName"] = 'UMP9 8" thr.',
+	["displayType"] = DISPLAYTYPE.BARREL,
+	["description"] = "A threaded barrel for the HK UMP submachine gun, chambered in 9x19mm ammo, 8 inches (203mm) long.",
+	["weight"] = 0.4,
+	["value"] = 9435,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ump_200_threaded.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
 EFGM.ITEMS["arc9_att_eft_barrel_usp_elite"] = {
 	["fullName"] = "HK USP Elite .45 ACP barrel",
 	["displayName"] = "USP45EL",
