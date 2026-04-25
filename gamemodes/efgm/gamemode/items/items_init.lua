@@ -29,7 +29,7 @@ EFGM.ITEMS = {}
 -- 1 == any item (barring keys)
 -- 2 == military box (weapons, attachments, ammunition)
 -- 3 == ammunition box (ammunition, grenades)
--- 4 == medical box (medical items)
+-- 4 == small medical box (medical items)
 -- 5 == barter box (assorted barter items & keys)
 -- 6 == attachment box (attachments)
 -- 7 == safe (valuable barter items)

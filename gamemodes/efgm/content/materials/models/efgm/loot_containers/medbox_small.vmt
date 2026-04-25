@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/efgm/loot_containers/medbox_small_color"
+	"$surfaceprop" "Metal"
+	"$model" 1
+}

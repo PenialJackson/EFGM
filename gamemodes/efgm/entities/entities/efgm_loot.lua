@@ -33,7 +33,7 @@ function ENT:Initialize()
 	if self.LootType == 1 then self.ContainerName = "ASSORTED BOX"
 	elseif self.LootType == 2 then self.ContainerName = "MILITARY BOX"
 	elseif self.LootType == 3 then self.ContainerName = "AMMUNITION BOX"
-	elseif self.LootType == 4 then self.ContainerName = "MEDICAL BOX"
+	elseif self.LootType == 4 then self.ContainerName = "SMALL MEDICAL BOX"
 	elseif self.LootType == 5 then self.ContainerName = "BARTER BOX"
 	elseif self.LootType == 6 then self.ContainerName = "ATTACHMENT BOX"
 	elseif self.LootType == 7 then self.ContainerName = "SAFE"
@@ -99,6 +99,7 @@ function ENT:SpawnContainer(tbl)
 	self.ContainerLoot = tbl
 
 	local containerType = "efgm_container"
+	if self.LootType == 4 then containerType = "efgm_medbox_small" end
 	if self.LootType == 7 then containerType = "efgm_safe" end
 	if self.LootType == 8 then containerType = "efgm_filing_cabinet" end
 
