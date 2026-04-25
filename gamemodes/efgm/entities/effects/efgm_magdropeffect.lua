@@ -12,6 +12,58 @@ local arc9_eject_time = GetConVar("arc9_eject_time")
 
 local FormatViewModelAttachment = ARC9.FormatViewModelAttachment
 
+ARC9_EFT_MAGDROP = ARC9_EFT_MAGDROP or {}
+
+ARC9_EFT_MAGDROP.Sounds_Pistol = {
+    "arc9_eft_magdrop/weap_pistol_mag_drop_01.wav",
+    "arc9_eft_magdrop/weap_pistol_mag_drop_02.wav",
+    "arc9_eft_magdrop/weap_pistol_mag_drop_03.wav",
+    "arc9_eft_magdrop/weap_pistol_mag_drop_04.wav",
+    "arc9_eft_magdrop/weap_pistol_mag_drop_05.wav",
+    "arc9_eft_magdrop/weap_pistol_mag_drop_06.wav",
+    "arc9_eft_magdrop/weap_pistol_mag_drop_07.wav",
+}
+
+ARC9_EFT_MAGDROP.Sounds_SMG = {
+    "arc9_eft_magdrop/weap_smg_mag_drop_01.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_02.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_03.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_04.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_05.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_06.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_07.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_08.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_09.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_10.wav",
+    "arc9_eft_magdrop/weap_smg_mag_drop_11.wav",
+}
+
+ARC9_EFT_MAGDROP.Sounds_Rifle = {
+    "arc9_eft_magdrop/weap_rifle_mag_drop_02.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_03.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_04.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_05.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_06.wav",
+}
+
+ARC9_EFT_MAGDROP.Sounds_Shotgun = {
+    "arc9_eft_magdrop/weap_rifle_mag_drop_02.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_03.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_04.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_05.wav",
+    "arc9_eft_magdrop/weap_rifle_mag_drop_06.wav",
+}
+
+
+local ClassSounds = {
+    ["Pistol"]                  = ARC9_EFT_MAGDROP.Sounds_Pistol,
+    ["Submachine Gun"]          = ARC9_EFT_MAGDROP.Sounds_SMG,
+    ["Assault Rifle"]           = ARC9_EFT_MAGDROP.Sounds_Rifle,
+    ["Assault Carbine"]         = ARC9_EFT_MAGDROP.Sounds_Rifle,
+    ["Marksman Rifle"]          = ARC9_EFT_MAGDROP.Sounds_Rifle,
+    ["Semi-automatic Shotgun"]  = ARC9_EFT_MAGDROP.Sounds_Shotgun,
+}
+
 function EFFECT:Init(data)
 	local att = data:GetAttachment()
 	local ent = data:GetEntity()
@@ -71,7 +123,16 @@ function EFFECT:Init(data)
 
 	if self.VMContext then self:SetNoDraw(true) end
 
-	self.Sounds = sounds or ARC9.ShellSoundsTable
+	-- self.Sounds = sounds or ARC9.ShellSoundsTable
+
+	local wep = LocalPlayer():GetActiveWeapon()
+
+	if not IsValid(wep) then
+		self.Sounds = ARC9_EFT_MAGDROP.Sounds_Rifle
+	else
+		local class = wep:GetProcessedValue("Class") or ""
+		self.Sounds = ClassSounds[class] or ARC9_EFT_MAGDROP.Sounds_Rifle
+	end
 
 	self:PhysicsInit(SOLID_VPHYSICS)
 
