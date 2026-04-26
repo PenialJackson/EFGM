@@ -698,7 +698,7 @@ function EFGM.MENU:Initialize(openTo, container)
 		if !scalingCVar:GetBool() then
 			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + EFGM.MENU.ParallaxX, EFGM.MenuScale(50) + EFGM.MENU.ParallaxY)
 		else
-			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + EFGM.MENU.ParallaxX, EFGM.MenuScale(1060) / 2 - (920 / 2) + EFGM.MENU.ParallaxY)
+			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + EFGM.MENU.ParallaxX, ((EFGM.MENU.MenuFrame:GetTall() - self:GetTall()) / 2) + EFGM.MENU.ParallaxY)
 		end
 
 		if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) and !EFGM.MENU.Tooltip.Closing then EFGM.MENU.Tooltip:RemoveTip() end

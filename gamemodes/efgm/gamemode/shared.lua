@@ -14,7 +14,7 @@ if CLIENT then
 	CreateClientConVar("efgm_hud_scale", 1, true, false, "Adjust the scale for all user interface items", 0.5, 2)
 	CreateClientConVar("efgm_hud_padding", 0, true, false, "Adjust the horizontal padding for all user interface items", 0, 100)
 	CreateClientConVar("efgm_menu_parallax", 1, true, false, "Adjust the main menu parallax/jiggle when moving your cursor", 0, 1)
-	CreateClientConVar("efgm_menu_scalingmethod", 0, true, false, "Adjust the method at which the menu positions itself after scaling", 0, 1)
+	CreateClientConVar("efgm_menu_scalingmethod", 1, true, false, "Adjust the method at which the menu positions itself after scaling", 0, 1)
 	CreateClientConVar("efgm_menu_deleteprompt", 1, true, false, "Adjust if a confirmation prompt appears when deleting an item", 0, 1)
 	CreateClientConVar("efgm_menu_sellprompt_single", 1, true, false, "Adjust if a confirmation prompt appears when selling a single item", 0, 1)
 	CreateClientConVar("efgm_menu_sellprompt_stacked", 1, true, false, "Adjust if a confirmation prompt appears when selling a single item", 0, 1)
