@@ -2132,10 +2132,11 @@ function HUDInspectItem(item, data, panel)
 			local recoilSideRand = math.Round((wep["RecoilRandomSide"] or 0) * recoilMult, 2) or nil
 			local visualRecoilUp = math.Round((wep["VisualRecoilUp"] or 0) * visualRecoilMult, 2) or nil
 			local visualRecoilSide = math.Round((wep["VisualRecoilSide"] or 0) * visualRecoilMult, 2) or nil
-			local visualRecoilRoll = math.Round(wep["VisualRecoilRoll"] or 0, 2) or nil
+			local visualRecoilRoll = math.Round((wep["VisualRecoilRoll"] or 0) * visualRecoilMult, 2) or nil
 			local visualRecoilDamping = math.Round(wep["VisualRecoilDampingConst"] or 0, 2) or nil
-			local recoilPunch = math.Round(wep["VisualRecoilPunch"] or 0, 2) or nil
-			local recoilPunchSighted = math.Round(wep["VisualRecoilPunchSights"] or 0, 2) or nil
+			local visualRecoilSpringDamping = math.Round(wep["VisualRecoilSpringPunchDamping"] or 0, 2) or nil
+			local recoilPunch = math.Round((wep["VisualRecoilPunch"] or 0) * visualRecoilMult, 2) or nil
+			local recoilPunchSighted = math.Round((wep["VisualRecoilPunchSights"] or 0) * visualRecoilMult, 2) or nil
 			local recoilKick = math.Round(wep["RecoilKick"] or 0, 2) or nil
 			local recoilKickPitch = math.Round(wep["RecoilKickPitchMult"] or 0, 2) or nil
 			local recoilRecovery = math.Round(wep["RecoilAutoControl"] or 0, 2) or nil
@@ -2231,6 +2232,10 @@ function HUDInspectItem(item, data, panel)
 
 			if visualRecoilDamping then
 				wikiContentText:AppendText("VISUAL RECOIL DAMPING: " .. visualRecoilDamping .. "\n")
+			end
+
+			if visualRecoilSpringDamping then
+				wikiContentText:AppendText("VISUAL RECOIL SPRING DAMPING: " .. visualRecoilSpringDamping .. "\n")
 			end
 
 			if recoilPunch then
