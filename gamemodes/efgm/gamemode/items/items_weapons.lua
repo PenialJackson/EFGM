@@ -1422,6 +1422,32 @@ EFGM.ITEMS["arc9_eft_avt"] = {
 	}
 }
 
+EFGM.ITEMS["arc9_eft_valak"] = {
+	["fullName"] = "VALAK 7.62x39 assault rifle",
+	["displayName"] = "VALAK",
+	["displayType"] = "Assault Rifle",
+	["weight"] = 1,
+	["value"] = 141550,
+	["levelReq"] = 24,
+	["equipType"] = EQUIPTYPE.Weapon,
+	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/weapons/valak.png", "smooth"),
+
+	["sizeX"] = 5,
+	["sizeY"] = 2,
+
+	["caliber"] = "7.62x39",
+	["ammoID"] = "efgm_ammo_762x39",
+	["defAtts"] = "XQAAAQCJAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnGI9Ho0W6AoGsTnmW59C2oiRFRBLwgoxe4xV0WX6qxNyPtoEToArMIWFdbjCnb1woUnFO+qw+3oKMAk2UPdtGbfP8Enfwwy2QoR91Xb898OdyREmobctEyOcTEJnKzf2zdwnKgb0WkHaPfxcwRkY5bGwWL4IYoNOYS4/rFFBUhVmZSHwgA=",
+	["duelAtts"] = {
+		"XQAAAQCJAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnGI9Ho0W6AoGsTnmW59C2oiRFRBLwgoxe4xV0WX6qxNyPtoEToArMIWFdbjCnb1woUnFO+qw+3oKMAk2UPdtGbfP8Enfwwy2QoR91Xb898OdyREmobctEyOcTEJnKzf2zdwnKgb0WkHaPfxcwRkY5bGwWL4IYoNOYS4/rFFBUhVmZSHwgA=",
+		"XQAAAQBIAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnGI9HpWGlnzkAUhvfysO+QqT1f1YnQ87iFhAJlimU8mcg4lfiznoYarOoW0CmQMG3f5Ecwle/eIPQE//n5/cNtpeGip4KR/1V4t71YyLsomJV8QqczWMVcagurE5A943rxkXCtf7pp26EI0wFBy3vBgkwzI2/j5c5hHz3o21+hdGnW5p2SA4o+hOtFMTWKI3oXjeSp10Um22C1tcZ8MghCeGpV0GFWXhqKTjW6n+7b196YfvXCt45MrctfMX9NdmUXnbMma9WOCqANm",
+		"XQAAAQARAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnGI9HozoZRA2NWs4Q1x9JGGeYznUYLNXq9bvExxpSrzz6q8f4Lf8voTGAjZOxYOCeR6RgqGtdupV6Q7OSQnTRUbwxGPEpxf4ENFjJebVGftx7KcwlJlqejuqI5YnwBQS7aEKrPD8nBM9cSmouzuCl4srLZpmEQp5hEp6PhWr4C5SDJesjTsdGy7TKyGweIuzdTYwX7BQ8jvNeYotTiJEWV5VAe7OWRNRCPecA7zAA=="
+	}
+}
+
 -- light machine guns
 EFGM.ITEMS["arc9_eft_m249"] = {
 	["fullName"] = "M249 SAW 5.56x45 light machine gun",
