@@ -3489,6 +3489,32 @@ EFGM.ITEMS["arc9_eft_uzi"] = {
 	}
 }
 
+EFGM.ITEMS["arc9_eft_uzi45"] = {
+	["fullName"] = "IWI UZI .45 ACP submachine gun",
+	["displayName"] = "UZI .45",
+	["displayType"] = "Submachine Gun",
+	["weight"] = 2.1,
+	["value"] = 21500,
+	["levelReq"] = 1,
+	["equipType"] = EQUIPTYPE.Weapon,
+	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/weapons/uzi45.png", "smooth"),
+
+	["sizeX"] = 5,
+	["sizeY"] = 1,
+
+	["caliber"] = ".45",
+	["ammoID"] = "efgm_ammo_45",
+	["defAtts"] = "XQAAAQBWAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OnI8tdohYNor0/U1lfENACVJ8RF53mH+zCpk+htJbsFfJYry/Mt8W/F+6uAPtrnaC/ERFuNE7bOXHNzM9NMfys0qd+NR91hfCZyNBt8RMLgF9PJrGsxH6/W6NxCIXUbboASZECy11lPX26ihkyX8UtF+sQw40pNMQpEEA4ix/6g6Q3t+y",
+	["duelAtts"] = {
+		"XQAAAQBWAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OnI8tdohYNor0/U1lfENACVJ8RF53mH+zCpk+htJbsFfJYry/Mt8W/F+6uAPtrnaC/ERFuNE7bOXHNzM9NMfys0qd+NR91hfCZyNBt8RMLgF9PJrGsxH6/W6NxCIXUbboASZECy11lPX26ihkyX8UtF+sQw40pNMQpEEA4ix/6g6Q3t+y",
+		"XQAAAQDyAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OnI8tdohYNor0/U1lfEGFVWkj2stkKydX2G50Q7rrzLkqy+phA1weQTnCwTCRoYJz4UCdw1kmEK2w0sHyAfNyEv50N9YLxaZG7Jwuf3R0W2fIOe3I+36bek3pp2Kz9pjzxBmVF/BdM19932XXW7IHLyDZBqzFjmY4d0zl7dRh/CZd9Z5UFUbQ6MFFWc1fjvwzbkBxabfvkLi9syTSuHfE7uXt4Hwj64bUz6chKsO3Ms9ULAw9axsA",
+		"XQAAAQA7AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OnI8tdohYNor0/U1lfEGFVWkj2stkKydX2G50Q7rrzLkqy+phA1weQTnCwTCZpE4g4wg/8cLEOEf9ehwT0X6zgIiwaeGmglpQlfx/0U3x4PjnANrkyHEoaUvgWDvbOWEjGriRtIEwMVHniR2fXGK4mI85PAK00W4yLKbQi3LXLbw82YwIfAhpIw61Eleziryfi9S3RyM3lLGVOqKaptjg0zACKBoFMhxsmziVB95nDWtf8Rrnkr8JatnNUy+rpkxW8oMPMEVbeJXA"
+	}
+}
+
 EFGM.ITEMS["arc9_eft_uzi_pro"] = {
 	["fullName"] = "IWI UZI PRO Pistol 9x19 submachine gun",
 	["displayName"] = "UZI PRO Pistol",
@@ -3653,7 +3679,7 @@ EFGM.ITEMS["arc9_eft_saiga9"] = {
 	["displayName"] = "Saiga-9",
 	["displayType"] = "Submachine Gun",
 	["weight"] = 2,
-	["value"] = 17000,
+	["value"] = 16000,
 	["levelReq"] = 1,
 	["equipType"] = EQUIPTYPE.Weapon,
 	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,

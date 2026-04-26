@@ -32051,7 +32051,7 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_barrel_269"] = {
 	["canPurchase"] = true,
 }
 
-EFGM.ITEMS["eft_mp41r_barrel_269"] = {
+EFGM.ITEMS["arc9_att_eft_mp41r_barrel_269"] = {
 	["fullName"] = "MP 41(r) 9x19 10.6 inch barrel",
 	["displayName"] = 'MP 41(r) 10.6"',
 	["displayType"] = DISPLAYTYPE.BARREL,
@@ -44301,6 +44301,48 @@ EFGM.ITEMS["arc9_att_eft_uzi_barrel_409"] = {
 	["description"] = "A 409mm barrel for the UZI submachine gun. Manufactured by Israel Weapon Industries.",
 	["weight"] = 0.3,
 	["value"] = 6000,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "uzi_409.png", "smooth"),
+
+	["sizeX"] = 3,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_uzi45_barrel_259"] = {
+	["fullName"] = "UZI .45 ACP 259mm barrel",
+	["displayName"] = "UZI .45 259mm",
+	["displayType"] = DISPLAYTYPE.BARREL,
+	["description"] = "A 259mm barrel for the UZI .45 submachine gun. Manufactured by Israel Weapon Industries.",
+	["weight"] = 0.3,
+	["value"] = 4555,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "uzi_259.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_uzi45_barrel_409"] = {
+	["fullName"] = "UZI .45 ACP 409mm barrel",
+	["displayName"] = "UZI .45 409mm",
+	["displayType"] = DISPLAYTYPE.BARREL,
+	["description"] = "A 409mm barrel for the UZI .45 submachine gun. Manufactured by Israel Weapon Industries.",
+	["weight"] = 0.3,
+	["value"] = 5200,
 	["equipType"] = EQUIPTYPE.Attachment,
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
