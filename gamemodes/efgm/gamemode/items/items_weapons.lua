@@ -3143,6 +3143,32 @@ EFGM.ITEMS["arc9_eft_sako_trg"] = {
 }
 
 -- submachine guns
+EFGM.ITEMS["arc9_eft_mp41r"] = {
+	["fullName"] = "Maschinenpistole 41(r) 9x19 submachine gun",
+	["displayName"] = "MP 41(r)",
+	["displayType"] = "Submachine Gun",
+	["weight"] = 0.9,
+	["value"] = 29000,
+	["levelReq"] = 1,
+	["equipType"] = EQUIPTYPE.Weapon,
+	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["icon"] = Material("items/weapons/mp41r.png", "smooth"),
+
+	["sizeX"] = 4,
+	["sizeY"] = 2,
+
+	["caliber"] = "9x19",
+	["ammoID"] = "efgm_ammo_9x19",
+	["defAtts"] = "XQAAAQDjAAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NV6WPQj97re4gzzw8jkZRPNLnh70bFTh2kxyQhs+Y5W8QgLp7TJQDDlUbUrtoq4F5jih3/LGIoGI3Ol4NjHDaafbA5N4dcOMAc0B9PjMC7euqFJkzKX3Ii8xdvje3ntS4",
+	["duelAtts"] = {
+		"XQAAAQDjAAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NV6WPQj97re4gzzw8jkZRPNLnh70bFTh2kxyQhs+Y5W8QgLp7TJQDDlUbUrtoq4F5jih3/LGIoGI3Ol4NjHDaafbA5N4dcOMAc0B9PjMC7euqFJkzKX3Ii8xdvje3ntS4",
+		"XQAAAQDjAAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NV6WPQj97re4gzzw8jkZRPNLnh70bFTh2kxyQhs+Y5W8QgLp7TJQDDlUbUrtoq4F5jih3/LGIoGI3Ol4NjHDaafbA5N4dcOMAc0B9QqwG2RwY6nhv/Umc60ZA3+KG3WpE",
+		""
+	}
+}
+
 EFGM.ITEMS["arc9_eft_mp9"] = {
 	["fullName"] = "B&T MP9 9x19 submachine gun",
 	["displayName"] = "MP9",
@@ -3576,7 +3602,7 @@ EFGM.ITEMS["arc9_eft_ppsh41"] = {
 	["displayName"] = "PPSh-41",
 	["displayType"] = "Submachine Gun",
 	["weight"] = 1,
-	["value"] = 26000,
+	["value"] = 32000,
 	["levelReq"] = 1,
 	["equipType"] = EQUIPTYPE.Weapon,
 	["equipSlot"] = WEAPONSLOTS.PRIMARY.ID,

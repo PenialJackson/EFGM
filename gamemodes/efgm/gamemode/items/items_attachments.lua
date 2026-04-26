@@ -32051,6 +32051,27 @@ EFGM.ITEMS["arc9_att_eft_ppsh41_barrel_269"] = {
 	["canPurchase"] = true,
 }
 
+EFGM.ITEMS["eft_mp41r_barrel_269"] = {
+	["fullName"] = "MP 41(r) 9x19 10.6 inch barrel",
+	["displayName"] = 'MP 41(r) 10.6"',
+	["displayType"] = DISPLAYTYPE.BARREL,
+	["description"] = "A 10.6 inch (269mm) long barrel for the MP 41(r), chambered in 9x19.",
+	["weight"] = 0.5,
+	["value"] = 3550,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.BARREL, "ppsh_269.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
 EFGM.ITEMS["arc9_att_eft_ppsh41_dust"] = {
 	["fullName"] = "PPSh-41 dust cover",
 	["displayName"] = "PPSh41",
