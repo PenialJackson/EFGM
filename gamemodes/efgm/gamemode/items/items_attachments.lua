@@ -47611,3 +47611,171 @@ EFGM.ITEMS["arc9_att_eft_hg_svd_std"] = {
 	["lootWeight"] = 100,
 	["canPurchase"] = true,
 }
+
+EFGM.ITEMS["arc9_att_eft_ar10_gas_m110"] = {
+	["fullName"] = "AR-10 KAC M110 Double High Picatinny Gas Block",
+	["displayName"] = "DHP",
+	["displayType"] = DISPLAYTYPE.GASBLOCK,
+	["description"] = "A gas block for AR-10 series rifles which adds a Picatinny rail for installation of various tactical devices. Manufactured by Knight's Armament Company.",
+	["weight"] = 0.1,
+	["value"] = 19600,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "dhp.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_ar10_gas_m110_fde"] = {
+	["fullName"] = "AR-10 KAC M110 Double High Picatinny Gas Block (Taupe)",
+	["displayName"] = "DHP",
+	["displayType"] = "Attachment",
+	["description"] = "A gas block for AR-10 series rifles which adds a Picatinny rail for installation of various tactical devices. Manufactured by Knight's Armament Company. Coated in cerakote Taupe color.",
+	["weight"] = 0.1,
+	["value"] = 19600,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.GASBLOCK, "dhp_taupe.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_ar10_hg_urx2"] = {
+	["fullName"] = "AR-10 KAC URX 2 12.5 inch handguard",
+	["displayName"] = 'URX2 12.5"',
+	["displayType"] = DISPLAYTYPE.HANDGUARD,
+	["description"] = "A 12.5 inch handguard for AR-10 system rifles. Manufactured by Knight's Armament Company.",
+	["weight"] = 0.4,
+	["value"] = 13725,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ar10_kac.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_ar10_hg_urx2_fde"] = {
+	["fullName"] = "AR-10 KAC URX 2 12.5 inch handguard (Taupe)",
+	["displayName"] = 'URX2 12.5"',
+	["displayType"] = "Attachment",
+	["description"] = "A 12.5 inch handguard for AR-10 system rifles. Manufactured by Knight's Armament Company. Coated in cerakote Taupe color.",
+	["weight"] = 0.4,
+	["value"] = 13725,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.HANDGUARD, "ar10_kac_taupe.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_ar_stock_sass"] = {
+	["fullName"] = "AR-15 KAC SASS stock (Taupe)",
+	["displayName"] = "SASS",
+	["displayType"] = DISPLAYTYPE.STOCK,
+	["description"] = "A specialized stock often used for DMR-style builds.",
+	["weight"] = 0.6,
+	["value"] = 14985,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.STOCK, "ar15_sass_taupe.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_muzzle_ar10_potomac"] = {
+	["fullName"] = "AR-10 Potomac Armory M110 7.62x51 flash hider",
+	["displayName"] = "M110 FH",
+	["displayType"] = DISPLAYTYPE.MUZZLE,
+	["description"] = "A 7.62x51 NATO flash hider for the M110 semi-automatic sniper system. Manufactured by Potomac Armory.",
+	["weight"] = 0.1,
+	["value"] = 2780,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ar10_m110_flash.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_silencer_ar10_m110"] = {
+	["fullName"] = "AR-10 KAC SR-25/Mk.11 7.62x51 sound suppressor",
+	["displayName"] = "Mk.11",
+	["displayType"] = DISPLAYTYPE.MUZZLE,
+	["description"] = "A rifle caliber sound suppressor designed for SR-25 pattern rifles, manufactured by Knight's Armament Company. Can only be installed on the compatible gas block system.",
+	["weight"] = 0.8,
+	["value"] = 47600,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ar10_m110_supp.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_silencer_ar10_m110_fde"] = {
+	["fullName"] = "AR-10 KAC SR-25/Mk.11 7.62x51 sound suppressor (Taupe)",
+	["displayName"] = "Mk.11",
+	["displayType"] = "Attachment",
+	["description"] = "A rifle caliber sound suppressor designed for SR-25 pattern rifles, manufactured by Knight's Armament Company. Can only be installed on the compatible gas block system. Coated in cerakote Taupe color.",
+	["weight"] = 0.8,
+	["value"] = 47600,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = AttMaterial(ATTICONPATHS.MUZZLE, "ar10_m110_supp_taupe.png", "smooth"),
+
+	["sizeX"] = 2,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
