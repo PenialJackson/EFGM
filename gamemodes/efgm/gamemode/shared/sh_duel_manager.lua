@@ -23,7 +23,7 @@ if SERVER then
 		net.Send(DUEL.Players)
 
 		local randLoadoutNum = math.random(1, #DUEL_PRIMARY)
-		local primaryItem, secondaryItem, nadeItem = DUEL:GenerateLoadout(randLoadoutNum)
+		local primaryItem, holsterItem, nadeItem = DUEL:GenerateLoadout(randLoadoutNum)
 
 		for k, v in ipairs(DUEL.Players) do -- there is literally no reason for this to have more than 2 players, so i will asssume that it is 2 players
 			v:AddFlags(FL_GODMODE)
@@ -45,12 +45,12 @@ if SERVER then
 			if primaryItem == nil then holsterEquDelay = 0.8 end
 
 			if nadeItem != nil then timer.Simple(0, function() DUEL:EquipGrenade(v, nadeItem) end) end
-			if secondaryItem != nil then timer.Simple(holsterEquDelay, function() DUEL:EquipHolster(v, secondaryItem, primaryItem == nil) end) end
+			if holsterItem != nil then timer.Simple(holsterEquDelay, function() DUEL:EquipHolster(v, holsterItem, primaryItem == nil) end) end
 			if primaryItem != nil then timer.Simple(0.8, function() DUEL:EquipPrimary(v, primaryItem) end) end
 
 			net.Start("PlayerInventoryReloadForDuel")
 				net.WriteTable(primaryItem or {})
-				net.WriteTable(secondaryItem or {})
+				net.WriteTable(holsterItem or {})
 				net.WriteTable(nadeItem or {})
 			net.Send(v)
 
@@ -185,33 +185,33 @@ if SERVER then
 			end
 			local primaryItem = ITEM.Instantiate(primaryItemKey, primaryData)
 
-			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
-			local secondaryDef = EFGM.ITEMS[secondaryItemKey]
+			local _, holsterItemKey = table.Random(DUEL_HOLSTER[1])
+			local holsterDef = EFGM.ITEMS[holsterItemKey]
 
-			local secondaryData = {}
-			secondaryData.count = 1
-			if secondaryDef.duelAtts then
-				secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)]
-			elseif secondaryDef.defAtts then
-				secondaryData.att = secondaryDef.defAtts
+			local holsterData = {}
+			holsterData.count = 1
+			if holsterDef.duelAtts then
+				holsterData.att = holsterDef.duelAtts[math.random(#holsterDef.duelAtts)]
+			elseif holsterDef.defAtts then
+				holsterData.att = holsterDef.defAtts
 			end
-			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryData)
+			local holsterItem = ITEM.Instantiate(holsterItemKey, holsterData)
 
-			return primaryItem, secondaryItem, nadeItem
+			return primaryItem, holsterItem, nadeItem
 		elseif num == 8 then
-			local _, secondaryItemKey = table.Random(DUEL_SECONDARY[1])
-			local secondaryDef = EFGM.ITEMS[secondaryItemKey]
+			local _, holsterItemKey = table.Random(DUEL_HOLSTER[1])
+			local holsterDef = EFGM.ITEMS[holsterItemKey]
 
-			local secondaryData = {}
-			secondaryData.count = 1
-			if secondaryDef.duelAtts then
-				secondaryData.att = secondaryDef.duelAtts[math.random(#secondaryDef.duelAtts)]
-			elseif secondaryDef.defAtts then
-				secondaryData.att = secondaryDef.defAtts
+			local holsterData = {}
+			holsterData.count = 1
+			if holsterDef.duelAtts then
+				holsterData.att = holsterDef.duelAtts[math.random(#holsterDef.duelAtts)]
+			elseif holsterDef.defAtts then
+				holsterData.att = holsterDef.defAtts
 			end
-			local secondaryItem = ITEM.Instantiate(secondaryItemKey, secondaryData)
+			local holsterItem = ITEM.Instantiate(holsterItemKey, holsterData)
 
-			return nil, secondaryItem, nadeItem
+			return nil, holsterItem, nadeItem
 		end
 	end
 
@@ -332,14 +332,14 @@ end
 
 if CLIENT then
 	net.Receive("PlayerInventoryReloadForDuel", function(len)
-		local primaryItem, secondaryItem, nadeItem
+		local primaryItem, holsterItem, nadeItem
 
 		primaryItem = net.ReadTable()
-		secondaryItem = net.ReadTable()
+		holsterItem = net.ReadTable()
 		nadeItem = net.ReadTable()
 
 		if primaryItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1] = primaryItem end
-		if secondaryItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.SECONDARY.ID][1] = secondaryItem end
+		if holsterItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1] = holsterItem end
 		if nadeItem.name then EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1] = nadeItem end
 	end)
 end

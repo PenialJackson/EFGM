@@ -411,14 +411,6 @@ end
 function RenderDuelLoadout()
 	if IsValid(EFGM.HUD.ELEMENTS.DuelLoadout) then return end
 
-	local duelLoadout = vgui.Create("DPanel", GetHUDPanel())
-	EFGM.HUD.ELEMENTS.DuelLoadout = duelLoadout
-
-	duelLoadout:SetSize(ScrW(), ScrH())
-	duelLoadout:SetPos(0, 0)
-	duelLoadout:SetAlpha(0)
-	duelLoadout:MoveToFront()
-
 	local primary = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.PRIMARY.ID][1] or nil
 	local holster = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.HOLSTER.ID][1] or nil
 	local nade = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1] or nil
@@ -428,6 +420,14 @@ function RenderDuelLoadout()
 	local hasNade = EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.GRENADE.ID][1].name != nil
 
 	if !hasPrimary and !hasHolster and !hasNade then return end
+
+	local duelLoadout = vgui.Create("DPanel", GetHUDPanel())
+	EFGM.HUD.ELEMENTS.DuelLoadout = duelLoadout
+
+	duelLoadout:SetSize(ScrW(), ScrH())
+	duelLoadout:SetPos(0, 0)
+	duelLoadout:SetAlpha(0)
+	duelLoadout:MoveToFront()
 
 	local primaryDef
 	local primaryName

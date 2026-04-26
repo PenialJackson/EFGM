@@ -99,7 +99,7 @@ function GenerateDuelLoadouts()
 	-- 5 == marksman rifles
 	-- 6 == assault carbines
 	-- 7 == shotguns
-	-- 8 == secondaries only
+	-- 8 == holsters only
 
 	DUEL_PRIMARY = {}
 	DUEL_PRIMARY[1] = {}
@@ -111,8 +111,8 @@ function GenerateDuelLoadouts()
 	DUEL_PRIMARY[7] = {}
 	DUEL_PRIMARY[8] = {}
 
-	DUEL_SECONDARY = {}
-	DUEL_SECONDARY[1] = {}
+	DUEL_HOLSTER = {}
+	DUEL_HOLSTER[1] = {}
 
 	DUEL_GRENADE = {}
 	DUEL_GRENADE[1] = {}
@@ -147,7 +147,7 @@ function GenerateDuelLoadouts()
 		end
 
 		if v.equipSlot == WEAPONSLOTS.HOLSTER.ID and v.displayName != "Blicky" and v.displayName != "R1500" and v.displayName != "SP-81" then -- sorry guys no fucking blickies and rangefinders
-			DUEL_SECONDARY[1][k] = v
+			DUEL_HOLSTER[1][k] = v
 		end
 
 		if v.equipSlot == WEAPONSLOTS.GRENADE.ID and v.displayType != "Smoke Grenade" and v.displayType != "Flare" then
