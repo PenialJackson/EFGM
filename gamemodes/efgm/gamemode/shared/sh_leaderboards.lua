@@ -4,6 +4,7 @@ LEADERBOARDS = {
 	["Money Spent"] = "MoneySpent",
 	["Time Played"] = "Time",
 	["Stash Value"] = "StashValue",
+	["Highest Stash Value"] = "HighestStashValue",
 	["Kills"] = "Kills",
 	["Deaths"] = "Deaths",
 	["Suicides"] = "Suicides",
