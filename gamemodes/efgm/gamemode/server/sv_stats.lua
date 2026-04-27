@@ -1,3 +1,23 @@
+EFGM.SERVER.PLAYERTIMEJOINED = EFGM.SERVER.PLAYERTIMEJOINED or {}
+
+local function SetJoinTime(ply)
+	local id = ply:SteamID64()
+	local time = os.time()
+
+	EFGM.SERVER.PLAYERTIMEJOINED[id] = time
+end
+
+hook.Add("PlayerInitialSpawn", "SetJoinTime", function(ply) SetJoinTime(ply) end)
+
+function CalculateTimeOnline(ply)
+	local id = ply:SteamID64()
+	local time = os.time()
+	local timeOnline = time - EFGM.SERVER.PLAYERTIMEJOINED[id]
+
+	ply:SetNWInt("TimeOnline", timeOnline)
+	EFGM.SERVER.PLAYERTIMEJOINED[id] = time
+end
+
 function ResetRaidStats(ply)
 	ply:SetNWInt("RaidDamageDealt", 0)
 	ply:SetNWInt("RaidDamageRecievedPlayers", 0)
