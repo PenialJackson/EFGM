@@ -239,6 +239,81 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 	end
 end)
 
+net.Receive("PlayerMarketSellBulk", function(len, ply)
+    if !ply:IsInHideout() then return end
+
+    local ids = net.ReadTable()
+
+    if table.IsEmpty(ids) then return end
+
+	local keys = {}
+	for k, v in pairs(ids) do
+		table.insert(keys, k)
+	end
+
+	table.sort(keys, function(a, b)
+		return a > b
+	end)
+
+    local plyMoney = ply:GetNWInt("Money", 0)
+    local moneyToGive = 0
+
+    for _, key in ipairs(keys) do
+        local item = ply.stash[key]
+		if item == nil then return end
+
+		local def = EFGM.ITEMS[item.name]
+		if def == nil then return end
+
+        if def.equipType == EQUIPTYPE.Weapon then
+            local data = ply.stash[key].data
+            local cost = math.floor(def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+
+			if data.att then
+				local atts = GetPrefixedAttachmentListFromCode(data.att)
+				if !atts then return end
+
+				for _, a in ipairs(atts) do
+					local att = EFGM.ITEMS[a]
+					if att == nil then continue end
+
+					cost = cost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+				end
+			end
+
+            DeleteItemFromStash(ply, key)
+
+            moneyToGive = moneyToGive + cost
+
+            continue
+        elseif def.consumableType == "heal" or def.consumableType == "key" then
+			local data = ply.stash[key].data
+			local cost = math.floor((def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * (data.durability / def.consumableValue))
+
+            DeleteItemFromStash(ply, key)
+
+            moneyToGive = moneyToGive + cost
+
+            continue
+        else
+            local data = ply.stash[key].data
+            local count = data.count
+            local cost = math.floor(def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * count
+
+            DeleteItemFromStash(ply, key)
+
+            moneyToGive = moneyToGive + cost
+
+            continue
+        end
+    end
+
+    ReloadStash(ply)
+
+    ply:SetNWInt("Money", plyMoney + moneyToGive)
+    ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + moneyToGive)
+end)
+
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 	concommand.Add("efgm_debug_setmoney", function(ply, cmd, args) ply:SetNWInt("Money", tonumber(args[1]) or 0) end)
 

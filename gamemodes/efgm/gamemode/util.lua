@@ -51,7 +51,7 @@ function table.SeqRandom(tbl)
 	return tbl[math.random(#tbl)]
 end
 
--- ipairs but reverse
+-- ipairs but reversed
 function Reverseipairs(tbl)
 	local i = #tbl + 1
 

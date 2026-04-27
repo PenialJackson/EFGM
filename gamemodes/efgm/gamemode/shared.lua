@@ -16,8 +16,6 @@ if CLIENT then
 	CreateClientConVar("efgm_menu_parallax", 1, true, false, "Adjust the main menu parallax/jiggle when moving your cursor", 0, 1)
 	CreateClientConVar("efgm_menu_scalingmethod", 1, true, false, "Adjust the method at which the menu positions itself after scaling", 0, 1)
 	CreateClientConVar("efgm_menu_deleteprompt", 1, true, false, "Adjust if a confirmation prompt appears when deleting an item", 0, 1)
-	CreateClientConVar("efgm_menu_sellprompt_single", 1, true, false, "Adjust if a confirmation prompt appears when selling a single item", 0, 1)
-	CreateClientConVar("efgm_menu_sellprompt_stacked", 1, true, false, "Adjust if a confirmation prompt appears when selling a single item", 0, 1)
 	CreateClientConVar("efgm_menu_search_automatic", 1, true, false, "Adjust if inventory search boxes automatically begin searching on text change, or if it requires the enter key to be pressed to search", 0, 1)
 	CreateClientConVar("efgm_menu_closeonhit", 1, true, false, "Determines if your menu automatically closes upon taking damage", 0, 1)
 	CreateClientConVar("efgm_menu_savetab_hideout", 1, true, false, "Determines if your menu saves the previous tab while in the hideout", 0, 1)

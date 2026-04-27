@@ -28,20 +28,19 @@ LEADERBOARDS = {
 }
 
 if SERVER then
-	local LEADERBOARDSTRINGS = {}
+	local LEADERBOARDSTRINGS = LEADERBOARDSTRINGS or {}
 
 	hook.Add("InitPostEntity", "LeaderboardInit", function()
         for text, board in pairs(LEADERBOARDS) do
-            local query = sql.QueryTyped("SELECT SteamID, Value FROM EFGMPlayerData64 WHERE Key = ? ORDER BY Value + 0 DESC LIMIT 100;", {board})
-            if query == false then query = {} end
-
-			local str = util.TableToJSON(query)
+			local str = util.TableToJSON(sql.Query("SELECT SteamID, Value FROM EFGMPlayerData64 WHERE Key = " .. SQLStr(board) .. " ORDER BY Value + 0 DESC LIMIT 100;") or {})
 
 			str = util.Compress(str)
 			str = util.Base64Encode(str, true)
 
 			LEADERBOARDSTRINGS[board] = str
 		end
+
+		PrintTable(LEADERBOARDSTRINGS)
 	end)
 
 	net.Receive("GrabLeaderboardData", function(len, ply)
