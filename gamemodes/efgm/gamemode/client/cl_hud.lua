@@ -285,7 +285,7 @@ function RenderPlayerInfo(ent)
 	local profileBind = string.upper(input.GetKeyName(profileCVar:GetInt()) or "NONE")
 
 	local inviteText = string.upper("[" .. squadBind .. "] INVITE TO SQUAD" .. "   " .. "[" .. duelBind .. "] INVITE TO DUEL" .. "   " .. "[" .. profileBind .. "] VIEW PROFILE")
-	if (CurTime() - EFGM.INVITES.lastInviteSentTime < 10) or EFGM.INVITES.invitedBy != nil or EFGM.INVITES.invitedType != nil then inviteText = string.upper("[" .. profileBind .. "] VIEW PROFILE") end
+	if (CurTime() - EFGM.INVITES.lastInviteSentTime < EFGM.CONFIG.TIMERS.INVITECOOLDOWN) or EFGM.INVITES.invitedBy != nil or EFGM.INVITES.invitedType != nil then inviteText = string.upper("[" .. profileBind .. "] VIEW PROFILE") end
 	surface.SetFont("Bender24")
 	local inviteTextSize = surface.GetTextSize(inviteText) + EFGM.ScreenScale(10)
 
@@ -362,7 +362,7 @@ function RenderInvite()
 
 	surface.PlaySound("ui/invite_receive.wav")
 
-	local time = CurTime() + 10
+	local time = CurTime() + EFGM.CONFIG.TIMERS.INVITECOOLDOWN
 	local sentBy = EFGM.INVITES.invitedBy
 	local inviteType = EFGM.INVITES.invitedType
 
@@ -397,7 +397,7 @@ function RenderInvite()
 		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
 
 		surface.SetDrawColor(COLORS.transparentWhiteColor)
-		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / 10) * math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
+		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / EFGM.CONFIG.TIMERS.INVITECOOLDOWN) * math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
 
 		draw.SimpleText(text, "BenderExfilTimer", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 		draw.SimpleText(bindsText, "Bender24", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(81), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
