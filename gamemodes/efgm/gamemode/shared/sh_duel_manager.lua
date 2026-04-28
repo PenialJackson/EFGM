@@ -54,7 +54,7 @@ if SERVER then
 				net.WriteTable(nadeItem or {})
 			net.Send(v)
 
-			ResetRaidStats(v) -- because im lazy and won't make a special death overview
+			v:ResetRaidStats() -- because im lazy and won't make a special death overview
 
 			timer.Simple(1, function()
 				v:SetHealth(v:GetMaxHealth())

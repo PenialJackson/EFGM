@@ -327,54 +327,42 @@ function SetupPlayerData(ply)
 	local query = sql.Query("SELECT Key, Value FROM EFGMPlayerData64 WHERE SteamID = " .. id64 .. ";")
 	if query == nil then query = "new" end
 
-	-- stats
-	InitializeNetworkInt(ply, query, "Level", 1)
-	InitializeNetworkInt(ply, query, "Experience", 0)
-	InitializeNetworkInt(ply, query, "Money", 100000000)
-	InitializeNetworkInt(ply, query, "MoneyEarned", 0)
-	InitializeNetworkInt(ply, query, "MoneySpent", 0)
-	InitializeNetworkInt(ply, query, "Time", 0)
-	InitializeNetworkInt(ply, query, "TimeOnline", 0)
-	InitializeNetworkInt(ply, query, "StashValue", 0)
-	InitializeNetworkInt(ply, query, "HighestStashValue", 0)
-	InitializeNetworkInt(ply, query, "ItemsLooted", 0)
-	InitializeNetworkInt(ply, query, "ContainersLooted", 0)
-	InitializeNetworkInt(ply, query, "KeysUsed", 0)
+	for id, data in pairs(EFGM.STATS) do
+		local type = data.type
+		local default = data.default
+		local allTime = data.trackAllTime
 
-	-- combat
-	InitializeNetworkInt(ply, query, "Kills", 0)
-	InitializeNetworkInt(ply, query, "Deaths", 0)
-	InitializeNetworkInt(ply, query, "Suicides", 0)
-	InitializeNetworkInt(ply, query, "DamageDealt", 0)
-	InitializeNetworkInt(ply, query, "DamageRecieved", 0)
-	InitializeNetworkInt(ply, query, "HealthHealed", 0)
-	InitializeNetworkInt(ply, query, "ShotsFired", 0)
-	InitializeNetworkInt(ply, query, "ShotsHit", 0)
-	InitializeNetworkInt(ply, query, "Headshots", 0)
-	InitializeNetworkInt(ply, query, "FarthestKill", 0)
+		if type == "integer" then
+			InitializeNetworkInt(ply, query, id, default)
 
-	-- raids
-	InitializeNetworkInt(ply, query, "Extractions", 0)
-	InitializeNetworkInt(ply, query, "Quits", 0)
-	InitializeNetworkInt(ply, query, "RaidsPlayed", 0)
+			if allTime then
+				InitializeNetworkInt(ply, query, "ALL_" .. id, default)
+			end
+		elseif type == "float" then
+			InitializeNetworkFloat(ply, query, id, default)
 
-	-- duels
-	InitializeNetworkInt(ply, query, "DuelsPlayed", 0)
-	InitializeNetworkInt(ply, query, "DuelsWon", 0)
+			if allTime then
+				InitializeNetworkFloat(ply, query, "ALL_" .. id, default)
+			end
+		elseif type == "bool" then
+			InitializeNetworkBool(ply, query, id, default)
 
-	-- streaks
-	InitializeNetworkInt(ply, query, "CurrentKillStreak", 0)
-	InitializeNetworkInt(ply, query, "BestKillStreak", 0)
-	InitializeNetworkInt(ply, query, "CurrentExtractionStreak", 0)
-	InitializeNetworkInt(ply, query, "BestExtractionStreak", 0)
-	InitializeNetworkInt(ply, query, "CurrentDuelWinStreak", 0)
-	InitializeNetworkInt(ply, query, "BestDuelWinStreak", 0)
+			if allTime then
+				InitializeNetworkBool(ply, query, "ALL_" .. id, default)
+			end
+		elseif type == "string" then
+			InitializeNetworkString(ply, query, id, default)
 
-	-- stash/inventory
-	InitializeNetworkInt(ply, query, "StashMax", 2400)
+			if allTime then
+				InitializeNetworkString(ply, query, "ALL_" .. id, default)
+			end
+		end
+	end
 
 	for k, v in ipairs(EFGM.CONFIG.LEVELARRAY) do
-		if ply:GetNWInt("Level") == k and v != "max" then ply:SetNWInt("ExperienceToNextLevel", v) end
+		if ply:GetNWInt("Level") == k and v != "max" then
+			ply:SetNWInt("ExperienceToNextLevel", v)
+		end
 	end
 
 	-- stash
@@ -467,51 +455,36 @@ function SavePlayerData(ply)
 
 	sql.Begin()
 
-	-- stats
-	UninitializeNetworkInt(ply, query, "Level")
-	UninitializeNetworkInt(ply, query, "Experience")
-	UninitializeNetworkInt(ply, query, "Money")
-	UninitializeNetworkInt(ply, query, "MoneyEarned")
-	UninitializeNetworkInt(ply, query, "MoneySpent")
-	UninitializeNetworkInt(ply, query, "Time")
-	UninitializeNetworkInt(ply, query, "TimeOnline")
-	UninitializeNetworkInt(ply, query, "StashValue")
-	UninitializeNetworkInt(ply, query, "HighestStashValue")
-	UninitializeNetworkInt(ply, query, "ItemsLooted")
-	UninitializeNetworkInt(ply, query, "ContainersLooted")
-	UninitializeNetworkInt(ply, query, "KeysUsed")
+	for id, data in pairs(EFGM.STATS) do
+		local type = data.type
+		local allTime = data.trackAllTime
 
-	-- combat
-	UninitializeNetworkInt(ply, query, "Kills")
-	UninitializeNetworkInt(ply, query, "Deaths")
-	UninitializeNetworkInt(ply, query, "Suicides")
-	UninitializeNetworkInt(ply, query, "DamageDealt")
-	UninitializeNetworkInt(ply, query, "DamageRecieved")
-	UninitializeNetworkInt(ply, query, "HealthHealed")
-	UninitializeNetworkInt(ply, query, "ShotsFired")
-	UninitializeNetworkInt(ply, query, "ShotsHit")
-	UninitializeNetworkInt(ply, query, "Headshots")
-	UninitializeNetworkInt(ply, query, "FarthestKill")
+		if type == "integer" then
+			UninitializeNetworkInt(ply, query, id)
 
-	-- raids
-	UninitializeNetworkInt(ply, query, "Extractions")
-	UninitializeNetworkInt(ply, query, "Quits")
-	UninitializeNetworkInt(ply, query, "RaidsPlayed")
+			if allTime then
+				UninitializeNetworkInt(ply, query, "ALL_" .. id)
+			end
+		elseif type == "float" then
+			UninitializeNetworkFloat(ply, query, id)
 
-	-- duels
-	UninitializeNetworkInt(ply, query, "DuelsPlayed")
-	UninitializeNetworkInt(ply, query, "DuelsWon")
+			if allTime then
+				UninitializeNetworkFloat(ply, query, "ALL_" .. id)
+			end
+		elseif type == "bool" then
+			UninitializeNetworkBool(ply, query, id)
 
-	-- streaks
-	UninitializeNetworkInt(ply, query, "CurrentKillStreak")
-	UninitializeNetworkInt(ply, query, "BestKillStreak")
-	UninitializeNetworkInt(ply, query, "CurrentExtractionStreak")
-	UninitializeNetworkInt(ply, query, "BestExtractionStreak")
-	UninitializeNetworkInt(ply, query, "CurrentDuelWinStreak")
-	UninitializeNetworkInt(ply, query, "BestDuelWinStreak")
+			if allTime then
+				UninitializeNetworkBool(ply, query, "ALL_" .. id)
+			end
+		elseif type == "string" then
+			UninitializeNetworkString(ply, query, id)
 
-	-- stash/inventory
-	UninitializeNetworkInt(ply, query, "StashMax")
+			if allTime then
+				UninitializeNetworkString(ply, query, "ALL_" .. id)
+			end
+		end
+	end
 
 	UninitializeStashString(ply, query)
 	UninitializeInventoryString(ply, query)
@@ -568,7 +541,7 @@ hook.Add("PlayerDisconnected", "PlayerUninitializeStats", function(ply)
 	UpdateTaskString(ply)
 
 	CalculateStashValue(ply)
-	CalculateTimeOnline(ply)
+	ply:CalculateTimeOnline()
 
 	SavePlayerData(ply)
 end)
@@ -587,12 +560,14 @@ hook.Add("ShutDown", "ServerUninitializeStats", function()
 		UpdateTaskString(ply)
 
 		CalculateStashValue(ply)
-		CalculateTimeOnline(ply)
+		ply:CalculateTimeOnline()
 
 		SavePlayerData(ply)
 	end
 end)
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
-	concommand.Add("efgm_debug_forcesave", function(ply, cmd, args) SavePlayerData(ply) end)
+	concommand.Add("efgm_debug_forcesave", function(ply, cmd, args)
+		SavePlayerData(ply)
+	end)
 end

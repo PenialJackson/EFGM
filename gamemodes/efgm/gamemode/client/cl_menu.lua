@@ -3346,8 +3346,9 @@ function EFGM.MENU.OpenTab.Profile()
 
 		local boardSelection = DermaMenu()
 
-		for text, board in SortedPairs(LEADERBOARDS) do
-			boardSelection:AddOption(text, function() SelectBoard(text, board) end)
+		for id, data in SortedPairsByMemberValue(EFGM.STATS, "name") do
+			if !data.showLeaderboard then continue end
+			boardSelection:AddOption(text, function() SelectBoard(data.name, id) end)
 		end
 
 		boardSelection:Open()

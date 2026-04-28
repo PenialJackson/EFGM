@@ -163,7 +163,7 @@ if SERVER then
 			v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
 			v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
 			v.RaidReady = false
-			ResetRaidStats(v)
+			v:ResetRaidStats()
 
 			if status == STATUS.PLAYER.SCAV then
 				timer.Create("ScavLoadout" .. v:SteamID64(), 0.5, 1, function() RAID:GenerateScavLoadout(v) end)

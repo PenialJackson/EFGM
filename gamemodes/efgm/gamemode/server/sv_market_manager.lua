@@ -70,7 +70,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	FlowItemToStash(ply, item, data)
 	ReloadStash(ply)
 
-	ply:SetNWInt("Money", plyMoney - cost)
+	ply:SetStat("Money", plyMoney - cost)
 	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
 	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] = EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] - count end
 
@@ -124,7 +124,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	FlowItemToInventory(ply, item, data)
 	ReloadInventory(ply)
 
-	ply:SetNWInt("Money", plyMoney - cost)
+	ply:SetStat("Money", plyMoney - cost)
 	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
 	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] = EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] - count end
 
@@ -163,7 +163,7 @@ net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 
 	ReloadInventory(ply)
 
-	ply:SetNWInt("Money", plyMoney - cost)
+	ply:SetStat("Money", plyMoney - cost)
 	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
 
 	NetworkMarketLimits(ply)
@@ -203,8 +203,8 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 		DeleteItemFromStash(ply, key)
 		ReloadStash(ply)
 
-		ply:SetNWInt("Money", plyMoney + cost)
-		ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + cost)
+		ply:SetStat("Money", plyMoney + cost)
+		ply:AddToStat("MoneyEarned", cost)
 
 		return
 	elseif def.consumableType == "heal" or def.consumableType == "key" then
@@ -214,8 +214,8 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 		DeleteItemFromStash(ply, key)
 		ReloadStash(ply)
 
-		ply:SetNWInt("Money", plyMoney + cost)
-		ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + cost)
+		ply:SetStat("Money", plyMoney + cost)
+		ply:AddToStat("MoneyEarned", cost)
 
 		return
 	else
@@ -232,8 +232,8 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 
 		ReloadStash(ply)
 
-		ply:SetNWInt("Money", plyMoney + cost)
-		ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + cost)
+		ply:SetStat("Money", plyMoney + cost)
+		ply:AddToStat("MoneyEarned", cost)
 
 		return
 	end
@@ -310,12 +310,14 @@ net.Receive("PlayerMarketSellBulk", function(len, ply)
 
     ReloadStash(ply)
 
-    ply:SetNWInt("Money", plyMoney + moneyToGive)
-    ply:SetNWInt("MoneyEarned", ply:GetNWInt("MoneyEarned") + moneyToGive)
+    ply:SetStat("Money", plyMoney + moneyToGive)
+    ply:AddToStat("MoneyEarned", cost)
 end)
 
 if GetConVar("efgm_derivesbox"):GetInt() == 1 then
-	concommand.Add("efgm_debug_setmoney", function(ply, cmd, args) ply:SetNWInt("Money", tonumber(args[1]) or 0) end)
+	concommand.Add("efgm_debug_setmoney", function(ply, cmd, args)
+		ply:SetStat("Money", tonumber(args[1]) or 0)
+	end)
 
 	concommand.Add("efgm_debug_resetmarketlimits", function(ply, cmd, args)
 		EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()] = {}

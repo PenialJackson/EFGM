@@ -164,15 +164,15 @@ function TaskDoComplete(ply, taskName)
 		if rewardInfo.type == REWARD.PlayerStat and rewardInfo.info == "Experience" then
 			local exp = rewardInfo.count
 
-			ply:SetNWInt("Experience", ply:GetNWInt("Experience", 0) + exp)
+			ply:AddToStat("Experience", exp)
 
 			local curExp = ply:GetNWInt("Experience")
 			local curLvl = ply:GetNWInt("Level")
 
 			while (curExp >= ply:GetNWInt("ExperienceToNextLevel")) do
 				curExp = curExp - ply:GetNWInt("ExperienceToNextLevel")
-				ply:SetNWInt("Level", curLvl + 1)
-				ply:SetNWInt("Experience", curExp)
+				ply:AddToStat("Level", 1)
+				ply:SetStat("Experience", curExp)
 
 				for k, v in ipairs(EFGM.CONFIG.LEVELARRAY) do
 					if (curLvl + 1) == k then ply:SetNWInt("ExperienceToNextLevel", v) end
