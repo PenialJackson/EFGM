@@ -8,8 +8,9 @@ local function RemoteStartEvent(ply, eventName)
 			return
 		end
 
-		print("Event not found.")
 	end
+    
+	print("Event not found.")
 end
 concommand.Add("efgm_start_event", function(ply, cmd, args) RemoteStartEvent(ply, args[1]) end)
 
