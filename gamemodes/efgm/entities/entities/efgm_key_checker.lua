@@ -58,7 +58,7 @@ function ENT:AcceptInput(name, ply, caller, data)
 
 			self:TriggerOutput("OnHasKey", ply, data)
 
-			ply:SetNWInt("KeysUsed", ply:GetNWInt("KeysUsed") + 1)
+			ply:AddToStat("KeysUsed", 1)
 			ply:SetNWInt("RaidKeysUsed", ply:GetNWInt("RaidKeysUsed") + 1)
 
 			local item = ply.inventory[keyWithLowestDura]

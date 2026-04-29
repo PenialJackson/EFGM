@@ -616,7 +616,7 @@ net.Receive("PlayerInventoryLootItemFromContainer", function(len, ply)
 	ReloadInventory(ply)
 
 	if ply:IsInRaid() then
-		ply:SetNWInt("ItemsLooted", ply:GetNWInt("ItemsLooted") + 1)
+		ply:AddToStat("ItemsLooted", 1)
 		ply:SetNWInt("RaidItemsLooted", ply:GetNWInt("RaidItemsLooted") + 1)
 	end
 

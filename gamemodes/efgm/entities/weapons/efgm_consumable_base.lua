@@ -102,7 +102,7 @@ function SWEP:TriggerConsumable(ent, type, ct)
 
 		if self.ConsumableTicks <= 1 then
 			ent:SetHealth(amount)
-			ent:SetNWInt("HealthHealed", ent:GetNWInt("HealthHealed") + amount)
+			ent:AddToStat("HealthHealed", amount)
 			ent:SetNWInt("RaidHealthHealed", ent:GetNWInt("RaidHealthHealed") + amount)
 			self:UpdateDurability(amount)
 		else
@@ -114,7 +114,7 @@ function SWEP:TriggerConsumable(ent, type, ct)
 				local tickAmount = math.min(maxHealth - (maxHealth - amountPerTick), maxHealth - ent:Health(), self.Durability)
 
 				ent:SetHealth(ent:Health() + tickAmount)
-				ent:SetNWInt("HealthHealed", ent:GetNWInt("HealthHealed") + tickAmount)
+				ent:AddToStat("HealthHealed", tickAmount)
 				ent:SetNWInt("RaidHealthHealed", ent:GetNWInt("RaidHealthHealed") + tickAmount)
 
 				if ent:Health() < maxHealth then

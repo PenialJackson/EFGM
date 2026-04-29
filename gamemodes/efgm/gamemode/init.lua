@@ -328,7 +328,7 @@ hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
 		if v:IsInRaid() then
 			v:SetNWFloat("ExperienceTime", v:GetNWFloat("ExperienceTime") + 0.5)
 			v:SetNWInt("RaidTime", v:GetNWInt("RaidTime", 0) + 1)
-			v:SetNWInt("Time", v:GetNWInt("Time") + 1)
+			v:AddToStat("Time", 1)
 		end
 	end
 end)
@@ -421,7 +421,7 @@ timer.Create("HealthRegenTick", EFGM.CONFIG.PLAYER.HEALTHREGENTICK, 0, function(
 			local amt = EFGM.CONFIG.PLAYER.HEALTHREGENAMOUNT
 
 			ply:SetHealth(math.min(health + amt, EFGM.CONFIG.PLAYER.MAXHEALTH))
-			ply:SetNWInt("HealthHealed", ply:GetNWInt("HealthHealed") + amt)
+			ply:AddToStat("HealthHealed", amt)
 			ply:SetNWInt("RaidHealthHealed", ply:GetNWInt("RaidHealthHealed") + amt)
 		end
 	end

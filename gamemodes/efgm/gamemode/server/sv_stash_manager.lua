@@ -394,8 +394,8 @@ function CalculateStashValue(ply)
 		end
 	end
 
-	ply:SetNWInt("StashValue", value)
-	if value >= ply:GetNWInt("HighestStashValue") then ply:SetNWInt("HighestStashValue", value) end
+	ply:SetStat("StashValue", value)
+	if value >= ply:GetNWInt("HighestStashValue") then ply:SetStat("HighestStashValue", value) end
 
 	return value
 end

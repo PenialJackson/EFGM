@@ -71,7 +71,7 @@ net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	ReloadStash(ply)
 
 	ply:SetStat("Money", plyMoney - cost)
-	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
+	ply:AddToStat("MoneySpent", cost)
 	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] = EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] - count end
 
 	NetworkMarketLimits(ply)
@@ -125,7 +125,7 @@ net.Receive("PlayerMarketPurchaseItemToInventory", function(len, ply)
 	ReloadInventory(ply)
 
 	ply:SetStat("Money", plyMoney - cost)
-	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
+	ply:AddToStat("MoneySpent", cost)
 	if EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] then EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] = EFGM.SERVER.PLAYERMARKETLIMITS[ply:SteamID64()][item] - count end
 
 	NetworkMarketLimits(ply)
@@ -164,7 +164,7 @@ net.Receive("PlayerMarketPurchasePresetToInventory", function(len, ply)
 	ReloadInventory(ply)
 
 	ply:SetStat("Money", plyMoney - cost)
-	ply:SetNWInt("MoneySpent", ply:GetNWInt("MoneySpent") + cost)
+	ply:AddToStat("MoneySpent", cost)
 
 	NetworkMarketLimits(ply)
 end)

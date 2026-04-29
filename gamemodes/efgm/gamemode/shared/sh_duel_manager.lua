@@ -29,7 +29,7 @@ if SERVER then
 			v:AddFlags(FL_GODMODE)
 			v.IsFreezed = true
 			v:SetRaidStatus(3, "")
-			v:SetNWInt("DuelsPlayed", v:GetNWInt("DuelsPlayed") + 1)
+			v:AddToStat("DuelsPlayed", 1)
 			v:SetNWBool("PlayerIsPMC", true)
 			v:SetNWBool("InRange", true)
 
@@ -79,8 +79,11 @@ if SERVER then
 
 		for k, v in ipairs(DUEL.Players) do v:SetNWBool("InRange", false) end
 
-		if deadPly:GetNWInt("CurrentDuelWinStreak") >= deadPly:GetNWInt("BestDuelWinStreak") then deadPly:SetNWInt("BestDuelWinStreak", deadPly:GetNWInt("CurrentDuelWinStreak")) end
-		deadPly:SetNWInt("CurrentDuelWinStreak", 0)
+		if deadPly:GetNWInt("CurrentDuelWinStreak") >= deadPly:GetNWInt("BestDuelWinStreak") then
+			deadPly:SetStat("BestDuelWinStreak", deadPly:GetNWInt("CurrentDuelWinStreak"))
+		end
+
+		deadPly:SetStat("CurrentDuelWinStreak", 0)
 
 		table.RemoveByValue(DUEL.Players, deadPly)
 
@@ -88,9 +91,11 @@ if SERVER then
 		DUEL.Players = {}
 
 		winningPly:SetRaidStatus(0, "")
-		winningPly:SetNWInt("DuelsWon", winningPly:GetNWInt("DuelsWon") + 1)
-		winningPly:SetNWInt("CurrentDuelWinStreak", winningPly:GetNWInt("CurrentDuelWinStreak") + 1)
-		if winningPly:GetNWInt("CurrentDuelWinStreak") >= winningPly:GetNWInt("BestDuelWinStreak") then winningPly:SetNWInt("BestDuelWinStreak", winningPly:GetNWInt("CurrentDuelWinStreak")) end
+		winningPly:AddToStat("DuelsWon", 1)
+		winningPly:AddToStat("CurrentDuelWinStreak", 1)
+		if winningPly:GetNWInt("CurrentDuelWinStreak") >= winningPly:GetNWInt("BestDuelWinStreak") then
+			winningPly:SetStat("BestDuelWinStreak", winningPly:GetNWInt("CurrentDuelWinStreak"))
+		end
 
 		timer.Simple(0.5, function()
 			net.Start("PlayerDuelTransition")

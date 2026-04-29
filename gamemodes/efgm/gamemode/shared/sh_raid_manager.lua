@@ -161,7 +161,7 @@ if SERVER then
 			local curTime = math.Round(CurTime(), 0) -- once players spawn, we make their team chat channel more specific, this is so others can create squads of the same name and not conflict with anything
 			v:SetNW2String("PlayerInSquad", "nil")
 			v:SetNW2String("TeamChatChannel", squad .. "_" .. curTime)
-			v:SetNWInt("RaidsPlayed", v:GetNWInt("RaidsPlayed") + 1)
+			v:AddToStat("RaidsPlayed", 1)
 			v.RaidReady = false
 			v:ResetRaidStats()
 

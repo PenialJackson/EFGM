@@ -1747,7 +1747,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local owner = self:GetOwner()
 
 		if SERVER and IsValid(owner) and owner:IsPlayer() and owner:IsInRaid() then
-			owner:SetNWInt("ShotsFired", owner:GetNWInt("ShotsFired") + 1)
+			owner:AddToStat("ShotsFired", 1)
 			owner:SetNWInt("RaidShotsFired", owner:GetNWInt("RaidShotsFired") + 1)
 		end
 
@@ -1956,7 +1956,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local hitGroup = tr.HitGroup
 
 		if SERVER and IsValid(owner) and owner:IsPlayer() and traceEntity:IsPlayer() and owner:IsInRaid() then
-			owner:SetNWInt("ShotsHit", owner:GetNWInt("ShotsHit") + 1)
+			owner:AddToStat("ShotsHit", 1)
 			owner:SetNWInt("RaidShotsHit", owner:GetNWInt("RaidShotsHit") + 1)
 		end
 
