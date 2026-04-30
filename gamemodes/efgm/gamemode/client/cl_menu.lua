@@ -3225,186 +3225,56 @@ function EFGM.MENU.OpenTab.Profile()
 
 	EFGM.MENU.MenuFrame.LowerPanel.Contents = contents
 
-	local stats = vgui.Create("DScrollPanel", contents)
-	stats:Dock(LEFT)
-	stats:SetSize(EFGM.MenuScale(320), 0)
-	stats:SetPaintBackground(false)
+	local profilePanel = vgui.Create("DPanel", contents)
+	profilePanel:Dock(LEFT)
+	profilePanel:SetSize(EFGM.MenuScale(613), 0)
 
-	local statsTitle = vgui.Create("DPanel", stats)
-	statsTitle:Dock(TOP)
-	statsTitle:SetSize(0, EFGM.MenuScale(32))
+	function profilePanel:Paint(w, h)
+		BlurPanel(self, 5)
 
-	function statsTitle:Paint(w, h)
-		draw.SimpleTextOutlined("STATISTICS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-	end
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
 
-	local statsBar = stats:GetVBar()
-	statsBar:SetHideButtons(true)
-	statsBar:SetSize(EFGM.MenuScale(15), 0)
-
-	function statsBar:Paint(w, h)
-		surface.SetDrawColor(COLORS.scrollerColor)
-		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
-	end
-
-	function statsBar.btnGrip:Paint(w, h)
 		surface.SetDrawColor(COLORS.transparentWhiteColor)
-		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
-	local importantStats = vgui.Create("DPanel", stats)
-	importantStats:Dock(TOP)
-	importantStats:SetSize(0, EFGM.MenuScale(580))
-	importantStats:SetPaintBackground(false)
+	local profilePanelHeader = vgui.Create("DPanel", profilePanel)
+	profilePanelHeader:Dock(TOP)
+	profilePanelHeader:SetSize(0, EFGM.MenuScale(36))
 
-	local statsTbl = {}
+	function profilePanelHeader:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
+		surface.DrawRect(0, 0, w, h)
 
-	statsTbl["Level"] = EFGM.MENU.Player:GetNWInt("Level")
-	statsTbl["Experience"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Experience"))
-	statsTbl["Money Earned"] = "₽" .. string.FormatComma(EFGM.MENU.Player:GetNWInt("MoneyEarned"))
-	statsTbl["Money Spent"] = "₽" .. string.FormatComma(EFGM.MENU.Player:GetNWInt("MoneySpent"))
-	statsTbl["Time Played"] = util.FormatTimePretty(EFGM.MENU.Player:GetNWInt("Time"))
-	statsTbl["Time Online"] = util.FormatTimePretty(EFGM.MENU.Player:GetNWInt("TimeOnline"))
-	statsTbl["Stash Value"] = "₽" .. string.FormatComma(EFGM.MENU.Player:GetNWInt("StashValue"))
-	statsTbl["Highest Stash Value"] = "₽" .. string.FormatComma(EFGM.MENU.Player:GetNWInt("HighestStashValue"))
-	statsTbl["Items Looted"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("ItemsLooted"))
-	statsTbl["Containers Opened"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("ContainersLooted"))
-	statsTbl["Keys Used"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("KeysUsed"))
-
-	statsTbl["Kills"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Kills"))
-	statsTbl["Deaths"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Deaths"))
-	statsTbl["Suicides"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Suicides"))
-	statsTbl["Damage Dealt"] = string.FormatComma(math.Round(EFGM.MENU.Player:GetNWInt("DamageDealt")))
-	statsTbl["Damage Received"] = string.FormatComma(math.Round(EFGM.MENU.Player:GetNWInt("DamageRecieved")))
-	statsTbl["Health Healed"] = string.FormatComma(math.Round(EFGM.MENU.Player:GetNWInt("HealthHealed")))
-	statsTbl["Shots Fired"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("ShotsFired"))
-	statsTbl["Shots Hit"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("ShotsHit"))
-	statsTbl["Headshots"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Headshots"))
-	statsTbl["Farthest Kill"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("FarthestKill"))
-
-	statsTbl["Extractions"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Extractions"))
-	statsTbl["Quits"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("Quits"))
-	statsTbl["Raids Played"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("RaidsPlayed"))
-
-	statsTbl["Duels Played"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("DuelsPlayed"))
-	statsTbl["Duels Won"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("DuelsWon"))
-
-	statsTbl["Current Kill Streak"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("CurrentKillStreak"))
-	statsTbl["Best Kill Streak"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("BestKillStreak"))
-	statsTbl["Current Extraction Streak"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("CurrentExtractionStreak"))
-	statsTbl["Best Extraction Streak"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("BestExtractionStreak"))
-	statsTbl["Current Duel Win Streak"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("CurrentDuelWinStreak"))
-	statsTbl["Best Duel Win Streak"] = string.FormatComma(EFGM.MENU.Player:GetNWInt("BestDuelWinStreak"))
-
-	statsTbl["K/D Ratio"] = math.Round(EFGM.MENU.Player:GetNWInt("Kills") / math.max(EFGM.MENU.Player:GetNWInt("Deaths"), 1), 3)
-	statsTbl["Survival Rate"] = math.Round(EFGM.MENU.Player:GetNWInt("Extractions") / EFGM.MENU.Player:GetNWInt("RaidsPlayed") * 100) .. "%"
-	statsTbl["Accuracy"] = math.Round(EFGM.MENU.Player:GetNWInt("ShotsHit") / EFGM.MENU.Player:GetNWInt("ShotsFired") * 100) .. "%"
-	statsTbl["Duels Win Rate"] = math.Round(EFGM.MENU.Player:GetNWInt("DuelsWon") / EFGM.MENU.Player:GetNWInt("DuelsPlayed") * 100) .. "%"
-
-	for k, v in SortedPairs(statsTbl) do
-		local statEntry = vgui.Create("DPanel", importantStats)
-		statEntry:Dock(TOP)
-		statEntry:SetSize(0, EFGM.MenuScale(17))
-
-		function statEntry:Paint(w, h)
-			draw.SimpleTextOutlined(k .. "", "Purista18", EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined(v, "Purista18", w - EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-		end
+		draw.SimpleTextOutlined("PROFILE", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	local selectedBoard
-	local selectedBoardName
+	local leaderboardPanel = vgui.Create("DPanel", contents)
+	leaderboardPanel:Dock(LEFT)
+	leaderboardPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
+	leaderboardPanel:SetSize(EFGM.MenuScale(613), 0)
 
-	local leaderboardTitle = vgui.Create("DPanel", stats)
-	leaderboardTitle:Dock(TOP)
-	leaderboardTitle:SetSize(0, EFGM.MenuScale(32))
+	function leaderboardPanel:Paint(w, h)
+		BlurPanel(self, 5)
 
-	function leaderboardTitle:Paint(w, h)
-		draw.SimpleTextOutlined("LEADERBOARDS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
-	function SelectBoard(text, data)
-		if selectedBoardName == text then return end
+	local leaderboardPanelHeader = vgui.Create("DPanel", leaderboardPanel)
+	leaderboardPanelHeader:Dock(TOP)
+	leaderboardPanelHeader:SetSize(0, EFGM.MenuScale(36))
 
-		net.Start("GrabLeaderboardData")
-			net.WriteString(data)
-		net.SendToServer()
+	function leaderboardPanelHeader:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
+		surface.DrawRect(0, 0, w, h)
 
-		selectedBoardName = text
+		draw.SimpleTextOutlined("LEADERBOARDS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
-
-	local leaderboardSelectButton = vgui.Create("DButton", stats)
-	leaderboardSelectButton:Dock(TOP)
-	leaderboardSelectButton:SetText("SELECT LEADERBOARD")
-
-	function leaderboardSelectButton:OnCursorEntered()
-		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-	end
-
-	function leaderboardSelectButton:DoClick()
-		surface.PlaySound("ui/element_select.wav")
-
-		local boardSelection = DermaMenu()
-
-		for id, data in SortedPairsByMemberValue(EFGM.STATS, "name") do
-			if !data.showLeaderboard then continue end
-			boardSelection:AddOption(text, function() SelectBoard(data.name, id) end)
-		end
-
-		boardSelection:Open()
-	end
-
-	local yColor = Color(255, 255, 0, 255)
-	SelectBoard("Stash Value", "StashValue")
-
-	local leaderboardContents = vgui.Create("DScrollPanel", stats)
-	leaderboardContents:Dock(TOP)
-	leaderboardContents:SetSize(0, EFGM.MenuScale(380))
-
-	function leaderboardContents:Paint(w, h)
-		if selectedBoard == nil then return end
-
-		draw.SimpleTextOutlined(string.upper(selectedBoardName), "PuristaBold22", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-
-		for k, v in ipairs(selectedBoard) do
-			local color = COLORS.whiteColor
-			if v.SteamID == EFGM.MENU.Player:SteamID64() then color = yColor end
-			if !v.Name then return end
-			draw.SimpleTextOutlined(k, "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined(string.sub(v.Name, 1, 21), "Purista18", EFGM.MenuScale(25), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-
-			--asdofiauhasdofiauashydafasdifa
-			if selectedBoardName == "Money Earned" or selectedBoardName == "Money Spent" or selectedBoardName == "Stash Value" then
-				draw.SimpleTextOutlined("₽" .. string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			elseif selectedBoardName == "Time Played" then
-				draw.SimpleTextOutlined(util.FormatTimePretty(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			else
-				draw.SimpleTextOutlined(string.FormatComma(v.Value), "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25) + ((k - 1) * EFGM.MenuScale(20)), color, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			end
-		end
-	end
-
-	net.Receive("SendLeaderboardData", function(len)
-		local str = net.ReadString()
-		if !str then return end
-
-		str = util.Base64Decode(str)
-		str = util.Decompress(str)
-		if !str then return end
-
-		local tbl = util.JSONToTable(str)
-		selectedBoard = tbl
-
-		if !selectedBoard then return end
-
-		for k, v in ipairs(selectedBoard) do
-			local name = SteamNameFromID64(v.SteamID)
-
-			timer.Simple(k * 0.01, function()
-				selectedBoard[k].Name = name
-			end)
-		end
-	end)
 end
 
 function EFGM.MENU.OpenTab.Map()
@@ -3416,37 +3286,63 @@ function EFGM.MENU.OpenTab.Map()
 
 	EFGM.MENU.MenuFrame.LowerPanel.Contents = contents
 
-	local pmcPanel = vgui.Create("DScrollPanel", contents)
-	pmcPanel:Dock(LEFT)
-	pmcPanel:SetSize(EFGM.MenuScale(320), 0)
-	pmcPanel:SetPaintBackground(false)
+	local operatorsPanel = vgui.Create("DPanel", contents)
+	operatorsPanel:Dock(LEFT)
+	operatorsPanel:SetSize(EFGM.MenuScale(320), 0)
+
+	function operatorsPanel:Paint(w, h)
+		BlurPanel(self, 5)
+
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
+	end
+
+	local operatorsPanelHeader = vgui.Create("DPanel", operatorsPanel)
+	operatorsPanelHeader:Dock(TOP)
+	operatorsPanelHeader:SetSize(0, EFGM.MenuScale(36))
+
+	function operatorsPanelHeader:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
+		surface.DrawRect(0, 0, w, h)
+
+		draw.SimpleTextOutlined("OPERATORS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local operatorsHolder = vgui.Create("DPanel", operatorsPanel)
+	operatorsHolder:Dock(FILL)
+	operatorsHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), EFGM.MenuScale(10))
+	operatorsHolder:SetPaintBackground(false)
+
+	local operatorsTopBar = vgui.Create("DPanel", operatorsPanel)
+	operatorsTopBar:Dock(TOP)
+	operatorsTopBar:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), 0)
+	operatorsTopBar:SetSize(0, EFGM.MenuScale(28))
+	operatorsTopBar:SetPaintBackground(false)
+
+	local operatorsListHolder = vgui.Create("DScrollPanel", operatorsHolder)
+	operatorsListHolder:Dock(FILL)
+	operatorsListHolder:SetPaintBackground(false)
+
+	local operatorsListHolderBar = operatorsListHolder:GetVBar()
+	operatorsListHolderBar:SetHideButtons(true)
+	operatorsListHolderBar:SetSize(EFGM.MenuScale(15), 0)
+
+	function operatorsListHolderBar:Paint(w, h)
+		surface.SetDrawColor(COLORS.scrollerColor)
+		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
+	end
+
+	function operatorsListHolderBar.btnGrip:Paint(w, h)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
+	end
 
 	if EFGM.MENU.Player:IsInHideout() then
-		local pmcTitle = vgui.Create("DPanel", pmcPanel)
-		pmcTitle:Dock(TOP)
-		pmcTitle:SetSize(0, EFGM.MenuScale(32))
-
-		function pmcTitle:Paint(w, h)
-			draw.SimpleTextOutlined("OPERATORS", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-		end
-
-		local pmcPanelBar = pmcPanel:GetVBar()
-		pmcPanelBar:SetHideButtons(true)
-		pmcPanelBar:SetSize(EFGM.MenuScale(15), 0)
-
-		function pmcPanelBar:Paint(w, h)
-			surface.SetDrawColor(COLORS.scrollerColor)
-			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
-		end
-
-		function pmcPanelBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(COLORS.transparentWhiteColor)
-			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
-		end
-
-		local pmcList = vgui.Create("DListLayout", pmcPanel)
-		pmcList:Dock(TOP)
-		pmcList:SetSize(EFGM.MenuScale(320), 0)
+		local pmcList = vgui.Create("DListLayout", operatorsListHolder)
+		pmcList:Dock(FILL)
 
 		for k, v in player.Iterator() do
 			local name = v:GetName()
@@ -3460,10 +3356,12 @@ function EFGM.MENU.OpenTab.Map()
 
 			function pmcEntry:Paint(w, h)
 				if !IsValid(v) then return end
+
 				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(25), COLORS.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(25), COLORS.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+
 				if v:IsInRaid() then
 					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				elseif v:IsInDuel() then
@@ -3523,6 +3421,7 @@ function EFGM.MENU.OpenTab.Map()
 
 	local mapPanel = vgui.Create("DPanel", contents)
 	mapPanel:Dock(LEFT)
+	mapPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 	mapPanel:SetSize(EFGM.MenuScale(1220), 0)
 	mapPanel:SetPaintBackground(false)
 
@@ -3622,19 +3521,72 @@ function EFGM.MENU.OpenTab.Map()
 
 	local squadPanel = vgui.Create("DPanel", contents)
 	squadPanel:Dock(LEFT)
+	squadPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
 	squadPanel:SetSize(EFGM.MenuScale(320), 0)
 	squadPanel:SetPaintBackground(false)
+
+	function squadPanel:Paint(w, h)
+		BlurPanel(self, 5)
+
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
+	end
+
+	local squadPanelHeader = vgui.Create("DPanel", squadPanel)
+	squadPanelHeader:Dock(TOP)
+	squadPanelHeader:SetSize(0, EFGM.MenuScale(36))
+
+	function squadPanelHeader:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
+		surface.DrawRect(0, 0, w, h)
+
+		draw.SimpleTextOutlined("SQUADS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local squadHolder = vgui.Create("DPanel", squadPanel)
+	squadHolder:Dock(FILL)
+	squadHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
+	squadHolder:SetPaintBackground(false)
 
 	local CreateSquadPlayerLimit
 	local CreateSquadColor = {RED = 255, GREEN = 255, BLUE = 255}
 
-	local createSquadTitle = vgui.Create("DPanel", squadPanel)
-	createSquadTitle:Dock(TOP)
-	createSquadTitle:SetSize(0, EFGM.MenuScale(32))
+	local createSquadPanel = vgui.Create("DPanel", squadHolder)
+	createSquadPanel:SetSize(0, EFGM.MenuScale(285))
+	createSquadPanel:Dock(TOP)
+	createSquadPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-	function createSquadTitle:Paint(w, h)
-		draw.SimpleTextOutlined("CREATE SQUAD", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	function createSquadPanel:Paint(w, h)
+		surface.SetDrawColor(Color(80, 80, 80, 10))
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
+
+		surface.SetDrawColor(Color(255, 255, 255, 10))
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 	end
+
+	local createSquadPanelHeader = vgui.Create("DPanel", createSquadPanel)
+	createSquadPanelHeader:Dock(TOP)
+	createSquadPanelHeader:SetSize(0, EFGM.MenuScale(36))
+
+	function createSquadPanelHeader:Paint(w, h)
+		surface.SetDrawColor(Color(155, 155, 155, 10))
+		surface.DrawRect(0, 0, w, h)
+
+		draw.SimpleTextOutlined("CREATE", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local createSquadPanelHolder = vgui.Create("DPanel", createSquadPanel)
+	createSquadPanelHolder:Dock(FILL)
+	createSquadPanelHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
 	local squadNamePanel = vgui.Create("DPanel", squadPanel)
 	squadNamePanel:Dock(TOP)
