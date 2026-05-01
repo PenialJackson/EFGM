@@ -2210,6 +2210,8 @@ function HUDInspectItem(item, data, panel)
 				wikiContentText:AppendText("TRACER SIZE: " ..  tracerSize .. "\n")
 			end
 
+			wikiContentText:AppendText("\n")
+
 			if recoilUp and recoilUpRand then
 				wikiContentText:AppendText("VERTICAL RECOIL: " .. recoilUp .. " + " .. recoilUpRand .. "°" .. "\n")
 			end
@@ -2257,6 +2259,8 @@ function HUDInspectItem(item, data, panel)
 			if recoilRecovery then
 				wikiContentText:AppendText("RECOIL RECOVERY: " .. recoilRecovery .. "\n")
 			end
+
+			wikiContentText:AppendText("\n")
 
 			if accuracy then
 				wikiContentText:AppendText("ACCURACY: " .. accuracy .. " MOA" .. "\n")

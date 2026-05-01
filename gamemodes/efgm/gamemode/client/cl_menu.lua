@@ -23,7 +23,6 @@ EFGM.MENU.MarketBulkSellEnabled = false
 EFGM.MENU.MarketBulkSellIDs = {}
 EFGM.MENU.MarketBulkSellValue = 0
 
-EFGM.MENU.DraggingType = nil
 EFGM.MENU.BindTypes = {}
 
 EFGM.MENU.ELEMENTS = {}
@@ -672,7 +671,7 @@ function EFGM.MENU:Initialize(openTo, container)
 	end
 
 	local lowerPanel = vgui.Create("DPanel", self.MenuFrame)
-	lowerPanel:SetSize(EFGM.MenuScale(1880), EFGM.MenuScale(980))
+	lowerPanel:SetSize(EFGM.MenuScale(1865), EFGM.MenuScale(960))
 	lowerPanel:NoClipping(true)
 	lowerPanel:SetPaintBackgroundEnabled(false)
 	lowerPanel:SetPaintBorderEnabled(false)
@@ -700,9 +699,9 @@ function EFGM.MENU:Initialize(openTo, container)
 		end
 
 		if !scalingCVar:GetBool() then
-			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + EFGM.MENU.ParallaxX, EFGM.MenuScale(50) + EFGM.MENU.ParallaxY)
+			lowerPanel:SetPos(ScrW() / 2 - (self:GetWide() / 2) + EFGM.MENU.ParallaxX, EFGM.MenuScale(60) + EFGM.MENU.ParallaxY)
 		else
-			lowerPanel:SetPos(ScrW() / 2 - (EFGM.MenuScale(1880) / 2) + EFGM.MENU.ParallaxX, ((EFGM.MENU.MenuFrame:GetTall() - self:GetTall()) / 2) + EFGM.MENU.ParallaxY)
+			lowerPanel:SetPos(ScrW() / 2 - (self:GetWide() / 2) + EFGM.MENU.ParallaxX, ((EFGM.MENU.MenuFrame:GetTall() - self:GetTall()) / 2) + EFGM.MENU.ParallaxY)
 		end
 
 		if IsValid(EFGM.MENU.ELEMENTS.ContextMenu) and !EFGM.MENU.Tooltip.Closing then EFGM.MENU.Tooltip:RemoveTip() end
@@ -1762,6 +1761,8 @@ function EFGM.MENU.InspectItem(item, data)
 				wikiContentText:AppendText("TRACER SIZE: " ..  tracerSize .. "\n")
 			end
 
+			wikiContentText:AppendText("\n")
+
 			if recoilUp and recoilUpRand then
 				wikiContentText:AppendText("VERTICAL RECOIL: " .. recoilUp .. " + " .. recoilUpRand .. "°" .. "\n")
 			end
@@ -1809,6 +1810,8 @@ function EFGM.MENU.InspectItem(item, data)
 			if recoilRecovery then
 				wikiContentText:AppendText("RECOIL RECOVERY: " .. recoilRecovery .. "\n")
 			end
+
+			wikiContentText:AppendText("\n")
 
 			if accuracy then
 				wikiContentText:AppendText("ACCURACY: " .. accuracy .. " MOA" .. "\n")
@@ -3219,7 +3222,6 @@ end
 function EFGM.MENU.OpenTab.Profile()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -3227,7 +3229,7 @@ function EFGM.MENU.OpenTab.Profile()
 
 	local profilePanel = vgui.Create("DPanel", contents)
 	profilePanel:Dock(LEFT)
-	profilePanel:SetSize(EFGM.MenuScale(613), 0)
+	profilePanel:SetSize(EFGM.MenuScale(615), 0)
 
 	function profilePanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -3252,8 +3254,8 @@ function EFGM.MENU.OpenTab.Profile()
 
 	local leaderboardPanel = vgui.Create("DPanel", contents)
 	leaderboardPanel:Dock(LEFT)
-	leaderboardPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-	leaderboardPanel:SetSize(EFGM.MenuScale(613), 0)
+	leaderboardPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+	leaderboardPanel:SetSize(EFGM.MenuScale(615), 0)
 
 	function leaderboardPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -3280,7 +3282,6 @@ end
 function EFGM.MENU.OpenTab.Map()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -3288,7 +3289,7 @@ function EFGM.MENU.OpenTab.Map()
 
 	local operatorsPanel = vgui.Create("DPanel", contents)
 	operatorsPanel:Dock(LEFT)
-	operatorsPanel:SetSize(EFGM.MenuScale(320), 0)
+	operatorsPanel:SetSize(EFGM.MenuScale(310), 0)
 
 	function operatorsPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -3322,6 +3323,79 @@ function EFGM.MENU.OpenTab.Map()
 	operatorsTopBar:SetSize(0, EFGM.MenuScale(28))
 	operatorsTopBar:SetPaintBackground(false)
 
+	local operatorsSearchButton = vgui.Create("DButton", operatorsTopBar)
+	operatorsSearchButton:Dock(LEFT)
+	operatorsSearchButton:SetSize(EFGM.MenuScale(85), EFGM.MenuScale(28))
+	operatorsSearchButton:SetText("")
+
+	function operatorsSearchButton:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), EFGM.MenuScale(2))
+
+		draw.SimpleTextOutlined("SEARCH", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local operatorsSearchOpen = false
+	local operatorsSearchText = ""
+
+	local operatorsSearchBox = vgui.Create("DTextEntry", operatorsTopBar)
+	operatorsSearchBox:Dock(FILL)
+	operatorsSearchBox:SetDrawLanguageID(false)
+	operatorsSearchBox:SetPlaceholderText("search...")
+	operatorsSearchBox:SetUpdateOnType(true)
+	operatorsSearchBox:SetTextColor(COLORS.whiteColor)
+	operatorsSearchBox:SetCursorColor(COLORS.whiteColor)
+	operatorsSearchBox:SetAlpha(0)
+	operatorsSearchBox:SetEditable(false)
+	operatorsSearchBox:Hide()
+
+	function operatorsSearchBox:AllowInput(char)
+		if char == "[" or char == "]" then return true end
+	end
+
+	function operatorsSearchBox:OnChange()
+		local value = self:GetValue():lower()
+
+		if value:match("^%s+") then
+			self:SetText(value:match("^%s*(.-)$"))
+			return
+		end
+
+		if !GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+
+		operatorsSearchText = value
+	end
+
+	function operatorsSearchBox:OnEnter()
+		if GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		operatorsSearchText = self:GetValue():lower()
+	end
+
+	function operatorsSearchButton:OnCursorEntered()
+		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+	end
+
+	function operatorsSearchButton:DoClick()
+		surface.PlaySound("ui/element_select.wav")
+
+		if operatorsSearchOpen == false then
+			operatorsSearchBox:Show()
+			operatorsSearchBox:AlphaTo(255, 0.1, 0)
+			operatorsSearchBox:SetEditable(true)
+			operatorsSearchBox:RequestFocus()
+			operatorsSearchOpen = true
+		else
+			operatorsSearchBox:AlphaTo(0, 0.1, 0, function() operatorsSearchBox:Hide() end)
+			operatorsSearchBox:SetEditable(false)
+			operatorsSearchBox:SetValue("")
+			operatorsSearchText = ""
+			operatorsSearchOpen = false
+		end
+	end
+
 	local operatorsListHolder = vgui.Create("DScrollPanel", operatorsHolder)
 	operatorsListHolder:Dock(FILL)
 	operatorsListHolder:SetPaintBackground(false)
@@ -3340,37 +3414,37 @@ function EFGM.MENU.OpenTab.Map()
 		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
 	end
 
-	if EFGM.MENU.Player:IsInHideout() then
-		local pmcList = vgui.Create("DListLayout", operatorsListHolder)
-		pmcList:Dock(FILL)
+	local pmcList = vgui.Create("DListLayout", operatorsListHolder)
+	pmcList:Dock(FILL)
 
+	if EFGM.MENU.Player:IsInHideout() then
 		for k, v in player.Iterator() do
 			local name = v:GetName()
 			local ping = v:Ping()
 			local kills = v:Frags()
 			local deaths = v:Deaths()
 
-			local pmcEntry = vgui.Create("DPanel", pmcList)
-			pmcEntry:SetSize(pmcList:GetWide(), EFGM.MenuScale(50))
-			pmcEntry:SetPos(0, 0)
+			local pmcEntry = pmcList:Add("DPanel")
+			pmcEntry:SetSize(EFGM.MenuScale(350), EFGM.MenuScale(40))
+			pmcEntry:DockMargin(0, 0, 0, EFGM.MenuScale(5))
 
 			function pmcEntry:Paint(w, h)
 				if !IsValid(v) then return end
 
-				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(25), COLORS.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(25), COLORS.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(50), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(20), COLORS.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(20), COLORS.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 				if v:IsInRaid() then
-					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				elseif v:IsInDuel() then
-					draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 			end
 
 			local pmcPFP = vgui.Create("AvatarImage", pmcEntry)
-			pmcPFP:SetPos(EFGM.MenuScale(5), EFGM.MenuScale(5))
+			pmcPFP:SetPos(0, 0)
 			pmcPFP:SetSize(EFGM.MenuScale(40), EFGM.MenuScale(40))
 			pmcPFP:SetPlayer(v, 184)
 
@@ -3421,9 +3495,18 @@ function EFGM.MENU.OpenTab.Map()
 
 	local mapPanel = vgui.Create("DPanel", contents)
 	mapPanel:Dock(LEFT)
-	mapPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-	mapPanel:SetSize(EFGM.MenuScale(1220), 0)
-	mapPanel:SetPaintBackground(false)
+	mapPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+	mapPanel:SetSize(EFGM.MenuScale(1225), 0)
+
+	function mapPanel:Paint(w, h)
+		BlurPanel(self, 5)
+
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
+	end
 
 	local mapRawName = game.GetMap()
 	local mapOverhead = MATS.curMapOverhad
@@ -3432,16 +3515,25 @@ function EFGM.MENU.OpenTab.Map()
 	surface.SetFont("PuristaBold50")
 	local mapNameText = string.upper(mapName or "")
 
-	local mapTitle = vgui.Create("DPanel", mapPanel)
-	mapTitle:Dock(TOP)
-	mapTitle:SetSize(0, EFGM.MenuScale(40))
+	local mapPanelHeader = vgui.Create("DPanel", mapPanel)
+	mapPanelHeader:Dock(TOP)
+	mapPanelHeader:SetSize(0, EFGM.MenuScale(36))
 
-	function mapTitle:Paint(w, h)
-		draw.SimpleTextOutlined(mapNameText, "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	function mapPanelHeader:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
+		surface.DrawRect(0, 0, w, h)
+
+		draw.SimpleTextOutlined(mapNameText, "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	local mapSizeX = EFGM.MenuScale(1200)
-	local mapSizeY = EFGM.MenuScale(1200)
+	local mapPanelTopBar = vgui.Create("DPanel", mapPanel)
+	mapPanelTopBar:Dock(TOP)
+	mapPanelTopBar:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), 0)
+	mapPanelTopBar:SetSize(0, EFGM.MenuScale(28))
+	mapPanelTopBar:SetPaintBackground(false)
+
+	local mapSizeX = EFGM.MenuScale(1205)
+	local mapSizeY = EFGM.MenuScale(1205)
 
 	if mapOverhead then
 		mapSizeX = EFGM.MenuScale(mapOverhead:Width())
@@ -3449,8 +3541,9 @@ function EFGM.MENU.OpenTab.Map()
 	end
 
 	local mapHolder = vgui.Create("DPanel", mapPanel)
-	mapHolder:SetPos(EFGM.MenuScale(10), EFGM.MenuScale(40))
-	mapHolder:SetSize(EFGM.MenuScale(1200), EFGM.MenuScale(920))
+	mapHolder:Dock(TOP)
+	mapHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), EFGM.MenuScale(10))
+	mapHolder:SetSize(EFGM.MenuScale(1205), EFGM.MenuScale(872))
 
 	function mapHolder:Paint(w, h)
 		BlurPanel(self, 5)
@@ -3466,8 +3559,8 @@ function EFGM.MENU.OpenTab.Map()
 		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 	end
 
-	local xDiff = EFGM.MenuScale(1200) / mapSizeX
-	local yDiff = EFGM.MenuScale(1200) / mapSizeY
+	local xDiff = EFGM.MenuScale(1205) / mapSizeX
+	local yDiff = EFGM.MenuScale(1205) / mapSizeY
 
 	local minZoom = math.max(xDiff, yDiff)
 	if yDiff > xDiff and mapSizeX > mapSizeY then minZoom = math.min(xDiff, yDiff) end
@@ -3494,7 +3587,7 @@ function EFGM.MENU.OpenTab.Map()
 
 	local mapLegend = vgui.Create("DPanel", mapHolder)
 	mapLegend:SetSize(EFGM.MenuScale(110), EFGM.MenuScale(100))
-	mapLegend:SetPos(mapHolder:GetWide() - mapLegend:GetWide() - EFGM.MenuScale(10), EFGM.MenuScale(10))
+	mapLegend:SetPos(mapHolder:GetWide() - mapLegend:GetWide() - EFGM.MenuScale(5), EFGM.MenuScale(5))
 
 	function mapLegend:Paint(w, h)
 		BlurPanel(self, 3)
@@ -3521,8 +3614,8 @@ function EFGM.MENU.OpenTab.Map()
 
 	local squadPanel = vgui.Create("DPanel", contents)
 	squadPanel:Dock(LEFT)
-	squadPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-	squadPanel:SetSize(EFGM.MenuScale(320), 0)
+	squadPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+	squadPanel:SetSize(EFGM.MenuScale(310), 0)
 	squadPanel:SetPaintBackground(false)
 
 	function squadPanel:Paint(w, h)
@@ -3548,16 +3641,18 @@ function EFGM.MENU.OpenTab.Map()
 
 	local squadHolder = vgui.Create("DPanel", squadPanel)
 	squadHolder:Dock(FILL)
-	squadHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
+	squadHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 	squadHolder:SetPaintBackground(false)
 
-	local CreateSquadPlayerLimit
-	local CreateSquadColor = {RED = 255, GREEN = 255, BLUE = 255}
+	local createSquadName = ""
+	local createSquadPassword = ""
+	local createSquadPlayerLimit = 4
+	local createSquadColor = Color(255, 255, 255)
 
 	local createSquadPanel = vgui.Create("DPanel", squadHolder)
-	createSquadPanel:SetSize(0, EFGM.MenuScale(285))
+	createSquadPanel:SetSize(0, EFGM.MenuScale(324))
 	createSquadPanel:Dock(TOP)
-	createSquadPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
+	createSquadPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
 	function createSquadPanel:Paint(w, h)
 		surface.SetDrawColor(Color(80, 80, 80, 10))
@@ -3587,144 +3682,201 @@ function EFGM.MENU.OpenTab.Map()
 	local createSquadPanelHolder = vgui.Create("DPanel", createSquadPanel)
 	createSquadPanelHolder:Dock(FILL)
 	createSquadPanelHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+	createSquadPanelHolder:SetPaintBackground(false)
 
-	local squadNamePanel = vgui.Create("DPanel", squadPanel)
+	local squadNamePanel = vgui.Create("DPanel", createSquadPanelHolder)
 	squadNamePanel:Dock(TOP)
-	squadNamePanel:SetSize(0, EFGM.MenuScale(55))
+	squadNamePanel:SetSize(0, EFGM.MenuScale(54))
+	squadNamePanel:SetPaintBackground(false)
 
-	function squadNamePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Name", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	local squadNameText = vgui.Create("DPanel", squadNamePanel)
+	squadNameText:SetPos(0, 0)
+	squadNameText:SetSize(EFGM.MenuScale(60), EFGM.MenuScale(30))
+
+	function squadNameText:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
+
+		draw.SimpleTextOutlined("NAME", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	local squadNameBG = vgui.Create("DPanel", squadNamePanel)
-	squadNameBG:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(30))
-	squadNameBG:SetSize(EFGM.MenuScale(150), EFGM.MenuScale(20))
-	squadNameBG:SetBackgroundColor(COLORS.transparent)
+	local squadNameEntry = vgui.Create("DTextEntry", squadNamePanel)
+	squadNameEntry:SetPos(0, EFGM.MenuScale(30))
+	squadNameEntry:SetSize(EFGM.MenuScale(280), EFGM.MenuScale(24))
+	squadNameEntry:SetPlaceholderText(LocalPlayer():Nick() .. "'s Squad")
+	squadNameEntry:SetDrawLanguageID(false)
+	squadNameEntry:SetUpdateOnType(true)
+	squadNameEntry:SetTextColor(COLORS.whiteColor)
+	squadNameEntry:SetCursorColor(COLORS.whiteColor)
 
-	local squadName = vgui.Create("DTextEntry", squadNameBG)
-	squadName:Dock(FILL)
-	squadName:SetPlaceholderText("")
-	squadName:SetDrawLanguageID(false)
-	squadName:SetUpdateOnType(true)
-	squadName:SetTextColor(COLORS.whiteColor)
-	squadName:SetCursorColor(COLORS.whiteColor)
-
-	function squadName:OnValueChange(val)
-		CreateSquadName = val
+	function squadNameEntry:OnValueChange(val)
+		createSquadName = val
 	end
 
-	local squadPasswordPanel = vgui.Create("DPanel", squadPanel)
+	local squadPasswordPanel = vgui.Create("DPanel", createSquadPanelHolder)
 	squadPasswordPanel:Dock(TOP)
-	squadPasswordPanel:SetSize(0, EFGM.MenuScale(55))
+	squadPasswordPanel:DockMargin(0, EFGM.MenuScale(5), 0, 0)
+	squadPasswordPanel:SetSize(0, EFGM.MenuScale(54))
+	squadPasswordPanel:SetPaintBackground(false)
 
-	function squadPasswordPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Password (optional)", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	local squadPasswordText = vgui.Create("DPanel", squadPasswordPanel)
+	squadPasswordText:SetPos(0, 0)
+	squadPasswordText:SetSize(EFGM.MenuScale(112), EFGM.MenuScale(30))
+
+	function squadPasswordText:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
+
+		draw.SimpleTextOutlined("PASSWORD", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	local squadPasswordBG = vgui.Create("DPanel", squadPasswordPanel)
-	squadPasswordBG:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(30))
-	squadPasswordBG:SetSize(EFGM.MenuScale(150), EFGM.MenuScale(20))
-	squadPasswordBG:SetBackgroundColor(COLORS.transparent)
+	local squadPasswordEntry = vgui.Create("DTextEntry", squadPasswordPanel)
+	squadPasswordEntry:SetPos(0, EFGM.MenuScale(30))
+	squadPasswordEntry:SetSize(EFGM.MenuScale(280), EFGM.MenuScale(24))
+	squadPasswordEntry:SetDrawLanguageID(false)
+	squadPasswordEntry:SetPlaceholderText("")
+	squadPasswordEntry:SetUpdateOnType(true)
+	squadPasswordEntry:SetTextColor(COLORS.whiteColor)
+	squadPasswordEntry:SetCursorColor(COLORS.whiteColor)
 
-	local squadPassword = vgui.Create("DTextEntry", squadPasswordBG)
-	squadPassword:Dock(FILL)
-	squadPassword:SetDrawLanguageID(false)
-	squadPassword:SetPlaceholderText("")
-	squadPassword:SetUpdateOnType(true)
-	squadPassword:SetTextColor(COLORS.whiteColor)
-	squadPassword:SetCursorColor(COLORS.whiteColor)
-
-	function squadPassword:OnValueChange(val)
-		CreateSquadPassword = val
+	function squadPasswordEntry:OnValueChange(val)
+		createSquadPassword = val
 	end
 
-	local squadMemberLimitPanel = vgui.Create("DPanel", squadPanel)
+	local squadMemberLimitPanel = vgui.Create("DPanel", createSquadPanelHolder)
 	squadMemberLimitPanel:Dock(TOP)
-	squadMemberLimitPanel:SetSize(0, EFGM.MenuScale(55))
+	squadMemberLimitPanel:DockMargin(0, EFGM.MenuScale(5), 0, 0)
+	squadMemberLimitPanel:SetSize(0, EFGM.MenuScale(54))
+	squadMemberLimitPanel:SetPaintBackground(false)
 
-	function squadMemberLimitPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Member Limit (2 to " .. EFGM.CONFIG.SQUAD.MAXPLAYERS .. ")", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	local squadMemberLimitText = vgui.Create("DPanel", squadMemberLimitPanel)
+	squadMemberLimitText:SetPos(0, 0)
+	squadMemberLimitText:SetSize(EFGM.MenuScale(135), EFGM.MenuScale(30))
+
+	function squadMemberLimitText:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
+
+		draw.SimpleTextOutlined("MEMBER LIMIT", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
 	local squadMemberLimit = vgui.Create("DNumberWang", squadMemberLimitPanel)
-	squadMemberLimit:SetPos(EFGM.MenuScale(135), EFGM.MenuScale(30))
-	squadMemberLimit:SetSize(EFGM.MenuScale(50), EFGM.MenuScale(20))
+	squadMemberLimit:SetPos(0, EFGM.MenuScale(30))
+	squadMemberLimit:SetSize(EFGM.MenuScale(280), EFGM.MenuScale(24))
 	squadMemberLimit:SetMin(2)
 	squadMemberLimit:SetMax(EFGM.CONFIG.SQUAD.MAXPLAYERS)
 	squadMemberLimit:SetValue(EFGM.CONFIG.SQUAD.MAXPLAYERS)
 
 	function squadMemberLimit:OnValueChanged(val)
-		CreateSquadPlayerLimit = math.Clamp(val, self:GetMin(), self:GetMax())
+		createSquadPlayerLimit = math.Clamp(val, self:GetMin(), self:GetMax())
 	end
 
-	local squadColorPanel = vgui.Create("DPanel", squadPanel)
+	local squadColorPanel = vgui.Create("DPanel", createSquadPanelHolder)
 	squadColorPanel:Dock(TOP)
-	squadColorPanel:SetSize(0, EFGM.MenuScale(110 + 20))
+	squadColorPanel:DockMargin(0, EFGM.MenuScale(5), 0, 0)
+	squadColorPanel:SetSize(0, EFGM.MenuScale(68))
 
 	function squadColorPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Squad Color", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-		surface.SetDrawColor(Color(CreateSquadColor.RED, CreateSquadColor.GREEN, CreateSquadColor.BLUE, 255))
-		surface.DrawRect(EFGM.MenuScale(85), EFGM.MenuScale(55), EFGM.MenuScale(145), EFGM.MenuScale(5))
+		surface.SetDrawColor(Color(createSquadColor.r, createSquadColor.g, createSquadColor.b, 255))
+		surface.DrawRect(0, EFGM.MenuScale(63), EFGM.MenuScale(280), EFGM.MenuScale(5))
 	end
 
-	local squadColorR = vgui.Create("DNumberWang", squadColorPanel)
-	squadColorR:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(30))
-	squadColorR:SetSize(EFGM.MenuScale(45), EFGM.MenuScale(20))
-	squadColorR:SetMin(0)
-	squadColorR:SetMax(255)
-	squadColorR:SetValue(255)
+	local squadColorText = vgui.Create("DPanel", squadColorPanel)
+	squadColorText:SetPos(0, 0)
+	squadColorText:SetSize(EFGM.MenuScale(72), EFGM.MenuScale(30))
 
-	function squadColorR:OnValueChanged(val)
-		CreateSquadColor.RED = math.Clamp(val, self:GetMin(), self:GetMax())
+	function squadColorText:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, EFGM.MenuScale(220), EFGM.MenuScale(2))
+
+		draw.SimpleTextOutlined("COLOR", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
 
-	local squadColorG = vgui.Create("DNumberWang", squadColorPanel)
-	squadColorG:SetPos(EFGM.MenuScale(135), EFGM.MenuScale(30))
-	squadColorG:SetSize(EFGM.MenuScale(45), EFGM.MenuScale(20))
-	squadColorG:SetMin(0)
-	squadColorG:SetMax(255)
-	squadColorG:SetValue(255)
+	local squadColorEntry = vgui.Create("DColorMixer", squadColorPanel)
+	squadColorEntry:SetPos(0, EFGM.MenuScale(30))
+	squadColorEntry:SetSize(EFGM.MenuScale(280), EFGM.MenuScale(28))
+	squadColorEntry:SetPalette(false)
+	squadColorEntry:SetAlphaBar(false)
+	squadColorEntry:SetWangs(false)
+	squadColorEntry:SetColor(Color(255, 255, 255))
 
-	function squadColorG:OnValueChanged(val)
-		CreateSquadColor.GREEN = math.Clamp(val, self:GetMin(), self:GetMax())
+	function squadColorEntry:ValueChanged(col)
+		createSquadColor = col
 	end
 
-	local squadColorB = vgui.Create("DNumberWang", squadColorPanel)
-	squadColorB:SetPos(EFGM.MenuScale(185), EFGM.MenuScale(30))
-	squadColorB:SetSize(EFGM.MenuScale(45), EFGM.MenuScale(20))
-	squadColorB:SetMin(0)
-	squadColorB:SetMax(255)
-	squadColorB:SetValue(255)
+	local squadCreateButton = vgui.Create("DButton", createSquadPanelHolder)
+	squadCreateButton:Dock(TOP)
+	squadCreateButton:DockMargin(0, EFGM.MenuScale(5), 0, 0)
+	squadCreateButton:SetSize(0, EFGM.MenuScale(28))
+	squadCreateButton:SetText("")
 
-	function squadColorB:OnValueChanged(val)
-		CreateSquadColor.BLUE = math.Clamp(val, self:GetMin(), self:GetMax())
+	function squadCreateButton:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerBackgroundColor)
+		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w + EFGM.MenuScale(10), EFGM.MenuScale(2))
+
+		draw.SimpleTextOutlined("CREATE SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 	end
-
-	local squadCreateButton = vgui.Create("DButton", squadColorPanel)
-	squadCreateButton:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(75))
-	squadCreateButton:SetSize(EFGM.MenuScale(150), EFGM.MenuScale(20))
-	squadCreateButton:SetText("CREATE SQUAD")
 
 	function squadCreateButton:OnCursorEntered()
 		surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
 	end
 
 	function squadCreateButton:DoClick()
-		surface.PlaySound("ui/element_select.wav")
-		RunConsoleCommand("efgm_squad_create", squadName:GetValue(), squadPassword:GetValue(), CreateSquadPlayerLimit, CreateSquadColor.RED, CreateSquadColor.GREEN, CreateSquadColor.BLUE)
+		RunConsoleCommand("efgm_squad_create", createSquadName, createSquadPassword, createSquadPlayerLimit, createSquadColor.r, createSquadColor.g, createSquadColor.b)
 	end
 
-	local joinSquadTitle = vgui.Create("DPanel", squadPanel)
-	joinSquadTitle:Dock(TOP)
-	joinSquadTitle:SetSize(0, EFGM.MenuScale(32 + 10))
+	local joinSquadPanel = vgui.Create("DPanel", squadHolder)
+	joinSquadPanel:SetSize(0, EFGM.MenuScale(325))
+	joinSquadPanel:Dock(TOP)
+	joinSquadPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
-	function joinSquadTitle:Paint(w, h)
-		draw.SimpleTextOutlined("JOIN SQUAD", "PuristaBold32", w / 2, 0, COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	function joinSquadPanel:Paint(w, h)
+		surface.SetDrawColor(Color(80, 80, 80, 10))
+		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
+
+		surface.SetDrawColor(Color(255, 255, 255, 10))
+		surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+		surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
+		surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
+		surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 	end
 
-	local availableSquadsPanel = vgui.Create("DScrollPanel", squadPanel)
-	availableSquadsPanel:Dock(TOP)
-	availableSquadsPanel:SetSize(0, EFGM.MenuScale(220))
+	local joinSquadPanelHeader = vgui.Create("DPanel", joinSquadPanel)
+	joinSquadPanelHeader:Dock(TOP)
+	joinSquadPanelHeader:SetSize(0, EFGM.MenuScale(36))
+
+	function joinSquadPanelHeader:Paint(w, h)
+		surface.SetDrawColor(Color(155, 155, 155, 10))
+		surface.DrawRect(0, 0, w, h)
+
+		draw.SimpleTextOutlined("JOIN", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local joinSquadPanelHolder = vgui.Create("DPanel", joinSquadPanel)
+	joinSquadPanelHolder:Dock(FILL)
+	joinSquadPanelHolder:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+	joinSquadPanelHolder:SetPaintBackground(false)
+
+	local availableSquadsPanel = vgui.Create("DScrollPanel", joinSquadPanelHolder)
+	availableSquadsPanel:Dock(FILL)
 	availableSquadsPanel:SetPaintBackground(false)
 
 	local availableSquadsPanelBar = availableSquadsPanel:GetVBar()
@@ -3742,8 +3894,7 @@ function EFGM.MENU.OpenTab.Map()
 	end
 
 	local availableSquadsList = vgui.Create("DListLayout", availableSquadsPanel)
-	availableSquadsList:Dock(TOP)
-	availableSquadsList:SetSize(EFGM.MenuScale(300), EFGM.MenuScale(330))
+	availableSquadsList:Dock(FILL)
 
 	function GenerateJoinableSquads(array)
 		for name, data in SortedPairs(array) do
@@ -3762,7 +3913,7 @@ function EFGM.MENU.OpenTab.Map()
 
 			local squadEntry = vgui.Create("DButton", availableSquadsList)
 			squadEntry:SetText("")
-			squadEntry:SetSize(0, EFGM.MenuScale(55))
+			squadEntry:SetSize(0, EFGM.MenuScale(50))
 
 			function squadEntry:Paint(w, h)
 				if open then
@@ -3772,8 +3923,8 @@ function EFGM.MENU.OpenTab.Map()
 				end
 				surface.DrawRect(0, 0, w, h)
 
-				draw.SimpleTextOutlined(name, "PuristaBold24", w / 2, EFGM.MenuScale(5), Color(color.RED, color.GREEN, color.BLUE), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined(memberCount .. " / " .. limit .. " | " .. status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(30), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(string.upper(name), "PuristaBold24", w / 2, EFGM.MenuScale(2), Color(color.RED, color.GREEN, color.BLUE), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(memberCount .. " / " .. limit .. " | " .. status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(26), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function squadEntry:DoClick(w, h)
@@ -3912,7 +4063,7 @@ function EFGM.MENU.OpenTab.Map()
 	local currentSquadPanel = vgui.Create("DPanel", squadPanel)
 	currentSquadPanel:Dock(TOP)
 	currentSquadPanel:SetSize(EFGM.MenuScale(320), EFGM.MenuScale(320))
-	currentSquadPanel:DockMargin(0, EFGM.MenuScale(50), 0, 0)
+	currentSquadPanel:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), 0)
 	currentSquadPanel:SetPaintBackground(false)
 
 	local function RenderCurrentSquad(array)
@@ -3933,7 +4084,7 @@ function EFGM.MENU.OpenTab.Map()
 
 		local currentSquadName = vgui.Create("DPanel", currentSquadPanel)
 		currentSquadName:Dock(TOP)
-		currentSquadName:SetSize(0, EFGM.MenuScale(60))
+		currentSquadName:SetSize(0, EFGM.MenuScale(54))
 
 		function currentSquadName:Paint(w, h)
 			surface.SetDrawColor(Color(0, 0, 0, 155))
@@ -3950,8 +4101,8 @@ function EFGM.MENU.OpenTab.Map()
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
 
-			draw.SimpleTextOutlined(squad, "PuristaBold32", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined(status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", w / 2, EFGM.MenuScale(37), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(string.upper(squad), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(status .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(32), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
 		-- allows squad owners to copy the squad password if the squad is private
@@ -3960,14 +4111,14 @@ function EFGM.MENU.OpenTab.Map()
 
 			local currentSquadPasswordButton = vgui.Create("DButton", currentSquadName)
 			currentSquadPasswordButton:SetPos(EFGM.MenuScale(100), EFGM.MenuScale(57))
-			currentSquadPasswordButton:SetSize(EFGM.MenuScale(120), EFGM.MenuScale(18))
+			currentSquadPasswordButton:SetSize(EFGM.MenuScale(130), EFGM.MenuScale(18))
 			currentSquadPasswordButton:SetText("")
 
 			function currentSquadPasswordButton:Paint(w, h)
 				surface.SetDrawColor(Color(25, 25, 25, 155))
 				surface.DrawRect(0, 0, w, h)
 
-				draw.SimpleTextOutlined("Copy Password", "PuristaBold18", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined("COPY PASSWORD", "PuristaBold18", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 
 			function currentSquadPasswordButton:OnCursorEntered()
@@ -4178,8 +4329,6 @@ function EFGM.MENU.OpenTab.Map()
 		end
 
 		function currentSquadLeaveButton:DoClick()
-			surface.PlaySound("ui/element_deselect.wav")
-
 			if owner != EFGM.MENU.Player then
 				RunConsoleCommand("efgm_squad_leave")
 			else
@@ -4216,7 +4365,6 @@ end
 function EFGM.MENU.OpenTab.Inventory(container)
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -4227,7 +4375,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	local playerPanel = vgui.Create("DPanel", contents)
 	playerPanel:Dock(LEFT)
-	playerPanel:SetSize(EFGM.MenuScale(613), 0)
+	playerPanel:SetSize(EFGM.MenuScale(615), 0)
 
 	function playerPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -4290,12 +4438,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	end
 
 	local equipmentHolder = vgui.Create("DPanel", playerPanel)
-	equipmentHolder:SetPos(EFGM.MenuScale(153), EFGM.MenuScale(100))
+	equipmentHolder:SetPos(EFGM.MenuScale(155), EFGM.MenuScale(100))
 	equipmentHolder:SetSize(EFGM.MenuScale(450), EFGM.MenuScale(850))
 	equipmentHolder:SetPaintBackground(false)
 
 	local consumableHolder = vgui.Create("DPanel", playerPanel)
-	consumableHolder:SetPos(EFGM.MenuScale(10), EFGM.MenuScale(655))
+	consumableHolder:SetPos(EFGM.MenuScale(10), EFGM.MenuScale(660))
 	consumableHolder:SetSize(EFGM.MenuScale(300), EFGM.MenuScale(200))
 	consumableHolder:SetPaintBackground(false)
 
@@ -4666,13 +4814,13 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		if EFGM.MENU.Player:IsPMC() then
 			secondaryWeaponHolder:SetPos(equipmentHolder:GetWide() - secondaryWeaponHolder:GetWide(), equipmentHolder:GetTall() - secondaryWeaponHolder:GetTall())
 			secondaryWeaponText:SetPos(equipmentHolder:GetWide() - secondaryWeaponText:GetWide(), secondaryWeaponHolder:GetY() - EFGM.MenuScale(30))
-			primaryWeaponHolder:SetPos(equipmentHolder:GetWide() - primaryWeaponHolder:GetWide(), secondaryWeaponHolder:GetY() - primaryWeaponHolder:GetTall() - EFGM.MenuScale(40))
+			primaryWeaponHolder:SetPos(equipmentHolder:GetWide() - primaryWeaponHolder:GetWide(), secondaryWeaponHolder:GetY() - primaryWeaponHolder:GetTall() - EFGM.MenuScale(35))
 			primaryWeaponText:SetPos(equipmentHolder:GetWide() - primaryWeaponText:GetWide(), primaryWeaponHolder:GetY() - EFGM.MenuScale(30))
-			holsterWeaponHolder:SetPos(equipmentHolder:GetWide() - holsterWeaponHolder:GetWide(), primaryWeaponHolder:GetY() - holsterWeaponHolder:GetTall() - EFGM.MenuScale(40))
+			holsterWeaponHolder:SetPos(equipmentHolder:GetWide() - holsterWeaponHolder:GetWide(), primaryWeaponHolder:GetY() - holsterWeaponHolder:GetTall() - EFGM.MenuScale(35))
 			holsterWeaponText:SetPos(equipmentHolder:GetWide() - holsterWeaponText:GetWide(), holsterWeaponHolder:GetY() - EFGM.MenuScale(30))
-			meleeWeaponHolder:SetPos(equipmentHolder:GetWide() - meleeWeaponHolder:GetWide(), holsterWeaponHolder:GetY() - meleeWeaponHolder:GetTall() - EFGM.MenuScale(40))
+			meleeWeaponHolder:SetPos(equipmentHolder:GetWide() - meleeWeaponHolder:GetWide(), holsterWeaponHolder:GetY() - meleeWeaponHolder:GetTall() - EFGM.MenuScale(35))
 			meleeWeaponText:SetPos(equipmentHolder:GetWide() - meleeWeaponText:GetWide(), meleeWeaponHolder:GetY() - EFGM.MenuScale(30))
-			nadeWeaponHolder:SetPos(equipmentHolder:GetWide() - nadeWeaponHolder:GetWide(), meleeWeaponHolder:GetY() - nadeWeaponHolder:GetTall() - EFGM.MenuScale(40))
+			nadeWeaponHolder:SetPos(equipmentHolder:GetWide() - nadeWeaponHolder:GetWide(), meleeWeaponHolder:GetY() - nadeWeaponHolder:GetTall() - EFGM.MenuScale(35))
 			nadeWeaponText:SetPos(equipmentHolder:GetWide() - nadeWeaponText:GetWide(), nadeWeaponHolder:GetY() - EFGM.MenuScale(30))
 			consumableItemHolder:SetPos(0, consumableHolder:GetTall() - consumableItemHolder:GetTall())
 			consumableItemText:SetPos(0, consumableItemHolder:GetY() - EFGM.MenuScale(30))
@@ -5186,7 +5334,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 		unloadButton:Dock(RIGHT)
 		unloadButton:SetSize(unloadButtonSize, EFGM.MenuScale(28))
 		unloadButton:SetText("")
-		unloadButton:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+		unloadButton:DockMargin(EFGM.MenuScale(5), 0, 0, 0)
 
 		function unloadButton:Paint(w, h)
 			surface.SetDrawColor(COLORS.containerBackgroundColor)
@@ -5261,8 +5409,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	local inventoryPanel = vgui.Create("DPanel", contents)
 	inventoryPanel:Dock(LEFT)
-	inventoryPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-	inventoryPanel:SetSize(EFGM.MenuScale(613), 0)
+	inventoryPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+	inventoryPanel:SetSize(EFGM.MenuScale(615), 0)
 
 	function inventoryPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -5459,7 +5607,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	local playerItemsHolder = vgui.Create("DScrollPanel", itemsHolder)
 	playerItemsHolder:SetPos(0, EFGM.MenuScale(32))
-	playerItemsHolder:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+	playerItemsHolder:SetSize(EFGM.MenuScale(595), EFGM.MenuScale(872))
 
 	function playerItemsHolder:Paint(w, h)
 		BlurPanel(self, 3)
@@ -5717,7 +5865,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			end
 
 			function item:Paint(w, h)
-				surface.SetDrawColor(borderColor)
+				if !self.PaintingDragging then
+					surface.SetDrawColor(borderColor)
+				else
+					surface.SetDrawColor(COLORS.itemBackgroundColor)
+				end
+
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -5973,8 +6126,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	if !table.IsEmpty(container) then
 		local containerPanel = vgui.Create("DPanel", contents)
 		containerPanel:Dock(LEFT)
-		containerPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-		containerPanel:SetSize(EFGM.MenuScale(613), 0)
+		containerPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+		containerPanel:SetSize(EFGM.MenuScale(615), 0)
 
 		function containerPanel:Paint(w, h)
 			BlurPanel(self, 5)
@@ -6235,7 +6388,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 				end
 
 				function item:Paint(w, h)
-					surface.SetDrawColor(borderColor)
+					if !self.PaintingDragging then
+						surface.SetDrawColor(borderColor)
+					else
+						surface.SetDrawColor(COLORS.itemBackgroundColor)
+					end
+
 					surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 					surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 					surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -6505,8 +6663,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	local stashPanel = vgui.Create("DPanel", contents)
 	stashPanel:Dock(LEFT)
-	stashPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-	stashPanel:SetSize(EFGM.MenuScale(613), 0)
+	stashPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+	stashPanel:SetSize(EFGM.MenuScale(615), 0)
 
 	function stashPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -6655,12 +6813,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	local stashHolderDocker = vgui.Create("DPanel", stashHolder)
 	stashHolderDocker:Dock(FILL)
-	stashHolderDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+	stashHolderDocker:SetSize(EFGM.MenuScale(595), EFGM.MenuScale(872))
 	stashHolderDocker:SetPaintBackground(false)
 
 	local stashItemsHolder = vgui.Create("DScrollPanel", stashHolderDocker)
-	stashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
-	stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(18), stashHolderDocker:GetTall())
+	stashItemsHolder:SetPos(EFGM.MenuScale(20), 0)
+	stashItemsHolder:SetSize(stashHolderDocker:GetWide() - EFGM.MenuScale(20), stashHolderDocker:GetTall())
 
 	function stashItemsHolder:Paint(w, h)
 		BlurPanel(self, 3)
@@ -6715,8 +6873,8 @@ function EFGM.MENU.OpenTab.Inventory(container)
 	end
 
 	local stashFilterHolder = vgui.Create("DPanel", stashHolderDocker)
-	stashFilterHolder:SetSize(EFGM.MenuScale(19), stashHolderDocker:GetTall())
-	stashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
+	stashFilterHolder:SetSize(EFGM.MenuScale(20), stashHolderDocker:GetTall())
+	stashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), 0, EFGM.MenuScale(1))
 
 	function stashFilterHolder:Paint(w, h)
 		surface.SetDrawColor(COLORS.whiteBorderColor)
@@ -6727,7 +6885,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	for id, filter in ipairs(filters) do
 		local stashFilterButton = vgui.Create("DButton", stashFilterHolder)
-		stashFilterButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+		stashFilterButton:SetSize(0, EFGM.MenuScale(25))
 		stashFilterButton:Dock(TOP)
 		stashFilterButton:SetText("")
 
@@ -6739,7 +6897,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(filter.icon)
-			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(3), EFGM.MenuScale(17), EFGM.MenuScale(17))
 
 			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
@@ -6797,7 +6955,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 	for id, sort in Reverseipairs(sorts) do
 		local stashSortButton = vgui.Create("DButton", stashFilterHolder)
-		stashSortButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+		stashSortButton:SetSize(0, EFGM.MenuScale(25))
 		stashSortButton:Dock(BOTTOM)
 		stashSortButton:SetText("")
 
@@ -6809,7 +6967,7 @@ function EFGM.MENU.OpenTab.Inventory(container)
 
 			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(sort.icon)
-			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(3), EFGM.MenuScale(17), EFGM.MenuScale(17))
 
 			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
@@ -7187,7 +7345,12 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			end
 
 			function item:Paint(w, h)
-				surface.SetDrawColor(borderColor)
+				if !self.PaintingDragging then
+					surface.SetDrawColor(borderColor)
+				else
+					surface.SetDrawColor(COLORS.itemBackgroundColor)
+				end
+
 				surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 				surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
@@ -7447,7 +7610,6 @@ end
 function EFGM.MENU.OpenTab.Market()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -7455,7 +7617,7 @@ function EFGM.MENU.OpenTab.Market()
 
 	local marketStashPanel = vgui.Create("DPanel", contents)
 	marketStashPanel:Dock(LEFT)
-	marketStashPanel:SetSize(EFGM.MenuScale(613), 0)
+	marketStashPanel:SetSize(EFGM.MenuScale(615), 0)
 
 	function marketStashPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -7710,12 +7872,12 @@ function EFGM.MENU.OpenTab.Market()
 
 	local marketStashItemsDocker = vgui.Create("DPanel", marketStashHolder)
 	marketStashItemsDocker:Dock(FILL)
-	marketStashItemsDocker:SetSize(EFGM.MenuScale(593), EFGM.MenuScale(872))
+	marketStashItemsDocker:SetSize(EFGM.MenuScale(595), EFGM.MenuScale(872))
 	marketStashItemsDocker:SetPaintBackground(false)
 
 	local marketStashItemsHolder = vgui.Create("DScrollPanel", marketStashItemsDocker)
-	marketStashItemsHolder:SetPos(EFGM.MenuScale(18), 0)
-	marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(18), marketStashItemsDocker:GetTall())
+	marketStashItemsHolder:SetPos(EFGM.MenuScale(20), 0)
+	marketStashItemsHolder:SetSize(marketStashItemsDocker:GetWide() - EFGM.MenuScale(20), marketStashItemsDocker:GetTall())
 
 	function marketStashItemsHolder:Paint(w, h)
 		BlurPanel(self, 3)
@@ -7756,8 +7918,8 @@ function EFGM.MENU.OpenTab.Market()
 	end
 
 	local marketStashFilterHolder = vgui.Create("DPanel", marketStashItemsDocker)
-	marketStashFilterHolder:SetSize(EFGM.MenuScale(19), marketStashItemsDocker:GetTall())
-	marketStashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1), EFGM.MenuScale(1))
+	marketStashFilterHolder:SetSize(EFGM.MenuScale(20), marketStashItemsDocker:GetTall())
+	marketStashFilterHolder:DockPadding(EFGM.MenuScale(1), EFGM.MenuScale(1), 0, EFGM.MenuScale(1))
 
 	function marketStashFilterHolder:Paint(w, h)
 		surface.SetDrawColor(COLORS.whiteBorderColor)
@@ -7768,7 +7930,7 @@ function EFGM.MENU.OpenTab.Market()
 
 	for id, filter in ipairs(filters) do
 		local marketStashFilterButton = vgui.Create("DButton", marketStashFilterHolder)
-		marketStashFilterButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+		marketStashFilterButton:SetSize(0, EFGM.MenuScale(25))
 		marketStashFilterButton:Dock(TOP)
 		marketStashFilterButton:SetText("")
 
@@ -7780,7 +7942,7 @@ function EFGM.MENU.OpenTab.Market()
 
 			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(filter.icon)
-			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(3), EFGM.MenuScale(17), EFGM.MenuScale(17))
 
 			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
@@ -7838,7 +8000,7 @@ function EFGM.MENU.OpenTab.Market()
 
 	for id, sort in Reverseipairs(sorts) do
 		local marketStashSortButton = vgui.Create("DButton", marketStashFilterHolder)
-		marketStashSortButton:SetSize(EFGM.MenuScale(17), EFGM.MenuScale(25))
+		marketStashSortButton:SetSize(0, EFGM.MenuScale(25))
 		marketStashSortButton:Dock(BOTTOM)
 		marketStashSortButton:SetText("")
 
@@ -7850,7 +8012,7 @@ function EFGM.MENU.OpenTab.Market()
 
 			surface.SetDrawColor(COLORS.pureWhiteColor)
 			surface.SetMaterial(sort.icon)
-			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(5), EFGM.MenuScale(15), EFGM.MenuScale(15))
+			surface.DrawTexturedRect(EFGM.MenuScale(1), EFGM.MenuScale(3), EFGM.MenuScale(17), EFGM.MenuScale(17))
 
 			surface.SetDrawColor(COLORS.weaponSilhouetteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
@@ -8219,7 +8381,12 @@ function EFGM.MENU.OpenTab.Market()
 					borderColor = Color(0, 255, 0, 255)
 					costColor = Color(0, 255, 0, 255)
 				else
-					borderColor = COLORS.itemBackgroundColor
+					if !self:IsHovered() then
+						borderColor = COLORS.itemBackgroundColor
+					else
+						borderColor = COLORS.itemBackgroundColorHovered
+					end
+
 					costColor = COLORS.whiteColor
 				end
 
@@ -8269,8 +8436,6 @@ function EFGM.MENU.OpenTab.Market()
 
 			function item:OnCursorEntered()
 				surface.PlaySound("ui/inv_item_hover_" .. math.random(1, 3) .. ".wav")
-
-				borderColor = COLORS.itemBackgroundColorHovered
 
 				surface.SetFont("PuristaBold18")
 				local tipItemName = ""
@@ -8324,8 +8489,6 @@ function EFGM.MENU.OpenTab.Market()
 			end
 
 			function item:OnCursorExited()
-				borderColor = COLORS.itemBackgroundColor
-
 				EFGM.MENU.Tooltip:RemoveTip()
 			end
 
@@ -8404,8 +8567,8 @@ function EFGM.MENU.OpenTab.Market()
 
 	local marketPanel = vgui.Create("DPanel", contents)
 	marketPanel:Dock(LEFT)
-	marketPanel:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
-	marketPanel:SetSize(EFGM.MenuScale(1239), 0)
+	marketPanel:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
+	marketPanel:SetSize(EFGM.MenuScale(1240), 0)
 
 	function marketPanel:Paint(w, h)
 		BlurPanel(self, 5)
@@ -9328,7 +9491,6 @@ end
 function EFGM.MENU.OpenTab.Tasks()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -9336,7 +9498,7 @@ function EFGM.MENU.OpenTab.Tasks()
 
 	local taskList = vgui.Create("DPanel", contents)
 	taskList:Dock(LEFT)
-	taskList:SetSize(EFGM.MenuScale(550), 0)
+	taskList:SetSize(EFGM.MenuScale(555), 0)
 
 	function taskList:Paint(w, h)
 		BlurPanel(self, 5)
@@ -9348,36 +9510,41 @@ function EFGM.MENU.OpenTab.Tasks()
 		surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
 	end
 
+	local taskListHeader = vgui.Create("DPanel", taskList)
+	taskListHeader:Dock(TOP)
+	taskListHeader:SetSize(0, EFGM.MenuScale(36))
+
+	function taskListHeader:Paint(w, h)
+		surface.SetDrawColor(COLORS.containerHeaderColor)
+		surface.DrawRect(0, 0, w, h)
+
+		draw.SimpleTextOutlined("TASKS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+	end
+
+	local taskListHolder = vgui.Create("DPanel", taskList)
+	taskListHolder:Dock(FILL)
+	taskListHolder:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
+	taskListHolder:SetPaintBackground(false)
+
+	local taskListScroller = vgui.Create("DScrollPanel", taskListHolder)
+	taskListScroller:Dock(FILL)
+
+	local taskListBar = taskListScroller:GetVBar()
+	taskListBar:SetHideButtons(true)
+	taskListBar:SetSize(EFGM.MenuScale(15), 0)
+
+	function taskListBar:Paint(w, h)
+		surface.SetDrawColor(COLORS.scrollerColor)
+		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
+	end
+
+	function taskListBar.btnGrip:Paint(w, h)
+		surface.SetDrawColor(COLORS.transparentWhiteColor)
+		surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
+	end
+
 	function DrawTaskList()
-		taskList:Clear()
-
-		local taskListHeader = vgui.Create("DPanel", taskList)
-		taskListHeader:Dock(TOP)
-		taskListHeader:SetSize(0, EFGM.MenuScale(36))
-
-		function taskListHeader:Paint(w, h)
-			surface.SetDrawColor(COLORS.containerHeaderColor)
-			surface.DrawRect(0, 0, w, h)
-
-			draw.SimpleTextOutlined("TASKS", "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-		end
-
-		local taskListScroller = vgui.Create("DScrollPanel", taskList)
-		taskListScroller:Dock(FILL)
-
-		local taskListBar = taskListScroller:GetVBar()
-		taskListBar:SetHideButtons(true)
-		taskListBar:SetSize(EFGM.MenuScale(15), 0)
-
-		function taskListBar:Paint(w, h)
-			surface.SetDrawColor(COLORS.scrollerColor)
-			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
-		end
-
-		function taskListBar.btnGrip:Paint(w, h)
-			surface.SetDrawColor(COLORS.transparentWhiteColor)
-			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(8), EFGM.MenuScale(5), h - EFGM.MenuScale(16))
-		end
+		taskListScroller:Clear()
 
 		if !table.IsEmpty(EFGM.CLIENT.TASKS) then
 			for taskName, taskInstance in pairs(EFGM.CLIENT.TASKS) do
@@ -9387,7 +9554,7 @@ function EFGM.MENU.OpenTab.Tasks()
 				taskButton:SetHeight(EFGM.MenuScale(110))
 				taskButton:SetText("")
 				taskButton:Dock(TOP)
-				taskButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
+				taskButton:DockMargin(0, 0, 0, EFGM.MenuScale(5))
 
 				local genericTaskBG = Material("taskbg/concrete/general.jpg", "smooth")
 
@@ -9431,8 +9598,8 @@ function EFGM.MENU.OpenTab.Tasks()
 
 	local taskDisplay = vgui.Create("DPanel", contents)
 	taskDisplay:Dock(LEFT)
-	taskDisplay:SetSize(EFGM.MenuScale(1305), 0)
-	taskDisplay:DockMargin(EFGM.MenuScale(13), 0, 0, 0)
+	taskDisplay:SetSize(EFGM.MenuScale(1300), 0)
+	taskDisplay:DockMargin(EFGM.MenuScale(10), 0, 0, 0)
 
 	function taskDisplay:Paint(w, h)
 		BlurPanel(self, 5)
@@ -9466,7 +9633,7 @@ function EFGM.MENU.OpenTab.Tasks()
 		if EFGM.CLIENT.TASKS[taskName].status == TASKSTATUS.AcceptPending and EFGM.MENU.Player:IsInHideout() then
 			local acceptButton = vgui.Create("DButton", taskDisplay)
 			acceptButton:Dock(TOP)
-			acceptButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
+			acceptButton:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), 0)
 			acceptButton:SetSize(0, EFGM.MenuScale(50))
 			acceptButton:SetText("")
 
@@ -9500,7 +9667,7 @@ function EFGM.MENU.OpenTab.Tasks()
 		if EFGM.CLIENT.TASKS[taskName].status == TASKSTATUS.CompletePending and EFGM.MENU.Player:IsInHideout() then
 			local completeButton = vgui.Create("DButton", taskDisplay)
 			completeButton:Dock(TOP)
-			completeButton:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
+			completeButton:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), 0)
 			completeButton:SetHeight(EFGM.MenuScale(50))
 			completeButton:SetText("")
 
@@ -9536,7 +9703,7 @@ function EFGM.MENU.OpenTab.Tasks()
 
 		local messagePanel = vgui.Create("DPanel", taskDisplay)
 		messagePanel:Dock(TOP)
-		messagePanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), 0)
+		messagePanel:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), 0)
 		messagePanel:SetSize(0, EFGM.MenuScale(246))
 
 		local messagePanelHeader = vgui.Create("DPanel", messagePanel)
@@ -9601,7 +9768,7 @@ function EFGM.MENU.OpenTab.Tasks()
 
 		local objectivePanel = vgui.Create("DPanel", taskDisplay)
 		objectivePanel:Dock(TOP)
-		objectivePanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+		objectivePanel:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), 0)
 		objectivePanel:SetSize(0, EFGM.MenuScale(41))
 
 		local objectivePanelHeader = vgui.Create("DPanel", objectivePanel)
@@ -9716,7 +9883,7 @@ function EFGM.MENU.OpenTab.Tasks()
 
 		local rewardPanel = vgui.Create("DPanel", taskDisplay)
 		rewardPanel:Dock(TOP)
-		rewardPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
+		rewardPanel:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(5), EFGM.MenuScale(10), 0)
 		rewardPanel:SetSize(0, EFGM.MenuScale(41))
 
 		local rewardPanelHeader = vgui.Create("DPanel", rewardPanel)
@@ -9785,7 +9952,6 @@ end
 function EFGM.MENU.OpenTab.Skills()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -9795,7 +9961,6 @@ end
 function EFGM.MENU.OpenTab.Codex()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -9868,7 +10033,6 @@ end
 function EFGM.MENU.OpenTab.Locker()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 
@@ -9878,7 +10042,6 @@ end
 function EFGM.MENU.OpenTab.Settings()
 	local contents = vgui.Create("DPanel", EFGM.MENU.MenuFrame.LowerPanel)
 	contents:Dock(FILL)
-	contents:DockPadding(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	contents:SetAlpha(0)
 	contents:SetPaintBackground(false)
 

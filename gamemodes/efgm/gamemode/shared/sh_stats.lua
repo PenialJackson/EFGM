@@ -367,8 +367,8 @@ function plyMeta:CalculateTimeOnline()
 end
 
 function plyMeta:AddToStat(stat, value)
-	local statData = EFGM.STATS[stat]
-	if !statData then return end
+	local data = EFGM.STATS[stat]
+	if !data then return end
 
 	local type = data.type
 	local default = data.default
@@ -396,8 +396,8 @@ function plyMeta:AddToStat(stat, value)
 end
 
 function plyMeta:SetStat(stat, value)
-	local statData = EFGM.STATS[stat]
-	if !statData then return end
+	local data = EFGM.STATS[stat]
+	if !data then return end
 
 	local type = data.type
 	local default = data.default
@@ -427,8 +427,8 @@ function plyMeta:SetStat(stat, value)
 end
 
 function plyMeta:GetStat(stat)
-	local statData = EFGM.STATS[stat]
-	if !statData then return end
+	local data = EFGM.STATS[stat]
+	if !data then return end
 
 	local type = data.type
 	local default = data.default

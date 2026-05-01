@@ -91,7 +91,12 @@ function PANEL:CreateVar(argName, argData, argI)
 end
 
 function PANEL:Paint(w, h)
-	surface.SetDrawColor(borderColor)
+	if !self.PaintingDragging then
+		surface.SetDrawColor(borderColor)
+	else
+		surface.SetDrawColor(COLORS.itemBackgroundColor)
+	end
+
 	surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
 	surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 	surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
