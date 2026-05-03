@@ -35,7 +35,7 @@ end
 
 local function GetSquadOfPlayer(ply)
 	for name, data in pairs(EFGM.SERVER.SQUADS) do
-		for _, member in ipairs(DATA.MEMBERS) do
+		for _, member in ipairs(data.MEMBERS) do
 			if member == ply then
 				return name
 			end
@@ -62,6 +62,10 @@ net.Receive("PlayerSquadCreate", function(len, ply)
 
 	if ply:PlayerInSquad() then return end
 	if !ply:IsInHideout() then return end
+
+	if name == "" then
+		name = ply:Nick() .. "'s Squad"
+	end
 
 	local faction = (ply:CompareFaction(true) and STATUS.PLAYER.PMC) or (ply:CompareFaction(false) and STATUS.PLAYER.SCAV)
 
@@ -144,7 +148,7 @@ net.Receive("PlayerSquadLeave", function(len, ply)
 	if #EFGM.SERVER.SQUADS[name].MEMBERS == 0 then
 		DisbandSquad(name)
 
-		net.Start("SquadDisband", false)
+		net.Start("SquadDisbanded", false)
 			net.WriteString(name)
 		net.Broadcast()
 
@@ -285,7 +289,7 @@ net.Receive("PlayerSquadDisband", function(len, ply)
 
 	DisbandSquad(name)
 
-	net.Start("SquadDisband", false)
+	net.Start("SquadDisbanded", false)
 		net.WriteString(name)
 	net.Broadcast()
 end)
@@ -302,7 +306,7 @@ hook.Add("PlayerDisconnected", "KickFromSquadOnDisconnect", function(ply)
 	if #EFGM.SERVER.SQUADS[name].MEMBERS == 0 then
 		DisbandSquad(name)
 
-		net.Start("SquadDisband", false)
+		net.Start("SquadDisbanded", false)
 			net.WriteString(name)
 		net.Broadcast()
 

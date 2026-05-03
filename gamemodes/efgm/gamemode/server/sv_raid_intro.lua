@@ -12,7 +12,7 @@ hook.Add("InitPostEntity", "IntroInit", function()
 			local newIntro = ents.Create("prop_dynamic")
 			newIntro:SetModel(v:GetModel())
 			newIntro:SetRenderMode(RENDERMODE_NONE)
-			newIntro:SetName(v:Nick() .. "|" .. i)
+			newIntro:SetName(v:GetName() .. "|" .. i)
 			newIntro:SetPos(v:GetPos())
 			newIntro:SetAngles(v:GetAngles())
 			newIntro:Spawn()
@@ -21,7 +21,7 @@ hook.Add("InitPostEntity", "IntroInit", function()
 	end
 
 	for k, v in ipairs(ents.FindByName("INTRO*")) do
-		IntroSpaces[k] = {animName = v:Nick(), occupied = false}
+		IntroSpaces[k] = {animName = v:GetName(), occupied = false}
 	end
 end)
 

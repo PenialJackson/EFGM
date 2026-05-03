@@ -152,10 +152,10 @@ net.Receive("SquadTransferred", function(len)
 	EFGM.MENU:ReloadSquads()
 end)
 
-net.Receive("SquadDisband", function(len)
+net.Receive("SquadDisbanded", function(len)
 	local name = net.ReadString()
 
-	EFGM.SERVER.SQUADS[name] = nil
+	EFGM.CLIENT.SQUADS[name] = nil
 
 	EFGM.MENU:ReloadSquads()
 end)

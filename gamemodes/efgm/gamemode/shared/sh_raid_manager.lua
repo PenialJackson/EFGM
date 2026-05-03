@@ -135,7 +135,7 @@ if SERVER then
 
 		EFGM.SERVER.SQUADS[squad] = nil
 
-		net.Start("SquadDisband", false)
+		net.Start("SquadDisbanded", false)
 			net.WriteString(squad)
 		net.Broadcast()
 

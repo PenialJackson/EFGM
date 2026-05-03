@@ -10,6 +10,7 @@ function NetworkMarketLimits(ply)
 
 	if !EFGM.SERVER.PLAYERMARKETLIMITS[id] then
 		EFGM.SERVER.PLAYERMARKETLIMITS[id] = {}
+
 		for item, limit in pairs(MARKETLIMITS) do
 			EFGM.SERVER.PLAYERMARKETLIMITS[id][item] = limit
 		end

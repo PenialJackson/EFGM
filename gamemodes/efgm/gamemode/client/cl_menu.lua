@@ -3775,7 +3775,7 @@ function EFGM.MENU.OpenTab.Map()
 	end
 
 	local joinSquadPanel = vgui.Create("DPanel", squadHolder)
-	joinSquadPanel:SetSize(0, EFGM.MenuScale(325))
+	joinSquadPanel:SetSize(0, EFGM.MenuScale(571))
 	joinSquadPanel:Dock(TOP)
 	joinSquadPanel:DockMargin(EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5), EFGM.MenuScale(5))
 
@@ -3829,12 +3829,18 @@ function EFGM.MENU.OpenTab.Map()
 
 	local availableSquadsList = vgui.Create("DListLayout", availableSquadsPanel)
 	availableSquadsList:Dock(FILL)
+	availableSquadsList:SetPaintBackground(false)
 
 	local currentSquadPanel = vgui.Create("DPanel", squadPanel)
-	currentSquadPanel:Dock(TOP)
+	currentSquadPanel:Dock(FILL)
 	currentSquadPanel:SetSize(EFGM.MenuScale(320), EFGM.MenuScale(320))
-	currentSquadPanel:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), 0)
+	currentSquadPanel:DockMargin(EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10), EFGM.MenuScale(10))
 	currentSquadPanel:SetPaintBackground(false)
+	currentSquadPanel:Hide()
+
+	local currentSquadHolder = vgui.Create("DListLayout", currentSquadPanel)
+	currentSquadHolder:Dock(FILL)
+	currentSquadHolder:SetPaintBackground(false)
 
 	local currentSquad
 
@@ -3842,7 +3848,15 @@ function EFGM.MENU.OpenTab.Map()
 		availableSquadsList:Clear()
 		availableSquadsList:SetMouseInputEnabled(false)
 
-		if currentSquad != nil then return end
+		if currentSquad != nil then
+			createSquadPanel:Hide()
+			joinSquadPanel:Hide()
+
+			return
+		end
+
+		createSquadPanel:Show()
+		joinSquadPanel:Show()
 
 		for name, data in SortedPairs(EFGM.CLIENT.SQUADS) do
 			local public = data.PUBLIC
@@ -3895,7 +3909,7 @@ function EFGM.MENU.OpenTab.Map()
 			function squadEntry:DoClick(w, h)
 				if open and public then
 					surface.PlaySound("ui/element_select.wav")
-					JoinSquad(name)
+					JoinSquad(name, "")
 				end
 			end
 
@@ -3932,7 +3946,7 @@ function EFGM.MENU.OpenTab.Map()
 				squadPopOut:AlphaTo(255, 0.1, 0, nil)
 				squadPopOut:SetMouseInputEnabled(false)
 
-				if open and public then
+				if open and !public then
 					squadPopOut:SetSize(EFGM.MenuScale(200), EFGM.MenuScale(90) + (memberCount * EFGM.MenuScale(19)))
 				end
 
@@ -3988,7 +4002,7 @@ function EFGM.MENU.OpenTab.Map()
 				end
 
 				-- create password entry if squad is password protected and not full
-				if open and public then
+				if open and !public then
 					local squadPasswordEntryBG = vgui.Create("DPanel", squadPopOut)
 					squadPasswordEntryBG:SetPos(EFGM.MenuScale(5), squadPopOut:GetTall() - EFGM.MenuScale(43))
 					squadPasswordEntryBG:SetSize(EFGM.MenuScale(181), EFGM.MenuScale(20))
@@ -4023,18 +4037,22 @@ function EFGM.MENU.OpenTab.Map()
 	end
 
 	local function ReloadCurrentSquad()
+		currentSquadHolder:Clear()
+
 		currentSquad = nil
 
 		for name, data in pairs(EFGM.CLIENT.SQUADS) do
-			for _, member in ipairs(DATA.MEMBERS) do
+			for _, member in ipairs(data.MEMBERS) do
 				if member == EFGM.MENU.Player then
 					currentSquad = name
-					return
 				end
 			end
 		end
 
-		if currentSquad == nil then return end
+		if currentSquad == nil then
+			currentSquadPanel:Hide()
+			return
+		end
 
 		currentSquadPanel:Show()
 
@@ -4054,66 +4072,43 @@ function EFGM.MENU.OpenTab.Map()
 			privacy = "PRIVATE"
 		end
 
-		local currentSquadName = vgui.Create("DPanel", currentSquadPanel)
-		currentSquadName:Dock(TOP)
-		currentSquadName:SetSize(0, EFGM.MenuScale(54))
+		local currentSquadEntry = vgui.Create("DPanel", currentSquadHolder)
+		currentSquadEntry:Dock(FILL)
 
-		function currentSquadName:Paint(w, h)
+		function currentSquadEntry:Paint(w, h)
 			surface.SetDrawColor(Color(0, 0, 0, 155))
 			surface.DrawRect(0, 0, w, h)
 
-			surface.SetDrawColor(Color(color.R, color.G, color.B, 45))
+			surface.SetDrawColor(Color(color.R, color.G, color.B, 15))
 			surface.DrawRect(0, 0, w, h)
 
 			surface.SetDrawColor(Color(color.R, color.G, color.B, 255))
-			surface.DrawRect(0, 0, w, EFGM.MenuScale(5))
+			surface.DrawRect(0, 0, w, EFGM.MenuScale(6))
+
+			surface.SetDrawColor(Color(color.R, color.G, color.B, 75))
+			surface.DrawRect(0, 0, w, EFGM.MenuScale(36))
 
 			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(0, 0, w, EFGM.MenuScale(1))
+			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
 			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
 			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
+		end
 
+		local currentSquadName = vgui.Create("DPanel", currentSquadEntry)
+		currentSquadName:Dock(TOP)
+		currentSquadName:SetSize(0, EFGM.MenuScale(60))
+
+		function currentSquadName:Paint(w, h)
 			draw.SimpleTextOutlined(string.upper(currentSquad), "PuristaBold32", EFGM.MenuScale(5), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined(privacy .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(32), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined(privacy .. " | " .. (faction == 1 and "PMCs" or faction == 2 and "SCAVs"), "PuristaBold18", EFGM.MenuScale(5), EFGM.MenuScale(36), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 		end
 
-		if !public and EFGM.MENU.Player == owner then
-			currentSquadName:SetSize(0, EFGM.MenuScale(77))
-
-			local currentSquadPasswordButton = vgui.Create("DButton", currentSquadName)
-			currentSquadPasswordButton:SetPos(EFGM.MenuScale(100), EFGM.MenuScale(57))
-			currentSquadPasswordButton:SetSize(EFGM.MenuScale(130), EFGM.MenuScale(18))
-			currentSquadPasswordButton:SetText("")
-
-			function currentSquadPasswordButton:Paint(w, h)
-				surface.SetDrawColor(Color(25, 25, 25, 155))
-				surface.DrawRect(0, 0, w, h)
-
-				draw.SimpleTextOutlined("COPY PASSWORD", "PuristaBold18", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			end
-
-			function currentSquadPasswordButton:OnCursorEntered()
-				surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
-			end
-
-			function currentSquadPasswordButton:DoClick()
-				surface.PlaySound("ui/element_select.wav")
-				SetClipboardText(pass)
-			end
-		end
-
-		local currentSquadMembers = vgui.Create("DPanel", currentSquadPanel)
+		local currentSquadMembers = vgui.Create("DPanel", currentSquadEntry)
 		currentSquadMembers:Dock(TOP)
 		currentSquadMembers:SetSize(0, EFGM.MenuScale(30) + (memberCount * EFGM.MenuScale(35)))
 
 		function currentSquadMembers:Paint(w, h)
-			surface.SetDrawColor(Color(color.R, color.G, color.B, 10))
-			surface.DrawRect(0, 0, w, h)
-
-			surface.SetDrawColor(COLORS.transparentWhiteColor)
-			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
-			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
-
 			draw.SimpleTextOutlined("MEMBERS [" .. memberCount .. "/" .. limit .. "]", "PuristaBold24", EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			for k, v in SortedPairs(members) do
@@ -4174,7 +4169,7 @@ function EFGM.MENU.OpenTab.Map()
 
 			if EFGM.MENU.Player == owner and EFGM.MENU.Player != v then
 				local transferToMember = vgui.Create("DButton", currentSquadMembers)
-				transferToMember:SetPos(EFGM.MenuScale(262), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(2))
+				transferToMember:SetPos(EFGM.MenuScale(233), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(2))
 				transferToMember:SetSize(EFGM.MenuScale(24), EFGM.MenuScale(24))
 				transferToMember:SetText("")
 
@@ -4219,7 +4214,7 @@ function EFGM.MENU.OpenTab.Map()
 				end
 
 				local kickMember = vgui.Create("DButton", currentSquadMembers)
-				kickMember:SetPos(EFGM.MenuScale(291), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(2))
+				kickMember:SetPos(EFGM.MenuScale(262), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(2))
 				kickMember:SetSize(EFGM.MenuScale(24), EFGM.MenuScale(24))
 				kickMember:SetText("")
 
@@ -4265,33 +4260,27 @@ function EFGM.MENU.OpenTab.Map()
 			end
 		end
 
-		local currentSquadLeavePanel = vgui.Create("DPanel", currentSquadPanel)
-		currentSquadLeavePanel:Dock(TOP)
-		currentSquadLeavePanel:SetSize(0, EFGM.MenuScale(35))
-
-		function currentSquadLeavePanel:Paint(w, h)
-			surface.SetDrawColor(Color(color.R, color.G, color.B, 10))
-			surface.DrawRect(0, 0, w, h)
-
-			surface.SetDrawColor(COLORS.transparentWhiteColor)
-			surface.DrawRect(0, h - 1, w, EFGM.MenuScale(1))
-			surface.DrawRect(0, 0, EFGM.MenuScale(1), h)
-			surface.DrawRect(w - 1, 0, EFGM.MenuScale(1), h)
-		end
+		local currentSquadLeavePanel = vgui.Create("DPanel", currentSquadEntry)
+		currentSquadLeavePanel:Dock(BOTTOM)
+		currentSquadLeavePanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
+		currentSquadLeavePanel:SetSize(0, EFGM.MenuScale(28))
+		currentSquadLeavePanel:SetPaintBackground(false)
 
 		local currentSquadLeaveButton = vgui.Create("DButton", currentSquadLeavePanel)
-		currentSquadLeaveButton:SetPos(EFGM.MenuScale(85), EFGM.MenuScale(5))
-		currentSquadLeaveButton:SetSize(EFGM.MenuScale(175), EFGM.MenuScale(25))
+		currentSquadLeaveButton:Dock(FILL)
 		currentSquadLeaveButton:SetText("")
 
 		function currentSquadLeaveButton:Paint(w, h)
-			surface.SetDrawColor(Color(25, 25, 25, 155))
-			surface.DrawRect(0, 0, w, h)
+			surface.SetDrawColor(COLORS.containerBackgroundColor)
+			surface.DrawRect(0, 0, w + EFGM.MenuScale(10), h)
+
+			surface.SetDrawColor(COLORS.transparentWhiteColor)
+			surface.DrawRect(0, 0, w + EFGM.MenuScale(10), EFGM.MenuScale(2))
 
 			if owner != EFGM.MENU.Player then
-				draw.SimpleTextOutlined("LEAVE SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined("LEAVE SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			else
-				draw.SimpleTextOutlined("DISBAND SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(-2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined("DISBAND SQUAD", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 			end
 		end
 
@@ -4306,12 +4295,45 @@ function EFGM.MENU.OpenTab.Map()
 				DisbandSquad()
 			end
 		end
+
+		if !public and EFGM.MENU.Player == owner then
+			local currentSquadPasswordPanel = vgui.Create("DPanel", currentSquadEntry)
+			currentSquadPasswordPanel:Dock(BOTTOM)
+			currentSquadPasswordPanel:DockMargin(EFGM.MenuScale(5), 0, EFGM.MenuScale(5), EFGM.MenuScale(5))
+			currentSquadPasswordPanel:SetSize(0, EFGM.MenuScale(28))
+			currentSquadPasswordPanel:SetPaintBackground(false)
+
+			local currentSquadPasswordButton = vgui.Create("DButton", currentSquadPasswordPanel)
+			currentSquadPasswordButton:Dock(FILL)
+			currentSquadPasswordButton:SetText("")
+
+			function currentSquadPasswordButton:Paint(w, h)
+				surface.SetDrawColor(COLORS.containerBackgroundColor)
+				surface.DrawRect(0, 0, w + EFGM.MenuScale(10), h)
+
+				surface.SetDrawColor(COLORS.transparentWhiteColor)
+				surface.DrawRect(0, 0, w + EFGM.MenuScale(10), EFGM.MenuScale(2))
+
+				draw.SimpleTextOutlined("COPY SQUAD PASSWORD", "PuristaBold24", w / 2, EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			end
+
+			function currentSquadPasswordButton:OnCursorEntered()
+				surface.PlaySound("ui/element_hover_" .. math.random(1, 3) .. ".wav")
+			end
+
+			function currentSquadPasswordButton:DoClick()
+				surface.PlaySound("ui/element_select.wav")
+				SetClipboardText(pass)
+			end
+		end
 	end
 
 	function EFGM.MENU:ReloadSquads()
 		ReloadCurrentSquad()
 		ReloadJoinableSquads()
 	end
+
+	EFGM.MENU:ReloadSquads()
 end
 
 function EFGM.MENU.OpenTab.Inventory(container)

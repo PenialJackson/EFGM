@@ -360,10 +360,14 @@ end)
 function plyMeta:CalculateTimeOnline()
 	local id = self:SteamID64()
 	local time = os.time()
-	local timeOnline = time - EFGM.SERVER.PLAYERTIMEJOINED[id]
+	local timeJoined = EFGM.SERVER.PLAYERTIMEJOINED[id]
+
+	if timeJoined == nil then return end
+
+	local timeOnline = time - timeJoined
 
 	self:AddToStat("TimeOnline", timeOnline)
-	EFGM.SERVER.PLAYERTIMEJOINED[id] = time
+	EFGM.SERVER.PLAYERTIMEJOINED[id] = nil
 end
 
 function plyMeta:AddToStat(stat, value)
@@ -546,7 +550,7 @@ hook.Add("InitPostEntity", "LeaderboardInit", function()
 		str = util.Compress(str)
 		str = util.Base64Encode(str, true)
 
-		LEADERBOARDSTRINGS[board] = str
+		LEADERBOARDSTRINGS[id] = str
 	end
 end)
 
