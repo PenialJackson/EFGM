@@ -54,28 +54,22 @@ net.Receive("PlayerStashReload", function(len)
 end)
 
 net.Receive("PlayerStashAddItem", function(len)
-	local name, data, index
-
-	name = net.ReadString()
-	data = net.ReadTable()
-	index = net.ReadUInt(16)
+	local name = net.ReadString()
+	local data = net.ReadTable()
+	local index = net.ReadUInt(16)
 
 	table.insert(EFGM.CLIENT.STASH, index, ITEM.Instantiate(name, data))
 end)
 
 net.Receive("PlayerStashUpdateItem", function(len)
-	local newData, index
-
-	newData = net.ReadTable()
-	index = net.ReadUInt(16)
+	local newData = net.ReadTable()
+	local index = net.ReadUInt(16)
 
 	EFGM.CLIENT.STASH[index].data = newData
 end)
 
 net.Receive("PlayerStashDeleteItem", function(len)
-	local index
-
-	index = net.ReadUInt(16)
+	local index = net.ReadUInt(16)
 
 	table.remove(EFGM.CLIENT.STASH, index)
 end)

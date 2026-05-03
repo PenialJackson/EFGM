@@ -21,7 +21,9 @@ function NetworkMarketLimits(ply)
 	SendChunkedNet(ply, str, "PlayerNetworkMarket") -- chunking this in case some idiot creates a massive list of entries
 end
 
-hook.Add("PlayerInitialSpawn", "MarketInitFirstSpawn", function(ply) NetworkMarketLimits(ply) end)
+hook.Add("PlayerInitialSpawn", "MarketInitFirstSpawn", function(ply)
+	NetworkMarketLimits(ply)
+end)
 
 net.Receive("PlayerMarketPurchaseItem", function(len, ply)
 	local item = net.ReadString()

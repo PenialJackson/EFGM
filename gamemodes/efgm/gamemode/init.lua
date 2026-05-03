@@ -122,16 +122,20 @@ local msgs = {
 	"TaskSendAll",
 
 	-- squads
-	"AddPlayerSquadRF",
-	"RemovePlayerSquadRF",
-	"GrabSquadData",
-	"SendSquadData",
+	"PlayerSquadsReload",
+	"PlayerNetworkSquads",
 	"PlayerSquadCreate",
 	"PlayerSquadJoin",
 	"PlayerSquadLeave",
 	"PlayerSquadTransfer",
 	"PlayerSquadKick",
 	"PlayerSquadDisband",
+	"SquadCreated",
+	"SquadJoined",
+	"SquadLeft",
+	"SquadLeftAndTransferred",
+	"SquadTransferred",
+	"SquadDisbanded",
 
 	-- interface, menu and animations
 	"SendNotification",
@@ -228,7 +232,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 		else
 			tagData.tagCauseOfDeath = attacker:GetActiveWeapon():GetClass() or "Unknown"
 			tagData.tagWoundOrigin = victim:LastHitGroup()
-			tagData.tagKiller = attacker:GetName()
+			tagData.tagKiller = attacker:Nick()
 		end
 
 		local item = ITEM.Instantiate("efgm_tag_default", tagData)

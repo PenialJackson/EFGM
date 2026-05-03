@@ -130,23 +130,26 @@ if SERVER then
 		if #plys <= 1 then
 			status = (plys[1]:CompareFaction(true) and STATUS.PLAYER.PMC) or (plys[1]:CompareFaction(false) and STATUS.PLAYER.SCAV)
 		else
-			status = SQUADS[squad].FACTION
+			status = EFGM.SERVER.SQUADS[squad].FAC
 		end
 
-		SQUADS[squad] = nil
-		NetworkSquadInfoToClients()
+		EFGM.SERVER.SQUADS[squad] = nil
+
+		net.Start("SquadDisband", false)
+			net.WriteString(squad)
+		net.Broadcast()
 
 		for k, v in ipairs(plys) do
 			if !v:IsPlayer() then return end
 
 			if v:IsInRaid() then
 				local curStatus, _ = v:GetRaidStatus()
-				print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", but they're probably fine to join anyway?")
+				print("Player " .. v:Nick() .. " tried to enter the raid with status " .. curStatus .. ", but they're probably fine to join anyway?")
 			end
 
 			if v:IsInDuel() then
 				local curStatus, _ = v:GetRaidStatus()
-				print("Player " .. v:GetName() .. " tried to enter the raid with status " .. curStatus .. ", this means they are in a duel, this shouldn't be possible at all, let's not let them join!")
+				print("Player " .. v:Nick() .. " tried to enter the raid with status " .. curStatus .. ", this means they are in a duel, this shouldn't be possible at all, let's not let them join!")
 				return
 			end
 
@@ -576,12 +579,12 @@ if SERVER then
 		end
 
 		if plySquad == "nil" then RAID:SpawnPlayers({ply}, "nil", "nil") return end
-		if #SQUADS[plySquad].MEMBERS <= 1 then RAID:SpawnPlayers({ply}, "nil", plySquad) return end
+		if #EFGM.SERVER.SQUADS[plySquad].MEMBERS <= 1 then RAID:SpawnPlayers({ply}, "nil", plySquad) return end
 
 		local plys = {}
 		local spawnBool = true
 
-		for _, member in ipairs(SQUADS[plySquad].MEMBERS) do
+		for _, member in ipairs(EFGM.SERVER.SQUADS[plySquad].MEMBERS) do
 			table.insert(plys, member)
 			if member.RaidReady == false then spawnBool = false end
 		end

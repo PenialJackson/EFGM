@@ -12,7 +12,7 @@ hook.Add("OnMarketChunked", "NetworkMarket", function(str, uID)
 	EFGM.CLIENT.MARKETLIMITS = marketTbl
 end)
 
-net.Receive("PlayerNetworkMarket", function(len, ply)
+net.Receive("PlayerNetworkMarket", function(len)
 	local uID = net.ReadFloat()
 	local index = net.ReadUInt(16)
 	local chunkCount = net.ReadUInt(16)

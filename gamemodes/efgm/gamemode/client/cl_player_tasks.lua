@@ -1,7 +1,8 @@
 EFGM.CLIENT.TASKS = EFGM.CLIENT.TASKS or {}
 
 concommand.Add("efgm_task_pay", function(ply, cmd, args)
-	local task, amount = args[1], tonumber(args[2])
+	local task = args[1]
+	local amount = tonumber(args[2])
 
 	if amount > ply:GetNWInt("Money") or amount <= 0 then return end
 
@@ -14,7 +15,8 @@ concommand.Add("efgm_task_pay", function(ply, cmd, args)
 end)
 
 concommand.Add("efgm_task_giveitem", function(ply, cmd, args)
-	local task, itemIndex = args[1], tonumber(args[2])
+	local task = args[1]
+	local itemIndex = tonumber(args[2])
 
 	-- TODO: Item logic
 

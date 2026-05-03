@@ -46,7 +46,7 @@ function InvitePlayerToSquad(invitedPly)
 	if EFGM.INVITES.lastSquadInviteSentTime == 0 then CreateNotification("Send another invite to automatically create a squad!", MATS.inviteErrorIcon, "ui/error.wav") EFGM.INVITES.lastSquadInviteSentTime = CurTime() return end
 
 	if CurTime() - EFGM.INVITES.lastSquadInviteSentTime < EFGM.CONFIG.TIMERS.INVITECOOLDOWN then
-		RunConsoleCommand("efgm_squad_create", LocalPlayer():Nick() .. "'s Squad", "", "4", "255", "255", "255")
+		CreateSquad("", "", 4, 255, 255, 255)
 	end
 
 	EFGM.INVITES.lastInviteSentTime = CurTime()
@@ -85,7 +85,7 @@ end
 EFGM.INVITES.invitedBy = nil
 EFGM.INVITES.invitedType = nil
 
-net.Receive("PlayerInviteReceive", function(len, ply)
+net.Receive("PlayerInviteReceive", function(len)
 	if IsValid(EFGM.HUD.ELEMENTS.Invite) then return end -- player already has a pending invite
 
 	local invitedBy = net.ReadPlayer()

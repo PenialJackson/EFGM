@@ -23,7 +23,6 @@ end)
 
 hook.Add("OnEquippedChunked", "NetworkEquipped", function(str, uID)
 	local equippedStr = str
-
 	equippedStr = util.Base64Decode(equippedStr)
 	equippedStr = util.Decompress(equippedStr)
 
@@ -134,33 +133,29 @@ net.Receive("PlayerSlotsReload", function(len)
 end)
 
 net.Receive("PlayerInventoryAddItem", function(len)
-	local name, data, index
-
-	name = net.ReadString()
-	data = net.ReadTable()
-	index = net.ReadUInt(16)
+	local name = net.ReadString()
+	local data = net.ReadTable()
+	local index = net.ReadUInt(16)
 
 	table.insert(EFGM.CLIENT.INVENTORY, index, ITEM.Instantiate(name, data))
 end)
 
 net.Receive("PlayerInventoryUpdateItem", function(len)
-	local newData, index
-
-	newData = net.ReadTable()
-	index = net.ReadUInt(16)
+	local newData = net.ReadTable()
+	local index = net.ReadUInt(16)
 
 	EFGM.CLIENT.INVENTORY[index].data = newData
 end)
 
 net.Receive("PlayerInventoryDeleteItem", function(len)
-	local index
-	index = net.ReadUInt(16)
+	local index = net.ReadUInt(16)
 
 	table.remove(EFGM.CLIENT.INVENTORY, index)
 end)
 
 net.Receive("PlayerInventoryUnEquipAll", function(len)
 	local equMelee = table.Copy(EFGM.CLIENT.EQUIPPED[WEAPONSLOTS.MELEE.ID])
+
 	EFGM.CLIENT.EQUIPPED = {}
 
 	for k, v in pairs(WEAPONSLOTS) do
@@ -184,21 +179,18 @@ function UnequipAll()
 end
 
 net.Receive("PlayerInventoryUpdateEquipped", function(len)
-	local newData, index, key
-
-	newData = net.ReadTable()
-	index = net.ReadUInt(4)
-	key = net.ReadUInt(4)
+	local newData = net.ReadTable()
+	local index = net.ReadUInt(4)
+	local key = net.ReadUInt(4)
 
 	EFGM.CLIENT.EQUIPPED[index][key].data = newData
+
 	EFGM.MENU:ReloadSlots()
 end )
 
 net.Receive("PlayerInventoryDeleteEquippedItem", function(len)
-	local equipID, equipSlot
-
-	equipID = net.ReadUInt(4)
-	equipSlot = net.ReadUInt(4)
+	local equipID = net.ReadUInt(4)
+	local equipSlot = net.ReadUInt(4)
 
 	EFGM.CLIENT.EQUIPPED[equipID][equipSlot] = {}
 
@@ -213,6 +205,7 @@ function DropItemFromInventory(itemIndex)
 	net.SendToServer()
 
 	table.remove(EFGM.CLIENT.INVENTORY, itemIndex)
+
 	EFGM.MENU:ReloadInventory()
 end
 
@@ -423,7 +416,7 @@ function SplitFromInventory(inv, item, count, key)
 	net.SendToServer()
 end
 
-function DeleteFromInventory(inv, item, key, eID, eSlot)
+function DeleteFromInventory(inv, key, eID, eSlot)
 	net.Start("PlayerInventoryDelete", false)
 		net.WriteString(inv)
 		net.WriteUInt(key, 16)
@@ -432,9 +425,9 @@ function DeleteFromInventory(inv, item, key, eID, eSlot)
 	net.SendToServer()
 end
 
-function TagFromInventory(tag, inv, item, key, eID, eSlot)
+function TagFromInventory(tag, inv, key, eID, eSlot)
 	net.Start("PlayerInventoryTag", false)
-		net.WriteString(tag)
+		net.WriteString(string.sub(tag, 1, 20))
 		net.WriteString(inv)
 		net.WriteUInt(key, 16)
 		net.WriteUInt(eID, 4)
