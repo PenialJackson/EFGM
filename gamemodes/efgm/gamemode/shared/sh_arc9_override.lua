@@ -1723,11 +1723,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			end
 		end
 
-		if !self:GetProcessedValue("CanFireUnderwater", true) then
-			if bit.band(util.PointContents(self:GetShootPos()), CONTENTS_WATER) == CONTENTS_WATER then
-				self:DryFire()
-				return
-			end
+		if !self:GetProcessedValue("CanFireUnderwater", true) and bit.band(util.PointContents(self:GetShootPos()), CONTENTS_WATER) == CONTENTS_WATER then
+			self:DryFire()
+			return
 		end
 
 		self:SetBaseSettings()
@@ -1838,7 +1836,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 					end)
 				end
 			end
-			self:SetNthShot(nthShot + 1)
 		end
 
 		if sp then
@@ -1855,13 +1852,13 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		spread = math.Max(spread, 0)
 
-		local spos, sa = self:GetShootPos()
+		local shopos, shoang = self:GetShootPos()
 
 		if IsValid(self:GetLockOnTarget()) and self:GetLockedOn() and self:GetProcessedValue("LockOnAutoaim", true) then
-			sa = (self:GetLockOnTarget():EyePos() - spos):Angle()
+			sa = (self:GetLockOnTarget():EyePos() - shopos):Angle()
 		end
 
-		self:DoProjectileAttack(spos, sa, spread)
+		self:DoProjectileAttack(shopos, shoang, spread)
 
 		self:ApplyRecoil()
 		self:DoVisualRecoil()
@@ -1984,18 +1981,19 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		if ap > 0 and !alreadypenned[traceEntity] then
 			if traceEntity:GetClass() == "npc_helicopter" then
 				local apdmg = DamageInfo()
+				apdmg:SetDamagePosition(tr.HitPos)
 				apdmg:SetDamage(dmgv * ap)
 				apdmg:SetDamageType(DMG_AIRBOAT)
-				apdmg:SetInflictor(dmg:GetInflictor())
-				apdmg:SetAttacker(dmg:GetAttacker())
+				apdmg:SetInflictor(self)
+				apdmg:SetAttacker(owner)
 
 				if traceEntity.TakeDamageInfo then traceEntity:TakeDamageInfo(apdmg) end
 			elseif traceEntity:GetClass() == "npc_gunship" or traceEntity:GetClass() == "npc_strider" then
 				local apdmg = DamageInfo()
 				apdmg:SetDamage(dmgv * ap)
 				apdmg:SetDamageType(DMG_BLAST)
-				apdmg:SetInflictor(dmg:GetInflictor())
-				apdmg:SetAttacker(dmg:GetAttacker())
+				apdmg:SetInflictor(self)
+				apdmg:SetAttacker(owner)
 
 				if traceEntity.TakeDamageInfo then traceEntity:TakeDamageInfo(apdmg) end
 			elseif traceEntity:IsPlayer() then
@@ -2592,6 +2590,16 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		if self:GetProcessedValue("NoMuzzleEffect", true) then return end
 
 		local muzz_qca = self:GetQCAMuzzle()
+
+		if vFireInstalled and self:GetProcessedValue("ShootEnt") == "vfire_ball" then
+			local data = EffectData()
+			data:SetEntity(self)
+			data:SetAttachment(muzz_qca)
+			-- We use the same QCA logic ARC9 already calculated
+			util.Effect("arc9_boc_flamethrower_vfire", data, true, true)
+			-- If you want to skip the standard muzzle flash when firing fire:
+			return
+		end
 
 		local data = EffectData()
 		data:SetEntity(self)
