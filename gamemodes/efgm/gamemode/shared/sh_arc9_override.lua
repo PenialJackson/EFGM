@@ -2331,6 +2331,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		if !self:GetProcessedValue("Malfunction", true) then return end
 		if self:Clip1() == 0 and self.MalfunctionNeverLastShoot then return end
 		if self:GetOwner():IsInDuel() then return end
+		if self:GetOwner():GetNWBool("InRange", false) == true then return end
 
 		local chance = 1 / self:GetProcessedValue("MalfunctionMeanShotsToFail")
 
@@ -2354,6 +2355,27 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			self:SetNeedsCycle(false)
 
 			return true
+		end
+	end
+
+	local arc9_mod_overheat = GetConVar("arc9_mod_overheat")
+
+	function SWEP:DoHeat()
+		if !arc9_mod_overheat:GetBool() or !self:GetProcessedValue("Overheat", true) then return end
+		if self:GetOwner():GetNWBool("InRange", false) == true then return end
+
+		self:SetHeatAmount(self:GetHeatAmount() + self:GetProcessedValue("HeatPerShot", true))
+
+		if self:GetHeatAmount() >= self:GetProcessedValue("HeatCapacity") then
+			self:SetHeatAmount(self:GetProcessedValue("HeatCapacity"))
+			if self:GetProcessedValue("HeatLockout", true) then
+				self:SetHeatLockout(true)
+			end
+
+			if self:HasAnimation(self:TranslateAnimation("fix")) then
+				self:SetJammed(true)
+				self:SetNextPrimaryFire(CurTime() + self:GetProcessedValue("MalfunctionWait", true))
+			end
 		end
 	end
 
