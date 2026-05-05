@@ -22,7 +22,7 @@ concommand.Add("efgm_task_giveitem", function(ply, cmd, args)
 
 	net.Start("TaskGiveItem")
 		net.WriteString(task)
-		net.WriteUInt(itemIndex, 32)
+		net.WriteUInt(itemIndex, 16)
 	net.SendToServer()
 end)
 

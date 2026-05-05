@@ -11361,7 +11361,7 @@ function GetObjectiveText(obj)
 	end
 
 	if obj.type == OBJECTIVE.QuestItem then
-		return "Retrieve " .. EFGMQUESTITEM[obj.itemName].name
+		return "Retrieve " .. EFGM.ITEMS[obj.itemName].name
 	end
 
 	if obj.type == OBJECTIVE.VisitArea then

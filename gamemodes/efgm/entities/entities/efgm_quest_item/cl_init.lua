@@ -5,7 +5,11 @@ ENT.Item = ""
 
 function ENT:Initialize()
 	self.Item = self:GetNWString("Item", "")
-	self.Model = EFGMQUESTITEM[self.Item].model
+
+	local def = EFGM.ITEMS[self.Item]
+	if def == nil then return end
+
+	self.Model = def.model
 end
 
 -- is it great, iterating over dozens of objectives every frame? no. do i care? also no

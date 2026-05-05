@@ -242,7 +242,7 @@ EFGMTASKS["restock"] = {
 
 	objectives = {
 		NewObjective.Kill(5),
-		NewObjective.QuestItem("plates", "efgm_concrete")
+		NewObjective.QuestItem("efgm_task_plates", "efgm_concrete")
 	},
 
 	rewards = {
@@ -306,7 +306,7 @@ EFGMTASKS["civs2"] = {
 
 	objectives = {
 		NewObjective.Kill(10, "efgm_concrete"),
-		NewObjective.QuestItem("briefcase", "efgm_concrete")
+		NewObjective.QuestItem("efgm_task_briefcase", "efgm_concrete")
 	},
 
 	rewards = {
@@ -342,7 +342,7 @@ EFGMTASKS["qitest"] = {
 	traderIcon = Material("traders/generic.png", "smooth"),
 
 	objectives = {
-		NewObjective.QuestItem("briefcase", "efgm_concrete")
+		NewObjective.QuestItem("efgm_task_briefcase", "efgm_concrete")
 	},
 
 	rewards = {

@@ -77,7 +77,7 @@ function TaskProgressObjectivesFromTable(ply, objTable, count)
 					elseif fullProgress + count >= objCount then
 						ply.tasks[taskName].tempProgress[objIndex] = objCount - ply.tasks[taskName].progress[objIndex]
 
-						if objInfo.type == OBJECTIVE.QuestItem then NotifyQuestItemPickup(ply, EFGMQUESTITEM[objInfo.itemName].name) end
+						if objInfo.type == OBJECTIVE.QuestItem then NotifyQuestItemPickup(ply, EFGM.ITEMS[objInfo.itemName].name) end
 						TaskCheckComplete(ply, taskName)
 					end
 				end
@@ -386,7 +386,7 @@ end)
 -- TODO: Make this accept items and like, yk, check them
 net.Receive("TaskGiveItem", function(len, ply)
 	local taskName = net.ReadString()
-	local itemIndex = net.ReadUInt(32)
+	local itemIndex = net.ReadUInt(16)
 
 	-- logic later
 	net.Start("SendNotification", false)

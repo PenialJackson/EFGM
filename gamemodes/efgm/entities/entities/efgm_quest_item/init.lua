@@ -12,7 +12,10 @@ function ENT:KeyValue(key, value)
 end
 
 function ENT:Initialize()
-	self:SetModel(EFGMQUESTITEM[self.QuestItem].model)
+	local def = EFGM.ITEMS[self.QuestItem]
+	if def == nil then return end
+
+	self:SetModel(def.model)
 	self:SetAngles(self:GetAngles())
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self:SetMoveType(MOVETYPE_VPHYSICS)

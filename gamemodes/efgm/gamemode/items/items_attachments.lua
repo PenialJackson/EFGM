@@ -47779,3 +47779,87 @@ EFGM.ITEMS["arc9_att_eft_silencer_ar10_m110_fde"] = {
 	["lootWeight"] = 100,
 	["canPurchase"] = true,
 }
+
+EFGM.ITEMS["arc9_att_eft_mount_fc1"] = {
+	["fullName"] = "DI Optical FC1 sight mount",
+	["displayName"] = "FC1 SM",
+	["displayType"] = DISPLAYTYPE.MOUNT,
+	["description"] = "A special mount for the FC1 reflex sight. Manufactured by DI Optical.",
+	["weight"] = 0.05,
+	["value"] = 1630,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = Material("items/attachments/missing.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_mount_fc1_spacer"] = {
+	["fullName"] = "DI Optical FC1 Spacer",
+	["displayName"] = "FC1 spc.",
+	["displayType"] = DISPLAYTYPE.MOUNT,
+	["description"] = "A riser for the FC1 reflex sight. Manufactured by DI Optical.",
+	["weight"] = 0.05,
+	["value"] = 1150,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = Material("items/attachments/missing.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_optic_fc1"] = {
+	["fullName"] = "DI Optical FC1 reflex sight",
+	["displayName"] = "FC1",
+	["displayType"] = DISPLAYTYPE.OPTIC,
+	["description"] = "A prismatic red dot reflex sight manufactured by DI Optical.",
+	["weight"] = 0.1,
+	["value"] = 20005,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = Material("items/attachments/missing.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_optic_r1x"] = {
+	["fullName"] = "Steiner R1X reflex sight",
+	["displayName"] = "R1X",
+	["displayType"] = DISPLAYTYPE.OPTIC,
+	["description"] = "The R1X reflex sight, designed for precision shooting for modern sporting rifles and shotguns. Manufactured by Steiner.",
+	["weight"] = 0.3,
+	["value"] = 36150,
+	["equipType"] = EQUIPTYPE.Attachment,
+	["appearInInventory"] = true,
+	["stackSize"] = 1,
+	["stashStackSize"] = 100,
+	["icon"] = Material("items/attachments/missing.png", "smooth"),
+
+	["sizeX"] = 1,
+	["sizeY"] = 1,
+
+	["levelReq"] = 1,
+	["lootWeight"] = 100,
+	["canPurchase"] = true,
+}
