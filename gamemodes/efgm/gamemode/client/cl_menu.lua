@@ -11089,19 +11089,6 @@ function EFGM.MENU.OpenTab.Settings()
 	lensFlare:SetConVar("efgm_visuals_lensflare")
 	lensFlare:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
-	local pmShadowPanel = vgui.Create("DPanel", visuals)
-	pmShadowPanel:Dock(TOP)
-	pmShadowPanel:SetSize(0, EFGM.MenuScale(50))
-
-	function pmShadowPanel:Paint(w, h)
-		draw.SimpleTextOutlined("Render Own Player Model Shadow", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-	end
-
-	local pmShadow = vgui.Create("DCheckBox", pmShadowPanel)
-	pmShadow:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	pmShadow:SetConVar("efgm_visuals_selfshadow")
-	pmShadow:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
-
 	local vmLightingPanel = vgui.Create("DPanel", visuals)
 	vmLightingPanel:Dock(TOP)
 	vmLightingPanel:SetSize(0, EFGM.MenuScale(50))

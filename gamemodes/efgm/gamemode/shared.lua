@@ -25,7 +25,6 @@ if CLIENT then
 	CreateClientConVar("efgm_visuals_highqualflashlight", 0, true, false, "Adjust the quality of the players own flashlight, does not affect the flashlight of others", 0, 1)
 	CreateClientConVar("efgm_visuals_headbob", 1, true, false, "Adjust the bobbing motion of the players view while moving", 0, 1)
 	CreateClientConVar("efgm_visuals_lensflare", 1, true, false, "Adjust the lens flare when looking near or directly at the sun", 0, 1)
-	CreateClientConVar("efgm_visuals_selfshadow", 1, true, false, "Adjust if your own players shadow renders", 0, 1)
 	CreateClientConVar("efgm_visuals_interactableglow", 1, true, false, "Adjust if interactable objects should render a glow outline", 0, 1)
 	CreateClientConVar("efgm_controls_toggleduck", 0, true, false, "Adjust if player crouches are hold or toggle", 0, 1)
 	CreateClientConVar("efgm_controls_togglelean", 1, true, true, "Adjust if player leans are hold or toggle", 0, 1)
