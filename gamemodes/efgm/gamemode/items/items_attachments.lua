@@ -47791,7 +47791,7 @@ EFGM.ITEMS["arc9_att_eft_mount_fc1"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["stashStackSize"] = 100,
-	["icon"] = Material("items/attachments/missing.png", "smooth"),
+	["icon"] = Material("items/missing.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
@@ -47812,7 +47812,7 @@ EFGM.ITEMS["arc9_att_eft_mount_fc1_spacer"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["stashStackSize"] = 100,
-	["icon"] = Material("items/attachments/missing.png", "smooth"),
+	["icon"] = Material("items/missing.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
@@ -47833,7 +47833,7 @@ EFGM.ITEMS["arc9_att_eft_optic_fc1"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["stashStackSize"] = 100,
-	["icon"] = Material("items/attachments/missing.png", "smooth"),
+	["icon"] = Material("items/missing.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
@@ -47854,7 +47854,7 @@ EFGM.ITEMS["arc9_att_eft_optic_r1x"] = {
 	["appearInInventory"] = true,
 	["stackSize"] = 1,
 	["stashStackSize"] = 100,
-	["icon"] = Material("items/attachments/missing.png", "smooth"),
+	["icon"] = Material("items/missing.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
