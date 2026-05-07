@@ -262,7 +262,7 @@ function RenderRaidIntro()
 		draw.DrawText("Raid #" .. LocalPlayer():GetNWInt("RaidsPlayed", 0), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
 		draw.DrawText(os.date("%H:%M:%S"), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(50), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
 		draw.DrawText("Level " .. LocalPlayer():GetNWInt("Level", 0) .. ", Operator " .. LocalPlayer():Nick(), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(80), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
-		draw.DrawText("Garkov, " .. (MAPNAMES[game.GetMap()] or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
+		draw.DrawText("Garkov, " .. (MAPS[game.GetMap()].name or game.GetMap()), "BenderAmmoCount", EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(110), Color(255, 255, 255, 200), TEXT_ALIGN_LEFT)
 	end
 
 	intro:AlphaTo(255, 0.35, 0, nil)
@@ -1464,7 +1464,7 @@ net.Receive("CreateDeathInformation", function()
 			map.MapSizeX = mapSizeX
 			map.MapSizeY = mapSizeY
 
-			map.MapInfo = MAPINFO[mapRawName]
+			map.MapInfo = MAPS[mapRawName].info
 			map.OverheadImage = mapOverhead
 
 			map:ClampPanOffset()
@@ -1784,7 +1784,7 @@ net.Receive("CreateExtractionInformation", function()
 		map.MapSizeX = mapSizeX
 		map.MapSizeY = mapSizeY
 
-		map.MapInfo = MAPINFO[mapRawName]
+		map.MapInfo = MAPS[mapRawName].info
 		map.OverheadImage = mapOverhead
 
 		map:ClampPanOffset()
@@ -2520,8 +2520,8 @@ net.Receive("VoteableMaps", function(len)
 	local map1 = maps[1]
 	local map2 = maps[2]
 
-	local map1Name = MAPNAMES[map1.name]
-	local map2Name = MAPNAMES[map2.name]
+	local map1Name = MAPS[map1.name].name
+	local map2Name = MAPS[map2.name].name
 	local map1Icon = Material("maps/icon_" .. map1.name .. "_" .. math.random(1, 5) .. ".png")
 	local map2Icon = Material("maps/icon_" .. map2.name .. "_" .. math.random(1, 5) .. ".png")
 	local map1Votes = 0

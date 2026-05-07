@@ -3352,68 +3352,87 @@ function EFGM.MENU.OpenTab.Map()
 	pmcList:Dock(FILL)
 
 	if EFGM.MENU.Player:IsInHideout() then
-		for k, v in player.Iterator() do
-			local name = v:Nick()
-			local ping = v:Ping()
-			local kills = v:Frags()
-			local deaths = v:Deaths()
+		for _, ply in player.Iterator() do
+			local name = ply:Nick()
+			local ping = ply:Ping()
+			local kills = ply:Frags()
+			local deaths = ply:Deaths()
+			local level = ply:GetNWInt("Level", 1)
+			local xp = ply:GetNWInt("Experience", 0)
+			local xpNeeded = ply:GetNWInt("ExperienceToNextLevel", 500)
 
 			local pmcEntry = pmcList:Add("DPanel")
 			pmcEntry:SetSize(EFGM.MenuScale(350), EFGM.MenuScale(40))
 			pmcEntry:DockMargin(0, 0, 0, EFGM.MenuScale(5))
 
 			function pmcEntry:Paint(w, h)
-				if !IsValid(v) then return end
+				if !IsValid(ply) then return end
 
-				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(50), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(name, "Purista18", EFGM.MenuScale(85), 0, COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				draw.SimpleTextOutlined(ping  .. "ms", "Purista18", w - EFGM.MenuScale(5), 0, COLORS.whiteColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(50), EFGM.MenuScale(20), COLORS.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(20), COLORS.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(kills, "Purista18", EFGM.MenuScale(85), EFGM.MenuScale(20), COLORS.inRaidColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+				draw.SimpleTextOutlined(deaths, "Purista18", EFGM.MenuScale(120), EFGM.MenuScale(20), COLORS.deadColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
-				if v:IsInRaid() then
+				if ply:IsInRaid() then
 					draw.SimpleTextOutlined("IN RAID", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.neutralColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-				elseif v:IsInDuel() then
+				elseif ply:IsInDuel() then
 					draw.SimpleTextOutlined("IN DUEL", "Purista18", w - EFGM.MenuScale(5), EFGM.MenuScale(20), COLORS.deadColor, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 			end
 
-			local pmcPFP = vgui.Create("AvatarImage", pmcEntry)
-			pmcPFP:SetPos(0, 0)
-			pmcPFP:SetSize(EFGM.MenuScale(40), EFGM.MenuScale(40))
-			pmcPFP:SetPlayer(v, 184)
+			local pmcIcon = vgui.Create("DButton", pmcEntry)
+			pmcIcon:SetPos(0, 0)
+			pmcIcon:SetSize(EFGM.MenuScale(80), EFGM.MenuScale(40))
+			pmcIcon:SetText("")
 
-			function pmcPFP:OnMousePressed()
+			function pmcIcon:Paint(w, h)
+				surface.SetDrawColor(Color(100, 100, 50, 45))
+				surface.DrawRect(0, 0, EFGM.MenuScale(40), EFGM.MenuScale(40))
+
+				surface.SetDrawColor(Color(100, 100, 50))
+				surface.DrawRect(0, 0, (xp / xpNeeded) * EFGM.MenuScale(40), EFGM.MenuScale(40))
+
+				draw.SimpleTextOutlined(level, "PuristaBold32", EFGM.MenuScale(18), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			end
+
+			local pmcPFP = vgui.Create("AvatarImage", pmcEntry)
+			pmcPFP:SetPos(EFGM.MenuScale(40), 0)
+			pmcPFP:SetSize(EFGM.MenuScale(40), EFGM.MenuScale(40))
+			pmcPFP:SetPlayer(ply, 184)
+			pmcPFP:SetMouseInputEnabled(false)
+
+			function pmcIcon:DoClick()
 				local dropdown = DermaMenu()
 
-				local profile = dropdown:AddOption("Open Steam Profile", function() gui.OpenURL("http://steamcommunity.com/profiles/" .. v:SteamID64()) end)
+				local profile = dropdown:AddOption("Open Steam Profile", function() gui.OpenURL("http://steamcommunity.com/profiles/" .. ply:SteamID64()) end)
 				profile:SetIcon("games/16/all.png")
 				local gameProfile = dropdown:AddOption("Open Game Profile", function() CreateNotification("I do not work yet LOL!", MATS.dontEvenAsk, "ui/boo.wav") end)
 				gameProfile:SetIcon("icon16/chart_bar.png")
 
-				if v != EFGM.MENU.Player and v:IsInHideout() then
+				if ply != EFGM.MENU.Player and ply:IsInHideout() then
 					dropdown:AddSpacer()
 
-					local inviteToSquad = dropdown:AddOption("Invite To Squad", function() InvitePlayerToSquad(v) end)
+					local inviteToSquad = dropdown:AddOption("Invite To Squad", function() InvitePlayerToSquad(ply) end)
 					inviteToSquad:SetIcon("icon16/user_add.png")
-					local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(v) end)
+					local inviteToDuel = dropdown:AddOption("Invite To Duel", function() InvitePlayerToDuel(ply) end)
 					inviteToDuel:SetIcon("icon16/bomb.png")
 				end
 
 				dropdown:AddSpacer()
 
-				dropdown:AddOption("Copy Name", function() SetClipboardText(v:Nick()) end):SetIcon("icon16/pencil_add.png")
-				dropdown:AddOption("Copy SteamID64", function() SetClipboardText(v:SteamID64()) end):SetIcon("icon16/pencil_add.png")
+				dropdown:AddOption("Copy Name", function() SetClipboardText(ply:Nick()) end):SetIcon("icon16/pencil_add.png")
+				dropdown:AddOption("Copy SteamID64", function() SetClipboardText(ply:SteamID64()) end):SetIcon("icon16/pencil_add.png")
 
-				if v != EFGM.MENU.Player then
+				if ply != EFGM.MENU.Player then
 					local mute = dropdown:AddOption("Mute Player", function()
-						if v:IsMuted() then
-							v:SetMuted(false)
+						if ply:IsMuted() then
+							ply:SetMuted(false)
 						else
-							v:SetMuted(true)
+							ply:SetMuted(true)
 						end
 					end)
 
-					if v:IsMuted() then
+					if ply:IsMuted() then
 						mute:SetIcon("icon16/sound.png")
 						mute:SetText("Unmute Player")
 					else
@@ -3445,7 +3464,7 @@ function EFGM.MENU.OpenTab.Map()
 	local mapRawName = game.GetMap()
 	local mapOverhead = MATS.curMapOverhad
 
-	local mapName = MAPNAMES[mapRawName]
+	local mapName = MAPS[mapRawName].name
 	surface.SetFont("PuristaBold50")
 	local mapNameText = string.upper(mapName or "")
 
@@ -3514,7 +3533,7 @@ function EFGM.MENU.OpenTab.Map()
 	map.MapSizeX = mapSizeX
 	map.MapSizeY = mapSizeY
 
-	map.MapInfo = MAPINFO[mapRawName]
+	map.MapInfo = MAPS[mapRawName].info
 	map.OverheadImage = mapOverhead
 
 	map:ClampPanOffset()
@@ -3994,11 +4013,29 @@ function EFGM.MENU.OpenTab.Map()
 					end
 				end
 
-				for key, plys in SortedPairs(members) do
-					local memberPFP = vgui.Create("AvatarImage", squadPopOut)
-					memberPFP:SetPos(EFGM.MenuScale(5), (key * EFGM.MenuScale(20)) + EFGM.MenuScale(12))
+				for key, ply in SortedPairs(members) do
+					local level = ply:GetNWInt("Level", 1)
+					local xp = ply:GetNWInt("Experience", 0)
+					local xpNeeded = ply:GetNWInt("ExperienceToNextLevel", 500)
+
+					local memberIcon = vgui.Create("DPanel", squadPopOut)
+					memberIcon:SetPos(EFGM.MenuScale(5), (key * EFGM.MenuScale(20)) + EFGM.MenuScale(12))
+					memberIcon:SetSize(EFGM.MenuScale(36), EFGM.MenuScale(18))
+
+					function memberIcon:Paint(w, h)
+						surface.SetDrawColor(Color(100, 100, 50, 45))
+						surface.DrawRect(0, 0, EFGM.MenuScale(18), EFGM.MenuScale(18))
+
+						surface.SetDrawColor(Color(100, 100, 50))
+						surface.DrawRect(0, 0, (xp / xpNeeded) * EFGM.MenuScale(18), EFGM.MenuScale(18))
+
+						draw.SimpleTextOutlined(level, "PuristaBold14", EFGM.MenuScale(9), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					end
+
+					local memberPFP = vgui.Create("AvatarImage", memberIcon)
+					memberPFP:SetPos(EFGM.MenuScale(18), 0)
 					memberPFP:SetSize(EFGM.MenuScale(18), EFGM.MenuScale(18))
-					memberPFP:SetPlayer(plys, 64)
+					memberPFP:SetPlayer(ply, 64)
 				end
 
 				-- create password entry if squad is password protected and not full
@@ -4113,20 +4150,40 @@ function EFGM.MENU.OpenTab.Map()
 
 			for k, v in SortedPairs(members) do
 				if v == owner then
-					draw.SimpleTextOutlined(v:Nick() .. "*", "PuristaBold24", EFGM.MenuScale(40), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					draw.SimpleTextOutlined(v:Nick() .. "*", "PuristaBold24", EFGM.MenuScale(70), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				else
-					draw.SimpleTextOutlined(v:Nick(), "PuristaBold24", EFGM.MenuScale(40), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+					draw.SimpleTextOutlined(v:Nick(), "PuristaBold24", EFGM.MenuScale(70), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(3), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 				end
 			end
 		end
 
 		for k, v in SortedPairs(members) do
-			local memberPFP = vgui.Create("AvatarImage", currentSquadMembers)
-			memberPFP:SetPos(EFGM.MenuScale(5), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(5))
+			local level = v:GetNWInt("Level", 1)
+			local xp = v:GetNWInt("Experience", 0)
+			local xpNeeded = v:GetNWInt("ExperienceToNextLevel", 500)
+
+			local memberIcon = vgui.Create("DButton", currentSquadMembers)
+			memberIcon:SetPos(EFGM.MenuScale(5), (k * EFGM.MenuScale(35)) - EFGM.MenuScale(5))
+			memberIcon:SetSize(EFGM.MenuScale(60), EFGM.MenuScale(30))
+			memberIcon:SetText("")
+
+			function memberIcon:Paint(w, h)
+				surface.SetDrawColor(Color(100, 100, 50, 45))
+				surface.DrawRect(0, 0, EFGM.MenuScale(30), EFGM.MenuScale(30))
+
+				surface.SetDrawColor(Color(100, 100, 50))
+				surface.DrawRect(0, 0, (xp / xpNeeded) * EFGM.MenuScale(30), EFGM.MenuScale(30))
+
+				draw.SimpleTextOutlined(level, "PuristaBold24", EFGM.MenuScale(15), EFGM.MenuScale(2), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			end
+
+			local memberPFP = vgui.Create("AvatarImage", memberIcon)
+			memberPFP:SetPos(EFGM.MenuScale(30), 0)
 			memberPFP:SetSize(EFGM.MenuScale(30), EFGM.MenuScale(30))
 			memberPFP:SetPlayer(v, 184)
+			memberPFP:SetMouseInputEnabled(false)
 
-			function memberPFP:OnMousePressed()
+			function memberIcon:OnMousePressed()
 				local dropdown = DermaMenu()
 
 				local profile = dropdown:AddOption("Open Steam Profile", function() gui.OpenURL("http://steamcommunity.com/profiles/" .. v:SteamID64()) end)
@@ -9522,7 +9579,7 @@ function EFGM.MENU.OpenTab.Tasks()
 
 		if !table.IsEmpty(EFGM.CLIENT.TASKS) then
 			for taskName, taskInstance in pairs(EFGM.CLIENT.TASKS) do
-				local taskInfo = EFGMTASKS[taskName]
+				local taskInfo = EFGM.TASKS[taskName]
 
 				local taskButton = taskListScroller:Add("DButton")
 				taskButton:SetHeight(EFGM.MenuScale(110))
@@ -9591,7 +9648,7 @@ function EFGM.MENU.OpenTab.Tasks()
 		taskDisplay:Clear()
 		taskDisplay:SetVisible(true)
 
-		local taskInfo = EFGMTASKS[taskName]
+		local taskInfo = EFGM.TASKS[taskName]
 
 		local taskDisplayHeader = vgui.Create("DPanel", taskDisplay)
 		taskDisplayHeader:Dock(TOP)
@@ -11317,9 +11374,9 @@ end
 function GetObjectiveText(obj)
 	if obj.type == OBJECTIVE.Kill then
 		if obj.areaName != nil then
-			return "Eliminate PMC's across " .. MAPNAMES[obj.mapName] .. " at " .. obj.areaDisplayName or obj.areaName
+			return "Eliminate PMC's across " .. MAPS[obj.mapName].name .. " at " .. obj.areaDisplayName or obj.areaName
 		elseif obj.mapName != nil then
-			return "Eliminate PMC's across " .. MAPNAMES[obj.mapName]
+			return "Eliminate PMC's across " .. MAPS[obj.mapName].name
 		else
 			return "Eliminate PMC's across Garkov"
 		end
@@ -11327,9 +11384,9 @@ function GetObjectiveText(obj)
 
 	if obj.type == OBJECTIVE.Extract then
 		if obj.extractName != nil then
-			return "Extract from " .. MAPNAMES[obj.mapName] .. " through " .. obj.extractDisplayName or obj.extractName
+			return "Extract from " .. MAPS[obj.mapName].name .. " through " .. obj.extractDisplayName or obj.extractName
 		elseif obj.mapName != nil then
-			return "Extract from " .. MAPNAMES[obj.mapName]
+			return "Extract from " .. MAPS[obj.mapName].name
 		else
 			return "Extract from any location across Garkov"
 		end
@@ -11348,11 +11405,11 @@ function GetObjectiveText(obj)
 	end
 
 	if obj.type == OBJECTIVE.QuestItem then
-		return "Retrieve " .. EFGM.ITEMS[obj.itemName].name
+		return "Retrieve " .. EFGM.ITEMS[obj.itemName].fullName
 	end
 
 	if obj.type == OBJECTIVE.VisitArea then
-		return "Scout out " .. obj.areaDisplayName .. " at " .. MAPNAMES[obj.mapName]
+		return "Scout out " .. obj.areaDisplayName .. " at " .. MAPS[obj.mapName].name
 	end
 
 	return "Counting or not counting OBJECTIVE[" .. obj.type .. "]?"

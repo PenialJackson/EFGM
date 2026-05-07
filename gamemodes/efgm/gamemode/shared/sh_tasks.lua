@@ -15,7 +15,7 @@ function InstantiateTask(name, status, progress, tempProgress)
 
 	local task = {}
 
-	local info = EFGMTASKS[name]
+	local info = EFGM.TASKS[name]
 	if info == nil then return nil end
 
 	task.progress = {}

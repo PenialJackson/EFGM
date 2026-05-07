@@ -93,20 +93,6 @@ if CLIENT then
 	hook.Add("OnEntityCreated", "WidgetCreated", CLTickRemoval)
 end
 
--- force multicore for clients
-if CLIENT then
-	hook.Add("InitPostEntity", "CLMulticore", function()
-		timer.Simple(3, function() -- just in case
-			RunConsoleCommand("gmod_mcore_test", "1")
-			RunConsoleCommand("mat_queue_mode", "-1")
-			RunConsoleCommand("cl_threaded_bone_setup", "1")
-			RunConsoleCommand("r_threaded_particles", "1")
-			RunConsoleCommand("r_queued_ropes", "1")
-			RunConsoleCommand("studio_queue_mode", "1")
-		end)
-	end)
-end
-
 -- optimized surface and draw functions
 if SERVER or SurfaceRewrite then return end
 SurfaceRewrite = true

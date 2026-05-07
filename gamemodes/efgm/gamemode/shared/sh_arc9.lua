@@ -20,6 +20,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	if (!string.find(class, "efgm") and !string.find(class, "arc9")) and class != "weapon_base" then return false end
 
 	if string.find(class, "arc9") then
+
+	local swepGetProcessedValue = SWEP.GetProcessedValue
+
 	-- arc9 determines a player as sprinting if they are holding IN_SPEED, not when they are actually sprinting, breaking animations with EFGM's sprinting system
 	function SWEP:GetIsSprintingCheck()
 		local owner = self:GetOwner()
@@ -421,15 +424,17 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			return
 		end
 
-		if self:GetProcessedValue("Throwable", true) then
+		if !swepGetProcessedValue then swepGetProcessedValue = self.GetProcessedValue end
+
+		if swepGetProcessedValue(self, "Throwable", true) then
 			return
 		end
 
-		if self:GetProcessedValue("PrimaryBash", true) then
+		if swepGetProcessedValue(self, "PrimaryBash", true) then
 			return
 		end
 
-		if self:GetProcessedValue("UBGLInsteadOfSights", true) then
+		if swepGetProcessedValue(self, "UBGLInsteadOfSights", true) then
 			self:ToggleUBGL(false)
 		end
 
@@ -445,7 +450,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		if self:GetCustomize() then return end
 
-		if self:GetProcessedValue("Bash", true) and owner:KeyDown(IN_USE) and !self:GetInSights() then
+		if swepGetProcessedValue(self, "Bash", true) and owner:KeyDown(IN_USE) and !self:GetInSights() then
 			if self:GetIsSprinting() and !self.ShootWhileSprint then return end
 			self:MeleeAttack()
 			self:SetNeedTriggerPress(true)
@@ -459,17 +464,17 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local nthShot = self:GetNthShot()
 
 		if self:HasAmmoInClip() then
-			if self:GetProcessedValue("TriggerDelay") then
+			if swepGetProcessedValue(self, "TriggerDelay") then
 				local primedAttack = self:GetPrimedAttack()
 				local time = CurTime()
 
 				if self:GetBurstCount() == 0 and !primedAttack and !self:StillWaiting() then
-					self:SetTriggerDelay(time + self:GetProcessedValue("TriggerDelayTime"))
-					local isEmpty = self:Clip1() == self:GetProcessedValue( "AmmoPerShot")
+					self:SetTriggerDelay(time + swepGetProcessedValue(self, "TriggerDelayTime"))
+					local isEmpty = self:Clip1() == swepGetProcessedValue(self,  "AmmoPerShot")
 					local anim = "trigger"
 
-					if self:GetProcessedValue("Akimbo", true) then
-						if self:GetProcessedValue( "AkimboBoth", true) then
+					if swepGetProcessedValue(self, "Akimbo", true) then
+						if swepGetProcessedValue(self,  "AkimboBoth", true) then
 							anim = "trigger_both"
 						elseif nthShot % 2 == 0 then
 							anim = "trigger_right"
@@ -478,9 +483,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 						end
 					end
 
-					if self:GetProcessedValue("TriggerStartFireAnim", true) then
-							if self:GetProcessedValue("Akimbo", true) then
-								if self:GetProcessedValue( "AkimboBoth", true) then
+					if swepGetProcessedValue(self, "TriggerStartFireAnim", true) then
+							if swepGetProcessedValue(self, "Akimbo", true) then
+								if swepGetProcessedValue(self,  "AkimboBoth", true) then
 									anim = "fire_both"
 								elseif nthShot % 2 == 0 then
 									anim = "fire_right"
@@ -496,11 +501,11 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 					self:PlayAnimation(anim)
 					self:SetPrimedAttack(true)
 					return
-				elseif primedAttack and (self:GetTriggerDelay() <= time and (!self:GetProcessedValue( "TriggerDelayReleaseToFire", true) or !owner:KeyDown(IN_ATTACK))) then
+				elseif primedAttack and (self:GetTriggerDelay() <= time and (!swepGetProcessedValue(self,  "TriggerDelayReleaseToFire", true) or !owner:KeyDown(IN_ATTACK))) then
 					self:SetPrimedAttack(false)
 				end
 			end
-		elseif !self:GetProcessedValue("TriggerDelay") or !self:GetProcessedValue( "TriggerDelayReleaseToFire", true) or !owner:KeyDown(IN_ATTACK) then
+		elseif !swepGetProcessedValue(self, "TriggerDelay") or !swepGetProcessedValue(self,  "TriggerDelayReleaseToFire", true) or !owner:KeyDown(IN_ATTACK) then
 			self:SetPrimedAttack(false)
 		end
 
@@ -527,7 +532,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		function SWEP:CalcView(ply, pos, ang, fov)
 			if self:GetOwner():ShouldDrawLocalPlayer() then return end
 
-			local rec = (self:GetLastRecoilTime() + 0.25) - CurTime()
+			local swepDt = self.dt
+			if !swepGetProcessedValue then swepGetProcessedValue = self.GetProcessedValue end
+
+			local rec = (swepDt.LastRecoilTime + 0.25) - CurTime()
 
 			local reckick = self:GetProcessedValue("RecoilKick")
 			rec = rec * 3 * reckick
@@ -537,14 +545,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			end
 
 			if self.RecoilKickAffectPitch and !self:IsUsingRTScope() then
-				local recam = math.min(self:GetRecoilAmount(), 15)
+				local recam = math.min(swepDt.RecoilAmount, 15)
 				SmoothRecoilAmount = Lerp(FrameTime() * 3, SmoothRecoilAmount, recam)
 				local thing = SmoothRecoilAmount * (reckick * self:GetProcessedValue("RecoilKickPitchMult")) * self:GetProcessedValue("Recoil")
 				ang.p = ang.p - 0.6 * thing
 				self.VMZOffsetForCamera = -0.25 * thing
 			end
 
-			local sightamount = self:GetSightAmount()
+			local sightamount = swepDt.SightAmount
 
 			fov = efgmFOVOverride:GetBool() and fov / self:GetSmoothedFOVMag() or fov
 			self.FOV = fov
@@ -552,7 +560,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			ang = ang + (self.StoredVMAngles or angle_zero)
 
 			if arc9_vm_cambob:GetBool() then
-				local sprintmult = arc9_vm_cambobwalk:GetBool() and 1 or Lerp(self:GetSprintAmount(), 0, 1)
+				local sprintmult = arc9_vm_cambobwalk:GetBool() and 1 or Lerp(swepDt.SprintAmount, 0, 1)
 				local totalmult = math.ease.InQuad(math.Clamp(self.ViewModelBobVelocity / 350, 0, 1) * Lerp(sightamount, 1, 0.65)) * sprintmult * arc9_vm_cambobintensity:GetFloat()
 				ang:RotateAroundAxis(ang:Right(),   math.cos(self.BobCT * 6)    * totalmult * -0.5)
 				ang:RotateAroundAxis(ang:Up(),      math.cos(self.BobCT * 3.3)  * totalmult * -0.5)
@@ -1700,12 +1708,12 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		local clip = self:GetLoadedClip()
 
-		if self:GetProcessedValue("BottomlessClip", true) then
+		if swepGetProcessedValue(self, "BottomlessClip", true) then
 			self:RestoreClip(math.huge)
 		end
 
 		if !self:HasAmmoInClip() then
-			if self:GetUBGL() and !self:GetProcessedValue("UBGLInsteadOfSights", true) then
+			if self:GetUBGL() and !swepGetProcessedValue(self, "UBGLInsteadOfSights", true) then
 				if self:GetMaxClip2() < 2 then -- mytton doesn't like auto ubgl reload
 					if self:CanReload() then
 						self:Reload()
@@ -1723,7 +1731,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			end
 		end
 
-		if !self:GetProcessedValue("CanFireUnderwater", true) and bit.band(util.PointContents(self:GetShootPos()), CONTENTS_WATER) == CONTENTS_WATER then
+		if !swepGetProcessedValue(self, "CanFireUnderwater", true) and bit.band(util.PointContents(self:GetShootPos()), CONTENTS_WATER) == CONTENTS_WATER then
 			self:DryFire()
 			return
 		end
@@ -1749,14 +1757,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			owner:SetNWInt("RaidShotsFired", owner:GetNWInt("RaidShotsFired") + 1)
 		end
 
-		local triggerStartFireAnim = self:GetProcessedValue("TriggerStartFireAnim", true)
+		local triggerStartFireAnim = swepGetProcessedValue(self, "TriggerStartFireAnim", true)
 		local nthShot = self:GetNthShot()
 
-		if self:GetProcessedValue("DoFireAnimation", true) and !triggerStartFireAnim then
+		if swepGetProcessedValue(self, "DoFireAnimation", true) and !triggerStartFireAnim then
 			local anim = "fire"
 
-			if self:GetProcessedValue("Akimbo", true) then
-				if self:GetProcessedValue( "AkimboBoth", true) then
+			if swepGetProcessedValue(self, "Akimbo", true) then
+				if swepGetProcessedValue(self,  "AkimboBoth", true) then
 					anim = "fire_both"
 				elseif nthShot % 2 == 0 then
 					anim = "fire_right"
@@ -1782,10 +1790,10 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		self:SetLoadedRounds(clip1)
 
-		local manualaction = self:GetProcessedValue("ManualAction", true)
+		local manualaction = swepGetProcessedValue(self, "ManualAction", true)
 
-		if !self:GetProcessedValue("NoShellEject", true) and !(manualaction and !self:GetProcessedValue("ManualActionEjectAnyway", true)) then
-			local ejectdelay = self:GetProcessedValue("EjectDelay", true)
+		if !swepGetProcessedValue(self, "NoShellEject", true) and !(manualaction and !swepGetProcessedValue(self, "ManualActionEjectAnyway", true)) then
+			local ejectdelay = swepGetProcessedValue(self, "EjectDelay", true)
 
 			if ejectdelay == 0 then
 				self:DoEject()
@@ -1800,9 +1808,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		self:DoShootSounds()
 
-		self:DoPlayerAnimationEvent(self:GetProcessedValue("AnimShoot", true))
+		self:DoPlayerAnimationEvent(swepGetProcessedValue(self, "AnimShoot", true))
 
-		local delay = 60 / self:GetProcessedValue( "RPM")
+		local delay = 60 / swepGetProcessedValue(self,  "RPM")
 		local time = CurTime()
 
 		local curatt = self:GetNextPrimaryFire()
@@ -1819,15 +1827,15 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		self:DoEffects()
 
 		if self:HoldingBreath() then
-			self:SetBreath(math.max(0, self:GetBreath() - math.max(10, self:GetProcessedValue(  "HoldBreathTime", true) / 20)))
+			self:SetBreath(math.max(0, self:GetBreath() - math.max(10, swepGetProcessedValue(self,   "HoldBreathTime", true) / 20)))
 		end
 
 		-- ewww
-		if self:GetProcessedValue( "AkimboBoth", true) then
+		if swepGetProcessedValue(self,  "AkimboBoth", true) then
 			self:SetNthShot(nthShot + 2)
 			self:DoEffects()
-			if !self:GetProcessedValue("NoShellEject", true) and !(manualaction and !self:GetProcessedValue("ManualActionEjectAnyway", true)) then
-				local ejectdelay = self:GetProcessedValue("EjectDelay", true)
+			if !swepGetProcessedValue(self, "NoShellEject", true) and !(manualaction and !swepGetProcessedValue(self, "ManualActionEjectAnyway", true)) then
+				local ejectdelay = swepGetProcessedValue(self, "EjectDelay", true)
 				if ejectdelay == 0 then
 					self:DoEject()
 				else
@@ -1848,13 +1856,13 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			end
 		end
 
-		local spread = self:GetProcessedValue("Spread")
+		local spread = swepGetProcessedValue(self, "Spread")
 
 		spread = math.Max(spread, 0)
 
 		local shopos, shoang = self:GetShootPos()
 
-		if IsValid(self:GetLockOnTarget()) and self:GetLockedOn() and self:GetProcessedValue("LockOnAutoaim", true) then
+		if IsValid(self:GetLockOnTarget()) and self:GetLockedOn() and swepGetProcessedValue(self, "LockOnAutoaim", true) then
 			sa = (self:GetLockOnTarget():EyePos() - shopos):Angle()
 		end
 
@@ -1863,16 +1871,16 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		self:ApplyRecoil()
 		self:DoVisualRecoil()
 
-		if burstCount == 0 and currentFiremode > 1 and self:GetProcessedValue("RunawayBurst", true) then
-			if !self:GetProcessedValue("AutoBurst", true) then
+		if burstCount == 0 and currentFiremode > 1 and swepGetProcessedValue(self, "RunawayBurst", true) then
+			if !swepGetProcessedValue(self, "AutoBurst", true) then
 				self:SetNeedTriggerPress(true)
 			end
 		end
 
 		if manualaction then
 			nthShot = nthShot + 1
-			if clip1 > 0 or !self:GetProcessedValue("ManualActionNoLastCycle", true) then
-				if nthShot % self:GetProcessedValue("ManualActionChamber", true) == 0 then
+			if clip1 > 0 or !swepGetProcessedValue(self, "ManualActionNoLastCycle", true) then
+				if nthShot % swepGetProcessedValue(self, "ManualActionChamber", true) == 0 then
 					self:SetNeedsCycle(true)
 				end
 			end
@@ -1895,8 +1903,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			self:SetNthShot(0)
 		end
 
-		if self:GetProcessedValue("TriggerDelayRepeat", true) and self:GetOwner():KeyDown(IN_ATTACK) and currentFiremode != 1 then
-			self:SetTriggerDelay(time + self:GetProcessedValue("TriggerDelayTime"))
+		if swepGetProcessedValue(self, "TriggerDelayRepeat", true) and self:GetOwner():KeyDown(IN_ATTACK) and currentFiremode != 1 then
+			self:SetTriggerDelay(time + swepGetProcessedValue(self, "TriggerDelayTime"))
 			if triggerStartFireAnim then
 				self:PlayAnimation("fire")
 			else
@@ -1922,7 +1930,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 		self:SetUBGL(secondary)
 
-		dmg:SetDamageType(self:GetProcessedValue( "DamageType", true) or DMG_BULLET)
+		dmg:SetDamageType(swepGetProcessedValue(self,  "DamageType", true) or DMG_BULLET)
 
 		local dmgv = self:GetDamageAtRange(range)
 		local dmgvoriginal = dmgv
@@ -1937,8 +1945,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		self:RunHook("Hook_BulletImpact", runHook)
 
 		-- Penetration
-		local pen = self:GetProcessedValue( "Penetration", true)
-		local pendeltaval = self:GetProcessedValue( "PenetrationDelta", true)
+		local pen = swepGetProcessedValue(self,  "Penetration", true)
+		local pendeltaval = swepGetProcessedValue(self,  "PenetrationDelta", true)
 		if pen > 0 then
 			local pendelta = penleft / pen
 			pendelta = Lerp(pendelta, pendeltaval, 1) -- it arleady clamps inside
@@ -1958,26 +1966,26 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		end
 
 		if !ARC9.NoBodyPartsDamageMults then
-			local bodydamage = self:GetProcessedValue( "BodyDamageMults", true)
+			local bodydamage = swepGetProcessedValue(self,  "BodyDamageMults", true)
 
 			if bodydamage[hitGroup] then
 				dmgv = dmgv * bodydamage[hitGroup]
 			end
 			if hitGroup == HITGROUP_HEAD then
-				dmgv = dmgv * self:GetProcessedValue( "HeadshotDamage", true)
+				dmgv = dmgv * swepGetProcessedValue(self,  "HeadshotDamage", true)
 			elseif hitGroup == HITGROUP_CHEST then
-				dmgv = dmgv * self:GetProcessedValue( "ChestDamage", true)
+				dmgv = dmgv * swepGetProcessedValue(self,  "ChestDamage", true)
 			elseif hitGroup == HITGROUP_STOMACH then
-				dmgv = dmgv * self:GetProcessedValue( "StomachDamage", true)
+				dmgv = dmgv * swepGetProcessedValue(self,  "StomachDamage", true)
 			elseif hitGroup == HITGROUP_LEFTARM or hitGroup == HITGROUP_RIGHTARM then
-				dmgv = dmgv * self:GetProcessedValue( "ArmDamage", true)
+				dmgv = dmgv * swepGetProcessedValue(self,  "ArmDamage", true)
 			elseif hitGroup == HITGROUP_LEFTLEG or hitGroup == HITGROUP_RIGHTLEG then
-				dmgv = dmgv * self:GetProcessedValue( "LegDamage", true)
+				dmgv = dmgv * swepGetProcessedValue(self,  "LegDamage", true)
 			end
 		end
 
 		-- Armor piercing (done after weapon's limb multipliers but BEFORE body damage cancel)
-		local ap = math.Clamp(self:GetProcessedValue( "ArmorPiercing", true), 0, 1)
+		local ap = math.Clamp(swepGetProcessedValue(self,  "ArmorPiercing", true), 0, 1)
 		if ap > 0 and !alreadypenned[traceEntity] then
 			if traceEntity:GetClass() == "npc_helicopter" then
 				local apdmg = DamageInfo()
@@ -2011,7 +2019,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 
 					traceEntity.ARC9APPower = pen
 					traceEntity.ARC9APDelta = pendeltaval
-					traceEntity.ARC9APRangeMult = dmgvoriginal / self:GetProcessedValue( "DamageMax", true)
+					traceEntity.ARC9APRangeMult = dmgvoriginal / swepGetProcessedValue(self,  "DamageMax", true)
 				end
 			end
 		end
@@ -2027,30 +2035,30 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local hitPos = tr.HitPos
 		local hitNormal = tr.HitNormal
 
-		if self:GetProcessedValue( "ImpactDecal", true) then
-			util.Decal(self:GetProcessedValue( "ImpactDecal", true), tr.StartPos, hitPos - (hitNormal * 2), owner)
+		if swepGetProcessedValue(self,  "ImpactDecal", true) then
+			util.Decal(swepGetProcessedValue(self,  "ImpactDecal", true), tr.StartPos, hitPos - (hitNormal * 2), owner)
 		end
 
-		if self:GetProcessedValue( "ImpactEffect", true) then
+		if swepGetProcessedValue(self,  "ImpactEffect", true) then
 			local fx = EffectData()
 			fx:SetOrigin(hitPos)
 			fx:SetNormal(hitNormal)
-			util.Effect(self:GetProcessedValue( "ImpactEffect", true), fx, true)
+			util.Effect(swepGetProcessedValue(self,  "ImpactEffect", true), fx, true)
 		end
 
-		if self:GetProcessedValue( "ImpactSound", true) then
-			soundTab2.sound = self:GetProcessedValue( "ImpactSound", true)
+		if swepGetProcessedValue(self,  "ImpactSound", true) then
+			soundTab2.sound = swepGetProcessedValue(self,  "ImpactSound", true)
 
 			soundTab2 = self:RunHook("HookP_TranslateSound", soundTab2) or soundTab2
 
 			sound.Play(soundTab2.sound, hitPos, soundTab2.level, soundTab2.pitch, soundTab2.volume)
 		end
 
-		if self:GetProcessedValue( "ExplosionDamage") > 0 then
-			util.BlastDamage(self, IsValid(owner) and owner or self, hitPos, self:GetProcessedValue( "ExplosionRadius", true), self:GetProcessedValue( "ExplosionDamage"))
+		if swepGetProcessedValue(self,  "ExplosionDamage") > 0 then
+			util.BlastDamage(self, IsValid(owner) and owner or self, hitPos, swepGetProcessedValue(self,  "ExplosionRadius", true), swepGetProcessedValue(self,  "ExplosionDamage"))
 		end
 
-		if self:GetProcessedValue( "ExplosionEffect", true) then
+		if swepGetProcessedValue(self,  "ExplosionEffect", true) then
 			local fx = EffectData()
 			fx:SetOrigin(hitPos)
 			fx:SetNormal(hitNormal)
@@ -2059,7 +2067,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			if bit.band(util.PointContents(hitPos), CONTENTS_WATER) == CONTENTS_WATER then
 				util.Effect("WaterSurfaceExplosion", fx, true)
 			else
-				util.Effect(self:GetProcessedValue( "ExplosionEffect", true), fx, true)
+				util.Effect(swepGetProcessedValue(self,  "ExplosionEffect", true), fx, true)
 			end
 		end
 
@@ -2127,7 +2135,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	local soundtab6 = {name = "shootdistantindoor"}
 
 	function SWEP:DoShootSounds()
-		local pvar = self:GetProcessedValue("ShootPitchVariation", true)
+		if !swepGetProcessedValue then swepGetProcessedValue = self.GetProcessedValue end
+
+		local pvar = swepGetProcessedValue(self, "ShootPitchVariation", true)
 		local pvrand = math.Rand(-pvar, pvar) -- util.SharedRandom("ARC9_sshoot", -pvar, pvar) -- who gives a shit??? plus it broke af
 		local randomChoice = self.RandomChoice
 
@@ -2135,20 +2145,20 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		local sslr = lsslr
 		local dsstr = ldsstr
 
-		local silenced = self:GetProcessedValue("Silencer", true) and !self:GetUBGL()
+		local silenced = swepGetProcessedValue(self, "Silencer", true) and !self:GetUBGL()
 		local indoor = self:GetIndoor()
 
 		local indoormix = 1 - indoor
-		local havedistant = self:GetProcessedValue(dsstr, true)
+		local havedistant = swepGetProcessedValue(self, dsstr, true)
 
-		if self:GetProcessedValue("Silencer", true) and !self:GetUBGL() then
-			if self:GetProcessedValue(sstrSilenced, true) then
+		if swepGetProcessedValue(self, "Silencer", true) and !self:GetUBGL() then
+			if swepGetProcessedValue(self, sstrSilenced, true) then
 				sstr = sstrSilenced
 			end
-			if self:GetProcessedValue(sslrSilenced, true) then
+			if swepGetProcessedValue(self, sslrSilenced, true) then
 				sslr = sslrSilenced
 			end
-			if havedistant and self:GetProcessedValue(dsstrSilenced, true) then
+			if havedistant and swepGetProcessedValue(self, dsstrSilenced, true) then
 				dsstr = dsstrSilenced
 			end
 		end
@@ -2158,28 +2168,28 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			local sstrFirst = "First" .. sstr
 			local dsstrFirst = "First" .. dsstr
 
-			if burstCountZero and self:GetProcessedValue(sstrFirst, true) then
+			if burstCountZero and swepGetProcessedValue(self, sstrFirst, true) then
 				sstr = sstrFirst
 			end
 
-			if havedistant and burstCountZero and self:GetProcessedValue(dsstrFirst, true) then
+			if havedistant and burstCountZero and swepGetProcessedValue(self, dsstrFirst, true) then
 				dsstr = dsstrFirst
 			end
 		end
 
-		local ss = randomChoice(self, self:GetProcessedValue(sstr, true))
-		local sl = randomChoice(self, self:GetProcessedValue(sslr, true))
+		local ss = randomChoice(self, swepGetProcessedValue(self, sstr, true))
+		local sl = randomChoice(self, swepGetProcessedValue(self, sslr, true))
 		local dss
 
 		if havedistant then
-			dss = randomChoice(self, self:GetProcessedValue(dsstr, true))
+			dss = randomChoice(self, swepGetProcessedValue(self, dsstr, true))
 		end
 
-		local svolume, spitch, svolumeactual = self:GetProcessedValue("ShootVolume", true), self:GetProcessedValue("ShootPitch", true) + pvrand, self:GetProcessedValue("ShootVolumeActual", true) or 1
+		local svolume, spitch, svolumeactual = swepGetProcessedValue(self, "ShootVolume", true), swepGetProcessedValue(self, "ShootPitch", true) + pvrand, swepGetProcessedValue(self, "ShootVolumeActual", true) or 1
 		local dvolume, dpitch
 
 		if havedistant then
-			dvolume, dpitch = math.min(149, (self:GetProcessedValue("DistantShootVolume", true) or svolume) * 2), (self:GetProcessedValue("DistantShootPitch", true) or spitch) + pvrand
+			dvolume, dpitch = math.min(149, (swepGetProcessedValue(self, "DistantShootVolume", true) or svolume) * 2), (swepGetProcessedValue(self, "DistantShootPitch", true) or spitch) + pvrand
 		end
 
 		local volumeMix = svolumeactual * indoormix
@@ -2234,9 +2244,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		end
 
 		if indoor > 0 then
-			local ssIN = randomChoice(self, self:GetProcessedValue(sstr .. "Indoor", true))
-			local slIN = randomChoice(self, self:GetProcessedValue(sslr .. "Indoor", true))
-			local dssIN = havedistant and randomChoice(self, self:GetProcessedValue(dsstr .. "Indoor", true))
+			local ssIN = randomChoice(self, swepGetProcessedValue(self, sstr .. "Indoor", true))
+			local slIN = randomChoice(self, swepGetProcessedValue(self, sslr .. "Indoor", true))
+			local dssIN = havedistant and randomChoice(self, swepGetProcessedValue(self, dsstr .. "Indoor", true))
 			local indoorVolumeMix = svolumeactual * indoor
 
 			do
@@ -2385,9 +2395,9 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			local owner = self:GetOwner()
 
 			owner.ARC9QuickthrowPls = nil
-			local QuicknadeBind = owner:KeyDown(IN_GRENADE1)
-
 			if owner:IsInHideout() then return end
+
+			local QuicknadeBind = owner:KeyDown(IN_GRENADE1)
 
 			if self:GetSafe() and owner:KeyPressed(IN_ATTACK) then self:ToggleSafety(false) return end
 
@@ -2660,7 +2670,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				data:SetAttachment(drop_qca)
 
 				util.Effect("efgm_magdropeffect", data, true)
-				return -- limit it to 1 because it was spawning 8+ of them at a time????
 			end
 		end
 	end

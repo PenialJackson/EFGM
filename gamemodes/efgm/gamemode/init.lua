@@ -4,6 +4,7 @@ AddCSLuaFile("enums.lua")
 AddCSLuaFile("config.lua")
 AddCSLuaFile("codex/codex_init.lua")
 AddCSLuaFile("items/items_init.lua")
+AddCSLuaFile("tasks/tasks_init.lua")
 
 include("shared.lua")
 include("util.lua")
@@ -11,6 +12,7 @@ include("enums.lua")
 include("config.lua")
 include("codex/codex_init.lua")
 include("items/items_init.lua")
+include("tasks/tasks_init.lua")
 
 EFGM.SERVER = EFGM.SERVER or {}
 
@@ -45,6 +47,13 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 
 	AddCSLuaFile("items/" .. f)
 	include("items/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/tasks/*.lua", "GAME", "nameasc")) do
+	if f == "tasks_init.lua" then continue end
+
+	AddCSLuaFile("tasks/" .. f)
+	include("tasks/" .. f)
 end
 
 local math = math
@@ -497,7 +506,7 @@ hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
 		data.timestamp = os.time()
 	end
 
-	if def.equipType == EQUIPTYPE.Consumable then
+	if (def.consumableType == "heal" or def.consumableType == "key") and def.consumableValue then
 		data.durability = def.consumableValue
 	end
 

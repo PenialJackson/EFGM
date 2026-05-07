@@ -1102,7 +1102,7 @@ if GetConVar("efgm_derivesbox"):GetInt() == 1 then
 		local def = EFGM.ITEMS[name]
 		if def == nil then return end
 
-		if def.consumableType == "key" then
+		if (def.consumableType == "heal" or def.consumableType == "key") and def.consumableValue then
 			data.durability = def.consumableValue
 		end
 

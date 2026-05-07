@@ -54,7 +54,7 @@ function TaskProgressObjectivesFromTable(ply, objTable, count)
 	-- objTable[taskName] = {objIndex, objIndex, ...}
 
 	for taskName, taskObjectives in pairs(objTable) do
-		local taskInfo = EFGMTASKS[taskName]
+		local taskInfo = EFGM.TASKS[taskName]
 
 		for _, objIndex in ipairs(taskObjectives) do
 			local objInfo = taskInfo.objectives[objIndex]
@@ -77,7 +77,7 @@ function TaskProgressObjectivesFromTable(ply, objTable, count)
 					elseif fullProgress + count >= objCount then
 						ply.tasks[taskName].tempProgress[objIndex] = objCount - ply.tasks[taskName].progress[objIndex]
 
-						if objInfo.type == OBJECTIVE.QuestItem then NotifyQuestItemPickup(ply, EFGM.ITEMS[objInfo.itemName].name) end
+						if objInfo.type == OBJECTIVE.QuestItem then NotifyQuestItemPickup(ply, EFGM.ITEMS[objInfo.itemName].fullName) end
 						TaskCheckComplete(ply, taskName)
 					end
 				end
@@ -88,7 +88,7 @@ end
 
 -- i dont think this works yet lmao
 function TaskProgressObjectivesSpecific(ply, taskName, objIndex, count)
-	local taskInfo = EFGMTASKS[taskName]
+	local taskInfo = EFGM.TASKS[taskName]
 	if taskInfo == nil then return end
 
 	local objInfo = taskInfo.objectives[objIndex]
@@ -131,7 +131,7 @@ function TaskTempProgressSaveAll(ply, progressType)
 	if table.IsEmpty(ply.tasks) then return end
 
 	for taskName, taskInstance in pairs(ply.tasks) do
-		local taskInfo = EFGMTASKS[taskName]
+		local taskInfo = EFGM.TASKS[taskName]
 
 		for k, v in ipairs(taskInstance.progress) do
 			ply.tasks[taskName].progress[k] = math.min(v + ply.tasks[taskName].tempProgress[k], taskInfo.objectives[k].count or 1)
@@ -142,7 +142,7 @@ end
 
 -- check completion
 function TaskCheckComplete(ply, taskName)
-	local taskInfo = EFGMTASKS[taskName or nil]
+	local taskInfo = EFGM.TASKS[taskName or nil]
 	if taskInfo == nil or table.IsEmpty(ply.tasks) or ply.tasks[taskName] == nil or ply.tasks[taskName].status != TASKSTATUS.InProgress then return end
 
 	for objIndex, objInfo in ipairs(taskInfo.objectives) do
@@ -158,7 +158,7 @@ end
 -- on completion
 function TaskDoComplete(ply, taskName)
 	ply.tasks[taskName].status = TASKSTATUS.Complete
-	local taskInfo = EFGMTASKS[taskName]
+	local taskInfo = EFGM.TASKS[taskName]
 
 	for rewardIndex, rewardInfo in ipairs(taskInfo.rewards) do
 		if rewardInfo.type == REWARD.PlayerStat and rewardInfo.info == "Experience" then
@@ -196,7 +196,7 @@ function TaskUpdate(ply)
 
 	-- removes nonexistent tasks
 	for taskName, taskInstance in pairs(ply.tasks) do
-		local taskInfo = EFGMTASKS[taskName]
+		local taskInfo = EFGM.TASKS[taskName]
 
 		if taskInfo == nil then
 			ply.tasks[taskName] = nil
@@ -217,7 +217,7 @@ end
 function TaskGetNewAvailable(ply)
 	local tasksToAssign = {}
 
-	for taskName, taskInfo in pairs(EFGMTASKS) do
+	for taskName, taskInfo in pairs(EFGM.TASKS) do
 		if taskInfo.requirements == nil then -- no requirements
 			table.insert(tasksToAssign, taskName)
 		else
@@ -253,7 +253,7 @@ function TaskGetAllUnfinishedKillObjectives(ply, mapName, areaName, weapon, rang
 	for taskName, taskInstance in pairs(ply.tasks) do
 		if taskInstance.status == TASKSTATUS.InProgress then
 			-- print("task "..taskName.. " in progress")
-			local taskInfo = EFGMTASKS[taskName]
+			local taskInfo = EFGM.TASKS[taskName]
 
 			for objIndex, obj in ipairs(taskInfo.objectives) do
 				-- im geniunely sorry for this
@@ -284,7 +284,7 @@ function TaskGetAllUnfinishedExtractObjectives(ply, mapName, extractName)
 	for taskName, taskInstance in pairs(ply.tasks) do
 		if taskInstance.status == TASKSTATUS.InProgress then
 			-- print("task "..taskName.. " in progress")
-			local taskInfo = EFGMTASKS[taskName]
+			local taskInfo = EFGM.TASKS[taskName]
 
 			for objIndex, obj in ipairs(taskInfo.objectives) do
 				if obj.type == OBJECTIVE.Extract and
@@ -309,7 +309,7 @@ function TaskGetAllUnfinishedQuestItemObjectives(ply, itemName)
 	for taskName, taskInstance in pairs(ply.tasks) do
 		if taskInstance.status == TASKSTATUS.InProgress then
 			-- print("task "..taskName.. " in progress")
-			local taskInfo = EFGMTASKS[taskName]
+			local taskInfo = EFGM.TASKS[taskName]
 
 			for objIndex, obj in ipairs(taskInfo.objectives) do
 				if obj.type == OBJECTIVE.QuestItem and
@@ -333,7 +333,7 @@ function TaskGetAllUnfinishedVisitAreaObjectives(ply, mapName, areaName)
 	for taskName, taskInstance in pairs(ply.tasks) do
 		if taskInstance.status == TASKSTATUS.InProgress then
 			-- print("task "..taskName.. " in progress")
-			local taskInfo = EFGMTASKS[taskName]
+			local taskInfo = EFGM.TASKS[taskName]
 
 			for objIndex, obj in ipairs(taskInfo.objectives) do
 				if obj.type == OBJECTIVE.VisitArea and

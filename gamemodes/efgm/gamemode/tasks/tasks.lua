@@ -1,177 +1,4 @@
--- If requirements aren't set, task is unlocked at start
--- Also, tasks are only unlocked if ALL requirements are met, this should change at some point
-REQUIREMENT = {}
-REQUIREMENT.PlayerStat = 1 -- Only supports NWInt's rn
-REQUIREMENT.QuestCompletion = 2
-REQUIREMENT.ItemDiscovered = 3 -- (Not implemented) So special quests can open if like, idk, the player finds a certain key
-REQUIREMENT.AreaVisited = 4 -- (Not fully implemented)
-
-OBJECTIVE = {}
-OBJECTIVE.Kill = 1
-OBJECTIVE.Extract = 2
-OBJECTIVE.GiveItem = 3
-OBJECTIVE.Pay = 4
-OBJECTIVE.QuestItem = 5
-OBJECTIVE.VisitArea = 6
-
-REWARD = {}
-REWARD.PlayerStat = 1
-REWARD.Item = 2
-REWARD.MarketUnlock = 3
-
-SAVEON = {}
-SAVEON.Progress = 1
-SAVEON.Extract = 2
-SAVEON.ObjectiveComplete = 3
-SAVEON.TaskComplete = 4
-
--- requirment functions
-NewRequirement = {}
-
-function NewRequirement.PlayerStat(count, stat)
-	local req = {}
-
-	req.type = REQUIREMENT.PlayerStat
-	req.count = count or 1
-	req.info = stat
-
-	return req
-end
-
-function NewRequirement.QuestCompletion(taskName)
-	local req = {}
-
-	req.type = REQUIREMENT.QuestCompletion
-	req.count = 1
-	req.info = taskName
-
-	return req
-end
-
--- objective functions
-NewObjective = {}
-
-function NewObjective.Kill(count, mapName, areaName, areaDisplayName, weapon, useCategory, minRange, maxRange, reqHeadshot, whenToSave, customObjectiveText)
-	local obj = {}
-
-	obj.type = OBJECTIVE.Kill
-	obj.count = count or 1
-	obj.mapName = mapName
-	obj.areaName = areaName
-	obj.areaDisplayName = areaDisplayName
-	obj.weapon = weapon
-	obj.useCategory = useCategory
-	obj.minRange = minRange
-	obj.maxRange = maxRange
-	obj.reqHeadshot = reqHeadshot
-	obj.whenToSave = whenToSave or SAVEON.Progress
-	obj.customObjectiveText = customObjectiveText
-
-	return obj
-end
-
-function NewObjective.Extract(count, mapName, extractName, extractDisplayName, whenToSave, customObjectiveText)
-	local obj = {}
-
-	obj.type = OBJECTIVE.Extract
-	obj.count = count or 1
-	obj.mapName = mapName
-	obj.extractName = extractName
-	obj.extractDisplayName = extractDisplayName
-	obj.whenToSave = whenToSave or SAVEON.Progress
-	obj.customObjectiveText = customObjectiveText
-
-	return obj
-end
-
-function NewObjective.GiveItem(count, itemName, customObjectiveText)
-	local obj = {}
-
-	obj.type = OBJECTIVE.GiveItem
-	obj.count = count or 1
-	obj.itemName = itemName
-	obj.whenToSave = SAVEON.Progress
-	obj.customObjectiveText = customObjectiveText
-
-	return obj
-end
-
-function NewObjective.Pay(count, customObjectiveText)
-	local obj = {}
-
-	obj.type = OBJECTIVE.Pay
-	obj.count = count or 1
-	obj.whenToSave = SAVEON.Progress
-	obj.customObjectiveText = customObjectiveText
-
-	return obj
-end
-
-function NewObjective.QuestItem(itemName, mapName, areaDisplayName, customObjectiveText)
-	local obj = {}
-
-	obj.type = OBJECTIVE.QuestItem
-	obj.itemName = itemName
-	obj.mapName = mapName
-	obj.areaDisplayName = areaDisplayName
-	obj.whenToSave = SAVEON.Extract
-	obj.customObjectiveText = customObjectiveText
-
-	return obj
-end
-
-function NewObjective.VisitArea(mapName, areaName, areaDisplayName, whenToSave)
-	local obj = {}
-
-	obj.type = OBJECTIVE.VisitArea
-	obj.mapName = mapName
-	obj.areaName = areaName
-	obj.areaDisplayName = areaDisplayName
-	obj.whenToSave = whenToSave or SAVEON.Progress
-	obj.customObjectiveText = customObjectiveText
-
-	return obj
-end
-
--- objective conditions
-NewCondition = {}
-
-function NewCondition.RangeMin(rangeMeters)
-	local cond = {}
-
-	cond.type = OBJCONDITION.RangeMin
-	cond.count = rangeMeters
-
-	return cond
-end
-
-function NewCondition.RangeMax(rangeMeters)
-	local cond = {}
-
-	cond.type = OBJCONDITION.RangeMax
-	cond.count = rangeMeters
-
-	return cond
-end
-
--- reward functions
-NewReward = {}
-
-function NewReward.PlayerStat(count, stat)
-	local reward = {}
-
-	reward.type = REWARD.PlayerStat
-	reward.count = count or 1
-	reward.info = stat
-
-	return reward
-end
-
-EFGMTASKS = {}
-
--- wip tasks to spruce up playtesting maybe
--- for the record i havent wrote a story since like third grade and that shit was ass
-EFGMTASKS["connections"] = {
+EFGM.TASKS["connections"] = {
 	name = "Connections",
 	description = "Hey, soldier. I don't think I've seen you before. What do you want? Guns? Ammunition? Vodka? " ..
 	"Oh, I should've guessed, you want to escape the city. Well, I can't say I can help you there, but I might know a guy who knows a guy. " ..
@@ -202,7 +29,7 @@ EFGMTASKS["connections"] = {
 	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
-EFGMTASKS["shooter"] = {
+EFGM.TASKS["shooter"] = {
 	name = "The Garkov Shooter - Part 1",
 	description = "[description here]",
 
@@ -228,7 +55,7 @@ EFGMTASKS["shooter"] = {
 	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
-EFGMTASKS["restock"] = {
+EFGM.TASKS["restock"] = {
 	name = "Restocking",
 	description = "[Description Here] The body armor plates are in the locked armory room in the workshop, check your map. They'll look like a briefcase because I haven't modeled them yet.",
 
@@ -253,7 +80,7 @@ EFGMTASKS["restock"] = {
 	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }
 
-EFGMTASKS["civs1"] = {
+EFGM.TASKS["civs1"] = {
 	name = "Civilians - Part 1",
 	description = "Greetings, operator. I am Aleksei, a PMC like yourself, and I have a request for you. " ..
 	"Earlier, as I was scouting out the southern parts of the city for an associate, I came across a few civilians in a bombed out building, " ..
@@ -285,7 +112,7 @@ EFGMTASKS["civs1"] = {
 	uibackground = Material("taskbg/concrete/outdoors.jpg", "smooth")
 }
 
-EFGMTASKS["civs2"] = {
+EFGM.TASKS["civs2"] = {
 	name = "Civilians - Part 2",
 	description = "Hello again, operator. Thanks to you, I managed to guide them through Concrete unharmed. Unfortunately, " ..
 	"there is still more to be done before I feel comfortable leaving the family. For one, the safehouse " ..
@@ -315,40 +142,4 @@ EFGMTASKS["civs2"] = {
 	},
 
 	uibackground = Material("taskbg/concrete/outdoors.jpg", "smooth")
-}
-
-EFGMTASKS["paytest"] = {
-	name = "testing the pay system",
-	description = "i hate fuckin lua",
-	messageOverride = "I FUCKING HATE LUA",
-	traderIcon = Material("traders/generic.png", "smooth"),
-
-	objectives = {
-		NewObjective.Pay(100000)
-	},
-
-	rewards = {
-		NewReward.PlayerStat(420, "Experience"),
-		NewReward.PlayerStat(100000, "Money")
-	},
-
-	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
-}
-
-EFGMTASKS["qitest"] = {
-	name = "testing quest items",
-	description = "i hate fuckin lua",
-	messageOverride = "I FUCKING HATE LUA",
-	traderIcon = Material("traders/generic.png", "smooth"),
-
-	objectives = {
-		NewObjective.QuestItem("efgm_task_briefcase", "efgm_concrete")
-	},
-
-	rewards = {
-		NewReward.PlayerStat(420, "Experience"),
-		NewReward.PlayerStat(100000, "Money")
-	},
-
-	uibackground = Material("taskbg/concrete/general.jpg", "smooth")
 }

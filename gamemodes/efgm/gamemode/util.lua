@@ -147,7 +147,7 @@ end
 
 -- convert in game position into 2D map position
 function WorldToMapSpace(position, map)
-	local mapInfo = MAPINFO[map or game.GetMap()]
+	local mapInfo = MAPS[map or game.GetMap()].info
 	if mapInfo == nil then return end
 
 	local adjustedPos = {}

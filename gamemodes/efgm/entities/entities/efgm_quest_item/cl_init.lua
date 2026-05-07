@@ -19,7 +19,7 @@ end
 
 	-- for taskName, taskInstance in pairs(EFGM.CLIENT.TASKS) do
 		-- if taskInstance.status == TASKSTATUS.InProgress then
-			-- local taskInfo = EFGMTASKS[taskName]
+			-- local taskInfo = EFGM.TASKS[taskName]
 
 			-- for objIndex, objInfo in ipairs(taskInfo.objectives) do
 				-- if objInfo.type == OBJECTIVE.QuestItem and objInfo.subInfo == self.Item and taskInstance.progress[objIndex] + taskInstance.tempProgress[objIndex] == 0 then

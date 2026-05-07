@@ -4,6 +4,7 @@ include("enums.lua")
 include("config.lua")
 include("codex/codex_init.lua")
 include("items/items_init.lua")
+include("tasks/tasks_init.lua")
 
 EFGM.CLIENT = EFGM.CLIENT or {}
 
@@ -21,6 +22,12 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nam
 	if f == "items_init.lua" then continue end
 
 	include("items/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/tasks/*.lua", "GAME", "nameasc")) do
+	if f == "tasks_init.lua" then continue end
+
+	include("tasks/" .. f)
 end
 
 local ogLocalPlayer = LocalPlayer
