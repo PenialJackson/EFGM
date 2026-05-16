@@ -12,3 +12,5 @@ ENT.Purpose = "Drops players shit when they die and shit so ppl can pick up thei
 ENT.Instructions = "porty fucking kill yourself"
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
+
+ENT.SearchSpeed = 2

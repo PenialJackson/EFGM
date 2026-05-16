@@ -12,3 +12,5 @@ ENT.Purpose = "A small medical box not very full of loot!"
 ENT.Instructions = ""
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
+
+ENT.SearchSpeed = 1

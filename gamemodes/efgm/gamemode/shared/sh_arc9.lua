@@ -269,7 +269,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 			self:ToggleUBGL(false)
 		end
 
-		if game.SinglePlayer() and validplayerowner then
+		if sp and validplayerowner then
 			self:CallOnClient("RecalculateIKGunMotionOffset")
 		end
 
@@ -2669,7 +2669,7 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				data:SetEntity(self)
 				data:SetAttachment(drop_qca)
 
-				util.Effect("efgm_magdropeffect", data, true)
+				util.Effect(self.DropMagazineEffect or "efgm_magdropeffect", data, true)
 			end
 		end
 	end

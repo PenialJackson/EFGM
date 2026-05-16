@@ -318,6 +318,7 @@ local interactables = {
 	["efgm_container"] = true,
 	["efgm_filing_cabinet"] = true,
 	["efgm_safe"] = true,
+	["efgm_medbox_small"] = true,
 	["efgm_backpack"] = true,
 	["efgm_dropped_item"] = true,
 	["efgm_quest_item"] = true,

@@ -12,3 +12,5 @@ ENT.Purpose = "A container full of loot!"
 ENT.Instructions = ""
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
+
+ENT.SearchSpeed = 1
