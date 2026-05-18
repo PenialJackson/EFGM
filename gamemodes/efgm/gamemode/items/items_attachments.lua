@@ -42992,27 +42992,6 @@ EFGM.ITEMS["arc9_att_eft_tac_g17_zt_cap"] = {
 	["canPurchase"] = true,
 }
 
-EFGM.ITEMS["arc9_att_eft_tactical_2d"] = {
-	["fullName"] = "Zenit 2D flashlight",
-	["displayName"] = "2D",
-	["displayType"] = DISPLAYTYPE.TACTICAL,
-	["description"] = "The 2D tactical flashlight, installed on a KR-2 mount. Manufactured by Zenit.",
-	["weight"] = 0.2,
-	["value"] = 7295,
-	["equipType"] = EQUIPTYPE.Attachment,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["stashStackSize"] = 100,
-	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "2d.png", "smooth"),
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["levelReq"] = 1,
-	["lootWeight"] = 100,
-	["canPurchase"] = true,
-}
-
 EFGM.ITEMS["arc9_att_eft_tactical_baldrpro"] = {
 	["fullName"] = "Olight Baldr Pro tactical flashlight with laser",
 	["displayName"] = "BaldrPro",

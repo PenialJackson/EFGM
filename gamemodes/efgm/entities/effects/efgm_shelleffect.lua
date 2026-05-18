@@ -20,12 +20,13 @@ local FormatViewModelAttachment = ARC9.FormatViewModelAttachment
 function EFFECT:Init(data)
 	local att = data:GetAttachment()
 	local ent = data:GetEntity()
-	local mdl
 
 	if !IsValid(ent) then self:Remove() return end
 	local owner, lp = ent:GetOwner(), LocalPlayer()
 	if !IsValid(owner) then self:Remove() return end
 	if owner != lp then self:Remove() return end
+
+	local mdl
 
 	if lp:ShouldDrawLocalPlayer() then
 		mdl = (ent.WModel or {})[1] or ent
