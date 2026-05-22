@@ -4564,27 +4564,6 @@ EFGM.ITEMS["arc9_eft_zarya"] = {
 	["sizeY"] = 1
 }
 
-EFGM.ITEMS["arc9_eft_anm14"] = {
-	["fullName"] = "AN-M14 Incendiary",
-	["displayName"] = "AN-M14",
-	["displayType"] = "Incendiary Grenade",
-	["weight"] = 0.5,
-	["value"] = 58500,
-	["levelReq"] = 20,
-	["equipType"] = EQUIPTYPE.Weapon,
-	["equipSlot"] = WEAPONSLOTS.GRENADE.ID,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["stashStackSize"] = 10,
-	["marketResetLimit"] = 2,
-	["icon"] = Material("items/grenades/anm14.png", "smooth"),
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["lootWeight"] = 75
-}
-
 -- specials
 EFGM.ITEMS["arc9_eft_sp81"] = {
 	["fullName"] = "ZiD SP-81 26x75 signal pistol",
