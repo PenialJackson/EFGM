@@ -2918,27 +2918,6 @@ EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_camo"] = {
-	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
-	["displayName"] = "F1 St2 PC",
-	["displayType"] = DISPLAYTYPE.PISTOLGRIP,
-	["description"] = "A lightweight ergonomical pistol grip with finger grooves for AR-15 weapon systems, manufactured by F1 Firearms. Wrapped with paracord for maximum comfort and minimum hand slip.",
-	["weight"] = 0.05,
-	["value"] = 18300,
-	["equipType"] = EQUIPTYPE.Attachment,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["stashStackSize"] = 100,
-	["icon"] = AttMaterial(ATTICONPATHS.PISTOLGRIP, "f1s2pc_wht.png", "smooth"),
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["levelReq"] = 1,
-	["lootWeight"] = 100,
-	["canPurchase"] = true,
-}
-
 EFGM.ITEMS["arc9_att_eft_ar_pgrip_f1s2pc_red"] = {
 	["fullName"] = "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip",
 	["displayName"] = "F1 St2 PC",
@@ -43160,27 +43139,6 @@ EFGM.ITEMS["arc9_att_eft_tactical_la5b_blk"] = {
 	["canPurchase"] = true,
 }
 
-EFGM.ITEMS["arc9_att_eft_tactical_la5b_gray"] = {
-	["fullName"] = "LA-5B/PEQ tactical device",
-	["displayName"] = "LA-5B/PEQ",
-	["displayType"] = DISPLAYTYPE.TACTICAL,
-	["description"] = "The Advanced Target Pointer Illuminator Aiming Laser (ATPIAL) produced by L3 Technologies is a rugged, combat-proven and easy-to-use aiming system with integrated infrared and visible aim lasers as well as an infrared illuminator.",
-	["weight"] = 0.2,
-	["value"] = 18400,
-	["equipType"] = EQUIPTYPE.Attachment,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["stashStackSize"] = 100,
-	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq5b_grey.png", "smooth"),
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["levelReq"] = 1,
-	["lootWeight"] = 100,
-	["canPurchase"] = true,
-}
-
 EFGM.ITEMS["arc9_att_eft_tactical_lastac2"] = {
 	["fullName"] = "Steiner LAS/TAC 2 tactical flashlight",
 	["displayName"] = "LAS/TAC 2",
@@ -43235,27 +43193,6 @@ EFGM.ITEMS["arc9_att_eft_tactical_ls321_blk"] = {
 	["stackSize"] = 1,
 	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "ls321_blk.png", "smooth"),
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["levelReq"] = 1,
-	["lootWeight"] = 100,
-	["canPurchase"] = true,
-}
-
-EFGM.ITEMS["arc9_att_eft_tactical_ls321_gray"] = {
-	["fullName"] = "Holosun LS321 Tactical device",
-	["displayName"] = "LS321",
-	["displayType"] = DISPLAYTYPE.TACTICAL,
-	["description"] = "Holosun LS321 is a multi-laser tactical device with green laser in the visible light spectrum, IR laser and IR searchlight.",
-	["weight"] = 0.2,
-	["value"] = 17900,
-	["equipType"] = EQUIPTYPE.Attachment,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["stashStackSize"] = 100,
-	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "ls321_grey.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
@@ -43340,27 +43277,6 @@ EFGM.ITEMS["arc9_att_eft_tactical_peq15_blk"] = {
 	["stackSize"] = 1,
 	["stashStackSize"] = 100,
 	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq15_blk.png", "smooth"),
-
-	["sizeX"] = 1,
-	["sizeY"] = 1,
-
-	["levelReq"] = 1,
-	["lootWeight"] = 100,
-	["canPurchase"] = true,
-}
-
-EFGM.ITEMS["arc9_att_eft_tactical_peq15_gray"] = {
-	["fullName"] = "AN/PEQ-15 tactical device",
-	["displayName"] = "AN/PEQ-15",
-	["displayType"] = DISPLAYTYPE.TACTICAL,
-	["description"] = "The Advanced Target Pointer Illuminator Aiming Laser (ATPIAL) produced by L3 Technologies is a rugged, combat-proven and easy-to-use aiming system with integrated infrared and visible aim lasers as well as an infrared illuminator.",
-	["weight"] = 0.2,
-	["value"] = 29000,
-	["equipType"] = EQUIPTYPE.Attachment,
-	["appearInInventory"] = true,
-	["stackSize"] = 1,
-	["stashStackSize"] = 100,
-	["icon"] = AttMaterial(ATTICONPATHS.TACTICAL, "peq15_grey.png", "smooth"),
 
 	["sizeX"] = 1,
 	["sizeY"] = 1,
