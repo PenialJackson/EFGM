@@ -1,0 +1,337 @@
+local DISPLAYTYPE = "Assault Carbine"
+
+EFGM.ITEMS["arc9_eft_adar15"] = {
+	fullName = "ADAR 2-15 5.56x45 carbine",
+	displayName = "ADAR 2-15",
+	displayType = DISPLAYTYPE,
+	weight = 0.8,
+	value = 41000,
+	levelReq = 7,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/adar15.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 2,
+
+	caliber = "5.56x45",
+	ammoID = "efgm_ammo_556x45",
+
+	defAtts = "XQAAAQCOAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSfVBqeGuIaSSp0lbXXmmwiKc+3qpTFQPm/3TEpRkNkliqewzXeK6KEow99gDpNekcBZLljEK1yteXPgcDvoY1gzY43rtGqP1p7jD5gej6NEa+QNcT8BXtXPmN5o2OkWkgurm/9AXyGT4En6CkA7mCMaVO2Yf9O7uShDeIXUNI/H0SBmpgNixBxQz+E/0uWDE5UIaP9BN26bE1xGemXO43rgNPGIOjvq9ftb9M37Yo7ZQ5zoYq34ipfXEhRIpOJESzA==",
+	duelAtts = {
+		"XQAAAQCOAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSfVBqeGuIaSSp0lbXXmmwiKc+3qpTFQPm/3TEpRkNkliqewzXeK6KEow99gDpNekcBZLljEK1yteXPgcDvoY1gzY43rtGqP1p7jD5gej6NEa+QNcT8BXtXPmN5o2OkWkgurm/9AXyGT4En6CkA7mCMaVO2Yf9O7uShDeIXUNI/H0SBmpgNixBxQz+E/0uWDE5UIaP9BN26bE1xGemXO43rgNPGIOjvq9ftb9M37Yo7ZQ5zoYq34ipfXEhRIpOJESzA==",
+		"XQAAAQA9AwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSfVBqeGuIaSSp0lbXXmmwiKc+3qpTCtabMPt239l5e5Envvl0bddKHhpL0T/HlKQHBLYkSzAti2tF4parjEbp41xc169y9pm2bvitymY/ISXr4MZwLzWiPwydWKcHvCvV24NbmTjZv88uIvNRfV86CikssG/G3yHH4oU8BHzScEcJLHQUpuuCoGipN/Y+3+8XZbX8JtM+nvmYPZo3avCKNv7CgBT9t8rHaRWUghsv8NiXTyER4Sk5Mx0IoqIdeGisFr5Hhz5+3SmRoUrKsa+mVZq4dW4OWvbMxpYN/f1Kvx1WjKfmjq/lyKEMH46fEG/zfzgJNTqmrJA",
+		"XQAAAQClAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdRKMPYpDULfQayPik8I0xIa1V4p70qzQz4qKF0PIh4SbuLXb88KqILYpkjT72yPzjIcxWwwUxVU1jbGG27bwwJCYAwMCFTyMja6Vbb91U91856iAxIpY0TFV6tVkgnVWhs9HU5cMGqP0UNlG4ytzJpXCaitRnGRRi3nrIlNPpChs1mc3jixmnsXQl2vEt6j1AxqDSp+u0LKFwFhXHj2zbGDmSZzh9Aqs2qc0sWkiORorGLETPL5VRT4NpRCe8T3fGaR/M2UQvQvMMzTPAM8mP4ZSjLRjYwUfKwicGMPb5FvKQpTyMM3JPEmvRfbZM1bT/QD2f43a0ibZKUzLP7EKadUTvxHgmMoPt+JZ+35fSn7pkkcnCU4EAoPfVGrwbxoxu1EIqxmKMjiDP8ZHderxmjCmwpFwjE=",
+		"XQAAAQBaAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdOuZ9WE580sJey/V1F22OvnbeBNZbUIcAuDIRIr8l8OS4m2PnaWpZpYPj1OotbCpy2mOhdx4VAxpz868TepttKOwSBKsBpuIQpTpsSqc9Svv0gChn3QncZQ6kVI3RnlKsoO8K8I+xGtV/jQroOUup57cLB2kO4dRvfC30q1Nzp3EfiavzeYYPVuxxOFdROTXoBSpvq0G+uuM13sQFZnW3b6TS3tt0k+YqeI8mPHb9I0tOkraQa2qAZu0yHxqCCZi3M2kH2SsWe82QOu+ZzFLN7ygcKdI/sKuQYiDeTOZp5opgcUlgfFMSROiSFOexaxc+nOcXfi1Frb/qjJ0FanW8vGdk7g3w=="
+	}
+}
+
+EFGM.ITEMS["arc9_eft_vsk94"] = {
+	fullName = "KBP VSK-94 9x39 rifle",
+	displayName = "VSK-94",
+	displayType = DISPLAYTYPE,
+	weight = 0.9,
+	value = 65000,
+	levelReq = 5,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/vsk94.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 2,
+
+	caliber = "9x39",
+	ammoID = "efgm_ammo_9x39",
+
+	defAtts = "XQAAAQA/AQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OxEj3M6NEz3RX71XCYfOHncMteTkzK1bNnD0ch1JesVcWATp5G09k+0YVg1cAGkdsOIfs+Qsr2LRnuer24UJlIh2n7Lb+WaPCEhTW7X4aZOJQnELQOIJoBY9Wi+SDFpx1kjJ6Uad1mbVmwii/9f4XHyIA",
+	duelAtts = {
+		"XQAAAQA/AQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OxEj3M6NEz3RX71XCYfOHncMteTkzK1bNnD0ch1JesVcWATp5G09k+0YVg1cAGkdsOIfs+Qsr2LRnuer24UJlIh2n7Lb+WaPCEhTW7X4aZOJQnELQOIJoBY9Wi+SDFpx1kjJ6Uad1mbVmwii/9f4XHyIA",
+		"XQAAAQBXAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OxEj3M6NEz3RX71XCYfOHncMteTkzK1bNnD0chwcKKUK5HlSEyBPS4c2TJiGRraBGEbOHAPSDWnEJPKpKFtKcOqJGeulMy9aVelAFt7lqPIr8L3vyrt7E4UXn4902BoBdZeyYlwlADD1YLivKWJMxWHfcdCcKa97aRcNlbBvw2QA=",
+		"XQAAAQCMAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OxEj3M6NEz3RX71XCYfOHncMteTkzK1bNnD0ch1JesVcWATp5G09k+0YVg1cAGkdsLo9REvLW3dFgxOH13dQGY0WI7GqSe2ACQpx6TLoIqbiszTsP/6koU9/N2OQ2LLn88lIieI+0UlE8Np8AHs83RIK6TAX+/vTCUOOy2XSHOR/as5urvFb6q1GA",
+		"XQAAAQAMAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OxEj3M6NEz8aDJRJgCO71iBAJt5wSUKAbDrCLqIIbEgbmW76rULjIaHb3prbj4/85MygFaYBrcMszy6WsqI7IPGS3vaSvd3UiIw80y5CpuGspNRwni8MW6jMIIjxtNp56mnZIw93GGcJTgPMDDiDr2hqS7uboPkWQDbBDrf3TQU/nBNoDDp7e4rVRQVNgWSp0mkwLFkkpw/+Q5Feebupy01vBBInAaX2CJoAMbqsa"
+	}
+}
+
+EFGM.ITEMS["arc9_eft_rfb"] = {
+	fullName = "Kel-Tec RFB 7.62x51 rifle",
+	displayName = "Kal-Tec RFB",
+	displayType = DISPLAYTYPE,
+	weight = 1.9,
+	value = 54000,
+	levelReq = 17,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/rfb.png", "smooth"),
+
+	sizeX = 4,
+	sizeY = 2,
+
+	caliber = "7.62x51",
+	ammoID = "efgm_ammo_762x51",
+
+	defAtts = "XQAAAQDDAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OIQMOqZA7fASOsjTnTK+5tyMtCf5S3eX59xP8WN23ZyQ+TvTCJsvjaq82IMiiV5QK4szoA/bMyTYpFaTqx2PI3pyhTcPsdIapPnru67+fzz/K1Z98VMZLR5TH+9vSJvHtElLmmrpKaxP05iuKyCE3B82cC/39buGs4Xs3pwLSUfyGDxFBNOLpzIT/3ATm4tb2tvIjp5o=",
+	duelAtts = {
+		"XQAAAQDDAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OIQMOqZA7fASOsjTnTK+5tyMtCf5S3eX59xP8WN23ZyQ+TvTCJsvjaq82IMiiV5QK4szoA/bMyTYpFaTqx2PI3pyhTcPsdIapPnru67+fzz/K1Z98VMZLR5TH+9vSJvHtElLmmrpKaxP05iuKyCE3B82cC/39buGs4Xs3pwLSUfyGDxFBNOLpzIT/3ATm4tb2tvIjp5o=",
+		"XQAAAQBmAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OIQMOqZA7fASOsjTnTK+5tyMtCf5S3eX59xP8WN23ZyQ+TvTCJsvjaq82IMiiV5QK4szoA/bMyTYpFaTqzlnq48bL5gC1qev1wA6vI7h989K/yLmVUs6CuMQdJApRB7A26puwyvR40/4BCVzACwEEuN0bJ+x2V53EKj+4O4llvgZzOY0l6PpUwTdtHcQaGaZqFmzbin5f38Y5DDqcqtejHCOu8DuCsj3ffnhGTShFvN38PRM86a2GGTojJcPO0boOAn4g",
+		"XQAAAQA4AwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OIQMOqZA7fASOsjTnTK+5tyMtCf5S3eX59xP8WN23ZyQ+TvTCJsvjaq82IPwrNzQrMBF8wZDYUs/hEa2GVvStJP1qn3PP+vJ383doyxT2WUvm9TY1coSfXXIaNw/60MDSg12EtHQLcJcI9tSPn3lvRp2xEidlt2eOzaHNZstLCKXQMo44qJQuJl16QOiC6phWsNA9qRLBmxwORadtz0XeYfiGEEa+vaHhK+VNpu59RYQz2J6i08LBaBPJuMPEIijjURVmOBeJiCEW4U4S2qALtjNn7B1KRO1GjxwNfR3GFRU7Gs7a7vcYlb2txICJCDGr30SV+qZ+bsgorzwA",
+		"XQAAAQBHAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OIQMOqZA7fASOsjTnTK+5tyMtCf5S3eX59xP8WN23ZyQ+TvTCJsvjaq82IPv16NUy+ceD3gLeJMfS2SYwI4GlVS0Mhojrz+eIzWsZUfGRd6Pw1GbCqqaGQi87220hF2w1DaNU5kdlmuzMh2YMU3uB7isKES6AJiFIZ+9XuD3+JqRXFO/R4p02M6UOQwIs1ils16P3uYRwUnS1TBQkND8r3jNqhBB3fyBIRHIiDlBoKrahfHx0YhkdPj3mqudb25Hao/KK4WfU4QCSYUCwKorZnpprlF4fyT2Jo/1SgDJVq/EQ8s6Brg2XVd884wRPEzQH3BxEbLm4KeW+8CaAFko/N3Me6dYBnYpZ9PwA"
+	}
+}
+
+EFGM.ITEMS["arc9_eft_tx15"] = {
+	fullName = "Lone Star TX-15 DML 5.56x45 carbine",
+	displayName = "TX-15 DML",
+	displayType = DISPLAYTYPE,
+	weight = 0.7,
+	value = 95000,
+	levelReq = 27,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/tx15.png", "smooth"),
+
+	sizeX = 6,
+	sizeY = 2,
+
+	caliber = "5.56x45",
+	ammoID = "efgm_ammo_556x45",
+
+	defAtts = "XQAAAQDhAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdRKMPYpDULfQayPik8I0xIa1V4p75pAWrkNCWfG14EWqVFlNWIJHALRyRr6Wv5/v88HRQXfKH/4ARquI8d3vb21586V6xlvlXftbXMlZYGgYlff+EJZnB1UiyxOnx/3jU7Ptkma716R1vGAVnyoL6zWNKQVW3ykXCqG9Vci+jdv8bDPtb14XTLUpe7VZVmZ/J26lO0tkYcSzZlpBfLbVCjPGyE+VaLvR1GS1Ih9dntYX89MPPENC7ODH7u3kReM4aW+/vZ+ejx0d3fWB8mVTZG4vVZoZte34hySnGfmqNySAy/FjsDEXN/IOry6GQnfMss6pigejnyJ0LzjZogmlS1CE0vQF/ekE4ebAA==",
+	duelAtts = {
+		"XQAAAQAoBAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdRKMPYpDULfQayPik8I0xIa1V4p75pAWrkNCWcbTygcbsZCMzG4MaFo9m/7QEzBq9ItIETts4WE60H/BGycMChPytezU7bjF+lWI7vMeaFznBL76JH3VeUAH6QJ/9zKbRAd2Ffw/ecRyhYrEPp9XVeUAxo6mkI27B8/JD7Fx1P6qPd5LDT55ETryFNyHCzkde0AO7gDW7pvuqajj50xqL3DiYnvqJ/my0BsOiCGEWEHbjuzptO4N2A3SfbBLyNyKy3hRlLxTm1gifXC+I/ox2jHqjZXtDFeXmlT8WMgKeLJgWtqhEB8ZRKZwwgYoxBp0yUg/OJe/YFTR3E+xfsyrObtmniUarTyPdxSQQfDMQhZ5k/dMILv75ML9nAVWeiXBSO7S88tgvQH",
+		"XQAAAQB0AwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdRKMPYpDULfQayPik8I0xIa1V4p70qzQzxN7LK//g71+T4hWAv2Kam3Yexv28D9fp8PzMUX99Oxjt8vEpVZzZrnUHJO3f4lfezHome2xx8Y9tkH29M8vBFz+x4QnYfYCE2rByufVMOcUNu9AC2YCWe7Zrgxi4zA8WhvyWTfx6n+i5Y42V9As4Zc3qSoDsWJP9HM9t23DvezNE5GFEu217oOczjLZNJxI6e3jpScRUDG1WZ2aKmAUDdcd2f8ZBawVDxWBPpv6kiffzKRgq7zhPeEdBoU8iGH61CmnH2jXvlt+MEb2xUbuRyMxRgve6vB0z6LmmuT1N5M30Qwx774Wpok72S1LqUeFFwguGzRtby6KbFD4D5Yniw=",
+		"XQAAAQBfBAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdRKMPYpDULfQayPik8I0xIa1V4p75pAWrkNCWcbTygcbsZCMzG4NlQpDOT+gVxh4DTytNcpqqBnDiY31YFUWHwjKGNmz0+z8rehfb9mHRt78FJMgzFG2OYIHyLKAcApL7dmqm7PmNjU+hPXJz4CyepCFiQWiWwf/TseQ5cGztGmQcQ5H8OkyBfCwySbX5iRT5FbVNOcQ9J2W0UqAFJL3sCT/Xw5DQ3OwgruSzUkaZovbVjkHAcUH5O2O4bvgd7VExgdW/YvXng6IFtAujxQl8DR+BFs90KqyKR11e+5JffyiPYoIsKY6p2OgvDXWf+k8ZLHMWWOFjzowh82TfzcdRnO+qKMNZYwboHj7Don3pRO2gHIA+5sxgPz3ArzJg+2e/v2ORTd9VL6eaVfW4DDY9bBxbo/SrJpwn/iuWSzckGYKqcYHj+GiX0A",
+		"XQAAAQAtBAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8ONwzg/TnvSdOx1faV083K4sEt14FbZVmDx/ukWUsoNpyORO0T0jVSzFs60/IeT5L5O0DXmz5Aanyb6DKkAF2ua+Zsg0Y4YsXTpTO4y/OqdUjdZdJfeh0I/pqqfvkCb45cwml7eotSvIq1R74p/xysyRbM2co6Pa3a1F6RZUb+Z6RfiAk6ZBtRYhZbd8SDmI28ZXLnk/GKt5SxBCtSuuCkh8Ak6kaRxrlfvQawRjyolIs3A321/LTDNtKxY86GYUQMmhRGoVTfegGSl0VjbgzfFX2lilkGm7lbmDZg+Wb2rHgPkqu0jVpcbH+2kBlJVUGAeY6PQeMPRCG1c2Q2fcSSqKTHcXWiDu5M521IXW9dCltxCUjS1lcxLKREIJcZl+cw7uhzIfsgMpHSqTOUNuDb7ScWevK1xK40m4jp2wAlx6AKranB4A=="
+	}
+}
+
+EFGM.ITEMS["arc9_eft_sag_ak545"] = {
+	fullName = "SAG AK-545 5.45x39 carbine",
+	displayName = "AK-545",
+	displayType = DISPLAYTYPE,
+	weight = 2.4,
+	value = 54000,
+	levelReq = 21,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/sag_ak545.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 2,
+
+	caliber = "5.45x39",
+	ammoID = "efgm_ammo_545x39",
+
+	defAtts = "XQAAAQB+AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFlfSScSybP+C3Y0ij7z9iVh7t2mLczDAV3rxV/Tab/+5LCblM65d7iYCxVFrOjRr/G08xhEUw/hd4M+7+9I6N15rAON7hFd9OZPaqOS5X/KJSf+lo+SNzvIgxOHwtgKVmQx95wSO5F2wsaRQWeYn2YiczkbY14ycHPheO6MymGa2y/n1p0vmkOg2rFcvh5GvzRFnN5i6ITBbwdnh2rosValGwtTY4j2ZR596OTW/6hX2n+7VZe",
+	duelAtts = {
+		"XQAAAQB+AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFlfSScSybP+C3Y0ij7z9iVh7t2mLczDAV3rxV/Tab/+5LCblM65d7iYCxVFrOjRr/G08xhEUw/hd4M+7+9I6N15rAON7hFd9OZPaqOS5X/KJSf+lo+SNzvIgxOHwtgKVmQx95wSO5F2wsaRQWeYn2YiczkbY14ycHPheO6MymGa2y/n1p0vmkOg2rFcvh5GvzRFnN5i6ITBbwdnh2rosValGwtTY4j2ZR596OTW/6hX2n+7VZe",
+		"XQAAAQDBAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFlfSScSybP+C3Y0ij7z9iVh7t2mLczDAV3rxV/Tab/+5LCblM65d7iYCxVFrOjRr/G08xhEUw/hd4M+7+9I6N15rAON7hFd9OZPaqOS5X/KJSf+lo+SNzvIgxOHwtgKVmQx95wSO5F2wsaRQWeYn2YiczkbY14ycHPheO6MymGa2y/n1p0vmkOg2rFc+LlAThMwRUUL3Z2x8FmIuoFBeYcrR/spEtKAUOL04Wh5kL7OSSojPgMEljVVl01LfOA90zGxqoktriT1o9KAA==",
+		"XQAAAQDiAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjskkojommSaQCNlMpRvkic1YAIsLcoCrGt5qdQEyzvK29oDxopkFM+OvV//c2uk8qSrL8OaQ9VlRoZG7KNa6RfekoPbR99ysy7ZLO8Uew+qalRqpAF5EDCPhzPNFz9G3hbFZJKqRwQmYkS39Bk9rsO4I5CDnY2+jFQ8nW+Qa1LdQ5aFFDIfOIAKw9iaHooKyjeIh0gH7c2Rp2OVxBLEoLWfZKoaNc/abqBOUAdghRQOyrlHaxPFJ1w28aQcF+R2ZGx6r1MMmlAHeArTWywoDrjROsgt8uAA==",
+		"XQAAAQD+AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSdG+ffqYKcUXeSUR554QHxlfr96DAMQMt3CUqDYYpW6U35+o0voQdUxTZsQezHCt4/c9S6+ccuu+WmlgxMe3Q016UBxKEnPnHWex3O7acl8fqgR+Bb0JeTIyhSpGemY1S2vYgnx6Ap7mF/2Y7O9SzyewPz0OZQ1FB91ZnNfU9S9M22bTuZVbFD5PiyEE3Egf0w4d/6QRp+Qa5fy5EH+8K5v90ebRGohPOuXJMQoRsP382M4rWRPjMupuBy8FeosOc/JEp7tSG+y1XnD+e0Z2l+tHq5eNUUOUnq7APwoUGMbsYKmHSfF4gXmm+/56XMeOMTRZPpg="
+	}
+}
+
+EFGM.ITEMS["arc9_eft_sag_ak545short"] = {
+	fullName = "SAG AK-545 Short 5.45x39 carbine",
+	displayName = "AK-545 Short",
+	displayType = DISPLAYTYPE,
+	weight = 2.1,
+	value = 63000,
+	levelReq = 20,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/sag_ak545_short.png", "smooth"),
+
+	sizeX = 4,
+	sizeY = 2,
+
+	caliber = "5.45x39",
+	ammoID = "efgm_ammo_545x39",
+
+	defAtts = "XQAAAQCBAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFlfSScSitKC3h96j2MfwFs9lVZzbkxhsM84Ocm2m12AHZKDY7Lm7vCn2PU4az/K5SN/zP226NxzPE72JF0Onfk/TfCglJZOlG9nCAUuCFMsCbSO0Hxvy1RspZ8Qcxzr+bPsEBDSbRHkcnyzUDGfF42qKWcPVorGQQYc0bYElrOn3dBvQkNntCZQHNaU+iHlRyEfzmqTUGeT9L+SATgPl/aF+zDDk9nX8D7NUMubW0ZG9XcN07sW0Y=",
+	duelAtts = {
+		"XQAAAQCBAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFlfSScSitKC3h96j2MfwFs9lVZzbkxhsM84Ocm2m12AHZKDY7Lm7vCn2PU4az/K5SN/zP226NxzPE72JF0Onfk/TfCglJZOlG9nCAUuCFMsCbSO0Hxvy1RspZ8Qcxzr+bPsEBDSbRHkcnyzUDGfF42qKWcPVorGQQYc0bYElrOn3dBvQkNntCZQHNaU+iHlRyEfzmqTUGeT9L+SATgPl/aF+zDDk9nX8D7NUMubW0ZG9XcN07sW0Y=",
+		"XQAAAQD7AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjskj5PLiCdqpBmPRo+JsqdrBY6r8vJDG3yMAYNBdSUbSg7O75lJe1T2djudPGxCyCygVTaW6SYh4CNjCMhzl6lBBUdca2nQk7s7OJ0fd2EeLWws96FUezwbsPQc1ae76yBFpP9Ffb8Bj3LWC8F8rooObm3v0/JHc3fNwcnpyGWkkynaCXvZOX1pbVSEgseqVPfyVPuENEMkQRN4V0jLkNUHKo6+rRybmHYqf/fdBHXDqRHP9bw5zgSWEZeoFgQXlbrSFOS8Q8nKu9YBZWm5MIHAbD8sUkoA==",
+		"XQAAAQB7AwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjshAgt7e+ktc496fkxw/gc0qwHzR3PVi76qdo4FR6uMLOVkE37k1CFIoLtfQjFoFWEe7yPv7gEKbDo02MmeUtZsxBc0aWN4xKxCOIKGSizr8MdiFZq8yrWVCJkjG7838LMtLGmu8GpG8Sxdgi5nAiHc1G+JtF+Mz7BhVbV3hI720u125m+n0rRH5oa2phLhypy50pJgHvCjUgEblKeqsDe/B1Kh5irlpPteTa2CCCfb0dNTlC1WfvEjnYajoBm5DXLgjRFbHHN7CVOyHU8deY+9CK6GqCUP1Ws7pWvK5F2HdWRhs9tqcC5OI/1AkpPWY2D8YvG7otG0O/9HatwcS2bw9PrIn0AA==",
+		"XQAAAQD9AQAAAAAAAAA9iIIiM7tupQCpjrtF9qJbeNZaSCEX4Y6O26Hms3ty0470OriaR3nmjwIIXDoXqrUPfBbBxjd+Zxyrddz0lXnhVkjeUIBT0PXtXA0QfrAPLAXwedWnAVcTvE4DX8SP8SdPAE3Py5dGS2nhA5xXn1bjr10arvsgVpqPLwd3EvNkXYQoEArIH7REyfg1ZNhnFAy3N8xUlCd242dEJLZklrSxXW8n"
+	}
+}
+
+EFGM.ITEMS["arc9_eft_sr3"] = {
+	fullName = "SR-3M 9x39 compact assault rifle",
+	displayName = "SR-3M",
+	displayType = DISPLAYTYPE,
+	weight = 1.4,
+	value = 217000,
+	levelReq = 48,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/sr3m.png", "smooth"),
+
+	sizeX = 3,
+	sizeY = 2,
+
+	canPurchase = false,
+	lootWeight = 65,
+
+	caliber = "9x39",
+	ammoID = "efgm_ammo_9x39",
+
+	defAtts = "XQAAAQBoAQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iMy0YgfJ5Lm1K8QmyKhGRtnNHx3kcm9IN0ZKMDsA9aRJyB2BQGcJAY6GYLfG2kqLcGFAtoF5Av9QyRQsV9TgKhSRE1hFodzywbKc8ROcdk0pygDZULgrqj6VRj6SNnhCb8KZolQ+paSigJbPyIM3gC8zmp8dRzZeAA=",
+	duelAtts = {
+		"XQAAAQBoAQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iMy0YgfJ5Lm1K8QmyKhGRtnNHx3kcm9IN0ZKMDsA9aRJyB2BQGcJAY6GYLfG2kqLcGFAtoF5Av9QyRQsV9TgKhSRE1hFodzywbKc8ROcdk0pygDZULgrqj6VRj6SNnhCb8KZolQ+paSigJbPyIM3gC8zmp8dRzZeAA=",
+		"XQAAAQC5AQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iMy0YgfJ5Lm1K8QmyKhGRtnNHx3kcm9IN0ZKMFHVpqUFKW9uY/1hKW4iBDtn70vbJBJpc5KS1+PIERCdPtNaJGuoDz9XF/FlTk5K7Rtyo7j8d4wRg8S1/m3jSCkBj2JVv0HGmUsv0msTcv9QNN8T0DTGDwRbbe08Xyi8c+JguOhCvWrdxfgdtUuIhn1MxVT",
+		"XQAAAQCFAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSroLMctq9+4ibHH8vqEnjI4QhyEg7C+gu4ZAkRBN2TZ5SPC0WLO+W2ngZxPFdQAo+HqMl64Jn16bdtukqNqSpgo9N8jIAZ6LsUZ2mV7kfU/qh+RrT68Knc3hm+Ddtp5rLOpbzazSxYHBeEvje8LWKTvNeWdd/srG1Jp+d7SAOWW39PYzFUxvjZQb/dW5L6P6dUEJEg7MgfrO268bga5zSXbGaTK98+pfYybt9tT713Dez96VBC4NpEpEhn/Ja09EA+gO45Wqr+Adyr4A",
+		"XQAAAQD5AQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iMy0YgfJ5LUnXyfbThsbMzADMXXi0x24AALXM9TvmOdnMwR5ilfIIM3eWqnmdzxDroLQ0CMHKURR/I4+lM3IccGcx1m+dyjLxXivMSlgTex8E2EpkRTzKbGCqTGu8WHcaLw29uF+pl2E3yaUyTTyR+ZIUrx6YQ68YO/rN7HJDG6sSiN1PJ8quWEgTB4nrCk1mvyyE720X6+f4w0VRL9m8uv2Sw4weLXIFgcCcQTsuQ62goWLtu6"
+	}
+}
+
+EFGM.ITEMS["arc9_eft_svt"] = {
+	fullName = "Tokarev SVT-40 7.62x54R rifle",
+	displayName = "SVT-40",
+	displayType = DISPLAYTYPE,
+	weight = 1,
+	value = 65500,
+	levelReq = 11,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/svt.png", "smooth"),
+
+	sizeX = 6,
+	sizeY = 1,
+
+	caliber = "7.62x54",
+	ammoID = "efgm_ammo_762x54",
+
+	defAtts = "XQAAAQB6AQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSzbA7bh+n22rgF3eZfKtFbSq5Sv+U+sy+44faPgqnhcKVRO4XjwHGPSoIh7Eyzb+O4+J8wGaj+XHNqll6K87d1ISHf4dqwegtt2oyHmnvVS5LvAV7DerEoOhNerbQm4BKVKDKlTI3EcZpjGzrUpmsVbObipc2xgipczd6X/2KSKZ5rf9HQ==",
+	duelAtts = {
+		"XQAAAQB6AQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSzbA7bh+n22rgF3eZfKtFbSq5Sv+U+sy+44faPgqnhcKVRO4XjwHGPSoIh7Eyzb+O4+J8wGaj+XHNqll6K87d1ISHf4dqwegtt2oyHmnvVS5LvAV7DerEoOhNerbQm4BKVKDKlTI3EcZpjGzrUpmsVbObipc2xgipczd6X/2KSKZ5rf9HQ==",
+		"XQAAAQDYAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSzbA7bh+n22rgF3eZfKtFbSq5Sv+U+sy+44faPgqnhcKVRO4XjwHGPSoIh7Eyzb+O4+J8wGaj+XHNqll6K87d1ISHf4dqwegtt2oyHmnvVS5LvAV7DerEoOhNerbQm4BKVKDKlTI3EcZpjGzrUqMMVLw4c4Bxj0Ow6DJbgMOwIU6DDq0AjdnsoNB11FBpT3HB82zDFC7aeBosffinLw="
+	}
+}
+
+EFGM.ITEMS["arc9_eft_sks"] = {
+	fullName = "TOZ Simonov SKS 7.62x39 carbine",
+	displayName = "SKS",
+	displayType = DISPLAYTYPE,
+	weight = 0.8,
+	value = 29000,
+	levelReq = 1,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/sks.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 1,
+
+	caliber = "7.62x39",
+	ammoID = "efgm_ammo_762x39",
+
+	defAtts = "XQAAAQDeAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSgZMg8rR1f1NriFw604PtByzx3OWWZtOO4j0PQ2t5a1OGJX8eUlI9fNvLL68bctwYP8ZatKY+oTkz82RpebfT+LImbnfnVcexmiiZa0A5CUTPYWS9RAQTvDWST4QO/CBTeDXHHhB4cJK3NtOwRWC61qABII+gzX5mv+54qT8t54sGw6aF78vepy4igYkAA==",
+	duelAtts = {
+		"XQAAAQDeAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSgZMg8rR1f1NriFw604PtByzx3OWWZtOO4j0PQ2t5a1OGJX8eUlI9fNvLL68bctwYP8ZatKY+oTkz82RpebfT+LImbnfnVcexmiiZa0A5CUTPYWS9RAQTvDWST4QO/CBTeDXHHhB4cJK3NtOwRWC61qABII+gzX5mv+54qT8t54sGw6aF78vepy4igYkAA==",
+		"XQAAAQCOAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSgZMg8rR1f1NriFw604PtByzx3OWWZtOO4j0PQ2t5MMUo7Fl3NUrzT6qQQamm0Abjb8zXnU5HRdydPxh2VEx9Z4H6O2tN8IGIzjYl3Jf/VMFi7HqpTvYKCeitop6wPu2TC6ASUXz/bUTSpSg95w2XO2BzTkdcSASwmXI8Sq8FrhlYuU0fjUACaVqGEzCtJjfiGz9aNylbOzU9+oRE3K37c74GoT4kXzq/rKziLDzUmz4YiHlYCe/kfVxY4E8WwmRkWWWbe51t17gOG+tPBsyJoA6Xb7ykY/cRiJFTeIaM8RFaYVcdg==",
+		"XQAAAQC/AgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSgZMg8rR1f1NriFw607pjYXW+8tML5H2fn/WXWwU6hRMVk9vLFDJpfcjVasFQicwjWMNXTM/yPwRiYPhE1lFAci7NUG5gtAuBWe2Hvbo+4Zbpsr3z+wJ6TExGpMiOX3K4+zOroiOjYhbD9/lMB7WgVskC+V27koHhRnA5u0ARLhjWSkBIjqsDXODHDLLuLZ3q9T0Lkd+3BgzXFg22fTa6dJstE9YB3Y06LeyPlnPZKdlnVSin+zpte5fo33V7ghH5sLjsKA=",
+		"XQAAAQAjAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8OSgZMg8rR1f1NriFw604PtByzx3OWWZtOO4j0PQ2t5MMUo7Fl3NUrzT6qQQkss7bHvbos5qLd4agXkBjX9/Ata7jm99kEI+sKea5YLC1oDiuFKFXPp+3c3gcHmvWHy2GchhV8I62mq2LqWaDUCktOMnlhp5hi9UDeJplgH6EUY8baLSj8+JwLf20MX7UDMU+8Q4dI1+8swWN4/o4luDv87yWwF51rPx6g6yasMfqARhciWRsREQoGaEbXUClKg12X1RLKF2iKaiMNQ2FrqdTIgwm4O02LfHraB0ivQd73bp3IqSXThnkY14oKsWVLZA=="
+	}
+}
+
+EFGM.ITEMS["arc9_eft_vpo101"] = {
+	fullName = "Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine",
+	displayName = "VPO-101 Vepr-Hunter",
+	displayType = DISPLAYTYPE,
+	weight = 2,
+	value = 44000,
+	levelReq = 5,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/vpo101.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 2,
+
+	caliber = "7.62x51",
+	ammoID = "efgm_ammo_762x51",
+
+	defAtts = "XQAAAQApAQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iM11FXbdH8EhvqeVEf4e8s8pqSUeHr5dxjuk5VJ16uZIcKjKrixVz39yI+NMVUz4BMktvpaajFsUrpQQ991pxbvCO8lQKmywBJ6rWU6guUPzN0KWgGObGzJIr8A",
+	duelAtts = {
+		"XQAAAQApAQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iM11FXbdH8EhvqeVEf4e8s8pqSUeHr5dxjuk5VJ16uZIcKjKrixVz39yI+NMVUz4BMktvpaajFsUrpQQ991pxbvCO8lQKmywBJ6rWU6guUPzN0KWgGObGzJIr8A",
+		"XQAAAQBXAQAAAAAAAAA9iIIiM7hMNz0dhIkbkvLjTdSR5gRNNIHH3iM11FXbdH8EhvqeVEf4e8s8pqSUeHr5dxjuk5VJ16uZIcKjKrixVz39yH3+vajQYWgzuJIXNsKPITD99Ci7VE37tjeDNQIvyGnl+zw/ilSv/lAyYfmIO6H0/tcZ1bizozE84cJisLZ4n/GGsAZeJGwbJnItHkjVHvapxKIUGv+x",
+		"XQAAAQDPAQAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8Ow/iPb1tQHdLBKCLRkGlKp35rBQAtzLQKTO2eosOSgxaV+qywjmk8DJIfnuDPnkacmoKU76s6WOgmzlCtJvaLNbDiSb/TCoxn1Q5As5dfGPqok6KL//vhR2hOOYB91vHLGnSprxXvcf1MTT99ukCMtZ0Hjuw9ApsAQnYB5ElfIfY8bQwCaOvSmlVcdDqSzP0q2St1atjlJSA="
+	}
+}
+
+EFGM.ITEMS["arc9_eft_vpo136"] = {
+	fullName = "Molot Arms VPO-136 Vepr-KM 7.62x39 carbine",
+	displayName = "VPO-136 Vepr-KM",
+	displayType = DISPLAYTYPE,
+	weight = 2,
+	value = 33000,
+	levelReq = 4,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/vpo136.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 2,
+
+	caliber = "7.62x39",
+	ammoID = "efgm_ammo_762x39",
+
+	defAtts = "XQAAAQAuAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslbt4xbIPd/q60hodE43tM1ytr7bEv2N6nxkaKveBZRkZUauda0ZYGJLOlmOSCuDhTa3lybTfDnW8PlYla1TjpOTM44622G+Fu1yLJZEUlu+WYLoqDgn5Q0qpQ5cQaGBRB7jVRUzOaos2wCkolw/ZW8XD00nBhh9rMhXARH3RO+9AXj5TL2Rm7HKQ5xAKwa1pbLwXHZoAl1AXeu8rNavxEdKZFPuTuU/6E2nG30KkPKaH7c=",
+	duelAtts = {
+		"XQAAAQAuAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslbt4xbIPd/q60hodE43tM1ytr7bEv2N6nxkaKveBZRkZUauda0ZYGJLOlmOSCuDhTa3lybTfDnW8PlYla1TjpOTM44622G+Fu1yLJZEUlu+WYLoqDgn5Q0qpQ5cQaGBRB7jVRUzOaos2wCkolw/ZW8XD00nBhh9rMhXARH3RO+9AXj5TL2Rm7HKQ5xAKwa1pbLwXHZoAl1AXeu8rNavxEdKZFPuTuU/6E2nG30KkPKaH7c=",
+		"XQAAAQBUAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslbt4xbIPd/q60hodE43tM1ytr7bEv2N6nxkaKveBZRkZUauda0ZYGJLOlmOSCuDhTa3lyR1BylVzQ++xfkWZoznMjaz7WxC/UR4DiW+imwcqK/ZxINglrDjYb8EZQTd2+POg6XIVh5ZtlqFLjHxjbwax/wpv6I4TLWwWNIvkpzdkjMZKcy+EiXlXKdw0ciMMjTt4EgpC9RHcyXrgIBPA0L+YlLm7fWVqmWEtsHEJ1Ewx59CIKtTFf+NxFGO7iUi2FN88c/sUMdXkIl3VHks93SOhgfTzu4yOR9dO4Rp2luOuufhpXV6A5eRSwTjFsGDzvrkHhbiQOoxSGO7AA==",
+		"XQAAAQCmAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFlfSyIS9gl64nnoxnwaqihNUCvDNOglUTHdtHZMpZNjKKRTeHQyxqzCAkmi7jU9EPY/W14wugjKPAnnh8653Q0Cj1Izala5nWcwCNDpzUfMQjiAiPRwp8+q/ignfMEv3qdC7EBgHXLZtx2BSBOiwnd5HNHx3jNlJftAkrEMzB3y+dY+vBI/vzJ6HGv9IUyd9jwtWzT9TTPdSv8boSElsvfHHDCz3WN3tAg4Emow10JuqVKZMMDQYutJ6aygkUAvgRxbA9o/fnxaeSTDjJj1ROs0EYR4hpaUGJa7I/QbLSocT8fY8Lv0NQOrzRsqeNhKbLCL8OYWJi8FyQqfP2Wokm+8oQ=",
+		"XQAAAQDGAwAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslAXRm2oGP1QxSv8Ej6z2NALe32xGObzHUEI0QLGYs7nEBf4MrJwQigQO24bpboIUIy6or+O0t7Gev4FakCvdAbNXajvhkqRWVbCzIDZkYe7ok+NRK56WvPFRETxZ6IdTkIu+tjazILuna0EJpXnfPwZPJHhh0V4GFuAJWceuQ87u3y3hT9+Cpncjqw2OA3sd9CNxUOwWP0MGHFj0dWRLxI39PFXirIziXhirOrkkVdyFINaRBVNKUQEibY4wjFvxayhuFD0mQmy05eiQygSpWIO2nVIm8rxGn4HKUz4CKQA/RypzvmWN9n6USWfmJEtVp3dYub9gKX4/Iv7Af8d7f+nr1TqqhC/KoC/FCkD9MElhkG3P2uPdDu0e7+hxBjvSDBT"
+	}
+}
+
+EFGM.ITEMS["arc9_eft_vpo209"] = {
+	fullName = "Molot Arms VPO-209 .366 TKM carbine",
+	displayName = "VPO-209",
+	displayType = DISPLAYTYPE,
+	weight = 2,
+	value = 38000,
+	levelReq = 8,
+	equipType = EQUIPTYPE.Weapon,
+	equipSlot = WEAPONSLOTS.PRIMARY.ID,
+	appearInInventory = true,
+	stackSize = 1,
+	icon = Material("items/weapons/vpo209.png", "smooth"),
+
+	sizeX = 5,
+	sizeY = 2,
+
+	caliber = ".366",
+	ammoID = "efgm_ammo_366",
+
+	defAtts = "XQAAAQAtAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslbt4xjmVkJBjle8bjtok2Ua8haAP+W7CrzgCP8lRbkXtTOXSnQ59p7RSkhFnm7rDKP3TZqZ2FvTqbFAqb4BJ0neIez5VROHBPR8YPzC9OI3tAC8HhYOuXh2hTUT7GEgp9Ck5ja5eJnuDC3WfWIJ1hLNqg9NXvkjaA3c4rI1W6U5FbjPnAOxjJ52vrb4dfq6Jeacsvi79ZUINJmjTy8v7Ze9ohVBEwURQyE+Jw==",
+	duelAtts = {
+		"XQAAAQAtAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslbt4xjmVkJBjle8bjtok2Ua8haAP+W7CrzgCP8lRbkXtTOXSnQ59p7RSkhFnm7rDKP3TZqZ2FvTqbFAqb4BJ0neIez5VROHBPR8YPzC9OI3tAC8HhYOuXh2hTUT7GEgp9Ck5ja5eJnuDC3WfWIJ1hLNqg9NXvkjaA3c4rI1W6U5FbjPnAOxjJ52vrb4dfq6Jeacsvi79ZUINJmjTy8v7Ze9ohVBEwURQyE+Jw==",
+		"XQAAAQCYAgAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjshQrWFWnl+7IBc2pvfQjJnp4imzJC1a+eyvpa///QK4nSKZOoyxZd2eU/CkF0c8UxwdlQBiI/DlE4zQXvbULBqjzPandy1c4Tict1jqqzkdPNfBaxdgGAn+ek5X3hEWXQ+5kQgtGXioW74wVXJJxMMp56DV25qq/TgN8LkK7V1TiGxkk+WZqhgp+rHcALeOUSz6YZUEWtbwGxfF6RgHYsEDwXNKHjfIELiI7/8tPY1Nz63Alc5IV2u3iyluXg/zlBmO2RUty1+1ZVaEPpZQXQIxd/tqr9fzc1cFM86L9V8XWe6A=",
+		"XQAAAQAdBAAAAAAAAAA9iIIiM7tupQCpjrtGalANz5MWYz8NWDT+kEGPPnFjslAXRm2oGP1QxSv8Ej6z2NALe32xGObzHUEI0QLGYs7nEBySqi1U7NzTprEgJfX7Zvfl8YETy33GWIwBC37B7SjyUQ43Vddn5uvtRQgo0v2AKY0Jjs8TDUVI/egQllY7f4mUv0b8B1wsNF88RxldZZcC37njP4WZKJEKk/2UuKvw4qwUuP9JM4Jx3FlSU6/3xHlFGM4EyGubibkXvrkl8Lr1zJ1OIKjgqq1gILi+S0s4Zq7lRCQ+aKx3yu4Oe/gHwT8LEGEjRe96FQ87MPesvZ4enVRt8f0ldfj+4T04CckenEVJN7lWrI7ngm44G+Am+hsBye3y8kcgj+eh/bTREimz12hmUvM46BnglzE4q7mNvf7bdjpiIayp8egIU5XXovdcS793vSC+lntOp6e3ywaUt17jymK7mUXcaIOZAA==",
+		"XQAAAQAtAgAAAAAAAAA9iIIiM7tupQCpjrtF9qJbeNZaSCEX4Y6O26Hmp1HRpqw8uiVK1lg/oSP/8/+2+bNrMmxO+W0Dv6rxamSHaRtMx7Ye+Rw4Ewuf1bAnyqfgR92Iev5Iz9BvwnLWzyalRfxmKmjiuWafULNyg6BP4o3V88wHExOjr8QsfFKA/tcTBkvnW6nPdOdy2QKqNNSzwC49gfEPdTiLpElB1kaY+Wj6YVEyZ9n9Ewz7KUHF5x2yO2UE3u1aBjkTwEN9ycT0P4DAgooqlJLjHa/uAbC6fk4A"
+	}
+}

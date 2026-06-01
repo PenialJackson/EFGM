@@ -106,7 +106,8 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		self:SetNthShot(0)
 
 		self.SpawnTime = CurTime()
-		self:SetSpawnEffect(false)
+		self:SetSpawnEffect(false) -- lol gmod suck
+		-- self:BuildAttachmentAddresses()
 
 		self:InitTimers()
 
@@ -158,9 +159,13 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 	function SWEP:PostModify(toggleonly)
 		self:InvalidateCache()
 
+		self.AffectorsCache = nil -- fixes printnames being late
+		self.ElementsCache = nil
+
 		if !toggleonly then
-			self.ScrollLevels = {}
+			self.ScrollLevels = {} -- moved from invalidcache
 			self:CancelReload()
+			-- self:PruneAttachments()
 			self:SetNthReload(0)
 		end
 
@@ -204,7 +209,6 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				end
 
 				timer.Simple(0, function()
-					if !IsValid(client) or !client:IsPlayer() then return end
 					if self.LastAmmo != self:GetValue("Ammo") or self.LastClipSize != self:GetValue("ClipSize") then
 						if self.AlreadyGaveAmmo then
 							self:Unload()
@@ -544,12 +548,14 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 				ang.r = ang.r + (math.sin(CurTime() * self:GetProcessedValue("RecoilKickDamping", true)) * rec)
 			end
 
-			if self.RecoilKickAffectPitch and !self:IsUsingRTScope() then
-				local recam = math.min(swepDt.RecoilAmount, 15)
-				SmoothRecoilAmount = Lerp(FrameTime() * 3, SmoothRecoilAmount, recam)
-				local thing = SmoothRecoilAmount * (reckick * self:GetProcessedValue("RecoilKickPitchMult", true)) * self:GetProcessedValue("Recoil")
-				ang.p = ang.p - 0.6 * thing
-				self.VMZOffsetForCamera = -0.25 * thing
+			if self.RecoilKickAffectPitch then
+				if !self:IsUsingRTScope() then
+					local recam = math.min(swepDt.RecoilAmount, 15)
+					SmoothRecoilAmount = Lerp(FrameTime() * 3, SmoothRecoilAmount, recam)
+					local thing = SmoothRecoilAmount * (reckick * self:GetProcessedValue("RecoilKickPitchMult", true)) * self:GetProcessedValue("Recoil")
+					ang.p = ang.p - 0.6 * thing
+					self.VMZOffsetForCamera = -0.25 * thing
+				end
 			end
 
 			local sightamount = swepDt.SightAmount
@@ -1827,7 +1833,12 @@ hook.Add("PreRegisterSWEP", "ARC9Override", function(swep, class)
 		self:DoEffects()
 
 		if self:HoldingBreath() then
-			self:SetBreath(math.max(0, self:GetBreath() - math.max(10, swepGetProcessedValue(self,   "HoldBreathTime", true) / 20)))
+			local d = 100 / math.max(1, swepGetProcessedValue(self, "HoldBreathTime", true))
+			local breathtake = math.Clamp(delay * d * 3, 1, 10)
+			if manualaction then
+				breathtake = d
+			end
+			self:SetBreath(math.max(0, self:GetBreath() - breathtake))
 		end
 
 		-- ewww

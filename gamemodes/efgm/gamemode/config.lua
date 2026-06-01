@@ -44,7 +44,7 @@ end
 
 -- override ARC9 config
 ARC9.NoHUD = true
-ARC9.NoTPIK = true
+ARC9.NoTPIK = false
 
 -- server convars
 if SERVER then
@@ -186,7 +186,7 @@ if CLIENT then
 	RunConsoleCommand("arc9_fx_reloadblur", "0")
 	RunConsoleCommand("arc9_fx_animblur", "0")
 	RunConsoleCommand("arc9_fx_rtblur", "0")
-	RunConsoleCommand("arc9_fx_adsblur", "0")
+	RunConsoleCommand("arc9_fx_adsblur_new", "0")
 	RunConsoleCommand("arc9_fx_rtvm", "1")
 	RunConsoleCommand("arc9_eject_fx", "0")
 	RunConsoleCommand("arc9_eject_time", "0")
