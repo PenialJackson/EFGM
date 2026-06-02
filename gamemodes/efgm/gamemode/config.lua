@@ -17,6 +17,23 @@ EFGM.CONFIG.PLAYER.CROUCHENTERTIME = 0.4
 EFGM.CONFIG.PLAYER.CROUCHEXITTIME = 0.46
 EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT = 30
 
+-- damage multipliers
+EFGM.CONFIG.DAMAGE.PISTOL = 1
+EFGM.CONFIG.DAMAGE.SHOTGUN = 1
+EFGM.CONFIG.DAMAGE.CARBINE = 1
+EFGM.CONFIG.DAMAGE.RIFLE = 1
+EFGM.CONFIG.DAMAGE.BIGRIFLE = 1
+EFGM.CONFIG.DAMAGE.HEAVY = 1
+EFGM.CONFIG.DAMAGE.MASSIVE = 1
+EFGM.CONFIG.DAMAGE.MELEE = 1
+EFGM.CONFIG.DAMAGE.EXPLOSIVE = 1
+
+-- weapons
+EFGM.CONFIG.WEAPONS.RANGE = 160
+EFGM.CONFIG.WEAPONS.SHOTGUNRANGE = 40
+EFGM.CONFIG.WEAPONS.ERGONOMICSMULTIPLIER = 1
+EFGM.CONFIG.WEAPONS.FLASHBANGTIMEMULTIPLIER = 1
+
 -- raid
 EFGM.CONFIG.RAID = {}
 EFGM.CONFIG.RAID.MINIMUMPLAYERS = 3
@@ -62,22 +79,6 @@ if SERVER then
 	RunConsoleCommand("arc9_mod_dispersionspread", "1")
 	RunConsoleCommand("arc9_mod_sprinttime", "1")
 	RunConsoleCommand("arc9_mod_visualrecoil", "0.75")
-	RunConsoleCommand("arc9_eft_mult_ergo", "1")
-
-	-- damage falloff (in meters)
-	RunConsoleCommand("arc9_eft_mindmgrange", "160")
-	RunConsoleCommand("arc9_eft_mindmgrange_sg", "40")
-
-	-- damage type multipliers
-	RunConsoleCommand("arc9_eft_mult_338", "0.55")
-	RunConsoleCommand("arc9_eft_mult_bigrifle", "0.65")
-	RunConsoleCommand("arc9_eft_mult_carabine", "0.4")
-	RunConsoleCommand("arc9_eft_mult_massive", "0.45")
-	RunConsoleCommand("arc9_eft_mult_melee", "1.5")
-	RunConsoleCommand("arc9_eft_mult_pistol", "0.35")
-	RunConsoleCommand("arc9_eft_mult_rifle", "0.4")
-	RunConsoleCommand("arc9_eft_mult_shotgun", "0.5")
-	RunConsoleCommand("arc9_eft_mult_explosive", "1")
 
 	-- mechanics
 	RunConsoleCommand("arc9_infinite_ammo", "0")
@@ -88,11 +89,8 @@ if SERVER then
 	RunConsoleCommand("arc9_breath_slowmo", "0")
 	RunConsoleCommand("arc9_manualbolt", "0")
 	RunConsoleCommand("arc9_never_ready", "0")
-	RunConsoleCommand("arc9_eft_mult_flashbang", "0.4")
-	RunConsoleCommand("arc9_eft_taran_jam", "0")
 	RunConsoleCommand("arc9_mod_peek", "0")
 	RunConsoleCommand("arc9_eft_nontpik_mode", "1")
-	RunConsoleCommand("arc9_eft_singleuse_behaviour", "0")
 	RunConsoleCommand("arc9_equipment_generate_ammo", "0")
 
 	-- physics
@@ -123,18 +121,6 @@ if SERVER then
 	RunConsoleCommand("arc9_precache_attsmodels_onstartup", "0")
 	RunConsoleCommand("arc9_precache_wepmodels_onstartup", "0")
 end
-
--- variables for ARC9 multipliers and range, used for modifications that I will make directly in SWEPS
-dmgrange = GetConVar("arc9_eft_mindmgrange"):GetInt() / 1000
-dmgrange_shotgun = GetConVar("arc9_eft_mindmgrange_sg"):GetInt() / 1000
-mult_338 = GetConVar("arc9_eft_mult_338"):GetFloat()
-mult_bigrifle = GetConVar("arc9_eft_mult_bigrifle"):GetFloat()
-mult_carabine = GetConVar("arc9_eft_mult_carabine"):GetFloat()
-mult_massive = GetConVar("arc9_eft_mult_massive"):GetFloat()
-mult_melee = GetConVar("arc9_eft_mult_melee"):GetFloat()
-mult_pistol = GetConVar("arc9_eft_mult_pistol"):GetFloat()
-mult_rifle = GetConVar("arc9_eft_mult_rifle"):GetFloat()
-mult_shotgun = GetConVar("arc9_eft_mult_shotgun"):GetFloat()
 
 -- client convars
 if CLIENT then
