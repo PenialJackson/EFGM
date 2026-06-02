@@ -317,7 +317,6 @@ local LastAng = Angle()
 local LerpedSway_Y = 0
 local LerpedSway_X = 0
 local LerpedSway_Tilt = 0
-local LerpedAngX = 0
 
 local requestedmove = false
 local punchstop = false
@@ -332,7 +331,7 @@ local VBPosWeight, VBAngWeight = 1, 1
 
 VBSightChecks = {
 	["arc9_base"] = function(wep) return wep.dt and wep.dt.InSights end,
-	["arc9_eft_base"] = function(wep) return wep.dt and wep.dt.InSights end
+	["arc9_efgm_base"] = function(wep) return wep.dt and wep.dt.InSights end
 }
 local VBSightChecks = VBSightChecks
 

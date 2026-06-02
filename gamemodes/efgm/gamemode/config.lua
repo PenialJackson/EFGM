@@ -90,7 +90,6 @@ if SERVER then
 	RunConsoleCommand("arc9_manualbolt", "0")
 	RunConsoleCommand("arc9_never_ready", "0")
 	RunConsoleCommand("arc9_mod_peek", "0")
-	RunConsoleCommand("arc9_eft_nontpik_mode", "1")
 	RunConsoleCommand("arc9_equipment_generate_ammo", "0")
 
 	-- physics
