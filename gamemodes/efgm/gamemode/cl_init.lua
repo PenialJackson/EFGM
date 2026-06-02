@@ -12,23 +12,23 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "na
 	include("shared/" .. f)
 end
 
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/codex/*.lua", "GAME", "nameasc")) do
-	if f == "codex_init.lua" then continue end
+local function LoadLuaRecursive(dir, prefix, blacklist)
+	local files, folders = file.Find(dir .. "*", "GAME", "nameasc")
 
-	include("codex/" .. f)
+	for _, f in ipairs(files) do
+		if f:EndsWith(".lua") and !table.HasValue(blacklist, f) then
+			include(prefix .. f)
+		end
+	end
+
+	for _, folder in ipairs(folders) do
+		LoadLuaRecursive(dir .. folder .. "/", prefix .. folder .. "/", blacklist)
+	end
 end
 
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nameasc")) do
-	if f == "items_init.lua" then continue end
-
-	include("items/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/tasks/*.lua", "GAME", "nameasc")) do
-	if f == "tasks_init.lua" then continue end
-
-	include("tasks/" .. f)
-end
+LoadLuaRecursive("gamemodes/efgm/gamemode/codex/", "codex/", {"codex_init.lua"})
+LoadLuaRecursive("gamemodes/efgm/gamemode/items/", "items/", {"items_init.lua"})
+LoadLuaRecursive("gamemodes/efgm/gamemode/tasks/", "tasks/", {"tasks_init.lua"})
 
 local ogLocalPlayer = LocalPlayer
 local lcply = ogLocalPlayer()

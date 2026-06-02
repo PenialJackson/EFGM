@@ -1,9 +1,9 @@
 local DISPLAYTYPE = "Auxiliary"
 local ATTICONPATH = "items/attachments/auxiliary/"
 
-local function AttMaterial(imgPath, paramOverride)
+local function AttMaterial(imgPath)
 	if SERVER then return end
-	return Material(ATTICONPATH .. imgPath, paramOverride or "smooth")
+	return Material(ATTICONPATH .. imgPath, "smooth")
 end
 
 EFGM.ITEMS["arc9_att_eft_1911_hammer_hex"] = {

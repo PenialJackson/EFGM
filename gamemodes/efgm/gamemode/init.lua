@@ -35,26 +35,24 @@ for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "name
 	AddCSLuaFile("vgui/" .. f)
 end
 
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/codex/*.lua", "GAME", "nameasc")) do
-	if f == "codex_init.lua" then continue end
+local function LoadLuaRecursive(dir, prefix, blacklist)
+	local files, folders = file.Find(dir .. "*", "GAME", "nameasc")
 
-	AddCSLuaFile("codex/" .. f)
-	include("codex/" .. f)
+	for _, f in ipairs(files) do
+		if f:EndsWith(".lua") and !table.HasValue(blacklist, f) then
+			AddCSLuaFile(prefix .. f)
+			include(prefix .. f)
+		end
+	end
+
+	for _, folder in ipairs(folders) do
+		LoadLuaRecursive(dir .. folder .. "/", prefix .. folder .. "/", blacklist)
+	end
 end
 
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/items/*.lua", "GAME", "nameasc")) do
-	if f == "items_init.lua" then continue end
-
-	AddCSLuaFile("items/" .. f)
-	include("items/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/tasks/*.lua", "GAME", "nameasc")) do
-	if f == "tasks_init.lua" then continue end
-
-	AddCSLuaFile("tasks/" .. f)
-	include("tasks/" .. f)
-end
+LoadLuaRecursive("gamemodes/efgm/gamemode/codex/", "codex/", {"codex_init.lua"})
+LoadLuaRecursive("gamemodes/efgm/gamemode/items/", "items/", {"items_init.lua"})
+LoadLuaRecursive("gamemodes/efgm/gamemode/tasks/", "tasks/", {"tasks_init.lua"})
 
 local math = math
 local table = table

@@ -1,9 +1,9 @@
 local DISPLAYTYPE = "Mount"
 local ATTICONPATH = "items/attachments/mounts/"
 
-local function AttMaterial(imgPath, paramOverride)
+local function AttMaterial(imgPath)
 	if SERVER then return end
-	return Material(ATTICONPATH .. imgPath, paramOverride or "smooth")
+	return Material(ATTICONPATH .. imgPath, "smooth")
 end
 
 EFGM.ITEMS["arc9_att_eft_57_rs_rmr"] = {
@@ -227,7 +227,7 @@ EFGM.ITEMS["arc9_att_eft_aug_upper_vltor"] = {
 	appearInInventory = true,
 	stackSize = 1,
 	stashStackSize = 100,
-	icon = AttMaterial(ATTICONPATHS.RECEIVER, "auga3_vltor.png"),
+	icon = AttMaterial("auga3_vltor.png"),
 
 	sizeX = 2,
 	sizeY = 1,

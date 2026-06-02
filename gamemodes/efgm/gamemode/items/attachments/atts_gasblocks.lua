@@ -1,9 +1,9 @@
 local DISPLAYTYPE = "Gas Block"
 local ATTICONPATH = "items/attachments/gasblocks/"
 
-local function AttMaterial(imgPath, paramOverride)
+local function AttMaterial(imgPath)
 	if SERVER then return end
-	return Material(ATTICONPATH .. imgPath, paramOverride or "smooth")
+	return Material(ATTICONPATH .. imgPath, "smooth")
 end
 
 EFGM.ITEMS["arc9_att_eft_ak12_gas_std"] = {
