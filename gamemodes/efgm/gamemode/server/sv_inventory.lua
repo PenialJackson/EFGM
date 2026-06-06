@@ -429,6 +429,7 @@ end)
 
 function UnequipAllFirearms(ply)
 	if (ply:CompareFaction(false) and ply:IsInHideout()) then return end
+	if ply.weaponSlots == nil then return end
 
 	for i = 1, #table.GetKeys(WEAPONSLOTS) do
 		if i == WEAPONSLOTS.MELEE.ID then continue end

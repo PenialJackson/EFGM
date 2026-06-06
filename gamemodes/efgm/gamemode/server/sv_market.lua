@@ -3,6 +3,8 @@ local table = table
 local net = net
 local util = util
 
+local marketSellMultCVar = GetConVar("sv_efgm_market_sell_mult")
+
 EFGM.SERVER.PLAYERMARKETLIMITS = EFGM.SERVER.PLAYERMARKETLIMITS or {}
 
 function NetworkMarketLimits(ply)
@@ -189,7 +191,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 
 	if def.equipType == EQUIPTYPE.Weapon then
 		local data = ply.stash[key].data
-		local cost = math.floor(def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+		local cost = math.floor(def.value * marketSellMultCVar:GetFloat())
 
 		if data.att then
 			local atts = GetPrefixedAttachmentListFromCode(data.att)
@@ -199,7 +201,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 				local att = EFGM.ITEMS[a]
 				if att == nil then continue end
 
-				cost = cost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+				cost = cost + math.floor(att.value * marketSellMultCVar:GetFloat())
 			end
 		end
 
@@ -212,7 +214,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 		return
 	elseif def.consumableType == "heal" or def.consumableType == "key" then
 		local data = ply.stash[key].data
-		local cost = math.floor((def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * (data.durability / def.consumableValue))
+		local cost = math.floor((def.value * marketSellMultCVar:GetFloat()) * (data.durability / def.consumableValue))
 
 		DeleteItemFromStash(ply, key)
 		ReloadStash(ply)
@@ -223,7 +225,7 @@ net.Receive("PlayerMarketSellItem", function(len, ply)
 		return
 	else
 		local data = ply.stash[key].data
-		local cost = math.floor(def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * count
+		local cost = math.floor(def.value * marketSellMultCVar:GetFloat()) * count
 
 		if count == math.max(data.count, 1) then
 			DeleteItemFromStash(ply, key)
@@ -270,7 +272,7 @@ net.Receive("PlayerMarketSellBulk", function(len, ply)
 
         if def.equipType == EQUIPTYPE.Weapon then
             local data = ply.stash[key].data
-            local cost = math.floor(def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+            local cost = math.floor(def.value * marketSellMultCVar:GetFloat())
 
 			if data.att then
 				local atts = GetPrefixedAttachmentListFromCode(data.att)
@@ -280,7 +282,7 @@ net.Receive("PlayerMarketSellBulk", function(len, ply)
 					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
-					cost = cost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+					cost = cost + math.floor(att.value * marketSellMultCVar:GetFloat())
 				end
 			end
 
@@ -291,7 +293,7 @@ net.Receive("PlayerMarketSellBulk", function(len, ply)
             continue
         elseif def.consumableType == "heal" or def.consumableType == "key" then
 			local data = ply.stash[key].data
-			local cost = math.floor((def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * (data.durability / def.consumableValue))
+			local cost = math.floor((def.value * marketSellMultCVar:GetFloat()) * (data.durability / def.consumableValue))
 
             DeleteItemFromStash(ply, key)
 
@@ -301,7 +303,7 @@ net.Receive("PlayerMarketSellBulk", function(len, ply)
         else
             local data = ply.stash[key].data
             local count = data.count
-            local cost = math.floor(def.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * count
+            local cost = math.floor(def.value * marketSellMultCVar:GetFloat()) * count
 
             DeleteItemFromStash(ply, key)
 

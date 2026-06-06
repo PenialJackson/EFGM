@@ -60,7 +60,7 @@ function SWEP:Initialize()
 		end
 	end)
 
-	ARC9.CacheWepSounds(self, self:GetClass())
-	ARC9.CacheWeaponsModels()
-	ARC9.CacheAttsModels()
+	-- ARC9.CacheWepSounds(self, self:GetClass())
+	-- ARC9.CacheWeaponsModels()
+	-- ARC9.CacheAttsModels()
 end

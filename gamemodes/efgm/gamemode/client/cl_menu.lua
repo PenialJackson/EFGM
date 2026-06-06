@@ -260,6 +260,10 @@ local saveTabHideoutCVar = GetConVar("efgm_menu_savetab_hideout")
 local saveTabRaidCVar = GetConVar("efgm_menu_savetab_raid")
 local closeOnHitCVar = GetConVar("efgm_menu_closeonhit")
 
+local weightThresholdCVar = GetConVar("sv_efgm_player_weight_threshold")
+local squadsMaxPlayersCVar = GetConVar("sv_efgm_squads_players_max")
+local marketSellMultCVar = GetConVar("sv_efgm_market_sell_mult")
+
 -- dont let players attack/ads/jump while in the menu
 hook.Add("PlayerBindPress", "BlockBindsWhileInMenu", function(ply, bind, pressed)
 	if EFGM.MENU.MenuFrame == nil then return end
@@ -2222,7 +2226,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 
 	local maxTransactionCount = math.Clamp(data.count or 1, 1, i.stashStackSize or i.stackSize)
 	local transactionCount = maxTransactionCount
-	local transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * transactionCount
+	local transactionCost = math.floor(i.value * marketSellMultCVar:GetFloat()) * transactionCount
 	local isConsumable = i.consumableType == "heal" or i.consumableType == "key"
 
 	if data.att then
@@ -2233,7 +2237,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 			local att = EFGM.ITEMS[a]
 			if att == nil then continue end
 
-			transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+			transactionCost = transactionCost + math.floor(att.value * marketSellMultCVar:GetFloat())
 		end
 	end
 
@@ -2347,7 +2351,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 			local num = math.Clamp(self:GetInt() or 1, 1, maxTransactionCount)
 
 			transactionCount = num
-			transactionCost = math.floor(i.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * num
+			transactionCost = math.floor(i.value * marketSellMultCVar:GetFloat()) * num
 
 			if data.att then
 				local atts = GetPrefixedAttachmentListFromCode(data.att)
@@ -2357,7 +2361,7 @@ function EFGM.MENU.ConfirmSell(item, data, key)
 					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
-					transactionCost = transactionCost + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+					transactionCost = transactionCost + math.floor(att.value * marketSellMultCVar:GetFloat())
 				end
 			end
 
@@ -3726,8 +3730,8 @@ function EFGM.MENU.OpenTab.Map()
 	squadMemberLimit:SetPos(0, EFGM.MenuScale(30))
 	squadMemberLimit:SetSize(EFGM.MenuScale(280), EFGM.MenuScale(24))
 	squadMemberLimit:SetMin(2)
-	squadMemberLimit:SetMax(EFGM.CONFIG.SQUAD.MAXPLAYERS)
-	squadMemberLimit:SetValue(EFGM.CONFIG.SQUAD.MAXPLAYERS)
+	squadMemberLimit:SetMax(squadsMaxPlayersCVar:GetInt())
+	squadMemberLimit:SetValue(squadsMaxPlayersCVar:GetInt())
 
 	function squadMemberLimit:OnValueChanged(val)
 		createSquadPlayerLimit = math.Clamp(val, self:GetMin(), self:GetMax())
@@ -5563,11 +5567,11 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			draw.SimpleTextOutlined("Your carry weight can begin to negatively affect your character if it goes unchecked.", "Purista18", EFGM.MenuScale(5), EFGM.MenuScale(25), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			draw.SimpleTextOutlined("EFFECTS", "PuristaBold24", EFGM.MenuScale(5), EFGM.MenuScale(50), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, 1, COLORS.blackColor)
-			draw.SimpleTextOutlined("MOVEMENT SPEED: -" .. math.max(0, math.min(maxLossMove, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.818, 2))) .. "u/s", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(70), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined("MOVEMENT INERTIA: +" .. math.max(0, math.min(maxLossInertia, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0136, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(83), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined("AIM DOWN SIGHTS TIME: +" .. math.max(1, 1 + math.min(maxLossADS, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.011) * 5, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(96), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined("WEAPON SWAY: +" .. math.max(1, 1 + math.min(maxLossSway, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.011) * 2, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(109), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-			draw.SimpleTextOutlined("LEANING SPEED: -" .. 100 - math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0109, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(122), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("MOVEMENT SPEED: -" .. math.max(0, math.min(maxLossMove, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.818, 2))) .. "u/s", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(70), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("MOVEMENT INERTIA: +" .. math.max(0, math.min(maxLossInertia, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.0136, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(83), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("AIM DOWN SIGHTS TIME: +" .. math.max(1, 1 + math.min(maxLossADS, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.011) * 5, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(96), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("WEAPON SWAY: +" .. math.max(1, 1 + math.min(maxLossSway, math.Round((math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.011) * 2, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(109), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
+			draw.SimpleTextOutlined("LEANING SPEED: -" .. 100 - math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, EFGM.MENU.Player:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.0109, 2))) * 100 .. "%", "PuristaBold16", EFGM.MenuScale(5), EFGM.MenuScale(122), COLORS.whiteColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
 
 			surface.SetDrawColor(COLORS.transparentWhiteColor)
 			surface.DrawRect(EFGM.MenuScale(5), EFGM.MenuScale(150), EFGM.MenuScale(550), EFGM.MenuScale(1))
@@ -8123,10 +8127,10 @@ function EFGM.MENU.OpenTab.Market()
 
 			local value, rawValue
 			if !isConsumable then
-				value = math.floor(baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * count
+				value = math.floor(baseValue * marketSellMultCVar:GetFloat()) * count
 				rawValue = baseValue * count
 			else
-				value = math.floor((baseValue * EFGM.CONFIG.MARKET.SELLMULTIPLIER) * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
+				value = math.floor((baseValue * marketSellMultCVar:GetFloat()) * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
 				rawValue = math.floor(baseValue * ((v.data.durability or def.consumableValue) / def.consumableValue)) * count
 			end
 
@@ -8150,7 +8154,7 @@ function EFGM.MENU.OpenTab.Market()
 					local att = EFGM.ITEMS[a]
 					if att == nil then continue end
 
-					marketPlyStashItems[k].value = marketPlyStashItems[k].value + math.floor(att.value * EFGM.CONFIG.MARKET.SELLMULTIPLIER)
+					marketPlyStashItems[k].value = marketPlyStashItems[k].value + math.floor(att.value * marketSellMultCVar:GetFloat())
 					marketPlyStashItems[k].weight = marketPlyStashItems[k].weight + (att.weight or 0.1)
 					marketPlyStashItems[k].atts = marketPlyStashItems[k].atts + 1
 					EFGM.MENU.StashValue = EFGM.MENU.StashValue + att.value

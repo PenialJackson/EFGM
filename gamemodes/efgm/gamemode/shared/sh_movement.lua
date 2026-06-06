@@ -137,6 +137,8 @@ local maxLossLean = 0.6
 local hull_size_5 = Vector(6.3, 6.3, 6.3)
 local hull_size_5_negative = Vector(-6.3, -6.3, -6.3)
 
+local weightThresholdCVar = GetConVar("sv_efgm_player_weight_threshold")
+
 hook.Add("SetupMove", "Leaning", function(ply, mv, cmd)
 	local eyepos = ply:EyePos() - ply:GetNW2Vector("leaning_best_head_offset")
 	local angles = cmd:GetViewAngles()
@@ -146,7 +148,7 @@ hook.Add("SetupMove", "Leaning", function(ply, mv, cmd)
 	local leaning_left = ply:GetNW2Bool("leaning_left")
 	local leaning_right = ply:GetNW2Bool("leaning_right")
 
-	local speed = leanSpeed * math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0109, 3)))
+	local speed = leanSpeed * math.min(1, 1 - math.min(maxLossLean, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.0109, 3)))
 
 	local allow = (!ply:IsSprinting() or !ply:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT)) and ply:GetMoveType() != MOVETYPE_LADDER
 
@@ -354,19 +356,25 @@ hook.Add("CreateMove", "Inertia", function(cmd)
 end)
 
 local maxLossMove = 45
+
+local speedWalkCVar = GetConVar("sv_efgm_player_speed_walk")
+local speedRunCVar = GetConVar("sv_efgm_player_speed_run")
+local speedSlowWalkCVar = GetConVar("sv_efgm_player_speed_slowwalk")
+local speedClimbCVar = GetConVar("sv_efgm_player_speed_climb")
+
 hook.Add("Move", "MovementWeight", function(ply, mv)
 	if !ply:Alive() then return end
 
-	local deduction = math.max(0, math.min(maxLossMove, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.818, 3)))
+	local deduction = math.max(0, math.min(maxLossMove, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.818, 3)))
 
-	ply:SetWalkSpeed(EFGM.CONFIG.PLAYER.WALKSPEED - deduction)
-	ply:SetRunSpeed(EFGM.CONFIG.PLAYER.RUNSPEED - deduction)
-	ply:SetSlowWalkSpeed(EFGM.CONFIG.PLAYER.SLOWWALKSPEED - deduction)
+	ply:SetWalkSpeed(speedWalkCVar:GetInt() - deduction)
+	ply:SetRunSpeed(speedRunCVar:GetInt() - deduction)
+	ply:SetSlowWalkSpeed(speedSlowWalkCVar:GetInt() - deduction)
 
 	if !ply:IsWalking() then
-		ply:SetLadderClimbSpeed(EFGM.CONFIG.PLAYER.CLIMBSPEED - (deduction / 2))
+		ply:SetLadderClimbSpeed(speedClimbCVar:GetInt() - (deduction / 2))
 	else
-		ply:SetLadderClimbSpeed((EFGM.CONFIG.PLAYER.CLIMBSPEED / 1.5) - (deduction / 2))
+		ply:SetLadderClimbSpeed((speedClimbCVar:GetInt() / 1.5) - (deduction / 2))
 	end
 
 	if !ply:IsOnGround() or CLIENT then return end
@@ -388,7 +396,7 @@ hook.Add("SetupMove", "VBSetupMove", function(ply, mv, cmd)
 		SetInertia(ply, 0.06)
 	end
 
-	local deductionMult = 1 - math.max(0, math.min(maxLossInertiaMult, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - EFGM.CONFIG.PLAYER.UNDERWEIGHTLIMIT) * 0.0136, 3)))
+	local deductionMult = 1 - math.max(0, math.min(maxLossInertiaMult, math.Round(math.max(0, ply:GetNWFloat("InventoryWeight", 0.000) - weightThresholdCVar:GetFloat()) * 0.0136, 3)))
 
 	if math.abs(cmd:GetForwardMove()) + math.abs(cmd:GetSideMove()) > 0 then
 		local target = (cmd:KeyDown(IN_WALK) and 0.04) or math.min(1 - 0.15 + 0.25, 1)

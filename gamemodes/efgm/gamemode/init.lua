@@ -1,4 +1,5 @@
 AddCSLuaFile("shared.lua")
+AddCSLuaFile("convars.lua")
 AddCSLuaFile("util.lua")
 AddCSLuaFile("enums.lua")
 AddCSLuaFile("config.lua")
@@ -7,6 +8,7 @@ AddCSLuaFile("items/items_init.lua")
 AddCSLuaFile("tasks/tasks_init.lua")
 
 include("shared.lua")
+include("convars.lua")
 include("util.lua")
 include("enums.lua")
 include("config.lua")
@@ -184,19 +186,32 @@ hook.Add("Initialize", "EFGMInitialized", function()
 	RunConsoleCommand("decalfrequency", "1")
 end)
 
+local hpMaxCVar = GetConVar("sv_efgm_player_hp_max")
+local gravityCVar = GetConVar("sv_efgm_player_gravity")
+local speedWalkCVar = GetConVar("sv_efgm_player_speed_walk")
+local speedRunCVar = GetConVar("sv_efgm_player_speed_run")
+local speedSlowWalkCVar = GetConVar("sv_efgm_player_speed_slowwalk")
+local speedClimbCVar = GetConVar("sv_efgm_player_speed_climb")
+local speedCrouchCVar = GetConVar("sv_efgm_player_speed_crouch")
+local jumpHeightCVar = GetConVar("sv_efgm_player_jump_height")
+local crouchTimeEnterCVar = GetConVar("sv_efgm_player_crouch_time_enter")
+local crouchTimeExitCVar = GetConVar("sv_efgm_player_crouch_time_exit")
+local timersRespawnCVar = GetConVar("sv_efgm_timers_respawn")
+local timersHideoutRespawnCVar = GetConVar("sv_efgm_timers_respawn_hideout")
+
 function GM:PlayerSpawn(ply)
 	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
 
-	ply:SetMaxHealth(EFGM.CONFIG.PLAYER.MAXHEALTH)
-	ply:SetGravity(EFGM.CONFIG.PLAYER.GRAVITY)
-	ply:SetWalkSpeed(EFGM.CONFIG.PLAYER.WALKSPEED)
-	ply:SetRunSpeed(EFGM.CONFIG.PLAYER.RUNSPEED)
-	ply:SetSlowWalkSpeed(EFGM.CONFIG.PLAYER.SLOWWALKSPEED)
-	ply:SetJumpPower(EFGM.CONFIG.PLAYER.JUMPHEIGHT)
-	ply:SetLadderClimbSpeed(EFGM.CONFIG.PLAYER.CLIMBSPEED)
-	ply:SetCrouchedWalkSpeed(EFGM.CONFIG.PLAYER.CROUCHWALKSPEEDMULTIPLIER)
-	ply:SetDuckSpeed(EFGM.CONFIG.PLAYER.CROUCHENTERTIME)
-	ply:SetUnDuckSpeed(EFGM.CONFIG.PLAYER.CROUCHEXITTIME)
+	ply:SetMaxHealth(hpMaxCVar:GetInt())
+	ply:SetGravity(gravityCVar:GetFloat())
+	ply:SetWalkSpeed(speedWalkCVar:GetInt())
+	ply:SetRunSpeed(speedRunCVar:GetInt())
+	ply:SetSlowWalkSpeed(speedSlowWalkCVar:GetInt())
+	ply:SetLadderClimbSpeed(speedClimbCVar:GetInt())
+	ply:SetCrouchedWalkSpeed(speedCrouchCVar:GetFloat())
+	ply:SetJumpPower(jumpHeightCVar:GetInt())
+	ply:SetDuckSpeed(crouchTimeEnterCVar:GetFloat())
+	ply:SetUnDuckSpeed(crouchTimeExitCVar:GetFloat())
 
 	local mdls = ply:IsPMC() and PLAYERMODELS[ply:GetInfoNum("efgm_faction_preference", 0) + 1] or PLAYERMODELS[4]
 	ply:SetModel(table.SeqRandom(mdls))
@@ -281,7 +296,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 		net.Start("CreateDeathInformation")
 			net.WriteFloat(xpMult)
-			if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN, 8) else net.WriteUInt(EFGM.CONFIG.TIMERS.RESPAWN, 8) end
+			if !victim:IsInRaid() then net.WriteUInt(timersHideoutRespawnCVar:GetInt(), 8) else net.WriteUInt(timersRespawnCVar:GetInt(), 8) end
 			net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 			net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 			net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -308,7 +323,7 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 
 	net.Start("CreateDeathInformation")
 		net.WriteFloat(xpMult)
-		if !victim:IsInRaid() then net.WriteUInt(EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN, 8) else net.WriteUInt(EFGM.CONFIG.TIMERS.RESPAWN, 8) end
+		if !victim:IsInRaid() then net.WriteUInt(timersHideoutRespawnCVar:GetInt(), 8) else net.WriteUInt(timersRespawnCVar:GetInt(), 8) end
 		net.WriteUInt(victim:GetNWInt("RaidTime", 0), 12)
 		net.WriteUInt(math.Round(victim:GetNWFloat("ExperienceTime", 0)), 16)
 		net.WriteUInt(victim:GetNWInt("ExperienceCombat", 0), 16)
@@ -345,7 +360,7 @@ hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
 end)
 
 hook.Add("PostPlayerDeath", "PlayerRemoveRaid", function(ply)
-	local time = ply:IsInRaid() and EFGM.CONFIG.TIMERS.RESPAWN or EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN
+	local time = ply:IsInRaid() and timersRespawnCVar:GetInt() or timersHideoutRespawnCVar:GetInt()
 
 	timer.Create(ply:SteamID() .. "respawnTime", time, 1, function() end)
 end)
@@ -418,20 +433,24 @@ hook.Add("PostEntityTakeDamage", "PlayerRegenSetup", function(ent, dmginfo, wasD
 	end
 end)
 
-timer.Create("HealthRegenTick", EFGM.CONFIG.PLAYER.HEALTHREGENTICK, 0, function()
+local hpRegenTickCVar = GetConVar("sv_efgm_player_hp_regen_tick")
+local hpRegenAmountCVar = GetConVar("sv_efgm_player_hp_regen_amount")
+local hpRegenCooldownCVar = GetConVar("sv_efgm_player_hp_regen_cooldown")
+
+timer.Create("HealthRegenTick", hpRegenTickCVar:GetFloat(), 0, function()
 	local ct = CurTime()
 
 	for _, ply in player.Iterator() do
 		if !ply:Alive() then continue end
 		if ply:IsInHideout() then continue end
 
-		if ct + EFGM.CONFIG.PLAYER.HEALTHREGENCOOLDOWN >= ply:GetLastTimeDamaged() then continue end
+		if ct + hpRegenCooldownCVar:GetFloat() >= ply:GetLastTimeDamaged() then continue end
 
 		local health = ply:Health()
-		if health < EFGM.CONFIG.PLAYER.MAXHEALTH then
-			local amt = EFGM.CONFIG.PLAYER.HEALTHREGENAMOUNT
+		if health < hpMaxCVar:GetInt() then
+			local amt = hpRegenAmountCVar:GetInt()
 
-			ply:SetHealth(math.min(health + amt, EFGM.CONFIG.PLAYER.MAXHEALTH))
+			ply:SetHealth(math.min(health + amt, hpMaxCVar:GetInt()))
 			ply:AddToStat("HealthHealed", amt)
 			ply:SetNWInt("RaidHealthHealed", ply:GetNWInt("RaidHealthHealed") + amt)
 		end

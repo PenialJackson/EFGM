@@ -2,6 +2,9 @@ RAID = {}
 
 local plyMeta = FindMetaTable("Player")
 
+local raidMinPlayersCVar = GetConVar("sv_efgm_raid_players_min")
+local squadsMaxPlayersCVar = GetConVar("sv_efgm_squads_players_max")
+
 local function DecrementTimer()
 	SetGlobalInt("RaidTimeLeft", GetGlobalInt("RaidTimeLeft") - 1)
 
@@ -49,7 +52,7 @@ if SERVER then
 	function RAID:StartRaid(forced)
 		if GetGlobalInt("RaidStatus") != STATUS.RAID.PENDING then return end
 
-		if !forced and #player.GetAll() < EFGM.CONFIG.RAID.MINIMUMPLAYERS and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+		if !forced and #player.GetAll() < raidMinPlayersCVar:GetInt() and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
 
 		local time = MAPS[game.GetMap()].time or 1800
 
@@ -120,7 +123,7 @@ if SERVER then
 
 		if GetGlobalInt("RaidStatus") != STATUS.RAID.ACTIVE then return end
 
-		if #plys > EFGM.CONFIG.SQUAD.MAXPLAYERS then print("too many fucking people in your team dumbass") return end
+		if #plys > squadsMaxPlayersCVar:GetInt() then print("too many fucking people in your team dumbass") return end
 
 		local masterSpawn = nil
 		local spawns = {}

@@ -6,6 +6,7 @@ EFGM.INVITES.lastSquadInviteSentTime = 0
 EFGM.INVITES.allow = true
 EFGM.INVITES.mapVoting = false
 
+local timersInviteCVar = GetConVar("sv_efgm_timers_invite")
 local nuhuh = true
 
 -- TODO: squad invites do not work
@@ -21,7 +22,7 @@ function InvitePlayerToSquad(invitedPly)
 	if !EFGM.INVITES.allow then CreateNotification("Invites are now disabled!", MATS.inviteErrorIcon, "ui/error.wav") return end
 	if invitedPly:GetNW2String("PlayerInSquad", "nil") != "nil" then CreateNotification("This player is already in a squad!", MATS.inviteErrorIcon, "ui/error.wav") return end
 	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", MATS.inviteErrorIcon, "ui/error.wav") return end
-	if CurTime() - EFGM.INVITES.lastInviteSentTime < EFGM.CONFIG.TIMERS.INVITECOOLDOWN then CreateNotification("You can send invites again in " .. EFGM.CONFIG.TIMERS.INVITECOOLDOWN - math.Round(CurTime() - EFGM.INVITES.lastInviteSentTime, 1) .. " seconds!", MATS.inviteErrorIcon, "ui/error.wav") return end
+	if CurTime() - EFGM.INVITES.lastInviteSentTime < timersInviteCVar:GetInt() then CreateNotification("You can send invites again in " .. timersInviteCVar:GetInt() - math.Round(CurTime() - EFGM.INVITES.lastInviteSentTime, 1) .. " seconds!", MATS.inviteErrorIcon, "ui/error.wav") return end
 
 	-- local plySquad = LocalPlayer():GetNW2String("PlayerInSquad", "nil")
 
@@ -45,7 +46,7 @@ function InvitePlayerToSquad(invitedPly)
 	-- not in a squad, prompt to automatically create one
 	if EFGM.INVITES.lastSquadInviteSentTime == 0 then CreateNotification("Send another invite to automatically create a squad!", MATS.inviteErrorIcon, "ui/error.wav") EFGM.INVITES.lastSquadInviteSentTime = CurTime() return end
 
-	if CurTime() - EFGM.INVITES.lastSquadInviteSentTime < EFGM.CONFIG.TIMERS.INVITECOOLDOWN then
+	if CurTime() - EFGM.INVITES.lastSquadInviteSentTime < timersInviteCVar:GetInt() then
 		CreateSquad("", "", 4, 255, 255, 255)
 	end
 
@@ -68,7 +69,7 @@ function InvitePlayerToDuel(invitedPly)
 	if !EFGM.INVITES.allow then CreateNotification("Invites are now disabled!", MATS.inviteErrorIcon, "ui/error.wav") return end
 	if GetGlobalInt("DuelStatus") != STATUS.DUEL.PENDING then CreateNotification("Another duel is already taking place, please wait for it to end!", MATS.inviteErrorIcon, "ui/error.wav") return end
 	if EFGM.INVITES.invitedType == INVITETYPES.DUEL and EFGM.INVITES.invitedBy == invitedPly then AcceptInvite() return end
-	if CurTime() - EFGM.INVITES.lastInviteSentTime < EFGM.CONFIG.TIMERS.INVITECOOLDOWN then CreateNotification("You can send invites again in " .. EFGM.CONFIG.TIMERS.INVITECOOLDOWN - math.Round(CurTime() - EFGM.INVITES.lastInviteSentTime, 1) .. " seconds!", MATS.inviteErrorIcon, "ui/error.wav") return end
+	if CurTime() - EFGM.INVITES.lastInviteSentTime < timersInviteCVar:GetInt() then CreateNotification("You can send invites again in " .. timersInviteCVar:GetInt() - math.Round(CurTime() - EFGM.INVITES.lastInviteSentTime, 1) .. " seconds!", MATS.inviteErrorIcon, "ui/error.wav") return end
 	if !invitedPly:IsInHideout() then CreateNotification("This player is currently busy!", MATS.inviteErrorIcon, "ui/error.wav") return end
 	if EFGM.INVITES.invitedBy != nil or EFGM.INVITES.invitedType != nil then CreateNotification("Cannot send an invite while pending confirmation!", MATS.inviteErrorIcon, "ui/error.wav") return end
 
@@ -109,7 +110,7 @@ net.Receive("PlayerInviteReceive", function(len)
 
 	RenderInvite()
 
-	timer.Simple(EFGM.CONFIG.TIMERS.INVITECOOLDOWN, function()
+	timer.Simple(timersInviteCVar:GetInt(), function()
 		EFGM.INVITES.invitedBy = nil
 		EFGM.INVITES.invitedType = nil
 	end)

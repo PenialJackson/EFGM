@@ -1,4 +1,5 @@
 include("shared.lua")
+include("convars.lua")
 include("util.lua")
 include("enums.lua")
 include("config.lua")

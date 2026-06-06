@@ -6,6 +6,9 @@ EFGM.HUD.IntroEnt = NULL
 EFGM.HUD.VotedMap = nil
 
 local paddingCVar = GetConVar("efgm_hud_padding")
+local timersHideoutRespawnCVar = GetConVar("sv_efgm_timers_respawn_hideout")
+local timersInviteCVar = GetConVar("sv_efgm_timers_invite")
+
 EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 
 cvars.AddChangeCallback("efgm_hud_padding", function(convar_name, value_old, value_new)
@@ -285,7 +288,7 @@ function RenderPlayerInfo(ent)
 	local profileBind = string.upper(input.GetKeyName(profileCVar:GetInt()) or "NONE")
 
 	local inviteText = string.upper("[" .. squadBind .. "] INVITE TO SQUAD" .. "   " .. "[" .. duelBind .. "] INVITE TO DUEL" .. "   " .. "[" .. profileBind .. "] VIEW PROFILE")
-	if (CurTime() - EFGM.INVITES.lastInviteSentTime < EFGM.CONFIG.TIMERS.INVITECOOLDOWN) or EFGM.INVITES.invitedBy != nil or EFGM.INVITES.invitedType != nil then inviteText = string.upper("[" .. profileBind .. "] VIEW PROFILE") end
+	if (CurTime() - EFGM.INVITES.lastInviteSentTime < timersInviteCVar:GetInt()) or EFGM.INVITES.invitedBy != nil or EFGM.INVITES.invitedType != nil then inviteText = string.upper("[" .. profileBind .. "] VIEW PROFILE") end
 	surface.SetFont("Bender24")
 	local inviteTextSize = surface.GetTextSize(inviteText) + EFGM.ScreenScale(10)
 
@@ -363,7 +366,7 @@ function RenderInvite()
 
 	surface.PlaySound("ui/invite_receive.wav")
 
-	local time = CurTime() + EFGM.CONFIG.TIMERS.INVITECOOLDOWN
+	local time = CurTime() + timersInviteCVar:GetInt()
 	local sentBy = EFGM.INVITES.invitedBy
 	local inviteType = EFGM.INVITES.invitedType
 
@@ -398,7 +401,7 @@ function RenderInvite()
 		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
 
 		surface.SetDrawColor(COLORS.transparentWhiteColor)
-		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / EFGM.CONFIG.TIMERS.INVITECOOLDOWN) * math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
+		surface.DrawRect(EFGM.ScreenScale(20) + EFGM.HUD.Padding, EFGM.ScreenScale(20), ((time - CurTime()) / timersInviteCVar:GetInt()) * math.max(textSize, bindsTextSize), EFGM.ScreenScale(1))
 
 		draw.SimpleText(text, "BenderExfilTimer", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(21), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 		draw.SimpleText(bindsText, "Bender24", EFGM.ScreenScale(25) + EFGM.HUD.Padding, EFGM.ScreenScale(81), Color(255, 255, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
@@ -926,7 +929,7 @@ net.Receive("CreateDeathInformation", function()
 
 	local quote = QUOTES[math.random(1, #QUOTES)]
 
-	if respawnTime > EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN then surface.PlaySound("death_heartbeat.wav") end
+	if respawnTime > timersHideoutRespawnCVar:GetInt() then surface.PlaySound("death_heartbeat.wav") end
 
 	timer.Simple(respawnTime, function()
 		if IsValid(EFGM.HUD.ELEMENTS.DeathPostScreen) then return end
@@ -1009,7 +1012,7 @@ net.Receive("CreateDeathInformation", function()
 			if respawnButton then respawnButton:SetX(ScrW() / 2 - respawnButton:GetWide() / 2) end
 		end
 
-		if respawnTime > EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN then surface.PlaySound("extract_failed.wav") end
+		if respawnTime > timersHideoutRespawnCVar:GetInt() then surface.PlaySound("extract_failed.wav") end
 
 		respawnButton = vgui.Create("DButton", deathPopup)
 		respawnButton:SetSize(EFGM.MenuScale(1020), EFGM.MenuScale(50))
@@ -1035,7 +1038,7 @@ net.Receive("CreateDeathInformation", function()
 			deathDocker:AlphaTo(0, 0.9, 0.1, function() deathDocker:Remove() end)
 		end
 
-		if respawnTime > EFGM.CONFIG.TIMERS.HIDEOUTRESPAWN then
+		if respawnTime > timersHideoutRespawnCVar:GetInt() then
 			rewardsPanel = vgui.Create("DPanel", deathPopup)
 			rewardsPanel:SetSize(EFGM.MenuScale(500), EFGM.MenuScale(800))
 			rewardsPanel:SetPos(deathPopup:GetWide() / 2 - EFGM.MenuScale(510), EFGM.MenuScale(140))
