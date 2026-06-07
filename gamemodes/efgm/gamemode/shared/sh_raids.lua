@@ -493,7 +493,7 @@ if SERVER then
 			self:RemoveFlags(FL_FROZEN)
 
 			if fac == true then -- PMC
-				local mdls = PLAYERMODELS[self:GetInfoNum("efgm_faction_preference", 0) + 1]
+				local mdls = PLAYERMODELS[math.random(2, 3)]
 				self:SetModel(table.SeqRandom(mdls))
 				self:SetBodygroup(0, math.random(0, 4)) -- head
 				self:SetBodygroup(1, math.random(0, 18)) -- body
@@ -571,7 +571,7 @@ if SERVER then
 	hook.Add("CheckRaidAddPlayers", "MaybeAddPeople", function(ply)
 		local plySquad = ply:GetNW2String("PlayerInSquad", "nil")
 
-		if GetGlobalInt("RaidStatus") == STATUS.RAID.ACTIVE and ply:GetInfoNum("efgm_infil_nearend_block", 1) == 1 and ply:GetInfoNum("efgm_infil_nearend_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
+		if GetGlobalInt("RaidStatus") == STATUS.RAID.ACTIVE and ply:GetInfoNum("efgm_infil_near_end_block", 1) == 1 and ply:GetInfoNum("efgm_infil_near_end_block_limit", 60) >= GetGlobalInt("RaidTimeLeft") then
 			net.Start("SendNotification", false)
 				net.WriteString("Can not enter a raid that is about to end, you can change this in your settings!")
 				net.WriteString("icons/time_icon.png")

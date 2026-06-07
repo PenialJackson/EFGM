@@ -1,5 +1,6 @@
 local cvars = {}
 
+-- server
 cvars["player_hp_max"] = {
 	default = 100,
 	replicated = true
@@ -175,6 +176,181 @@ cvars["market_sell_mult"] = {
 	replicated = true
 }
 
+-- client
+cvars["music"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["music_volume"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 2
+}
+
+cvars["hud"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["hud_scale"] = {
+	client = true,
+	default = 1,
+	min = 0.5,
+	max = 2
+}
+
+cvars["hud_padding"] = {
+	client = true,
+	default = 0,
+	min = 0,
+	max = 100
+}
+
+cvars["menu_parallax"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["menu_scale_method"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["menu_prompts_delete"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["menu_search_auto"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["menu_close_on_hit"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["menu_tabs_save_hideout"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["menu_tabs_save_raid"] = {
+	client = true,
+	default = 0,
+	min = 0,
+	max = 1
+}
+
+cvars["visuals_ads_fov"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["visuals_hq_impacts"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["visuals_hq_flashlight"] = {
+	client = true,
+	default = 0,
+	min = 0,
+	max = 1
+}
+
+cvars["visuals_lens_flare"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["visuals_glow_interactables"] = {
+	client = true,
+	default = 1,
+	min = 0,
+	max = 1
+}
+
+cvars["controls_toggle_duck"] = {
+	client = true,
+	default = 0,
+	min = 0,
+	max = 1
+}
+
+cvars["controls_toggle_lean"] = {
+	client = true,
+	default = 1,
+	userinfo = true,
+	min = 0,
+	max = 1
+}
+
+cvars["privacy_invites_squad"] = {
+	client = true,
+	default = 2,
+	userinfo = true,
+	min = 0,
+	max = 2
+}
+
+cvars["privacy_invites_duel"] = {
+	client = true,
+	default = 2,
+	userinfo = true,
+	min = 0,
+	max = 2
+}
+
+cvars["privacy_invites_blocked"] = {
+	client = true,
+	default = 0,
+	userinfo = true,
+	min = 0,
+	max = 1
+}
+
+cvars["infil_near_end_block"] = {
+	client = true,
+	default = 1,
+	userinfo = true,
+	min = 0,
+	max = 1
+}
+
+cvars["infil_near_end_block_limit"] = {
+	client = true,
+	default = 60,
+	userinfo = true,
+	min = 30,
+	max = 180
+}
+
 local prefixClient = "efgm_"
 local prefixServer = "sv_efgm_"
 
@@ -185,7 +361,7 @@ for cvar, data in pairs(cvars) do
 	if data.client and CLIENT then
 		local name = prefixClient .. cvar
 		table.insert(cvarsClient, name)
-		CreateClientConVar(name, data.default, true, data.userinfo, data.helptext, data.min, data.max)
+		CreateClientConVar(name, data.default, data.save != false, data.userinfo, data.helptext, data.min, data.max)
 	else
 		local name = prefixServer .. cvar
 		local flags = FCVAR_NONE

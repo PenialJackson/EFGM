@@ -213,7 +213,7 @@ function GM:PlayerSpawn(ply)
 	ply:SetDuckSpeed(crouchTimeEnterCVar:GetFloat())
 	ply:SetUnDuckSpeed(crouchTimeExitCVar:GetFloat())
 
-	local mdls = ply:IsPMC() and PLAYERMODELS[ply:GetInfoNum("efgm_faction_preference", 0) + 1] or PLAYERMODELS[4]
+	local mdls = ply:IsPMC() and PLAYERMODELS[math.random(2, 3)] or PLAYERMODELS[4]
 	ply:SetModel(table.SeqRandom(mdls))
 	ply:SetBodygroup(0, math.random(0, 4)) -- head
 	ply:SetBodygroup(1, math.random(0, 18)) -- body

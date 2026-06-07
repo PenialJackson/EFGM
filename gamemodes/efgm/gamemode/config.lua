@@ -138,8 +138,8 @@ if CLIENT then
 	RunConsoleCommand("arc9_font", "Bender")
 
 	-- visuals
-	RunConsoleCommand("cl_new_impact_effects", GetConVar("efgm_visuals_highqualimpactfx"):GetInt())
-	cvars.AddChangeCallback("efgm_visuals_highqualimpactfx", function(convar_name, value_old, value_new)
+	RunConsoleCommand("cl_new_impact_effects", GetConVar("efgm_visuals_hq_impacts"):GetInt())
+	cvars.AddChangeCallback("efgm_visuals_hq_impacts", function(convar_name, value_old, value_new)
 		if value_new == "1" then
 			RunConsoleCommand("cl_new_impact_effects", "1")
 		else

@@ -254,11 +254,11 @@ local dropItemBind = GetConVar("efgm_bind_menu_item_drop")
 local deleteItemBind = GetConVar("efgm_bind_menu_item_delete")
 
 local parallaxCVar = GetConVar("efgm_menu_parallax")
-local scalingCVar = GetConVar("efgm_menu_scalingmethod")
+local scalingCVar = GetConVar("efgm_menu_scale_method")
 local sboxCVar = GetConVar("efgm_derivesbox")
-local saveTabHideoutCVar = GetConVar("efgm_menu_savetab_hideout")
-local saveTabRaidCVar = GetConVar("efgm_menu_savetab_raid")
-local closeOnHitCVar = GetConVar("efgm_menu_closeonhit")
+local saveTabHideoutCVar = GetConVar("efgm_menu_tabs_save_raid")
+local saveTabRaidCVar = GetConVar("efgm_menu_tabs_save_raid")
+local closeOnHitCVar = GetConVar("efgm_menu_close_on_hit")
 
 local weightThresholdCVar = GetConVar("sv_efgm_player_weight_threshold")
 local squadsMaxPlayersCVar = GetConVar("sv_efgm_squads_players_max")
@@ -2692,7 +2692,7 @@ function EFGM.MENU.ConfirmDelete(item, key, inv, eID, eSlot)
 	local i = EFGM.ITEMS[item]
 	if i == nil then return end
 
-	if GetConVar("efgm_menu_deleteprompt"):GetInt() == 0 then
+	if GetConVar("efgm_menu_prompts_delete"):GetInt() == 0 then
 		surface.PlaySound("ui/element_select.wav")
 		DeleteFromInventory(inv, key, eID, eSlot)
 
@@ -3302,13 +3302,13 @@ function EFGM.MENU.OpenTab.Map()
 			return
 		end
 
-		if !GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if !GetConVar("efgm_menu_search_auto"):GetBool() then return end
 
 		operatorsSearchText = value
 	end
 
 	function operatorsSearchBox:OnEnter()
-		if GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if GetConVar("efgm_menu_search_auto"):GetBool() then return end
 		operatorsSearchText = self:GetValue():lower()
 	end
 
@@ -6811,14 +6811,14 @@ function EFGM.MENU.OpenTab.Inventory(container)
 			return
 		end
 
-		if !GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if !GetConVar("efgm_menu_search_auto"):GetBool() then return end
 
 		stashItemSearchText = value
 		EFGM.MENU:ReloadStash()
 	end
 
 	function stashSearchBox:OnEnter()
-		if GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if GetConVar("efgm_menu_search_auto"):GetBool() then return end
 		stashItemSearchText = self:GetValue():lower()
 		EFGM.MENU:ReloadStash()
 	end
@@ -7870,14 +7870,14 @@ function EFGM.MENU.OpenTab.Market()
 			return
 		end
 
-		if !GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if !GetConVar("efgm_menu_search_auto"):GetBool() then return end
 
 		marketStashItemSearchText = value
 		EFGM.MENU:ReloadMarketStash()
 	end
 
 	function marketStashSearchBox:OnEnter()
-		if GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if GetConVar("efgm_menu_search_auto"):GetBool() then return end
 		marketStashItemSearchText = self:GetValue():lower()
 		EFGM.MENU:ReloadMarketStash()
 	end
@@ -9426,14 +9426,14 @@ function EFGM.MENU.OpenTab.Market()
 			return
 		end
 
-		if !GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if !GetConVar("efgm_menu_search_auto"):GetBool() then return end
 
 		marketSearchText = value
 		UpdateMarketList()
 	end
 
 	function marketSearchBox:OnEnter()
-		if GetConVar("efgm_menu_search_automatic"):GetBool() then return end
+		if GetConVar("efgm_menu_search_auto"):GetBool() then return end
 		marketSearchText = self:GetValue():lower()
 		UpdateMarketList()
 	end
@@ -10225,7 +10225,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local toggleCrouch = vgui.Create("DCheckBox", toggleCrouchPanel)
 	toggleCrouch:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	toggleCrouch:SetConVar("efgm_controls_toggleduck")
+	toggleCrouch:SetConVar("efgm_controls_toggle_duck")
 	toggleCrouch:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local toggleADSPanel = vgui.Create("DPanel", gameplay)
@@ -10251,7 +10251,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local toggleLean = vgui.Create("DCheckBox", toggleLeanPanel)
 	toggleLean:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	toggleLean:SetConVar("efgm_controls_togglelean")
+	toggleLean:SetConVar("efgm_controls_toggle_lean")
 	toggleLean:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local musicPanel = vgui.Create("DPanel", gameplay)
@@ -10278,7 +10278,7 @@ function EFGM.MENU.OpenTab.Settings()
 	local musicVolume = vgui.Create("DNumSlider", musicVolumePanel)
 	musicVolume:SetPos(EFGM.MenuScale(35), EFGM.MenuScale(30))
 	musicVolume:SetSize(EFGM.MenuScale(200), EFGM.MenuScale(15))
-	musicVolume:SetConVar("efgm_musicvolume")
+	musicVolume:SetConVar("efgm_music_volume")
 	musicVolume:SetMin(0)
 	musicVolume:SetMax(2)
 	musicVolume:SetDecimals(2)
@@ -10293,7 +10293,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local infilNearEnd = vgui.Create("DCheckBox", infilNearEndPanel)
 	infilNearEnd:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	infilNearEnd:SetConVar("efgm_infil_nearend_block")
+	infilNearEnd:SetConVar("efgm_infil_near_end_block")
 	infilNearEnd:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local infilNearEndThresholdPanel = vgui.Create("DPanel", gameplay)
@@ -10307,7 +10307,7 @@ function EFGM.MENU.OpenTab.Settings()
 	local infilNearEndThreshold = vgui.Create("DNumSlider", infilNearEndThresholdPanel)
 	infilNearEndThreshold:SetPos(EFGM.MenuScale(35), EFGM.MenuScale(30))
 	infilNearEndThreshold:SetSize(EFGM.MenuScale(200), EFGM.MenuScale(15))
-	infilNearEndThreshold:SetConVar("efgm_infil_nearend_limit")
+	infilNearEndThreshold:SetConVar("efgm_infil_near_end_block_limit")
 	infilNearEndThreshold:SetMin(30)
 	infilNearEndThreshold:SetMax(180)
 	infilNearEndThreshold:SetDecimals(0)
@@ -10968,7 +10968,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local hudEnable = vgui.Create("DCheckBox", hudEnablePanel)
 	hudEnable:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	hudEnable:SetConVar("efgm_hud_enable")
+	hudEnable:SetConVar("efgm_hud")
 	hudEnable:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local hudScalePanel = vgui.Create("DPanel", interface)
@@ -11013,7 +11013,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local menuAutoClose = vgui.Create("DCheckBox", menuAutoClosePanel)
 	menuAutoClose:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	menuAutoClose:SetConVar("efgm_menu_closeonhit")
+	menuAutoClose:SetConVar("efgm_menu_close_on_hit")
 	menuAutoClose:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local menuParallaxPanel = vgui.Create("DPanel", interface)
@@ -11041,9 +11041,9 @@ function EFGM.MENU.OpenTab.Settings()
 	menuScalingMethod:SetPos(EFGM.MenuScale(100), EFGM.MenuScale(30))
 	menuScalingMethod:SetSize(EFGM.MenuScale(120), EFGM.MenuScale(20))
 
-	if GetConVar("efgm_menu_scalingmethod"):GetInt() == 0 then
+	if GetConVar("efgm_menu_scale_method"):GetInt() == 0 then
 		menuScalingMethod:SetValue("Dock")
-	elseif GetConVar("efgm_menu_scalingmethod"):GetInt() == 1 then
+	elseif GetConVar("efgm_menu_scale_method"):GetInt() == 1 then
 		menuScalingMethod:SetValue("Center")
 	end
 
@@ -11052,7 +11052,7 @@ function EFGM.MENU.OpenTab.Settings()
 	menuScalingMethod:SetSortItems(false)
 
 	function menuScalingMethod:OnSelect(value)
-		RunConsoleCommand("efgm_menu_scalingmethod", value - 1)
+		RunConsoleCommand("efgm_menu_scale_method", value - 1)
 	end
 
 	local menuSaveTabHideoutPanel = vgui.Create("DPanel", interface)
@@ -11065,7 +11065,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local menuSaveTabHideout = vgui.Create("DCheckBox", menuSaveTabHideoutPanel)
 	menuSaveTabHideout:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	menuSaveTabHideout:SetConVar("efgm_menu_savetab_hideout")
+	menuSaveTabHideout:SetConVar("efgm_menu_tabs_save_raid")
 	menuSaveTabHideout:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local menuSaveTabRaidPanel = vgui.Create("DPanel", interface)
@@ -11078,7 +11078,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local menuSaveTabRaid = vgui.Create("DCheckBox", menuSaveTabRaidPanel)
 	menuSaveTabRaid:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	menuSaveTabRaid:SetConVar("efgm_menu_savetab_raid")
+	menuSaveTabRaid:SetConVar("efgm_menu_tabs_save_raid")
 	menuSaveTabRaid:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local menuDeletePromptPanel = vgui.Create("DPanel", interface)
@@ -11091,7 +11091,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local menuDeletePrompt = vgui.Create("DCheckBox", menuDeletePromptPanel)
 	menuDeletePrompt:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	menuDeletePrompt:SetConVar("efgm_menu_deleteprompt")
+	menuDeletePrompt:SetConVar("efgm_menu_prompts_delete")
 	menuDeletePrompt:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local menuSearchModePanel = vgui.Create("DPanel", interface)
@@ -11104,7 +11104,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local menuSearchMode = vgui.Create("DCheckBox", menuSearchModePanel)
 	menuSearchMode:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	menuSearchMode:SetConVar("efgm_menu_search_automatic")
+	menuSearchMode:SetConVar("efgm_menu_search_auto")
 	menuSearchMode:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	-- visuals
@@ -11118,7 +11118,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local adsFOV = vgui.Create("DCheckBox", adsFOVPanel)
 	adsFOV:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	adsFOV:SetConVar("efgm_visuals_adsfov")
+	adsFOV:SetConVar("efgm_visuals_ads_fov")
 	adsFOV:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local vmFOVPanel = vgui.Create("DPanel", visuals)
@@ -11147,7 +11147,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local lensFlare = vgui.Create("DCheckBox", lensFlarePanel)
 	lensFlare:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	lensFlare:SetConVar("efgm_visuals_lensflare")
+	lensFlare:SetConVar("efgm_visuals_lens_flare")
 	lensFlare:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local vmLightingPanel = vgui.Create("DPanel", visuals)
@@ -11173,7 +11173,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local impactFX = vgui.Create("DCheckBox", impactFXPanel)
 	impactFX:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	impactFX:SetConVar("efgm_visuals_highqualimpactfx")
+	impactFX:SetConVar("efgm_visuals_hq_impacts")
 	impactFX:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local flashlightFXPanel = vgui.Create("DPanel", visuals)
@@ -11186,7 +11186,7 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local flashlightFX = vgui.Create("DCheckBox", flashlightFXPanel)
 	flashlightFX:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	flashlightFX:SetConVar("efgm_visuals_highqualflashlight")
+	flashlightFX:SetConVar("efgm_visuals_hq_flashlight")
 	flashlightFX:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	local ejectedShellLifePanel = vgui.Create("DPanel", visuals)
@@ -11231,39 +11231,10 @@ function EFGM.MENU.OpenTab.Settings()
 
 	local interactableGlow = vgui.Create("DCheckBox", interactableGlowPanel)
 	interactableGlow:SetPos(EFGM.MenuScale(152), EFGM.MenuScale(30))
-	interactableGlow:SetConVar("efgm_visuals_interactableglow")
+	interactableGlow:SetConVar("efgm_visuals_glow_interactables")
 	interactableGlow:SetSize(EFGM.MenuScale(15), EFGM.MenuScale(15))
 
 	-- account
-	local factionPreferencePanel = vgui.Create("DPanel", account)
-	factionPreferencePanel:Dock(TOP)
-	factionPreferencePanel:SetSize(0, EFGM.MenuScale(55))
-
-	function factionPreferencePanel:Paint(w, h)
-		draw.SimpleTextOutlined("Faction Preference", "Purista18", w / 2, EFGM.MenuScale(5), COLORS.whiteColor, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, EFGM.MenuScaleRounded(1), COLORS.blackColor)
-	end
-
-	local factionPreference = vgui.Create("DComboBox", factionPreferencePanel)
-	factionPreference:SetPos(EFGM.MenuScale(100), EFGM.MenuScale(30))
-	factionPreference:SetSize(EFGM.MenuScale(120), EFGM.MenuScale(20))
-
-	if GetConVar("efgm_faction_preference"):GetInt() == 0 then
-		factionPreference:SetValue("None")
-	elseif GetConVar("efgm_faction_preference"):GetInt() == 1 then
-		factionPreference:SetValue("USEC")
-	elseif GetConVar("efgm_faction_preference"):GetInt() == 2  then
-		factionPreference:SetValue("BEAR")
-	end
-
-	factionPreference:AddChoice("None")
-	factionPreference:AddChoice("USEC")
-	factionPreference:AddChoice("BEAR")
-	factionPreference:SetSortItems(false)
-
-	function factionPreference:OnSelect(value)
-		RunConsoleCommand("efgm_faction_preference", value - 1)
-	end
-
 	local invitePrivacyPanel = vgui.Create("DPanel", account)
 	invitePrivacyPanel:Dock(TOP)
 	invitePrivacyPanel:SetSize(0, EFGM.MenuScale(55))

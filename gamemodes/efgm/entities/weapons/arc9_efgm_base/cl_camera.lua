@@ -4,7 +4,7 @@ local arc9_vm_cambob = GetConVar("arc9_vm_cambob")
 local arc9_vm_cambobwalk = GetConVar("arc9_vm_cambobwalk")
 local arc9_vm_cambobintensity = GetConVar("arc9_vm_cambobintensity")
 
-local efgmFOVOverride = GetConVar("efgm_visuals_adsfov")
+local efgmFOVOverride = GetConVar("efgm_visuals_ads_fov")
 
 local SmoothRecoilAmount = 0
 

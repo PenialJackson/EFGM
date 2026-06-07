@@ -2,7 +2,7 @@ SWEP.Flashlights = {}
 local flaremat = Material("effects/arc9_lensflare", "mips smooth")
 local badcolor = Color(255, 255, 255)
 local arc9_allflash = GetConVar("arc9_allflash")
-local flashlightQuality = GetConVar("efgm_visuals_highqualflashlight")
+local flashlightQuality = GetConVar("efgm_visuals_hq_flashlight")
 local fuckingbullshit = Vector(0, 0, 0.001)
 local gunoffset = Vector(0, 0, -16)
 

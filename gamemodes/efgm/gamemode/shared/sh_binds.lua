@@ -31,7 +31,7 @@ if CLIENT then
 	CreateClientConVar("efgm_bind_menu_item_delete", KEY_DELETE, true, true, "Determines the keybind that deletes the hovered item in the menu")
 
 	-- toggle crouch
-	local toggleDuckCvar = GetConVar("efgm_controls_toggleduck")
+	local toggleDuckCvar = GetConVar("efgm_controls_toggle_duck")
 
 	local function CreateToggleDuckHook()
 		hook.Add("PlayerBindPress", "ToggleDuck", function(ply, bind, pressed)
@@ -47,7 +47,7 @@ if CLIENT then
 
 	CreateToggleDuckHook()
 
-	cvars.AddChangeCallback("efgm_controls_toggleduck", function(convar_name, value_old, value_new)
+	cvars.AddChangeCallback("efgm_controls_toggle_duck", function(convar_name, value_old, value_new)
 		if value_new == "1" then
 			CreateToggleDuckHook()
 		else
@@ -186,7 +186,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 	-- lean left
 	if button == ply:GetInfoNum("efgm_bind_leanleft", KEY_Q) then
-		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 0 then
+		if ply:GetInfoNum("efgm_controls_toggle_lean", 1) == 0 then
 			ply:SetNW2Var("leaning_left", true)
 		else
 			local state = !ply:GetNW2Var("leaning_left", false)
@@ -197,7 +197,7 @@ hook.Add("PlayerButtonDown", "EFGMBinds", function(ply, button)
 
 	-- lean right
 	if button == ply:GetInfoNum("efgm_bind_leanright", KEY_E) then
-		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 0 then
+		if ply:GetInfoNum("efgm_controls_toggle_lean", 1) == 0 then
 			ply:SetNW2Var("leaning_right", true)
 		else
 			local state = !ply:GetNW2Var("leaning_right", false)
@@ -237,13 +237,13 @@ hook.Add("PlayerButtonUp", "EFGMBindsUp", function(ply, button)
 
 	-- unlean left
 	if button == ply:GetInfoNum("efgm_bind_leanleft", KEY_Q) then
-		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 1 then return end
+		if ply:GetInfoNum("efgm_controls_toggle_lean", 1) == 1 then return end
 		ply:SetNW2Var("leaning_left", false)
 	end
 
 	-- unlean right
 	if button == ply:GetInfoNum("efgm_bind_leanright", KEY_E) then
-		if ply:GetInfoNum("efgm_controls_togglelean", 1) == 1 then return end
+		if ply:GetInfoNum("efgm_controls_toggle_lean", 1) == 1 then return end
 		ply:SetNW2Var("leaning_right", false)
 	end
 end)

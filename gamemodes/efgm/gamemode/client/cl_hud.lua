@@ -1,6 +1,6 @@
 EFGM.HUD = EFGM.HUD or {}
 
-EFGM.HUD.Enabled = GetConVar("efgm_hud_enable")
+EFGM.HUD.Enabled = GetConVar("efgm_hud")
 EFGM.HUD.InIntro = false
 EFGM.HUD.IntroEnt = NULL
 EFGM.HUD.VotedMap = nil
@@ -328,7 +328,7 @@ local interactables = {
 	["prop_door_rotating"] = true
 }
 
-local haloCVar = GetConVar("efgm_visuals_interactableglow")
+local haloCVar = GetConVar("efgm_visuals_glow_interactables")
 
 -- interactable halos
 hook.Add("PreDrawHalos", "InteractableHalos", function()
