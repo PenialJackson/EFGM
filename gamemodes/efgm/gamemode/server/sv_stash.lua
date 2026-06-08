@@ -425,7 +425,7 @@ function WipeStash(ply)
 	SendChunkedNet(ply, ply.stashStr, "PlayerNetworkStash")
 end
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	concommand.Add("efgm_debug_wipestash", function(ply, cmd, args)
 		WipeStash(ply)
 	end)

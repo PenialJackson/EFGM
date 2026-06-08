@@ -12,6 +12,13 @@ end
 ARC9.NoHUD = true
 ARC9.NoTPIK = false
 
+-- debug
+DEBUG = CreateConVar("efgm_developer", "0", FCVAR_ARCHIVE + FCVAR_REPLICATED + FCVAR_NOTIFY, "Hooks the sandbox gamemode into EFGM, allowing for things like the spawn menu to be accessed. Used for development purposes", 0, 1)
+
+if DEBUG:GetBool() then
+	DeriveGamemode("sandbox")
+end
+
 -- server convars
 if SERVER then
 	-- modifiers
@@ -62,7 +69,7 @@ if SERVER then
 	RunConsoleCommand("arc9_atts_max", "100")
 	RunConsoleCommand("arc9_atts_lock", "0")
 	RunConsoleCommand("arc9_atts_loseondie", "1")
-	RunConsoleCommand("arc9_free_atts", !GetConVar("efgm_derivesbox"):GetBool() and "0" or "1")
+	RunConsoleCommand("arc9_free_atts", !DEBUG:GetBool() and "0" or "1")
 
 	-- caching
 	RunConsoleCommand("arc9_precache_allsounds_onstartup", "0")
@@ -139,8 +146,8 @@ if CLIENT then
 
 	-- visuals
 	RunConsoleCommand("cl_new_impact_effects", GetConVar("efgm_visuals_hq_impacts"):GetInt())
-	cvars.AddChangeCallback("efgm_visuals_hq_impacts", function(convar_name, value_old, value_new)
-		if value_new == "1" then
+	cvars.AddChangeCallback("efgm_visuals_hq_impacts", function(name, old, new)
+		if new == "1" then
 			RunConsoleCommand("cl_new_impact_effects", "1")
 		else
 			RunConsoleCommand("cl_new_impact_effects", "0")

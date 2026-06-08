@@ -272,9 +272,9 @@ function RenderRaidIntro()
 	intro:AlphaTo(0, 1, 5.65, function() intro:Remove() end)
 end
 
-local teamCVar = GetConVar("efgm_bind_teaminvite")
-local duelCVar = GetConVar("efgm_bind_duelinvite")
-local profileCVar = GetConVar("efgm_bind_viewprofile")
+local teamCVar = GetConVar("efgm_bind_invite_team")
+local duelCVar = GetConVar("efgm_bind_invite_duel")
+local profileCVar = GetConVar("efgm_bind_profile")
 
 function RenderPlayerInfo(ent)
 	local inHideout = ent:IsInHideout()
@@ -345,8 +345,8 @@ hook.Add("PreDrawHalos", "InteractableHalos", function()
 	end
 end)
 
-local acceptCVar = GetConVar("efgm_bind_invites_accept")
-local declineCVar = GetConVar("efgm_bind_invites_decline")
+local acceptCVar = GetConVar("efgm_bind_invite_accept")
+local declineCVar = GetConVar("efgm_bind_invite_decline")
 
 -- invites
 function RenderInvite()

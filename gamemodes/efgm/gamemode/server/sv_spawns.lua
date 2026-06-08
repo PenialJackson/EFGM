@@ -122,7 +122,7 @@ function RandomDuelSpawns()
 	return spawns
 end
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	function PrintSpawnStatuses()
 		local spawns = ents.FindByClass("efgm_raid_spawn")
 

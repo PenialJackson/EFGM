@@ -11,8 +11,8 @@
 	{
 		1
 		{
-			"name"			"efgm_derivesbox"
-			"text"			"Derive Sandbox"
+			"name"			"efgm_developer"
+			"text"			"Developer Mode"
 			"help"			"Hooks the sandbox gamemode into EFGM, allowing for things like the spawn menu to be accessed. Used for development purposes."
 			"type"			"CheckBox"
 			"default"		"0"

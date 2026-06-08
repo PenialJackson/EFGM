@@ -255,7 +255,6 @@ local deleteItemBind = GetConVar("efgm_bind_menu_item_delete")
 
 local parallaxCVar = GetConVar("efgm_menu_parallax")
 local scalingCVar = GetConVar("efgm_menu_scale_method")
-local sboxCVar = GetConVar("efgm_derivesbox")
 local saveTabHideoutCVar = GetConVar("efgm_menu_tabs_save_raid")
 local saveTabRaidCVar = GetConVar("efgm_menu_tabs_save_raid")
 local closeOnHitCVar = GetConVar("efgm_menu_close_on_hit")
@@ -10407,10 +10406,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local showRaidInfo = vgui.Create("DBinder", showRaidInfoPanel)
 	showRaidInfo:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	showRaidInfo:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	showRaidInfo:SetSelectedNumber(GetConVar("efgm_bind_raidinfo"):GetInt())
+	showRaidInfo:SetSelectedNumber(GetConVar("efgm_bind_extracts"):GetInt())
 
 	function showRaidInfo:OnChange()
-		RunConsoleCommand("efgm_bind_raidinfo", showRaidInfo:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_extracts", showRaidInfo:GetSelectedNumber())
 	end
 
 	local leanLeftPanel = vgui.Create("DPanel", controls)
@@ -10424,10 +10423,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local leanLeft = vgui.Create("DBinder", leanLeftPanel)
 	leanLeft:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	leanLeft:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	leanLeft:SetSelectedNumber(GetConVar("efgm_bind_leanleft"):GetInt())
+	leanLeft:SetSelectedNumber(GetConVar("efgm_bind_lean_left"):GetInt())
 
 	function leanLeft:OnChange()
-		RunConsoleCommand("efgm_bind_leanleft", leanLeft:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_lean_left", leanLeft:GetSelectedNumber())
 	end
 
 	local leanRightPanel = vgui.Create("DPanel", controls)
@@ -10441,10 +10440,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local leanRight = vgui.Create("DBinder", leanRightPanel)
 	leanRight:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	leanRight:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	leanRight:SetSelectedNumber(GetConVar("efgm_bind_leanright"):GetInt())
+	leanRight:SetSelectedNumber(GetConVar("efgm_bind_lean_right"):GetInt())
 
 	function leanRight:OnChange()
-		RunConsoleCommand("efgm_bind_leanright", leanRight:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_lean_right", leanRight:GetSelectedNumber())
 	end
 
 	local freeLookPanel = vgui.Create("DPanel", controls)
@@ -10458,10 +10457,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local freeLook = vgui.Create("DBinder", freeLookPanel)
 	freeLook:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	freeLook:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	freeLook:SetSelectedNumber(GetConVar("efgm_bind_freelook"):GetInt())
+	freeLook:SetSelectedNumber(GetConVar("efgm_bind_free_look"):GetInt())
 
 	function freeLook:OnChange()
-		RunConsoleCommand("efgm_bind_freelook", freeLook:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_free_look", freeLook:GetSelectedNumber())
 	end
 
 	local toggleFireModePanel = vgui.Create("DPanel", controls)
@@ -10475,10 +10474,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local toggleFireMode = vgui.Create("DBinder", toggleFireModePanel)
 	toggleFireMode:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	toggleFireMode:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	toggleFireMode:SetSelectedNumber(GetConVar("efgm_bind_changefiremode"):GetInt())
+	toggleFireMode:SetSelectedNumber(GetConVar("efgm_bind_firemode"):GetInt())
 
 	function toggleFireMode:OnChange()
-		RunConsoleCommand("efgm_bind_changefiremode", toggleFireMode:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_firemode", toggleFireMode:GetSelectedNumber())
 	end
 
 	local changeSightPanel = vgui.Create("DPanel", controls)
@@ -10492,10 +10491,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local changeSight = vgui.Create("DBinder", changeSightPanel)
 	changeSight:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	changeSight:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	changeSight:SetSelectedNumber(GetConVar("efgm_bind_changesight"):GetInt())
+	changeSight:SetSelectedNumber(GetConVar("efgm_bind_switch_sight"):GetInt())
 
 	function changeSight:OnChange()
-		RunConsoleCommand("efgm_bind_changesight", changeSight:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_switch_sight", changeSight:GetSelectedNumber())
 	end
 
 	local toggleUBGLPanel = vgui.Create("DPanel", controls)
@@ -10509,10 +10508,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local toggleUBGL = vgui.Create("DBinder", toggleUBGLPanel)
 	toggleUBGL:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	toggleUBGL:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	toggleUBGL:SetSelectedNumber(GetConVar("efgm_bind_toggleubgl"):GetInt())
+	toggleUBGL:SetSelectedNumber(GetConVar("efgm_bind_ubgl"):GetInt())
 
 	function toggleUBGL:OnChange()
-		RunConsoleCommand("efgm_bind_toggleubgl", toggleUBGL:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_ubgl", toggleUBGL:GetSelectedNumber())
 	end
 
 	local inspectWeaponPanel = vgui.Create("DPanel", controls)
@@ -10526,10 +10525,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local inspectWeapon = vgui.Create("DBinder", inspectWeaponPanel)
 	inspectWeapon:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	inspectWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	inspectWeapon:SetSelectedNumber(GetConVar("efgm_bind_inspectweapon"):GetInt())
+	inspectWeapon:SetSelectedNumber(GetConVar("efgm_bind_inspect"):GetInt())
 
 	function inspectWeapon:OnChange()
-		RunConsoleCommand("efgm_bind_inspectweapon", inspectWeapon:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_inspect", inspectWeapon:GetSelectedNumber())
 	end
 
 	local teamInvitePanel = vgui.Create("DPanel", controls)
@@ -10543,10 +10542,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local teamInvite = vgui.Create("DBinder", teamInvitePanel)
 	teamInvite:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	teamInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	teamInvite:SetSelectedNumber(GetConVar("efgm_bind_teaminvite"):GetInt())
+	teamInvite:SetSelectedNumber(GetConVar("efgm_bind_invite_team"):GetInt())
 
 	function teamInvite:OnChange()
-		RunConsoleCommand("efgm_bind_teaminvite", teamInvite:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_invite_team", teamInvite:GetSelectedNumber())
 	end
 
 	local duelInvitePanel = vgui.Create("DPanel", controls)
@@ -10560,10 +10559,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local duelInvite = vgui.Create("DBinder", duelInvitePanel)
 	duelInvite:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	duelInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	duelInvite:SetSelectedNumber(GetConVar("efgm_bind_duelinvite"):GetInt())
+	duelInvite:SetSelectedNumber(GetConVar("efgm_bind_invite_duel"):GetInt())
 
 	function duelInvite:OnChange()
-		RunConsoleCommand("efgm_bind_duelinvite", duelInvite:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_invite_duel", duelInvite:GetSelectedNumber())
 	end
 
 	local acceptInvitePanel = vgui.Create("DPanel", controls)
@@ -10577,10 +10576,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local acceptInvite = vgui.Create("DBinder", acceptInvitePanel)
 	acceptInvite:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	acceptInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	acceptInvite:SetSelectedNumber(GetConVar("efgm_bind_invites_accept"):GetInt())
+	acceptInvite:SetSelectedNumber(GetConVar("efgm_bind_invite_accept"):GetInt())
 
 	function acceptInvite:OnChange()
-		RunConsoleCommand("efgm_bind_invites_accept", acceptInvite:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_invite_accept", acceptInvite:GetSelectedNumber())
 	end
 
 	local declineInvitePanel = vgui.Create("DPanel", controls)
@@ -10594,10 +10593,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local declineInvite = vgui.Create("DBinder", declineInvitePanel)
 	declineInvite:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	declineInvite:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	declineInvite:SetSelectedNumber(GetConVar("efgm_bind_invites_decline"):GetInt())
+	declineInvite:SetSelectedNumber(GetConVar("efgm_bind_invite_decline"):GetInt())
 
 	function declineInvite:OnChange()
-		RunConsoleCommand("efgm_bind_invites_decline", declineInvite:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_invite_decline", declineInvite:GetSelectedNumber())
 	end
 
 	local primaryWeaponPanel = vgui.Create("DPanel", controls)
@@ -10611,10 +10610,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local primaryWeapon = vgui.Create("DBinder", primaryWeaponPanel)
 	primaryWeapon:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	primaryWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	primaryWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_primary1"):GetInt())
+	primaryWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_primary"):GetInt())
 
 	function primaryWeapon:OnChange()
-		RunConsoleCommand("efgm_bind_equip_primary1", primaryWeapon:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_equip_primary", primaryWeapon:GetSelectedNumber())
 	end
 
 	local primaryWeaponTwoPanel = vgui.Create("DPanel", controls)
@@ -10628,10 +10627,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local primaryWeaponTwo = vgui.Create("DBinder", primaryWeaponTwoPanel)
 	primaryWeaponTwo:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	primaryWeaponTwo:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	primaryWeaponTwo:SetSelectedNumber(GetConVar("efgm_bind_equip_primary2"):GetInt())
+	primaryWeaponTwo:SetSelectedNumber(GetConVar("efgm_bind_equip_secondary"):GetInt())
 
 	function primaryWeaponTwo:OnChange()
-		RunConsoleCommand("efgm_bind_equip_primary2", primaryWeaponTwo:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_equip_secondary", primaryWeaponTwo:GetSelectedNumber())
 	end
 
 	local secondaryWeaponPanel = vgui.Create("DPanel", controls)
@@ -10645,10 +10644,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local secondaryWeapon = vgui.Create("DBinder", secondaryWeaponPanel)
 	secondaryWeapon:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	secondaryWeapon:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	secondaryWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_secondary"):GetInt())
+	secondaryWeapon:SetSelectedNumber(GetConVar("efgm_bind_equip_holster"):GetInt())
 
 	function secondaryWeapon:OnChange()
-		RunConsoleCommand("efgm_bind_equip_secondary", secondaryWeapon:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_equip_holster", secondaryWeapon:GetSelectedNumber())
 	end
 
 	local meleeWeaponPanel = vgui.Create("DPanel", controls)
@@ -10679,10 +10678,10 @@ function EFGM.MENU.OpenTab.Settings()
 	local utilityThrowable = vgui.Create("DBinder", utilityThrowablePanel)
 	utilityThrowable:SetPos(EFGM.MenuScale(110), EFGM.MenuScale(30))
 	utilityThrowable:SetSize(EFGM.MenuScale(100), EFGM.MenuScale(20))
-	utilityThrowable:SetSelectedNumber(GetConVar("efgm_bind_equip_utility"):GetInt())
+	utilityThrowable:SetSelectedNumber(GetConVar("efgm_bind_equip_throwable"):GetInt())
 
 	function utilityThrowable:OnChange()
-		RunConsoleCommand("efgm_bind_equip_utility", utilityThrowable:GetSelectedNumber())
+		RunConsoleCommand("efgm_bind_equip_throwable", utilityThrowable:GetSelectedNumber())
 	end
 
 	local consumableItemBindPanel = vgui.Create("DPanel", controls)

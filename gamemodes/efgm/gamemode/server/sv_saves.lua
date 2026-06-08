@@ -566,7 +566,7 @@ hook.Add("ShutDown", "ServerUninitializeStats", function()
 	end
 end)
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	concommand.Add("efgm_debug_forcesave", function(ply, cmd, args)
 		SavePlayerData(ply)
 	end)

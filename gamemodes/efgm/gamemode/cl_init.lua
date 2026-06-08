@@ -1,16 +1,24 @@
+EFGM.CLIENT = EFGM.CLIENT or {}
+
 include("shared.lua")
 include("convars.lua")
-include("util.lua")
-include("enums.lua")
 include("config.lua")
+include("enums.lua")
+include("util.lua")
 include("codex/codex_init.lua")
 include("items/items_init.lua")
 include("tasks/tasks_init.lua")
 
-EFGM.CLIENT = EFGM.CLIENT or {}
-
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	include("shared/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/client/*.lua", "GAME", "nameasc")) do
+	include("client/" .. f)
+end
+
+for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "nameasc")) do
+	include("vgui/" .. f)
 end
 
 local function LoadLuaRecursive(dir, prefix, blacklist)
@@ -41,6 +49,11 @@ end
 hook.Add("InitPostEntity", "LPCache", function()
 	lcply = ogLocalPlayer()
 end)
+
+if !DEBUG:GetBool() then
+	function ARC9_OpenSettings(page) return end
+	concommand.Remove("arc9_settings_open")
+end
 
 local cScrW = ScrW()
 local cScrH = ScrH()
@@ -90,19 +103,6 @@ hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
 	cScrH = newH
 	EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (newW / 1920.0))
 end)
-
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/client/*.lua", "GAME", "nameasc")) do
-	include("client/" .. f)
-end
-
-for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/vgui/*.lua", "GAME", "nameasc")) do
-	include("vgui/" .. f)
-end
-
-if GetConVar("efgm_derivesbox"):GetInt() == 0 then
-	function ARC9_OpenSettings(page) return end
-	concommand.Remove("arc9_settings_open")
-end
 
 -- override ear animation
 function GM:GrabEarAnimation()

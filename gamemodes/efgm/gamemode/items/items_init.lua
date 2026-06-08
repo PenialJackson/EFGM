@@ -466,7 +466,7 @@ hook.Add("OnReloaded", "GenerateLootTablesOnReload", function()
 	GenerateScavLoadouts()
 end)
 
-if CLIENT and GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if CLIENT and DEBUG:GetBool() then
 	function GenerateMissingAttDefs()
 		file.CreateDir("efgmdev")
 		file.Delete("efgmdev/attdefs.txt")

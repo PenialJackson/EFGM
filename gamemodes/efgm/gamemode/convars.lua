@@ -351,6 +351,169 @@ cvars["infil_near_end_block_limit"] = {
 	max = 180
 }
 
+-- binds
+cvars["bind_menu"] = {
+	client = true,
+	default = KEY_TAB,
+	userinfo = true
+}
+
+cvars["bind_map"] = {
+	client = true,
+	default = KEY_M,
+	userinfo = true
+}
+
+cvars["bind_extracts"] = {
+	client = true,
+	default = KEY_O,
+	userinfo = true
+}
+
+cvars["bind_lean_left"] = {
+	client = true,
+	default = KEY_Q,
+	userinfo = true
+}
+
+cvars["bind_lean_right"] = {
+	client = true,
+	default = KEY_E,
+	userinfo = true
+}
+
+cvars["bind_free_look"] = {
+	client = true,
+	default = MOUSE_MIDDLE,
+	userinfo = true
+}
+
+cvars["bind_switch_sight"] = {
+	client = true,
+	default = MOUSE_MIDDLE,
+	userinfo = true
+}
+
+cvars["bind_firemode"] = {
+	client = true,
+	default = KEY_B,
+	userinfo = true
+}
+
+cvars["bind_inspect"] = {
+	client = true,
+	default = KEY_I,
+	userinfo = true
+}
+
+cvars["bind_ubgl"] = {
+	client = true,
+	default = KEY_N,
+	userinfo = true
+}
+
+cvars["bind_invite_team"] = {
+	client = true,
+	default = KEY_F3,
+	userinfo = true
+}
+
+cvars["bind_invite_duel"] = {
+	client = true,
+	default = KEY_F4,
+	userinfo = true
+}
+
+cvars["bind_invite_accept"] = {
+	client = true,
+	default = KEY_F1,
+	userinfo = true
+}
+
+cvars["bind_invite_decline"] = {
+	client = true,
+	default = KEY_F2,
+	userinfo = true
+}
+
+cvars["bind_profile"] = {
+	client = true,
+	default = KEY_P,
+	userinfo = true
+}
+
+cvars["bind_equip_primary"] = {
+	client = true,
+	default = KEY_1,
+	userinfo = true
+}
+
+cvars["bind_equip_secondary"] = {
+	client = true,
+	default = KEY_2,
+	userinfo = true
+}
+
+cvars["bind_equip_holster"] = {
+	client = true,
+	default = KEY_3,
+	userinfo = true
+}
+
+cvars["bind_equip_melee"] = {
+	client = true,
+	default = KEY_4,
+	userinfo = true
+}
+
+cvars["bind_equip_throwable"] = {
+	client = true,
+	default = KEY_5,
+	userinfo = true
+}
+
+cvars["bind_equip_consumable"] = {
+	client = true,
+	default = KEY_H,
+	userinfo = true
+}
+
+cvars["bind_menu_tab_previous"] = {
+	client = true,
+	default = KEY_Q,
+	userinfo = true
+}
+
+cvars["bind_menu_tab_next"] = {
+	client = true,
+	default = KEY_E,
+	userinfo = true
+}
+
+cvars["bind_menu_page_previous"] = {
+	client = true,
+	default = KEY_A,
+	userinfo = true
+}
+
+cvars["bind_menu_page_next"] = {
+	client = true,
+	default = KEY_D,
+	userinfo = true
+}
+
+cvars["bind_menu_item_drop"] = {
+	client = true,
+	default = KEY_DELETE,
+	userinfo = true
+}
+
+cvars["bind_menu_item_delete"] = {
+	client = true,
+	default = KEY_DELETE,
+	userinfo = true
+}
+
 local prefixClient = "efgm_"
 local prefixServer = "sv_efgm_"
 

@@ -52,7 +52,7 @@ if SERVER then
 	function RAID:StartRaid(forced)
 		if GetGlobalInt("RaidStatus") != STATUS.RAID.PENDING then return end
 
-		if !forced and #player.GetAll() < raidMinPlayersCVar:GetInt() and GetConVar("efgm_derivesbox"):GetInt() == 0 and !game.SinglePlayer() then return end
+		if !forced and #player.GetAll() < raidMinPlayersCVar:GetInt() and !DEBUG:GetBool() and !game.SinglePlayer() then return end
 
 		local time = MAPS[game.GetMap()].time or 1800
 
@@ -764,7 +764,7 @@ function plyMeta:IsScav()
 end
 
 -- i love debugging commands omg
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	function ForceSpawnPlayer(ply)
 		ply.raidReady = true
 		hook.Run("CheckRaidAddPlayers", ply)

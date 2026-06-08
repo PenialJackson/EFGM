@@ -31,7 +31,7 @@ function HasInInventory(inventory, itemName)
 	return false
 end
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	concommand.Add("efgm_debug_getinventory", function(ply, cmd, args) PrintTable(ply.inventory) end)
 	concommand.Add("efgm_debug_getequipped", function(ply, cmd, args) PrintTable(ply.weaponSlots) end)
 	concommand.Add("efgm_debug_getstash", function(ply, cmd, args) PrintTable(ply.stash) end)

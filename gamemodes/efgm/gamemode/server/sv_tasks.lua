@@ -433,7 +433,7 @@ net.Receive("TaskRequestAll", function(len, ply)
 end)
 
 -- debugging
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	hook.Add("OnNPCKilled", "TaskKill", function(victim, attacker, inflictor)
 		if victim:IsPlayer() then
 			TaskTempProgressWipeAll(victim)

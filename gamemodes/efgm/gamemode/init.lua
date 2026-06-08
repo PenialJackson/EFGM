@@ -1,22 +1,21 @@
-AddCSLuaFile("shared.lua")
-AddCSLuaFile("convars.lua")
-AddCSLuaFile("util.lua")
-AddCSLuaFile("enums.lua")
-AddCSLuaFile("config.lua")
-AddCSLuaFile("codex/codex_init.lua")
-AddCSLuaFile("items/items_init.lua")
-AddCSLuaFile("tasks/tasks_init.lua")
-
-include("shared.lua")
-include("convars.lua")
-include("util.lua")
-include("enums.lua")
-include("config.lua")
-include("codex/codex_init.lua")
-include("items/items_init.lua")
-include("tasks/tasks_init.lua")
-
 EFGM.SERVER = EFGM.SERVER or {}
+
+AddCSLuaFile("shared.lua")
+include("shared.lua")
+AddCSLuaFile("convars.lua")
+include("convars.lua")
+AddCSLuaFile("config.lua")
+include("config.lua")
+AddCSLuaFile("enums.lua")
+include("enums.lua")
+AddCSLuaFile("util.lua")
+include("util.lua")
+AddCSLuaFile("codex/codex_init.lua")
+include("codex/codex_init.lua")
+AddCSLuaFile("items/items_init.lua")
+include("items/items_init.lua")
+AddCSLuaFile("tasks/tasks_init.lua")
+include("tasks/tasks_init.lua")
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	AddCSLuaFile("shared/" .. f)
@@ -200,7 +199,7 @@ local timersRespawnCVar = GetConVar("sv_efgm_timers_respawn")
 local timersHideoutRespawnCVar = GetConVar("sv_efgm_timers_respawn_hideout")
 
 function GM:PlayerSpawn(ply)
-	ply:SetRaidStatus(0, "") -- moving this in hopes that i wont 'fucking break the gamemode again goddamn it'
+	ply:SetRaidStatus(0, "")
 
 	ply:SetMaxHealth(hpMaxCVar:GetInt())
 	ply:SetGravity(gravityCVar:GetFloat())
@@ -222,7 +221,7 @@ function GM:PlayerSpawn(ply)
 	hook.Call("PlayerSetModel", GAMEMODE, ply)
 	ply:SetupHands()
 
-	ply:AddEFlags(EFL_NO_DAMAGE_FORCES) -- disables knockback being applied when damage is taken
+	ply:AddEFlags(EFL_NO_DAMAGE_FORCES)
 	ply:SendLua("RunConsoleCommand('r_cleardecals')")
 
 	ply:SetCrouched(false)
@@ -349,12 +348,12 @@ function GM:PlayerDeath(victim, inflictor, attacker)
 	ApplyPlayerExperience(victim, xpMult)
 end
 
-hook.Add("RaidTimerTick", "RaidTimeExperience", function(ply)
-	for k, v in player.Iterator() do
-		if v:IsInRaid() then
-			v:SetNWFloat("ExperienceTime", v:GetNWFloat("ExperienceTime") + 0.5)
-			v:SetNWInt("RaidTime", v:GetNWInt("RaidTime", 0) + 1)
-			v:AddToStat("Time", 1)
+hook.Add("RaidTimerTick", "RaidTimeExperience", function()
+	for _, ply in player.Iterator() do
+		if ply:IsInRaid() then
+			ply:SetNWFloat("ExperienceTime", ply:GetNWFloat("ExperienceTime") + 0.5)
+			ply:SetNWInt("RaidTime", ply:GetNWInt("RaidTime", 0) + 1)
+			ply:AddToStat("Time", 1)
 		end
 	end
 end)
@@ -506,7 +505,7 @@ end)
 
 -- should be sandbox derive only
 hook.Add("PlayerGiveSWEP", "BlockPlayerSWEPs", function(ply, class, spawninfo)
-	if GetConVar("efgm_derivesbox"):GetInt() == 0 then return false end
+	if !DEBUG:GetBool() then return false end
 
 	local def = EFGM.ITEMS[class]
 	if def == nil then return true end -- if sm1 wants a camera or something

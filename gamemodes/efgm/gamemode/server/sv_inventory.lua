@@ -1097,7 +1097,7 @@ net.Receive("PlayerInventoryFixDesyncCL", function(len, ply)
 	SendChunkedNet(ply, ply.equStr, "PlayerNetworkEquipped")
 end)
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	function GiveItem(ply, name, count)
 		local data = {}
 		local def = EFGM.ITEMS[name]

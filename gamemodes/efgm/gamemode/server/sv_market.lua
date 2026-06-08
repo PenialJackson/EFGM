@@ -319,7 +319,7 @@ net.Receive("PlayerMarketSellBulk", function(len, ply)
     ply:AddToStat("MoneyEarned", cost)
 end)
 
-if GetConVar("efgm_derivesbox"):GetInt() == 1 then
+if DEBUG:GetBool() then
 	concommand.Add("efgm_debug_setmoney", function(ply, cmd, args)
 		ply:SetStat("Money", tonumber(args[1]) or 0)
 	end)
