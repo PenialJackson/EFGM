@@ -1,9 +1,8 @@
-EFGM.SERVER = EFGM.SERVER or {}
-
 AddCSLuaFile("shared.lua")
 include("shared.lua")
-AddCSLuaFile("convars.lua")
-include("convars.lua")
+
+EFGM.SERVER = EFGM.SERVER or {}
+
 AddCSLuaFile("config.lua")
 include("config.lua")
 AddCSLuaFile("enums.lua")

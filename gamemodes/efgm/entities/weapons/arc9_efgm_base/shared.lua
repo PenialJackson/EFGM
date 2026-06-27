@@ -5,6 +5,8 @@ SWEP.Category = "ARC9 - Escape From Garry's Mod"
 SWEP.AdminOnly = false
 SWEP.UseHands = true
 
+print("FUCKKKKK")
+
 ------------------------- |||           Trivia            ||| -------------------------
 
 SWEP.PrintName = "EFGM Weapon Subbase"

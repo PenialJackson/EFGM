@@ -21,21 +21,6 @@ end
 
 -- server convars
 if SERVER then
-	-- modifiers
-	RunConsoleCommand("arc9_mod_adstime", "0.75")
-	RunConsoleCommand("arc9_mod_bodydamagecancel", "1")
-	RunConsoleCommand("arc9_mod_damage", "1")
-	RunConsoleCommand("arc9_mod_damagerand", "1")
-	RunConsoleCommand("arc9_mod_headshotdamage", "5")
-	RunConsoleCommand("arc9_mod_malfunction", "0.15")
-	RunConsoleCommand("arc9_mod_muzzlevelocity", "1.2")
-	RunConsoleCommand("arc9_mod_recoil", "0.75")
-	RunConsoleCommand("arc9_mod_rpm", "1")
-	RunConsoleCommand("arc9_mod_spread", "1")
-	RunConsoleCommand("arc9_mod_dispersionspread", "1")
-	RunConsoleCommand("arc9_mod_sprinttime", "1")
-	RunConsoleCommand("arc9_mod_visualrecoil", "0.75")
-
 	-- mechanics
 	RunConsoleCommand("arc9_infinite_ammo", "0")
 	RunConsoleCommand("arc9_mult_defaultammo", "0")

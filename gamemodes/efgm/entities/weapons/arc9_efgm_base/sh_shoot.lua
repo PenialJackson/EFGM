@@ -3,7 +3,6 @@ local swepGetProcessedValue = SWEP.GetProcessedValue
 local cancelmults = ARC9.CancelMultipliers[engine.ActiveGamemode()] or ARC9.CancelMultipliers[1]
 
 local runHook = {}
-local bodyDamageCancel = GetConVar("arc9_mod_bodydamagecancel")
 
 local soundTab2 = {
 	name = "impact"
@@ -443,7 +442,7 @@ function SWEP:AfterShotFunction(tr, dmg, range, penleft, alreadypenned, secondar
 
 	-- Cancel out sandbox/ttt limb damage multipliers. Done last since AP damage does not go through this
 	-- Lambda Players call ScalePlayerDamage and cancel out hitgroup damage... except on the head
-	if bodyDamageCancel:GetBool() and cancelmults[hitGroup] and (!traceEntity.IsLambdaPlayer or hitgroup == HITGROUP_HEAD) then
+	if cancelmults[hitGroup] and (!traceEntity.IsLambdaPlayer or hitgroup == HITGROUP_HEAD) then
 		dmgv = dmgv / cancelmults[hitGroup]
 	end
 

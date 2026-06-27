@@ -2946,6 +2946,48 @@ EFGM.ITEMS["arc9_att_eft_mp7_stock_a2"] = {
 	canPurchase = true,
 }
 
+EFGM.ITEMS["arc9_att_eft_mp7_stock_fd_ars"] = {
+	fullName = "HK MP7 FAB Defense ARS stock adapter",
+	displayName = "ARS",
+	displayType = DISPLAYTYPE,
+	description = "An adapter for HK MP7 submachine guns designed for installation of ARS type buttstocks. Manufactured by FAB Defense.",
+	weight = 0.3,
+	value = 28000,
+	equipType = EQUIPTYPE.Attachment,
+	appearInInventory = true,
+	stackSize = 1,
+	stashStackSize = 100,
+	icon = Material("items/missing.png"),
+
+	sizeX = 1,
+	sizeY = 1,
+
+	levelReq = 1,
+	lootWeight = 100,
+	canPurchase = true,
+}
+
+EFGM.ITEMS["arc9_att_eft_mp7_stock_fd_fx_kpos"] = {
+	fullName = "FAB Defense FX-KPOS ARS stock",
+	displayName = "ARS",
+	displayType = DISPLAYTYPE,
+	description = "A telescoping buttstock designed for use with gas masks or helmet visors and mandibles. Manufactured by FAB Defense.",
+	weight = 0.2,
+	value = 37660,
+	equipType = EQUIPTYPE.Attachment,
+	appearInInventory = true,
+	stackSize = 1,
+	stashStackSize = 100,
+	icon = Material("items/missing.png"),
+
+	sizeX = 2,
+	sizeY = 1,
+
+	levelReq = 1,
+	lootWeight = 100,
+	canPurchase = true,
+}
+
 EFGM.ITEMS["arc9_att_eft_mp9_stockk"] = {
 	fullName = "MP9 stock",
 	displayName = "MP9",

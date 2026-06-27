@@ -1014,6 +1014,28 @@ EFGM.ITEMS["arc9_att_eft_mp7_fh"] = {
 	canPurchase = true,
 }
 
+EFGM.ITEMS["arc9_att_eft_mp7_muzzle_sf556"] = {
+	fullName = "HK MP7 SureFire SF3P 4.6x30 flash hider",
+	displayName = "SF3P",
+	displayType = DISPLAYTYPE,
+	description = "A variant of the SureFire SF3P-556 three-prong flash hider designed specifically for HK MP7 series submachine guns. Allows installation of the compatible SureFire sound suppressors.",
+	weight = 0.05,
+	value = 31505,
+	equipType = EQUIPTYPE.Attachment,
+	appearInInventory = true,
+	stackSize = 1,
+	stashStackSize = 100,
+	icon = Material("items/missing.png"),
+
+	sizeX = 1,
+	sizeY = 1,
+
+	levelReq = 1,
+	lootWeight = 100,
+	canPurchase = true,
+}
+
+
 EFGM.ITEMS["arc9_att_eft_mp7_silencer"] = {
 	fullName = "HK MP7 B&T Rotex 2 4.6x30 sound suppressor",
 	displayName = "Rotex 2",

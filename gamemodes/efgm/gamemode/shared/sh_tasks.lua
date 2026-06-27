@@ -20,7 +20,7 @@ function InstantiateTask(name, status, progress, tempProgress)
 
 	task.progress = {}
 	if progress == nil then
-		for k, v in ipairs(info.objectives) do
+		for k, _ in ipairs(info.objectives) do
 			task.progress[k] = 0
 		end
 	else
@@ -29,7 +29,7 @@ function InstantiateTask(name, status, progress, tempProgress)
 
 	task.tempProgress = {}
 	if tempProgress == nil then
-		for k, v in ipairs(info.objectives) do
+		for k, _ in ipairs(info.objectives) do
 			task.tempProgress[k] = 0
 		end
 	else

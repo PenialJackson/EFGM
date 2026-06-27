@@ -1,3 +1,5 @@
+if engine.ActiveGamemode() != "efgm" then return end
+
 local cvars = {}
 
 -- server
@@ -78,6 +80,16 @@ cvars["player_weight_threshold"] = {
 	replicated = true
 }
 
+cvars["damage_global"] = {
+	default = 1,
+	replicated = true
+}
+
+cvars["damage_global_headshot"] = {
+	default = 1,
+	replicated = true
+}
+
 cvars["damage_pistol"] = {
 	default = 1,
 	replicated = true
@@ -135,6 +147,51 @@ cvars["weapons_range_shotgun"] = {
 
 cvars["weapons_ergonomics"] = {
 	default = 1,
+	replicated = true
+}
+
+cvars["weapons_spread"] = {
+	default = 1,
+	replicated = true
+}
+
+cvars["weapons_dispersion"] = {
+	default = 1,
+	replicated = true
+}
+
+cvars["weapons_recoil"] = {
+	default = 0.75,
+	replicated = true
+}
+
+cvars["weapons_visual_recoil"] = {
+	default = 0.75,
+	replicated = true
+}
+
+cvars["weapons_ads"] = {
+	default = 0.75,
+	replicated = true
+}
+
+cvars["weapons_sprint"] = {
+	default = 1,
+	replicated = true
+}
+
+cvars["weapons_velocity"] = {
+	default = 1.2,
+	replicated = true
+}
+
+cvars["weapons_rpm"] = {
+	default = 1,
+	replicated = true
+}
+
+cvars["weapons_malfunction"] = {
+	default = 0.15,
 	replicated = true
 }
 

@@ -1,13 +1,56 @@
+include("shared.lua")
+
 EFGM.CLIENT = EFGM.CLIENT or {}
 
-include("shared.lua")
-include("convars.lua")
 include("config.lua")
 include("enums.lua")
 include("util.lua")
 include("codex/codex_init.lua")
 include("items/items_init.lua")
 include("tasks/tasks_init.lua")
+
+local cScrW = ScrW()
+local cScrH = ScrH()
+
+function ScrW()
+	return cScrW
+end
+
+function ScrH()
+	return cScrH
+end
+
+local math = math
+
+-- screen scale function, makes my life (penial) easier because i will most definently be doing most if not all of the user interface
+-- all interfaces and fonts are (for the most part) created on a 2560x1440 monitor
+local hudscaleCVar = GetConVar("efgm_hud_scale")
+local paddingCVar = GetConVar("efgm_hud_padding")
+
+EFGM.ScreenScale = function(size)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
+	local scaled = size * ratio * hudscaleCVar:GetFloat()
+	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
+end
+
+EFGM.ScreenScaleRounded = function(size) -- we are actually gonna floor but this is named better imo
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
+	local scaled = size * ratio * hudscaleCVar:GetFloat()
+	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
+end
+
+-- i can't be asked to support player controlled menu scaling, way too problematic, so we will seperate the HUDs scale and the menus scale
+EFGM.MenuScale = function(size)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
+	local scaled = size * ratio
+	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
+end
+
+EFGM.MenuScaleRounded = function(size)
+	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
+	local scaled = size * ratio
+	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
+end
 
 for _, f in ipairs(file.Find("gamemodes/efgm/gamemode/shared/*.lua", "GAME", "nameasc")) do
 	include("shared/" .. f)
@@ -53,49 +96,6 @@ end)
 if !DEBUG:GetBool() then
 	function ARC9_OpenSettings(page) return end
 	concommand.Remove("arc9_settings_open")
-end
-
-local cScrW = ScrW()
-local cScrH = ScrH()
-
-function ScrW()
-	return cScrW
-end
-
-function ScrH()
-	return cScrH
-end
-
-local math = math
-
--- screen scale function, makes my life (penial) easier because i will most definently be doing most if not all of the user interface
--- all interfaces and fonts are (for the most part) created on a 2560x1440 monitor
-local hudscaleCVar = GetConVar("efgm_hud_scale")
-local paddingCVar = GetConVar("efgm_hud_padding")
-
-EFGM.ScreenScale = function(size)
-	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
-	local scaled = size * ratio * hudscaleCVar:GetFloat()
-	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
-end
-
-EFGM.ScreenScaleRounded = function(size) -- we are actually gonna floor but this is named better imo
-	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
-	local scaled = size * ratio * hudscaleCVar:GetFloat()
-	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
-end
-
--- i can't be asked to support player controlled menu scaling, way too problematic, so we will seperate the HUDs scale and the menus scale
-EFGM.MenuScale = function(size)
-	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
-	local scaled = size * ratio
-	return size > 0 and math.max(1, scaled) or math.min(-1, scaled)
-end
-
-EFGM.MenuScaleRounded = function(size)
-	local ratio = (ScrW() / ScrH() <= 1.8) and (ScrW() / 1920.0) or (ScrH() / 1080.0)
-	local scaled = size * ratio
-	return size > 0 and math.max(1, math.floor(scaled)) or math.min(-1, math.floor(scaled))
 end
 
 hook.Add("OnScreenSizeChanged", "ClearScalingCache", function(_, _, newW, newH)
