@@ -16,8 +16,8 @@ if CLIENT then
 
 	CreateToggleDuckHook()
 
-	cvars.AddChangeCallback("efgm_controls_toggle_duck", function(convar_name, value_old, value_new)
-		if value_new == "1" then
+	cvars.AddChangeCallback("efgm_controls_toggle_duck", function(name, old, new)
+		if new == "1" then
 			CreateToggleDuckHook()
 		else
 			hook.Remove("PlayerBindPress", "ToggleDuck")

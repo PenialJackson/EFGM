@@ -35,15 +35,20 @@ function SWEP:PostModify(toggleonly)
 	self.Description = self:RunHook("HookP_DescriptionChange", self.Description)
 
 	if CLIENT then
-		self:SendWeapon()
-		self:KillModel()
-		self:SetupModel(true)
-		self:SetupModel(false)
-		if !toggleonly then
-			self:SavePreset()
-		end
-		self:BuildMultiSight()
-		self.InvalidateSelectIcon = true
+        -- self:PruneAttachments()
+        if !toggleonly then -- bruh
+            self:SendWeapon()
+            self:KillModel()
+            self:SetupModel(true)
+            self:SetupModel(false)
+            self:SavePreset()
+        else
+			timer.Simple(0, function() self:KillFlashlights() end)
+            self:CreateFlashlights()
+        end
+
+        self:BuildMultiSight()
+        self.InvalidateSelectIcon = true
 	else
 		if validplayerowner then
 			if self:GetValue("ToggleOnF") and client:FlashlightIsOn() then

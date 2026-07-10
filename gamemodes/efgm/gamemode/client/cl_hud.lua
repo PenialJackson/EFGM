@@ -11,7 +11,7 @@ local timersInviteCVar = GetConVar("sv_efgm_timers_invite")
 
 EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 
-cvars.AddChangeCallback("efgm_hud_padding", function(convar_name, value_old, value_new)
+cvars.AddChangeCallback("efgm_hud_padding", function(name, old, new)
 	EFGM.HUD.Padding = paddingCVar:GetInt() * (4 * (ScrW() / 1920.0))
 end)
 
