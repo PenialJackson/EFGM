@@ -195,6 +195,13 @@ cvars["weapons_malfunction"] = {
 	replicated = true
 }
 
+cvars["weapons_infinite_ammo"] = {
+	default = 0,
+	replicated = true,
+	min = 0,
+	max = 1
+}
+
 cvars["weapons_flash_time"] = {
 	default = 1,
 	replicated = true

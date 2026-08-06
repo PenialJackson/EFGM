@@ -5,8 +5,6 @@ SWEP.Category = "ARC9 - Escape From Garry's Mod"
 SWEP.AdminOnly = false
 SWEP.UseHands = true
 
-print("FUCKKKKK")
-
 ------------------------- |||           Trivia            ||| -------------------------
 
 SWEP.PrintName = "EFGM Weapon Subbase"
@@ -146,13 +144,6 @@ SWEP.SwayAddMove = 0.25
 SWEP.SwayAddMidAir = 1.5
 SWEP.SwayMultCrouch = 0.4
 SWEP.SwayHook = ARC9EFT.SwayErgoHook
-
-SWEP.HoldBreathTime = 40
-SWEP.RestoreBreathTime = 30
-SWEP.BreathInSound = false
-SWEP.BreathOutSound = false
-SWEP.BreathRunOutSound = "arc9_eft_shared/bear3_breath_sprint.ogg"
-SWEP.HoldBreathTimeHook = ARC9EFT.ErgoBreathHook
 
 SWEP.RPM = 1
 SWEP.RPMMultHot = 1 -- overheat debuff
@@ -312,7 +303,6 @@ SWEP.ExitBipodSound = false
 SWEP.EnterSightsSound = ARC9EFT.ADSRifle
 SWEP.ExitSightsSound = ARC9EFT.ADSRifleOut
 
-SWEP.RicochetSounds = ARC9EFT.RicochetSounds
 SWEP.ShellSounds = ARC9EFT.Shells556
 
 SWEP.SuppressEmptySuffix = false

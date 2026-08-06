@@ -22,26 +22,15 @@ end
 -- server convars
 if SERVER then
 	-- mechanics
-	RunConsoleCommand("arc9_infinite_ammo", "0")
-	RunConsoleCommand("arc9_mult_defaultammo", "0")
-	RunConsoleCommand("arc9_realrecoil", "1")
-	RunConsoleCommand("arc9_mod_sway", "1")
-	RunConsoleCommand("arc9_mod_freeaim", "1")
-	RunConsoleCommand("arc9_breath_slowmo", "0")
-	RunConsoleCommand("arc9_manualbolt", "0")
-	RunConsoleCommand("arc9_never_ready", "0")
 	RunConsoleCommand("arc9_mod_peek", "0")
-	RunConsoleCommand("arc9_equipment_generate_ammo", "0")
 
 	-- physics
 	RunConsoleCommand("arc9_bullet_physics", "1")
 	RunConsoleCommand("arc9_bullet_physics_shotguns", "1")
 	RunConsoleCommand("arc9_bullet_gravity", "1.6")
 	RunConsoleCommand("arc9_bullet_drag", "1")
-	RunConsoleCommand("arc9_ricochet", "0")
 	RunConsoleCommand("arc9_mod_penetration", "1")
 	RunConsoleCommand("arc9_bullet_lifetime", "5")
-	RunConsoleCommand("arc9_bullet_imaginary", "0")
 
 	-- hud
 	RunConsoleCommand("arc9_truenames_enforced", "1")
@@ -50,7 +39,6 @@ if SERVER then
 
 	-- attachments
 	RunConsoleCommand("arc9_atts_nocustomize", "0") -- why would anyone do this
-	RunConsoleCommand("arc9_atts_generate_entities", "0")
 	RunConsoleCommand("arc9_atts_max", "100")
 	RunConsoleCommand("arc9_atts_lock", "0")
 	RunConsoleCommand("arc9_atts_loseondie", "1")
@@ -68,7 +56,6 @@ if CLIENT then
 	RunConsoleCommand("arc9_autoreload", "0")
 	RunConsoleCommand("arc9_togglepeek", "0")
 	RunConsoleCommand("arc9_togglepeek_reset", "0")
-	RunConsoleCommand("arc9_togglebreath", "0")
 
 	-- hud
 	RunConsoleCommand("arc9_cust_hints", "1")
